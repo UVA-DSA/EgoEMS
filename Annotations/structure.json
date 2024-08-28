@@ -3,7 +3,7 @@
         "ng1": {
             "role": "EMR",
             "expertise": "expert",
-            "trials": {
+            "trial": {
                 "1": {
                     "egocam": {
                         "egovid_id": "EGRGB_001",

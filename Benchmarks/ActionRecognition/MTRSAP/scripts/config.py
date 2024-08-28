@@ -1,49 +1,9 @@
 import torch
-from data import resnet_features,kinematic_feature_names,colin_features, segmentation_features, kinematic_feature_names_jigsaws, kinematic_feature_names_jigsaws_patient_position, class_names, all_class_names, state_variables
 
 
 RECORD_RESULTS = True
 
 tcn_model_params = {
-    "class_num": 7,
-    "decoder_params": {
-        "input_size": 256,
-        "kernel_size": 61,
-        "layer_sizes": [
-            96,
-            64,
-            # 64
-        ],
-        "layer_type": "TempConv",
-        "norm_type": "Channel",
-        "transposed_conv": True
-    },
-    "encoder_params": {
-        "input_size": 25,
-        "kernel_size": 61,
-        "layer_sizes": [
-            64,
-            256,
-            # 128
-        ],
-        "layer_type": "TempConv",
-        "norm_type": "Channel"
-    },
-    "fc_size": 32,
-    "mid_lstm_params": {
-        "hidden_size": 64,
-        "input_size": 256,
-        "layer_num": 1
-    }
-}
-
-
-transformer_params = {
-    "d_model": 64,
-    "nhead": 1,
-    "num_layers": 1,
-    "hidden_dim": 128,
-    "layer_dim": 4,
     "encoder_params": { #some of these gets updated during runtime based on the feature dimension of the given data
         "in_channels": 14,
         "kernel_size": 31,
@@ -53,7 +13,21 @@ transformer_params = {
         "in_channels": 64,
         "kernel_size": 31,
         "out_channels": 64
-    },
+    }
+}
+
+
+transformer_params = {
+    "d_model": 64,
+    "nhead": 2,
+    "num_layers": 2,
+    "hidden_dim": 128,
+    "layer_dim": 4,
+    "dropout": 0.1,
+    "input_dim": 64,
+    "output_dim": 7,
+    "batch_first": True
+
 }
 
 learning_params = {
@@ -68,7 +42,6 @@ dataloader_params = {
     
     "batch_size": 10,
     "one_hot": True,
-    "device": torch.device("cuda" if torch.cuda.is_available() else "cpu"),
     "observation_window": 30,
     "prediction_window": 10,
     "user_left_out": 7,
@@ -86,6 +59,8 @@ class DefaultArgsNamespace:
     def __init__(self):
         
         self.record_results = RECORD_RESULTS
+
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         
         # Model parameters
         self.tcn_model_params = tcn_model_params

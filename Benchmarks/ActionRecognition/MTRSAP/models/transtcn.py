@@ -3,6 +3,7 @@ import math
 import torch
 import torch.nn as nn
 
+from scripts.config import DefaultArgsNamespace
 
 
 class PositionalEncoding(nn.Module):
@@ -129,42 +130,50 @@ class CNN_Decoder(nn.Module):
     
 class TransformerModel(nn.Module):
     
-    def __init__(self, input_dim, output_dim, d_model, nhead, num_layers, hidden_dim, layer_dim,encoder_params, decoder_params,dropout=0.01):
+    def __init__(self, args:DefaultArgsNamespace):
         super().__init__()
+
+        self.input_dim = args.transformer_params["input_dim"]
+        # do the same below 
+        self.output_dim = args.transformer_params["output_dim"]
+        self.d_model = args.transformer_params["d_model"]
+        self.dropout = args.transformer_params["dropout"]
+        self.num_layers = args.transformer_params["num_layers"]
+        self.nhead = args.transformer_params["nhead"]
+        self.batch_first = args.transformer_params["batch_first"]
+
+        self.encoder_params = args.tcn_model_params["encoder_params"]
+        self.decoder_params = args.tcn_model_params["decoder_params"]
+
+        self.encoder_params["in_channels"] = self.d_model
+        self.decoder_params["out_channels"] = self.output_dim
+
+
         self.transformer = nn.TransformerEncoder(
-            nn.TransformerEncoderLayer(d_model=d_model, nhead=nhead, dropout=dropout), num_layers=num_layers
+            nn.TransformerEncoderLayer(d_model=self.d_model, nhead=self.nhead, dropout=self.dropout, batch_first=self.batch_first), num_layers=self.num_layers
 
         )
         
-        # self.lstm = LSTMModel(d_model, hidden_dim, layer_dim, output_dim)
-       
-        encoder_params["in_channels"] = input_dim
-        decoder_params["out_channels"] = output_dim
-       
-        self.encoder = CNN_Encoder(**encoder_params)
-        self.decoder = CNN_Decoder(**decoder_params)
+        self.encoder = CNN_Encoder(**self.encoder_params)
+        self.decoder = CNN_Decoder(**self.decoder_params)
         
         self.max_pool = GlobalMaxPooling1D()
         # self.out = nn.Linear(int(d_model/2), output_dim)
-        self.out = nn.Linear(d_model, output_dim) # vanilla + gru
+        self.out = nn.Linear(self.d_model, self.output_dim) # vanilla + gru
         num_stages = 4
         num_layers = 10
         num_f_maps = 64
         features_dim = 2048
         
-        self.pe = PositionalEncoding(d_model=d_model,max_len=32, dropout=dropout)
-        self.fc = nn.Linear(input_dim, features_dim)
+        self.pe = PositionalEncoding(d_model=self.d_model,max_len=32, dropout=self.dropout)
+        self.fc = nn.Linear(self.input_dim, features_dim)
         
-        # self.msrnn = MultiStageModel(num_stages, num_layers, num_f_maps, features_dim, output_dim)
-
         
     # tcn + transformer
     def forward(self, x):
         
         x = self.encoder(x)
-        
         x = x.permute(0, 2, 1)  # Reshape input to [batch_size, seq_len,features, ]
-        
         x = self.pe(x)
         
         x = self.transformer(x)
