@@ -1,115 +1,174 @@
+import os
 import json
+import math
+import cv2
 import torch
 from torch.utils.data import Dataset
-from torchvision.io import read_video
-import av
-import numpy as np
+from torchvision import transforms
+
+transform = transforms.Compose([
+    transforms.ToPILImage(),
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+])
+
+def collate_fn(batch):
+    # Find the max length of clips in the batch
+    max_len = max([clip['frames'].shape[0] for clip in batch])
+
+    # Prepare the structure to hold the batch data
+    padded_clips = []
+    keystep_labels = []
+    keystep_ids = []
+    start_frames = []
+    end_frames = []
+
+    for b in batch:
+        clip = b['frames']
+        label = b['keystep_label']
+        keystep_id = b['keystep_id']
+        start_frame = b['start_frame']
+        end_frame = b['end_frame']
+
+        pad_size = max_len - clip.shape[0]
+        if pad_size > 0:
+            # Pad with zeros (assuming RGB, so 3 channels)
+            pad = torch.zeros((pad_size, *clip.shape[1:]))
+            clip = torch.cat([clip, pad], dim=0)
+        padded_clips.append(clip)
+        keystep_labels.append(label)
+        keystep_ids.append(keystep_id)
+        start_frames.append(start_frame)
+        end_frames.append(end_frame)
+
+    # Stack the padded clips into a tensor
+    padded_clips = torch.stack(padded_clips)
+    keystep_ids = torch.tensor(keystep_ids)
+    start_frames = torch.tensor(start_frames)
+    end_frames = torch.tensor(end_frames)
+
+    # The batch will be a dictionary, similar to the individual items
+    return {
+        'frames': padded_clips,
+        'keystep_label': keystep_labels,
+        'keystep_id': keystep_ids,
+        'start_frame': start_frames,
+        'end_frame': end_frames
+    }
 
 class EgoExoEMSDataset(Dataset):
-    def __init__(self, json_path, streams=None, labels='keysteps'):
-        """
-        Args:
-            json_path (str): Path to the JSON file containing the data structure.
-            streams (list): List of streams to include (e.g., ['exocam_rgbd', 'vl6180_ToF_depth']).
-            labels (str): Either 'interventions' or 'keysteps' to specify which labels to load.
-        """
-        self.json_path = json_path
-        self.streams = streams if streams is not None else []
-        self.labels = labels
-        self.data = self._load_data()
+    def __init__(self, annotation_file, video_base_path, fps, frames_per_clip=None, transform=None):
+        self.annotation_file = annotation_file
+        self.video_base_path = video_base_path
+        self.fps = fps
+        self.frames_per_clip = frames_per_clip
+        self.transform = transform
+        self.data = []
 
-    def _load_data(self):
-        # Load the JSON file
-        with open(self.json_path, 'r') as f:
-            json_data = json.load(f)
+        self._load_annotations()
+
+    def _load_annotations(self):
+        with open(self.annotation_file, 'r') as f:
+            annotations = json.load(f)
         
-        # Prepare the data structure
-        data = []
-        for subject in json_data['subjects']:
+        for subject in annotations['subjects']:
             for trial in subject['trials']:
-                trial_data = {'subject_id': subject['subject_id'], 'trial_id': trial['trial_id']}
-                for stream in self.streams:
-                    if stream in trial['streams']:
-                        stream_data = trial['streams'][stream]
-                        trial_data[stream] = stream_data['file_path']
-                        
-                        # Extract labels (either 'interventions' or 'keysteps')
-                        trial_data[f"{stream}_{self.labels}"] = stream_data.get(self.labels, [])
-                
-                data.append(trial_data)
-        
-        return data
+                stream = trial['streams'].get('egocam_rgb_audio', None)
+                if stream and 'keysteps' in stream:
+                    video_path = os.path.join(self.video_base_path, stream['file_path'])
+                    keysteps = stream['keysteps']
+                    
+                    for step in keysteps:
+                        start_frame = math.floor(step['start_t'] * self.fps)
+                        end_frame = math.ceil(step['end_t'] * self.fps)
+                        label = step['label']
+                        keystep_id = step['class_id']
 
-    def _load_video(self, file_path):
-        """
-        Loads video from the given file path using torchvision's read_video.
-        Args:
-            file_path (str): Path to the video file.
+                        if self.frames_per_clip is None:
+                            # If frames_per_clip is not specified, treat the entire keystep as one clip
+                            self.data.append({
+                                'video_path': video_path,
+                                'start_frame': start_frame,
+                                'end_frame': end_frame,
+                                'keystep_label': label,
+                                'keystep_id': keystep_id
+                            })
+                        else:
+                            # Otherwise, split the keystep into multiple clips
+                            clip_count = math.ceil((end_frame - start_frame) / self.frames_per_clip)
+                            for i in range(clip_count):
+                                clip_start_frame = start_frame + i * self.frames_per_clip
+                                clip_end_frame = min(clip_start_frame + self.frames_per_clip, end_frame)
 
-        Returns:
-            frames (Tensor): Video frames as a Tensor.
-            frame_rate (float): Frame rate of the video.
-        """
-        print("File path: ", file_path) 
-        container = av.open(file_path)
-        stream = container.streams.video[0]
-        stream.thread_type = 'AUTO'
-        
-        # Calculate the frame step to match the target FPS
-        frame_step = max(1, int(stream.average_rate / self.target_fps))
-
-        frames = []
-        for i, frame in enumerate(container.decode(video=0)):
-            if i % frame_step == 0:
-                img = frame.to_image()
-                frames.append(torch.tensor(np.array(img)).permute(2, 0, 1))  # Convert to Tensor
-
-        return frames, stream.average_rate
+                                self.data.append({
+                                    'video_path': video_path,
+                                    'start_frame': clip_start_frame,
+                                    'end_frame': clip_end_frame,
+                                    'keystep_label': label,
+                                    'keystep_id': keystep_id
+                                })
 
     def __len__(self):
         return len(self.data)
 
     def __getitem__(self, idx):
-        trial_data = self.data[idx]
-        streams_data = {}
-        labels_data = []
+        item = self.data[idx]
+        video_path = item['video_path']
+        start_frame = item['start_frame']
+        end_frame = item['end_frame']
+        keystep_label = item['keystep_label']
+        keystep_id = item['keystep_id']
 
-        for stream in self.streams:
-            if stream in trial_data:
-                # Load the video data
-                video_path = trial_data[stream]
-                video_frames, fps = self._load_video(video_path)
-                streams_data[stream] = {
-                    'frames': video_frames,
-                    'fps': fps
-                }
-                
-                # Load the labels
-                stream_labels = trial_data.get(f"{stream}_{self.labels}", [])
-                for label_info in stream_labels:
-                    labels_data.append({
-                        'stream': stream,
-                        'start': label_info['start_t'],
-                        'end': label_info['end_t'],
-                        'label': label_info['label']
-                    })
+        # Load the video frames for the clip
+        cap = cv2.VideoCapture(video_path)
+        cap.set(cv2.CAP_PROP_POS_FRAMES, start_frame)
+        frames = []
+        for frame_num in range(start_frame, end_frame):
+            ret, frame = cap.read()
+            if not ret:
+                break
+            if self.transform:
+                frame = self.transform(frame)
+            frames.append(frame)
+        cap.release()
 
-        return {
-            'subject_id': trial_data['subject_id'],
-            'trial_id': trial_data['trial_id'],
-            'streams': streams_data,
-            'labels': labels_data
+        
+
+        if self.frames_per_clip is not None and len(frames) < self.frames_per_clip:
+            # Handle cases where the clip is shorter than frames_per_clip
+            pad_len = self.frames_per_clip - len(frames)
+            frames.extend([frames[-1]] * pad_len)  # Pad with the last frame
+        
+        frames = torch.stack(frames)  # Shape will be [T, C, H, W]
+
+        output = {
+            'frames': frames,
+            'keystep_label': keystep_label,
+            'keystep_id': keystep_id,
+            'start_frame': start_frame,
+            'end_frame': end_frame
         }
+        
+        return output
 
 
-# path to json annotation
-json_path = '../../Tools/output_structure.json'
 
-streams = ['egocam_rgb_audio'] # 'vl6180_ToF_depth'
-dataset = EgoExoEMSDataset(json_path, streams=streams, labels='keysteps')
 
-# Access a sample
-sample = dataset[0]
-print(sample)
-print(sample['streams']['egocam_rgb_audio']['frames'].shape)  # Shape of the video tensor
 
+if __name__ == '__main__':
+    dataset = EgoExoEMSDataset(annotation_file='../../Tools/output_structure.json',
+                                 video_base_path='',
+                                 fps=30,  transform=transform)
+
+    # Access a sample
+    print(len(dataset))
+
+    # create a data loader
+    # batch size is 1 for simplicity and to ensure only a full clip related to a key step is given without collating.
+    # if batch size is greater than 1, collate_fn will be called to collate the data.
+    data_loader = torch.utils.data.DataLoader(dataset, batch_size=1, shuffle=True, collate_fn=collate_fn)
+    
+    # Iterate over the data loader and print the shape of the batch
+    for batch in data_loader:
+        print(batch['frames'].shape, batch['keystep_label'], batch['keystep_id'])
+        break

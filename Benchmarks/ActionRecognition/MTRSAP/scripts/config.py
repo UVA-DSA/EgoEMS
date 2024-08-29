@@ -25,7 +25,7 @@ transformer_params = {
     "layer_dim": 4,
     "dropout": 0.1,
     "input_dim": 64,
-    "output_dim": 7,
+    "output_dim": 3,
     "batch_first": True
 
 }

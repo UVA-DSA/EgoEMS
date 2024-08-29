@@ -9,7 +9,6 @@
                         "vl6180_ToF_depth": {
                             "file_id": "depth_sensor_2024-05-23-20_05_23",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng1/1/depth_sensor_2024-05-23-20_05_23.txt",
-                            "fps" : 60,
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -19,152 +18,18 @@
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng1/1/GX010305.MP4",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
-                            "keysteps": [
-                                {
-                                    "keystep_id": "1_gpOXHjPd",
-                                    "start_t": 0.008,
-                                    "end_t": 2.88275,
-                                    "label": "approach_patient",
-                                    "class_id": 1
-                                },
-                                {
-                                    "keystep_id": "1_4W1h7RPK",
-                                    "start_t": 2.79942,
-                                    "end_t": 5.13275,
-                                    "label": "check_responsiveness",
-                                    "class_id": 2
-                                },
-                                {
-                                    "keystep_id": "1_BrKnaWXP",
-                                    "start_t": 5.133,
-                                    "end_t": 7.52858,
-                                    "label": "check_pulse_breathing",
-                                    "class_id": 3
-                                },
-                                {
-                                    "keystep_id": "1_9p0HnWaO",
-                                    "start_t": 7.52858,
-                                    "end_t": 53.40358,
-                                    "label": "begin_chest_compression",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_3OiNeIks",
-                                    "start_t": 53.404,
-                                    "end_t": 54.90358,
-                                    "label": "no_action",
-                                    "class_id": 5
-                                },
-                                {
-                                    "keystep_id": "1_h0Yo4fiA",
-                                    "start_t": 54.96608,
-                                    "end_t": 57.90358,
-                                    "label": "take_defib_pads",
-                                    "class_id": 6
-                                },
-                                {
-                                    "keystep_id": "1_2s86Yd2m",
-                                    "start_t": 58.02858,
-                                    "end_t": 60.46608,
-                                    "label": "attach_defib_pads",
-                                    "class_id": 7
-                                },
-                                {
-                                    "keystep_id": "1_BFRQXfD5",
-                                    "start_t": 60.46608,
-                                    "end_t": 61.19525,
-                                    "label": "take_defib_pads",
-                                    "class_id": 6
-                                },
-                                {
-                                    "keystep_id": "1_lXGfY9LE",
-                                    "start_t": 61.21608,
-                                    "end_t": 63.34,
-                                    "label": "attach_defib_pads",
-                                    "class_id": 7
-                                },
-                                {
-                                    "keystep_id": "1_NOzgpig0",
-                                    "start_t": 63.36192,
-                                    "end_t": 79.17442,
-                                    "label": "begin_chest_compression",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_irbrX69Q",
-                                    "start_t": 79.40358,
-                                    "end_t": 88.19525,
-                                    "label": "administer_shock_aed",
-                                    "class_id": 8
-                                },
-                                {
-                                    "keystep_id": "1_beZ1Njdq",
-                                    "start_t": 88.23692,
-                                    "end_t": 106.29942,
-                                    "label": "begin_chest_compression",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_D3qXugyU",
-                                    "start_t": 106.299,
-                                    "end_t": 107.44525,
-                                    "label": "place_bvm",
-                                    "class_id": 9
-                                },
-                                {
-                                    "keystep_id": "1_gbMXdr1R",
-                                    "start_t": 107.445,
-                                    "end_t": 112.23692,
-                                    "label": "compress_bvm",
-                                    "class_id": 10
-                                },
-                                {
-                                    "keystep_id": "1_eXdfBRR6",
-                                    "start_t": 112.121,
-                                    "end_t": 125.76034,
-                                    "label": "begin_chest_compression",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_PsSZXfoi",
-                                    "start_t": 126.28811,
-                                    "end_t": 127.70478,
-                                    "label": "place_bvm",
-                                    "class_id": 9
-                                },
-                                {
-                                    "keystep_id": "1_9oLXZzZ9",
-                                    "start_t": 127.773,
-                                    "end_t": 131.37145,
-                                    "label": "compress_bvm",
-                                    "class_id": 10
-                                },
-                                {
-                                    "keystep_id": "1_b5w6teD5",
-                                    "start_t": 127.773,
-                                    "end_t": 128.773,
-                                    "label": "begin_chest_compression",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_lCtyTuRy",
-                                    "start_t": 131.258,
-                                    "end_t": 145.34937,
-                                    "label": "begin_chest_compression",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_PHHevV23",
-                                    "start_t": 145.349,
-                                    "end_t": 154.53118,
-                                    "label": "administer_shock_aed",
-                                    "class_id": 8
-                                }
-                            ]
+                            "keysteps": []
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-04-48",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng1/1/2024-05-23-20-04-48.mkv",
+                            "protocol": "Cardiac Arrest - 2-1",
+                            "interventions": [],
+                            "keysteps": []
+                        },
+                        "i3d_rgb_flow": {
+                            "file_id": "GX010305_clipped_timestamps_ms",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_rgb_flow/ng1/1/GX010305_clipped_timestamps_ms.npy",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -194,6 +59,13 @@
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
+                        },
+                        "i3d_rgb_flow": {
+                            "file_id": "GX010306_clipped_timestamps_ms",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_rgb_flow/ng1/2/GX010306_clipped_timestamps_ms.npy",
+                            "protocol": "Cardiac Arrest - 2-1",
+                            "interventions": [],
+                            "keysteps": []
                         }
                     }
                 },
@@ -217,6 +89,13 @@
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-14-12",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng1/3/2024-05-23-20-14-12.mkv",
+                            "protocol": "Cardiac Arrest - 2-1",
+                            "interventions": [],
+                            "keysteps": []
+                        },
+                        "i3d_rgb_flow": {
+                            "file_id": "GX010307_clipped_timestamps_ms",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_rgb_flow/ng1/3/GX010307_clipped_timestamps_ms.npy",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -246,6 +125,13 @@
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
+                        },
+                        "i3d_rgb_flow": {
+                            "file_id": "GX010308_clipped_timestamps_ms",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_rgb_flow/ng1/4/GX010308_clipped_timestamps_ms.npy",
+                            "protocol": "Cardiac Arrest - 2-1",
+                            "interventions": [],
+                            "keysteps": []
                         }
                     }
                 },
@@ -269,6 +155,13 @@
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-22-11",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng1/5/2024-05-23-20-22-11.mkv",
+                            "protocol": "Cardiac Arrest - 2-1",
+                            "interventions": [],
+                            "keysteps": []
+                        },
+                        "i3d_rgb_flow": {
+                            "file_id": "GX010309_clipped_timestamps_ms",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_rgb_flow/ng1/5/GX010309_clipped_timestamps_ms.npy",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -334,6 +227,13 @@
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
+                        },
+                        "i3d_rgb_flow": {
+                            "file_id": "GX010310_clipped_timestamps_ms",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_rgb_flow/ng5/1/GX010310_clipped_timestamps_ms.npy",
+                            "protocol": "Cardiac Arrest - 2-1",
+                            "interventions": [],
+                            "keysteps": []
                         }
                     }
                 },
@@ -357,6 +257,13 @@
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-36-20",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng5/2/2024-05-23-20-36-20.mkv",
+                            "protocol": "Cardiac Arrest - 2-1",
+                            "interventions": [],
+                            "keysteps": []
+                        },
+                        "i3d_rgb_flow": {
+                            "file_id": "GX010311_clipped_timestamps_ms",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_rgb_flow/ng5/2/GX010311_clipped_timestamps_ms.npy",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -386,6 +293,13 @@
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
+                        },
+                        "i3d_rgb_flow": {
+                            "file_id": "GX010312_clipped_timestamps_ms",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_rgb_flow/ng5/3/GX010312_clipped_timestamps_ms.npy",
+                            "protocol": "Cardiac Arrest - 2-1",
+                            "interventions": [],
+                            "keysteps": []
                         }
                     }
                 },
@@ -412,6 +326,13 @@
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
+                        },
+                        "i3d_rgb_flow": {
+                            "file_id": "GX010313_clipped_timestamps_ms",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_rgb_flow/ng5/4/GX010313_clipped_timestamps_ms.npy",
+                            "protocol": "Cardiac Arrest - 2-1",
+                            "interventions": [],
+                            "keysteps": []
                         }
                     }
                 },
@@ -435,6 +356,13 @@
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-45-50",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng5/5/2024-05-23-20-45-50.mkv",
+                            "protocol": "Cardiac Arrest - 2-1",
+                            "interventions": [],
+                            "keysteps": []
+                        },
+                        "i3d_rgb_flow": {
+                            "file_id": "GX010314_clipped_timestamps_ms",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_rgb_flow/ng5/5/GX010314_clipped_timestamps_ms.npy",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []

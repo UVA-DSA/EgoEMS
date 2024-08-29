@@ -5,6 +5,7 @@ import torch.nn as nn
 
 from scripts.config import DefaultArgsNamespace
 
+import torchvision.models as models
 
 class PositionalEncoding(nn.Module):
 
@@ -86,24 +87,22 @@ class GRUNet(nn.Module):
 class CNN_Encoder(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size):
         super(CNN_Encoder, self).__init__()
-
         self.encoder = nn.Sequential(
-            nn.Conv1d(in_channels=in_channels, out_channels=128, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
+            nn.Conv1d(in_channels=in_channels, out_channels=512, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=2, stride = 2),
-            nn.Conv1d(in_channels=128, out_channels=96, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
+            nn.MaxPool1d(kernel_size=2, stride=2),
+            nn.Conv1d(in_channels=512, out_channels=256, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=2, stride = 2),
-            nn.Conv1d(in_channels=96, out_channels=out_channels, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
+            nn.MaxPool1d(kernel_size=2, stride=2),
+            nn.Conv1d(in_channels=256, out_channels=out_channels, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=2, stride = 2)
+            nn.MaxPool1d(kernel_size=2, stride=2)
         )
     
 
     def forward(self, x):
-        x = x.permute(0, 2, 1)  # Reshape input to [batch_size, features, seq_len]
+        x = x.permute(0, 2, 1)
         x = self.encoder(x)
-        # print('encoder_out',x.shape)
         return x
     
     
@@ -129,12 +128,10 @@ class CNN_Decoder(nn.Module):
     
     
 class TransformerModel(nn.Module):
-    
-    def __init__(self, args:DefaultArgsNamespace):
+    def __init__(self, args: DefaultArgsNamespace):
         super().__init__()
 
         self.input_dim = args.transformer_params["input_dim"]
-        # do the same below 
         self.output_dim = args.transformer_params["output_dim"]
         self.d_model = args.transformer_params["d_model"]
         self.dropout = args.transformer_params["dropout"]
@@ -145,47 +142,56 @@ class TransformerModel(nn.Module):
         self.encoder_params = args.tcn_model_params["encoder_params"]
         self.decoder_params = args.tcn_model_params["decoder_params"]
 
-        self.encoder_params["in_channels"] = self.d_model
+        self.encoder_params["in_channels"] = 2048
         self.decoder_params["out_channels"] = self.output_dim
 
-
+        # Load ResNet-50 backbone and remove the final classification layer
+        self.backbone = models.resnet50(pretrained=True)
+        self.backbone = nn.Sequential(*list(self.backbone.children())[:-2])  # Keep up to the last conv block
+        self.backbone_avgpool = nn.AdaptiveAvgPool2d((1, 1))  # AvgPool to get (batch_size, 2048, 1, 1)
+        
         self.transformer = nn.TransformerEncoder(
-            nn.TransformerEncoderLayer(d_model=self.d_model, nhead=self.nhead, dropout=self.dropout, batch_first=self.batch_first), num_layers=self.num_layers
-
+            nn.TransformerEncoderLayer(d_model=self.d_model, nhead=self.nhead, dropout=self.dropout, batch_first=self.batch_first),
+            num_layers=self.num_layers
         )
         
         self.encoder = CNN_Encoder(**self.encoder_params)
         self.decoder = CNN_Decoder(**self.decoder_params)
         
         self.max_pool = GlobalMaxPooling1D()
-        # self.out = nn.Linear(int(d_model/2), output_dim)
-        self.out = nn.Linear(self.d_model, self.output_dim) # vanilla + gru
-        num_stages = 4
-        num_layers = 10
-        num_f_maps = 64
-        features_dim = 2048
+        self.out = nn.Linear(self.d_model, self.output_dim)
         
-        self.pe = PositionalEncoding(d_model=self.d_model,max_len=32, dropout=self.dropout)
-        self.fc = nn.Linear(self.input_dim, features_dim)
+        features_dim = 2048  # Output dimension of ResNet-50 backbone
+        self.pe = PositionalEncoding(d_model=self.d_model, max_len=32, dropout=self.dropout)
+        self.fc = nn.Linear(features_dim, self.d_model)
         
-        
-    # tcn + transformer
     def forward(self, x):
+        # Assuming x is of shape (batch_size, num_frames, 3, 224, 224)
         
+        batch_size, num_frames, c, h, w = x.size()
+        
+        # Reshape to process each frame individually through ResNet-50
+        x = x.view(batch_size * num_frames, c, h, w)
+        
+        # Extract features using backbone
+        x = self.backbone(x)  # Shape: (batch_size * num_frames, 2048, 7, 7)
+        x = self.backbone_avgpool(x)  # Shape: (batch_size * num_frames, 2048, 1, 1)
+        x = x.view(batch_size, num_frames, -1)  # Shape: (batch_size, num_frames, 2048)
+        
+        # TCN encoder
         x = self.encoder(x)
-        x = x.permute(0, 2, 1)  # Reshape input to [batch_size, seq_len,features, ]
+        x = x.permute(0, 2, 1)
+        
+        
+        # # Add positional encoding
         x = self.pe(x)
         
+        # # Transformer expects input of shape (batch_size, seq_len, d_model)
         x = self.transformer(x)
         
-        # x = x.permute(0, 2, 1)  # Reshape input to [batch_size, seq_len,features, ]
-        # x = self.decoder(x)
-        # x = x.permute(0, 2, 1)  # Reshape input to [batch_size, seq_len,features, ]
-        
+        # # Further processing can be done here (e.g., pooling, classification)
         x = self.out(x)
-        x = self.max_pool(x) # gets rid of seq_len
+        x = self.max_pool(x)  # Shape: (batch_size, output_dim)
         
         return x
-        
-
     
