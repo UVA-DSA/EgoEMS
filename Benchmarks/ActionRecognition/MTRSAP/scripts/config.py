@@ -33,25 +33,21 @@ transformer_params = {
 learning_params = {
     # "lr": 8.906324028628413e-5,
     "lr": 1e-05,
-    "epochs": 20,
+    "epochs": 30,
     "weight_decay": 1e-4,
-    "patience": 3
+    "patience": 3,
+    "lr_drop": 15,
 }
 
 dataloader_params = {
     
-    "batch_size": 10,
+    "batch_size": 1,
     "one_hot": True,
     "observation_window": 30,
     "prediction_window": 10,
-    "user_left_out": 7,
-    "cast": True,
-    "include_image_features": False,
-    "normalizer": '',  # ('standardization', 'min-max', 'power', '')
-    "step": 1,  # 1 - 30 Hz
-    "context": 9  # 0-nocontext, 1-contextonly, 2-context+kin, 3-imageonly, 4-image+kin, 5-image+kin+context, 6-colin_features, 7- colin+context, 8-colin+kin, 9-colin+kin+context, 10-segonly, 11-kin+seg, 12-kin+seg+context, 13-kin+seg+context+colins, 14-seg+colins
-    # hamid -  do not need (1,3,5,7)
-    
+    "normalizer": '',  # ('standardization', 'min-max', 'power', ''),
+    "base_path": '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/EMS_Interventions/annotations/',
+    "fold": 1,
 }
 
 

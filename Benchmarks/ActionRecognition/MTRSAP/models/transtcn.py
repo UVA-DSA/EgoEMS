@@ -149,7 +149,10 @@ class TransformerModel(nn.Module):
         self.backbone = models.resnet50(pretrained=True)
         self.backbone = nn.Sequential(*list(self.backbone.children())[:-2])  # Keep up to the last conv block
         self.backbone_avgpool = nn.AdaptiveAvgPool2d((1, 1))  # AvgPool to get (batch_size, 2048, 1, 1)
-        
+        # Freeze ResNet-50 weights
+        for param in self.backbone.parameters():
+            param.requires_grad = False
+
         self.transformer = nn.TransformerEncoder(
             nn.TransformerEncoderLayer(d_model=self.d_model, nhead=self.nhead, dropout=self.dropout, batch_first=self.batch_first),
             num_layers=self.num_layers
@@ -181,7 +184,6 @@ class TransformerModel(nn.Module):
         # TCN encoder
         x = self.encoder(x)
         x = x.permute(0, 2, 1)
-        
         
         # # Add positional encoding
         x = self.pe(x)

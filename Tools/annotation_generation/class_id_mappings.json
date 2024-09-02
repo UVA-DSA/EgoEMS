@@ -1,0 +1,11 @@
+{
+    "approach_patient": 1,
+    "check_responsiveness": 2,
+    "check_pulse_breathing": 3,
+    "chest_compressions": 4,
+    "no_action": 5,
+    "attach_defib_pads": 6,
+    "administer_shock_aed": 7,
+    "place_bvm": 8,
+    "compress_bvm": 9
+}

@@ -22,6 +22,8 @@ def collate_fn(batch):
     keystep_ids = []
     start_frames = []
     end_frames = []
+    subject_ids = []
+    trial_ids = []
 
     for b in batch:
         clip = b['frames']
@@ -29,7 +31,10 @@ def collate_fn(batch):
         keystep_id = b['keystep_id']
         start_frame = b['start_frame']
         end_frame = b['end_frame']
+        subject_id = b['subject_id']
+        trial_id = b['trial_id']
 
+        
         pad_size = max_len - clip.shape[0]
         if pad_size > 0:
             # Pad with zeros (assuming RGB, so 3 channels)
@@ -40,12 +45,16 @@ def collate_fn(batch):
         keystep_ids.append(keystep_id)
         start_frames.append(start_frame)
         end_frames.append(end_frame)
+        subject_ids.append(subject_id)
+        trial_ids.append(trial_id)
 
     # Stack the padded clips into a tensor
     padded_clips = torch.stack(padded_clips)
     keystep_ids = torch.tensor(keystep_ids)
     start_frames = torch.tensor(start_frames)
     end_frames = torch.tensor(end_frames)
+    # subject_ids = torch.tensor(subject_ids)
+    # trial_ids = torch.tensor(trial_ids)
 
     # The batch will be a dictionary, similar to the individual items
     return {
@@ -53,7 +62,9 @@ def collate_fn(batch):
         'keystep_label': keystep_labels,
         'keystep_id': keystep_ids,
         'start_frame': start_frames,
-        'end_frame': end_frames
+        'end_frame': end_frames,
+        'subject_id': subject_ids,
+        'trial_id': trial_ids
     }
 
 class EgoExoEMSDataset(Dataset):
@@ -91,7 +102,9 @@ class EgoExoEMSDataset(Dataset):
                                 'start_frame': start_frame,
                                 'end_frame': end_frame,
                                 'keystep_label': label,
-                                'keystep_id': keystep_id
+                                'keystep_id': keystep_id,
+                                'subject': subject['subject_id'],
+                                'trial': trial['trial_id'] 
                             })
                         else:
                             # Otherwise, split the keystep into multiple clips
@@ -105,7 +118,9 @@ class EgoExoEMSDataset(Dataset):
                                     'start_frame': clip_start_frame,
                                     'end_frame': clip_end_frame,
                                     'keystep_label': label,
-                                    'keystep_id': keystep_id
+                                    'keystep_id': keystep_id,
+                                    'subject': subject['subject_id'],
+                                    'trial': trial['trial_id'] 
                                 })
 
     def __len__(self):
@@ -118,6 +133,8 @@ class EgoExoEMSDataset(Dataset):
         end_frame = item['end_frame']
         keystep_label = item['keystep_label']
         keystep_id = item['keystep_id']
+        subject_id = item['subject']
+        trial_id = item['trial']
 
         # Load the video frames for the clip
         cap = cv2.VideoCapture(video_path)
@@ -146,7 +163,9 @@ class EgoExoEMSDataset(Dataset):
             'keystep_label': keystep_label,
             'keystep_id': keystep_id,
             'start_frame': start_frame,
-            'end_frame': end_frame
+            'end_frame': end_frame,
+            'subject_id': subject_id,
+            'trial_id': trial_id
         }
         
         return output
@@ -156,7 +175,7 @@ class EgoExoEMSDataset(Dataset):
 
 
 if __name__ == '__main__':
-    dataset = EgoExoEMSDataset(annotation_file='../../Tools/output_structure.json',
+    dataset = EgoExoEMSDataset(annotation_file='../../Annotations/main_annotation.json',
                                  video_base_path='',
                                  fps=30,  transform=transform)
 
@@ -170,5 +189,6 @@ if __name__ == '__main__':
     
     # Iterate over the data loader and print the shape of the batch
     for batch in data_loader:
-        print(batch['frames'].shape, batch['keystep_label'], batch['keystep_id'])
+        print(batch.keys())
+        print(batch['frames'].shape, batch['keystep_label'], batch['keystep_id'], batch['start_frame'], batch['end_frame'], batch['subject_id'], batch['trial_id'])
         break
