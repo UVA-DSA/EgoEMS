@@ -87,17 +87,30 @@ class GRUNet(nn.Module):
 class CNN_Encoder(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size):
         super(CNN_Encoder, self).__init__()
+        # self.encoder = nn.Sequential(
+        #     nn.Conv1d(in_channels=in_channels, out_channels=512, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
+        #     nn.ReLU(),
+        #     nn.MaxPool1d(kernel_size=2, stride=2),
+        #     nn.Conv1d(in_channels=512, out_channels=256, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
+        #     nn.ReLU(),
+        #     nn.MaxPool1d(kernel_size=2, stride=2),
+        #     nn.Conv1d(in_channels=256, out_channels=out_channels, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
+        #     nn.ReLU(),
+        #     nn.MaxPool1d(kernel_size=2, stride=2)
+        # )
+
         self.encoder = nn.Sequential(
-            nn.Conv1d(in_channels=in_channels, out_channels=512, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
+            nn.Conv1d(in_channels=in_channels, out_channels=512, kernel_size=1, stride=1, padding=0),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=2, stride=2),
-            nn.Conv1d(in_channels=512, out_channels=256, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
+            nn.MaxPool1d(kernel_size=1, stride=1, padding=0),  # No change in temporal dimension
+            nn.Conv1d(in_channels=512, out_channels=256, kernel_size=1, stride=1, padding=0),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=2, stride=2),
-            nn.Conv1d(in_channels=256, out_channels=out_channels, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
+            nn.MaxPool1d(kernel_size=1, stride=1, padding=0),  # No change in temporal dimension
+            nn.Conv1d(in_channels=256, out_channels=out_channels, kernel_size=1, stride=1, padding=0),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=2, stride=2)
+            nn.MaxPool1d(kernel_size=1, stride=1, padding=0)  # No change in temporal dimension
         )
+
     
 
     def forward(self, x):
@@ -181,9 +194,12 @@ class TransformerModel(nn.Module):
         x = self.backbone_avgpool(x)  # Shape: (batch_size * num_frames, 2048, 1, 1)
         x = x.view(batch_size, num_frames, -1)  # Shape: (batch_size, num_frames, 2048)
         
-        # TCN encoder
-        x = self.encoder(x)
-        x = x.permute(0, 2, 1)
+        # reduce the feature dimension
+        x = self.fc(x)
+        # # TCN encoder
+        # x = self.encoder(x)
+        # print("encoder_out",x.shape)
+        # x = x.permute(0, 2, 1)
         
         # # Add positional encoding
         x = self.pe(x)

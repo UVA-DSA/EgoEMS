@@ -6,7 +6,7 @@ RECORD_RESULTS = True
 tcn_model_params = {
     "encoder_params": { #some of these gets updated during runtime based on the feature dimension of the given data
         "in_channels": 14,
-        "kernel_size": 31,
+        "kernel_size": 1,
         "out_channels": 64,
     },
     "decoder_params": {
@@ -18,9 +18,9 @@ tcn_model_params = {
 
 
 transformer_params = {
-    "d_model": 64,
-    "nhead": 2,
-    "num_layers": 2,
+    "d_model": 256,
+    "nhead": 4,
+    "num_layers": 4,
     "hidden_dim": 128,
     "layer_dim": 4,
     "dropout": 0.1,

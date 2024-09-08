@@ -30,8 +30,10 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger):
         loss.backward()
         optimizer.step()
         total_loss += loss.item()
-        logger.log({"train_loss": loss.item()})
-        print(f"Batch: {i}, Loss: {loss.item()}")
+        if i % 100 == 0:
+            print(f"Pred: {torch.argmax(output, dim=1)} GT: {labels}")
+            logger.log({"train_loss": loss.item()})
+            print(f"Batch: {i}, Loss: {loss.item()}")
     return total_loss / len(train_loader)
 
 
@@ -46,7 +48,8 @@ def validate(model, val_loader, criterion, device, logger):
             output = model(videos)
             loss = criterion(output, labels)
             total_loss += loss.item()
-            logger.log({"val_loss": loss.item()})
+            if i % 100 == 0:
+                logger.log({"val_loss": loss.item()})
     return total_loss / len(val_loader)
 
 
