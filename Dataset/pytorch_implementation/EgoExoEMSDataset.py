@@ -1,17 +1,16 @@
 import os
 import json
 import math
-import cv2
 import torch
-import torchaudio
-import torchaudio.transforms as T
 from torch.utils.data import Dataset
+from torchvision.io import VideoReader
 from torchvision import transforms
 
+#load itertools
+import itertools
+
 transform = transforms.Compose([
-    transforms.ToPILImage(),
     transforms.Resize((224, 224)),
-    transforms.ToTensor(),
 ])
 
 def collate_fn(batch):
@@ -90,21 +89,28 @@ class EgoExoEMSDataset(Dataset):
         for subject in annotations['subjects']:
             for trial in subject['trials']:
                 stream = trial['streams'].get('egocam_rgb_audio', None)
-                if stream and 'keysteps' in stream:
+                if stream:
                     video_path = os.path.join(self.video_base_path, stream['file_path'])
-                    keysteps = stream['keysteps']
+                    keysteps = trial['keysteps']
                     
                     for step in keysteps:
                         start_frame = math.floor(step['start_t'] * self.fps)
                         end_frame = math.ceil(step['end_t'] * self.fps)
                         label = step['label']
                         keystep_id = step['class_id']
+                        
+                        print(step['start_t'], step['end_t'])
+                        print(self.fps)
+                        print(start_frame, end_frame)
+                        print(step['label'])
 
                         if self.frames_per_clip is None:
                             self.data.append({
                                 'video_path': video_path,
                                 'start_frame': start_frame,
                                 'end_frame': end_frame,
+                                'start_t': step['start_t'],
+                                'end_t': step['end_t'],
                                 'keystep_label': label,
                                 'keystep_id': keystep_id,
                                 'subject': subject['subject_id'],
@@ -134,44 +140,53 @@ class EgoExoEMSDataset(Dataset):
         video_path = item['video_path']
         start_frame = item['start_frame']
         end_frame = item['end_frame']
+        start_t = item['start_t']
+        end_t = item['end_t']
         keystep_label = item['keystep_label']
         keystep_id = item['keystep_id']
         subject_id = item['subject']
         trial_id = item['trial']
+        
+        print("Loading video:", video_path)
+        print("Start frame:", start_frame)
+        print("End frame:", end_frame)
+        print("Start time:", start_t)
+        print("End time:", end_t)
+        print("Keystep label:", keystep_label)
+        print("Keystep ID:", keystep_id)
+        print("Subject ID:", subject_id)
+        print("Trial ID:", trial_id)
+        
+              
+        # Load video and audio using torchvision's VideoReader
+        video_reader = VideoReader(video_path, "video")
+        audio_reader = VideoReader(video_path, "audio")
 
-        # Load the video frames for the clip
-        cap = cv2.VideoCapture(video_path)
-        cap.set(cv2.CAP_PROP_POS_FRAMES, start_frame)
+        # Extract frames for the specific segment
         frames = []
-        for frame_num in range(start_frame, end_frame):
-            ret, frame = cap.read()
-            if not ret:
-                break
-            if self.transform:
-                frame = self.transform(frame)
-            frames.append(frame)
-        cap.release()
+        for frame in itertools.takewhile(lambda x: x['pts'] <= end_t, video_reader.seek(start_t)):
+            img_tensor = transform(frame['data'])
+            frames.append(img_tensor)
+        
+        frames = torch.stack(frames)
 
-        frames = torch.stack(frames)  # Shape will be [T, C, H, W]
-
-        # Extract the corresponding audio clip
-        audio_start_time = start_frame / self.fps
-        audio_end_time = end_frame / self.fps
-        command = f'ffmpeg -i "{video_path}" -ss {audio_start_time} -to {audio_end_time} -ar {self.audio_sample_rate} -f wav -'
-        waveform, sample_rate = torchaudio.load(command)
-
-        # Resample if necessary
-        if sample_rate != self.audio_sample_rate:
-            resampler = T.Resample(orig_freq=sample_rate, new_freq=self.audio_sample_rate)
-            waveform = resampler(waveform)
+        # Extract corresponding audio for the same segment
+        audio_reader.seek(start_frame / self.fps)
+        audio = []
+        for audio_frame in itertools.takewhile(lambda x: x['pts'] <= end_t, audio_reader.seek(start_t)):
+            audio.append(audio_frame['data'])
+            
+        audio = torch.cat(audio, dim=0) if audio else torch.zeros(1, 0)  # Handle empty case
 
         output = {
             'frames': frames,
-            'audio': waveform,
+            'audio': audio,
             'keystep_label': keystep_label,
             'keystep_id': keystep_id,
             'start_frame': start_frame,
             'end_frame': end_frame,
+            'start_t': start_t,
+            'end_t': end_t,
             'subject_id': subject_id,
             'trial_id': trial_id
         }
