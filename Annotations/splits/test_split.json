@@ -1,0 +1,108 @@
+{
+    "subjects": [
+        {
+            "subject_id": "ng1",
+            "expertise_level": "EMT",
+            "trials": [
+                {
+                    "trial_id": "5",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010309_clipped_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_flow/ng1/5/GX010309_clipped_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "depth_sensor_2024-05-23-20_22_15",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng1/5/depth_sensor_2024-05-23-20_22_15.txt",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sw_data",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/smartwatch_imu/ng1/5/sw_data.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010309_clipped_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_rgb/ng1/5/GX010309_clipped_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010309",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng1/5/GX010309.MP4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-05-23-20-22-11",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng1/5/2024-05-23-20-22-11.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": {},
+                    "interventions": {}
+                }
+            ]
+        },
+        {
+            "subject_id": "ng3",
+            "expertise_level": "EMT",
+            "trials": [
+                {
+                    "trial_id": "2",
+                    "streams": {
+                        "3rd_person_iPhone": {
+                            "file_id": "IMG_1196",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/3rd_person_iPhone/ng3/2/IMG_1196.MOV",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": {},
+                    "interventions": {}
+                }
+            ]
+        },
+        {
+            "subject_id": "ng5",
+            "expertise_level": "EMT",
+            "trials": [
+                {
+                    "trial_id": "4",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010313_clipped_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_flow/ng5/4/GX010313_clipped_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "depth_sensor_2024-05-23-20_43_47",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng5/4/depth_sensor_2024-05-23-20_43_47.txt",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sw_data",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/smartwatch_imu/ng5/4/sw_data.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010313_clipped_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_rgb/ng5/4/GX010313_clipped_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010313",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng5/4/GX010313.MP4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-05-23-20-43-43",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng5/4/2024-05-23-20-43-43.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": {},
+                    "interventions": {}
+                }
+            ]
+        }
+    ]
+}
