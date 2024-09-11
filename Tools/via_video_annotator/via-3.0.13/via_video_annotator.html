@@ -7835,6 +7835,8 @@ _via_temporal_segmenter.prototype._init = function() {
 
   if ( this.group_aid_candidate_list.length ) {
     this._init_on_success(this.group_aid_candidate_list[0]);
+    // print group aid candidate list
+    console.log(this.group_aid_candidate_list);
     this.is_init_success = true;
   } else {
     // add a default temporal segment attribute
@@ -8212,6 +8214,7 @@ _via_temporal_segmenter.prototype._tmetadata_init = function() {
   this._tseg_metadata_hide();
   this.tmetadata_container.appendChild(this.tseg_metadata_container);
 
+  console.log(this.gid_list)
   if ( this.gid_list.length ) {
     this._tmetadata_group_gid_sel(0);
   }
@@ -9616,23 +9619,51 @@ _via_temporal_segmenter.prototype._on_event_keydown = function(e) {
   }
 }
 
-//
-// group by
-//
 
+// Function to populate gid_list from hardcoded keysteps
+_via_temporal_segmenter.prototype.load_gid_list_from_hardcoded_keysteps = function() {
+  const keysteps = {
+    "approach_patient": 0,
+    "check_responsiveness": 1,
+    "check_pulse": 2,
+    "check_breathing": 3,
+    "chest_compressions": 4,
+    "request_aed": 5,
+    "request_assistance": 6,
+    "turn_on_aed": 7,
+    "attach_defib_pads": 8,
+    "clear_for_analysis": 9,
+    "clear_for_shock": 10,
+    "administer_shock_aed": 11,
+    "open_airway": 12,
+    "place_bvm": 13,
+    "ventilate_patient": 14,
+    "no_action": 15
+  };
+
+  // Populate gid_list with the keys (step names) from the keysteps object
+  this.gid_list = Object.keys(keysteps);
+  console.log("GID list populated from hardcoded keysteps:", this.gid_list);
+};
+
+
+
+// Call the function automatically when the temporal segmenter is initialized
 _via_temporal_segmenter.prototype._group_init = function(aid) {
   this.group = {};
   this.groupby_aid = aid;
-
+  
+  // Automatically load JSON file from a predefined path
+ // Populate gid_list from hardcoded keysteps
+ this.load_gid_list_from_hardcoded_keysteps();
+  
   var mid, avalue;
-  for ( var mindex in this.d.cache.mid_list[this.vid] ) {
+  for (var mindex in this.d.cache.mid_list[this.vid]) {
     mid = this.d.cache.mid_list[this.vid][mindex];
-    if ( this.d.store.metadata[mid].z.length >= 2 &&
-         this.d.store.metadata[mid].xy.length === 0
-       ) {
-      if ( this.d.store.metadata[mid].av.hasOwnProperty(this.groupby_aid) ) {
+    if (this.d.store.metadata[mid].z.length >= 2 && this.d.store.metadata[mid].xy.length === 0) {
+      if (this.d.store.metadata[mid].av.hasOwnProperty(this.groupby_aid)) {
         avalue = this.d.store.metadata[mid].av[this.groupby_aid];
-        if ( ! this.group.hasOwnProperty(avalue) ) {
+        if (!this.group.hasOwnProperty(avalue)) {
           this.group[avalue] = [];
         }
         this.group[avalue].push(mid);
@@ -9640,41 +9671,89 @@ _via_temporal_segmenter.prototype._group_init = function(aid) {
     }
   }
 
-  // add possible values for the group variable
-  this.gid_list = [];
-  // if attribute type is select, then add gid from the attribute's options
-  if ( this.d.store.attribute[aid].type === _VIA_ATTRIBUTE_TYPE.SELECT &&
-       Object.keys(this.d.store.attribute[aid].options).length !== 0
-     ) {
-    for ( var gid in this.d.store.attribute[aid].options ) {
-      if ( ! this.group.hasOwnProperty(gid) ) {
+  // Wait for JSON to populate gid_list
+  this.gid_list = this.gid_list || [];
+
+  // Add possible values for the group variable (existing logic)
+  if (this.d.store.attribute[aid].type === _VIA_ATTRIBUTE_TYPE.SELECT &&
+      Object.keys(this.d.store.attribute[aid].options).length !== 0) {
+    for (var gid in this.d.store.attribute[aid].options) {
+      if (!this.group.hasOwnProperty(gid)) {
         this.group[gid] = [];
         this.gid_list.push(gid);
       }
     }
   }
 
-  // add groups contained in metadata
-  for ( var gid in this.group ) {
-    if ( ! this.gid_list.includes(gid) ) {
+  // Add groups contained in metadata (existing logic)
+  for (var gid in this.group) {
+    if (!this.gid_list.includes(gid)) {
       this.gid_list.push(gid);
     }
   }
+};
 
-  // for clarity, ensure that there is at least one group
-  if ( this.gid_list.length === 0 ) {
-    var default_gid = '_DEFAULT';
-    this.group[default_gid] = [];
-    this.gid_list.push(default_gid);
-  }
-  this.gid_list.sort(this._compare_gid.bind(this)); // sort by group-id
 
-  // sort each group elements based on time
-  var gid;
-  for ( gid in this.group ) {
-    this.group[gid].sort( this._compare_mid_by_time.bind(this) );
-  }
-}
+
+//
+// group by
+//
+
+// _via_temporal_segmenter.prototype._group_init = function(aid) {
+//   this.group = {};
+//   this.groupby_aid = aid;
+
+//   var mid, avalue;
+//   for ( var mindex in this.d.cache.mid_list[this.vid] ) {
+//     mid = this.d.cache.mid_list[this.vid][mindex];
+//     if ( this.d.store.metadata[mid].z.length >= 2 &&
+//          this.d.store.metadata[mid].xy.length === 0
+//        ) {
+//       if ( this.d.store.metadata[mid].av.hasOwnProperty(this.groupby_aid) ) {
+//         avalue = this.d.store.metadata[mid].av[this.groupby_aid];
+//         if ( ! this.group.hasOwnProperty(avalue) ) {
+//           this.group[avalue] = [];
+//         }
+//         this.group[avalue].push(mid);
+//       }
+//     }
+//   }
+
+//   // add possible values for the group variable
+//   this.gid_list = [];
+//   // if attribute type is select, then add gid from the attribute's options
+//   if ( this.d.store.attribute[aid].type === _VIA_ATTRIBUTE_TYPE.SELECT &&
+//        Object.keys(this.d.store.attribute[aid].options).length !== 0
+//      ) {
+//     for ( var gid in this.d.store.attribute[aid].options ) {
+//       if ( ! this.group.hasOwnProperty(gid) ) {
+//         this.group[gid] = [];
+//         this.gid_list.push(gid);
+//       }
+//     }
+//   }
+
+//   // add groups contained in metadata
+//   for ( var gid in this.group ) {
+//     if ( ! this.gid_list.includes(gid) ) {
+//       this.gid_list.push(gid);
+//     }
+//   }
+
+//   // for clarity, ensure that there is at least one group
+//   if ( this.gid_list.length === 0 ) {
+//     var default_gid = '_DEFAULT';
+//     this.group[default_gid] = [];
+//     this.gid_list.push(default_gid);
+//   }
+//   this.gid_list.sort(this._compare_gid.bind(this)); // sort by group-id
+
+//   // sort each group elements based on time
+//   var gid;
+//   for ( gid in this.group ) {
+//     this.group[gid].sort( this._compare_mid_by_time.bind(this) );
+//   }
+// }
 
 _via_temporal_segmenter.prototype._compare_gid = function(gid1_str, gid2_str) {
   var gid1 = parseInt(gid1_str);

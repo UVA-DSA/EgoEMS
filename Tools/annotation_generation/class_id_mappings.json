@@ -1,11 +1,25 @@
 {
-    "approach_patient": 1,
-    "check_responsiveness": 2,
-    "check_pulse_breathing": 3,
-    "chest_compressions": 4,
-    "no_action": 5,
-    "attach_defib_pads": 6,
-    "administer_shock_aed": 7,
-    "place_bvm": 8,
-    "compress_bvm": 9
+   "keysteps": {
+        "approach_patient": 0,
+        "check_responsiveness": 1,
+        "check_pulse": 2,
+        "check_breathing": 3,
+        "chest_compressions": 4,
+        "request_aed": 5,
+        "request_assistance": 6,
+        "turn_on_aed": 7,
+        "attach_defib_pads": 8,
+        "clear_for_analysis": 9,
+        "clear_for_shock": 10,
+        "administer_shock_aed": 11,
+        "open_airway": 12,
+        "place_bvm": 13,
+        "ventilate_patient": 14,
+        "no_action": 15
+    },
+    "interventions": {
+        "cpr": 0,
+        "bvm": 1,
+        "aed": 2
+    }
 }
