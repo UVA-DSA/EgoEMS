@@ -66,36 +66,36 @@
             "expertise_level": "EMT",
             "trials": [
                 {
-                    "trial_id": "4",
+                    "trial_id": "1",
                     "streams": {
                         "i3d_flow": {
-                            "file_id": "GX010313_clipped_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_flow/ng5/4/GX010313_clipped_flow.npy",
+                            "file_id": "GX010310_clipped_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_flow/ng5/1/GX010310_clipped_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
-                            "file_id": "depth_sensor_2024-05-23-20_43_47",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng5/4/depth_sensor_2024-05-23-20_43_47.txt",
+                            "file_id": "depth_sensor_2024-05-23-20_33_47",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng5/1/depth_sensor_2024-05-23-20_33_47.txt",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sw_data",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/smartwatch_imu/ng5/4/sw_data.csv",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/smartwatch_imu/ng5/1/sw_data.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
-                            "file_id": "GX010313_clipped_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_rgb/ng5/4/GX010313_clipped_rgb.npy",
+                            "file_id": "GX010310_clipped_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/i3d_rgb/ng5/1/GX010310_clipped_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
-                            "file_id": "GX010313",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng5/4/GX010313.MP4",
+                            "file_id": "GX010310",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng5/1/GX010310.MP4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
-                            "file_id": "2024-05-23-20-43-43",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng5/4/2024-05-23-20-43-43.mkv",
+                            "file_id": "2024-05-23-20-32-49",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng5/1/2024-05-23-20-32-49.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },

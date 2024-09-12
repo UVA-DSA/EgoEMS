@@ -5,6 +5,7 @@ from datautils.ems import *
 import torch.nn as nn
 from sklearn.metrics import precision_score, recall_score, f1_score
 import csv
+from EgoExoEMS.EgoExoEMS import EgoExoEMSDataset, collate_fn, transform
 
 def init_model(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -99,7 +100,8 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
     return accuracy
 
 
-# return train,val,test dataloaders
+
+# return train,val,test dataloaders using the VideoDataset class
 def get_dataloaders(args):
     train_dataset = VideoDataset(base_path=args.dataloader_params["base_path"], fold=args.dataloader_params["fold"], skip_frames=25, transform=tfs, clip_length_in_frames=args.dataloader_params["observation_window"], train=True)
     test_dataset = VideoDataset(base_path=args.dataloader_params["base_path"], fold=args.dataloader_params["fold"], skip_frames=25, transform=tfs, clip_length_in_frames=args.dataloader_params["observation_window"], train=False)
@@ -127,6 +129,40 @@ def get_dataloaders(args):
         # Subset datasets based on indices
     val_dataset = torch.utils.data.Subset(test_dataset, val_indices)
     test_dataset = torch.utils.data.Subset(test_dataset, test_indices)
+
+
+    # Create DataLoaders for training and validation subsets
+    train_loader = DataLoader(train_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=True)
+    test_loader = DataLoader(test_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False)
+    val_loader = DataLoader(val_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False)
+
+    print("train dataset size: ", len(train_dataset))
+    print("val dataset size: ", len(val_dataset))
+    print("test dataset size: ", len(test_dataset))
+
+    return train_loader, val_loader, test_loader
+
+
+
+
+
+
+
+# return train,val,test dataloaders using the EgoExoEMSDataset class
+def get_dataloaders_egoexoems(args):
+
+    train_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
+                                    data_base_path='',
+                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform)
+
+    val_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
+                                    data_base_path='',
+                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform)
+
+    test_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
+                                    data_base_path='',
+                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform)
+
 
 
     # Create DataLoaders for training and validation subsets

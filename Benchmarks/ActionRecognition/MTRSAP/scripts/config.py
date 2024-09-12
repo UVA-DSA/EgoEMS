@@ -42,12 +42,13 @@ learning_params = {
 dataloader_params = {
     
     "batch_size": 1,
-    "one_hot": True,
-    "observation_window": 30,
-    "prediction_window": 10,
-    "normalizer": '',  # ('standardization', 'min-max', 'power', ''),
-    "base_path": '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/EMS_Interventions/annotations/',
+    "observation_window": None,
+    "base_path": '',
     "fold": 1,
+    "fps": 30,
+    "train_annotation_path": '../../../../Annotations/splits/keysteps/train_annotation.csv',
+    "val_annotation_path": '../../../../Annotations/splits/keysteps/val_annotation.csv',
+    "test_annotation_path": '../../../../Annotations/splits/keysteps/test_annotation.csv',
 }
 
 

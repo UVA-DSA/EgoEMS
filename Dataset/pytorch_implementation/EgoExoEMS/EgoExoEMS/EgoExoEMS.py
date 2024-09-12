@@ -174,6 +174,13 @@ class EgoExoEMSDataset(Dataset):
         subject_id = item['subject']
         trial_id = item['trial']
         
+        #print above variables to debug line by line
+        print("video_path: ", video_path)
+        print("flow_path: ", flow_path)
+        print("rgb_path: ", rgb_path)
+        print("start_frame: ", start_frame)
+        print("end_frame: ", end_frame)
+        
         # Load video
         video_reader = VideoReader(video_path, "video")
         frames = []
@@ -216,15 +223,3 @@ class EgoExoEMSDataset(Dataset):
         
         return output
 
-if __name__ == '__main__':
-    dataset = EgoExoEMSDataset(annotation_file='/mnt/data/main_annotation.json',
-                               video_base_path='/path/to/data',
-                               fps=30, 
-                               transform=transform)
-
-    data_loader = torch.utils.data.DataLoader(dataset, batch_size=1, shuffle=True, collate_fn=collate_fn)
-    
-    for batch in data_loader:
-        print(batch.keys())
-        print(batch['frames'].shape, batch['audio'].shape, batch['flow'].shape, batch['keystep_label'], batch['keystep_id'], batch['start_frame'], batch['end_frame'], batch['subject_id'], batch['trial_id'])
-        break
