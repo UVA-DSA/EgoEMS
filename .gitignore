@@ -2,7 +2,7 @@
 *.wav
 *.gif
 *.png
-
+**/stats/*.csv
 
 
 

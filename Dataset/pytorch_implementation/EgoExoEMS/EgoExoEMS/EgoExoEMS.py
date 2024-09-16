@@ -206,6 +206,10 @@ class EgoExoEMSDataset(Dataset):
         rgb = rgb[start_frame:end_frame]
 
 
+        # Load smartwatch data
+        # smartwatch = torch.from_numpy(np.load(smartwatch_path))
+        # smartwatch = smartwatch[start_frame:end_frame]
+        
         output = {
             'frames': frames,
             'audio': audio,
