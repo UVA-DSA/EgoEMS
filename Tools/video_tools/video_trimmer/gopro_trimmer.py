@@ -53,7 +53,8 @@ def trim_video(filepath, start_frame, end_frame):
         'ffmpeg', '-i', filepath,
         '-ss', str(start_seconds),  # Start time in seconds
         '-t', str(duration_seconds), # Duration in seconds
-        '-vcodec', 'libx264', '-acodec', 'aac',  # Re-encode video to H.264 and audio to AAC
+        '-vcodec', 'libx264', '-acodec', 'aac',  # Re-encode video to H.264 and audio to AAC,
+        '-c', 'copy',  # Copy video and audio codecs,
         output_file
     ]
     
@@ -72,7 +73,7 @@ def trim_video(filepath, start_frame, end_frame):
         ]
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         num_frames = int(result.stdout.strip())
-        print(f"Number of frames in the output file: {num_frames}")
+        print(f"Number of frames in the output file: {num_frames} \n\n")
     else:
         print(f"Error trimming {filename}. ffmpeg error:\n{result.stderr}")
 

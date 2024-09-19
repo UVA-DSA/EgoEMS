@@ -1,13 +1,9 @@
 [
+
     {
       "filename": "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/05-09-2024/debrah/cardiac_arrest/3/GoPro/GX010335.MP4",
       "start_frame": 100,
       "end_frame": 2000
-    },
-    {
-      "filename": "video2.MP4",
-      "start_frame": 50,
-      "end_frame": 1000
     }
   ]
   
