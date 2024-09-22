@@ -2,7 +2,7 @@ import json
 import os
 import subprocess
 
-json_file = "kinect_videos_to_trim.json"
+json_file = "depthCam_clip.json"
 
 # Load the JSON file
 with open(json_file, 'r') as f:
@@ -36,7 +36,9 @@ def trim_video(filepath, start_frame, end_frame):
     # extract the filename without the extension
     file_name = os.path.basename(filepath).split('.')[0]
     
-    output_file = os.path.join(output_folder, f"{file_name}_trimmed.mkv")
+    output_dir = os.path.join("synchronized", output_folder)
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = os.path.join(output_dir, f"{file_name}_trimmed.mkv")
 
     # Get the frame rate of the video
     fps = get_frame_rate(filepath)
@@ -53,12 +55,11 @@ def trim_video(filepath, start_frame, end_frame):
         'ffmpeg', '-i', filepath,
         '-ss', str(start_seconds),  # Start time in seconds
         '-t', str(duration_seconds), # Duration in seconds
-        # '-vcodec', 'libx264', '-acodec', 'aac',  # Re-encode video to H.264 and audio to AAC,
         '-map', '0:0',
         '-map', '0:1',
         '-map', '0:2',
         '-map', '0:3',
-        '-c', 'copy',  # Copy video and audio codecs,
+        '-c', 'copy',  # Copy video and audio codecs
         '-r', str(fps),  # Set output frame rate
         '-time_base', '1000000',  # Set time base to milliseconds
         '-allow_raw_vfw', '1',  # Allow raw video demuxer
@@ -70,9 +71,9 @@ def trim_video(filepath, start_frame, end_frame):
     result = subprocess.run(command)
     
     if result.returncode == 0:
-        print(f"Trimming complete for {filename}. Output saved to {output_file}.")
+        print(f"Trimming complete for {file_name}. Output saved to {output_file}.")
 
-        # print number of frames in the output file
+        # Print number of frames in the output file
         command = [
             'ffprobe', '-v', 'error',
             '-select_streams', 'v:0',
@@ -83,13 +84,13 @@ def trim_video(filepath, start_frame, end_frame):
         num_frames = int(result.stdout.strip())
         print(f"Number of frames in the output file: {num_frames} \n\n")
     else:
-        print(f"Error trimming {filename}. ffmpeg error:\n{result.stderr}")
+        print(f"Error trimming {file_name}. ffmpeg error:\n{result.stderr}")
 
 # Process each entry in the JSON file
-for entry in video_data:
-    filename = entry['filename']
-    start_frame = entry['start_frame']
-    end_frame = entry['end_frame']
+for idx in video_data['filename']:
+    filename = video_data['filename'][idx]
+    start_frame = video_data['start_frame'][idx]
+    end_frame = video_data['end_frame'][idx]
     
     try:
         # Trim the video using the given frames
