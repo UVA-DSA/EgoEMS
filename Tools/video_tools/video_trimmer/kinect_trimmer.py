@@ -43,29 +43,18 @@ def trim_video(filepath, start_frame, end_frame):
     
     # Calculate start time and duration in seconds
     start_seconds = start_frame / fps
-    duration_seconds = (end_frame - start_frame) / fps
+    end_seconds = end_frame / fps
     
     print(f"Trimming video: {filepath} from frame {start_frame} to {end_frame}")
-    print(f"Start time: {start_seconds} seconds, Duration: {duration_seconds} seconds")
+    print(f"Start time: {start_seconds} seconds, Duration: {end_seconds-start_seconds} seconds")
 
-    # Execute ffmpeg command to trim the video
+    # Execute mkvmerge command to trim the video
     command = [
-        'ffmpeg', '-i', filepath,
-        '-ss', str(start_seconds),  # Start time in seconds
-        '-t', str(duration_seconds), # Duration in seconds
-        # '-vcodec', 'libx264', '-acodec', 'aac',  # Re-encode video to H.264 and audio to AAC,
-        '-map', '0:0',
-        '-map', '0:1',
-        '-map', '0:2',
-        '-map', '0:3',
-        '-c', 'copy',  # Copy video and audio codecs,
-        '-r', str(fps),  # Set output frame rate
-        '-time_base', '1000000',  # Set time base to milliseconds
-        '-allow_raw_vfw', '1',  # Allow raw video demuxer
-        '-f', 'matroska',
-        output_file
-    ]
-    
+            'mkvmerge',
+            '-o', output_file,  # Output file
+            '--split', f'parts:{start_seconds}-{end_seconds}',  # Split using timestamps
+            filepath
+        ]
     # Run the ffmpeg command and let the output go to the terminal
     result = subprocess.run(command)
     
