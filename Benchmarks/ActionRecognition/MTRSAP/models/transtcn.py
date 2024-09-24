@@ -181,21 +181,39 @@ class TransformerModel(nn.Module):
         self.pe = PositionalEncoding(d_model=self.d_model, max_len=32, dropout=self.dropout)
         self.fc = nn.Linear(features_dim, self.d_model)
         
+    def preprocess(self, x):
+
+        # check the shape of the input tensor
+        shape = x.shape
+        output = None
+        if len(shape) == 5: # (batch_size, num_frames, 3, 224, 224) 
+            # extract resnet50 features
+            batch_size, num_frames, c, h, w = x.size()
+
+            # Reshape to process each frame individually through ResNet-50
+            x = x.view(batch_size * num_frames, c, h, w)
+            
+            # Extract features using backbone
+            x = self.backbone(x)  # Shape: (batch_size * num_frames, 2048, 7, 7)
+            x = self.backbone_avgpool(x)  # Shape: (batch_size * num_frames, 2048, 1, 1)
+            x = x.view(batch_size, num_frames, -1)  # Shape: (batch_size, num_frames, 2048)
+            
+            x = self.fc(x)
+            output = x
+        
+        elif len(shape) == 3:
+            # I3D features are already extracted
+            output = x.float()
+
+        return output
+
+
     def forward(self, x):
-        # Assuming x is of shape (batch_size, num_frames, 3, 224, 224)
-        
-        batch_size, num_frames, c, h, w = x.size()
-        
-        # Reshape to process each frame individually through ResNet-50
-        x = x.view(batch_size * num_frames, c, h, w)
-        
-        # Extract features using backbone
-        x = self.backbone(x)  # Shape: (batch_size * num_frames, 2048, 7, 7)
-        x = self.backbone_avgpool(x)  # Shape: (batch_size * num_frames, 2048, 1, 1)
-        x = x.view(batch_size, num_frames, -1)  # Shape: (batch_size, num_frames, 2048)
-        
-        # reduce the feature dimension
-        x = self.fc(x)
+
+
+        # # Preprocess input
+        x = self.preprocess(x)
+        # print("preprocess_out",x.shape)
         # # TCN encoder
         # x = self.encoder(x)
         # print("encoder_out",x.shape)
@@ -203,10 +221,11 @@ class TransformerModel(nn.Module):
         
         # # Add positional encoding
         x = self.pe(x)
+        # print("pe_out",x.shape)
         
         # # Transformer expects input of shape (batch_size, seq_len, d_model)
         x = self.transformer(x)
-        
+
         # # Further processing can be done here (e.g., pooling, classification)
         x = self.out(x)
         x = self.max_pool(x)  # Shape: (batch_size, output_dim)

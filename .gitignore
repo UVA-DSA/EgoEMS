@@ -4,10 +4,13 @@
 *.png
 **/stats/*.csv
 
+
+
 **/logs
 
 **/outputs/
 *.pth
+*.pt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

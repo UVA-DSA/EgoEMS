@@ -32,6 +32,13 @@ finetuned_classes = [
       "nothing", "bvm", "defib pads", "hands", "kelly", "syringe", "tourniquet"
 ]
 
+# # There is one class, balloon, with ID n°0.
+# num_classes = 4
+
+# finetuned_classes = [
+#       "nothing", "bvm", "defib pads", "hands"
+# ]
+
 # standard PyTorch mean-std input image normalization
 transform = T.Compose([
     T.Resize(800),
@@ -109,7 +116,8 @@ def generate_bboxes(video_files, model, json_output_path, target_fps, save_image
     bbox_all = {}
     for video_path in video_files:
         video_id = video_path.split('/')[-1].split('.')[0]
-        img_output_path = f'./outputs/bboxes/{video_id}/'
+        img_output_path = f'./outputs/bboxes/{video_id}/bbox_annotated/'
+        original_img_output_path = f'./outputs/bboxes/{video_id}/original/'
 
         print("Processing video file:", video_path)
         
@@ -118,6 +126,7 @@ def generate_bboxes(video_files, model, json_output_path, target_fps, save_image
 
         if save_images and not os.path.exists(img_output_path):
             os.makedirs(img_output_path)
+            os.makedirs(original_img_output_path)
 
         # Open the video file
         cap = cv2.VideoCapture(video_path)
@@ -137,6 +146,7 @@ def generate_bboxes(video_files, model, json_output_path, target_fps, save_image
 
         # Convert RGB colors to BGR for OpenCV
         COLORS_BGR = [(int(c[2]*255), int(c[1]*255), int(c[0]*255)) for c in COLORS]
+        frame_counter = 0
 
         # Process the video with frame skipping
         for i in range(total_frames):
@@ -148,7 +158,7 @@ def generate_bboxes(video_files, model, json_output_path, target_fps, save_image
             if i % skip_rate != 0:
                 continue
             
-            backup_frame = frame
+            backup_frame = frame.copy()
 
             # Convert the frame to a PIL image
             frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
@@ -189,6 +199,7 @@ def generate_bboxes(video_files, model, json_output_path, target_fps, save_image
             # Save the bounding box data for the current frame
             bbox_data.append({
                 'frame': i,
+                'frame_counter': frame_counter,
                 'bboxes': frame_bboxes
             })
 
@@ -196,7 +207,10 @@ def generate_bboxes(video_files, model, json_output_path, target_fps, save_image
             # Write the annotated frame to the output directory
             if save_images:
                 cv2.imwrite(f'{img_output_path}/frame_{i}.jpg', frame)
-                cv2.imwrite(f'{img_output_path}/original_frame_{i}.jpg', backup_frame)
+                # Save the original frame to the original directory
+                cv2.imwrite(f'{original_img_output_path}/{frame_counter:04d}.jpg', backup_frame)
+
+            frame_counter += 1
 
             # Print progress for every processed frame
             print(f'Processed frame {i}/{total_frames} at downsampled rate (every {skip_rate}th frame)')
