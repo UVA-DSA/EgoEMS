@@ -71,7 +71,6 @@ def collate_fn(batch):
             rgb_pad = torch.zeros((rgb_pad_size, *rgb_clip.shape[1:]))
             rgb_clip = torch.cat([rgb_clip, rgb_pad], dim=0)
 
-
         padded_clips.append(video_clip)
         padded_audio_clips.append(audio_clip)
         padded_flow_clips.append(flow_clip)
@@ -94,7 +93,6 @@ def collate_fn(batch):
     end_frames = torch.tensor(end_frames)
     start_ts = torch.tensor(start_ts)
     end_ts = torch.tensor(end_ts)
-    
 
     return {
         'frames': padded_clips,
@@ -112,16 +110,18 @@ def collate_fn(batch):
     }
 
 class EgoExoEMSDataset(Dataset):
-    def __init__(self, annotation_file, data_base_path, fps, frames_per_clip=None, transform=None, audio_sample_rate=16000):
+    def __init__(self, annotation_file, data_base_path, fps, frames_per_clip=None, transform=None, audio_sample_rate=48000):
         self.annotation_file = annotation_file
         self.data_base_path = data_base_path
         self.fps = fps
-        self.frames_per_clip = frames_per_clip
+        self.frames_per_clip = frames_per_clip  # Store frames_per_clip
         self.transform = transform
         self.audio_sample_rate = audio_sample_rate
         self.data = []
+        self.clip_indices = []  # This will store (item_idx, clip_idx) tuples
 
         self._load_annotations()
+        self._generate_clip_indices()
 
     def _load_annotations(self):
         with open(self.annotation_file, 'r') as f:
@@ -157,11 +157,34 @@ class EgoExoEMSDataset(Dataset):
                             'trial': trial['trial_id']
                         })
 
+    def _get_clips(self, data, frames_per_clip):
+        # Function to split data into smaller clips
+        clips = []
+        num_clips = math.ceil(len(data) / frames_per_clip)
+        for i in range(num_clips):
+            start_idx = i * frames_per_clip
+            end_idx = min((i + 1) * frames_per_clip, len(data))
+            clips.append(data[start_idx:end_idx])
+        return clips
+
+    def _generate_clip_indices(self):
+        # Generate indices that represent which clip (from which item) will be returned in __getitem__
+        self.clip_indices = []
+        for item_idx, item in enumerate(self.data):
+            num_frames = item['end_frame'] - item['start_frame']
+            num_clips = math.ceil(num_frames / self.frames_per_clip) if self.frames_per_clip else 1
+            for clip_idx in range(num_clips):
+                self.clip_indices.append((item_idx, clip_idx))
+
     def __len__(self):
-        return len(self.data)
+        # The length should now be based on the number of clips, not items
+        return len(self.clip_indices)
 
     def __getitem__(self, idx):
-        item = self.data[idx]
+        # Get the actual item and the clip index for this sample
+        item_idx, clip_idx = self.clip_indices[idx]
+        item = self.data[item_idx]
+
         video_path = item['video_path']
         flow_path = item['flow_path']
         rgb_path = item['rgb_path']
@@ -173,14 +196,7 @@ class EgoExoEMSDataset(Dataset):
         keystep_id = item['keystep_id']
         subject_id = item['subject']
         trial_id = item['trial']
-        
-        #print above variables to debug line by line
-        print("video_path: ", video_path)
-        print("flow_path: ", flow_path)
-        print("rgb_path: ", rgb_path)
-        print("start_frame: ", start_frame)
-        print("end_frame: ", end_frame)
-        
+
         # Load video
         video_reader = VideoReader(video_path, "video")
         frames = []
@@ -189,27 +205,44 @@ class EgoExoEMSDataset(Dataset):
             frames.append(img_tensor)
         frames = torch.stack(frames)
 
-        # Load audio
-        audio_reader = VideoReader(video_path, "audio")
-        audio = []
-        for audio_frame in itertools.takewhile(lambda x: x['pts'] <= end_t, audio_reader.seek(start_t)):
-            audio.append(audio_frame['data'])
-        audio = torch.cat(audio, dim=0) if audio else torch.zeros(1, 0)
-
         # Load flow data
         flow = torch.from_numpy(np.load(flow_path))
-        # read only the frames between start_frame and end_frame
         flow = flow[start_frame:end_frame]
 
         # Load rgb data
         rgb = torch.from_numpy(np.load(rgb_path))
         rgb = rgb[start_frame:end_frame]
 
+        # Calculate audio sample range based on frames_per_clip
+        if self.frames_per_clip:
+            clip_duration = self.frames_per_clip / self.fps  # Time in seconds for frames_per_clip
+            audio_samples_per_clip = int(clip_duration * self.audio_sample_rate)
 
-        # Load smartwatch data
-        # smartwatch = torch.from_numpy(np.load(smartwatch_path))
-        # smartwatch = smartwatch[start_frame:end_frame]
-        
+            audio_reader = VideoReader(video_path, "audio")
+            audio_clips = []
+            for audio_frame in itertools.takewhile(lambda x: x['pts'] <= end_t, audio_reader.seek(start_t)):
+                audio_clips.append(audio_frame['data'])
+            audio_clips = torch.cat(audio_clips, dim=0) if audio_clips else torch.zeros(1, 0)
+            # Get the slice corresponding to the current clip
+            audio = audio_clips[clip_idx * audio_samples_per_clip : (clip_idx + 1) * audio_samples_per_clip]
+        else:
+            audio_reader = VideoReader(video_path, "audio")
+            audio = []
+            for audio_frame in itertools.takewhile(lambda x: x['pts'] <= end_t, audio_reader.seek(start_t)):
+                audio.append(audio_frame['data'])
+            audio = torch.cat(audio, dim=0) if audio else torch.zeros(1, 0)
+
+        # Split into smaller clips if frames_per_clip is specified
+        if self.frames_per_clip:
+            frames_clips = self._get_clips(frames, self.frames_per_clip)
+            flow_clips = self._get_clips(flow, self.frames_per_clip)
+            rgb_clips = self._get_clips(rgb, self.frames_per_clip)
+
+            # Return the specific clip from the item based on clip_idx
+            frames = frames_clips[clip_idx]
+            flow = flow_clips[clip_idx]
+            rgb = rgb_clips[clip_idx]
+
         output = {
             'frames': frames,
             'audio': audio,
@@ -224,6 +257,6 @@ class EgoExoEMSDataset(Dataset):
             'subject_id': subject_id,
             'trial_id': trial_id
         }
-        
+
         return output
 

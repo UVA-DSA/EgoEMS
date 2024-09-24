@@ -34,7 +34,7 @@ learning_params = {
     # "lr": 8.906324028628413e-5,
     "lr": 1e-05,
     "epochs": 30,
-    "weight_decay": 1e-4,
+    "weight_decay": 1e-5,
     "patience": 3,
     "lr_drop": 15,
     "best_chkpoint": "64366030/val_best_model.pt"
@@ -43,7 +43,7 @@ learning_params = {
 dataloader_params = {
     
     "batch_size": 1,
-    "observation_window": 30,
+    "observation_window": 120,
     "fold": 1,
     "fps": 30,
     "train_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/keysteps/train_split.json',

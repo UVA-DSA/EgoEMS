@@ -31,7 +31,7 @@ if __name__ == "__main__":
         project="EgoExoEMS",
         group="Keystep Recognition",
         # mode="disabled",
-        name="Train, Val on EgoExoEMS with I3D RGB Features - ICRA Model",
+        name="Train, Val on EgoExoEMS with I3D RGB Features - 4s clips - ICRA Model",
         notes="initial attempt ICRA model with I3D RGB features",
         config={
         "args": args,
