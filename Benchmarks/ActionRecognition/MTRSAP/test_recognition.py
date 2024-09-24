@@ -30,8 +30,8 @@ if __name__ == "__main__":
         # set the wandb project where this run will be logged
         project="EgoExoEMS",
         group="Keystep Recognition",
-        # mode="disabled",
-        name="Train, Val on EgoExoEMS with I3D RGB Features - ICRA Model",
+        mode="disabled",
+        name="Testing on EgoExoEMS with I3D RGB Features - ICRA Model",
         notes="initial attempt ICRA model with I3D RGB features",
         config={
         "args": args,
@@ -42,36 +42,20 @@ if __name__ == "__main__":
     model, optimizer, criterion, device = init_model(args)# verbose_mode = args.verbose
     scheduler = StepLR(optimizer, step_size=args.learning_params["lr_drop"], gamma=0.1)  # adjust parameters as needed
 
+    # Load the best model
+    model.load_state_dict(torch.load(f'./checkpoints/{args.learning_params["best_chkpoint"]}'))
+
+
     # train_loader, val_loader, test_loader = get_dataloaders(args)
     train_loader, val_loader, test_loader = eee_get_dataloaders(args)
 
     current_time = datetime.now().strftime("%Y%m%d-%H%M%S")
     results_dir = f'./results/{cmd_args.job_id}'
-    chkpoint_dir = f'./checkpoints/{cmd_args.job_id}'
-
+ 
     # create results directory if not exists
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
 
-    # create checkpoint directory if not exists
-    if not os.path.exists(chkpoint_dir):
-        os.makedirs(chkpoint_dir)
-    
-    min_val_loss = float('inf')
 
-    # # Train the model
-    for epoch in range(args.learning_params["epochs"]):
-        train_loss = eee_train_one_epoch(model, train_loader, criterion, optimizer, device, wandb_logger)
-        wandb_logger.log({"avg_train_loss": train_loss, "epoch": epoch})
-        val_loss = eee_validate(model, val_loader, criterion, device, wandb_logger)
-        wandb_logger.log({"avg_val_loss": val_loss, "epoch": epoch})
-
-        # save checkpoints if validation loss is minimum 
-        if val_loss < min_val_loss:
-            min_val_loss = val_loss
-            torch.save(model.state_dict(), f'{chkpoint_dir}/val_best_model.pt')
-
-    #     test_model(model, test_loader, criterion, device, wandb_logger, epoch, results_dir)
-
-        scheduler.step()
-        print(f"Epoch: {epoch}, Train Loss: {train_loss}, Val Loss: {val_loss}")
+# # Test the model
+    eee_test_model(model, train_loader, criterion, device, wandb_logger, 0, results_dir)

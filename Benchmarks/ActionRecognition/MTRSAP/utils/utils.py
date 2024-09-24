@@ -144,12 +144,134 @@ def get_dataloaders(args):
 
 
 
+''' ***** EGOEXOEMS DATASET ***** '''
+
+
+# add wandb logging
+def eee_train_one_epoch(model, train_loader, criterion, optimizer, device, logger):
+    model.train()
+    total_loss = 0
+    for i, batch in enumerate(train_loader):
+
+        i3d_rgb_features = batch['rgb']
+        i3d_flow_features = batch['flow']
+
+        # move to device
+        i3d_rgb_features = i3d_rgb_features.to(device)
+        i3d_flow_features = i3d_flow_features.to(device)
+
+        # get labels
+        labels = batch['keystep_id']
+        labels = labels.to(device)
+
+        optimizer.zero_grad()
+        output = model(i3d_rgb_features)
+
+
+        loss = criterion(output, labels)
+        loss.backward()
+        optimizer.step()
+        total_loss += loss.item()
+
+        if i % 1 == 0:
+            print("\n ***** ")
+            print(batch['frames'].shape, batch['audio'].shape, batch['flow'].shape, batch['rgb'].shape, batch['keystep_label'], batch['keystep_id'], batch['start_frame'], batch['end_frame'],batch['start_t'], batch['end_t'],  batch['subject_id'], batch['trial_id'])
+            print(f"Pred: {torch.argmax(output, dim=1)} GT: {labels}")
+            logger.log({"train_loss": loss.item()})
+            print(f"Batch: {i}, Loss: {loss.item()}")
+            print(" ***** \n")
+
+    return total_loss / len(train_loader)
+
+
+# validate the model 
+def eee_validate(model, val_loader, criterion, device, logger):
+    model.eval()
+    total_loss = 0
+    with torch.no_grad():
+        for i, batch in enumerate(val_loader):
+
+            i3d_rgb_features = batch['rgb']
+            i3d_flow_features = batch['flow']
+
+            # move to device
+            i3d_rgb_features = i3d_rgb_features.to(device)
+            i3d_flow_features = i3d_flow_features.to(device)
+
+            # get labels
+            labels = batch['keystep_id']
+            labels = labels.to(device)
+
+            output = model(i3d_rgb_features)
+
+            loss = criterion(output, labels)
+            total_loss += loss.item()
+            if i % 1 == 0:
+                logger.log({"val_loss": loss.item()})
+
+    return total_loss / len(val_loader)
+
+
+# test the model
+def eee_test_model(model, test_loader, criterion, device, logger, epoch, results_dir):
+    model.eval()
+    total_loss = 0
+
+
+    accuracy = 0.0
+    gt = []
+    preds = []
+    
+
+    with torch.no_grad():
+        for i, batch in enumerate(test_loader):
+
+            i3d_rgb_features = batch['rgb']
+            i3d_flow_features = batch['flow']
+
+            # move to device
+            i3d_rgb_features = i3d_rgb_features.to(device)
+            i3d_flow_features = i3d_flow_features.to(device)
+
+            # get labels
+            labels = batch['keystep_id']
+            labels = labels.to(device)
+
+            output = model(i3d_rgb_features)
+            pred = torch.argmax(output, dim=1)
+            gt.append(labels.item())
+            preds.append(pred.item())
+    
+    # Calculate metrics
+    accuracy = sum(1 for x, y in zip(preds, gt) if x == y) / len(gt)
+    precision = precision_score(gt, preds, average='macro')
+    recall = recall_score(gt, preds, average='macro')
+    f1 = f1_score(gt, preds, average='macro')
+
+    # Log metrics to wandb
+    logger.log({
+        "test_accuracy": accuracy,
+        "test_precision": precision,
+        "test_recall": recall,
+        "test_f1": f1,
+        "epoch": epoch
+    })
+    
+    # Save metrics to CSV
+    metrics_path = f'{results_dir}/metrics.csv'
+    with open(metrics_path, mode='a', newline='') as file:
+        writer = csv.writer(file)
+        if not os.path.isfile(metrics_path):
+            writer.writerow(["epoch", "accuracy", "precision", "recall", "f1"])
+        writer.writerow([epoch, accuracy, precision, recall, f1])
+    
+    return accuracy
 
 
 
 
 # return train,val,test dataloaders using the EgoExoEMSDataset class
-def get_dataloaders_egoexoems(args):
+def eee_get_dataloaders(args):
 
     train_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
                                     data_base_path='',

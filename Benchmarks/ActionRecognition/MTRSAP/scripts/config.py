@@ -18,14 +18,14 @@ tcn_model_params = {
 
 
 transformer_params = {
-    "d_model": 256,
+    "d_model": 1024,
     "nhead": 4,
     "num_layers": 4,
     "hidden_dim": 128,
     "layer_dim": 4,
     "dropout": 0.1,
     "input_dim": 64,
-    "output_dim": 3,
+    "output_dim": 16,
     "batch_first": True
 
 }
@@ -37,18 +37,20 @@ learning_params = {
     "weight_decay": 1e-4,
     "patience": 3,
     "lr_drop": 15,
+    "best_chkpoint": "64366030/val_best_model.pt"
 }
 
 dataloader_params = {
     
     "batch_size": 1,
-    "observation_window": None,
-    "base_path": '',
+    "observation_window": 30,
     "fold": 1,
     "fps": 30,
-    "train_annotation_path": '../../../../Annotations/splits/keysteps/train_annotation.csv',
-    "val_annotation_path": '../../../../Annotations/splits/keysteps/val_annotation.csv',
-    "test_annotation_path": '../../../../Annotations/splits/keysteps/test_annotation.csv',
+    "train_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/keysteps/train_split.json',
+    "val_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/keysteps/val_split.json',
+    "test_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/keysteps/test_split.json',
+    # Old dataset class
+    'base_path': '/scratch/cjh9fw/Rivanna/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
 }
 
 

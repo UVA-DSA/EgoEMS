@@ -32,6 +32,13 @@ finetuned_classes = [
       "nothing", "bvm", "defib pads", "hands", "kelly", "syringe", "tourniquet"
 ]
 
+# # There is one class, balloon, with ID n°0.
+# num_classes = 4
+
+# finetuned_classes = [
+#       "nothing", "bvm", "defib pads", "hands"
+# ]
+
 # standard PyTorch mean-std input image normalization
 transform = T.Compose([
     T.Resize(800),
@@ -109,7 +116,7 @@ def generate_bboxes(video_files, model, json_output_path, target_fps, save_image
     bbox_all = {}
     for video_path in video_files:
         video_id = video_path.split('/')[-1].split('.')[0]
-        img_output_path = f'./outputs/bboxes/{video_id}/'
+        img_output_path = f'./outputs/bboxes/{video_id}/bbox_annotated/'
         original_img_output_path = f'./outputs/bboxes/{video_id}/original/'
 
         print("Processing video file:", video_path)
@@ -146,14 +153,6 @@ def generate_bboxes(video_files, model, json_output_path, target_fps, save_image
             ret, frame = cap.read()
             if not ret:
                 break
-
-
-            # Write the original frame to the output directory
-            if save_images:
-                # Save the original frame to the output directory in format 0000.jpg
-                # i to 4 digits
-                cv2.imwrite(f'{original_img_output_path}/{i:04d}.jpg', frame)
-
 
             # Only process frames at the specified interval (skip frames)
             if i % skip_rate != 0:
@@ -208,6 +207,8 @@ def generate_bboxes(video_files, model, json_output_path, target_fps, save_image
             # Write the annotated frame to the output directory
             if save_images:
                 cv2.imwrite(f'{img_output_path}/frame_{i}.jpg', frame)
+                # Save the original frame to the original directory
+                cv2.imwrite(f'{original_img_output_path}/{frame_counter:04d}.jpg', backup_frame)
 
             frame_counter += 1
 
