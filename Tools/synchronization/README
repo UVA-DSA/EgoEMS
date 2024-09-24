@@ -1,0 +1,11 @@
+This folder of files is intended for the synchronization of 
+raw data collected from a goPro, Kinect Depth Camera, Samsung Smartwatch, and Depth Sensor measuring CPR compression depth.
+
+
+
+
+1. Run extract_telemetry.js and then json_to_csv.py to get a folder of CSVs of gopro timestamps for each trial. This folder should be placed in the base directory (eg. 05-09-2024) of the original data
+
+2. Run synchronization.sh for a given list of folders to synchronize, which automatically runs synchronization.py. The output should be two JSONs, one for gopro and another for Kinect, and a new directory "synchronized" containing the synchronized smartwatch and depth sensor CSVs in the expected file structure of date/participant/intervention/trial/modality/data.csv
+
+3. Run smartwatch_depthSensor_plot.py on the synchronized directory to get an output folder of plots of depth sensor and smartwatch data for each trial. 
