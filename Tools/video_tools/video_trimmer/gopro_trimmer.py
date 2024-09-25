@@ -5,10 +5,6 @@ import subprocess
 raw_data_path = "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
 json_file = f"{raw_data_path}/goPro_clip.json"
 
-# Load the JSON file
-with open(json_file, 'r') as f:
-    video_data = json.load(f)
-
 def get_frame_rate(video_file):
     """Gets the frame rate of the video using ffprobe."""
     command = [
@@ -82,15 +78,31 @@ def trim_video(filepath, start_frame, end_frame):
     else:
         print(f"Error trimming {filepath}. ffmpeg error:\n{result.stderr}")
 
-# Process each entry in the JSON file
-for idx in video_data['filename'].keys():
-    filename = video_data['filename'][idx]
-    start_frame = video_data['start_frame'][idx]
-    end_frame = video_data['end_frame'][idx]
-    
-    try:
-        # Trim the video using the given frames
-        trim_video(filename, start_frame, end_frame)
 
-    except Exception as e:
-        print(f"Error processing video {filename}: {str(e)}")
+# Check if main
+if __name__ == "__main__":
+    
+    # get cmd line arguments
+    import sys
+    if len(sys.argv) < 1:
+        exit("Usage: python gopro_trimmer.py <path_to_root_dir>")
+
+    raw_data_path = sys.argv[1]
+    json_file = f"{raw_data_path}/goPro_clip.json"
+
+    # Load the JSON file
+    with open(json_file, 'r') as f:
+        video_data = json.load(f)
+
+    # Process each entry in the JSON file
+    for idx in video_data['filename'].keys():
+        filename = video_data['filename'][idx]
+        start_frame = video_data['start_frame'][idx]
+        end_frame = video_data['end_frame'][idx]
+        
+        try:
+            # Trim the video using the given frames
+            trim_video(filename, start_frame, end_frame)
+
+        except Exception as e:
+            print(f"Error processing video {filename}: {str(e)}")

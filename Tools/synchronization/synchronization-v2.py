@@ -91,13 +91,13 @@ def calculate_synchronized_frames(dc_ts, gp_adj_ts):
             # if gp_adj_ts[i] <= dc_ts[0] < gp_adj_ts[i + 1]:
             if gp_adj_ts[i] >= dc_ts[0]:
                 print(f"GoPro start frame: {gp_adj_ts[i]}")
-                gp_sf, frames = i, min(gp_length - i, dc_length)
+                dc_sf, frames = i, min(gp_length - i, dc_length)
                 break
     else: # Depth Camera starts first
         for i in range(dc_length - 1):
             if dc_ts[i] >= gp_adj_ts[0]:
                 print(f"GoPro start frame: {gp_adj_ts[i]}")
-                dc_sf, frames = i, min(dc_length - i, gp_length)
+                gp_sf, frames = i, min(dc_length - i, gp_length)
                 break
 
     print(f"GoPro start frame: {gp_sf}, Depth Camera start frame: {dc_sf}, Frames: {frames}")
@@ -137,13 +137,13 @@ def synchronize(day):
 
     for person in os.listdir(day):
         person_path = os.path.join(day, person)
-        if(person != "bryan"):
-            continue
+        # if(person != "bryan"):
+        #     continue
         for intervention in os.listdir(person_path):
             intervention_path = os.path.join(person_path, intervention)
             for trial in os.listdir(intervention_path):
-                if trial != "0":
-                    continue
+                # if trial != "0":
+                #     continue
                 trial_path = os.path.join(intervention_path, trial)
 
                 # Process modality files

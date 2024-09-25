@@ -10,3 +10,11 @@ ffmpeg -i GoPro/GX010321_trimmed.mp4 -i Kinect/rgb_stream.mp4 \
 -map "[v]" -map 0:a? -shortest output.mp4
 
 ```
+
+## Sync Steps
+
+1. Run `python goPro_timestamp_adjuster.py`.
+2. Run `python synchronization-v2.py` 
+3. Run `python gopro_trimmer.py`
+3. Run `python kinect_trimmer.py`
+4. 
