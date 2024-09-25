@@ -3,33 +3,20 @@ import sys
 import pandas as pd
 import numpy as np
 
-raw_data_path = "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
-goPro_timestamps = f"{raw_data_path}/goPro_timestamps"
-
-offsets = pd.read_csv(f"{raw_data_path}/offsets.csv")
-
-
-def find_matching_offset(day):
-    """Find the offset for the given day from the offsets CSV."""
-    matching_offset = offsets[offsets['day'] == day]
-    if not matching_offset.empty:
-        return matching_offset.iloc[0, 1]
-    return None
-
 
 def get_depth_camera_timestamps(file_path):
     """Read depth camera timestamps from a text file."""
+    print(f"Reading depth camera timestamps from {file_path}")
     with open(file_path, 'r') as depth_txt:
         return np.array([int(line.strip()) for line in depth_txt.readlines()], dtype=np.int64)
 
 
-def get_go_pro_adjusted_timestamps(gp_ts, offset_value):
+def get_go_pro_adjusted_timestamps(gp_ts):
     """Adjust GoPro timestamps by the provided offset."""
     # return gp_ts['epoch'].astype('int64') - offset_value # -epoch and - before
-    return gp_ts['recalculated_epoch'].astype('int64') - offset_value # -epoch and - before
+    return gp_ts['recalculated_epoch'].astype('int64') 
 
-
-def process_modality_files(trial_path, modalities):
+def process_modality_files(trial_path, modalities, goPro_timestamps):
     """Process modality files to find smartwatch, depth sensor, GoPro, and depth camera data."""
     sw_data, depth_data, gp_ts, gp_adj_ts = None, None, None, None
     dc_video_path, gp_video_path, dc_ts = None, None, None
@@ -55,18 +42,11 @@ def process_modality_files(trial_path, modalities):
                 gp_video_path = file_path
                 for csv in os.listdir(goPro_timestamps):
                     if os.path.splitext(file)[0] == os.path.splitext(csv)[0]:  # Match GoPro timestamp file
+                        print(f"GoPro timestamp file: {csv}")
                         gp_ts = pd.read_csv(os.path.join(goPro_timestamps, csv))
-                        offset_value = find_matching_offset(day)
-                        print(f"Offset value {offset_value} for GoPro: {os.path.splitext(file)[0]} ")
-                        if offset_value:
-                            gp_adj_ts = get_go_pro_adjusted_timestamps(gp_ts, offset_value)
-                            print(f"GoPro timestamp adjusted  {gp_ts} for {os.path.splitext(file)[0]}")
-                            
-                            # add adjusted offset timestamp column to the GoPro timestamp file
-                            gp_ts['epoch_adj'] = gp_adj_ts
-                            
-                            # Overwrite adjusted GoPro timestamps to CSV
-                            gp_ts.to_csv(os.path.join(goPro_timestamps, csv), index=False)
+                        gp_adj_ts = get_go_pro_adjusted_timestamps(gp_ts)
+                        # print(f"GoPro timestamp adjusted  {gp_ts} for {os.path.splitext(file)[0]}")
+                        
                             
     return sw_data, depth_data, gp_ts, gp_adj_ts, dc_video_path, gp_video_path, dc_ts
 
@@ -81,26 +61,28 @@ def calculate_synchronized_frames(dc_ts, gp_adj_ts):
     gp_sf, dc_sf, frames = 0, 0, 0
     dc_length, gp_length = len(dc_ts), len(gp_adj_ts)
 
-    print(f"GoPro duration frames: {gp_length} and Depth Camera duration frames: {gp_length}")
+    print(f"GoPro duration frames: {gp_length} and Depth Camera duration frames: {dc_length}")
     
     # Find the last frame index for the shorter duration
     last_frame = min(dc_length, gp_length)
+
+    print(f"Kinect First timestamp: {dc_ts[0]} and GoPro First timestamp: {gp_adj_ts[0]}")
     
     if dc_ts[0] > gp_adj_ts[0]: # GoPro starts first
-        for i in range(gp_length - 1): 
-            # if gp_adj_ts[i] <= dc_ts[0] < gp_adj_ts[i + 1]:
+        for i in range(gp_length - 1):
             if gp_adj_ts[i] >= dc_ts[0]:
-                print(f"GoPro start frame: {gp_adj_ts[i]}")
-                dc_sf, frames = i, min(gp_length - i, dc_length)
+                gp_sf, frames = i, min(gp_length - i, last_frame)
                 break
     else: # Depth Camera starts first
         for i in range(dc_length - 1):
-            if dc_ts[i] >= gp_adj_ts[0]:
-                print(f"GoPro start frame: {gp_adj_ts[i]}")
-                gp_sf, frames = i, min(dc_length - i, gp_length)
+            # if dc_ts[i] >= gp_adj_ts[0]:
+            if dc_ts[i] <= gp_adj_ts[0] < dc_ts[i + 1]:
+                dc_sf, frames = i, min(dc_length - i, last_frame)
                 break
 
+    # Update start frames to be the number that is the closest a multiple of 3000/101
     print(f"GoPro start frame: {gp_sf}, Depth Camera start frame: {dc_sf}, Frames: {frames}")
+    
     return gp_sf, dc_sf, frames, gp_sf + frames, dc_sf + frames
 
 def synchronize_smartwatch_depth(sw_data, depth_data, timestamps):
@@ -131,24 +113,23 @@ def synchronize_smartwatch_depth(sw_data, depth_data, timestamps):
     return pd.DataFrame(sw_data_list), pd.DataFrame(depth_data_list)
 
 
-def synchronize(day):
+def synchronize(day, goPro_timestamps_path):
     goPro_json = pd.DataFrame(columns=['filename', 'start_frame', 'end_frame'])
     dS_json = pd.DataFrame(columns=['filename', 'start_frame', 'end_frame'])
 
     for person in os.listdir(day):
         person_path = os.path.join(day, person)
-        # if(person != "bryan"):
-        #     continue
         for intervention in os.listdir(person_path):
             intervention_path = os.path.join(person_path, intervention)
             for trial in os.listdir(intervention_path):
-                # if trial != "0":
-                #     continue
                 trial_path = os.path.join(intervention_path, trial)
+
+                print("*" * 50)
+                print(f"Synchronizing subject {person}, intervention {intervention}, trial {trial}")
 
                 # Process modality files
                 sw_data, depth_data, gp_ts, gp_adj_ts, dc_video_path, gp_video_path, dc_ts = process_modality_files(
-                    trial_path, os.listdir(trial_path))
+                    trial_path, os.listdir(trial_path), goPro_timestamps_path)
 
                 if gp_ts is None or dc_ts is None:
                     print(f"Issue with GoPro or depth camera timestamps for {trial_path}")
@@ -177,14 +158,25 @@ def synchronize(day):
                         os.makedirs(output_path, exist_ok=True)
                         df.to_csv(os.path.join(output_path, f"{day}_{person}_{intervention}_{trial}_{sensor}.csv"), index=False)
 
+                print("*" * 50)
+
     goPro_json.to_json(f"{raw_data_path}/goPro_clip.json")
     dS_json.to_json(f"{raw_data_path}/depthCam_clip.json")
 
 
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        day = sys.argv[1]
-        path = f"{raw_data_path}/{day}"
-        synchronize(path)
-    else:
-        print("No folder provided")
+
+        # get cmd line arguments
+    print(sys.argv)
+    
+    if len(sys.argv) < 3:
+        exit("Usage: python kinect_trimmer.py <path_to_root_dir> <date>")
+
+    raw_data_path = sys.argv[1]
+    day = sys.argv[2]
+
+    goPro_timestamps_path = f"{raw_data_path}/goPro_timestamps"
+
+    path = f"{raw_data_path}/{day}"
+
+    synchronize(path, goPro_timestamps_path)

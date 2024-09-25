@@ -1,9 +1,8 @@
 import json
 import os
 import subprocess
+import sys
 
-raw_data_path = "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
-json_file = f"{raw_data_path}/goPro_clip.json"
 
 def get_frame_rate(video_file):
     """Gets the frame rate of the video using ffprobe."""
@@ -50,15 +49,25 @@ def trim_video(filepath, start_frame, end_frame):
     print(f"Start time: {start_seconds} seconds, Duration: {duration_seconds} seconds")
     
     # Execute ffmpeg command to trim the video
+    # command = [
+    #     'ffmpeg', '-i', filepath,
+    #     '-ss', str(start_seconds),  # Start time in seconds
+    #     '-t', str(duration_seconds), # Duration in seconds
+    #     '-vcodec', 'libx264', '-acodec', 'aac',  # Re-encode video to H.264 and audio to AAC,
+    #     '-c', 'copy',  # Copy video and audio codecs,
+    #     '-map', '0',  # Map all streams from the input file,
+    #     output_file
+    # ]
+    
     command = [
         'ffmpeg', '-i', filepath,
         '-ss', str(start_seconds),  # Start time in seconds
         '-t', str(duration_seconds), # Duration in seconds
-        '-vcodec', 'libx264', '-acodec', 'aac',  # Re-encode video to H.264 and audio to AAC,
+        '-map_metadata', '0', '-map', '0:u',  # Re-encode video to H.264 and audio to AAC,
         '-c', 'copy',  # Copy video and audio codecs,
         output_file
     ]
-    
+
     # Run the ffmpeg command and let the output go to the terminal
     result = subprocess.run(command)
     
@@ -83,8 +92,9 @@ def trim_video(filepath, start_frame, end_frame):
 if __name__ == "__main__":
     
     # get cmd line arguments
-    import sys
-    if len(sys.argv) < 1:
+    print(sys.argv)
+    
+    if len(sys.argv) < 2:
         exit("Usage: python gopro_trimmer.py <path_to_root_dir>")
 
     raw_data_path = sys.argv[1]
@@ -100,6 +110,8 @@ if __name__ == "__main__":
         start_frame = video_data['start_frame'][idx]
         end_frame = video_data['end_frame'][idx]
         
+        # if("debrah/cardiac_arrest/2" not in filename):
+        #     continue
         try:
             # Trim the video using the given frames
             trim_video(filename, start_frame, end_frame)

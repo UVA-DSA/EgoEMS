@@ -1,20 +1,81 @@
+## Useful commands
+
 ### FFMPEG extract RGB stream from Kinect Recording
-``` ffmpeg -i 2024-09-05-19-07-43_trimmed.mkv -map 0:v:0 -c:v libx264 -crf 23 -preset fast rgb_stream.mp4 ```
+```bash 
+ffmpeg -i 2024-09-05-19-07-43_trimmed.mkv -map 0:v:0 -c:v libx264 -crf 23 -preset fast rgb_stream.mp4 
+```
 
 ### FFMPEG combine GoPro and Kinect RGB view 
 ```bash
-ffmpeg -i GoPro/GX010321_trimmed.mp4 -i Kinect/rgb_stream.mp4 \
--filter_complex "[0:v]scale=1920:1080,fps=30,setpts=PTS-STARTPTS[v0]; \
-[1:v]scale=1920:1080,fps=30,setpts=PTS-STARTPTS[v1]; \
+ffmpeg -i GoPro/GX010334_trimmed.mp4 -i Kinect/rgb_stream.mp4 \
+-filter_complex "[0:v]scale=1920:1080,fps=29.97,setpts=PTS-STARTPTS[v0]; \
+[1:v]scale=1920:1080,fps=29.97,setpts=PTS-STARTPTS[v1]; \
 [v0][v1]hstack=inputs=2,format=yuv420p[v]" \
--map "[v]" -map 0:a? -shortest output.mp4
-
+-map "[v]" -map 0:a? -shortest SynchedPreview/output.mp4
 ```
+
+### MKVMerge Trim
+```python
+command = [
+   'mkvmerge',
+   '-o', output_file,  # Output file
+   '--split', f'parts:{start_time_formatted}-{end_time_formatted}',  # Split using timestamps
+   filepath]
+```
+
+### MKVMerge Resample
+```python
+command = [
+    'mkvmerge',
+    '-o', output_file,  # Output file
+    '--default-duration', f'0:{target_fps}fps',  # Split using timestamps
+    filepath
+]
+```
+
+## Synchronization Steps
+
+### Setup
+
+- **Root Directory:** - `/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/`
+- **Day:** - `"05-09-2024"`
 
 ## Sync Steps
 
-1. Run `python goPro_timestamp_adjuster.py`.
-2. Run `python synchronization-v2.py` 
-3. Run `python gopro_trimmer.py`
-3. Run `python kinect_trimmer.py`
-4. 
+### Steps
+
+1. **Adjust GoPro Timestamp Offset**  
+   Run the following command to adjust the GoPro's timestamp using the offset between GoPro time and Kinect time (PC time):
+   ```bash
+   python goPro_timestamp_adjuster.py root_dir
+   ```
+
+2. **Generate Synchronization Metadata**  
+   Generate synchronization metadata by running the script:
+   ```bash
+   python synchronization-v2.py root_dir day
+   ```
+
+3. **Convert Kinect Frame Rate to 29.97 FPS**  
+   Adjust the Kinect recording frame rate to 29.97 FPS for consistency with the GoPro:
+   ```bash
+   python kinect_fps_converter.py root_dir
+   ```
+
+4. **Trim GoPro Recordings**  
+   Use the synchronization metadata to trim the GoPro recordings:
+   ```bash
+   python gopro_trimmer.py root_dir
+   ```
+
+5. **Trim Kinect Recordings**  
+   Similarly, trim the Kinect recordings using the synchronization metadata:
+   ```bash
+   python kinect_trimmer.py root_dir
+   ```
+
+6. **Create Side-by-Side Preview**  
+   Create a side-by-side preview of synchronized GoPro and Kinect videos:
+   ```bash
+   python sync_clip_merger.py root_dir day
+

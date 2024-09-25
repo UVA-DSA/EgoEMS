@@ -2,8 +2,10 @@ import os, sys
 import pandas, numpy
 
 
-goPro_timestamps = "goPro_timestamps"
-offsets = pandas.read_csv("offsets.csv")
+raw_data_path = "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
+
+goPro_timestamps = f"{raw_data_path}/goPro_timestamps"
+offsets = pandas.read_csv(f"{raw_data_path}/offsets.csv")
 
 
 def synchronize(day):
@@ -12,9 +14,13 @@ def synchronize(day):
 
     for person in os.listdir(day):
         person_path = os.path.join(day, person)
+        if person != "berend":
+            continue
         for intervention in os.listdir(person_path):
             intervention_path = os.path.join(person_path, intervention)
             for trial in os.listdir(intervention_path):
+                if trial != "1":
+                    continue
                 trial_path = os.path.join(intervention_path, trial)
                 sw_data = None
                 depth_data = None
@@ -239,6 +245,7 @@ def synchronize(day):
 if __name__ == "__main__":
     if len(sys.argv) > 1:
         day = sys.argv[1]
+        day = os.path.join(raw_data_path, day)
         synchronize(day)
     else: 
         print("no folder provided")
