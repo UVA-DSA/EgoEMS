@@ -2,7 +2,8 @@ import json
 import os
 import subprocess
 
-json_file = "goPro_clip.json"
+raw_data_path = "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
+json_file = f"{raw_data_path}/goPro_clip.json"
 
 # Load the JSON file
 with open(json_file, 'r') as f:

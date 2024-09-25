@@ -2,7 +2,10 @@ import json
 import os
 import subprocess
 
-json_file = "depthCam_clip.json"
+import datetime
+
+raw_data_path = "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
+json_file = f"{raw_data_path}/depthCam_clip.json"
 
 # Load the JSON file
 with open(json_file, 'r') as f:
@@ -47,14 +50,22 @@ def trim_video(filepath, start_frame, end_frame):
     start_seconds = start_frame / fps
     end_seconds = end_frame / fps
     
-    print(f"Trimming video: {filepath} from frame {start_frame} to {end_frame}")
-    print(f"Start time: {start_seconds} seconds, Duration: {end_seconds-start_seconds} seconds")
+    # Convert seconds to hh:mm:ss format
+    start_time_formatted = str(datetime.timedelta(seconds=start_seconds))
+    end_time_formatted = str(datetime.timedelta(seconds=end_seconds))
 
+    # Calculate the duration in frames and seconds
+    duration_frames = end_frame - start_frame
+    duration_seconds = end_seconds - start_seconds
+
+    # Print the details
+    print(f"Trimming video: {filepath} from frame {start_frame} to {end_frame}")
+    print(f"Start time: {start_time_formatted} (seconds: {start_seconds}), End time: {end_time_formatted} (seconds: {end_seconds}), Duration: {duration_frames} frames ({duration_seconds} seconds)")
     # Execute mkvmerge command to trim the video
     command = [
             'mkvmerge',
             '-o', output_file,  # Output file
-            '--split', f'parts:{start_seconds}-{end_seconds}',  # Split using timestamps
+            '--split', f'parts:{start_time_formatted}-{end_time_formatted}',  # Split using timestamps
             filepath
         ]
     # Run the ffmpeg command and let the output go to the terminal
@@ -71,8 +82,11 @@ def trim_video(filepath, start_frame, end_frame):
             '-of', 'default=nokey=1:noprint_wrappers=1', output_file
         ]
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-        num_frames = int(result.stdout.strip())
-        print(f"Number of frames in the output file: {num_frames} \n\n")
+        try:
+            num_frames = int(result.stdout.strip())
+            print(f"Number of frames in the output file: {num_frames} \n\n")
+        except:
+            print(f"Error getting number of frames for {file_name}. ffmpeg error:\n{result.stderr}")
     else:
         print(f"Error trimming {file_name}. ffmpeg error:\n{result.stderr}")
 
@@ -88,3 +102,6 @@ for idx in video_data['filename']:
 
     except Exception as e:
         print(f"Error processing video {filename}: {str(e)}")
+        # print stack trace
+        import traceback
+        traceback.print_exc()
