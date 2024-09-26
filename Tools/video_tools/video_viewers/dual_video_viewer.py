@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import pandas as pd
 import os
+from datetime import datetime
 
 base_path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw'  # Update with your actual path
 # Load the CSV file
@@ -29,6 +30,15 @@ def load_video_paths(index):
 # Load the first set of video paths and IDs
 gopro_path, kinect_path, gopro_file_id, kinect_file_id, gopro_timestamp_path,kinect_timestamp_path  = load_video_paths(current_video_index)
 
+print("GoPro path: ", gopro_path)
+print("GoPro Timestamp path: ", gopro_timestamp_path)
+print("*"*50)
+print("Kinect path: ", kinect_path)
+print("Kinect Timestamp path: ", kinect_timestamp_path)
+if gopro_path is None or kinect_path is None:
+    exit()  # Exit if no valid video paths
+
+
 # Read the timestamp files, kinect is a txt file and gopro is a csv file
 kinect_timestamps = pd.read_csv(kinect_timestamp_path, header=None, names=['timestamp'], dtype=str)
 gopro_timestamps = pd.read_csv(gopro_timestamp_path)
@@ -36,15 +46,19 @@ gopro_timestamps = pd.read_csv(gopro_timestamp_path)
 # Convert Kinect timestamps to a list of strings (one per frame)
 kinect_timestamps_list = kinect_timestamps['timestamp'].tolist()
 
-if gopro_path is None or kinect_path is None:
-    exit()  # Exit if no valid video paths
 
 # Load the video files
 cap1 = cv2.VideoCapture(gopro_path)
 cap2 = cv2.VideoCapture(kinect_path)
 
 # Path to the existing CSV file for sync data
-csv_path = f'{base_path}/sync_offset_data.csv'  # Update with your actual path
+current_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+sync_csv_path = f'{base_path}/sync_offsets/{current_time}'  # Update with your actual path
+
+# Create the directory if it doesn't exist
+os.makedirs(sync_csv_path, exist_ok=True)
+
+csv_path = f'{sync_csv_path}/sync_offset_data.csv'  # Update with your actual path
 
 # Load existing CSV file or create a new DataFrame if it doesn't exist
 if os.path.exists(csv_path):
@@ -64,7 +78,8 @@ playing_2 = False  # Initially paused for video 2
 frame_delay = 30  # Delay between frames in milliseconds
 
 # Create the display window
-cv2.namedWindow('Video Frame', cv2.WINDOW_NORMAL)
+cv2.namedWindow('EgoExoEMS Visual Sync Tool', cv2.WINDOW_NORMAL)
+
 
 def show_frame(cap, font, font_scale, font_color, font_thickness, file_id):
     """ Function to read and display the current frame with the frame number and file ID """
@@ -119,7 +134,9 @@ while True:
     # Combine the two frames side by side if both are available
     if frame1 is not None and frame2 is not None:
         combined_frame = np.hstack((frame1, frame2))
-        cv2.imshow('Video Frame', combined_frame)
+        cv2.imshow('EgoExoEMS Visual Sync Tool', combined_frame)
+        #resize the window
+        cv2.resizeWindow('EgoExoEMS Visual Sync Tool', 1280, 480)
 
     # Wait for a key press
     key = cv2.waitKey(frame_delay if (playing_1 or playing_2) else 0) & 0xFF
@@ -197,6 +214,13 @@ while True:
             print("No more videos.")
             break  # Exit if no more videos
 
+        print("*"*50)
+        print("Current video index: ", current_video_index)
+        print("GoPro path: ", gopro_path)
+        print("GoPro Timestamp path: ", gopro_timestamp_path)
+        print("Kinect path: ", kinect_path)
+        print("Kinect Timestamp path: ", kinect_timestamp_path)
+
         # Release the current video captures
         cap1.release()
         cap2.release()
@@ -204,6 +228,13 @@ while True:
         # Load the next videos
         cap1 = cv2.VideoCapture(gopro_path)
         cap2 = cv2.VideoCapture(kinect_path)
+
+        # load the timestamps again
+        # Read the timestamp files, kinect is a txt file and gopro is a csv file
+        kinect_timestamps = pd.read_csv(kinect_timestamp_path, header=None, names=['timestamp'], dtype=str)
+        gopro_timestamps = pd.read_csv(gopro_timestamp_path)
+
+        kinect_timestamps_list = kinect_timestamps['timestamp'].tolist()
 
         # Show the first frames of the new videos
         frame1, gopro_frame_number = show_frame(cap1, font, font_scale, font_color, font_thickness, gopro_file_id)
@@ -216,5 +247,4 @@ while True:
 # Release the video captures and close the window
 cap1.release()
 cap2.release()
-cv2.waitKey(0)
 cv2.destroyAllWindows()

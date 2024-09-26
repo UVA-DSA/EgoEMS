@@ -53,26 +53,26 @@ for root, dirs, files in os.walk(base_path):
             kinect_file_path = root
             # Find the MKV file
             for file in os.listdir(kinect_file_path):
-                if file.endswith("_fps_converted_trimmed.mkv"):
+                if file.endswith("_fps_converted.mkv"):
                     trial_dict[trial_key]['Kinect'] = os.path.join(kinect_file_path, file)
                     break
         
 # Now process the collected paths from trial_dict
-# for trial_key, paths in trial_dict.items():
-#     gopro_file_path = paths.get("GoPro")
-#     kinect_file_path = paths.get("Kinect")
+for trial_key, paths in trial_dict.items():
+    gopro_file_path = paths.get("GoPro")
+    kinect_file_path = paths.get("Kinect")
     
-#     # Only add to data if both GoPro and Kinect paths exist
-#     if gopro_file_path and kinect_file_path:
-#         date, subject, procedure, trial = trial_key
-#         data.append([date, subject, procedure, trial, gopro_file_path, kinect_file_path])
-#         print(f"GoPro: {gopro_file_path}")
-#         print(f"Kinect: {kinect_file_path}")
+    # Only add to data if both GoPro and Kinect paths exist
+    if gopro_file_path and kinect_file_path:
+        date, subject, procedure, trial = trial_key
+        data.append([date, subject, procedure, trial, gopro_file_path, kinect_file_path])
+        print(f"GoPro: {gopro_file_path}")
+        print(f"Kinect: {kinect_file_path}")
 
-# # Write the data to CSV
-# with open(output_csv, mode='w', newline='') as file:
-#     writer = csv.writer(file)
-#     writer.writerow(columns)  # Write header
-#     writer.writerows(data)  # Write data
+# Write the data to CSV
+with open(output_csv, mode='w', newline='') as file:
+    writer = csv.writer(file)
+    writer.writerow(columns)  # Write header
+    writer.writerows(data)  # Write data
 
-# print(f"CSV file generated: {output_csv}")
+print(f"CSV file generated: {output_csv}")

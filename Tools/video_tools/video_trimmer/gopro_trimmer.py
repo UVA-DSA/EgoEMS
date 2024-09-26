@@ -3,7 +3,6 @@ import os
 import subprocess
 import sys
 
-
 def get_frame_rate(video_file):
     """Gets the frame rate of the video using ffprobe."""
     command = [
@@ -24,19 +23,13 @@ def trim_video(filepath, start_frame, end_frame):
     
     # Check if the file exists
     if not os.path.exists(filepath):
-        print(f"Error: File {filepath} not found.")
+        print(f"[ERROR] File not found: {filepath}")
         return
     
-    # get the folder
+    # Get the output folder and file name
     output_folder = os.path.dirname(filepath)
-    
-    # extract the filename without the extension
     file_name = os.path.basename(filepath).split('.')[0]
-
-    output_dir = os.path.join("synchronized", output_folder)
-    os.makedirs(output_dir, exist_ok=True)
-    
-    output_file = os.path.join(output_dir, f"{file_name}_trimmed.mp4")
+    output_file = os.path.join(output_folder, f"{file_name}_trimmed.mp4")
     
     # Get the frame rate of the video
     fps = get_frame_rate(filepath)
@@ -45,37 +38,32 @@ def trim_video(filepath, start_frame, end_frame):
     start_seconds = start_frame / fps
     duration_seconds = (end_frame - start_frame) / fps
     
-    print(f"Trimming video: {filepath} from frame {start_frame} to {end_frame}")
-    print(f"Start time: {start_seconds} seconds, Duration: {duration_seconds} seconds")
+    # Print trimming details in a clean format
+    print(f"\n[INFO] Trimming video: {filepath}")
+    print(f"       Start Frame: {start_frame}, End Frame: {end_frame}")
+    print(f"       Start Time: {start_seconds:.2f} seconds, Duration: {duration_seconds:.2f} seconds\n")
     
     # Execute ffmpeg command to trim the video
-    # command = [
-    #     'ffmpeg', '-i', filepath,
-    #     '-ss', str(start_seconds),  # Start time in seconds
-    #     '-t', str(duration_seconds), # Duration in seconds
-    #     '-vcodec', 'libx264', '-acodec', 'aac',  # Re-encode video to H.264 and audio to AAC,
-    #     '-c', 'copy',  # Copy video and audio codecs,
-    #     '-map', '0',  # Map all streams from the input file,
-    #     output_file
-    # ]
-    
     command = [
         'ffmpeg', '-i', filepath,
         '-ss', str(start_seconds),  # Start time in seconds
         '-t', str(duration_seconds), # Duration in seconds
-        '-map_metadata', '0', '-map', '0:u',  # Re-encode video to H.264 and audio to AAC,
-        '-c', 'copy',  # Copy video and audio codecs,
+        '-map_metadata', '0', '-map', '0:u',  # Map metadata and all streams from input
+        '-c:v', 'libx264',  # Re-encode the video with H.264 codec
+        '-c:a', 'aac',  # Re-encode the audio with AAC codec
+        '-strict', 'experimental',  # Enable experimental features (optional for AAC)
         '-y',  # Overwrite output file if it exists
         output_file
     ]
 
-    # Run the ffmpeg command and let the output go to the terminal
+    print(f"[CMD] {' '.join(command)}")
+    
+    # Uncomment to run the command
     result = subprocess.run(command)
     
     if result.returncode == 0:
-        print(f"Trimming complete for {filepath}. Output saved to {output_file}.")
-
-        # print number of frames in the output file
+        print(f"[SUCCESS] Trimming complete for {filepath}. Output saved to {output_file}.")
+        # Check and print the number of frames in the output file
         command = [
             'ffprobe', '-v', 'error',
             '-select_streams', 'v:0',
@@ -84,22 +72,18 @@ def trim_video(filepath, start_frame, end_frame):
         ]
         result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         num_frames = int(result.stdout.strip())
-        print(f"Number of frames in the output file: {num_frames} \n\n")
+        print(f"[INFO] Number of frames in the output file: {num_frames}\n")
     else:
-        print(f"Error trimming {filepath}. ffmpeg error:\n{result.stderr}")
+        print(f"[ERROR] Trimming failed for {filepath}. ffmpeg error:\n{result.stderr}")
 
-
-# Check if main
 if __name__ == "__main__":
     
-    # get cmd line arguments
-    print(sys.argv)
-    
+    # Get command line arguments
     if len(sys.argv) < 2:
-        exit("Usage: python gopro_trimmer.py <path_to_root_dir>")
+        exit("[ERROR] Usage: python gopro_trimmer.py <path_to_root_dir>")
 
     raw_data_path = sys.argv[1]
-    json_file = f"{raw_data_path}/goPro_clip.json"
+    json_file = os.path.join(raw_data_path, "gopro_clip.json")
 
     # Load the JSON file
     with open(json_file, 'r') as f:
@@ -110,12 +94,16 @@ if __name__ == "__main__":
         filename = video_data['filename'][idx]
         start_frame = video_data['start_frame'][idx]
         end_frame = video_data['end_frame'][idx]
-        
-        # if("debrah/cardiac_arrest/2" not in filename):
-        #     continue
+
+        print("\n" + "="*60)
+        print(f"[INFO] Processing video file: {filename}")
+        print("="*60)
+
         try:
             # Trim the video using the given frames
             trim_video(filename, start_frame, end_frame)
 
         except Exception as e:
-            print(f"Error processing video {filename}: {str(e)}")
+            print(f"[ERROR] An error occurred while processing {filename}: {str(e)}")
+
+        print("="*60 + "\n")

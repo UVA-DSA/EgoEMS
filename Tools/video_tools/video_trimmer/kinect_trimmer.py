@@ -1,10 +1,8 @@
 import json
 import os
 import subprocess
-
 import datetime
 import sys
-
 
 def get_frame_rate(video_file):
     """Gets the frame rate of the video using ffprobe."""
@@ -24,30 +22,21 @@ def get_frame_rate(video_file):
 def trim_video(filepath, start_frame, end_frame):
     """Trims the video using ffmpeg based on start and end frames."""
 
-    # Update filename with the fps_converted extension
-    filepath = filepath.split('.')[0] + "_fps_converted.mkv"
-
     # Check if the file exists
     if not os.path.exists(filepath):
-        print(f"Error: File {filepath} not found.")
+        print(f"[ERROR] File not found: {filepath}")
         return
-    
-    print("*"*50)
 
-    # get the folder
+    # Get the output folder and file name
     output_folder = os.path.dirname(filepath)
-
-    # extract the filename without the extension
     file_name = os.path.basename(filepath).split('.')[0]
-    
     output_file = os.path.join(output_folder, f"{file_name}_trimmed.mkv")
 
-    # If the file exists, rename it
+    # If the output file already exists, rename it
     if os.path.exists(output_file):
         old_output_file = output_file.replace('.mkv', '_old.mkv')
         os.rename(output_file, old_output_file)
-        print(f"Renamed existing file to: {old_output_file}")
-
+        print(f"[INFO] Existing file renamed to: {old_output_file}")
 
     # Get the frame rate of the video
     fps = get_frame_rate(filepath)
@@ -56,43 +45,43 @@ def trim_video(filepath, start_frame, end_frame):
     start_seconds = start_frame / fps
     end_seconds = end_frame / fps
     
-    # Convert seconds to hh:mm:ss format
+    # Format times into hh:mm:ss
     start_time_formatted = str(datetime.timedelta(seconds=start_seconds))
     end_time_formatted = str(datetime.timedelta(seconds=end_seconds))
 
-    # Calculate the duration in frames and seconds
+    # Calculate the duration
     duration_frames = end_frame - start_frame
     duration_seconds = end_seconds - start_seconds
 
-    # Print the details
-    print(f"Trimming video: {filepath} from frame {start_frame} to {end_frame}")
-    print(f"Start time: {start_time_formatted} (seconds: {start_seconds}), End time: {end_time_formatted} (seconds: {end_seconds}), Duration: {duration_frames} frames ({duration_seconds} seconds)")
-    # Execute mkvmerge command to trim the video
+    # Print the details in a cleaner format
+    print(f"\n[INFO] Trimming video: {filepath}")
+    print(f"       Start: Frame {start_frame} ({start_time_formatted}, {start_seconds:.2f} seconds)")
+    print(f"       End:   Frame {end_frame} ({end_time_formatted}, {end_seconds:.2f} seconds)")
+    print(f"       Duration: {duration_frames} frames ({duration_seconds:.2f} seconds)\n")
+    
+    # Execute the mkvmerge command
     command = [
-            'mkvmerge',
-            '-o', output_file,  # Output file
-            '--split', f'parts:{start_time_formatted}-{end_time_formatted}',  # Split using timestamps
-            filepath
-        ]
-    # Run the ffmpeg command and let the output go to the terminal
+        'mkvmerge',
+        '-o', output_file,
+        '--split', f'parts:{start_time_formatted}-{end_time_formatted}',
+        filepath
+    ]
+    
+    print(f"[CMD] {' '.join(command)}")
+    
+    # Uncomment when ready to execute
     result = subprocess.run(command)
-    
     if result.returncode == 0:
-        print(f"Trimming complete for {file_name}. Output saved to {output_file}.")
+        print(f"[SUCCESS] Trimming completed for {file_name}. Output saved to {output_file}.")
     else:
-        print(f"Error trimming {file_name}. ffmpeg error:\n{result.stderr}")
+        print(f"[ERROR] Trimming failed for {file_name}. Error:\n{result.stderr}")
 
-# Check if main
 if __name__ == "__main__":
-    
-    # get cmd line arguments
-    print(sys.argv)
-    
     if len(sys.argv) < 2:
-        exit("Usage: python kinect_trimmer.py <path_to_root_dir>")
+        exit("[ERROR] Usage: python kinect_trimmer.py <path_to_root_dir>")
 
     raw_data_path = sys.argv[1]
-    json_file = f"{raw_data_path}/depthCam_clip.json"
+    json_file = os.path.join(raw_data_path, "depthcam_clip.json")
 
     # Load the JSON file
     with open(json_file, 'r') as f:
@@ -104,13 +93,14 @@ if __name__ == "__main__":
         start_frame = video_data['start_frame'][idx]
         end_frame = video_data['end_frame'][idx]
 
-        # if("debrah/cardiac_arrest/2" not in filename):
-        #     continue
-        
-        print(f"Processing file {filename}")
-        try:
-            # Trim the video using the given frames
-            trim_video(filename, start_frame, end_frame)
+        print("\n" + "="*60)
+        print(f"[INFO] Processing video file: {filename}")
+        print("="*60)
 
+        try:
+            # Trim the video based on frames
+            trim_video(filename, start_frame, end_frame)
         except Exception as e:
-            print(f"Error processing video {filename}: {str(e)}")
+            print(f"[ERROR] An error occurred while processing {filename}: {str(e)}")
+
+        print("="*60 + "\n")
