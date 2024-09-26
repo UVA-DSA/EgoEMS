@@ -23,6 +23,12 @@ input_folder="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/Nort
 
 # Find all MP4 files in the folder and its subdirectories
 find "$input_folder" -type f -name "*.MP4" | while read input_video; do
+
+    # Skip any file that contains "encoded" in its filename
+    if [[ "$input_video" == *encoded* ]]; then
+        echo "Skipping already encoded file: $input_video"
+        continue
+    fi
     # Extract filename without extension
     filename=$(basename -- "$input_video")
     filename="${filename%.*}"
@@ -30,18 +36,20 @@ find "$input_folder" -type f -name "*.MP4" | while read input_video; do
     # Get the directory where the input video is located
     video_dir=$(dirname "$input_video")
 
+    echo "****************************************************"
     echo "Processing GoPro file ($input_video)"
 
     # Set the output video path (same folder, same filename with -encoded.mp4 extension)
-    output_video="$video_dir/${filename}-encoded.mp4"
+    output_video="$video_dir/${filename}_encoded.MP4"
 
     # Reencode the video using libx264
     echo "Reencoding GoPro $input_video to libx264 format..."
     echo "Saving reencoded video to $output_video"
     
     # # Ensure there is a space after -i
-    ffmpeg -y -i "$input_video" -nostdin  -threads 16 -vcodec libx264 -acodec aac "$output_video"
+    # ffmpeg -y -i "$input_video" -nostdin  -threads 16 -vcodec libx264 -acodec aac "$output_video"
 
+    ffmpeg -y -i "$input_video" -nostdin  -map_metadata 0 -map 0:u -c copy "$output_video"
     # Capture exit code to check for errors
     if [ $? -eq 0 ]; then
         echo "Reencoding complete: $output_video"
@@ -55,4 +63,6 @@ find "$input_folder" -type f -name "*.MP4" | while read input_video; do
     else
         echo "Error during reencoding of $input_video."
     fi
+    echo "****************************************************"
+
 done

@@ -5,7 +5,7 @@ import csv
 base_path = "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
 
 # CSV file to write
-output_csv = "output.csv"
+output_csv = f"{base_path}/file_paths_for_sync.csv"
 
 # Columns for the CSV file
 columns = ['date', 'subject', 'procedure', 'trial', 'gopro_file_path', 'kinect_file_path']
@@ -13,36 +13,66 @@ columns = ['date', 'subject', 'procedure', 'trial', 'gopro_file_path', 'kinect_f
 # List to store rows of data
 data = []
 
+# Dictionary to store the GoPro and Kinect paths per trial
+trial_dict = {}
+
 # Traverse the directory structure
 for root, dirs, files in os.walk(base_path):
-    # Check if both GoPro and Kinect directories are present
-    if 'GoPro' in root or 'Kinect' in root:
-        # Split the root path to extract date, subject, procedure, and trial information
-        path_parts = root.split(os.sep)
+    # Split the root path to extract date, subject, procedure, and trial information
+    path_parts = root.split(os.sep)
+    
+    # Ensure the folder structure matches expectations
+    if len(path_parts) >= 13:
+        date = path_parts[8]
+        subject = path_parts[9]
+        procedure = path_parts[10]
+        trial = path_parts[11]
+        # Create a key for this particular trial
+        trial_key = (date, subject, procedure, trial)
         
-        # Ensure the folder structure matches expectations
-        if len(path_parts) >= 9:
-            date = path_parts[7]
-            subject = path_parts[8]
-            procedure = path_parts[9]
-            trial = path_parts[10]
-            
-            # Paths for GoPro and Kinect
-            if 'GoPro' in root:
-                gopro_file_path = root
-                kinect_file_path = os.path.join(os.path.dirname(root), 'Kinect')
-            elif 'Kinect' in root:
-                kinect_file_path = root
-                gopro_file_path = os.path.join(os.path.dirname(root), 'GoPro')
-            
-            # Add the row of data if both paths exist
-            if os.path.exists(gopro_file_path) and os.path.exists(kinect_file_path):
-                data.append([date, subject, procedure, trial, gopro_file_path, kinect_file_path])
+        # Initialize trial entry in dictionary if not already present
+        if trial_key not in trial_dict:
+            trial_dict[trial_key] = {"GoPro": None, "Kinect": None}
+        
+        # Paths for GoPro and Kinect
+        if 'GoPro' in root:
+            gopro_file_path = root
+            # Find the MP4 file
+            for file in os.listdir(gopro_file_path):
+                if file.endswith("_encoded.MP4"):
+                    trial_dict[trial_key]['GoPro'] = os.path.join(gopro_file_path, file)
+                    gopro_file_id = file.split('.')[0]  # Extract file name without extension
+                    gopro_timestamp_path = f'{base_path}/goPro_timestamps/{gopro_file_id.split("_")[0]}.csv'
+                    # copy the timestamp file to the same folder as the GoPro video
+                    print(f"\nCopying {gopro_timestamp_path} to {gopro_file_path}")
+                    # gopro paths has spaces in the string. fix it before cp command 
+                    os.system(f'cp "{gopro_timestamp_path}" "{gopro_file_path}"')
+                    break
 
-# Write the data to CSV
-with open(output_csv, mode='w', newline='') as file:
-    writer = csv.writer(file)
-    writer.writerow(columns)  # Write header
-    writer.writerows(data)  # Write data
+        elif 'Kinect' in root:
+            kinect_file_path = root
+            # Find the MKV file
+            for file in os.listdir(kinect_file_path):
+                if file.endswith("_fps_converted_trimmed.mkv"):
+                    trial_dict[trial_key]['Kinect'] = os.path.join(kinect_file_path, file)
+                    break
+        
+# Now process the collected paths from trial_dict
+# for trial_key, paths in trial_dict.items():
+#     gopro_file_path = paths.get("GoPro")
+#     kinect_file_path = paths.get("Kinect")
+    
+#     # Only add to data if both GoPro and Kinect paths exist
+#     if gopro_file_path and kinect_file_path:
+#         date, subject, procedure, trial = trial_key
+#         data.append([date, subject, procedure, trial, gopro_file_path, kinect_file_path])
+#         print(f"GoPro: {gopro_file_path}")
+#         print(f"Kinect: {kinect_file_path}")
 
-print(f"CSV file generated: {output_csv}")
+# # Write the data to CSV
+# with open(output_csv, mode='w', newline='') as file:
+#     writer = csv.writer(file)
+#     writer.writerow(columns)  # Write header
+#     writer.writerows(data)  # Write data
+
+# print(f"CSV file generated: {output_csv}")
