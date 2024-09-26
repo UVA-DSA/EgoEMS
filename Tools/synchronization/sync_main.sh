@@ -28,7 +28,7 @@ repo_dir="/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Tools"
 
 # # Step 1: Adjust the timestamp offset of GoPro
 # echo "Adjusting GoPro timestamp offset..."
-# python "$repo_dir/synchronization/goPro_timestamp_adjuster.py" "$root_dir"
+# python "$repo_dir/synchronization/gopro_timestamp_adjuster.py" "$root_dir"
 # if [ $? -ne 0 ]; then
 #     echo "Error adjusting GoPro timestamp offset."
 #     exit 1
