@@ -1,8 +1,7 @@
-# %%
 import cv2
 
 # Path to the video file
-video_path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/05-09-2024/debrah/cardiac_arrest/3/GoPro/GX010335.MP4'
+video_path = '/home/kesharaw/Desktop/repos/EgoExoEMS/TestData/GX010334_trimmed.mp4'
 
 # Open the video file
 cap = cv2.VideoCapture(video_path)
@@ -13,48 +12,71 @@ if not cap.isOpened():
 
 # Font settings
 font = cv2.FONT_HERSHEY_SIMPLEX
-font_scale = 3  # Adjust the size of the font
+font_scale = 1  # Font scale
 font_color = (0, 255, 0)  # Green color
-font_thickness = 5  # Thickness of the text
+font_thickness = 2  # Font thickness
 
-while cap.isOpened():
+# Variables for playback control
+playing = False  # Initially paused
+frame_delay = 30  # Delay between frames in milliseconds
+
+# Create the display window
+cv2.namedWindow('Video Frame', cv2.WINDOW_NORMAL)
+
+def show_frame(cap, font, font_scale, font_color, font_thickness):
+    """ Function to read and display the current frame with the frame number """
     ret, frame = cap.read()
-
+    
     if not ret:
-        print("Reached the end of the video or error occurred.")
-        break
+        print("Reached the end of the video.")
+        return False
 
     # Get the current frame number
     frame_number = int(cap.get(cv2.CAP_PROP_POS_FRAMES))
 
-    # Display the frame number on the video (top-left corner)
+    # Display the frame number on the video
     text = f"Frame: {frame_number}"
-    cv2.putText(frame, text, (50, 100), font, font_scale, font_color, font_thickness)
+    cv2.putText(frame, text, (50, 50), font, font_scale, font_color, font_thickness)
 
-    # Show the frame with the frame number
+    # Resize the frame for display
+    frame = cv2.resize(frame, (1280, 720))
     cv2.imshow('Video Frame', frame)
+    
+    return True
 
-    # Wait for a key press, 0 means wait indefinitely
-    key = cv2.waitKey(0) & 0xFF
+while True:
+    if playing:
+        if not show_frame(cap, font, font_scale, font_color, font_thickness):
+            break
+        # Wait for the specified delay for automatic playback
+        key = cv2.waitKey(frame_delay) & 0xFF
+    else:
+        # If paused, wait indefinitely for a key press
+        key = cv2.waitKey(0) & 0xFF
 
-    # Right arrow key (to go to the next frame)
-    if key == ord('d'):
-        continue
+    # If spacebar is pressed, toggle play/pause
+    if key == ord(' '):
+        playing = not playing
 
-    # Left arrow key (rewind a frame)
-    if key == ord('a'):
-        # Move one frame back
-        current_pos = cap.get(cv2.CAP_PROP_POS_FRAMES)
-        cap.set(cv2.CAP_PROP_POS_FRAMES, current_pos - 2)
-        continue
-
-    # Press 'q' to quit the viewer
+    # Press 'q' to quit
     if key == ord('q'):
         break
 
-# Release the video capture object and close the display window
+    # Right arrow key (step forward one frame if paused)
+    if key == ord('d') and not playing:
+        if not show_frame(cap, font, font_scale, font_color, font_thickness):
+            break
+
+    # Left arrow key (rewind one frame if paused)
+    if key == ord('a') and not playing:
+        current_pos = cap.get(cv2.CAP_PROP_POS_FRAMES)
+        new_pos = max(0, current_pos - 2)  # Go back by one frame (skip one due to zero-based index)
+        cap.set(cv2.CAP_PROP_POS_FRAMES, new_pos)  # Set the new frame position
+
+        # Display the updated frame after rewinding
+        if not show_frame(cap, font, font_scale, font_color, font_thickness):
+            break
+
+# Release the video capture and close the window
 cap.release()
 cv2.destroyAllWindows()
-
-
-

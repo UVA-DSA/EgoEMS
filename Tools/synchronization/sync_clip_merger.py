@@ -22,7 +22,7 @@ def run_ffmpeg(gopro_file, kinect_file, output_dir):
 
     # Step 1: Extract RGB stream from Kinect MKV file
     extract_rgb_command = [
-        "ffmpeg", "-i", kinect_file, "-map", "0:v:0", "-c:v", "libx264", "-crf", "23", "-preset", "fast", kinect_rgb_path
+        "ffmpeg", "-i", kinect_file, "-map", "0:v:0", "-c:v", "libx264", "-crf", "23", "-preset", "fast", "-y", kinect_rgb_path
     ]
     subprocess.run(extract_rgb_command, check=True)
 
@@ -30,7 +30,7 @@ def run_ffmpeg(gopro_file, kinect_file, output_dir):
     combine_streams_command = [
         "ffmpeg", "-i", gopro_path, "-i", kinect_rgb_path,
         "-filter_complex", "[0:v]scale=1920:1080,fps=29.97,setpts=PTS-STARTPTS[v0]; [1:v]scale=1920:1080,fps=29.97,setpts=PTS-STARTPTS[v1]; [v0][v1]hstack=inputs=2,format=yuv420p[v]",
-        "-map", "[v]", "-map", "0:a?", "-shortest", output_video_path
+        "-map", "[v]", "-map", "0:a?", "-shortest", "-y", output_video_path
     ]
     subprocess.run(combine_streams_command, check=True)
 
@@ -71,8 +71,8 @@ if __name__ == "__main__":
             
 
             if gopro_files and kinect_files:
-                if("debrah/cardiac_arrest/2" not in root):
-                    continue
+                # if("debrah/cardiac_arrest/2" not in root):
+                #     continue
                 
                 print("*" * 50)
                 print(f"\nProcessing folder: {root}")

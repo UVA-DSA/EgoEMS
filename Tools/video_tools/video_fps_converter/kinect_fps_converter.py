@@ -26,6 +26,12 @@ def convert_fps(filepath, target_fps):
     output_file = os.path.join(output_folder, f"{file_name}_fps_converted.mkv")
     print(f"Output file: {output_file}")
  
+    # If the file exists, rename it
+    if os.path.exists(output_file):
+        old_output_file = output_file.replace('.mkv', '_old.mkv')
+        os.rename(output_file, old_output_file)
+        print(f"Renamed existing file to: {old_output_file}")
+
     command = [
             'mkvmerge',
             '-o', output_file,  # Output file

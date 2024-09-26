@@ -18,54 +18,57 @@ module load anaconda  &&
 source /home/cjh9fw/.bashrc  &&
 echo "$HOSTNAME" &&
 conda activate cogems &&
+module load ffmpeg &&
 
 # Set the root directory and day variables
 root_dir="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
 day="05-09-2024"
+repo_dir="/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Tools"
 
-# Step 1: Adjust the timestamp offset of GoPro
-echo "Adjusting GoPro timestamp offset..."
-python goPro_timestamp_adjuster.py "$root_dir"
-if [ $? -ne 0 ]; then
-    echo "Error adjusting GoPro timestamp offset."
-    exit 1
-fi
 
-# Step 2: Generate synchronization metadata
-echo "Generating synchronization metadata..."
-python synchronization-v2.py "$root_dir" "$day"
-if [ $? -ne 0 ]; then
-    echo "Error generating synchronization metadata."
-    exit 1
-fi
+# # Step 1: Adjust the timestamp offset of GoPro
+# echo "Adjusting GoPro timestamp offset..."
+# python "$repo_dir/synchronization/goPro_timestamp_adjuster.py" "$root_dir"
+# if [ $? -ne 0 ]; then
+#     echo "Error adjusting GoPro timestamp offset."
+#     exit 1
+# fi
 
-# Step 3: Convert Kinect frame rate to 29.97
-echo "Converting Kinect frame rate to 29.97 FPS..."
-python kinect_fps_converter.py "$root_dir"
-if [ $? -ne 0 ]; then
-    echo "Error converting Kinect frame rate."
-    exit 1
-fi
+# # Step 2: Generate synchronization metadata
+# echo "Generating synchronization metadata..."
+# python "$repo_dir/synchronization/synchronization-v2.py" "$root_dir" "$day"
+# if [ $? -ne 0 ]; then
+#     echo "Error generating synchronization metadata."
+#     exit 1
+# fi
 
-# Step 4: Trim GoPro recordings
-echo "Trimming GoPro recordings..."
-python gopro_trimmer.py "$root_dir"
-if [ $? -ne 0 ]; then
-    echo "Error trimming GoPro recordings."
-    exit 1
-fi
+# # Step 3: Convert Kinect frame rate to 29.97
+# echo "Converting Kinect frame rate to 29.97 FPS..."
+# python "$repo_dir/video_tools/video_fps_converter/kinect_fps_converter.py" "$root_dir"
+# if [ $? -ne 0 ]; then
+#     echo "Error converting Kinect frame rate."
+#     exit 1
+# fi
 
-# Step 5: Trim Kinect recordings
-echo "Trimming Kinect recordings..."
-python kinect_trimmer.py "$root_dir"
-if [ $? -ne 0 ]; then
-    echo "Error trimming Kinect recordings."
-    exit 1
-fi
+# # Step 4: Trim GoPro recordings
+# echo "Trimming GoPro recordings..."
+# python "$repo_dir/video_tools/video_trimmer/gopro_trimmer.py" "$root_dir"
+# if [ $? -ne 0 ]; then
+#     echo "Error trimming GoPro recordings."
+#     exit 1
+# fi
+
+# # Step 5: Trim Kinect recordings
+# echo "Trimming Kinect recordings..."
+# python "$repo_dir/video_tools/video_trimmer/kinect_trimmer.py" "$root_dir"
+# if [ $? -ne 0 ]; then
+#     echo "Error trimming Kinect recordings."
+#     exit 1
+# fi
 
 # Step 6: Create a side-by-side preview of synchronized GoPro and Kinect
 echo "Creating side-by-side preview of synchronized videos..."
-python sync_clip_merger.py "$root_dir" "$day"
+python "$repo_dir/synchronization/sync_clip_merger.py" "$root_dir" "$day"
 if [ $? -ne 0 ]; then
     echo "Error creating side-by-side preview."
     exit 1

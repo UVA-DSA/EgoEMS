@@ -65,6 +65,7 @@ def trim_video(filepath, start_frame, end_frame):
         '-t', str(duration_seconds), # Duration in seconds
         '-map_metadata', '0', '-map', '0:u',  # Re-encode video to H.264 and audio to AAC,
         '-c', 'copy',  # Copy video and audio codecs,
+        '-y',  # Overwrite output file if it exists
         output_file
     ]
 

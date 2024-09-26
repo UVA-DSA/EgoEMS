@@ -42,6 +42,13 @@ def trim_video(filepath, start_frame, end_frame):
     
     output_file = os.path.join(output_folder, f"{file_name}_trimmed.mkv")
 
+    # If the file exists, rename it
+    if os.path.exists(output_file):
+        old_output_file = output_file.replace('.mkv', '_old.mkv')
+        os.rename(output_file, old_output_file)
+        print(f"Renamed existing file to: {old_output_file}")
+
+
     # Get the frame rate of the video
     fps = get_frame_rate(filepath)
     
