@@ -168,7 +168,11 @@ while True:
             # Append a new row to the DataFrame
             new_row = pd.DataFrame([{
                 'gopro_file_id': gopro_file_id,
+                'gopro_file_path': gopro_path,
+                'gopro_timestamp_path': gopro_timestamp_path,
                 'kinect_file_id': kinect_file_id,
+                'kinect_file_path': kinect_path,
+                'kinect_timestamp_path': kinect_timestamp_path,
                 'sync_gopro_frame': gopro_frame_number,
                 'sync_kinect_frame': kinect_frame_number,
                 'sync_gopro_time': gopro_time,
@@ -212,4 +216,5 @@ while True:
 # Release the video captures and close the window
 cap1.release()
 cap2.release()
+cv2.waitKey(0)
 cv2.destroyAllWindows()
