@@ -199,17 +199,18 @@ if __name__ == "__main__":
         # get cmd line arguments
     print(sys.argv)
     
-    if len(sys.argv) < 2:
-        exit("Usage: python synchronization-v2.py <path_to_root_dir>")
+    if len(sys.argv) < 3:
+        exit("Usage: python synchronization-v2.py <path_to_root_dir> <sync_offset_data_folder")
 
     base_dir = sys.argv[1]
+    sync_offset_folder = sys.argv[2]
 
     # one folder up from the base_dir
     sync_dir = f'{os.path.dirname(base_dir)}/Synchronized'
     os.makedirs(sync_dir, exist_ok=True)
 
     # Load sync_offset_data.csv
-    offset_file_path = f"{base_dir}/sync_offset_data.csv"
+    offset_file_path = f"{base_dir}/sync_offsets/{sync_offset_folder}/sync_offset_data.csv"
 
     process_recordings(base_dir,offset_file_path,sync_dir)
 
