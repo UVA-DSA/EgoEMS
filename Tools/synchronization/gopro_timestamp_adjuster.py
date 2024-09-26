@@ -26,16 +26,17 @@ def recalculate_timestamps_cts(gopro_timestamp_file,kinect_timestamp_file,sync_g
     backward_range = range(sync_gopro_frame - 1, -1, -1)
     forward_range = range(sync_gopro_frame + 1, len(gopro_timestamps_df))
 
-    # Adjust backwards by creating a range for the differences
-    gopro_timestamps_df.loc[backward_range, 'recalculated_epoch'] = (
-        sync_kinect_time - cts_diff * (sync_gopro_frame - gopro_timestamps_df.loc[backward_range].index)
-    )
+    # Adjust backwards from sync_gopro_frame: keep subtracting cts_diff progressively
+    for i in range(sync_gopro_frame - 1, -1, -1):
+        gopro_timestamps_df.iloc[i, gopro_timestamps_df.columns.get_loc('recalculated_epoch')] = (
+            gopro_timestamps_df.iloc[i + 1, gopro_timestamps_df.columns.get_loc('recalculated_epoch')] - cts_diff
+        )
 
-    # Adjust forwards by creating a range for the differences
-    gopro_timestamps_df.loc[forward_range, 'recalculated_epoch'] = (
-        sync_kinect_time + cts_diff * (gopro_timestamps_df.loc[forward_range].index - sync_gopro_frame)
-    )
-
+    # Adjust forwards from sync_gopro_frame: keep adding cts_diff progressively
+    for i in range(sync_gopro_frame + 1, len(gopro_timestamps_df)):
+        gopro_timestamps_df.iloc[i, gopro_timestamps_df.columns.get_loc('recalculated_epoch')] = (
+            gopro_timestamps_df.iloc[i - 1, gopro_timestamps_df.columns.get_loc('recalculated_epoch')] + cts_diff
+        )
 
     # Ensure recalculated_epoch is in nanoseconds and convert the column to int64
     gopro_timestamps_df['recalculated_epoch'] = gopro_timestamps_df['recalculated_epoch'].astype('int64')
