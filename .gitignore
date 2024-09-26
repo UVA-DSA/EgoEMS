@@ -6,6 +6,10 @@
 
 TestData
 
+*.DS_Store
+
+sync_data.csv
+
 **/logs
 
 **/outputs/

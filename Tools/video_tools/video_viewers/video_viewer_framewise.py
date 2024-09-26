@@ -1,7 +1,7 @@
 import cv2
 
 # Path to the video file
-video_path = '/home/kesharaw/Desktop/repos/EgoExoEMS/TestData/GX010334_trimmed.mp4'
+video_path = '/Users/kesharaw/Desktop/repos/EgoExoEMS/TestData/Kinect/2024-09-05-19-07-43.mkv'
 
 # Open the video file
 cap = cv2.VideoCapture(video_path)
@@ -43,6 +43,10 @@ def show_frame(cap, font, font_scale, font_color, font_thickness):
     cv2.imshow('Video Frame', frame)
     
     return True
+
+# Show the first frame immediately
+if not show_frame(cap, font, font_scale, font_color, font_thickness):
+    exit()  # Exit if there is an error showing the first frame
 
 while True:
     if playing:
