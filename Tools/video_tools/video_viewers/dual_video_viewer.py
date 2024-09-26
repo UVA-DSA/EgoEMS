@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import pandas as pd
+import os
 
 # Path to sync data output file
 sync_data_path = 'sync_data.csv'
@@ -26,8 +27,11 @@ kinect_timestamps_list = kinect_timestamps['timestamp'].tolist()
 cap1 = cv2.VideoCapture(gopro_path)
 cap2 = cv2.VideoCapture(kinect_path)
 
-# Create a pandas dataframe to store the data
-df = pd.DataFrame(columns=['gopro_file_id', 'kinect_file_id', 'sync_gopro_frame', 'sync_kinect_frame', 'sync_gopro_time', 'sync_kinect_time','sync_offset_gp-kinect'])
+# Load existing CSV file or create a new DataFrame if it doesn't exist
+if os.path.exists(sync_data_path):
+    df = pd.read_csv(sync_data_path)
+else:
+    df = pd.DataFrame(columns=['gopro_file_id', 'kinect_file_id', 'sync_gopro_frame', 'sync_kinect_frame', 'sync_gopro_time', 'sync_kinect_time','sync_offset_gp-kinect'])
 
 if not cap1.isOpened() or not cap2.isOpened():
     print("Error: Cannot open one or both video files.")
@@ -123,21 +127,32 @@ while True:
         gopro_time = gopro_timestamps.iloc[gopro_frame_number]['epoch']
         kinect_time = kinect_timestamps_list[kinect_frame_number]  # Get the timestamp from the list
         
-        # Create a new DataFrame row
-        new_row = pd.DataFrame([{
-            'gopro_file_id': gopro_file_id,
-            'kinect_file_id': kinect_file_id,
-            'sync_gopro_frame': gopro_frame_number,
-            'sync_kinect_frame': kinect_frame_number,
-            'sync_gopro_time': gopro_time,
-            'sync_kinect_time': kinect_time,
-            'sync_offset_gp-kinect': int(gopro_time) - int(kinect_time)
-        }])
+                # Check if a row with the same gopro_file_id already exists in the DataFrame
+        existing_row_index = df[df['gopro_file_id'] == gopro_file_id].index
 
-        # Append the new row to the DataFrame using pd.concat()
-        df = pd.concat([df, new_row], ignore_index=True)
+        if not existing_row_index.empty:
+            # Update the existing row
+            df.loc[existing_row_index, 'sync_gopro_frame'] = gopro_frame_number
+            df.loc[existing_row_index, 'sync_kinect_frame'] = kinect_frame_number
+            df.loc[existing_row_index, 'sync_gopro_time'] = gopro_time
+            df.loc[existing_row_index, 'sync_kinect_time'] = kinect_time
+            df.loc[existing_row_index, 'sync_offset_gp-kinect'] = int(gopro_time) - int(kinect_time)
+            print(f"Updated sync point for {gopro_file_id}: GoPro Frame: {gopro_frame_number}, Kinect Frame: {kinect_frame_number}, GoPro Time: {gopro_time}, Kinect Time: {kinect_time}")
+        else:
+            # Append a new row to the DataFrame
+            new_row = pd.DataFrame([{
+                'gopro_file_id': gopro_file_id,
+                'kinect_file_id': kinect_file_id,
+                'sync_gopro_frame': gopro_frame_number,
+                'sync_kinect_frame': kinect_frame_number,
+                'sync_gopro_time': gopro_time,
+                'sync_kinect_time': kinect_time,
+                'sync_offset_gp-kinect': int(gopro_time) - int(kinect_time)
 
-        print(f"Saved sync point: GoPro Frame: {gopro_frame_number}, Kinect Frame: {kinect_frame_number}, GoPro Time: {gopro_time}, Kinect Time: {kinect_time}")
+            }])
+            df = pd.concat([df, new_row], ignore_index=True)
+            print(f"Saved new sync point: GoPro Frame: {gopro_frame_number}, Kinect Frame: {kinect_frame_number}, GoPro Time: {gopro_time}, Kinect Time: {kinect_time}")
+
 
     # Press 'q' to quit
     if key == ord('q'):
