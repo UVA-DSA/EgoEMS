@@ -44,6 +44,24 @@ command = [
 
 ### Steps
 
+1. **Re-Encode Gopro**
+   Run the gopro_reencoder.sh by folder.
+   
+3. **Convert Frame Rate of Kinect to GoPro Frame Rate**
+   Use kinect_fps_convert.sh to downsample kinect recordings.
+   
+5. **File Path Extract**
+   Run the file path extractor. (This will run for the whole september directory, given that the goPro files have been reencoded)
+
+6. **Visual Synch**
+   Use dual_video_viewer.py to synchronize the depth camera and gopro video. This will output offset csvs in the synch_offset folder.
+
+   Manually remove synched videos from file path list.
+
+7. **Synch Main**
+   Update synch_main.sh "sync_offset_dir" with the synchronized offset folder. Then ./sync_main.sh.
+
+**The following is achieved by running sync_main.sh:**
 1. **Adjust GoPro Timestamp Offset**  
    Run the following command to adjust the GoPro's timestamp using the offset between GoPro time and Kinect time (PC time):
    ```bash
