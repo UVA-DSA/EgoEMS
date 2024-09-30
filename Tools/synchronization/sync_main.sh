@@ -23,58 +23,72 @@ module load ffmpeg &&
 
 # Set root directories and synchronization offset path
 root_dir="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
-sync_offset_dir="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/sync_offsets/2024-09-26_18-03-36"
 repo_dir="/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Tools"
 
-# # Step 1: Adjust GoPro timestamp offset
-# echo "[INFO] Adjusting GoPro timestamp offset..."
-# python "$repo_dir/synchronization/gopro_timestamp_adjuster.py" "$sync_offset_dir"
-# if [ $? -ne 0 ]; then
-#     echo "[ERROR] Failed to adjust GoPro timestamp offset."
-#     exit 1
-# fi
-# echo "[SUCCESS] GoPro timestamp adjustment completed."
-# echo ""
+# Set the day for which synchronization is being performed
+day="05-09-2024"
 
-# # Step 2: Generate synchronization metadata
-# echo "[INFO] Generating synchronization metadata..."
-# python "$repo_dir/synchronization/synchronization-v2.py" "$root_dir" "$sync_offset_dir"
-# if [ $? -ne 0 ]; then
-#     echo "[ERROR] Failed to generate synchronization metadata."
-#     exit 1
-# fi
-# echo "[SUCCESS] Synchronization metadata generated."
-# echo ""
 
-# # Step 3: Convert Kinect frame rate to 29.97 FPS (if needed)
-# echo "[INFO] Converting Kinect frame rate to 29.97 FPS..."
-# python "$repo_dir/video_tools/video_fps_converter/kinect_fps_converter.py" "$root_dir"
-# if [ $? -ne 0 ]; then
-#     echo "[ERROR] Failed to convert Kinect frame rate."
-#     exit 1
-# fi
-# echo "[SUCCESS] Kinect frame rate conversion completed."
-# echo ""
+# Step 1: Adjust GoPro timestamp offset
+echo "[INFO] Adjusting GoPro timestamp offset..."
+python "$repo_dir/synchronization/gopro_timestamp_adjuster.py" "$root_dir" "$day"
+if [ $? -ne 0 ]; then
+    echo "[ERROR] Failed to adjust GoPro timestamp offset."
+    exit 1
+fi
+echo "[SUCCESS] GoPro timestamp adjustment completed."
+echo ""
 
-# # Step 4: Trim GoPro recordings
-# echo "[INFO] Trimming GoPro recordings..."
-# python "$repo_dir/video_tools/video_trimmer/gopro_trimmer.py" "$root_dir"
-# if [ $? -ne 0 ]; then
-#     echo "[ERROR] Failed to trim GoPro recordings."
-#     exit 1
-# fi
-# echo "[SUCCESS] GoPro recordings trimmed."
-# echo ""
+# Ask the user to continue with the next steps
+read -p "Press Enter to Generate Synchronization Metadata ..."
 
-# # Step 5: Trim Kinect recordings
-# echo "[INFO] Trimming Kinect recordings..."
-# python "$repo_dir/video_tools/video_trimmer/kinect_trimmer.py" "$root_dir"
-# if [ $? -ne 0 ]; then
-#     echo "[ERROR] Failed to trim Kinect recordings."
-#     exit 1
-# fi
-# echo "[SUCCESS] Kinect recordings trimmed."
-# echo ""
+# Step 2: Generate synchronization metadata
+echo "[INFO] Generating synchronization metadata..."
+python "$repo_dir/synchronization/synchronization-v2.py" "$root_dir" "$day"
+if [ $? -ne 0 ]; then
+    echo "[ERROR] Failed to generate synchronization metadata."
+    exit 1
+fi
+echo "[SUCCESS] Synchronization metadata generated."
+echo ""
+
+# # # Not needed anymore for this task.
+# # # Step 3: Convert Kinect frame rate to 29.97 FPS (if needed)
+# # echo "[INFO] Converting Kinect frame rate to 29.97 FPS..."
+# # python "$repo_dir/video_tools/video_fps_converter/kinect_fps_converter.py" "$root_dir"
+# # if [ $? -ne 0 ]; then
+# #     echo "[ERROR] Failed to convert Kinect frame rate."
+# #     exit 1
+# # fi
+# # echo "[SUCCESS] Kinect frame rate conversion completed."
+# # echo ""
+
+read -p "Press Enter to Trim GoPro Recordings ..."
+
+# Step 4: Trim GoPro recordings
+echo "[INFO] Trimming GoPro recordings..."
+python "$repo_dir/video_tools/video_trimmer/gopro_trimmer.py" "$root_dir"
+if [ $? -ne 0 ]; then
+    echo "[ERROR] Failed to trim GoPro recordings."
+    exit 1
+fi
+echo "[SUCCESS] GoPro recordings trimmed."
+echo ""
+
+# Ask the user to continue with the next steps
+read -p "Press Enter to Trim Kinect Recordings ..."
+
+# Step 5: Trim Kinect recordings
+echo "[INFO] Trimming Kinect recordings..."
+python "$repo_dir/video_tools/video_trimmer/kinect_trimmer.py" "$root_dir"
+if [ $? -ne 0 ]; then
+    echo "[ERROR] Failed to trim Kinect recordings."
+    exit 1
+fi
+echo "[SUCCESS] Kinect recordings trimmed."
+
+# Ask the user to continue with the next steps
+read -p "Press Enter to Create Side-by-Side Preview ..."
 
 # Step 6: Create a side-by-side preview of synchronized GoPro and Kinect videos
 echo "[INFO] Creating side-by-side preview of synchronized videos..."
@@ -86,5 +100,5 @@ fi
 echo "[SUCCESS] Side-by-side preview created successfully."
 echo ""
 
-# Final message after successful completion of all tasks
+# # Final message after successful completion of all tasks
 echo "[INFO] All synchronization steps completed successfully."

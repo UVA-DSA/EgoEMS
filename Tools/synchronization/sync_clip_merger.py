@@ -15,6 +15,9 @@ def run_ffmpeg(gopro_file, kinect_file, output_dir):
     kinect_rgb_path = os.path.join(output_dir, "Kinect", f"{kinect_file_name}_rgb_stream.mp4")
     output_video_path = os.path.join(output_dir, "SynchedPreview", "synched_preview.mp4")
 
+    if os.path.exists(output_video_path):
+        print(f"[INFO] Synched Preview video already exists at {output_video_path}")
+        return
     # Ensure output directories exist
     os.makedirs(os.path.join(output_dir, "Kinect"), exist_ok=True)
     os.makedirs(os.path.join(output_dir, "SynchedPreview"), exist_ok=True)

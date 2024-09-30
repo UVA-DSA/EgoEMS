@@ -42,11 +42,17 @@ def recalculate_timestamps_cts(gopro_timestamp_file, kinect_timestamp_file, sync
 
 if __name__ == "__main__":
     # Read command line arguments
-    if len(sys.argv) < 2:
-        exit("[ERROR] Usage: python goPro_timestamp_adjuster.py <path_to_sync_offset_dir>")
+    if len(sys.argv) < 3:
+        exit("[ERROR] Usage: python goPro_timestamp_adjuster.py <root_dir> <sync_date>")
 
     base_path = sys.argv[1]
-    offset_file_path = os.path.join(base_path, "sync_offset_data.csv")
+    sync_day = sys.argv[2]
+
+    sync_offset_folder = os.path.join(base_path , 'sync_offsets', sync_day)
+
+    # Load sync offset data
+    offset_file_path = os.path.join(sync_offset_folder, f'{sync_day}.csv')
+
     
     # Check if the offset file exists
     if not os.path.exists(offset_file_path):

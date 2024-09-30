@@ -4,6 +4,7 @@ import csv
 # Base path to traverse
 base_path = "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
 
+date_to_generate = ["20-09-2024", "24-09-2024"] 
 # CSV file to write
 output_csv = f"{base_path}/file_paths_for_sync.csv"
 
@@ -27,6 +28,9 @@ for root, dirs, files in os.walk(base_path):
         subject = path_parts[9]
         procedure = path_parts[10]
         trial = path_parts[11]
+        
+        if(date not in date_to_generate):
+            continue
         # Create a key for this particular trial
         trial_key = (date, subject, procedure, trial)
         
@@ -64,11 +68,13 @@ for trial_key, paths in trial_dict.items():
     
     # Only add to data if both GoPro and Kinect paths exist
     if gopro_file_path and kinect_file_path:
+        print("*"*50)
         date, subject, procedure, trial = trial_key
         data.append([date, subject, procedure, trial, gopro_file_path, kinect_file_path])
         print(f"GoPro: {gopro_file_path}")
         print(f"Kinect: {kinect_file_path}")
 
+        print("*"*50)
 # Write the data to CSV
 with open(output_csv, mode='w', newline='') as file:
     writer = csv.writer(file)

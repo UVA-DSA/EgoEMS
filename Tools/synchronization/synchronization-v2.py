@@ -171,10 +171,18 @@ if __name__ == "__main__":
         exit("[ERROR] Usage: python synchronization-v2.py <path_to_root_dir> <path_to_sync_offset_data_folder>")
 
     base_dir = sys.argv[1]
-    sync_offset_folder = sys.argv[2]
+    sync_day = sys.argv[2]
+
+    sync_offset_folder = os.path.join(base_dir , 'sync_offsets', sync_day)
+
     sync_dir = os.path.join(os.path.dirname(base_dir), 'Synchronized')
     os.makedirs(sync_dir, exist_ok=True)
 
     # Load sync offset data
-    offset_file_path = os.path.join(sync_offset_folder, 'sync_offset_data.csv')
+    offset_file_path = os.path.join(sync_offset_folder, f'{sync_day}.csv')
+
+    if not os.path.exists(offset_file_path):
+        exit(f"[ERROR] Sync offset file not found: {offset_file_path}")
+
+    print(f"[INFO] Processing recordings in {offset_file_path}")
     process_recordings(base_dir, offset_file_path, sync_dir)

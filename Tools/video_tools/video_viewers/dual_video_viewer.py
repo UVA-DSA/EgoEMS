@@ -205,9 +205,14 @@ while True:
         print(f"Sync data saved to {csv_path}")
         # Save data here (add your sync logic)
         print("Moving to next video...")
+        
+        # Remove current_video_index row from csv_data
+        csv_data.drop(current_video_index, inplace=True)
+        csv_data.reset_index(drop=True, inplace=True)
+        csv_data.to_csv(csv_file_path, index=False)
 
         # Increment the video index and load the next set of videos
-        current_video_index += 1
+        # current_video_index += 1
         gopro_path, kinect_path, gopro_file_id, kinect_file_id, gopro_timestamp_path,kinect_timestamp_path = load_video_paths(current_video_index)
 
         if gopro_path is None or kinect_path is None:

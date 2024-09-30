@@ -19,7 +19,7 @@ echo "$HOSTNAME"
 module load ffmpeg 
 
 # Set the folder where MP4 files are located
-input_folder="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/05-09-2024/"
+input_folder="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/19-09-2024/"
 
 # Find all MP4 files in the folder and its subdirectories
 find "$input_folder" -type f -name "*.MP4" | while read input_video; do
