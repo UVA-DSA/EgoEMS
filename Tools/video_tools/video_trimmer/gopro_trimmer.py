@@ -31,6 +31,11 @@ def trim_video(filepath, start_frame, end_frame):
     file_name = os.path.basename(filepath).split('.')[0]
     output_file = os.path.join(output_folder, f"{file_name}_trimmed.mp4")
     
+    # # Check if the output file already exists
+    # if os.path.exists(output_file):
+    #     print(f"[WARNING] GoPro Trimmed Output file already exists: {output_file}")
+    #     return
+
     # Get the frame rate of the video
     fps = get_frame_rate(filepath)
     

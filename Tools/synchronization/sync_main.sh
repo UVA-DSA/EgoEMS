@@ -26,7 +26,7 @@ root_dir="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Ga
 repo_dir="/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Tools"
 
 # Set the day for which synchronization is being performed
-day="05-09-2024"
+day="20-09-2024"
 
 
 # Step 1: Adjust GoPro timestamp offset
@@ -40,7 +40,7 @@ echo "[SUCCESS] GoPro timestamp adjustment completed."
 echo ""
 
 # Ask the user to continue with the next steps
-read -p "Press Enter to Generate Synchronization Metadata ..."
+# read -p "Press Enter to Generate Synchronization Metadata ..."
 
 # Step 2: Generate synchronization metadata
 echo "[INFO] Generating synchronization metadata..."
@@ -63,7 +63,7 @@ echo ""
 # # echo "[SUCCESS] Kinect frame rate conversion completed."
 # # echo ""
 
-read -p "Press Enter to Trim GoPro Recordings ..."
+# read -p "Press Enter to Trim GoPro Recordings ..."
 
 # Step 4: Trim GoPro recordings
 echo "[INFO] Trimming GoPro recordings..."
@@ -76,7 +76,7 @@ echo "[SUCCESS] GoPro recordings trimmed."
 echo ""
 
 # Ask the user to continue with the next steps
-read -p "Press Enter to Trim Kinect Recordings ..."
+# read -p "Press Enter to Trim Kinect Recordings ..."
 
 # Step 5: Trim Kinect recordings
 echo "[INFO] Trimming Kinect recordings..."
@@ -88,7 +88,7 @@ fi
 echo "[SUCCESS] Kinect recordings trimmed."
 
 # Ask the user to continue with the next steps
-read -p "Press Enter to Create Side-by-Side Preview ..."
+# read -p "Press Enter to Create Side-by-Side Preview ..."
 
 # Step 6: Create a side-by-side preview of synchronized GoPro and Kinect videos
 echo "[INFO] Creating side-by-side preview of synchronized videos..."

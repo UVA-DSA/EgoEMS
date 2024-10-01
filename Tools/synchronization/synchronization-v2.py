@@ -156,6 +156,9 @@ def process_recordings(base_dir, sync_offset_path, sync_dir):
         kinect_file_path = row['kinect_file_path']
         gopro_timestamp_path = row['gopro_timestamp_path']
         kinect_timestamp_path = row['kinect_timestamp_path']
+        
+        # remove _fps_converted from the file name of kinect file if it exists
+        kinect_file_path = kinect_file_path.replace('_fps_converted', '')
 
         gopro_sync_metadata, kinect_sync_metadata = synchronize(base_dir, gopro_file_path, kinect_file_path, gopro_timestamp_path, kinect_timestamp_path, gopro_sync_metadata, kinect_sync_metadata, sync_dir)
 

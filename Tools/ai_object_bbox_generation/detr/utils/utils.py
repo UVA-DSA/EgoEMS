@@ -111,13 +111,16 @@ def run_worflow(my_image, my_model):
                            bboxes_scaled)
 
 
-def generate_bboxes(video_files, model, json_output_path, target_fps, save_images=False):
+def generate_bboxes(video_files, model, target_fps, save_images=False):
 
     bbox_all = {}
     for video_path in video_files:
         video_id = video_path.split('/')[-1].split('.')[0]
-        img_output_path = f'./outputs/bboxes/{video_id}/bbox_annotated/'
-        original_img_output_path = f'./outputs/bboxes/{video_id}/original/'
+        base_dir = '/'.join(video_path.split('/')[:-2])
+        img_output_path = f'{base_dir}/BBOX_MASKS/bboxes/'
+        original_img_output_path = f'{base_dir}/BBOX_MASKS/original/'
+
+        json_output_path = f'{base_dir}/BBOX_MASKS/'
 
         print("Processing video file:", video_path)
         
@@ -229,5 +232,5 @@ def generate_bboxes(video_files, model, json_output_path, target_fps, save_image
         bbox_all[video_id] = bbox_data
         
         # Save bounding box data to a JSON file
-    with open(f'{json_output_path}/bboxes.json', 'w') as f:
+    with open(f'{json_output_path}/bbox_annotations.json', 'w') as f:
         json.dump(bbox_all, f, indent=4)

@@ -18,7 +18,8 @@ module purge &&
 module load anaconda  &&
 source /home/cjh9fw/.bashrc  &&
 echo "$HOSTNAME" &&
-conda activate egoexoems &&
+conda activate sam &&
+echo "$(which python)" &&
 python -u detr_bbox_generator.py &&
 echo "Done" &&
 exit
