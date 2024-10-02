@@ -8,7 +8,8 @@ save_images = True
 # Set the desired target FPS for downsampling
 target_fps = 1  # You can adjust this value as needed
 # Define the video file path and output path
-video_root_path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/'
+# video_root_path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/24-09-2024'
+video_root_path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Final/19-09-2024'
 
 # load model
 model = torch.hub.load('facebookresearch/detr',

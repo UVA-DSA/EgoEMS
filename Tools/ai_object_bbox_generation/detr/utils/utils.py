@@ -123,6 +123,10 @@ def generate_bboxes(video_files, model, target_fps, save_images=False):
         json_output_path = f'{base_dir}/BBOX_MASKS/'
 
         print("Processing video file:", video_path)
+        print("Base directory:", base_dir)
+        print("Image output path:", img_output_path)
+        print("Original image output path:", original_img_output_path)
+
         
         if not os.path.exists(json_output_path):
             os.makedirs(json_output_path)
