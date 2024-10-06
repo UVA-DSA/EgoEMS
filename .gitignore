@@ -4,6 +4,8 @@
 *.png
 **/stats/*.csv
 
+**/*.tflite
+
 TestData
 
 *.DS_Store
