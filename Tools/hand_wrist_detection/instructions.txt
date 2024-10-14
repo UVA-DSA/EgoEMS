@@ -1,0 +1,16 @@
+Detecting the wrist position of the hands
+
+Detecting hands
+
+Use grounding dino. 
+Code: https://github.com/sleekEagle/CPR-quality/blob/main/data_prep/detect_hands.py
+The methods in this code can return the bounding box coordinates of the hand
+
+Detect wrist
+Use google mediapipe to detect wrist coordinates
+Code: 
+https://github.com/sleekEagle/CPR-quality/blob/main/data_prep/detect_keypts.py
+
+Use the class WristDet_mediapipe to do this
+Look at the function called detect_kypts_mp() on how to use this class to detect wrist position. 
+You have to first crop the image with the coordinates given by grounding DINO. Then use the WristDet_mediapipe class

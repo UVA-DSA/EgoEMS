@@ -1,5 +1,5 @@
 import hydra
-from dataloader import sw_dataloader as dataloader
+from Benchmarks.CPR_quality.smartwatch.test_data import sw_dataloader as dataloader
 from model.SWnet import SWNET
 import torch.nn as nn
 import torch
