@@ -1,0 +1,3 @@
+[submodule "Tools/deidentification/egoblur/EgoBlur"]
+	path = Tools/deidentification/egoblur/EgoBlur
+	url = https://github.com/facebookresearch/EgoBlur.git
