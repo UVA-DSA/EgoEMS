@@ -9,7 +9,6 @@ from torchvision import transforms
 from collections import OrderedDict
 import itertools
 
-
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
 ])
@@ -21,6 +20,7 @@ def collate_fn(batch):
     padded_flow_clips = []
     padded_rgb_clips = []
     padded_smartwatch_clips = []
+    padded_depth_sensor_clips = []
     keystep_labels = []
     keystep_ids = []
     start_frames = []
@@ -31,15 +31,16 @@ def collate_fn(batch):
     trial_ids = []
 
     # Initialize max lengths for each modality, check if each is available
-    max_video_len = max([clip['frames'].shape[0] for clip in batch if 'frames' in clip], default=0)
-    max_audio_len = max([clip['audio'].shape[0] for clip in batch if 'audio' in clip], default=0)
-    max_flow_len = max([clip['flow'].shape[0] for clip in batch if 'flow' in clip], default=0)
-    max_rgb_len = max([clip['rgb'].shape[0] for clip in batch if 'rgb' in clip], default=0)
-    max_smartwatch_len = max([clip['smartwatch'].shape[1] if isinstance(clip['smartwatch'], torch.Tensor) else 0 for clip in batch if 'smartwatch' in clip], default=0)
+    max_video_len = max([clip['frames'].shape[0] for clip in batch if isinstance(clip.get('frames', None), torch.Tensor)], default=0)
+    max_audio_len = max([clip['audio'].shape[0] for clip in batch if isinstance(clip.get('audio', None), torch.Tensor)], default=0)
+    max_flow_len = max([clip['flow'].shape[0] for clip in batch if isinstance(clip.get('flow', None), torch.Tensor)], default=0)
+    max_rgb_len = max([clip['rgb'].shape[0] for clip in batch if isinstance(clip.get('rgb', None), torch.Tensor)], default=0)
+    max_smartwatch_len = max([clip['smartwatch'].shape[1] for clip in batch if isinstance(clip.get('smartwatch', None), torch.Tensor)], default=0)
+    max_depth_sensor_len = max([clip['depth_sensor'].shape[1] for clip in batch if isinstance(clip.get('depth_sensor', None), torch.Tensor)], default=0)
 
     for b in batch:
         # Pad video frames if available
-        if 'frames' in b:
+        if 'frames' in b and isinstance(b['frames'], torch.Tensor):
             video_clip = b['frames']
             video_pad_size = max_video_len - video_clip.shape[0]
             if video_pad_size > 0:
@@ -48,7 +49,7 @@ def collate_fn(batch):
             padded_clips.append(video_clip)
 
         # Pad audio if available
-        if 'audio' in b:
+        if 'audio' in b and isinstance(b['audio'], torch.Tensor):
             audio_clip = b['audio']
             audio_pad_size = max_audio_len - audio_clip.shape[0]
             if audio_pad_size > 0:
@@ -57,7 +58,7 @@ def collate_fn(batch):
             padded_audio_clips.append(audio_clip)
 
         # Pad flow data if available
-        if 'flow' in b:
+        if 'flow' in b and isinstance(b['flow'], torch.Tensor):
             flow_clip = b['flow']
             flow_pad_size = max_flow_len - flow_clip.shape[0]
             if flow_pad_size > 0:
@@ -66,7 +67,7 @@ def collate_fn(batch):
             padded_flow_clips.append(flow_clip)
 
         # Pad rgb data if available
-        if 'rgb' in b:
+        if 'rgb' in b and isinstance(b['rgb'], torch.Tensor):
             rgb_clip = b['rgb']
             rgb_pad_size = max_rgb_len - rgb_clip.shape[0]
             if rgb_pad_size > 0:
@@ -75,13 +76,22 @@ def collate_fn(batch):
             padded_rgb_clips.append(rgb_clip)
 
         # Pad smartwatch data if available
-        if 'smartwatch' in b:
+        if 'smartwatch' in b and isinstance(b['smartwatch'], torch.Tensor):
             smartwatch_clip = b['smartwatch']
             smartwatch_pad_size = max_smartwatch_len - smartwatch_clip.shape[1]
             if smartwatch_pad_size > 0:
                 smartwatch_pad = torch.zeros((smartwatch_clip.shape[0], smartwatch_pad_size))
                 smartwatch_clip = torch.cat([smartwatch_clip, smartwatch_pad], dim=1)
             padded_smartwatch_clips.append(smartwatch_clip)
+
+        # Pad depth_sensor data if available
+        if 'depth_sensor' in b and isinstance(b['depth_sensor'], torch.Tensor):
+            depth_sensor_clip = b['depth_sensor']
+            depth_sensor_pad_size = max_depth_sensor_len - depth_sensor_clip.shape[1]
+            if depth_sensor_pad_size > 0:
+                depth_sensor_pad = torch.zeros((depth_sensor_clip.shape[0], depth_sensor_pad_size))
+                depth_sensor_clip = torch.cat([depth_sensor_clip, depth_sensor_pad], dim=1)
+            padded_depth_sensor_clips.append(depth_sensor_clip)
 
         # Collect other fields
         keystep_labels.append(b['keystep_label'])
@@ -105,16 +115,12 @@ def collate_fn(batch):
     }
 
     # Only include modality data if it exists
-    if padded_clips:
-        output['frames'] = torch.stack(padded_clips)
-    if padded_audio_clips:
-        output['audio'] = torch.stack(padded_audio_clips)
-    if padded_flow_clips:
-        output['flow'] = torch.stack(padded_flow_clips)
-    if padded_rgb_clips:
-        output['rgb'] = torch.stack(padded_rgb_clips)
-    if padded_smartwatch_clips:
-        output['smartwatch'] = torch.stack(padded_smartwatch_clips)
+    output['frames'] = torch.stack(padded_clips) if padded_clips else torch.zeros(0)
+    output['audio'] = torch.stack(padded_audio_clips) if padded_audio_clips else torch.zeros(0)
+    output['flow'] = torch.stack(padded_flow_clips) if padded_flow_clips else torch.zeros(0)
+    output['rgb'] = torch.stack(padded_rgb_clips) if padded_rgb_clips else torch.zeros(0)
+    output['smartwatch'] = torch.stack(padded_smartwatch_clips) if padded_smartwatch_clips else torch.zeros(0)
+    output['depth_sensor'] = torch.stack(padded_depth_sensor_clips) if padded_depth_sensor_clips else torch.zeros(0)
 
     return output
 
@@ -151,6 +157,7 @@ class EgoExoEMSDataset(Dataset):
                 flow_path = None
                 rgb_path = None
                 smartwatch_path = None
+                depth_sensor_path = None
 
                 # Check for each data type and retrieve the corresponding file path
                 if 'video' in self.data_types:
@@ -161,17 +168,19 @@ class EgoExoEMSDataset(Dataset):
                     rgb_path = avail_streams.get('i3d_rgb', {}).get('file_path', None)
                 if 'smartwatch' in self.data_types:
                     smartwatch_path = avail_streams.get('smartwatch_imu', {}).get('file_path', None)
-   
+                if 'depth_sensor' in self.data_types:
+                    depth_sensor_path = avail_streams.get('vl6180_ToF_depth', {}).get('file_path', None)
 
                 # Skip the trial if any required data type is not available
                 if ('video' in self.data_types and not video_path) or \
                 ('flow' in self.data_types and not flow_path) or \
                 ('rgb' in self.data_types and not rgb_path) or \
-                ('smartwatch' in self.data_types and not smartwatch_path):
+                ('smartwatch' in self.data_types and not smartwatch_path) or \
+                ('depth_sensor' in self.data_types and not depth_sensor_path):
                     print(f"[Warning] Skipping trial {trial['trial_id']} for subject {subject['subject_id']} due to missing data")
                     continue
 
-                if video_path or flow_path or rgb_path or smartwatch_path:
+                if video_path or flow_path or rgb_path or smartwatch_path or depth_sensor_path:
                     keysteps = trial['keysteps']
                     for step in keysteps:
                         start_frame = math.floor(step['start_t'] * self.fps)
@@ -188,6 +197,8 @@ class EgoExoEMSDataset(Dataset):
                             dict['rgb_path']=os.path.join(self.data_base_path, rgb_path)
                         if 'smartwatch' in self.data_types:
                             dict['smartwatch_path']=os.path.join(self.data_base_path, smartwatch_path)
+                        if 'depth_sensor' in self.data_types:
+                            dict['depth_sensor_path'] = os.path.join(self.data_base_path, depth_sensor_path)
                         dict['start_frame']=start_frame
                         dict['end_frame']=end_frame
                         dict['start_t']=step['start_t']
@@ -221,6 +232,7 @@ class EgoExoEMSDataset(Dataset):
     def __len__(self):
         # The length should now be based on the number of clips, not items
         return len(self.clip_indices)
+
     def __getitem__(self, idx):
         # Get the actual item and the clip index for this sample
         item_idx, clip_idx = self.clip_indices[idx]
@@ -232,6 +244,7 @@ class EgoExoEMSDataset(Dataset):
         rgb = torch.zeros(0)
         audio = torch.zeros(1, 0)
         sw_acc = torch.zeros(0)
+        depth_sensor_readings = torch.zeros(0)
 
         # Load video if available
         if 'video' in self.data_types:
@@ -277,6 +290,18 @@ class EgoExoEMSDataset(Dataset):
             # permute to (batch, frames, channels)
             sw_acc = sw_acc.permute(1, 0)
 
+        # Load depth_sensor data if available
+        if 'depth_sensor' in self.data_types:
+            depth_sensor_path = item['depth_sensor_path']
+            with open(depth_sensor_path, 'r') as f:
+                lines = f.readlines()[1:]
+            depth_sensor_readings = [line.strip() for line in lines][item['start_frame']:item['end_frame']]
+            # Process depth_sensor data into tensors as before
+            depth_reading = []
+            depth_reading = [float(l.split(',')[0]) for l in depth_sensor_readings]
+            depth_sensor_readings = torch.from_numpy(np.array([depth_reading])).float()
+            # permute to (batch, frames, channels)
+            depth_sensor_readings = depth_sensor_readings.permute(1, 0)
 
         output = {
             'frames': frames,
@@ -284,6 +309,7 @@ class EgoExoEMSDataset(Dataset):
             'rgb': rgb,
             'audio': audio,
             'smartwatch': sw_acc,
+            'depth_sensor': depth_sensor_readings,
             'keystep_label': item['keystep_label'],
             'keystep_id': item['keystep_id'],
             'start_frame': item['start_frame'],
@@ -296,4 +322,3 @@ class EgoExoEMSDataset(Dataset):
 
         # Return the output
         return output
-
