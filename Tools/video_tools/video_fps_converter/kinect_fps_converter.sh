@@ -20,6 +20,7 @@ module load ffmpeg
 
 # Set the folder where MKV files are located
 input_folder="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/19-09-2024/"
+input_folder="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Lahiru/"
 
 # Find all MKV files in the folder and its subdirectories
 find "$input_folder" -type f -name "*.mkv" | while read input_video; do
@@ -47,7 +48,7 @@ find "$input_folder" -type f -name "*.mkv" | while read input_video; do
     echo "[INFO] Converting frame rate of Kinect file to 29.97 FPS"
     echo "[INFO] Saving converted video to: $output_video"
     
-    mkvmerge -o "$output_video" --default-duration 0:29.97fps "$input_video"
+    # mkvmerge -o "$output_video" --default-duration 0:29.97fps "$input_video"
 
     # Capture exit code to check for errors
     if [ $? -eq 0 ]; then

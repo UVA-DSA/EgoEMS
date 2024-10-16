@@ -24,7 +24,7 @@ transformer_params = {
     "hidden_dim": 128,
     "layer_dim": 4,
     "dropout": 0.1,
-    "input_dim": 64,
+    "input_dim": 1024,
     "output_dim": 16,
     "batch_first": True
 
@@ -43,7 +43,7 @@ learning_params = {
 dataloader_params = {
     
     "batch_size": 1,
-    "observation_window": 120,
+    "observation_window": 30,
     "fold": 1,
     "fps": 30,
     "train_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/keysteps/train_split.json',
