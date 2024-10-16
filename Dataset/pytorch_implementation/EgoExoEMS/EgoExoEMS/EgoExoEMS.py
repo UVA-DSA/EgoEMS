@@ -113,6 +113,7 @@ class EgoExoEMSDataset(Dataset):
     def __init__(self, annotation_file, data_base_path, fps, 
                 frames_per_clip=None, transform=None,
                 data_types=['smartwatch'],
+                split='train',
                 audio_sample_rate=48000):
         
         self.annotation_file = annotation_file
@@ -121,9 +122,11 @@ class EgoExoEMSDataset(Dataset):
         self.frames_per_clip = frames_per_clip  # Store frames_per_clip
         self.transform = transform
         self.audio_sample_rate = audio_sample_rate
+        self.data_types=data_types
+        self.split=split
         self.data = []
         self.clip_indices = []  # This will store (item_idx, clip_idx) tuples
-        self.data_types=data_types
+
         
         self._load_annotations()
         self._generate_clip_indices()
@@ -144,6 +147,13 @@ class EgoExoEMSDataset(Dataset):
                     rgb_path = avail_streams.get('i3d_rgb', {}).get('file_path', None)
                 if 'smartwatch' in self.data_types:
                     smartwatch_path = avail_streams.get('smartwatch_imu', {}).get('file_path', None)
+                    #read split file
+                    with open(os.path.join('Annotations/splits/cpr_quality/subject_splits.json'), 'r') as sw_file:
+                        splits = json.load(sw_file)
+                        if self.split=='train':
+                            subjects = splits['train'].split(',')
+                        elif self.split=='validation':
+                            subjects = splits['validation'].split(',')
 
                 if video_path or flow_path or rgb_path or smartwatch_path:
                     keysteps = trial['keysteps']
@@ -162,6 +172,9 @@ class EgoExoEMSDataset(Dataset):
                             dict['rgb_path']=os.path.join(self.data_base_path, rgb_path)
                         if 'smartwatch' in self.data_types:
                             dict['smartwatch_path']=os.path.join(self.data_base_path, smartwatch_path[1:])
+                            #skip if subject not in split
+                            if not subject['subject_id'] in subjects:
+                                continue
                         dict['start_frame']=start_frame
                         dict['end_frame']=end_frame
                         dict['start_t']=step['start_t']
