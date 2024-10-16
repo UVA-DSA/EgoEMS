@@ -18,7 +18,7 @@ tcn_model_params = {
 
 
 transformer_params = {
-    "d_model": 1024,
+    "d_model": 128,
     "nhead": 4,
     "num_layers": 4,
     "hidden_dim": 128,

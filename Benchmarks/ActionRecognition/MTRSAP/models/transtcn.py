@@ -212,12 +212,12 @@ class TransformerModel(nn.Module):
 
 
         # # Preprocess input
-        x = self.preprocess(x)
+        # x = self.preprocess(x)
         # print("preprocess_out",x.shape)
         # # TCN encoder
-        # x = self.encoder(x)
+        x = self.encoder(x)
         # print("encoder_out",x.shape)
-        # x = x.permute(0, 2, 1)
+        x = x.permute(0, 2, 1)
         
         # # Add positional encoding
         x = self.pe(x)
