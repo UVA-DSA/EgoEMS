@@ -74,30 +74,64 @@ def synchronize_smartwatch_depth(sw_data, depth_data, timestamps):
     """Synchronize smartwatch and depth sensor data based on GoPro timestamps."""
     sw_timestamps = sw_data['sw_epoch_ms'].astype('int64')
     ds_timestamps = depth_data.iloc[:, 0].astype('int64')
+    
+    print(f"[INFO] Smartwatch timestamps: {len(sw_timestamps)}, Depth sensor timestamps: {len(ds_timestamps)}, GoPro timestamps: {len(timestamps)}")
 
     sw_index, depth_index = 0, 0
     sw_data_list, depth_data_list = [], []
 
-    for gopro_epoch in timestamps:
-        # Synchronize smartwatch data
-        while sw_index < len(sw_timestamps) - 1 and not (sw_timestamps[sw_index] * 1e6 <= gopro_epoch < sw_timestamps[sw_index + 1] * 1e6):
-            sw_index += 1
-        sw_data_list.append({
-            'sw_value_X_Axis': sw_data['value_X_Axis'].iloc[sw_index] if sw_index < len(sw_timestamps) else 0,
-            'sw_value_Y_Axis': sw_data['value_Y_Axis'].iloc[sw_index] if sw_index < len(sw_timestamps) else 0,
-            'sw_value_Z_Axis': sw_data['value_Z_Axis'].iloc[sw_index] if sw_index < len(sw_timestamps) else 0,
-        })
 
-        # Synchronize depth sensor data
-        while depth_index < len(ds_timestamps) - 1 and not (ds_timestamps[depth_index] <= gopro_epoch < ds_timestamps[depth_index + 1]):
+    for gopro_epoch in timestamps:
+        
+        # Synchronize smartwatch data
+               #print(f"gopro_epoch: {gopro_epoch}")
+        found_sw_data = False
+        while sw_index < len(sw_timestamps) - 1:
+            if gopro_epoch >= sw_timestamps[sw_index] * 1000000 and gopro_epoch < sw_timestamps[sw_index + 1] * 1000000:
+                sw_data_list.append({
+                    'sw_value_X_Axis': sw_data['value_X_Axis'].iloc[sw_index],
+                    'sw_value_Y_Axis': sw_data['value_Y_Axis'].iloc[sw_index],
+                    'sw_value_Z_Axis': sw_data['value_Z_Axis'].iloc[sw_index],
+                })
+                #print("sw data found!")
+                found_sw_data = True
+                break
+            sw_index += 1
+                
+        #for this timestamp, if we cannot find sw data, we should put in zeroes
+        if not found_sw_data:
+            #print("MISSING SW DATA")
+            sw_data_list.append({
+                'sw_value_X_Axis': 0,
+                'sw_value_Y_Axis': 0,
+                'sw_value_Z_Axis': 0,
+            })
+            sw_index = 0
+
+        found_ds_data = False
+        #print(f"this is gopro_epoch: {gopro_epoch} {type(gopro_epoch)} and this is ds_timestamp: {ds_timestamps[depth_index]} {type(ds_timestamps[depth_index])}")
+        while depth_index < len(ds_timestamps) - 1:
+            #print(depth_index)
+            if np.int64(gopro_epoch) >= ds_timestamps[depth_index] and np.int64(gopro_epoch) < ds_timestamps[depth_index + 1]:
+                depth_data_list.append({
+                    'depth_value': depth_data[depth_data.columns[1]].iloc[depth_index],
+                })
+                #print("depth camera data found!")
+                found_ds_data = True
+                break
             depth_index += 1
-        depth_data_list.append({
-            'depth_value': depth_data.iloc[depth_index, 1] if depth_index < len(ds_timestamps) else 0
-        })
+                
+        #for this timestamp, if we cannot find ds data, we should put in zeroes
+        if not found_ds_data:
+            #print("missing DEPTH DATA")
+            depth_data_list.append({
+                    'depth_value': 0,
+                }) 
+            depth_index = 0
 
     return pd.DataFrame(sw_data_list), pd.DataFrame(depth_data_list)
 
-def synchronize(base_dir, gopro_file_path, kinect_file_path, gopro_timestamp_path, kinect_timestamp_path, gopro_sync_metadata, kinect_sync_metadata, sync_dir):
+def synchronize(base_dir, gopro_file_path, kinect_file_path, gopro_timestamp_path, kinect_timestamp_path, gopro_sync_metadata, kinect_sync_metadata):
     """Synchronize trials."""
     gopro_file_id = os.path.basename(gopro_file_path).split('.')[0]
     trial_path_parts = gopro_file_path.split('/')
@@ -133,15 +167,18 @@ def synchronize(base_dir, gopro_file_path, kinect_file_path, gopro_timestamp_pat
         timestamps = gp_adj_ts[gp_sf:gp_ef]
         df_sw, df_ds = synchronize_smartwatch_depth(sw_data, depth_data, timestamps)
 
-        # Save synchronized data to CSVs
-        for df, sensor, folder in [(df_sw, 'smartwatch', 'smartwatch_data'), (df_ds, 'depthSensor', 'depthSensor_data')]:
-            output_path = os.path.join(sync_dir, day, person, intervention, trial, folder)
-            os.makedirs(output_path, exist_ok=True)
-            df.to_csv(os.path.join(output_path, f"{day}_{person}_{intervention}_{trial}_{sensor}.csv"), index=False)
+        sync_sw_csv_path = os.path.join(trial_path, 'smartwatch_data')
+        sync_ds_csv_path = os.path.join(trial_path, 'distance_sensor_data')
+
+        os.makedirs(sync_sw_csv_path, exist_ok=True)
+        os.makedirs(sync_ds_csv_path, exist_ok=True)
+
+        df_sw.to_csv(os.path.join(sync_sw_csv_path, f"sync_smartwatch.csv"), index=False)
+        df_ds.to_csv(os.path.join(sync_ds_csv_path, f"sync_depth_sensor.csv"), index=False)
 
     return gopro_sync_metadata, kinect_sync_metadata
 
-def process_recordings(base_dir, sync_offset_path, sync_dir):
+def process_recordings(base_dir, sync_offset_path):
     """Process and synchronize recordings based on sync offset data."""
     sync_data = pd.read_csv(sync_offset_path)
 
@@ -156,8 +193,11 @@ def process_recordings(base_dir, sync_offset_path, sync_dir):
         kinect_file_path = row['kinect_file_path']
         gopro_timestamp_path = row['gopro_timestamp_path']
         kinect_timestamp_path = row['kinect_timestamp_path']
+        
+        # remove _fps_converted from the file name of kinect file if it exists
+        kinect_file_path = kinect_file_path.replace('_fps_converted', '')
 
-        gopro_sync_metadata, kinect_sync_metadata = synchronize(base_dir, gopro_file_path, kinect_file_path, gopro_timestamp_path, kinect_timestamp_path, gopro_sync_metadata, kinect_sync_metadata, sync_dir)
+        gopro_sync_metadata, kinect_sync_metadata = synchronize(base_dir, gopro_file_path, kinect_file_path, gopro_timestamp_path, kinect_timestamp_path, gopro_sync_metadata, kinect_sync_metadata)
 
         print("="*50 + "\n")
     
@@ -175,8 +215,6 @@ if __name__ == "__main__":
 
     sync_offset_folder = os.path.join(base_dir , 'sync_offsets', sync_day)
 
-    sync_dir = os.path.join(os.path.dirname(base_dir), 'Synchronized')
-    os.makedirs(sync_dir, exist_ok=True)
 
     # Load sync offset data
     offset_file_path = os.path.join(sync_offset_folder, f'{sync_day}.csv')
@@ -185,4 +223,4 @@ if __name__ == "__main__":
         exit(f"[ERROR] Sync offset file not found: {offset_file_path}")
 
     print(f"[INFO] Processing recordings in {offset_file_path}")
-    process_recordings(base_dir, offset_file_path, sync_dir)
+    process_recordings(base_dir, offset_file_path)

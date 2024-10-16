@@ -4,6 +4,9 @@
 *.png
 **/stats/*.csv
 
+**/*.tflite
+
+**/temp
 TestData
 
 *.DS_Store
@@ -11,6 +14,13 @@ TestData
 sync_data.csv
 
 **/logs
+
+**/demo_assets/
+**/ego_blur_output/
+**/weights/
+
+**/output/
+**/plots/
 
 **/outputs/
 *.pth

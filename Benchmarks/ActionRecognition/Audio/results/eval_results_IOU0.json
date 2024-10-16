@@ -1,0 +1,594 @@
+{
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/0": {
+        "precision": 0.6,
+        "recall": 0.5454545454545454,
+        "f1_score": 0.5714285714285713,
+        "mae_start": 4.629111666666668,
+        "mae_end": 14.38926333333333,
+        "edit_score": 0.18181818181818177
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1": {
+        "precision": 0.6086956521739131,
+        "recall": 0.7777777777777778,
+        "f1_score": 0.6829268292682927,
+        "mae_start": 11.636798571428569,
+        "mae_end": 13.46662142857143,
+        "edit_score": 0.5652173913043479
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/2": {
+        "precision": 0.5416666666666666,
+        "recall": 0.7647058823529411,
+        "f1_score": 0.6341463414634146,
+        "mae_start": 9.744568461538462,
+        "mae_end": 16.02216076923077,
+        "edit_score": 0.45833333333333337
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3": {
+        "precision": 0.5925925925925926,
+        "recall": 0.8,
+        "f1_score": 0.6808510638297872,
+        "mae_start": 16.629016875000005,
+        "mae_end": 18.523577500000002,
+        "edit_score": 0.5925925925925926
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/4": {
+        "precision": 0.7777777777777778,
+        "recall": 0.7,
+        "f1_score": 0.7368421052631577,
+        "mae_start": 0.8405228571428568,
+        "mae_end": 17.15921857142857,
+        "edit_score": 0.6
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/5": {
+        "precision": 0.46153846153846156,
+        "recall": 0.75,
+        "f1_score": 0.5714285714285714,
+        "mae_start": 5.711619166666666,
+        "mae_end": 8.025783333333335,
+        "edit_score": 0.5384615384615384
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/0": {
+        "precision": 0.6875,
+        "recall": 0.5789473684210527,
+        "f1_score": 0.6285714285714286,
+        "mae_start": 19.54190909090909,
+        "mae_end": 15.102463636363632,
+        "edit_score": 0.5263157894736843
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/1": {
+        "precision": 0.6521739130434783,
+        "recall": 0.7894736842105263,
+        "f1_score": 0.7142857142857143,
+        "mae_start": 18.0867,
+        "mae_end": 20.459077999999998,
+        "edit_score": 0.5652173913043479
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2": {
+        "precision": 0.65,
+        "recall": 0.7222222222222222,
+        "f1_score": 0.6842105263157895,
+        "mae_start": 13.422424615384617,
+        "mae_end": 19.285689230769233,
+        "edit_score": 0.5
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/3": {
+        "precision": 0.5454545454545454,
+        "recall": 0.7058823529411765,
+        "f1_score": 0.6153846153846153,
+        "mae_start": 12.49101916666667,
+        "mae_end": 16.320633333333337,
+        "edit_score": 0.4545454545454546
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/4": {
+        "precision": 0.7142857142857143,
+        "recall": 0.7894736842105263,
+        "f1_score": 0.7500000000000001,
+        "mae_start": 15.87109133333333,
+        "mae_end": 17.615764,
+        "edit_score": 0.5238095238095238
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/0": {
+        "precision": 0.4,
+        "recall": 0.18181818181818182,
+        "f1_score": 0.25000000000000006,
+        "mae_start": 15.046,
+        "mae_end": 9.92259,
+        "edit_score": 0.36363636363636365
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1": {
+        "precision": 0.6666666666666666,
+        "recall": 0.5833333333333334,
+        "f1_score": 0.6222222222222222,
+        "mae_start": 19.24703214285714,
+        "mae_end": 17.366494285714285,
+        "edit_score": 0.33333333333333337
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/0": {
+        "precision": 0.9090909090909091,
+        "recall": 0.43478260869565216,
+        "f1_score": 0.5882352941176471,
+        "mae_start": 45.075599999999994,
+        "mae_end": 44.222179999999994,
+        "edit_score": 0.3913043478260869
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1": {
+        "precision": 0.44,
+        "recall": 0.4074074074074074,
+        "f1_score": 0.4230769230769231,
+        "mae_start": 40.37334545454546,
+        "mae_end": 41.70026727272727,
+        "edit_score": 0.2222222222222222
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/0": {
+        "precision": 0.5714285714285714,
+        "recall": 0.5217391304347826,
+        "f1_score": 0.5454545454545454,
+        "mae_start": 31.72361166666667,
+        "mae_end": 30.44950833333333,
+        "edit_score": 0.3913043478260869
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1": {
+        "precision": 0.8,
+        "recall": 0.6,
+        "f1_score": 0.6857142857142857,
+        "mae_start": 23.943333333333328,
+        "mae_end": 21.885574166666668,
+        "edit_score": 0.5
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/10": {
+        "precision": 0.5714285714285714,
+        "recall": 0.4444444444444444,
+        "f1_score": 0.5,
+        "mae_start": 17.167749999999998,
+        "mae_end": 13.712571666666664,
+        "edit_score": 0.40740740740740744
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11": {
+        "precision": 0.8,
+        "recall": 0.4444444444444444,
+        "f1_score": 0.5714285714285714,
+        "mae_start": 24.079250000000002,
+        "mae_end": 25.798945000000003,
+        "edit_score": 0.40740740740740744
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12": {
+        "precision": 0.6190476190476191,
+        "recall": 0.48148148148148145,
+        "f1_score": 0.5416666666666666,
+        "mae_start": 19.707384615384612,
+        "mae_end": 17.935506153846156,
+        "edit_score": 0.40740740740740744
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/2": {
+        "precision": 0.6666666666666666,
+        "recall": 0.5217391304347826,
+        "f1_score": 0.5853658536585366,
+        "mae_start": 9.382500000000002,
+        "mae_end": 11.4732425,
+        "edit_score": 0.5217391304347826
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/3": {
+        "precision": 0.7083333333333334,
+        "recall": 0.6538461538461539,
+        "f1_score": 0.68,
+        "mae_start": 32.449588235294115,
+        "mae_end": 30.029439999999997,
+        "edit_score": 0.6538461538461539
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/4": {
+        "precision": 0.6190476190476191,
+        "recall": 0.48148148148148145,
+        "f1_score": 0.5416666666666666,
+        "mae_start": 10.295769230769231,
+        "mae_end": 9.548683846153843,
+        "edit_score": 0.5555555555555556
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/5": {
+        "precision": 0.7272727272727273,
+        "recall": 0.7619047619047619,
+        "f1_score": 0.7441860465116279,
+        "mae_start": 37.606198125,
+        "mae_end": 35.334821875,
+        "edit_score": 0.7727272727272727
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6": {
+        "precision": 0.6666666666666666,
+        "recall": 0.7777777777777778,
+        "f1_score": 0.717948717948718,
+        "mae_start": 18.026714285714288,
+        "mae_end": 14.047386428571425,
+        "edit_score": 0.5714285714285714
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/7": {
+        "precision": 0.5714285714285714,
+        "recall": 0.7272727272727273,
+        "f1_score": 0.64,
+        "mae_start": 15.234903750000003,
+        "mae_end": 13.584193125,
+        "edit_score": 0.5357142857142857
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8": {
+        "precision": 0.5416666666666666,
+        "recall": 0.5416666666666666,
+        "f1_score": 0.5416666666666666,
+        "mae_start": 16.832076923076926,
+        "mae_end": 13.80829230769231,
+        "edit_score": 0.375
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/9": {
+        "precision": 0.6521739130434783,
+        "recall": 0.5769230769230769,
+        "f1_score": 0.6122448979591837,
+        "mae_start": 22.044266666666665,
+        "mae_end": 22.973053333333333,
+        "edit_score": 0.5384615384615384
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/0": {
+        "precision": 0.5263157894736842,
+        "recall": 0.4166666666666667,
+        "f1_score": 0.46511627906976744,
+        "mae_start": 28.274965,
+        "mae_end": 24.317004999999995,
+        "edit_score": 0.25
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1": {
+        "precision": 0.5416666666666666,
+        "recall": 0.65,
+        "f1_score": 0.5909090909090908,
+        "mae_start": 30.30953846153846,
+        "mae_end": 35.47974769230769,
+        "edit_score": 0.45833333333333337
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/2": {
+        "precision": 0.5483870967741935,
+        "recall": 0.68,
+        "f1_score": 0.6071428571428571,
+        "mae_start": 25.138242352941177,
+        "mae_end": 26.604099411764704,
+        "edit_score": 0.5483870967741935
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/3": {
+        "precision": 0.5806451612903226,
+        "recall": 0.75,
+        "f1_score": 0.6545454545454547,
+        "mae_start": 20.90827666666667,
+        "mae_end": 21.134059444444446,
+        "edit_score": 0.5161290322580645
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/4": {
+        "precision": 0.5454545454545454,
+        "recall": 0.5714285714285714,
+        "f1_score": 0.5581395348837208,
+        "mae_start": 23.90388833333333,
+        "mae_end": 23.032374166666667,
+        "edit_score": 0.5454545454545454
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/0": {
+        "precision": 0.5,
+        "recall": 0.6470588235294118,
+        "f1_score": 0.5641025641025642,
+        "mae_start": 25.802363636363637,
+        "mae_end": 25.673079090909088,
+        "edit_score": 0.5
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/1": {
+        "precision": 0.7142857142857143,
+        "recall": 0.7894736842105263,
+        "f1_score": 0.7500000000000001,
+        "mae_start": 24.392733333333332,
+        "mae_end": 24.369754666666665,
+        "edit_score": 0.7142857142857143
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/10": {
+        "precision": 0.7083333333333334,
+        "recall": 0.8947368421052632,
+        "f1_score": 0.7906976744186046,
+        "mae_start": 20.81188235294118,
+        "mae_end": 20.40786588235294,
+        "edit_score": 0.7083333333333333
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/11": {
+        "precision": 0.6,
+        "recall": 0.45,
+        "f1_score": 0.5142857142857143,
+        "mae_start": 24.592014444444445,
+        "mae_end": 26.221790000000002,
+        "edit_score": 0.44999999999999996
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/12": {
+        "precision": 0.41025641025641024,
+        "recall": 0.9411764705882353,
+        "f1_score": 0.5714285714285713,
+        "mae_start": 20.50282625,
+        "mae_end": 21.111723750000003,
+        "edit_score": 0.3846153846153846
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/13": {
+        "precision": 0.5185185185185185,
+        "recall": 0.8235294117647058,
+        "f1_score": 0.6363636363636364,
+        "mae_start": 28.787441428571423,
+        "mae_end": 29.57167357142857,
+        "edit_score": 0.5925925925925926
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/14": {
+        "precision": 0.5925925925925926,
+        "recall": 0.9411764705882353,
+        "f1_score": 0.7272727272727272,
+        "mae_start": 20.580705625,
+        "mae_end": 20.207391875,
+        "edit_score": 0.5555555555555556
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/15": {
+        "precision": 0.5384615384615384,
+        "recall": 0.7777777777777778,
+        "f1_score": 0.6363636363636364,
+        "mae_start": 30.45543,
+        "mae_end": 32.641645000000004,
+        "edit_score": 0.6153846153846154
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/16": {
+        "precision": 0.5294117647058824,
+        "recall": 0.9,
+        "f1_score": 0.6666666666666667,
+        "mae_start": 26.101166666666668,
+        "mae_end": 25.66103555555555,
+        "edit_score": 0.5294117647058824
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/17": {
+        "precision": 0.5384615384615384,
+        "recall": 0.8235294117647058,
+        "f1_score": 0.6511627906976744,
+        "mae_start": 22.903785714285714,
+        "mae_end": 25.541745,
+        "edit_score": 0.5769230769230769
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/18": {
+        "precision": 0.4230769230769231,
+        "recall": 0.6111111111111112,
+        "f1_score": 0.5,
+        "mae_start": 21.49209090909091,
+        "mae_end": 22.19763545454545,
+        "edit_score": 0.46153846153846156
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19": {
+        "precision": 0.5,
+        "recall": 0.43478260869565216,
+        "f1_score": 0.46511627906976744,
+        "mae_start": 9.409400000000002,
+        "mae_end": 10.60782,
+        "edit_score": 0.34782608695652173
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2": {
+        "precision": 0.6666666666666666,
+        "recall": 0.8,
+        "f1_score": 0.7272727272727272,
+        "mae_start": 23.057000000000002,
+        "mae_end": 22.392748125000004,
+        "edit_score": 0.6666666666666667
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20": {
+        "precision": 0.45454545454545453,
+        "recall": 0.37037037037037035,
+        "f1_score": 0.40816326530612246,
+        "mae_start": 14.662700000000001,
+        "mae_end": 13.934714000000003,
+        "edit_score": 0.33333333333333337
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/3": {
+        "precision": 0.6,
+        "recall": 0.75,
+        "f1_score": 0.6666666666666665,
+        "mae_start": 21.34346933333334,
+        "mae_end": 22.357833999999993,
+        "edit_score": 0.56
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/4": {
+        "precision": 0.5483870967741935,
+        "recall": 0.8947368421052632,
+        "f1_score": 0.6799999999999999,
+        "mae_start": 19.839294117647054,
+        "mae_end": 19.10421294117647,
+        "edit_score": 0.5483870967741935
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/5": {
+        "precision": 0.47058823529411764,
+        "recall": 0.4,
+        "f1_score": 0.4324324324324324,
+        "mae_start": 14.647250000000001,
+        "mae_end": 16.697285,
+        "edit_score": 0.4
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/6": {
+        "precision": 0.6666666666666666,
+        "recall": 0.631578947368421,
+        "f1_score": 0.6486486486486486,
+        "mae_start": 24.420583333333337,
+        "mae_end": 24.26182833333333,
+        "edit_score": 0.631578947368421
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7": {
+        "precision": 0.5,
+        "recall": 0.7894736842105263,
+        "f1_score": 0.6122448979591837,
+        "mae_start": 19.92840466666667,
+        "mae_end": 20.154153333333333,
+        "edit_score": 0.5
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/8": {
+        "precision": 0.5,
+        "recall": 0.7222222222222222,
+        "f1_score": 0.5909090909090908,
+        "mae_start": 19.708846153846157,
+        "mae_end": 20.273061538461544,
+        "edit_score": 0.5384615384615384
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9": {
+        "precision": 0.5,
+        "recall": 0.8421052631578947,
+        "f1_score": 0.6274509803921569,
+        "mae_start": 20.486250000000002,
+        "mae_end": 20.68194875,
+        "edit_score": 0.53125
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/0": {
+        "precision": 0.5652173913043478,
+        "recall": 0.7222222222222222,
+        "f1_score": 0.6341463414634146,
+        "mae_start": 23.15000615384616,
+        "mae_end": 21.972893846153852,
+        "edit_score": 0.6521739130434783
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/1": {
+        "precision": 0.7058823529411765,
+        "recall": 0.75,
+        "f1_score": 0.7272727272727272,
+        "mae_start": 32.03883583333333,
+        "mae_end": 29.55032000000001,
+        "edit_score": 0.7058823529411764
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/2": {
+        "precision": 0.5625,
+        "recall": 0.6923076923076923,
+        "f1_score": 0.6206896551724138,
+        "mae_start": 7.840168888888891,
+        "mae_end": 7.8062322222222225,
+        "edit_score": 0.5
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3": {
+        "precision": 0.5555555555555556,
+        "recall": 0.6666666666666666,
+        "f1_score": 0.606060606060606,
+        "mae_start": 11.7506,
+        "mae_end": 9.113461000000003,
+        "edit_score": 0.38888888888888884
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4": {
+        "precision": 0.35294117647058826,
+        "recall": 0.3157894736842105,
+        "f1_score": 0.33333333333333337,
+        "mae_start": 17.746166666666664,
+        "mae_end": 24.786995,
+        "edit_score": 0.3157894736842105
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/5": {
+        "precision": 0.8888888888888888,
+        "recall": 0.8421052631578947,
+        "f1_score": 0.8648648648648649,
+        "mae_start": 43.504687499999996,
+        "mae_end": 42.465675624999996,
+        "edit_score": 0.7894736842105263
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0": {
+        "precision": 0.48148148148148145,
+        "recall": 0.5909090909090909,
+        "f1_score": 0.5306122448979591,
+        "mae_start": 31.337626923076918,
+        "mae_end": 39.211708461538464,
+        "edit_score": 0.40740740740740744
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/0": {
+        "precision": 0.6666666666666666,
+        "recall": 0.8421052631578947,
+        "f1_score": 0.744186046511628,
+        "mae_start": 20.7705,
+        "mae_end": 18.528814375,
+        "edit_score": 0.5833333333333333
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1": {
+        "precision": 0.35714285714285715,
+        "recall": 0.47619047619047616,
+        "f1_score": 0.40816326530612246,
+        "mae_start": 29.881600000000002,
+        "mae_end": 26.324828000000004,
+        "edit_score": 0.4642857142857143
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/10": {
+        "precision": 0.6666666666666666,
+        "recall": 0.625,
+        "f1_score": 0.6451612903225806,
+        "mae_start": 28.492399999999996,
+        "mae_end": 25.008513,
+        "edit_score": 0.375
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/2": {
+        "precision": 0.6818181818181818,
+        "recall": 0.7894736842105263,
+        "f1_score": 0.7317073170731707,
+        "mae_start": 34.505399999999995,
+        "mae_end": 30.783084,
+        "edit_score": 0.6363636363636364
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/3": {
+        "precision": 0.7647058823529411,
+        "recall": 0.65,
+        "f1_score": 0.7027027027027027,
+        "mae_start": 24.397538461538463,
+        "mae_end": 22.782290769230773,
+        "edit_score": 0.6
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/4": {
+        "precision": 0.7,
+        "recall": 0.7,
+        "f1_score": 0.7,
+        "mae_start": 32.03671428571428,
+        "mae_end": 31.00200357142857,
+        "edit_score": 0.65
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/5": {
+        "precision": 0.44,
+        "recall": 0.7857142857142857,
+        "f1_score": 0.5641025641025641,
+        "mae_start": 16.66769181818182,
+        "mae_end": 14.744736363636362,
+        "edit_score": 0.4
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/6": {
+        "precision": 0.7272727272727273,
+        "recall": 0.7272727272727273,
+        "f1_score": 0.7272727272727273,
+        "mae_start": 44.254630625000004,
+        "mae_end": 41.06298062500001,
+        "edit_score": 0.5
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7": {
+        "precision": 0.6363636363636364,
+        "recall": 0.5833333333333334,
+        "f1_score": 0.6086956521739131,
+        "mae_start": 12.33229285714286,
+        "mae_end": 9.927174285714287,
+        "edit_score": 0.5
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/8": {
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1_score": 0.5,
+        "mae_start": 15.98171428571428,
+        "mae_end": 15.143148571428569,
+        "edit_score": 0.2857142857142857
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9": {
+        "precision": 0.75,
+        "recall": 0.5294117647058824,
+        "f1_score": 0.6206896551724139,
+        "mae_start": 23.517222222222227,
+        "mae_end": 18.463534444444445,
+        "edit_score": 0.4117647058823529
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0": {
+        "precision": 0.2,
+        "recall": 0.2857142857142857,
+        "f1_score": 0.23529411764705882,
+        "mae_start": 0.9000000000000004,
+        "mae_end": 35.31347,
+        "edit_score": 0.19999999999999996
+    },
+    "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/1": {
+        "precision": 0.625,
+        "recall": 0.5555555555555556,
+        "f1_score": 0.5882352941176471,
+        "mae_start": 8.715768,
+        "mae_end": 16.912122,
+        "edit_score": 0.2222222222222222
+    }
+}
