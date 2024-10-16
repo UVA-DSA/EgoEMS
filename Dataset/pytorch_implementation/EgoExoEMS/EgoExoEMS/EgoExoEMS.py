@@ -139,7 +139,7 @@ class EgoExoEMSDataset(Dataset):
         self.audio_sample_rate = audio_sample_rate
         self.data = []
         self.clip_indices = []  # This will store (item_idx, clip_idx) tuples
-        self.data_types=data_types
+        self.data_types = data_types
         
         self._load_annotations()
         self._generate_clip_indices()
@@ -188,45 +188,61 @@ class EgoExoEMSDataset(Dataset):
                         label = step['label']
                         keystep_id = step['class_id']
 
-                        dict={}
+                        data_dict = {}
                         if 'video' in self.data_types:
-                            dict['video_path']=os.path.join(self.data_base_path, video_path)
+                            data_dict['video_path'] = os.path.join(self.data_base_path, video_path)
                         if 'flow' in self.data_types:
-                            dict['flow_path']=os.path.join(self.data_base_path, flow_path)
+                            data_dict['flow_path'] = os.path.join(self.data_base_path, flow_path)
                         if 'rgb' in self.data_types:
-                            dict['rgb_path']=os.path.join(self.data_base_path, rgb_path)
+                            data_dict['rgb_path'] = os.path.join(self.data_base_path, rgb_path)
                         if 'smartwatch' in self.data_types:
-                            dict['smartwatch_path']=os.path.join(self.data_base_path, smartwatch_path)
+                            data_dict['smartwatch_path'] = os.path.join(self.data_base_path, smartwatch_path)
                         if 'depth_sensor' in self.data_types:
-                            dict['depth_sensor_path'] = os.path.join(self.data_base_path, depth_sensor_path)
-                        dict['start_frame']=start_frame
-                        dict['end_frame']=end_frame
-                        dict['start_t']=step['start_t']
-                        dict['end_t']=step['end_t']
-                        dict['keystep_label']=label
-                        dict['keystep_id']=keystep_id
-                        dict['subject']=subject['subject_id']
-                        dict['trial']=trial['trial_id']
+                            data_dict['depth_sensor_path'] = os.path.join(self.data_base_path, depth_sensor_path)
+                        data_dict['start_frame'] = start_frame
+                        data_dict['end_frame'] = end_frame
+                        data_dict['start_t'] = step['start_t']
+                        data_dict['end_t'] = step['end_t']
+                        data_dict['keystep_label'] = label
+                        data_dict['keystep_id'] = keystep_id
+                        data_dict['subject'] = subject['subject_id']
+                        data_dict['trial'] = trial['trial_id']
 
-                        self.data.append(dict)
+                        self.data.append(data_dict)
 
     def _get_clips(self, data, frames_per_clip):
-        # Function to split data into smaller clips
+        # Ensure that data is not empty and frames_per_clip is greater than 0
+        if len(data) == 0 or frames_per_clip <= 0:
+            return []
+        
         clips = []
         num_clips = math.ceil(len(data) / frames_per_clip)
+        
         for i in range(num_clips):
             start_idx = i * frames_per_clip
             end_idx = min((i + 1) * frames_per_clip, len(data))
-            clips.append(data[start_idx:end_idx])
+            print(f"Start index: {start_idx}, End index: {end_idx}")
+            clip = data[start_idx:end_idx]
+            # Ensure that the clip has data before appending
+            clips.append(clip)
+        
         return clips
-
+    
     def _generate_clip_indices(self):
-        # Generate indices that represent which clip (from which item) will be returned in __getitem__
+        # Clear clip_indices to start fresh
         self.clip_indices = []
+        
         for item_idx, item in enumerate(self.data):
             num_frames = item['end_frame'] - item['start_frame']
-            num_clips = math.ceil(num_frames / self.frames_per_clip) if self.frames_per_clip else 1
+            
+            # Skip the item if it doesn't have enough frames
+            if num_frames <= 0:
+                continue
+            
+            num_clips = math.floor(num_frames / self.frames_per_clip) if self.frames_per_clip else 1
+            
             for clip_idx in range(num_clips):
+                # Ensure clip_idx is valid
                 self.clip_indices.append((item_idx, clip_idx))
 
     def __len__(self):
@@ -236,25 +252,24 @@ class EgoExoEMSDataset(Dataset):
     def __getitem__(self, idx):
         # Get the actual item and the clip index for this sample
         item_idx, clip_idx = self.clip_indices[idx]
+        print(f"Item index: {item_idx}, Clip index: {clip_idx}")
         item = self.data[item_idx]
         
         # Initialize variables
-        frames = []
+        frames = torch.zeros(0)
         flow = torch.zeros(0)
         rgb = torch.zeros(0)
         audio = torch.zeros(1, 0)
         sw_acc = torch.zeros(0)
         depth_sensor_readings = torch.zeros(0)
 
+
         # Load video if available
         if 'video' in self.data_types:
             video_path = item['video_path']
             video_reader = VideoReader(video_path, "video")
             video_reader.seek(item['start_t'])
-            for frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], video_reader):
-                if frame['pts'] >= item['start_t']:
-                    img_tensor = transform(frame['data'])
-                    frames.append(img_tensor)
+            frames = [transform(frame['data']) for frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], video_reader)]
             frames = torch.stack(frames) if frames else torch.zeros(0)
 
         # Load flow if available
@@ -271,7 +286,6 @@ class EgoExoEMSDataset(Dataset):
         if 'audio' in self.data_types and 'video' in self.data_types:  # Check if audio is available
             video_path = item['video_path']
             audio_reader = VideoReader(video_path, "audio")
-            audio_reader.seek(item['start_t'])
             audio_clips = [audio_frame['data'] for audio_frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], audio_reader)]
             audio = torch.cat(audio_clips, dim=0) if audio_clips else torch.zeros(1, 0)
 
@@ -281,14 +295,11 @@ class EgoExoEMSDataset(Dataset):
             with open(smartwatch_path, 'r') as f:
                 lines = f.readlines()[1:]
             sw_acc = [line.strip() for line in lines][item['start_frame']:item['end_frame']]
-            # Process smartwatch data into tensors as before
-            acc_x, acc_y, acc_z = [], [], []
             acc_x = [float(l.split(',')[0]) for l in sw_acc]
             acc_y = [float(l.split(',')[1]) for l in sw_acc]
             acc_z = [float(l.split(',')[2]) for l in sw_acc]
             sw_acc = torch.from_numpy(np.array([acc_x, acc_y, acc_z])).float()
-            # permute to (batch, frames, channels)
-            sw_acc = sw_acc.permute(1, 0)
+            sw_acc = sw_acc.permute(1, 0)  # (frames, channels)
 
         # Load depth_sensor data if available
         if 'depth_sensor' in self.data_types:
@@ -296,12 +307,52 @@ class EgoExoEMSDataset(Dataset):
             with open(depth_sensor_path, 'r') as f:
                 lines = f.readlines()[1:]
             depth_sensor_readings = [line.strip() for line in lines][item['start_frame']:item['end_frame']]
-            # Process depth_sensor data into tensors as before
-            depth_reading = []
             depth_reading = [float(l.split(',')[0]) for l in depth_sensor_readings]
             depth_sensor_readings = torch.from_numpy(np.array([depth_reading])).float()
-            # permute to (batch, frames, channels)
             depth_sensor_readings = depth_sensor_readings.permute(1, 0)
+
+        # Split into smaller clips if frames_per_clip is specified
+        if self.frames_per_clip:
+            if 'video' in self.data_types:
+                frames_clips = self._get_clips(frames, self.frames_per_clip)
+                frames = frames_clips[clip_idx]
+                # Pad if less than frames_per_clip
+                if frames.shape[0] < self.frames_per_clip:
+                    pad_size = self.frames_per_clip - frames.shape[0]
+                    frames = torch.cat([frames, torch.zeros((pad_size, *frames.shape[1:]))], dim=0)
+
+            if 'flow' in self.data_types:
+                flow_clips = self._get_clips(flow, self.frames_per_clip)
+                print(f"Flow clips: {len(flow_clips)} , flow.shape: {flow.shape}")
+                flow = flow_clips[clip_idx]
+                # Pad if less than frames_per_clip
+                if flow.shape[0] < self.frames_per_clip:
+                    pad_size = self.frames_per_clip - flow.shape[0]
+                    flow = torch.cat([flow, torch.zeros((pad_size, *flow.shape[1:]))], dim=0)
+
+            if 'rgb' in self.data_types:
+                rgb_clips = self._get_clips(rgb, self.frames_per_clip)
+                rgb = rgb_clips[clip_idx]
+                # Pad if less than frames_per_clip
+                if rgb.shape[0] < self.frames_per_clip:
+                    pad_size = self.frames_per_clip - rgb.shape[0]
+                    rgb = torch.cat([rgb, torch.zeros((pad_size, *rgb.shape[1:]))], dim=0)
+
+            if 'smartwatch' in self.data_types:
+                sw_acc_clips = self._get_clips(sw_acc, self.frames_per_clip)
+                sw_acc = sw_acc_clips[clip_idx]
+                # Pad if less than frames_per_clip
+                if sw_acc.shape[0] < self.frames_per_clip:
+                    pad_size = self.frames_per_clip - sw_acc.shape[0]
+                    sw_acc = torch.cat([sw_acc, torch.zeros((pad_size, sw_acc.shape[1]))], dim=0)
+
+            if 'depth_sensor' in self.data_types:
+                depth_sensor_clips = self._get_clips(depth_sensor_readings, self.frames_per_clip)
+                depth_sensor_readings = depth_sensor_clips[clip_idx]
+                # Pad if less than frames_per_clip
+                if depth_sensor_readings.shape[0] < self.frames_per_clip:
+                    pad_size = self.frames_per_clip - depth_sensor_readings.shape[0]
+                    depth_sensor_readings = torch.cat([depth_sensor_readings, torch.zeros((pad_size, depth_sensor_readings.shape[1]))], dim=0)
 
         output = {
             'frames': frames,
@@ -320,5 +371,5 @@ class EgoExoEMSDataset(Dataset):
             'trial_id': item['trial']
         }
 
-        # Return the output
         return output
+
