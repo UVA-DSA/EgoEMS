@@ -74,7 +74,7 @@ def get_kpts(img_path):
 
     wrst=WristDet_mediapipe()
     img=cv2.imread(img_path)
-    pad=80
+    pad=80 
     img_crop= crop_img_bb(img,bb,pad,show=False)
     image,xy_vals=wrst.get_kypts(img_crop)
     x_vals=[int(val[0]+bb[0]-pad) for val in xy_vals]
