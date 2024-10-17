@@ -184,7 +184,7 @@ class EgoExoEMSDataset(Dataset):
                     keysteps = trial['keysteps']
                     for step in keysteps:
                         start_frame = math.floor(step['start_t'] * self.fps)
-                        end_frame = math.ceil(step['end_t'] * self.fps)
+                        end_frame = math.floor(step['end_t'] * self.fps)
                         label = step['label']
                         keystep_id = step['class_id']
 
@@ -221,7 +221,6 @@ class EgoExoEMSDataset(Dataset):
         for i in range(num_clips):
             start_idx = i * frames_per_clip
             end_idx = min((i + 1) * frames_per_clip, len(data))
-            print(f"Start index: {start_idx}, End index: {end_idx}")
             clip = data[start_idx:end_idx]
             # Ensure that the clip has data before appending
             clips.append(clip)
@@ -240,7 +239,9 @@ class EgoExoEMSDataset(Dataset):
                 continue
             
             num_clips = math.floor(num_frames / self.frames_per_clip) if self.frames_per_clip else 1
-            
+            if num_clips == 0:
+                num_clips = 1
+            print(f"Item_idx: {item_idx}, Item: {item} Num clips: {num_clips}")
             for clip_idx in range(num_clips):
                 # Ensure clip_idx is valid
                 self.clip_indices.append((item_idx, clip_idx))
@@ -256,7 +257,7 @@ class EgoExoEMSDataset(Dataset):
         item = self.data[item_idx]
         
         # Initialize variables
-        frames = torch.zeros(0)
+        frames = []
         flow = torch.zeros(0)
         rgb = torch.zeros(0)
         audio = torch.zeros(1, 0)
@@ -269,7 +270,10 @@ class EgoExoEMSDataset(Dataset):
             video_path = item['video_path']
             video_reader = VideoReader(video_path, "video")
             video_reader.seek(item['start_t'])
-            frames = [transform(frame['data']) for frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], video_reader)]
+            for frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], video_reader):
+                if frame['pts'] > item['start_t']:
+                    img_tensor = transform(frame['data'])
+                    frames.append(img_tensor)
             frames = torch.stack(frames) if frames else torch.zeros(0)
 
         # Load flow if available
@@ -282,12 +286,12 @@ class EgoExoEMSDataset(Dataset):
             rgb_path = item['rgb_path']
             rgb = torch.from_numpy(np.load(rgb_path))[item['start_frame']:item['end_frame']]
 
-        # Load audio if available
-        if 'audio' in self.data_types and 'video' in self.data_types:  # Check if audio is available
-            video_path = item['video_path']
-            audio_reader = VideoReader(video_path, "audio")
-            audio_clips = [audio_frame['data'] for audio_frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], audio_reader)]
-            audio = torch.cat(audio_clips, dim=0) if audio_clips else torch.zeros(1, 0)
+        # # Load audio if available
+        # if 'audio' in self.data_types and 'video' in self.data_types:  # Check if audio is available
+        #     video_path = item['video_path']
+        #     audio_reader = VideoReader(video_path, "audio")
+        #     audio_clips = [audio_frame['data'] for audio_frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], audio_reader)]
+        #     audio = torch.cat(audio_clips, dim=0) if audio_clips else torch.zeros(1, 0)
 
         # Load smartwatch data if available
         if 'smartwatch' in self.data_types:
@@ -311,6 +315,25 @@ class EgoExoEMSDataset(Dataset):
             depth_sensor_readings = torch.from_numpy(np.array([depth_reading])).float()
             depth_sensor_readings = depth_sensor_readings.permute(1, 0)
 
+        if 'audio' in self.data_types:  # Check if audio is available
+            if self.frames_per_clip:
+                clip_duration = self.frames_per_clip / self.fps  # Time in seconds for frames_per_clip
+                audio_samples_per_clip = int(clip_duration * self.audio_sample_rate)
+                audio_reader = VideoReader(video_path, "audio")
+                audio_clips = []
+                for audio_frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], audio_reader.seek(item['start_t'])):
+                    audio_clips.append(audio_frame['data'])
+                audio_clips = torch.cat(audio_clips, dim=0) if audio_clips else torch.zeros(1, 0)
+                # Get the slice corresponding to the current clip
+                audio = audio_clips[clip_idx * audio_samples_per_clip : (clip_idx + 1) * audio_samples_per_clip]
+            else:
+                audio_reader = VideoReader(video_path, "audio")
+                audio = []
+                for audio_frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], audio_reader.seek(item['start_t'])):
+                    audio.append(audio_frame['data'])
+                audio = torch.cat(audio, dim=0) if audio else torch.zeros(1, 0)
+
+
         # Split into smaller clips if frames_per_clip is specified
         if self.frames_per_clip:
             if 'video' in self.data_types:
@@ -321,9 +344,14 @@ class EgoExoEMSDataset(Dataset):
                     pad_size = self.frames_per_clip - frames.shape[0]
                     frames = torch.cat([frames, torch.zeros((pad_size, *frames.shape[1:]))], dim=0)
 
+
+                clip_duration = self.frames_per_clip / self.fps
+
+
             if 'flow' in self.data_types:
                 flow_clips = self._get_clips(flow, self.frames_per_clip)
                 print(f"Flow clips: {len(flow_clips)} , flow.shape: {flow.shape}")
+                clip_idx = min(clip_idx, len(flow_clips) - 1)
                 flow = flow_clips[clip_idx]
                 # Pad if less than frames_per_clip
                 if flow.shape[0] < self.frames_per_clip:
@@ -332,6 +360,8 @@ class EgoExoEMSDataset(Dataset):
 
             if 'rgb' in self.data_types:
                 rgb_clips = self._get_clips(rgb, self.frames_per_clip)
+                print(f"RGB clips: {len(flow_clips)} , rgb.shape: {rgb.shape}")
+                clip_idx = min(clip_idx, len(rgb_clips) - 1)
                 rgb = rgb_clips[clip_idx]
                 # Pad if less than frames_per_clip
                 if rgb.shape[0] < self.frames_per_clip:
