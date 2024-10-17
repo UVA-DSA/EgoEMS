@@ -241,7 +241,6 @@ class EgoExoEMSDataset(Dataset):
             num_clips = math.floor(num_frames / self.frames_per_clip) if self.frames_per_clip else 1
             if num_clips == 0:
                 num_clips = 1
-            print(f"Item_idx: {item_idx}, Item: {item} Num clips: {num_clips}")
             for clip_idx in range(num_clips):
                 # Ensure clip_idx is valid
                 self.clip_indices.append((item_idx, clip_idx))
@@ -383,6 +382,32 @@ class EgoExoEMSDataset(Dataset):
                 if depth_sensor_readings.shape[0] < self.frames_per_clip:
                     pad_size = self.frames_per_clip - depth_sensor_readings.shape[0]
                     depth_sensor_readings = torch.cat([depth_sensor_readings, torch.zeros((pad_size, depth_sensor_readings.shape[1]))], dim=0)
+
+        # Calculate the minimum length of all available modalities
+        min_length = min(
+            frames.shape[0] if frames is torch.is_tensor(frames) else float('inf'),
+            flow.shape[0] if flow is not None and flow.shape[0] > 0 else float('inf'),
+            rgb.shape[0] if rgb is not None and rgb.shape[0] > 0 else float('inf'),
+            sw_acc.shape[0] if sw_acc is not None and sw_acc.shape[0] > 0 else float('inf'),
+            depth_sensor_readings.shape[0] if depth_sensor_readings is not None and depth_sensor_readings.shape[0] > 0 else float('inf')
+        )
+
+        # Make sure min_length is a valid integer
+        if min_length == float('inf'):
+            min_length = 0  # Handle the case where none of the data types are available
+
+        # Truncate all modalities to the minimum length
+        if frames is torch.is_tensor(frames) and frames.shape[0] > 0:
+            frames = frames[:min_length]
+        if flow is not None and flow.shape[0] > 0:
+            flow = flow[:min_length]
+        if rgb is not None and rgb.shape[0] > 0:
+            rgb = rgb[:min_length]
+        if sw_acc is not None and sw_acc.shape[0] > 0:
+            sw_acc = sw_acc[:min_length]
+        if depth_sensor_readings is not None and depth_sensor_readings.shape[0] > 0:
+            depth_sensor_readings = depth_sensor_readings[:min_length]
+
 
         output = {
             'frames': frames,

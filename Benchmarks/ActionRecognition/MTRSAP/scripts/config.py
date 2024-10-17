@@ -5,20 +5,20 @@ RECORD_RESULTS = True
 
 tcn_model_params = {
     "encoder_params": { #some of these gets updated during runtime based on the feature dimension of the given data
-        "in_channels": 14,
-        "kernel_size": 1,
-        "out_channels": 64,
+        "in_channels": 1024,
+        "kernel_size": 45,
+        "out_channels": 256,
     },
     "decoder_params": {
-        "in_channels": 64,
+        "in_channels": 256,
         "kernel_size": 31,
-        "out_channels": 64
+        "out_channels": 256
     }
 }
 
 
 transformer_params = {
-    "d_model": 128,
+    "d_model": 256,
     "nhead": 4,
     "num_layers": 4,
     "hidden_dim": 128,
@@ -51,6 +51,7 @@ dataloader_params = {
     "test_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/keysteps/test_split.json',
     # Old dataset class
     'base_path': '/scratch/cjh9fw/Rivanna/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
+    'modality': ['video','audio']
 }
 
 

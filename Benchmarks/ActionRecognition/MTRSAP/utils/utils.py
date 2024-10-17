@@ -275,15 +275,15 @@ def eee_get_dataloaders(args):
 
     train_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
                                     data_base_path='',
-                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform)
+                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
 
     val_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
                                     data_base_path='',
-                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform)
+                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
 
     test_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
                                     data_base_path='',
-                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform)
+                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
 
 
 

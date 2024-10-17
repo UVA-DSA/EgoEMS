@@ -87,31 +87,18 @@ class GRUNet(nn.Module):
 class CNN_Encoder(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size):
         super(CNN_Encoder, self).__init__()
-        # self.encoder = nn.Sequential(
-        #     nn.Conv1d(in_channels=in_channels, out_channels=512, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
-        #     nn.ReLU(),
-        #     nn.MaxPool1d(kernel_size=2, stride=2),
-        #     nn.Conv1d(in_channels=512, out_channels=256, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
-        #     nn.ReLU(),
-        #     nn.MaxPool1d(kernel_size=2, stride=2),
-        #     nn.Conv1d(in_channels=256, out_channels=out_channels, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
-        #     nn.ReLU(),
-        #     nn.MaxPool1d(kernel_size=2, stride=2)
-        # )
 
         self.encoder = nn.Sequential(
-            nn.Conv1d(in_channels=in_channels, out_channels=512, kernel_size=1, stride=1, padding=0),
+            nn.Conv1d(in_channels=in_channels, out_channels=512, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=1, stride=1, padding=0),  # No change in temporal dimension
-            nn.Conv1d(in_channels=512, out_channels=256, kernel_size=1, stride=1, padding=0),
+            nn.MaxPool1d(kernel_size=2, stride=2),  # No change in temporal dimension
+            nn.Conv1d(in_channels=512, out_channels=256, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=1, stride=1, padding=0),  # No change in temporal dimension
-            nn.Conv1d(in_channels=256, out_channels=out_channels, kernel_size=1, stride=1, padding=0),
+            nn.MaxPool1d(kernel_size=2, stride=2),  # No change in temporal dimension
+            nn.Conv1d(in_channels=256, out_channels=out_channels, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=1, stride=1, padding=0)  # No change in temporal dimension
+            nn.MaxPool1d(kernel_size=2, stride=2)  # No change in temporal dimension
         )
-
-    
 
     def forward(self, x):
         x = x.permute(0, 2, 1)
@@ -152,10 +139,12 @@ class TransformerModel(nn.Module):
         self.nhead = args.transformer_params["nhead"]
         self.batch_first = args.transformer_params["batch_first"]
 
+        self.modality = args.dataloader_params["modality"]
+
         self.encoder_params = args.tcn_model_params["encoder_params"]
         self.decoder_params = args.tcn_model_params["decoder_params"]
 
-        self.encoder_params["in_channels"] = 2048
+        self.encoder_params["in_channels"] = self.input_dim
         self.decoder_params["out_channels"] = self.output_dim
 
         # Load ResNet-50 backbone and remove the final classification layer
@@ -181,39 +170,31 @@ class TransformerModel(nn.Module):
         self.pe = PositionalEncoding(d_model=self.d_model, max_len=32, dropout=self.dropout)
         self.fc = nn.Linear(features_dim, self.d_model)
         
-    def preprocess(self, x):
-
+    def extract_resnet(self, x):
         # check the shape of the input tensor
-        shape = x.shape
-        output = None
-        if len(shape) == 5: # (batch_size, num_frames, 3, 224, 224) 
             # extract resnet50 features
-            batch_size, num_frames, c, h, w = x.size()
+        batch_size, num_frames, c, h, w = x.size()
 
-            # Reshape to process each frame individually through ResNet-50
-            x = x.view(batch_size * num_frames, c, h, w)
-            
-            # Extract features using backbone
-            x = self.backbone(x)  # Shape: (batch_size * num_frames, 2048, 7, 7)
-            x = self.backbone_avgpool(x)  # Shape: (batch_size * num_frames, 2048, 1, 1)
-            x = x.view(batch_size, num_frames, -1)  # Shape: (batch_size, num_frames, 2048)
-            
-            x = self.fc(x)
-            output = x
+        x = x.float()  # Ensures input is a FloatTensor
+
+
+        # Reshape to process each frame individually through ResNet-50
+        x = x.view(batch_size * num_frames, c, h, w)
         
-        elif len(shape) == 3:
-            # I3D features are already extracted
-            output = x.float()
+        # Extract features using backbone
+        x = self.backbone(x)  # Shape: (batch_size * num_frames, 2048, 7, 7)
+        x = self.backbone_avgpool(x)  # Shape: (batch_size * num_frames, 2048, 1, 1)
+        x = x.view(batch_size, num_frames, -1)  # Shape: (batch_size, num_frames, 2048)
+        
+        # x = self.fc(x)
+        output = x
 
         return output
 
 
     def forward(self, x):
-
-
-        # # Preprocess input
-        # x = self.preprocess(x)
-        # print("preprocess_out",x.shape)
+        
+        print("x_shape",x.shape)
         # # TCN encoder
         x = self.encoder(x)
         # print("encoder_out",x.shape)
