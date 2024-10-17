@@ -33,8 +33,8 @@ if __name__ == "__main__":
         project="EgoExoEMS",
         group="Keystep Recognition",
         # mode="disabled",
-        name="Train, Val on EgoExoEMS with I3D RGB Features - 4s clips - ICRA Model",
-        notes="initial attempt ICRA model with I3D RGB features",
+        name="Train, Val on EgoExoEMS with I3D RGB,Flow and smartwatch Features - full clip - ICRA Model",
+        notes="initial attempt ICRA model with I3D RGB,Flow andsmartwatch features only",
         config={
         "args": args,
         }
@@ -92,7 +92,9 @@ if __name__ == "__main__":
             min_val_loss = val_loss
             torch.save(model.state_dict(), f'{chkpoint_dir}/val_best_model.pt')
 
-    #     test_model(model, test_loader, criterion, device, wandb_logger, epoch, results_dir)
 
         scheduler.step()
         print(f"Epoch: {epoch}, Train Loss: {train_loss}, Val Loss: {val_loss}")
+
+        results = test_model(model, test_loader, criterion, device, wandb_logger, epoch, results_dir, modality=modality)
+        print(f"Results: {results}")

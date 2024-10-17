@@ -31,13 +31,27 @@ def preprocess(x, modality, backbone, device):
         feature = x
     
 
+
+
+    elif ( 'flow' in modality and  'rgb' in modality and  'smartwatch' in modality):
+
+        # I3D features are already extracted
+        flow = x['flow'].float()
+        rgb = x['rgb'].float()
+        smartwatch = x['smartwatch'].float()
+
+        # normalize smartwatch data (batch, seq_len, 3) (3 = x,y,z)
+        smartwatch = (smartwatch - smartwatch.mean()) / smartwatch.std()
+        # concatenate all features
+        feature = torch.cat((flow, rgb, smartwatch), dim=-1).float()
+
     elif ( 'flow' in modality and  'rgb' in modality):
 
         # I3D features are already extracted
         flow = x['flow'].float()
         rgb = x['rgb'].float()
         feature = torch.cat((flow, rgb), dim=-1).float()
-
+        
     elif ('rgb' in modality):
         # I3D features are already extracted
         feature = x['rgb'].float()
@@ -71,9 +85,14 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, m
         optimizer.step()
         total_loss += loss.item()
         if i % 100 == 0:
+            print("\n")
+            print("*" * 10, "=" * 10, "*" * 10)
             print(f"Pred: {torch.argmax(output, dim=1)} GT: {label}")
             logger.log({"train_loss": loss.item()})
             print(f"Batch: {i}, Loss: {loss.item()}")
+            print("*" * 10, "=" * 10, "*" * 10)
+            print("\n")
+        # break
         
     return total_loss / len(train_loader)
 
@@ -90,6 +109,7 @@ def validate(model, val_loader, criterion, device, logger, modality):
             total_loss += loss.item()
             if i % 100 == 0:
                 logger.log({"val_loss": loss.item()})
+            # break
             
             
     return total_loss / len(val_loader)
@@ -113,6 +133,7 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
             pred = torch.argmax(output, dim=1)
             gt.append(label.item())
             preds.append(pred.item())
+            # break
             
 
     
@@ -122,14 +143,15 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
     recall = recall_score(gt, preds, average='macro')
     f1 = f1_score(gt, preds, average='macro')
 
-    # Log metrics to wandb
-    logger.log({
-        "test_accuracy": accuracy,
-        "test_precision": precision,
-        "test_recall": recall,
-        "test_f1": f1,
+    results = {
+        "accuracy": accuracy,
+        "precision": precision,
+        "recall": recall,
+        "f1": f1,
         "epoch": epoch
-    })
+    }
+    # Log metrics to wandb
+    logger.log(results)
     
     # Save metrics to CSV
     metrics_path = f'{results_dir}/metrics.csv'
@@ -139,7 +161,7 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
             writer.writerow(["epoch", "accuracy", "precision", "recall", "f1"])
         writer.writerow([epoch, accuracy, precision, recall, f1])
     
-    return accuracy
+    return results
 
 
 

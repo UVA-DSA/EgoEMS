@@ -19,6 +19,7 @@ def collate_fn(batch):
     padded_audio_clips = []
     padded_flow_clips = []
     padded_rgb_clips = []
+    padded_resnet_clips = []  # Added for resnet modality
     padded_smartwatch_clips = []
     padded_depth_sensor_clips = []
     keystep_labels = []
@@ -35,9 +36,18 @@ def collate_fn(batch):
     max_audio_len = max([clip['audio'].shape[0] for clip in batch if isinstance(clip.get('audio', None), torch.Tensor)], default=0)
     max_flow_len = max([clip['flow'].shape[0] for clip in batch if isinstance(clip.get('flow', None), torch.Tensor)], default=0)
     max_rgb_len = max([clip['rgb'].shape[0] for clip in batch if isinstance(clip.get('rgb', None), torch.Tensor)], default=0)
-    max_smartwatch_len = max([clip['smartwatch'].shape[1] for clip in batch if isinstance(clip.get('smartwatch', None), torch.Tensor)], default=0)
-    max_depth_sensor_len = max([clip['depth_sensor'].shape[1] for clip in batch if isinstance(clip.get('depth_sensor', None), torch.Tensor)], default=0)
+    max_resnet_len = max([clip['resnet'].shape[0] for clip in batch if isinstance(clip.get('resnet', None), torch.Tensor)], default=0)  # Added for resnet modality
+    max_smartwatch_len = max([clip['smartwatch'].shape[0] for clip in batch if isinstance(clip.get('smartwatch', None), torch.Tensor)], default=0)
+    max_depth_sensor_len = max([clip['depth_sensor'].shape[0] for clip in batch if isinstance(clip.get('depth_sensor', None), torch.Tensor)], default=0)
 
+    # print(f"Max video len: {max_video_len}")
+    # print(f"Max audio len: {max_audio_len}")
+    # print(f"Max flow len: {max_flow_len}")
+    # print(f"Max rgb len: {max_rgb_len}")
+    # print(f"Max resnet len: {max_resnet_len}")
+    # print(f"Max smartwatch len: {max_smartwatch_len}")
+    # print(f"Max depth_sensor len: {max_depth_sensor_len}")
+    
     for b in batch:
         # Pad video frames if available
         if 'frames' in b and isinstance(b['frames'], torch.Tensor):
@@ -75,22 +85,34 @@ def collate_fn(batch):
                 rgb_clip = torch.cat([rgb_clip, rgb_pad], dim=0)
             padded_rgb_clips.append(rgb_clip)
 
+        # Pad resnet data if available
+        if 'resnet' in b and isinstance(b['resnet'], torch.Tensor):
+            resnet_clip = b['resnet']
+            resnet_pad_size = max_resnet_len - resnet_clip.shape[0]
+            if resnet_pad_size > 0:
+                resnet_pad = torch.zeros((resnet_pad_size, *resnet_clip.shape[1:]))
+                resnet_clip = torch.cat([resnet_clip, resnet_pad], dim=0)
+            padded_resnet_clips.append(resnet_clip)
+
         # Pad smartwatch data if available
         if 'smartwatch' in b and isinstance(b['smartwatch'], torch.Tensor):
             smartwatch_clip = b['smartwatch']
-            smartwatch_pad_size = max_smartwatch_len - smartwatch_clip.shape[1]
-            if smartwatch_pad_size > 0:
-                smartwatch_pad = torch.zeros((smartwatch_clip.shape[0], smartwatch_pad_size))
-                smartwatch_clip = torch.cat([smartwatch_clip, smartwatch_pad], dim=1)
+            print(f"Smartwatch clip shape: {smartwatch_clip.shape}")
+            if(max_smartwatch_len > 0):
+                smartwatch_pad_size = max_smartwatch_len - smartwatch_clip.shape[0]
+                if smartwatch_pad_size > 0:
+                    smartwatch_pad = torch.zeros((smartwatch_clip.shape[0], smartwatch_pad_size))
+                    smartwatch_clip = torch.cat([smartwatch_clip, smartwatch_pad], dim=0)
             padded_smartwatch_clips.append(smartwatch_clip)
 
         # Pad depth_sensor data if available
         if 'depth_sensor' in b and isinstance(b['depth_sensor'], torch.Tensor):
             depth_sensor_clip = b['depth_sensor']
-            depth_sensor_pad_size = max_depth_sensor_len - depth_sensor_clip.shape[1]
-            if depth_sensor_pad_size > 0:
-                depth_sensor_pad = torch.zeros((depth_sensor_clip.shape[0], depth_sensor_pad_size))
-                depth_sensor_clip = torch.cat([depth_sensor_clip, depth_sensor_pad], dim=1)
+            if(max_depth_sensor_len > 0):
+                depth_sensor_pad_size = max_depth_sensor_len - depth_sensor_clip.shape[0]
+                if depth_sensor_pad_size > 0:
+                    depth_sensor_pad = torch.zeros((depth_sensor_clip.shape[0], depth_sensor_pad_size))
+                    depth_sensor_clip = torch.cat([depth_sensor_clip, depth_sensor_pad], dim=0)
             padded_depth_sensor_clips.append(depth_sensor_clip)
 
         # Collect other fields
@@ -119,6 +141,7 @@ def collate_fn(batch):
     output['audio'] = torch.stack(padded_audio_clips) if padded_audio_clips else torch.zeros(0)
     output['flow'] = torch.stack(padded_flow_clips) if padded_flow_clips else torch.zeros(0)
     output['rgb'] = torch.stack(padded_rgb_clips) if padded_rgb_clips else torch.zeros(0)
+    output['resnet'] = torch.stack(padded_resnet_clips) if padded_resnet_clips else torch.zeros(0)  # Added for resnet
     output['smartwatch'] = torch.stack(padded_smartwatch_clips) if padded_smartwatch_clips else torch.zeros(0)
     output['depth_sensor'] = torch.stack(padded_depth_sensor_clips) if padded_depth_sensor_clips else torch.zeros(0)
 
@@ -156,6 +179,7 @@ class EgoExoEMSDataset(Dataset):
                 video_path = None
                 flow_path = None
                 rgb_path = None
+                resnet_path = None  # Added for resnet modality
                 smartwatch_path = None
                 depth_sensor_path = None
 
@@ -166,6 +190,8 @@ class EgoExoEMSDataset(Dataset):
                     flow_path = avail_streams.get('i3d_flow', {}).get('file_path', None)
                 if 'rgb' in self.data_types:
                     rgb_path = avail_streams.get('i3d_rgb', {}).get('file_path', None)
+                if 'resnet' in self.data_types:
+                    resnet_path = avail_streams.get('resnet50', {}).get('file_path', None)  # Adjust key as needed
                 if 'smartwatch' in self.data_types:
                     smartwatch_path = avail_streams.get('smartwatch_imu', {}).get('file_path', None)
                 if 'depth_sensor' in self.data_types:
@@ -175,12 +201,13 @@ class EgoExoEMSDataset(Dataset):
                 if ('video' in self.data_types and not video_path) or \
                 ('flow' in self.data_types and not flow_path) or \
                 ('rgb' in self.data_types and not rgb_path) or \
+                ('resnet' in self.data_types and not resnet_path) or \
                 ('smartwatch' in self.data_types and not smartwatch_path) or \
                 ('depth_sensor' in self.data_types and not depth_sensor_path):
                     print(f"[Warning] Skipping trial {trial['trial_id']} for subject {subject['subject_id']} due to missing data")
                     continue
 
-                if video_path or flow_path or rgb_path or smartwatch_path or depth_sensor_path:
+                if video_path or flow_path or rgb_path or resnet_path or smartwatch_path or depth_sensor_path:
                     keysteps = trial['keysteps']
                     for step in keysteps:
                         start_frame = math.floor(step['start_t'] * self.fps)
@@ -195,6 +222,8 @@ class EgoExoEMSDataset(Dataset):
                             data_dict['flow_path'] = os.path.join(self.data_base_path, flow_path)
                         if 'rgb' in self.data_types:
                             data_dict['rgb_path'] = os.path.join(self.data_base_path, rgb_path)
+                        if 'resnet' in self.data_types:
+                            data_dict['resnet_path'] = os.path.join(self.data_base_path, resnet_path)
                         if 'smartwatch' in self.data_types:
                             data_dict['smartwatch_path'] = os.path.join(self.data_base_path, smartwatch_path)
                         if 'depth_sensor' in self.data_types:
@@ -258,6 +287,7 @@ class EgoExoEMSDataset(Dataset):
         frames = []
         flow = torch.zeros(0)
         rgb = torch.zeros(0)
+        resnet = torch.zeros(0)  # Added for resnet modality
         audio = torch.zeros(1, 0)
         sw_acc = torch.zeros(0)
         depth_sensor_readings = torch.zeros(0)
@@ -284,12 +314,10 @@ class EgoExoEMSDataset(Dataset):
             rgb_path = item['rgb_path']
             rgb = torch.from_numpy(np.load(rgb_path))[item['start_frame']:item['end_frame']]
 
-        # # Load audio if available
-        # if 'audio' in self.data_types and 'video' in self.data_types:  # Check if audio is available
-        #     video_path = item['video_path']
-        #     audio_reader = VideoReader(video_path, "audio")
-        #     audio_clips = [audio_frame['data'] for audio_frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], audio_reader)]
-        #     audio = torch.cat(audio_clips, dim=0) if audio_clips else torch.zeros(1, 0)
+        # Load resnet if available
+        if 'resnet' in self.data_types:
+            resnet_path = item['resnet_path']
+            resnet = torch.from_numpy(np.load(resnet_path))[item['start_frame']:item['end_frame']]
 
         # Load smartwatch data if available
         if 'smartwatch' in self.data_types:
@@ -364,6 +392,15 @@ class EgoExoEMSDataset(Dataset):
                     pad_size = self.frames_per_clip - rgb.shape[0]
                     rgb = torch.cat([rgb, torch.zeros((pad_size, *rgb.shape[1:]))], dim=0)
 
+            if 'resnet' in self.data_types:
+                resnet_clips = self._get_clips(resnet, self.frames_per_clip)
+                clip_idx = min(clip_idx, len(resnet_clips) - 1)
+                resnet = resnet_clips[clip_idx]
+                # Pad if less than frames_per_clip
+                if resnet.shape[0] < self.frames_per_clip:
+                    pad_size = self.frames_per_clip - resnet.shape[0]
+                    resnet = torch.cat([resnet, torch.zeros((pad_size, *resnet.shape[1:]))], dim=0)
+
             if 'smartwatch' in self.data_types:
                 sw_acc_clips = self._get_clips(sw_acc, self.frames_per_clip)
                 sw_acc = sw_acc_clips[clip_idx]
@@ -382,11 +419,12 @@ class EgoExoEMSDataset(Dataset):
 
         # Calculate the minimum length of all available modalities
         min_length = min(
-            frames.shape[0] if frames is torch.is_tensor(frames) else float('inf'),
-            flow.shape[0] if flow is not None and flow.shape[0] > 0 else float('inf'),
-            rgb.shape[0] if rgb is not None and rgb.shape[0] > 0 else float('inf'),
-            sw_acc.shape[0] if sw_acc is not None and sw_acc.shape[0] > 0 else float('inf'),
-            depth_sensor_readings.shape[0] if depth_sensor_readings is not None and depth_sensor_readings.shape[0] > 0 else float('inf')
+            frames.shape[0] if isinstance(frames, torch.Tensor) and frames.shape[0] > 0 else float('inf'),
+            flow.shape[0] if isinstance(flow, torch.Tensor) and flow.shape[0] > 0 else float('inf'),
+            rgb.shape[0] if isinstance(rgb, torch.Tensor) and rgb.shape[0] > 0 else float('inf'),
+            resnet.shape[0] if isinstance(resnet, torch.Tensor) and resnet.shape[0] > 0 else float('inf'),
+            sw_acc.shape[0] if isinstance(sw_acc, torch.Tensor) and sw_acc.shape[0] > 0 else float('inf'),
+            depth_sensor_readings.shape[0] if isinstance(depth_sensor_readings, torch.Tensor) and depth_sensor_readings.shape[0] > 0 else float('inf')
         )
 
         # Make sure min_length is a valid integer
@@ -394,15 +432,17 @@ class EgoExoEMSDataset(Dataset):
             min_length = 0  # Handle the case where none of the data types are available
 
         # Truncate all modalities to the minimum length
-        if frames is torch.is_tensor(frames) and frames.shape[0] > 0:
+        if isinstance(frames, torch.Tensor) and frames.shape[0] > 0:
             frames = frames[:min_length]
-        if flow is not None and flow.shape[0] > 0:
+        if isinstance(flow, torch.Tensor) and flow.shape[0] > 0:
             flow = flow[:min_length]
-        if rgb is not None and rgb.shape[0] > 0:
+        if isinstance(rgb, torch.Tensor) and rgb.shape[0] > 0:
             rgb = rgb[:min_length]
-        if sw_acc is not None and sw_acc.shape[0] > 0:
+        if isinstance(resnet, torch.Tensor) and resnet.shape[0] > 0:
+            resnet = resnet[:min_length]
+        if isinstance(sw_acc, torch.Tensor) and sw_acc.shape[0] > 0:
             sw_acc = sw_acc[:min_length]
-        if depth_sensor_readings is not None and depth_sensor_readings.shape[0] > 0:
+        if isinstance(depth_sensor_readings, torch.Tensor) and depth_sensor_readings.shape[0] > 0:
             depth_sensor_readings = depth_sensor_readings[:min_length]
 
 
@@ -410,6 +450,7 @@ class EgoExoEMSDataset(Dataset):
             'frames': frames,
             'flow': flow,
             'rgb': rgb,
+            'resnet': resnet,  # Added for resnet
             'audio': audio,
             'smartwatch': sw_acc,
             'depth_sensor': depth_sensor_readings,
@@ -424,4 +465,3 @@ class EgoExoEMSDataset(Dataset):
         }
 
         return output
-

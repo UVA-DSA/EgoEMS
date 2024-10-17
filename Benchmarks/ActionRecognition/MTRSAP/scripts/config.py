@@ -10,9 +10,9 @@ tcn_model_params = {
         "out_channels": 256,
     },
     "decoder_params": {
-        "in_channels": 256,
+        "in_channels": 60,
         "kernel_size": 31,
-        "out_channels": 256
+        "out_channels": 60
     }
 }
 
@@ -20,7 +20,7 @@ tcn_model_params = {
 transformer_params = {
     "d_model": 256,
     "nhead": 4,
-    "num_layers": 4,
+    "num_layers": 2,
     "hidden_dim": 128,
     "layer_dim": 4,
     "dropout": 0.1,
@@ -32,18 +32,18 @@ transformer_params = {
 
 learning_params = {
     # "lr": 8.906324028628413e-5,
-    "lr": 1e-06,
-    "epochs": 45,
+    "lr": 1e-05,
+    "epochs": 30,
     "weight_decay": 1e-5,
     "patience": 3,
-    "lr_drop": 15,
+    "lr_drop": 20,
     "best_chkpoint": "64366030/val_best_model.pt"
 }
 
 dataloader_params = {
     
     "batch_size": 1,
-    "observation_window": 30,
+    "observation_window": None,
     "fold": 1,
     "fps": 30,
     "train_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/keysteps/train_split.json',
@@ -51,7 +51,7 @@ dataloader_params = {
     "test_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/keysteps/test_split.json',
     # Old dataset class
     'base_path': '/scratch/cjh9fw/Rivanna/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
-    'modality': ['video'],
+    'modality': ['flow', 'rgb', 'smartwatch'],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
                     "check_responsiveness": "Check for responsiveness",

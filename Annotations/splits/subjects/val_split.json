@@ -1,0 +1,3278 @@
+{
+    "subjects": [
+        {
+            "subject_id": "ng2",
+            "trials": [
+                {
+                    "trial_id": "0",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010341_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/0/i3d_flow/GX010341_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/0/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010341_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/0/audio/GX010341_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010341_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/0/i3d_rgb/GX010341_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-06-18-52-45_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/0/Kinect/2024-09-06-18-52-45_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/0/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/0/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010341_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/0/GoPro/GX010341_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "1_0XR9FQKe",
+                            "start_t": 0,
+                            "end_t": 5.76254,
+                            "label": "approach_patient",
+                            "class_id": 0
+                        },
+                        {
+                            "keystep_id": "1_pfBNs4pL",
+                            "start_t": 5.763,
+                            "end_t": 10.40004,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "1_Xh8fOUpe",
+                            "start_t": 10.4,
+                            "end_t": 32.00903,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_EFbXYd8D",
+                            "start_t": 12.509,
+                            "end_t": 14.32131,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_xy74zqnT",
+                            "start_t": 37.176,
+                            "end_t": 54.73433,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_Azu1ky7R",
+                            "start_t": 57.509,
+                            "end_t": 59.63255,
+                            "label": "request_aed",
+                            "class_id": 5
+                        },
+                        {
+                            "keystep_id": "1_IVRM3Bsd",
+                            "start_t": 14.321,
+                            "end_t": 16.25903,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_r17GimKu",
+                            "start_t": 32.009,
+                            "end_t": 37.1757,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_Rk9bXher",
+                            "start_t": 54.734,
+                            "end_t": 59.67973,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_5mpXaAr8",
+                            "start_t": 66.889,
+                            "end_t": 69.12782,
+                            "label": "turn_on_aed",
+                            "class_id": 7
+                        },
+                        {
+                            "keystep_id": "1_Zc30xbFX",
+                            "start_t": 69.128,
+                            "end_t": 76.00668,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "1_TAqlcDAR",
+                            "start_t": 59.68,
+                            "end_t": 91.76355,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_fv1fhpGX",
+                            "start_t": 91.764,
+                            "end_t": 102.39023,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "1_hMLPPM9Q",
+                            "start_t": 102.39,
+                            "end_t": 108.26355,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "1_CZqjj8cA",
+                            "start_t": 108.264,
+                            "end_t": 113.01355,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "1_B0SVoAbb",
+                            "start_t": 113.014,
+                            "end_t": 119.88855,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "1_PpHWXZAU",
+                            "start_t": 120.264,
+                            "end_t": 121.424,
+                            "label": "open_airway",
+                            "class_id": 12
+                        },
+                        {
+                            "keystep_id": "1_M4kyiOSZ",
+                            "start_t": 121.424,
+                            "end_t": 145.88855,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_6VhXsQAA",
+                            "start_t": 149.569,
+                            "end_t": 165.56023,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_gOV1eaDo",
+                            "start_t": 121.859,
+                            "end_t": 124.391,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_vAj7xTxr",
+                            "start_t": 79.35,
+                            "end_t": 84.20071,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_e6UXVgn9",
+                            "start_t": 145.889,
+                            "end_t": 149.56928,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_acZfgXfH",
+                            "start_t": 165.56,
+                            "end_t": 166.89388,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        }
+                    ],
+                    "interventions": {}
+                },
+                {
+                    "trial_id": "1",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010342_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/i3d_flow/GX010342_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010342_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/audio/GX010342_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010342_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/i3d_rgb/GX010342_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-06-18-52-45_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/Kinect/2024-09-06-18-52-45_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010342_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/GoPro/GX010342_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "2_XTXiZCvF",
+                            "start_t": 0,
+                            "end_t": 7.30762,
+                            "label": "no_action",
+                            "class_id": 15
+                        },
+                        {
+                            "keystep_id": "2_WDXcIIfY",
+                            "start_t": 7.308,
+                            "end_t": 10.5271,
+                            "label": "approach_patient",
+                            "class_id": 0
+                        },
+                        {
+                            "keystep_id": "2_tahXF8Bi",
+                            "start_t": 10.527,
+                            "end_t": 14.20578,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "2_RpPciLwC",
+                            "start_t": 14.206,
+                            "end_t": 15.79474,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "2_AeUqnHKP",
+                            "start_t": 15.795,
+                            "end_t": 32.56111,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_N3hSnLPx",
+                            "start_t": 16.7771,
+                            "end_t": 19.47466,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "2_fYet3eEe",
+                            "start_t": 34.027,
+                            "end_t": 110.2771,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_qWluBnYw",
+                            "start_t": 53.5271,
+                            "end_t": 62.85648,
+                            "label": "request_aed",
+                            "class_id": 5
+                        },
+                        {
+                            "keystep_id": "2_usAXdu5L",
+                            "start_t": 61.7771,
+                            "end_t": 68.7322,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "2_vzIp61qX",
+                            "start_t": 68.732,
+                            "end_t": 72.11656,
+                            "label": "turn_on_aed",
+                            "class_id": 7
+                        },
+                        {
+                            "keystep_id": "2_rIWfMSzI",
+                            "start_t": 97.538,
+                            "end_t": 110.73521,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "2_CnOM2mXX",
+                            "start_t": 110.5271,
+                            "end_t": 119.63603,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "2_OsZnNQZr",
+                            "start_t": 119.636,
+                            "end_t": 128.19894,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "2_YgGGGsPb",
+                            "start_t": 128.199,
+                            "end_t": 133.0271,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "2_3kQGmdCd",
+                            "start_t": 133.027,
+                            "end_t": 135.21823,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "2_FJgGAYLX",
+                            "start_t": 134.0271,
+                            "end_t": 135.5271,
+                            "label": "open_airway",
+                            "class_id": 12
+                        },
+                        {
+                            "keystep_id": "2_sRLsKdcI",
+                            "start_t": 135.527,
+                            "end_t": 138.2771,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "2_GD9r4FcX",
+                            "start_t": 136.222,
+                            "end_t": 150.69766,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_7D1AgqXl",
+                            "start_t": 152.241,
+                            "end_t": 167.07331,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_J86UGkvB",
+                            "start_t": 170.286,
+                            "end_t": 175.01769,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_8pY8aR2Q",
+                            "start_t": 32.561,
+                            "end_t": 36.51429,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_OT4KWxrm",
+                            "start_t": 49.527,
+                            "end_t": 53.221,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_l6cEUxpn",
+                            "start_t": 75.876,
+                            "end_t": 79.91884,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_sPzK70jo",
+                            "start_t": 104.277,
+                            "end_t": 110.2771,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_lKY5M6I8",
+                            "start_t": 138.277,
+                            "end_t": 142.17123,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_sSqbkvPi",
+                            "start_t": 149.777,
+                            "end_t": 153.60977,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_jpYus0vj",
+                            "start_t": 166.027,
+                            "end_t": 169.87536,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        }
+                    ],
+                    "interventions": {}
+                }
+            ],
+            "expertise_level": "EMT"
+        },
+        {
+            "subject_id": "ng3",
+            "trials": [
+                {
+                    "trial_id": "0",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010332_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/0/i3d_flow/GX010332_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/0/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010332_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/0/audio/GX010332_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010332_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/0/i3d_rgb/GX010332_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-05-19-58-16_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/0/Kinect/2024-09-05-19-58-16_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/0/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/0/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010332_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/0/GoPro/GX010332_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "1_64o3HPM2",
+                            "start_t": 0.02,
+                            "end_t": 83.45542,
+                            "label": "no_action",
+                            "class_id": 15
+                        },
+                        {
+                            "keystep_id": "1_IxbkTD4R",
+                            "start_t": 83.455,
+                            "end_t": 87.48384,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "1_M7vHyhpT",
+                            "start_t": 87.484,
+                            "end_t": 90.63855,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "1_5ra50cmD",
+                            "start_t": 90.639,
+                            "end_t": 94.03855,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "1_RbZDjuM6",
+                            "start_t": 94.039,
+                            "end_t": 95.94588,
+                            "label": "request_assistance",
+                            "class_id": 6
+                        },
+                        {
+                            "keystep_id": "1_yhdzh6Vr",
+                            "start_t": 95.946,
+                            "end_t": 111.21192,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_rKr173TX",
+                            "start_t": 111.212,
+                            "end_t": 112.57137,
+                            "label": "open_airway",
+                            "class_id": 12
+                        },
+                        {
+                            "keystep_id": "1_blyd3X5Q",
+                            "start_t": 112.571,
+                            "end_t": 114.04788,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_x7DfS29m",
+                            "start_t": 114.048,
+                            "end_t": 121.10421,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_36GyjZGM",
+                            "start_t": 122.07834,
+                            "end_t": 123.07834,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "1_u7Jbhq1i",
+                            "start_t": 123.078,
+                            "end_t": 129.4614,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "1_R1nAFgKB",
+                            "start_t": 129.461,
+                            "end_t": 137.76674,
+                            "label": "turn_on_aed",
+                            "class_id": 7
+                        },
+                        {
+                            "keystep_id": "1_9xy9Hdq9",
+                            "start_t": 137.767,
+                            "end_t": 151.96242,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "1_g9gr6rlV",
+                            "start_t": 151.962,
+                            "end_t": 156.22509,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "1_5u5tCV6K",
+                            "start_t": 156.225,
+                            "end_t": 161.461,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "1_bK13PxnF",
+                            "start_t": 161.461,
+                            "end_t": 178.01355,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_WgJUXAvk",
+                            "start_t": 178.014,
+                            "end_t": 180.13789,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_xrWw6YuX",
+                            "start_t": 180.138,
+                            "end_t": 184.50481,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_znU4r6zS",
+                            "start_t": 184.505,
+                            "end_t": 200.64132,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_RQVqpPrV",
+                            "start_t": 200.641,
+                            "end_t": 203.14634,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_tzx0K282",
+                            "start_t": 203.146,
+                            "end_t": 208.27612,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_DTNvYRLb",
+                            "start_t": 208.276,
+                            "end_t": 211.14913,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "1_wXwu1OVD",
+                            "start_t": 211.149,
+                            "end_t": 218,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        }
+                    ],
+                    "interventions": {}
+                },
+                {
+                    "trial_id": "1",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010333_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/i3d_flow/GX010333_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010333_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/audio/GX010333_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010333_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/i3d_rgb/GX010333_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-05-19-58-16_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/Kinect/2024-09-05-19-58-16_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010333_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/GoPro/GX010333_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "2_a3OXfXgb",
+                            "start_t": 0,
+                            "end_t": 4.35164,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "2_CZCl2bwv",
+                            "start_t": 4.352,
+                            "end_t": 8.00857,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "2_SWCwsP1G",
+                            "start_t": 8.009,
+                            "end_t": 12.38041,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "2_Op53gX5q",
+                            "start_t": 12.38,
+                            "end_t": 27.54618,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_J3h36Yvr",
+                            "start_t": 27.546,
+                            "end_t": 30.17738,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "2_FKqrjCp1",
+                            "start_t": 30.177,
+                            "end_t": 35.5336,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_VXT2lLTy",
+                            "start_t": 35.534,
+                            "end_t": 50.35087,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_sEf49SKl",
+                            "start_t": 50.351,
+                            "end_t": 52.42162,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "2_AYguI1F6",
+                            "start_t": 52.422,
+                            "end_t": 56.54174,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_G0SDbFTh",
+                            "start_t": 56.542,
+                            "end_t": 59.94014,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "2_Mm3RkPdY",
+                            "start_t": 59.94,
+                            "end_t": 65.8699,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "2_TBBPQ3ZG",
+                            "start_t": 65.87,
+                            "end_t": 84.77008,
+                            "label": "turn_on_aed",
+                            "class_id": 7
+                        },
+                        {
+                            "keystep_id": "2_TuIt2pUB",
+                            "start_t": 84.77,
+                            "end_t": 89.11108,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "2_dxV8Yo2z",
+                            "start_t": 89.111,
+                            "end_t": 93.06222,
+                            "label": "turn_on_aed",
+                            "class_id": 7
+                        },
+                        {
+                            "keystep_id": "2_Fkvl73N7",
+                            "start_t": 93.062,
+                            "end_t": 107.52531,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "2_8HJNiJ4O",
+                            "start_t": 107.525,
+                            "end_t": 110.75608,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "2_FfByat8M",
+                            "start_t": 110.756,
+                            "end_t": 117.02587,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "2_4Yk2w2ld",
+                            "start_t": 117.026,
+                            "end_t": 131.74664,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_FtES8nLz",
+                            "start_t": 131.747,
+                            "end_t": 133.81407,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "2_G7ViiyqH",
+                            "start_t": 133.814,
+                            "end_t": 138.70933,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        }
+                    ],
+                    "interventions": {}
+                },
+                {
+                    "trial_id": "10",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010375_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/10/i3d_flow/GX010375_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/10/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010375_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/10/audio/GX010375_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010375_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/10/i3d_rgb/GX010375_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-19-19-08-12_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/10/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/10/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/10/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010375_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/10/GoPro/GX010375_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "5_RFWX96x6",
+                            "start_t": 0,
+                            "end_t": 3.0789,
+                            "label": "no_action",
+                            "class_id": 15
+                        },
+                        {
+                            "keystep_id": "5_dS2It4po",
+                            "start_t": 3.079,
+                            "end_t": 4.83824,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "5_GcBvnVvK",
+                            "start_t": 4.838,
+                            "end_t": 7.48728,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "5_81XEHmAJ",
+                            "start_t": 7.487,
+                            "end_t": 10.94902,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "5_K2MBeqsv",
+                            "start_t": 10.949,
+                            "end_t": 11.5822,
+                            "label": "request_assistance",
+                            "class_id": 6
+                        },
+                        {
+                            "keystep_id": "5_RuJxpD99",
+                            "start_t": 11.582,
+                            "end_t": 14.17265,
+                            "label": "request_aed",
+                            "class_id": 5
+                        },
+                        {
+                            "keystep_id": "5_ApKxZ7I3",
+                            "start_t": 14.173,
+                            "end_t": 29.10017,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "5_5nXda1Kq",
+                            "start_t": 15.898,
+                            "end_t": 22.71989,
+                            "label": "turn_on_aed",
+                            "class_id": 7
+                        },
+                        {
+                            "keystep_id": "5_1srcXSll",
+                            "start_t": 22.72,
+                            "end_t": 29.10017,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "5_LFwClQfE",
+                            "start_t": 29.1,
+                            "end_t": 32.93033,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "5_3xIbWWpH",
+                            "start_t": 32.93,
+                            "end_t": 48.2034,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "5_l9DYK60u",
+                            "start_t": 33.691,
+                            "end_t": 45.61452,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "5_MQGFlcSk",
+                            "start_t": 45.615,
+                            "end_t": 48.2034,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "5_r64OCwLp",
+                            "start_t": 48.203,
+                            "end_t": 51.83065,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "5_AteaQKLi",
+                            "start_t": 51.831,
+                            "end_t": 55.27207,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "5_Ofkd56qp",
+                            "start_t": 55.272,
+                            "end_t": 69.75456,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "5_Qn6oqOHq",
+                            "start_t": 69.755,
+                            "end_t": 72.75117,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "5_VX4DpGCH",
+                            "start_t": 72.751,
+                            "end_t": 77.07008,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "5_jp19MK4A",
+                            "start_t": 77.64,
+                            "end_t": 79.59893,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "5_X46nXkFq",
+                            "start_t": 79.599,
+                            "end_t": 81.81405,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "5_G5kzhxUK",
+                            "start_t": 80.131,
+                            "end_t": 94.88941,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "5_4ex8dLV3",
+                            "start_t": 82.4257,
+                            "end_t": 94.88941,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "5_0leBTwQL",
+                            "start_t": 94.889,
+                            "end_t": 98.99573,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "5_bFNbVe1X",
+                            "start_t": 98.996,
+                            "end_t": 113.98431,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "5_zNsrvmnX",
+                            "start_t": 109.50903,
+                            "end_t": 113.98431,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "5_l0nI9Xzq",
+                            "start_t": 113.984,
+                            "end_t": 117.35247,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "5_ctuUlzwf",
+                            "start_t": 117.352,
+                            "end_t": 125.49203,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        }
+                    ],
+                    "interventions": {}
+                },
+                {
+                    "trial_id": "11",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010376_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/i3d_flow/GX010376_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010376_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/audio/GX010376_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010376_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/i3d_rgb/GX010376_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-19-19-08-12_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010376_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/GoPro/GX010376_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "4_4HpIsfps",
+                            "start_t": 0,
+                            "end_t": 2.30995,
+                            "label": "no_action",
+                            "class_id": 15
+                        },
+                        {
+                            "keystep_id": "4_9HTAOoEX",
+                            "start_t": 2.31,
+                            "end_t": 3.75527,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "4_QXWdsgE8",
+                            "start_t": 3.755,
+                            "end_t": 5.87644,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "4_IcHoFbSX",
+                            "start_t": 5.876,
+                            "end_t": 9.18787,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "4_tRCS34PK",
+                            "start_t": 9.188,
+                            "end_t": 10.05312,
+                            "label": "request_assistance",
+                            "class_id": 6
+                        },
+                        {
+                            "keystep_id": "4_IIlHzq7l",
+                            "start_t": 10.053,
+                            "end_t": 12.17708,
+                            "label": "request_aed",
+                            "class_id": 5
+                        },
+                        {
+                            "keystep_id": "4_HXCs7dF0",
+                            "start_t": 12.177,
+                            "end_t": 27.23649,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "4_atzXRSN8",
+                            "start_t": 27.236,
+                            "end_t": 28.78574,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "4_RQCcMquM",
+                            "start_t": 28.786,
+                            "end_t": 32.41204,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "4_LpSgHOAM",
+                            "start_t": 32.412,
+                            "end_t": 47.25677,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "4_GzPqsMdX",
+                            "start_t": 32.412,
+                            "end_t": 40.7193,
+                            "label": "turn_on_aed",
+                            "class_id": 7
+                        },
+                        {
+                            "keystep_id": "4_yP2ef0M1",
+                            "start_t": 40.719,
+                            "end_t": 47.25677,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "4_c5nMqnvc",
+                            "start_t": 47.257,
+                            "end_t": 50.73107,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "4_XjDuJnq0",
+                            "start_t": 50.731,
+                            "end_t": 65.58986,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "4_WPf6xwOp",
+                            "start_t": 51.62,
+                            "end_t": 63.39988,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "4_4KSJJiWj",
+                            "start_t": 63.4,
+                            "end_t": 65.04882,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "4_FqX3HxRN",
+                            "start_t": 63.4,
+                            "end_t": 77.54795,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "4_mMwgBkK7",
+                            "start_t": 77.548,
+                            "end_t": 81.2974,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "4_mPFza9WN",
+                            "start_t": 81.297,
+                            "end_t": 83.90135,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "4_d8HPWX2A",
+                            "start_t": 83.901,
+                            "end_t": 87.26524,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "4_UH0KgYhR",
+                            "start_t": 87.265,
+                            "end_t": 88.66237,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "4_vQJzOrXG",
+                            "start_t": 88.926,
+                            "end_t": 102.18547,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "4_5yE3vhpJ",
+                            "start_t": 87.39,
+                            "end_t": 102.18547,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "4_0kzdCqS8",
+                            "start_t": 105.405,
+                            "end_t": 120.54308,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "4_F7g2VlQe",
+                            "start_t": 102.185,
+                            "end_t": 105.405,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "4_kiTyOufW",
+                            "start_t": 113.031,
+                            "end_t": 120.54308,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "4_sItuq32N",
+                            "start_t": 120.543,
+                            "end_t": 125.426,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        }
+                    ],
+                    "interventions": {}
+                },
+                {
+                    "trial_id": "12",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010377_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/i3d_flow/GX010377_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010377_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/audio/GX010377_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010377_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/i3d_rgb/GX010377_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-19-19-08-12_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010377_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/GoPro/GX010377_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "3_W3eCB81p",
+                            "start_t": 0,
+                            "end_t": 9.56283,
+                            "label": "no_action",
+                            "class_id": 15
+                        },
+                        {
+                            "keystep_id": "3_5L7Lcn1X",
+                            "start_t": 9.563,
+                            "end_t": 11.73738,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "3_tPwuzFkb",
+                            "start_t": 11.737,
+                            "end_t": 14.2116,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "3_P9y5z4H5",
+                            "start_t": 14.212,
+                            "end_t": 18.12571,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "3_JNbb2wXf",
+                            "start_t": 18.126,
+                            "end_t": 18.93355,
+                            "label": "request_assistance",
+                            "class_id": 6
+                        },
+                        {
+                            "keystep_id": "3_Du7F19Ja",
+                            "start_t": 18.934,
+                            "end_t": 20.6146,
+                            "label": "request_aed",
+                            "class_id": 5
+                        },
+                        {
+                            "keystep_id": "3_ujW4htsG",
+                            "start_t": 20.615,
+                            "end_t": 35.8661,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "3_qb9rLb78",
+                            "start_t": 23.616,
+                            "end_t": 28.12364,
+                            "label": "turn_on_aed",
+                            "class_id": 7
+                        },
+                        {
+                            "keystep_id": "3_2LtGfbBn",
+                            "start_t": 28.124,
+                            "end_t": 35.8661,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "3_8CMJ1mrz",
+                            "start_t": 35.866,
+                            "end_t": 38.87451,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "3_cgXouq8L",
+                            "start_t": 38.875,
+                            "end_t": 54.35542,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "3_HGwoa0Fq",
+                            "start_t": 39.64,
+                            "end_t": 51.79874,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "3_BgU6OU7w",
+                            "start_t": 51.988,
+                            "end_t": 54.2883,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "3_krDKguyC",
+                            "start_t": 54.288,
+                            "end_t": 56.96657,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "3_uqnZ2zmP",
+                            "start_t": 56.967,
+                            "end_t": 67.62732,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "3_FqQtBoom",
+                            "start_t": 67.627,
+                            "end_t": 71.54459,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "3_tKLLWMZ3",
+                            "start_t": 71.545,
+                            "end_t": 73.36568,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "3_XfBeZrIA",
+                            "start_t": 73.366,
+                            "end_t": 75.85001,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "3_XjODEg3b",
+                            "start_t": 75.85,
+                            "end_t": 78.29143,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "3_S39iIRBW",
+                            "start_t": 76.955,
+                            "end_t": 92.61817,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "3_2nbnK0Q0",
+                            "start_t": 80.017,
+                            "end_t": 92.61817,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "3_JlXn23Vp",
+                            "start_t": 92.618,
+                            "end_t": 96.37932,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "3_RB4PAgcc",
+                            "start_t": 96.379,
+                            "end_t": 111.53211,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "3_XFJBGYEW",
+                            "start_t": 103.97,
+                            "end_t": 111.53211,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "3_qPvYKX03",
+                            "start_t": 111.532,
+                            "end_t": 114.94041,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "3_EmCpf4ra",
+                            "start_t": 114.94,
+                            "end_t": 117.81574,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "3_9AU9ZIHk",
+                            "start_t": 117.816,
+                            "end_t": 118.95217,
+                            "label": "no_action",
+                            "class_id": 15
+                        }
+                    ],
+                    "interventions": {}
+                },
+                {
+                    "trial_id": "2",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010334_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/2/i3d_flow/GX010334_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/2/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010334_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/2/audio/GX010334_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010334_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/2/i3d_rgb/GX010334_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-05-19-58-16_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/2/Kinect/2024-09-05-19-58-16_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/2/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/2/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010334_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/2/GoPro/GX010334_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "5_uZ3NkbpK",
+                            "start_t": 0,
+                            "end_t": 4.43976,
+                            "label": "no_action",
+                            "class_id": 15
+                        },
+                        {
+                            "keystep_id": "5_j3IRMibW",
+                            "start_t": 4.44,
+                            "end_t": 7.14702,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "5_XhzQAdF9",
+                            "start_t": 7.147,
+                            "end_t": 10.17438,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "5_wXV7CMZ5",
+                            "start_t": 10.174,
+                            "end_t": 14.76838,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "5_Alakcp9A",
+                            "start_t": 14.768,
+                            "end_t": 16.92346,
+                            "label": "request_assistance",
+                            "class_id": 6
+                        },
+                        {
+                            "keystep_id": "5_ZjV1uCip",
+                            "start_t": 16.923,
+                            "end_t": 31.75026,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "5_6DzNvUd7",
+                            "start_t": 31.75,
+                            "end_t": 33.49686,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "5_pLuG2W4D",
+                            "start_t": 33.497,
+                            "end_t": 38.94147,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "5_xAVIWusP",
+                            "start_t": 38.941,
+                            "end_t": 54.18773,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "5_XRHK1ZPb",
+                            "start_t": 54.188,
+                            "end_t": 55.76281,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "5_Flebp5mr",
+                            "start_t": 55.763,
+                            "end_t": 60.73112,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "5_mhAjyhPX",
+                            "start_t": 60.731,
+                            "end_t": 63.66596,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "5_KjYrXRlt",
+                            "start_t": 63.666,
+                            "end_t": 74.63452,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "5_n03baFjX",
+                            "start_t": 74.635,
+                            "end_t": 82.86261,
+                            "label": "turn_on_aed",
+                            "class_id": 7
+                        },
+                        {
+                            "keystep_id": "5_XCx2DuWL",
+                            "start_t": 82.863,
+                            "end_t": 97.254,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "5_3MBQ8GYs",
+                            "start_t": 97.254,
+                            "end_t": 101.13867,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "5_bE7Uft2W",
+                            "start_t": 101.139,
+                            "end_t": 107.60554,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "5_ijOXiXU6",
+                            "start_t": 107.606,
+                            "end_t": 122.44513,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "5_o5KOSrYX",
+                            "start_t": 122.445,
+                            "end_t": 124.41399,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "5_n4sbuUXb",
+                            "start_t": 124.414,
+                            "end_t": 128.94936,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "5_3oB8Xxm0",
+                            "start_t": 128.949,
+                            "end_t": 144.11994,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "5_Jnoc6w2Z",
+                            "start_t": 144.12,
+                            "end_t": 146.05075,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "5_MdXJPzbL",
+                            "start_t": 146.051,
+                            "end_t": 151.5514,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        }
+                    ],
+                    "interventions": {}
+                },
+                {
+                    "trial_id": "3",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010335_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/3/i3d_flow/GX010335_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/3/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010335_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/3/audio/GX010335_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010335_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/3/i3d_rgb/GX010335_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-05-19-58-16_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/3/Kinect/2024-09-05-19-58-16_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/3/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/3/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010335_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/3/GoPro/GX010335_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "4_XdwnAQAF",
+                            "start_t": 0,
+                            "end_t": 3.5458,
+                            "label": "no_action",
+                            "class_id": 15
+                        },
+                        {
+                            "keystep_id": "4_bhvZPOtY",
+                            "start_t": 3.546,
+                            "end_t": 6.15005,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "4_Tplgn3bm",
+                            "start_t": 6.15,
+                            "end_t": 9.02736,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "4_KiEXmawo",
+                            "start_t": 9.027,
+                            "end_t": 12.7874,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "4_udiL7184",
+                            "start_t": 12.787,
+                            "end_t": 13.7414,
+                            "label": "request_assistance",
+                            "class_id": 6
+                        },
+                        {
+                            "keystep_id": "4_gmVfZj6p",
+                            "start_t": 13.741,
+                            "end_t": 14.461,
+                            "label": "request_aed",
+                            "class_id": 5
+                        },
+                        {
+                            "keystep_id": "4_YcDqdaYh",
+                            "start_t": 30.531,
+                            "end_t": 31.81976,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "4_aiwVf6JV",
+                            "start_t": 31.82,
+                            "end_t": 36.36014,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "4_eCmByXnf",
+                            "start_t": 14.461,
+                            "end_t": 30.531,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "4_jDmaXCK6",
+                            "start_t": 36.36,
+                            "end_t": 51.5136,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "4_GZyV5bOX",
+                            "start_t": 51.514,
+                            "end_t": 53.20164,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "4_y5EhsfWd",
+                            "start_t": 53.202,
+                            "end_t": 56.7883,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "4_GXQDZHSy",
+                            "start_t": 56.788,
+                            "end_t": 60.29144,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "4_XjSF3MUF",
+                            "start_t": 60.291,
+                            "end_t": 66.91645,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "4_GCwRBLX8",
+                            "start_t": 66.916,
+                            "end_t": 126.00606,
+                            "label": "turn_on_aed",
+                            "class_id": 7
+                        },
+                        {
+                            "keystep_id": "4_ONTgkcVf",
+                            "start_t": 126.006,
+                            "end_t": 146.19708,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "4_gWcq79NN",
+                            "start_t": 146.197,
+                            "end_t": 160.69107,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "4_L1WRFeS5",
+                            "start_t": 160.691,
+                            "end_t": 164.56123,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "4_iDamJV7z",
+                            "start_t": 164.561,
+                            "end_t": 170.39618,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "4_PEI5X4iM",
+                            "start_t": 170.396,
+                            "end_t": 185.87662,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "4_Hg1kLC5s",
+                            "start_t": 185.877,
+                            "end_t": 187.65169,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "4_rwO7PbSo",
+                            "start_t": 187.652,
+                            "end_t": 192.06856,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "4_wwPorhe8",
+                            "start_t": 192.069,
+                            "end_t": 207.55315,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "4_s6Bu9vM3",
+                            "start_t": 207.553,
+                            "end_t": 209.46434,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "4_1SdA4MiC",
+                            "start_t": 209.464,
+                            "end_t": 214.13855,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "4_Btz9QPKb",
+                            "start_t": 214.139,
+                            "end_t": 217.78423,
+                            "label": "no_action",
+                            "class_id": 15
+                        }
+                    ],
+                    "interventions": {}
+                },
+                {
+                    "trial_id": "4",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010336_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/4/i3d_flow/GX010336_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/4/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010336_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/4/audio/GX010336_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010336_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/4/i3d_rgb/GX010336_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-05-19-58-16_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/4/Kinect/2024-09-05-19-58-16_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/4/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/4/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010336_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/4/GoPro/GX010336_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "3_rG0Ho5Mu",
+                            "start_t": 0,
+                            "end_t": 7.02698,
+                            "label": "no_action",
+                            "class_id": 15
+                        },
+                        {
+                            "keystep_id": "3_p9irzTKQ",
+                            "start_t": 7.027,
+                            "end_t": 8.8252,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "3_kVgGztwW",
+                            "start_t": 8.825,
+                            "end_t": 11.83868,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "3_VVsqGE96",
+                            "start_t": 11.839,
+                            "end_t": 15.64135,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "3_Rkc3xXjU",
+                            "start_t": 15.641,
+                            "end_t": 16.42392,
+                            "label": "request_assistance",
+                            "class_id": 6
+                        },
+                        {
+                            "keystep_id": "3_UJDPFtAI",
+                            "start_t": 16.424,
+                            "end_t": 17.37139,
+                            "label": "request_aed",
+                            "class_id": 5
+                        },
+                        {
+                            "keystep_id": "3_LXgyXGKH",
+                            "start_t": 17.371,
+                            "end_t": 32.49343,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "3_uiKsnoXW",
+                            "start_t": 32.493,
+                            "end_t": 35.13885,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "3_2w5gKBHD",
+                            "start_t": 35.139,
+                            "end_t": 39.63661,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "3_0KNzbvvU",
+                            "start_t": 39.637,
+                            "end_t": 55.61086,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "3_ZyEFmPzM",
+                            "start_t": 55.611,
+                            "end_t": 57.66022,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "3_7mlousnl",
+                            "start_t": 57.66,
+                            "end_t": 61.44152,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "3_Dpxbq8kh",
+                            "start_t": 61.442,
+                            "end_t": 64.30933,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "3_M4mme2KR",
+                            "start_t": 64.309,
+                            "end_t": 69.99531,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "3_VeRxAO1z",
+                            "start_t": 69.995,
+                            "end_t": 79.27477,
+                            "label": "turn_on_aed",
+                            "class_id": 7
+                        },
+                        {
+                            "keystep_id": "3_8XGY5Epr",
+                            "start_t": 79.275,
+                            "end_t": 93.76722,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "3_k0AwIBt2",
+                            "start_t": 93.767,
+                            "end_t": 97.57727,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "3_5Qq2zuJT",
+                            "start_t": 97.577,
+                            "end_t": 102.67542,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "3_DTXUUXWX",
+                            "start_t": 102.675,
+                            "end_t": 118.04733,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "3_fenqxsgO",
+                            "start_t": 118.047,
+                            "end_t": 120.09425,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "3_P2vJKZqQ",
+                            "start_t": 120.094,
+                            "end_t": 124.39836,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "3_8XzXCX9d",
+                            "start_t": 124.398,
+                            "end_t": 140.96997,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "3_3XXutPKH",
+                            "start_t": 140.97,
+                            "end_t": 142.89545,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "3_7MqQb8hQ",
+                            "start_t": 142.895,
+                            "end_t": 147.7352,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "3_kWTThIlR",
+                            "start_t": 147.735,
+                            "end_t": 163.77368,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "3_ZMCJ1s9W",
+                            "start_t": 163.774,
+                            "end_t": 166.07126,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "3_sX7f9R8Z",
+                            "start_t": 166.071,
+                            "end_t": 173.67467,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        }
+                    ],
+                    "interventions": {}
+                },
+                {
+                    "trial_id": "5",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010364_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/5/i3d_flow/GX010364_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/5/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010364_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/5/audio/GX010364_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010364_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/5/i3d_rgb/GX010364_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-12-20-31-08_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/5/Kinect/2024-09-12-20-31-08_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/5/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/5/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010364_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/5/GoPro/GX010364_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "1_k33l9U1S",
+                            "start_t": 3.06476,
+                            "end_t": 5.39809,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "1_7grHMrvB",
+                            "start_t": 5.60642,
+                            "end_t": 8.93976,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "1_5vL1yOEC",
+                            "start_t": 9.27309,
+                            "end_t": 11.10642,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "1_xnjs5lMB",
+                            "start_t": 11.46059,
+                            "end_t": 13.06476,
+                            "label": "request_aed",
+                            "class_id": 5
+                        },
+                        {
+                            "keystep_id": "1_mXZKunmD",
+                            "start_t": 13.12726,
+                            "end_t": 30.02309,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_oSflTkXE",
+                            "start_t": 30.93976,
+                            "end_t": 33.16892,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_cCFgSVsL",
+                            "start_t": 33.43976,
+                            "end_t": 37.23142,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_ULZIXoRe",
+                            "start_t": 37.87726,
+                            "end_t": 53.85642,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_tUw05dcX",
+                            "start_t": 54.35642,
+                            "end_t": 56.04392,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_ID6vypt9",
+                            "start_t": 56.10642,
+                            "end_t": 60.25226,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_NQKoXvlH",
+                            "start_t": 62.75226,
+                            "end_t": 64.48142,
+                            "label": "turn_on_aed",
+                            "class_id": 7
+                        },
+                        {
+                            "keystep_id": "1_J721xAvJ",
+                            "start_t": 67.37726,
+                            "end_t": 82.52309,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "1_eILL33iX",
+                            "start_t": 85.43976,
+                            "end_t": 93.35642,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "1_uaRhw16L",
+                            "start_t": 96.21059,
+                            "end_t": 100.955,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "1_8JgEYgA5",
+                            "start_t": 101.81476,
+                            "end_t": 106.56476,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "1_soHoQJwm",
+                            "start_t": 106.75226,
+                            "end_t": 123.77309,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_vEbTfEfu",
+                            "start_t": 123.93976,
+                            "end_t": 125.60642,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_uOXEqbMB",
+                            "start_t": 125.68976,
+                            "end_t": 128.93976,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_Xt8qOJ7A",
+                            "start_t": 130.29392,
+                            "end_t": 145.81476,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_0d4lCzRI",
+                            "start_t": 146.12726,
+                            "end_t": 148.06476,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_OBaXOgnT",
+                            "start_t": 148.065,
+                            "end_t": 152.18976,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        }
+                    ],
+                    "interventions": {}
+                },
+                {
+                    "trial_id": "6",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010365_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/i3d_flow/GX010365_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010365_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/audio/GX010365_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010365_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/i3d_rgb/GX010365_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-12-20-31-08_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/Kinect/2024-09-12-20-31-08_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010365_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/GoPro/GX010365_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "1_LTgXg18D",
+                            "start_t": 1.75226,
+                            "end_t": 2.77309,
+                            "label": "approach_patient",
+                            "class_id": 0
+                        },
+                        {
+                            "keystep_id": "1_YzelYsyG",
+                            "start_t": 2.66892,
+                            "end_t": 5.21059,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "1_Ut5iXfIb",
+                            "start_t": 5.41892,
+                            "end_t": 8.81476,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "1_maIggrpn",
+                            "start_t": 9.00226,
+                            "end_t": 11.926,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "1_HXDTaD3e",
+                            "start_t": 12.79392,
+                            "end_t": 14.08559,
+                            "label": "request_aed",
+                            "class_id": 5
+                        },
+                        {
+                            "keystep_id": "1_tSNqSVeX",
+                            "start_t": 14.37726,
+                            "end_t": 30.87642,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_CYrcdum3",
+                            "start_t": 31.10642,
+                            "end_t": 33.96059,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_BiHMmbki",
+                            "start_t": 33.961,
+                            "end_t": 37.77309,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_i0M7iXps",
+                            "start_t": 38.50226,
+                            "end_t": 53.71059,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_U9owuw6t",
+                            "start_t": 54.689,
+                            "end_t": 55.73142,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_tIXqPgG7",
+                            "start_t": 55.731,
+                            "end_t": 60.16892,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_dZ9IAb43",
+                            "start_t": 62.68976,
+                            "end_t": 70.41892,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "1_OQ8SiBrx",
+                            "start_t": 71.39809,
+                            "end_t": 80.29392,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "1_uDx9QNld",
+                            "start_t": 82.91892,
+                            "end_t": 88.87726,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "1_j3HMuwaa",
+                            "start_t": 89.02309,
+                            "end_t": 93.39809,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "1_LDgBARg3",
+                            "start_t": 93.91892,
+                            "end_t": 110.04392,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_drKWDs0z",
+                            "start_t": 110.157,
+                            "end_t": 111.46059,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_cXyXBXzW",
+                            "start_t": 111.461,
+                            "end_t": 115.23142,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        }
+                    ],
+                    "interventions": {}
+                },
+                {
+                    "trial_id": "7",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010366_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/7/i3d_flow/GX010366_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/7/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010366_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/7/audio/GX010366_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010366_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/7/i3d_rgb/GX010366_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-12-20-31-08_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/7/Kinect/2024-09-12-20-31-08_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/7/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/7/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010366_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/7/GoPro/GX010366_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "2_SS7eKGIK",
+                            "start_t": 2.50226,
+                            "end_t": 3.81476,
+                            "label": "approach_patient",
+                            "class_id": 0
+                        },
+                        {
+                            "keystep_id": "2_H9tRAKaX",
+                            "start_t": 3.12,
+                            "end_t": 5.96059,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "2_aq66tzDX",
+                            "start_t": 6.341,
+                            "end_t": 9.83559,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "2_ROwCNWSW",
+                            "start_t": 10.08559,
+                            "end_t": 13.33559,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "2_k0vZVE2j",
+                            "start_t": 13.336,
+                            "end_t": 15.64809,
+                            "label": "request_aed",
+                            "class_id": 5
+                        },
+                        {
+                            "keystep_id": "2_QpXo1gNw",
+                            "start_t": 13.35642,
+                            "end_t": 15.66892,
+                            "label": "request_assistance",
+                            "class_id": 6
+                        },
+                        {
+                            "keystep_id": "2_bB8W5G5m",
+                            "start_t": 15.64809,
+                            "end_t": 31.54392,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_aTfBAbSq",
+                            "start_t": 31.73142,
+                            "end_t": 33.33559,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "2_SqQahK4S",
+                            "start_t": 33.352,
+                            "end_t": 37.31476,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_tVWXEA59",
+                            "start_t": 38.35642,
+                            "end_t": 54.27309,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_Z9rS3eVH",
+                            "start_t": 55.00226,
+                            "end_t": 56.35642,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "2_eK7LlSCT",
+                            "start_t": 56.356,
+                            "end_t": 60.73142,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_93z7cJuH",
+                            "start_t": 63.335,
+                            "end_t": 70.62726,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "2_HTfo1YY6",
+                            "start_t": 70.73142,
+                            "end_t": 80.27309,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "2_Tmcg2R6d",
+                            "start_t": 82.87726,
+                            "end_t": 88.50226,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "2_Eox8LlpZ",
+                            "start_t": 88.62726,
+                            "end_t": 92.91892,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "2_wAn8k3S9",
+                            "start_t": 93.48142,
+                            "end_t": 110.23142,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_8vjZeruA",
+                            "start_t": 110.52309,
+                            "end_t": 111.48142,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "2_bHFw6ec0",
+                            "start_t": 111.481,
+                            "end_t": 114.91892,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_jzZc2d19",
+                            "start_t": 115.71059,
+                            "end_t": 131.46059,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_ntUodX7h",
+                            "start_t": 131.81476,
+                            "end_t": 132.83559,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "2_7WN81Odo",
+                            "start_t": 132.836,
+                            "end_t": 138.12726,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        }
+                    ],
+                    "interventions": {}
+                },
+                {
+                    "trial_id": "8",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010373_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/i3d_flow/GX010373_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010373_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/audio/GX010373_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010373_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/i3d_rgb/GX010373_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-19-19-08-12_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010373_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/GoPro/GX010373_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "1_kUEoTXJ1",
+                            "start_t": 0,
+                            "end_t": 4.09646,
+                            "label": "no_action",
+                            "class_id": 15
+                        },
+                        {
+                            "keystep_id": "1_XyUac2UR",
+                            "start_t": 4.096,
+                            "end_t": 6.99201,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "1_L0OeKtKY",
+                            "start_t": 6.992,
+                            "end_t": 9.72395,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "1_PcyI7nZK",
+                            "start_t": 9.724,
+                            "end_t": 13.5363,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "1_z9mcVO9V",
+                            "start_t": 13.536,
+                            "end_t": 14.22686,
+                            "label": "request_assistance",
+                            "class_id": 6
+                        },
+                        {
+                            "keystep_id": "1_asy48dQP",
+                            "start_t": 14.227,
+                            "end_t": 15.68447,
+                            "label": "request_aed",
+                            "class_id": 5
+                        },
+                        {
+                            "keystep_id": "1_CVPX7g24",
+                            "start_t": 15.684,
+                            "end_t": 31.96635,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_Sy75gvJ8",
+                            "start_t": 31.966,
+                            "end_t": 36.46387,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_0ahzrMUe",
+                            "start_t": 36.464,
+                            "end_t": 42.22458,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_dtb3ZLbl",
+                            "start_t": 42.225,
+                            "end_t": 58.04966,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_grbyhjJA",
+                            "start_t": 58.05,
+                            "end_t": 61.07756,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_W8S14oQq",
+                            "start_t": 61.078,
+                            "end_t": 65.47359,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_nWB1T8KA",
+                            "start_t": 65.474,
+                            "end_t": 68.71237,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "1_nFTjlScY",
+                            "start_t": 68.712,
+                            "end_t": 72.25903,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "1_u7FtjrkF",
+                            "start_t": 72.259,
+                            "end_t": 74.23851,
+                            "label": "turn_on_aed",
+                            "class_id": 7
+                        },
+                        {
+                            "keystep_id": "1_ctF6NNcu",
+                            "start_t": 74.239,
+                            "end_t": 83.45041,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "1_XLCUifho",
+                            "start_t": 83.45,
+                            "end_t": 97.90065,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "1_XpbpMsPG",
+                            "start_t": 97.901,
+                            "end_t": 101.37909,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "1_FRso8VyV",
+                            "start_t": 101.379,
+                            "end_t": 107.3905,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "1_jtCx3VSO",
+                            "start_t": 107.391,
+                            "end_t": 122.53655,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_5RimHsyu",
+                            "start_t": 122.537,
+                            "end_t": 125.08129,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "1_GbXCHMA9",
+                            "start_t": 125.081,
+                            "end_t": 130.08342,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_iF908XIA",
+                            "start_t": 130.083,
+                            "end_t": 145.41153,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "1_Mu43rdZR",
+                            "start_t": 145.412,
+                            "end_t": 151.685,
+                            "label": "no_action",
+                            "class_id": 15
+                        }
+                    ],
+                    "interventions": {}
+                },
+                {
+                    "trial_id": "9",
+                    "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010374_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/9/i3d_flow/GX010374_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "smartwatch_imu": {
+                            "file_id": "sync_smartwatch",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/9/smartwatch_data/sync_smartwatch.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "audio": {
+                            "file_id": "GX010374_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/9/audio/GX010374_encoded_trimmed.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "BBOX_MASKS": [],
+                        "i3d_rgb": {
+                            "file_id": "GX010374_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/9/i3d_rgb/GX010374_encoded_trimmed_rgb.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "exocam_rgbd": {
+                            "file_id": "2024-09-19-19-08-12_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/9/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "SynchedPreview": {
+                            "file_id": "synched_preview",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/9/SynchedPreview/synched_preview.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "vl6180_ToF_depth": {
+                            "file_id": "sync_depth_sensor",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/9/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "egocam_rgb_audio": {
+                            "file_id": "GX010374_encoded_trimmed",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/9/GoPro/GX010374_encoded_trimmed.mp4",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        }
+                    },
+                    "keysteps": [
+                        {
+                            "keystep_id": "2_Oug7ZhxY",
+                            "start_t": 0,
+                            "end_t": 4.07514,
+                            "label": "no_action",
+                            "class_id": 15
+                        },
+                        {
+                            "keystep_id": "2_u16C6oKm",
+                            "start_t": 4.075,
+                            "end_t": 5.97418,
+                            "label": "check_responsiveness",
+                            "class_id": 1
+                        },
+                        {
+                            "keystep_id": "2_nsQurNYX",
+                            "start_t": 5.974,
+                            "end_t": 9.15816,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "2_bU0Rfhjz",
+                            "start_t": 9.158,
+                            "end_t": 13.17532,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "2_7aVvuXmN",
+                            "start_t": 13.175,
+                            "end_t": 13.815,
+                            "label": "request_assistance",
+                            "class_id": 6
+                        },
+                        {
+                            "keystep_id": "2_7VLacdMe",
+                            "start_t": 13.815,
+                            "end_t": 15.84472,
+                            "label": "request_aed",
+                            "class_id": 5
+                        },
+                        {
+                            "keystep_id": "2_jNSXXvod",
+                            "start_t": 15.845,
+                            "end_t": 31.00903,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_sdddxblQ",
+                            "start_t": 20.108,
+                            "end_t": 22.15542,
+                            "label": "turn_on_aed",
+                            "class_id": 7
+                        },
+                        {
+                            "keystep_id": "2_EGtutcBR",
+                            "start_t": 22.155,
+                            "end_t": 30.4257,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "2_GPJqTe5N",
+                            "start_t": 35.658,
+                            "end_t": 44.36342,
+                            "label": "attach_defib_pads",
+                            "class_id": 8
+                        },
+                        {
+                            "keystep_id": "2_TQD72rSd",
+                            "start_t": 44.363,
+                            "end_t": 49.50542,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "2_Ia1wOXdy",
+                            "start_t": 49.505,
+                            "end_t": 63.40542,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
+                        },
+                        {
+                            "keystep_id": "2_1HGjzWMR",
+                            "start_t": 49.505,
+                            "end_t": 54.18005,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_gGphaJcD",
+                            "start_t": 63.405,
+                            "end_t": 67.1395,
+                            "label": "clear_for_shock",
+                            "class_id": 10
+                        },
+                        {
+                            "keystep_id": "2_fncHZSlQ",
+                            "start_t": 67.139,
+                            "end_t": 70.95542,
+                            "label": "administer_shock_aed",
+                            "class_id": 11
+                        },
+                        {
+                            "keystep_id": "2_dWBW4zPc",
+                            "start_t": 70.955,
+                            "end_t": 74.55542,
+                            "label": "check_pulse",
+                            "class_id": 2
+                        },
+                        {
+                            "keystep_id": "2_5rmaW1LO",
+                            "start_t": 74.555,
+                            "end_t": 76.51209,
+                            "label": "check_breathing",
+                            "class_id": 3
+                        },
+                        {
+                            "keystep_id": "2_p6y1JdVP",
+                            "start_t": 73.722,
+                            "end_t": 89.16237,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_uXBJsscr",
+                            "start_t": 78.717,
+                            "end_t": 89.58275,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "2_eTJWmRas",
+                            "start_t": 89.583,
+                            "end_t": 94.10152,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_2vIHtj3F",
+                            "start_t": 102.259,
+                            "end_t": 108.09574,
+                            "label": "place_bvm",
+                            "class_id": 13
+                        },
+                        {
+                            "keystep_id": "2_gLLXC8oX",
+                            "start_t": 108.096,
+                            "end_t": 112.18496,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_2mHbrt4t",
+                            "start_t": 112.185,
+                            "end_t": 113.48003,
+                            "label": "no_action",
+                            "class_id": 15
+                        },
+                        {
+                            "keystep_id": "2_TlrfWZ8r",
+                            "start_t": 93.092,
+                            "end_t": 107.89408,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "2_7qJRu423",
+                            "start_t": 30.426,
+                            "end_t": 35.24166,
+                            "label": "ventilate_patient",
+                            "class_id": 14
+                        },
+                        {
+                            "keystep_id": "2_NmGsQgER",
+                            "start_t": 35.242,
+                            "end_t": 49.505,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        }
+                    ],
+                    "interventions": {}
+                }
+            ],
+            "expertise_level": "EMT"
+        }
+    ]
+}
