@@ -2,8 +2,9 @@ import torch
 from torch import nn
 
 class SWNET(nn.Module):
-    def __init__(self,in_channels=3):
+    def __init__(self,in_channels=3,out_len=300):
         super(SWNET, self).__init__()
+        self.out_len=out_len
         #********head 1*******
         self.l1_1 = nn.Sequential(
             nn.Conv1d(in_channels=in_channels, out_channels=32, kernel_size=3, stride=2, padding=0),
@@ -39,7 +40,7 @@ class SWNET(nn.Module):
         signal=self.fc_signal(output)
         signal=signal.reshape(bs,seq_len,1)
         signal=signal.swapaxes(1,2)
-        signal_interpolated = torch.nn.functional.interpolate(signal, size=(300,), mode='linear').squeeze()
+        signal_interpolated = torch.nn.functional.interpolate(signal, size=(self.out_len,), mode='linear').squeeze()
 
         #predict depth
         pred_depth=self.fc_depth(lstm_out[:,-1,:])
