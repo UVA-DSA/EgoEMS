@@ -32,8 +32,8 @@ transformer_params = {
 
 learning_params = {
     # "lr": 8.906324028628413e-5,
-    "lr": 1e-05,
-    "epochs": 30,
+    "lr": 1e-06,
+    "epochs": 45,
     "weight_decay": 1e-5,
     "patience": 3,
     "lr_drop": 15,
@@ -51,7 +51,7 @@ dataloader_params = {
     "test_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/keysteps/test_split.json',
     # Old dataset class
     'base_path': '/scratch/cjh9fw/Rivanna/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
-    'modality': ['flow', 'rgb'],
+    'modality': ['video'],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
                     "check_responsiveness": "Check for responsiveness",

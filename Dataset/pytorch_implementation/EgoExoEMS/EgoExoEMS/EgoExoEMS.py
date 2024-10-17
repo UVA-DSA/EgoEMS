@@ -252,7 +252,6 @@ class EgoExoEMSDataset(Dataset):
     def __getitem__(self, idx):
         # Get the actual item and the clip index for this sample
         item_idx, clip_idx = self.clip_indices[idx]
-        print(f"Item index: {item_idx}, Clip index: {clip_idx}")
         item = self.data[item_idx]
         
         # Initialize variables
@@ -349,7 +348,6 @@ class EgoExoEMSDataset(Dataset):
 
             if 'flow' in self.data_types:
                 flow_clips = self._get_clips(flow, self.frames_per_clip)
-                print(f"Flow clips: {len(flow_clips)} , flow.shape: {flow.shape}")
                 clip_idx = min(clip_idx, len(flow_clips) - 1)
                 flow = flow_clips[clip_idx]
                 # Pad if less than frames_per_clip
@@ -359,7 +357,6 @@ class EgoExoEMSDataset(Dataset):
 
             if 'rgb' in self.data_types:
                 rgb_clips = self._get_clips(rgb, self.frames_per_clip)
-                print(f"RGB clips: {len(flow_clips)} , rgb.shape: {rgb.shape}")
                 clip_idx = min(clip_idx, len(rgb_clips) - 1)
                 rgb = rgb_clips[clip_idx]
                 # Pad if less than frames_per_clip

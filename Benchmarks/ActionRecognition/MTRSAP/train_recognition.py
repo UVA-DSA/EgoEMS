@@ -32,7 +32,7 @@ if __name__ == "__main__":
         # set the wandb project where this run will be logged
         project="EgoExoEMS",
         group="Keystep Recognition",
-        mode="disabled",
+        # mode="disabled",
         name="Train, Val on EgoExoEMS with I3D RGB Features - 4s clips - ICRA Model",
         notes="initial attempt ICRA model with I3D RGB features",
         config={
