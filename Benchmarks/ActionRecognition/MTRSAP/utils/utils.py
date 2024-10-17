@@ -51,7 +51,11 @@ def preprocess(x, modality, backbone, device):
         flow = x['flow'].float()
         rgb = x['rgb'].float()
         feature = torch.cat((flow, rgb), dim=-1).float()
-        
+
+    elif ('resnet' in modality):
+        # resnet50 features are already extracted
+        feature = x['resnet'].float()
+
     elif ('rgb' in modality):
         # I3D features are already extracted
         feature = x['rgb'].float()
