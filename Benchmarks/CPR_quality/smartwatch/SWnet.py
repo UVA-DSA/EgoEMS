@@ -2,11 +2,11 @@ import torch
 from torch import nn
 
 class SWNET(nn.Module):
-    def __init__(self,conf):
+    def __init__(self,in_channels=3):
         super(SWNET, self).__init__()
         #********head 1*******
         self.l1_1 = nn.Sequential(
-            nn.Conv1d(in_channels=9, out_channels=32, kernel_size=3, stride=2, padding=0),
+            nn.Conv1d(in_channels=in_channels, out_channels=32, kernel_size=3, stride=2, padding=0),
             nn.ReLU(),
             nn.MaxPool1d(kernel_size=4, stride=1)
         )
