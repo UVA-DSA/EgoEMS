@@ -194,7 +194,6 @@ class TransformerModel(nn.Module):
 
     def forward(self, x):
         
-        print("x_shape",x.shape)
         # # TCN encoder
         x = self.encoder(x)
         # print("encoder_out",x.shape)

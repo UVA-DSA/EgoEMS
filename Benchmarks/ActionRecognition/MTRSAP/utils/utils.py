@@ -18,44 +18,85 @@ def init_model(args):
     return model, optimizer, criterion, device
 
 
+def preprocess(x, modality, backbone, device):
+    # check the shape of the input tensor
+    feature = None
+    label = x['keystep_id']
+    if('video' in modality):
+        feature = None
+        x = x['frames']
+        # extract resnet50 features
+        x = x.to(device)
+        x = backbone(x)
+        feature = x
+    
+
+    elif ( 'flow' in modality and  'rgb' in modality):
+
+        # I3D features are already extracted
+        flow = x['flow'].float()
+        rgb = x['rgb'].float()
+        feature = torch.cat((flow, rgb), dim=-1).float()
+
+    elif ('rgb' in modality):
+        # I3D features are already extracted
+        feature = x['rgb'].float()
+
+    elif ('flow' in modality):
+        # I3D features are already extracted
+        feature = x['flow'].float()
+
+    elif ('audio' in modality):
+        # Audio features are already extracted
+        feature = x['audio'].float()
+
+    feature_size = feature.shape[-1]
+
+    if(feature is not None):
+        feature = feature.to(device)
+        label = label.to(device)
+    return feature, feature_size, label
+
+
 # add wandb logging
-def train_one_epoch(model, train_loader, criterion, optimizer, device, logger):
+def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, modality):
     model.train()
     total_loss = 0
-    for i, (videos, labels) in enumerate(train_loader):
-        videos = videos.to(device)
-        labels = labels.to(device)
+    for i, batch in enumerate(train_loader):
+        input,feature_size, label = preprocess(batch, modality, model.extract_resnet, device)
         optimizer.zero_grad()
-        output = model(videos)
-        loss = criterion(output, labels)
+        output = model(input)
+        loss = criterion(output, label)
         loss.backward()
         optimizer.step()
         total_loss += loss.item()
         if i % 100 == 0:
-            print(f"Pred: {torch.argmax(output, dim=1)} GT: {labels}")
+            print(f"Pred: {torch.argmax(output, dim=1)} GT: {label}")
             logger.log({"train_loss": loss.item()})
             print(f"Batch: {i}, Loss: {loss.item()}")
+        
     return total_loss / len(train_loader)
 
 
 # validate the model 
-def validate(model, val_loader, criterion, device, logger):
+def validate(model, val_loader, criterion, device, logger, modality):
     model.eval()
     total_loss = 0
     with torch.no_grad():
-        for i, (videos, labels) in enumerate(val_loader):
-            videos = videos.to(device)
-            labels = labels.to(device)
-            output = model(videos)
-            loss = criterion(output, labels)
+        for i, batch in enumerate(val_loader):
+            input,feature_size, label = preprocess(batch, modality, model.extract_resnet, device)
+            output = model(input)
+            loss = criterion(output, label)
             total_loss += loss.item()
             if i % 100 == 0:
                 logger.log({"val_loss": loss.item()})
+            
+            
     return total_loss / len(val_loader)
 
 
 # test the model
-def test_model(model, test_loader, criterion, device, logger, epoch, results_dir):
+def test_model(model, test_loader, criterion, device, logger, epoch, results_dir, modality):
     model.eval()
     total_loss = 0
 
@@ -66,13 +107,14 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
     
 
     with torch.no_grad():
-        for i, (videos, labels) in enumerate(test_loader):
-            videos = videos.to(device)
-            labels = labels.to(device)
-            output = model(videos)
+        for i, batch in enumerate(test_loader):
+            input,feature_size, label = preprocess(batch, modality, model.extract_resnet, device)
+            output = model(input)
             pred = torch.argmax(output, dim=1)
-            gt.append(labels.item())
+            gt.append(label.item())
             preds.append(pred.item())
+            
+
     
     # Calculate metrics
     accuracy = sum(1 for x, y in zip(preds, gt) if x == y) / len(gt)
