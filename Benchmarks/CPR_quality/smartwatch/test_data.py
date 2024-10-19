@@ -7,6 +7,7 @@ import torch
 from torch.utils.data import DataLoader
 from Benchmarks.CPR_quality.smartwatch import SWnet
 import utils
+from Tools.depth_sensor_processing import tools as depth_tools
 
 DATA_FPS=30
 bs=32
@@ -62,15 +63,29 @@ MAX_ACC=torch.tensor([69.7335, 59.6060, 77.9001]).unsqueeze(0).unsqueeze(0)
 MIN_DEPTH=0.0
 MAX_DEPTH=82.0
 
+def get_avg_depth(depth_gt):
+    avg_depth_list,min_depth_list,n_cpr=[],[],[]
+    for i in range(depth_gt.shape[0]):
+        p,v=depth_tools.detect_peaks_and_valleys_depth_sensor(depth_gt[i,:].detach().numpy(),show=False)
+        peak_depths=depth_gt[i,p]
+        valley_depths=depth_gt[i,v]
+        l=min(len(peak_depths),len(valley_depths))
+        avg_depth_list.append((peak_depths[:l]-valley_depths[:l]).mean().item())
+        min_depth_list.append(valley_depths[:l].min().item())
+        n_cpr.append((len(p)+len(v))*0.5)
+    return torch.tensor(avg_depth_list),torch.tensor(min_depth_list),torch.tensor(n_cpr)
+
 
 def validate(model,data_loader):
     depth_loss_meter = utils.AverageMeter('depthLoss', ':.4e')
+    ncpr_error_meter = utils.AverageMeter('cprError', ':.4e')
+
     for i, batch in enumerate(data_loader):
         data=batch['smartwatch'].float()
         depth_gt=batch['depth_sensor'].squeeze()
         depth_gt_mask=depth_gt>0
 
-        avg_depths_list,min_depths_list=get_avg_depth(depth_gt)
+        avg_depths_list,min_depths_list,n_cpr=get_avg_depth(depth_gt)
         data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
         rec,depth_pred=model(data_norm.permute(0,2,1))
 
@@ -80,19 +95,12 @@ def validate(model,data_loader):
         avg_depth_error=torch.mean((avg_depths_list-depth_pred)**2)**0.5
         depth_loss_meter.update(avg_depth_error.item(),bs)
 
-    print(f'Validation depth loss: {depth_loss_meter.avg:.2f} mm')
+        #cpr frequency error
+        _,_,n_cpr_pred=get_avg_depth(rec)
+        cpr_error=torch.mean((n_cpr-n_cpr_pred)**2)**0.5
+        ncpr_error_meter.update(cpr_error.item(),bs)
 
-
-def get_avg_depth(depth_gt):
-    avg_depth_list,min_depth_list=[],[]
-    for i in range(depth_gt.shape[0]):
-        p,v=utils.detect_peaks_and_valleys_depth_sensor(depth_gt[i,:].detach().numpy(),show=False)
-        peak_depths=depth_gt[i,p]
-        valley_depths=depth_gt[i,v]
-        l=min(len(peak_depths),len(valley_depths))
-        avg_depth_list.append((peak_depths[:l]-valley_depths[:l]).mean().item())
-        min_depth_list.append(valley_depths[:l].min().item())
-    return torch.tensor(avg_depth_list),torch.tensor(min_depth_list)
+    print(f'Validation depth loss: {depth_loss_meter.avg:.2f} mm , CPR rate error: {ncpr_error_meter.avg/(DATA_FPS*CLIP_LENGTH)*60:.2f} cpr/min')
 
 for epoch in range(EPOCHS):
     for i, batch in enumerate(train_data_loader):
@@ -102,7 +110,7 @@ for epoch in range(EPOCHS):
         depth_gt_mask=depth_gt>0
 
         #get peaks and valleys from GT depth sensor data
-        avg_depths_list,min_depths_list=get_avg_depth(depth_gt)
+        avg_depths_list,min_depths_list,_=get_avg_depth(depth_gt)
 
         comp_depth=avg_depths_list/MAX_DEPTH
 
