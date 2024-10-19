@@ -28,7 +28,7 @@ MAX_DEPTH=82.0
 
 annot_path=r'Annotations/main_annotation.json'
 split_path=r'Annotations/splits/cpr_quality/subject_splits.json'
-log_path=r'Benchmarks/CPR_quality/log.txt'
+log_path=r'Benchmarks/CPR_quality/smartwatch/log.txt'
 
 #set these paths to your own paths
 model_save_path=r'C:/Users/lahir/Downloads/data/model.pth'
