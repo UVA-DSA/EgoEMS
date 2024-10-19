@@ -177,6 +177,7 @@ class EgoExoEMSDataset(Dataset):
                 
                 # Initialize paths to None by default
                 video_path = None
+                audio_path = None
                 flow_path = None
                 rgb_path = None
                 resnet_path = None  # Added for resnet modality
@@ -186,6 +187,8 @@ class EgoExoEMSDataset(Dataset):
                 # Check for each data type and retrieve the corresponding file path
                 if 'video' in self.data_types:
                     video_path = avail_streams.get('egocam_rgb_audio', {}).get('file_path', None)
+                if 'audio' in self.data_types:
+                    audio_path = avail_streams.get('egocam_rgb_audio', {}).get('file_path', None)
                 if 'flow' in self.data_types:
                     flow_path = avail_streams.get('i3d_flow', {}).get('file_path', None)
                 if 'rgb' in self.data_types:
@@ -199,6 +202,7 @@ class EgoExoEMSDataset(Dataset):
 
                 # Skip the trial if any required data type is not available
                 if ('video' in self.data_types and not video_path) or \
+                ('audio' in self.data_types and not audio_path) or \
                 ('flow' in self.data_types and not flow_path) or \
                 ('rgb' in self.data_types and not rgb_path) or \
                 ('resnet' in self.data_types and not resnet_path) or \
@@ -207,7 +211,7 @@ class EgoExoEMSDataset(Dataset):
                     print(f"[Warning] Skipping trial {trial['trial_id']} for subject {subject['subject_id']} due to missing data")
                     continue
 
-                if video_path or flow_path or rgb_path or resnet_path or smartwatch_path or depth_sensor_path:
+                if video_path or audio_path or flow_path or rgb_path or resnet_path or smartwatch_path or depth_sensor_path:
                     keysteps = trial['keysteps']
                     for step in keysteps:
                         start_frame = math.floor(step['start_t'] * self.fps)
@@ -218,6 +222,8 @@ class EgoExoEMSDataset(Dataset):
                         data_dict = {}
                         if 'video' in self.data_types:
                             data_dict['video_path'] = os.path.join(self.data_base_path, video_path)
+                        if 'audio' in self.data_types:
+                            data_dict['audio_path'] = os.path.join(self.data_base_path, audio_path)
                         if 'flow' in self.data_types:
                             data_dict['flow_path'] = os.path.join(self.data_base_path, flow_path)
                         if 'rgb' in self.data_types:
@@ -292,7 +298,7 @@ class EgoExoEMSDataset(Dataset):
         sw_acc = torch.zeros(0)
         depth_sensor_readings = torch.zeros(0)
 
-
+        
         # Load video if available
         if 'video' in self.data_types:
             video_path = item['video_path']
@@ -342,10 +348,12 @@ class EgoExoEMSDataset(Dataset):
             depth_sensor_readings = depth_sensor_readings.permute(1, 0)
 
         if 'audio' in self.data_types:  # Check if audio is available
+            audio_path = item['audio_path']
+
             if self.frames_per_clip:
                 clip_duration = self.frames_per_clip / self.fps  # Time in seconds for frames_per_clip
                 audio_samples_per_clip = int(clip_duration * self.audio_sample_rate)
-                audio_reader = VideoReader(video_path, "audio")
+                audio_reader = VideoReader(audio_path, "audio")
                 audio_clips = []
                 for audio_frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], audio_reader.seek(item['start_t'])):
                     audio_clips.append(audio_frame['data'])
@@ -353,7 +361,7 @@ class EgoExoEMSDataset(Dataset):
                 # Get the slice corresponding to the current clip
                 audio = audio_clips[clip_idx * audio_samples_per_clip : (clip_idx + 1) * audio_samples_per_clip]
             else:
-                audio_reader = VideoReader(video_path, "audio")
+                audio_reader = VideoReader(audio_path, "audio")
                 audio = []
                 for audio_frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], audio_reader.seek(item['start_t'])):
                     audio.append(audio_frame['data'])

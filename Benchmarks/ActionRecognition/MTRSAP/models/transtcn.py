@@ -91,13 +91,13 @@ class CNN_Encoder(nn.Module):
         self.encoder = nn.Sequential(
             nn.Conv1d(in_channels=in_channels, out_channels=512, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=2, stride=2),  # No change in temporal dimension
+            nn.MaxPool1d(kernel_size=1, stride=1),  # No change in temporal dimension
             nn.Conv1d(in_channels=512, out_channels=256, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=2, stride=2),  # No change in temporal dimension
+            nn.MaxPool1d(kernel_size=1, stride=1),  # No change in temporal dimension
             nn.Conv1d(in_channels=256, out_channels=out_channels, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=2, stride=2)  # No change in temporal dimension
+            nn.MaxPool1d(kernel_size=1, stride=1)  # No change in temporal dimension
         )
 
     def forward(self, x):

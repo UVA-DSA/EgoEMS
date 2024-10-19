@@ -68,6 +68,12 @@ def preprocess(x, modality, backbone, device):
         # Audio features are already extracted
         feature = x['audio'].float()
 
+    elif ('smartwatch' in modality):
+        # Audio features are already extracted
+        smartwatch = x['smartwatch'].float()
+        smartwatch = (smartwatch - smartwatch.mean()) / smartwatch.std()
+        feature = smartwatch
+        
     feature_size = feature.shape[-1]
 
     if(feature is not None):
@@ -129,18 +135,44 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
     gt = []
     preds = []
     
+    preds_detail = []
 
     with torch.no_grad():
         for i, batch in enumerate(test_loader):
             input,feature_size, label = preprocess(batch, modality, model.extract_resnet, device)
+
+            # get more info about input
+            keystep_label = batch['keystep_label']
+            keystep_id = batch['keystep_id']
+            start_frame = batch['start_frame']
+            end_frame = batch['end_frame']
+            start_t = batch['start_t']
+            end_t = batch['end_t']
+            subject_id = batch['subject_id']
+            trial_id = batch['trial_id']
+
+
             output = model(input)
             pred = torch.argmax(output, dim=1)
+
             gt.append(label.item())
             preds.append(pred.item())
+
+            preds_detail.append({
+                "keystep_label": keystep_label,
+                "keystep_id": keystep_id,
+                "start_frame": start_frame,
+                "end_frame": end_frame,
+                "start_t": start_t,
+                "end_t": end_t,
+                "subject_id": subject_id,
+                "trial_id": trial_id,
+                "pred_keystep_id": pred.item()
+            })
+
+
             # break
             
-
-    
     # Calculate metrics
     accuracy = sum(1 for x, y in zip(preds, gt) if x == y) / len(gt)
     precision = precision_score(gt, preds, average='macro')
@@ -165,6 +197,17 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
             writer.writerow(["epoch", "accuracy", "precision", "recall", "f1"])
         writer.writerow([epoch, accuracy, precision, recall, f1])
     
+
+    # Save detailed predictions to CSV
+    preds_path = f'{results_dir}/preds.csv'
+    with open(preds_path, mode='a', newline='') as file:
+        writer = csv.writer(file)
+        if not os.path.isfile(preds_path):
+            writer.writerow(["keystep_label", "keystep_id", "start_frame", "end_frame", "start_t", "end_t", "subject_id", "trial_id", "pred_keystep_id"])
+        for pred in preds_detail:
+            writer.writerow([pred["keystep_label"], pred["keystep_id"], pred["start_frame"], pred["end_frame"], pred["start_t"], pred["end_t"], pred["subject_id"], pred["trial_id"], pred["pred_keystep_id"]])
+
+
     return results
 
 

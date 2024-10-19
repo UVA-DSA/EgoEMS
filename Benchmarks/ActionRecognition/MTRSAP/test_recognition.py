@@ -43,7 +43,7 @@ if __name__ == "__main__":
     scheduler = StepLR(optimizer, step_size=args.learning_params["lr_drop"], gamma=0.1)  # adjust parameters as needed
 
     # Load the best model
-    model.load_state_dict(torch.load(f'./checkpoints/{args.learning_params["best_chkpoint"]}'))
+    model.load_state_dict(torch.load(args.learning_params["best_chkpoint"]))
 
 
     # train_loader, val_loader, test_loader = get_dataloaders(args)
@@ -58,4 +58,5 @@ if __name__ == "__main__":
 
 
 # # Test the model
-    eee_test_model(model, train_loader, criterion, device, wandb_logger, 0, results_dir)
+    results = test_model(model, test_loader, criterion, device, wandb_logger, epoch, results_dir, modality=modality)
+    print(f"Results: {results}")
