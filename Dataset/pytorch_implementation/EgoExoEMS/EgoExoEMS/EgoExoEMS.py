@@ -458,6 +458,8 @@ class EgoExoEMSDataset(Dataset):
                 frames_per_clip=None, transform=None,
                 data_types=['smartwatch'],
                 split='train',
+                activity='chest_compressions',
+                split_path=None,
                 audio_sample_rate=48000):
         
         self.annotation_file = annotation_file
@@ -469,10 +471,19 @@ class EgoExoEMSDataset(Dataset):
         self.data = []
         self.clip_indices = []  # This will store (item_idx, clip_idx) tuples
         self.data_types = data_types
+        self.split = split
+        self.activity = activity
         
+        self._load_splits(split_path)
         self._load_annotations()
         self._generate_clip_indices()
 
+    def _load_splits(self,split_path):
+        if split_path:
+            with open(split_path, 'r') as f:
+                splits = json.load(f)
+                self.split_subjects = splits[self.split].split(',')
+    
     def _load_annotations(self):
         with open(self.annotation_file, 'r') as f:
             annotations = json.load(f)
@@ -516,6 +527,13 @@ class EgoExoEMSDataset(Dataset):
                         end_frame = math.floor(step['end_t'] * self.fps)
                         label = step['label']
                         keystep_id = step['class_id']
+
+                        #filter out subjects not in split
+                        if subject['subject_id'] not in self.split_subjects:
+                            continue
+                        #filter out activities
+                        if label != self.activity:
+                            continue
 
                         data_dict = {}
                         if 'video' in self.data_types:
