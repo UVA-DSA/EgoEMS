@@ -31,11 +31,23 @@ data = EgoExoEMSDataset(annotation_file=annot_path,
 
 train_data_loader = DataLoader(data, batch_size=bs, shuffle=True)
 
+data = EgoExoEMSDataset(annotation_file=annot_path,
+                        data_base_path=data_path,
+                        fps=DATA_FPS,
+                        frames_per_clip=DATA_FPS*CLIP_LENGTH,
+                        data_types=['smartwatch','depth_sensor'],
+                        split='validation',
+                        activity='chest_compressions',
+                        split_path=split_path)
+
+valid_data_loader = DataLoader(data, batch_size=bs, shuffle=True)
+
 model=SWnet.SWNET(in_channels=3,out_len=DATA_FPS*CLIP_LENGTH)
 criterion = torch.nn.MSELoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
 rec_loss_meter = utils.AverageMeter('recLoss', ':.4e')
+depth_loss_meter = utils.AverageMeter('depthLoss', ':.4e')
 
 # utils.get_data_stats(data_loader)
 '''
@@ -50,6 +62,38 @@ MAX_ACC=torch.tensor([69.7335, 59.6060, 77.9001]).unsqueeze(0).unsqueeze(0)
 MIN_DEPTH=0.0
 MAX_DEPTH=82.0
 
+
+def validate(model,data_loader):
+    depth_loss_meter = utils.AverageMeter('depthLoss', ':.4e')
+    for i, batch in enumerate(data_loader):
+        data=batch['smartwatch'].float()
+        depth_gt=batch['depth_sensor'].squeeze()
+        depth_gt_mask=depth_gt>0
+
+        avg_depths_list,min_depths_list=get_avg_depth(depth_gt)
+        data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
+        rec,depth_pred=model(data_norm.permute(0,2,1))
+
+        depth_pred=depth_pred*MAX_DEPTH
+
+        #average depth error
+        avg_depth_error=torch.mean((avg_depths_list-depth_pred)**2)**0.5
+        depth_loss_meter.update(avg_depth_error.item(),bs)
+
+    print(f'Validation depth loss: {depth_loss_meter.avg:.2f} mm')
+
+
+def get_avg_depth(depth_gt):
+    avg_depth_list,min_depth_list=[],[]
+    for i in range(depth_gt.shape[0]):
+        p,v=utils.detect_peaks_and_valleys_depth_sensor(depth_gt[i,:].detach().numpy(),show=False)
+        peak_depths=depth_gt[i,p]
+        valley_depths=depth_gt[i,v]
+        l=min(len(peak_depths),len(valley_depths))
+        avg_depth_list.append((peak_depths[:l]-valley_depths[:l]).mean().item())
+        min_depth_list.append(valley_depths[:l].min().item())
+    return torch.tensor(avg_depth_list),torch.tensor(min_depth_list)
+
 for epoch in range(EPOCHS):
     for i, batch in enumerate(train_data_loader):
         print(f'Epoch {epoch} , {i}/{len(train_data_loader)} is done',end='\r')
@@ -57,24 +101,32 @@ for epoch in range(EPOCHS):
         depth_gt=batch['depth_sensor'].squeeze()
         depth_gt_mask=depth_gt>0
 
+        #get peaks and valleys from GT depth sensor data
+        avg_depths_list,min_depths_list=get_avg_depth(depth_gt)
+
+        comp_depth=avg_depths_list/MAX_DEPTH
+
         #normnalize depth
-        depth_gt_min = torch.where(depth_gt_mask, depth_gt, torch.tensor(float('inf')))
-        mins=depth_gt_min.min(dim=1).values
-        depth_norm=depth_gt-mins.unsqueeze(1)
-        depth_norm=(depth_norm-MIN_DEPTH)/(MAX_DEPTH-MIN_DEPTH)
-        utils.detect_peaks_and_valleys_depth_sensor(depth_gt[30,:].detach().numpy(),show=True)
+        depth_gt_norm=(depth_gt-min_depths_list.unsqueeze(1))/MAX_DEPTH
 
         #normalize acceleration
         data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
 
         rec,depth_pred=model(data_norm.permute(0,2,1))
-        rec_loss=criterion(rec[depth_gt_mask],depth_norm[depth_gt_mask])
+        rec_loss=criterion(rec[depth_gt_mask],depth_gt_norm[depth_gt_mask])
+        d_loss=criterion(depth_pred,comp_depth)
+        loss=rec_loss+d_loss
         
         optimizer.zero_grad()
-        rec_loss.backward()
+        loss.backward()
         optimizer.step()
+
         rec_loss_meter.update(rec_loss.item(),bs)
-    print(rec_loss_meter.avg)
+        depth_loss_meter.update(d_loss.item(),bs)
+
+    print(f'rec loss: {rec_loss_meter.avg} , depth loss: {depth_loss_meter.avg}')
+    if (epoch+1)%1==0:
+        validate(model,valid_data_loader)
 
 
 

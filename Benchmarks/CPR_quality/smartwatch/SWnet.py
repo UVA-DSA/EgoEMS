@@ -45,4 +45,4 @@ class SWNET(nn.Module):
         #predict depth
         pred_depth=self.fc_depth(lstm_out[:,-1,:])
     
-        return signal_interpolated,pred_depth
+        return signal_interpolated,pred_depth.squeeze()
