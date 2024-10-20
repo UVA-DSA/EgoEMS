@@ -6,6 +6,7 @@ import torch.nn as nn
 from scripts.config import DefaultArgsNamespace
 
 import torchvision.models as models
+import torchaudio.transforms as transforms
 
 class PositionalEncoding(nn.Module):
 
@@ -169,6 +170,20 @@ class TransformerModel(nn.Module):
         features_dim = 2048  # Output dimension of ResNet-50 backbone
         self.pe = PositionalEncoding(d_model=self.d_model, max_len=32, dropout=self.dropout)
         self.fc = nn.Linear(features_dim, self.d_model)
+
+
+        # MelSpectrogram transform
+        self.mel_spectrogram = transforms.MelSpectrogram(
+            sample_rate=args.transformer_params['sample_rate'],
+            n_mels=args.transformer_params['n_mels'],
+            hop_length=args.transformer_params['hop_length'],
+            n_fft=args.transformer_params['n_fft']
+        )
+
+        # Linear layer to project from 64 to 256
+        self.projection_layer = nn.Linear(args.transformer_params['n_mels'], args.transformer_params['input_dim'] )
+        self.projection_layer_multimodal = nn.Linear(args.transformer_params['n_mels'], args.transformer_params['resnet_dim'] )
+
         
     def extract_resnet(self, x):
         # check the shape of the input tensor
@@ -190,6 +205,19 @@ class TransformerModel(nn.Module):
         output = x
 
         return output
+
+    def extract_mel_spectrogram(self, x, multimodal=False):
+        # Extract Mel-spectrogram for both channels
+        mel_spec_left = self.mel_spectrogram(x[:, :, 0])  # Left channel
+        mel_spec_right = self.mel_spectrogram(x[:, :, 1])  # Right channel
+
+        mel_spec_combined = torch.cat((mel_spec_left, mel_spec_right), dim=-1)  # Shape: [n_mels, time*2]
+        feature = mel_spec_combined.permute(0, 2, 1)  # Shape: [batch, time*2, n_mels]
+        if multimodal:
+            feature = self.projection_layer_multimodal(feature)
+        else:
+            feature = self.projection_layer(feature)
+        return feature
 
 
     def forward(self, x):

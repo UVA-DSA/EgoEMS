@@ -7,11 +7,13 @@ from sklearn.metrics import precision_score, recall_score, f1_score
 import csv
 from EgoExoEMS.EgoExoEMS import EgoExoEMSDataset, collate_fn, transform
 
+
 def init_model(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = TransformerModel(args)
     model.to(device)
-            
+
+           
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_params["lr"], weight_decay=args.learning_params["weight_decay"])
     criterion = nn.CrossEntropyLoss()
         
@@ -27,10 +29,19 @@ def preprocess(x, modality, backbone, device):
         x = x['frames']
         # extract resnet50 features
         x = x.to(device)
-        x = backbone(x)
+        x = backbone.extract_resnet(x)
         feature = x
-    
 
+    elif ( 'audio' in modality and  'resnet' in modality):
+        # resnet50 features are already extracted
+        resnet = x['resnet'].float()
+        resnet = resnet.to(device)
+
+        audio = x['audio']
+        audio = audio.to(device)
+        audio = backbone.extract_mel_spectrogram(audio, multimodal=True)
+        
+        feature = torch.cat((resnet, audio), dim=1).float()
 
 
     elif ( 'flow' in modality and  'rgb' in modality and  'smartwatch' in modality):
@@ -44,6 +55,7 @@ def preprocess(x, modality, backbone, device):
         smartwatch = (smartwatch - smartwatch.mean()) / smartwatch.std()
         # concatenate all features
         feature = torch.cat((flow, rgb, smartwatch), dim=-1).float()
+        
 
     elif ( 'flow' in modality and  'rgb' in modality):
 
@@ -66,7 +78,12 @@ def preprocess(x, modality, backbone, device):
 
     elif ('audio' in modality):
         # Audio features are already extracted
-        feature = x['audio'].float()
+
+        # Example batch of audio clips (batch, samples, channels)
+        audio_clips = x['audio']  # Assume shape [batch, samples, channels]
+        audio_clips = audio_clips.to(device)
+        feature = backbone.extract_mel_spectrogram(audio_clips)
+
 
     elif ('smartwatch' in modality):
         # Audio features are already extracted
@@ -87,7 +104,7 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, m
     model.train()
     total_loss = 0
     for i, batch in enumerate(train_loader):
-        input,feature_size, label = preprocess(batch, modality, model.extract_resnet, device)
+        input,feature_size, label = preprocess(batch, modality, model, device)
         optimizer.zero_grad()
         output = model(input)
         loss = criterion(output, label)
@@ -113,7 +130,7 @@ def validate(model, val_loader, criterion, device, logger, modality):
     total_loss = 0
     with torch.no_grad():
         for i, batch in enumerate(val_loader):
-            input,feature_size, label = preprocess(batch, modality, model.extract_resnet, device)
+            input,feature_size, label = preprocess(batch, modality, model, device)
             output = model(input)
             loss = criterion(output, label)
             total_loss += loss.item()
@@ -139,7 +156,7 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
 
     with torch.no_grad():
         for i, batch in enumerate(test_loader):
-            input,feature_size, label = preprocess(batch, modality, model.extract_resnet, device)
+            input,feature_size, label = preprocess(batch, modality, model, device)
 
             # get more info about input
             keystep_label = batch['keystep_label']
@@ -159,14 +176,14 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
             preds.append(pred.item())
 
             preds_detail.append({
-                "keystep_label": keystep_label,
-                "keystep_id": keystep_id,
-                "start_frame": start_frame,
-                "end_frame": end_frame,
-                "start_t": start_t,
-                "end_t": end_t,
-                "subject_id": subject_id,
-                "trial_id": trial_id,
+                "keystep_label": keystep_label[0],
+                "keystep_id": keystep_id.item(),
+                "start_frame": start_frame.item(),
+                "end_frame": end_frame.item(),
+                "start_t": start_t.item(),
+                "end_t": end_t.item(),
+                "subject_id": subject_id[0],
+                "trial_id": trial_id[0],
                 "pred_keystep_id": pred.item()
             })
 
@@ -193,17 +210,15 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
     metrics_path = f'{results_dir}/metrics.csv'
     with open(metrics_path, mode='a', newline='') as file:
         writer = csv.writer(file)
-        if not os.path.isfile(metrics_path):
-            writer.writerow(["epoch", "accuracy", "precision", "recall", "f1"])
-        writer.writerow([epoch, accuracy, precision, recall, f1])
+        writer.writerow(["epoch",  "precision", "recall", "f1", "accuracy"])
+        writer.writerow([epoch,  precision, recall, f1, accuracy])
     
 
     # Save detailed predictions to CSV
     preds_path = f'{results_dir}/preds.csv'
     with open(preds_path, mode='a', newline='') as file:
         writer = csv.writer(file)
-        if not os.path.isfile(preds_path):
-            writer.writerow(["keystep_label", "keystep_id", "start_frame", "end_frame", "start_t", "end_t", "subject_id", "trial_id", "pred_keystep_id"])
+        writer.writerow(["keystep_label", "keystep_id", "start_frame", "end_frame", "start_t", "end_t", "subject_id", "trial_id", "pred_keystep_id"])
         for pred in preds_detail:
             writer.writerow([pred["keystep_label"], pred["keystep_id"], pred["start_frame"], pred["end_frame"], pred["start_t"], pred["end_t"], pred["subject_id"], pred["trial_id"], pred["pred_keystep_id"]])
 

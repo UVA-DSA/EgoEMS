@@ -26,7 +26,15 @@ transformer_params = {
     "dropout": 0.1,
     "input_dim": 1024,
     "output_dim": 16,
-    "batch_first": True
+    "batch_first": True,
+    # Parameters for audio feature extraction
+    'sample_rate' : 48000,  # Adjust based on your dataset
+    'n_mels' : 64,  # Number of Mel filter banks
+    'hop_length' : 512,
+    'n_fft' : 1024,
+    # resnet feature dim
+    'resnet_dim' : 2048
+
 
 }
 
@@ -37,7 +45,7 @@ learning_params = {
     "weight_decay": 1e-5,
     "patience": 3,
     "lr_drop": 20,
-    "best_chkpoint": "64366030/val_best_model.pt"
+    "best_chkpoint": "/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Benchmarks/ActionRecognition/MTRSAP/checkpoints/65120920/val_best_model.pt"
 }
 
 dataloader_params = {
@@ -51,7 +59,7 @@ dataloader_params = {
     "test_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split.json',
     # Old dataset class
     'base_path': '/scratch/cjh9fw/Rivanna/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
-    'modality': ['audio'],
+    'modality': [ 'smartwatch'],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
                     "check_responsiveness": "Check for responsiveness",

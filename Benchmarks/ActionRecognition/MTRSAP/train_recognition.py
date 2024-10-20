@@ -33,8 +33,8 @@ if __name__ == "__main__":
         project="EgoExoEMS",
         group="Keystep Recognition",
         # mode="disabled",
-        name="Train, Val on EgoExoEMS with smartwatch Features - 4s clip - ICRA Model - Trial split",
-        notes="initial attempt ICRA model with smartwatch features only",
+        name="Train, Val on EgoExoEMS with audio and resnet Features - full clip - ICRA Model - Trial split",
+        notes="initial attempt ICRA model with audio and resnet  features only",
         config={
         "args": args,
         }
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     model = model.to(device)
 
     # Find feature dimension
-    feature,feature_size,label = preprocess(next(iter(train_loader)), args.dataloader_params['modality'], model.extract_resnet, device)
+    feature,feature_size,label = preprocess(next(iter(train_loader)), args.dataloader_params['modality'], model, device)
     print("Feature size: ", feature_size)
 
     print("Reinitializing model with feature size")
