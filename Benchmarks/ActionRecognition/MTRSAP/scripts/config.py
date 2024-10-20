@@ -45,7 +45,7 @@ learning_params = {
     "weight_decay": 1e-5,
     "patience": 3,
     "lr_drop": 20,
-    "best_chkpoint": "/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Benchmarks/ActionRecognition/MTRSAP/checkpoints/65120920/val_best_model.pt"
+    "best_chkpoint": "/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Benchmarks/ActionRecognition/MTRSAP/checkpoints/65121081/val_best_model.pt"
 }
 
 dataloader_params = {
@@ -59,7 +59,7 @@ dataloader_params = {
     "test_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split.json',
     # Old dataset class
     'base_path': '/scratch/cjh9fw/Rivanna/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
-    'modality': [ 'smartwatch'],
+    'modality': [ 'audio'],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
                     "check_responsiveness": "Check for responsiveness",
@@ -76,6 +76,7 @@ dataloader_params = {
                     "open_airway": "Open patient's airway",
                     "place_bvm": "Place bag valve mask (BVM)",
                     "ventilate_patient": "Ventilate patient",
+                    "no_action": "No action",
                     "explain_procedure": "Explain the ECG procedure to the patient",
                     "prepare_patient": "Prepare the patient for ECG",
                     "place_limb_leads": "Place the limb leads for ECG",
@@ -90,8 +91,7 @@ dataloader_params = {
                     "verify_lead_connectivity": "Verify all ECG leads are properly connected",
                     "obtain_ecg_recording": "Obtain the ECG recording",
                     "examine_trace_for_quality": "Examine the ECG trace for quality",
-                    "interpret_and_report": "Interpret the ECG and report findings",
-                    "no_action": "No action"
+                    "interpret_and_report": "Interpret the ECG and report findings"
                 }
 }
 
