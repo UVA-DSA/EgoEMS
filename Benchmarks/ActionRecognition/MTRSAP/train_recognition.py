@@ -33,7 +33,7 @@ if __name__ == "__main__":
         project="EgoExoEMS",
         group="Keystep Recognition",
         # mode="disabled",
-        name="Train, Val on EgoExoEMS with ego and exo resnet Features - 4s clip - ICRA Model - Trial split",
+        name="Train, Val on EgoExoEMS with ego and exo resnet Features - full clip - ICRA Model - Trial split",
         notes="initial attempt ICRA model with ego and exo resnet  features only",
         config={
         "args": args,
@@ -46,7 +46,11 @@ if __name__ == "__main__":
     modality = args.dataloader_params['modality']
     print("Modality: ", modality)
     print("Num of classes: ", out_classes)
+
+    window = args.dataloader_params['observation_window']
+    print("Window: ", window)
     
+
     # train_loader, val_loader, test_loader = get_dataloaders(args)
     train_loader, val_loader, test_loader = eee_get_dataloaders(args)
 

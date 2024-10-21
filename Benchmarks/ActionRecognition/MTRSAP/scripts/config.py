@@ -51,7 +51,7 @@ learning_params = {
 dataloader_params = {
     
     "batch_size": 1,
-    "observation_window": 120,
+    "observation_window": None,
     "fold": 1,
     "fps": 30,
     "train_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/train_split.json',
