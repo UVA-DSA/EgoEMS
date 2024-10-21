@@ -7,55 +7,151 @@ from sklearn.metrics import precision_score, recall_score, f1_score
 import csv
 from EgoExoEMS.EgoExoEMS import EgoExoEMSDataset, collate_fn, transform
 
+
 def init_model(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = TransformerModel(args)
     model.to(device)
-            
+
+           
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_params["lr"], weight_decay=args.learning_params["weight_decay"])
     criterion = nn.CrossEntropyLoss()
         
     return model, optimizer, criterion, device
 
 
+def preprocess(x, modality, backbone, device):
+    # check the shape of the input tensor
+    feature = None
+    label = x['keystep_id']
+    if('video' in modality):
+        feature = None
+        x = x['frames']
+        # extract resnet50 features
+        x = x.to(device)
+        x = backbone.extract_resnet(x)
+        feature = x
+
+    elif ( 'audio' in modality and  'resnet' in modality):
+        # resnet50 features are already extracted
+        resnet = x['resnet'].float()
+        resnet = resnet.to(device)
+
+        audio = x['audio']
+        audio = audio.to(device)
+        audio = backbone.extract_mel_spectrogram(audio, multimodal=True)
+        
+        feature = torch.cat((resnet, audio), dim=1).float()
+
+    elif ( 'flow' in modality and  'rgb' in modality and  'smartwatch' in modality):
+
+        # I3D features are already extracted
+        flow = x['flow'].float()
+        rgb = x['rgb'].float()
+        smartwatch = x['smartwatch'].float()
+
+        # normalize smartwatch data (batch, seq_len, 3) (3 = x,y,z)
+        smartwatch = (smartwatch - smartwatch.mean()) / smartwatch.std()
+        # concatenate all features
+        feature = torch.cat((flow, rgb, smartwatch), dim=-1).float()
+        
+    elif ( 'flow' in modality and  'rgb' in modality):
+
+        # I3D features are already extracted
+        flow = x['flow'].float()
+        rgb = x['rgb'].float()
+        feature = torch.cat((flow, rgb), dim=-1).float()
+
+    elif ('resnet' in modality and 'resnet_exo' in modality):
+        # resnet50 features are already extracted
+        resnet = x['resnet'].float()
+        resnet_exo = x['resnet_exo'].float()
+        feature = torch.cat((resnet, resnet_exo), dim=-1).float()
+
+    elif ('resnet' in modality):
+        # resnet50 features are already extracted
+        feature = x['resnet'].float()
+
+    elif ('resnet_exo' in modality):
+        # resnet50 features are already extracted
+        feature = x['resnet_exo'].float()
+
+    elif ('rgb' in modality):
+        # I3D features are already extracted
+        feature = x['rgb'].float()
+
+    elif ('flow' in modality):
+        # I3D features are already extracted
+        feature = x['flow'].float()
+
+    elif ('audio' in modality):
+        # Audio features are already extracted
+
+        # Example batch of audio clips (batch, samples, channels)
+        audio_clips = x['audio']  # Assume shape [batch, samples, channels]
+        audio_clips = audio_clips.to(device)
+        feature = backbone.extract_mel_spectrogram(audio_clips)
+
+    elif ('smartwatch' in modality):
+        # Audio features are already extracted
+        smartwatch = x['smartwatch'].float()
+        smartwatch = (smartwatch - smartwatch.mean()) / smartwatch.std()
+        feature = smartwatch
+        
+    feature_size = feature.shape[-1]
+
+    if(feature is not None):
+        feature = feature.to(device)
+        label = label.to(device)
+
+    return feature, feature_size, label
+
+
 # add wandb logging
-def train_one_epoch(model, train_loader, criterion, optimizer, device, logger):
+def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, modality):
     model.train()
     total_loss = 0
-    for i, (videos, labels) in enumerate(train_loader):
-        videos = videos.to(device)
-        labels = labels.to(device)
+    for i, batch in enumerate(train_loader):
+        input,feature_size, label = preprocess(batch, modality, model, device)
         optimizer.zero_grad()
-        output = model(videos)
-        loss = criterion(output, labels)
+        output = model(input)
+        loss = criterion(output, label)
         loss.backward()
         optimizer.step()
         total_loss += loss.item()
         if i % 100 == 0:
-            print(f"Pred: {torch.argmax(output, dim=1)} GT: {labels}")
+            print("\n")
+            print("*" * 10, "=" * 10, "*" * 10)
+            print(f"Pred: {torch.argmax(output, dim=1)} GT: {label}")
             logger.log({"train_loss": loss.item()})
             print(f"Batch: {i}, Loss: {loss.item()}")
+            print("*" * 10, "=" * 10, "*" * 10)
+            print("\n")
+        # break
+        
     return total_loss / len(train_loader)
 
 
 # validate the model 
-def validate(model, val_loader, criterion, device, logger):
+def validate(model, val_loader, criterion, device, logger, modality):
     model.eval()
     total_loss = 0
     with torch.no_grad():
-        for i, (videos, labels) in enumerate(val_loader):
-            videos = videos.to(device)
-            labels = labels.to(device)
-            output = model(videos)
-            loss = criterion(output, labels)
+        for i, batch in enumerate(val_loader):
+            input,feature_size, label = preprocess(batch, modality, model, device)
+            output = model(input)
+            loss = criterion(output, label)
             total_loss += loss.item()
             if i % 100 == 0:
                 logger.log({"val_loss": loss.item()})
+            # break
+            
+            
     return total_loss / len(val_loader)
 
 
 # test the model
-def test_model(model, test_loader, criterion, device, logger, epoch, results_dir):
+def test_model(model, test_loader, criterion, device, logger, epoch, results_dir, modality):
     model.eval()
     total_loss = 0
 
@@ -64,40 +160,78 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
     gt = []
     preds = []
     
+    preds_detail = []
 
     with torch.no_grad():
-        for i, (videos, labels) in enumerate(test_loader):
-            videos = videos.to(device)
-            labels = labels.to(device)
-            output = model(videos)
+        for i, batch in enumerate(test_loader):
+            input,feature_size, label = preprocess(batch, modality, model, device)
+
+            # get more info about input
+            keystep_label = batch['keystep_label']
+            keystep_id = batch['keystep_id']
+            start_frame = batch['start_frame']
+            end_frame = batch['end_frame']
+            start_t = batch['start_t']
+            end_t = batch['end_t']
+            subject_id = batch['subject_id']
+            trial_id = batch['trial_id']
+
+
+            output = model(input)
             pred = torch.argmax(output, dim=1)
-            gt.append(labels.item())
+
+            gt.append(label.item())
             preds.append(pred.item())
-    
+
+            preds_detail.append({
+                "keystep_label": keystep_label[0],
+                "keystep_id": keystep_id.item(),
+                "start_frame": start_frame.item(),
+                "end_frame": end_frame.item(),
+                "start_t": start_t.item(),
+                "end_t": end_t.item(),
+                "subject_id": subject_id[0],
+                "trial_id": trial_id[0],
+                "pred_keystep_id": pred.item()
+            })
+
+
+            # break
+            
     # Calculate metrics
     accuracy = sum(1 for x, y in zip(preds, gt) if x == y) / len(gt)
     precision = precision_score(gt, preds, average='macro')
     recall = recall_score(gt, preds, average='macro')
     f1 = f1_score(gt, preds, average='macro')
 
-    # Log metrics to wandb
-    logger.log({
-        "test_accuracy": accuracy,
-        "test_precision": precision,
-        "test_recall": recall,
-        "test_f1": f1,
+    results = {
+        "accuracy": accuracy,
+        "precision": precision,
+        "recall": recall,
+        "f1": f1,
         "epoch": epoch
-    })
+    }
+    # Log metrics to wandb
+    logger.log(results)
     
     # Save metrics to CSV
     metrics_path = f'{results_dir}/metrics.csv'
     with open(metrics_path, mode='a', newline='') as file:
         writer = csv.writer(file)
-        if not os.path.isfile(metrics_path):
-            writer.writerow(["epoch", "accuracy", "precision", "recall", "f1"])
-        writer.writerow([epoch, accuracy, precision, recall, f1])
+        writer.writerow(["epoch",  "precision", "recall", "f1", "accuracy"])
+        writer.writerow([epoch,  precision, recall, f1, accuracy])
     
-    return accuracy
+
+    # Save detailed predictions to CSV
+    preds_path = f'{results_dir}/preds.csv'
+    with open(preds_path, mode='a', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(["keystep_label", "keystep_id", "start_frame", "end_frame", "start_t", "end_t", "subject_id", "trial_id", "pred_keystep_id"])
+        for pred in preds_detail:
+            writer.writerow([pred["keystep_label"], pred["keystep_id"], pred["start_frame"], pred["end_frame"], pred["start_t"], pred["end_t"], pred["subject_id"], pred["trial_id"], pred["pred_keystep_id"]])
+
+
+    return results
 
 
 
@@ -275,15 +409,15 @@ def eee_get_dataloaders(args):
 
     train_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
                                     data_base_path='',
-                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform)
+                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
 
     val_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
                                     data_base_path='',
-                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform)
+                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
 
     test_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
                                     data_base_path='',
-                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform)
+                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
 
 
 

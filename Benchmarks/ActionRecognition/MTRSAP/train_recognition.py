@@ -10,6 +10,8 @@ import wandb
 from datetime import datetime
 
 import argparse
+import warnings
+warnings.filterwarnings("ignore", message="Accurate seek is not implemented for pyav backend")
 
 
 torch.manual_seed(0)
@@ -31,19 +33,42 @@ if __name__ == "__main__":
         project="EgoExoEMS",
         group="Keystep Recognition",
         # mode="disabled",
-        name="Train, Val on EgoExoEMS with I3D RGB Features - 4s clips - ICRA Model",
-        notes="initial attempt ICRA model with I3D RGB features",
+        name="Train, Val on EgoExoEMS with ego and exo resnet Features - full clip - ICRA Model - Trial split",
+        notes="initial attempt ICRA model with ego and exo resnet  features only",
         config={
         "args": args,
         }
     )
 
-    # Access the parsed arguments
-    model, optimizer, criterion, device = init_model(args)# verbose_mode = args.verbose
-    scheduler = StepLR(optimizer, step_size=args.learning_params["lr_drop"], gamma=0.1)  # adjust parameters as needed
+    keysteps = args.dataloader_params['keysteps']
+    out_classes = len(keysteps)
+
+    modality = args.dataloader_params['modality']
+    print("Modality: ", modality)
+    print("Num of classes: ", out_classes)
+
+    window = args.dataloader_params['observation_window']
+    print("Window: ", window)
+    
 
     # train_loader, val_loader, test_loader = get_dataloaders(args)
     train_loader, val_loader, test_loader = eee_get_dataloaders(args)
+
+    model, optimizer, criterion, device = init_model(args)# verbose_mode = args.verbose
+    model = model.to(device)
+
+    # Find feature dimension
+    feature,feature_size,label = preprocess(next(iter(train_loader)), args.dataloader_params['modality'], model, device)
+    print("Feature size: ", feature_size)
+
+    print("Reinitializing model with feature size")
+
+    args.transformer_params['input_dim'] = feature_size
+    args.transformer_params['output_dim'] = out_classes
+
+    model, optimizer, criterion, device = init_model(args)# verbose_mode = args.verbose
+    model = model.to(device)
+    scheduler = StepLR(optimizer, step_size=args.learning_params["lr_drop"], gamma=0.1)  # adjust parameters as needed
 
     current_time = datetime.now().strftime("%Y%m%d-%H%M%S")
     results_dir = f'./results/{cmd_args.job_id}'
@@ -61,9 +86,9 @@ if __name__ == "__main__":
 
     # # Train the model
     for epoch in range(args.learning_params["epochs"]):
-        train_loss = eee_train_one_epoch(model, train_loader, criterion, optimizer, device, wandb_logger)
+        train_loss = train_one_epoch(model, train_loader, criterion, optimizer, device, wandb_logger, modality=modality)
         wandb_logger.log({"avg_train_loss": train_loss, "epoch": epoch})
-        val_loss = eee_validate(model, val_loader, criterion, device, wandb_logger)
+        val_loss = validate(model, val_loader, criterion, device, wandb_logger, modality=modality)
         wandb_logger.log({"avg_val_loss": val_loss, "epoch": epoch})
 
         # save checkpoints if validation loss is minimum 
@@ -71,7 +96,9 @@ if __name__ == "__main__":
             min_val_loss = val_loss
             torch.save(model.state_dict(), f'{chkpoint_dir}/val_best_model.pt')
 
-    #     test_model(model, test_loader, criterion, device, wandb_logger, epoch, results_dir)
 
         scheduler.step()
         print(f"Epoch: {epoch}, Train Loss: {train_loss}, Val Loss: {val_loss}")
+
+        results = test_model(model, test_loader, criterion, device, wandb_logger, epoch, results_dir, modality=modality)
+        print(f"Results: {results}")

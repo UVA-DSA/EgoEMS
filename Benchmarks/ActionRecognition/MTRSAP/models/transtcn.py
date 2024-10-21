@@ -6,6 +6,7 @@ import torch.nn as nn
 from scripts.config import DefaultArgsNamespace
 
 import torchvision.models as models
+import torchaudio.transforms as transforms
 
 class PositionalEncoding(nn.Module):
 
@@ -87,31 +88,18 @@ class GRUNet(nn.Module):
 class CNN_Encoder(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size):
         super(CNN_Encoder, self).__init__()
-        # self.encoder = nn.Sequential(
-        #     nn.Conv1d(in_channels=in_channels, out_channels=512, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
-        #     nn.ReLU(),
-        #     nn.MaxPool1d(kernel_size=2, stride=2),
-        #     nn.Conv1d(in_channels=512, out_channels=256, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
-        #     nn.ReLU(),
-        #     nn.MaxPool1d(kernel_size=2, stride=2),
-        #     nn.Conv1d(in_channels=256, out_channels=out_channels, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
-        #     nn.ReLU(),
-        #     nn.MaxPool1d(kernel_size=2, stride=2)
-        # )
 
         self.encoder = nn.Sequential(
-            nn.Conv1d(in_channels=in_channels, out_channels=512, kernel_size=1, stride=1, padding=0),
+            nn.Conv1d(in_channels=in_channels, out_channels=512, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=1, stride=1, padding=0),  # No change in temporal dimension
-            nn.Conv1d(in_channels=512, out_channels=256, kernel_size=1, stride=1, padding=0),
+            nn.MaxPool1d(kernel_size=1, stride=1),  # No change in temporal dimension
+            nn.Conv1d(in_channels=512, out_channels=256, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=1, stride=1, padding=0),  # No change in temporal dimension
-            nn.Conv1d(in_channels=256, out_channels=out_channels, kernel_size=1, stride=1, padding=0),
+            nn.MaxPool1d(kernel_size=1, stride=1),  # No change in temporal dimension
+            nn.Conv1d(in_channels=256, out_channels=out_channels, kernel_size=kernel_size, stride=1, padding=kernel_size//2),
             nn.ReLU(),
-            nn.MaxPool1d(kernel_size=1, stride=1, padding=0)  # No change in temporal dimension
+            nn.MaxPool1d(kernel_size=1, stride=1)  # No change in temporal dimension
         )
-
-    
 
     def forward(self, x):
         x = x.permute(0, 2, 1)
@@ -152,10 +140,12 @@ class TransformerModel(nn.Module):
         self.nhead = args.transformer_params["nhead"]
         self.batch_first = args.transformer_params["batch_first"]
 
+        self.modality = args.dataloader_params["modality"]
+
         self.encoder_params = args.tcn_model_params["encoder_params"]
         self.decoder_params = args.tcn_model_params["decoder_params"]
 
-        self.encoder_params["in_channels"] = 2048
+        self.encoder_params["in_channels"] = self.input_dim
         self.decoder_params["out_channels"] = self.output_dim
 
         # Load ResNet-50 backbone and remove the final classification layer
@@ -180,44 +170,62 @@ class TransformerModel(nn.Module):
         features_dim = 2048  # Output dimension of ResNet-50 backbone
         self.pe = PositionalEncoding(d_model=self.d_model, max_len=32, dropout=self.dropout)
         self.fc = nn.Linear(features_dim, self.d_model)
-        
-    def preprocess(self, x):
 
+
+        # MelSpectrogram transform
+        self.mel_spectrogram = transforms.MelSpectrogram(
+            sample_rate=args.transformer_params['sample_rate'],
+            n_mels=args.transformer_params['n_mels'],
+            hop_length=args.transformer_params['hop_length'],
+            n_fft=args.transformer_params['n_fft']
+        )
+
+        # Linear layer to project from 64 to 256
+        self.projection_layer = nn.Linear(args.transformer_params['n_mels'], args.transformer_params['input_dim'] )
+        self.projection_layer_multimodal = nn.Linear(args.transformer_params['n_mels'], args.transformer_params['resnet_dim'] )
+
+        
+    def extract_resnet(self, x):
         # check the shape of the input tensor
-        shape = x.shape
-        output = None
-        if len(shape) == 5: # (batch_size, num_frames, 3, 224, 224) 
             # extract resnet50 features
-            batch_size, num_frames, c, h, w = x.size()
+        batch_size, num_frames, c, h, w = x.size()
 
-            # Reshape to process each frame individually through ResNet-50
-            x = x.view(batch_size * num_frames, c, h, w)
-            
-            # Extract features using backbone
-            x = self.backbone(x)  # Shape: (batch_size * num_frames, 2048, 7, 7)
-            x = self.backbone_avgpool(x)  # Shape: (batch_size * num_frames, 2048, 1, 1)
-            x = x.view(batch_size, num_frames, -1)  # Shape: (batch_size, num_frames, 2048)
-            
-            x = self.fc(x)
-            output = x
+        x = x.float()  # Ensures input is a FloatTensor
+
+
+        # Reshape to process each frame individually through ResNet-50
+        x = x.view(batch_size * num_frames, c, h, w)
         
-        elif len(shape) == 3:
-            # I3D features are already extracted
-            output = x.float()
+        # Extract features using backbone
+        x = self.backbone(x)  # Shape: (batch_size * num_frames, 2048, 7, 7)
+        x = self.backbone_avgpool(x)  # Shape: (batch_size * num_frames, 2048, 1, 1)
+        x = x.view(batch_size, num_frames, -1)  # Shape: (batch_size, num_frames, 2048)
+        
+        # x = self.fc(x)
+        output = x
 
         return output
 
+    def extract_mel_spectrogram(self, x, multimodal=False):
+        # Extract Mel-spectrogram for both channels
+        mel_spec_left = self.mel_spectrogram(x[:, :, 0])  # Left channel
+        mel_spec_right = self.mel_spectrogram(x[:, :, 1])  # Right channel
+
+        mel_spec_combined = torch.cat((mel_spec_left, mel_spec_right), dim=-1)  # Shape: [n_mels, time*2]
+        feature = mel_spec_combined.permute(0, 2, 1)  # Shape: [batch, time*2, n_mels]
+        if multimodal:
+            feature = self.projection_layer_multimodal(feature)
+        else:
+            feature = self.projection_layer(feature)
+        return feature
+
 
     def forward(self, x):
-
-
-        # # Preprocess input
-        x = self.preprocess(x)
-        # print("preprocess_out",x.shape)
+        
         # # TCN encoder
-        # x = self.encoder(x)
+        x = self.encoder(x)
         # print("encoder_out",x.shape)
-        # x = x.permute(0, 2, 1)
+        x = x.permute(0, 2, 1)
         
         # # Add positional encoding
         x = self.pe(x)

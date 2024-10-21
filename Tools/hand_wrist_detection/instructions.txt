@@ -1,0 +1,8 @@
+pip install roboflow
+pip install mediapipe
+pip install autodistill autodistill-grounding-dino
+
+img_path=r'D:\path\to\image\dir\img.jpg'
+kpt_dict=get_kpts(img_path)
+
+# write to a json file
