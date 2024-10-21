@@ -38,7 +38,7 @@ class WristDet_mediapipe:
         self.mp_hands = mp.solutions.hands
         self.hands = self.mp_hands.Hands(
             static_image_mode=False,
-            max_num_hands=2,
+            max_num_hands=1,
             min_detection_confidence=0.5
         )
 
@@ -66,10 +66,10 @@ def get_kpts(img, wrst, base_model):
     results = base_model.predict(img)
     bb = get_bb(results)
 
-    if not bb:  # Check if bounding box is empty
+    if bb is None or len(bb) == 0:  # Check if bounding box is empty
         print("No bounding box detected.")
         return {"x": [], "y": []}  # Return empty keypoints
-
+    
     pad = 80
     img_crop = crop_img_bb(img, bb, pad, show=False)
     image, xy_vals = wrst.get_kypts(img_crop)
@@ -117,13 +117,72 @@ def process_video(video_path, output_json_path, wrst, base_model):
     cap.release()
 
 
+def draw_keypoints(frame, x_vals, y_vals):
+    """Draw keypoints on the frame."""
+    for x, y in zip(x_vals, y_vals):
+        cv2.circle(frame, (x, y), 5, (0, 255, 0), -1)  # Green circles for keypoints
+    return frame
+
+
+def process_and_visualize_video(video_path, output_json_path, output_video_path, wrst, base_model):
+    cap = cv2.VideoCapture(video_path)
+
+    if not cap.isOpened():
+        print(f"Error: Cannot open video {video_path}")
+        return
+
+    # Get the video frame width, height, and FPS to create VideoWriter
+    frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    fps = cap.get(cv2.CAP_PROP_FPS)
+
+    # Create a VideoWriter object to save the video with keypoints
+    out = cv2.VideoWriter(output_video_path, cv2.VideoWriter_fourcc(*'mp4v'), fps, (frame_width, frame_height))
+
+    keypoints_data = {}
+    frame_num = 0
+
+    while True:
+        ret, frame = cap.read()
+
+        if not ret:
+            break
+
+        # Get keypoints for the current frame
+        kpt_dict = get_kpts(frame, wrst, base_model)
+        
+        # Draw keypoints on the frame
+        if kpt_dict["x"] and kpt_dict["y"]:
+            frame_with_kpts = draw_keypoints(frame, kpt_dict["x"], kpt_dict["y"])
+        else:
+            frame_with_kpts = frame  # No keypoints, use the original frame
+
+        # Store keypoints with the frame number
+        keypoints_data[frame_num] = kpt_dict
+
+        # Save the frame with keypoints to the output video
+        out.write(frame_with_kpts)
+
+        # Print or process keypoints (optional)
+        # print(f"Frame {frame_num}: {kpt_dict}")
+        frame_num += 1
+
+    # Save keypoints to a JSON file
+    with open(output_json_path, 'w') as json_file:
+        json.dump(keypoints_data, json_file, indent=4)
+
+    # Release video objects
+    cap.release()
+    out.release()
+
+
 def process_videos_in_directory(root_path, wrst, base_model):
     # Recursively search for videos inside 'GoPro' subdirectories
     flag = False
     for dirpath, _, filenames in os.walk(root_path):
-        if 'Kinect' in dirpath:
+        if 'chest_compressions' in dirpath:
             for filename in filenames:
-                if filename.endswith(('final.mkv')):  # You can add more video formats if needed
+                if filename.endswith(('.mkv')):  # You can add more video formats if needed
                     print("=" * 60)
                     print("*" * 60)
                     print(f"Processing directory: {dirpath}")
@@ -132,16 +191,19 @@ def process_videos_in_directory(root_path, wrst, base_model):
                     video_path = os.path.join(dirpath, filename)
                     video_id = filename.split('.')[0]
                     output_json_path = os.path.join(dirpath, f'{video_id}_keypoints.json')
+                    output_video_path = os.path.join(dirpath, f'{video_id}_keypoints.mp4')
 
-                    print(f"Processing video: {video_path}")
+                    # Process the video and save keypoints to JSON and a new video
+                    # process_and_visualize_video(video_path, output_json_path, output_video_path, wrst, base_model)
+          
                     # Process the video and save keypoints to JSON
                     process_video(video_path, output_json_path, wrst, base_model)
                     print("*" * 60)
                     print("=" * 60)
                     flag = True
-                    break
-        if flag:
-            break
+        #             break
+        # if flag:
+        #     break
 
 
 if __name__ == '__main__':

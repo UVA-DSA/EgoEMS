@@ -34,8 +34,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
-                            "file_id": "2024-09-24-17-52-18_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/4/Kinect/2024-09-24-17-52-18_trimmed.mkv",
+                            "file_id": "ms1_t4_trimmed_final",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/4/Kinect/ms1_t4_trimmed_final.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "SynchedPreview": {
@@ -46,6 +46,11 @@
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/4/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "resnet50-exo": {
+                            "file_id": "ms1_t4_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/4/resnet50-exo/ms1_t4_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
@@ -164,8 +169,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
-                            "file_id": "2024-09-24-17-52-18_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/4/Kinect/2024-09-24-17-52-18_trimmed.mkv",
+                            "file_id": "ms2_t4_trimmed_final",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/4/Kinect/ms2_t4_trimmed_final.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "SynchedPreview": {
@@ -176,6 +181,11 @@
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/4/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "resnet50-exo": {
+                            "file_id": "ms2_t4_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/4/resnet50-exo/ms2_t4_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
@@ -357,8 +367,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
-                            "file_id": "2024-09-19-19-08-12_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "file_id": "ng3_t8_trimmed_final",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/Kinect/ng3_t8_trimmed_final.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "SynchedPreview": {
@@ -369,6 +379,11 @@
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "resnet50-exo": {
+                            "file_id": "ng3_t8_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/resnet50-exo/ng3_t8_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
@@ -579,8 +594,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
-                            "file_id": "2024-09-12-20-31-08_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/Kinect/2024-09-12-20-31-08_trimmed.mkv",
+                            "file_id": "ng3_t6_trimmed_final",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/Kinect/ng3_t6_trimmed_final.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "SynchedPreview": {
@@ -591,6 +606,11 @@
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "resnet50-exo": {
+                            "file_id": "ng3_t6_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/resnet50-exo/ng3_t6_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
@@ -765,8 +785,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
-                            "file_id": "2024-09-12-20-31-08_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/2/Kinect/2024-09-12-20-31-08_trimmed.mkv",
+                            "file_id": "ng4_t2_trimmed_final",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/2/Kinect/ng4_t2_trimmed_final.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "SynchedPreview": {
@@ -777,6 +797,11 @@
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/2/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "resnet50-exo": {
+                            "file_id": "ng4_t2_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/2/resnet50-exo/ng4_t2_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
@@ -1000,8 +1025,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
-                            "file_id": "2024-09-05-19-07-43_fps_converted_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/5/Kinect/2024-09-05-19-07-43_fps_converted_trimmed.mkv",
+                            "file_id": "ng5_t5_trimmed_final",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/5/Kinect/ng5_t5_trimmed_final.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "SynchedPreview": {
@@ -1012,6 +1037,11 @@
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/5/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "resnet50-exo": {
+                            "file_id": "ng5_t5_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/5/resnet50-exo/ng5_t5_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
@@ -1194,8 +1224,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
-                            "file_id": "2024-09-05-19-07-43_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/3/Kinect/2024-09-05-19-07-43_trimmed.mkv",
+                            "file_id": "ng5_t3_trimmed_final",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/3/Kinect/ng5_t3_trimmed_final.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "SynchedPreview": {
@@ -1206,6 +1236,11 @@
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/3/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "resnet50-exo": {
+                            "file_id": "ng5_t3_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/3/resnet50-exo/ng5_t3_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
@@ -1388,8 +1423,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
-                            "file_id": "2024-09-05-19-07-43_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/1/Kinect/2024-09-05-19-07-43_trimmed.mkv",
+                            "file_id": "ng5_t1_trimmed_final",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/1/Kinect/ng5_t1_trimmed_final.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "SynchedPreview": {
@@ -1400,6 +1435,11 @@
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "resnet50-exo": {
+                            "file_id": "ng5_t1_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/1/resnet50-exo/ng5_t1_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
@@ -1575,8 +1615,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
-                            "file_id": "2024-09-05-19-58-16_fps_converted_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/8/Kinect/2024-09-05-19-58-16_fps_converted_trimmed.mkv",
+                            "file_id": "ng5_t8_trimmed_final",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/8/Kinect/ng5_t8_trimmed_final.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "SynchedPreview": {
@@ -1587,6 +1627,11 @@
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/8/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "resnet50-exo": {
+                            "file_id": "ng5_t8_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/8/resnet50-exo/ng5_t8_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
@@ -1761,8 +1806,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
-                            "file_id": "2024-09-19-19-08-12_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/5/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "file_id": "ng6_t5_trimmed_final",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/5/Kinect/ng6_t5_trimmed_final.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "SynchedPreview": {
@@ -1773,6 +1818,11 @@
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/5/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "resnet50-exo": {
+                            "file_id": "ng6_t5_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/5/resnet50-exo/ng6_t5_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
@@ -1954,8 +2004,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
-                            "file_id": "2024-09-19-19-08-12_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/8/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "file_id": "ng8_t8_trimmed_final",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/8/Kinect/ng8_t8_trimmed_final.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "SynchedPreview": {
@@ -1966,6 +2016,11 @@
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/8/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "resnet50-exo": {
+                            "file_id": "ng8_t8_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/8/resnet50-exo/ng8_t8_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
@@ -2106,8 +2161,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
-                            "file_id": "2024-09-05-19-07-43_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/3/Kinect/2024-09-05-19-07-43_trimmed.mkv",
+                            "file_id": "ng8_t3_trimmed_final",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/3/Kinect/ng8_t3_trimmed_final.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "SynchedPreview": {
@@ -2118,6 +2173,11 @@
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/3/distance_sensor_data/sync_depth_sensor.csv",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "resnet50-exo": {
+                            "file_id": "ng8_t3_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/3/resnet50-exo/ng8_t3_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {

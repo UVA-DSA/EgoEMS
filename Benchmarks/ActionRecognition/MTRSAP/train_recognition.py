@@ -33,8 +33,8 @@ if __name__ == "__main__":
         project="EgoExoEMS",
         group="Keystep Recognition",
         # mode="disabled",
-        name="Train, Val on EgoExoEMS with audio and resnet Features - full clip - ICRA Model - Trial split",
-        notes="initial attempt ICRA model with audio and resnet  features only",
+        name="Train, Val on EgoExoEMS with ego and exo resnet Features - 4s clip - ICRA Model - Trial split",
+        notes="initial attempt ICRA model with ego and exo resnet  features only",
         config={
         "args": args,
         }

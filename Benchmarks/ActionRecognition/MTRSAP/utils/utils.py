@@ -43,7 +43,6 @@ def preprocess(x, modality, backbone, device):
         
         feature = torch.cat((resnet, audio), dim=1).float()
 
-
     elif ( 'flow' in modality and  'rgb' in modality and  'smartwatch' in modality):
 
         # I3D features are already extracted
@@ -56,7 +55,6 @@ def preprocess(x, modality, backbone, device):
         # concatenate all features
         feature = torch.cat((flow, rgb, smartwatch), dim=-1).float()
         
-
     elif ( 'flow' in modality and  'rgb' in modality):
 
         # I3D features are already extracted
@@ -64,9 +62,19 @@ def preprocess(x, modality, backbone, device):
         rgb = x['rgb'].float()
         feature = torch.cat((flow, rgb), dim=-1).float()
 
+    elif ('resnet' in modality and 'resnet_exo' in modality):
+        # resnet50 features are already extracted
+        resnet = x['resnet'].float()
+        resnet_exo = x['resnet_exo'].float()
+        feature = torch.cat((resnet, resnet_exo), dim=-1).float()
+
     elif ('resnet' in modality):
         # resnet50 features are already extracted
         feature = x['resnet'].float()
+
+    elif ('resnet_exo' in modality):
+        # resnet50 features are already extracted
+        feature = x['resnet_exo'].float()
 
     elif ('rgb' in modality):
         # I3D features are already extracted
@@ -84,7 +92,6 @@ def preprocess(x, modality, backbone, device):
         audio_clips = audio_clips.to(device)
         feature = backbone.extract_mel_spectrogram(audio_clips)
 
-
     elif ('smartwatch' in modality):
         # Audio features are already extracted
         smartwatch = x['smartwatch'].float()
@@ -96,6 +103,7 @@ def preprocess(x, modality, backbone, device):
     if(feature is not None):
         feature = feature.to(device)
         label = label.to(device)
+
     return feature, feature_size, label
 
 

@@ -51,7 +51,7 @@ learning_params = {
 dataloader_params = {
     
     "batch_size": 1,
-    "observation_window": None,
+    "observation_window": 120,
     "fold": 1,
     "fps": 30,
     "train_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/train_split.json',
@@ -59,7 +59,7 @@ dataloader_params = {
     "test_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split.json',
     # Old dataset class
     'base_path': '/scratch/cjh9fw/Rivanna/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
-    'modality': [ 'audio'],
+    'modality': [ 'resnet','resnet_exo'],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
                     "check_responsiveness": "Check for responsiveness",
