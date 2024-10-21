@@ -21,7 +21,7 @@ echo "[INFO] Running on node: $HOSTNAME" &&
 conda activate wrist_keypoint &&
 
 # Define the root directory for the dataset
-ROOT_DIR="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Final" &&
+ROOT_DIR="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final" &&
 
 python detect.py --root_dir "$ROOT_DIR" &&
 

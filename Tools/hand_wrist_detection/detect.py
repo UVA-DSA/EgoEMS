@@ -66,9 +66,18 @@ def get_kpts(img, wrst, base_model):
     results = base_model.predict(img)
     bb = get_bb(results)
 
+    if not bb:  # Check if bounding box is empty
+        print("No bounding box detected.")
+        return {"x": [], "y": []}  # Return empty keypoints
+
     pad = 80
     img_crop = crop_img_bb(img, bb, pad, show=False)
     image, xy_vals = wrst.get_kypts(img_crop)
+
+    if not xy_vals:  # Check if keypoints are detected
+        print("No keypoints detected.")
+        return {"x": [], "y": []}  # Return empty keypoints
+
     x_vals = [int(val[0] + bb[0] - pad) for val in xy_vals]
     y_vals = [int(val[1] + bb[1] - pad) for val in xy_vals]
     kpt_dict = {"x": x_vals, "y": y_vals}
@@ -110,10 +119,15 @@ def process_video(video_path, output_json_path, wrst, base_model):
 
 def process_videos_in_directory(root_path, wrst, base_model):
     # Recursively search for videos inside 'GoPro' subdirectories
+    flag = False
     for dirpath, _, filenames in os.walk(root_path):
         if 'Kinect' in dirpath:
             for filename in filenames:
-                if filename.endswith(('.mkv')):  # You can add more video formats if needed
+                if filename.endswith(('final.mkv')):  # You can add more video formats if needed
+                    print("=" * 60)
+                    print("*" * 60)
+                    print(f"Processing directory: {dirpath}")
+
                     print(f"Processing video: {filename}")
                     video_path = os.path.join(dirpath, filename)
                     video_id = filename.split('.')[0]
@@ -122,6 +136,12 @@ def process_videos_in_directory(root_path, wrst, base_model):
                     print(f"Processing video: {video_path}")
                     # Process the video and save keypoints to JSON
                     process_video(video_path, output_json_path, wrst, base_model)
+                    print("*" * 60)
+                    print("=" * 60)
+                    flag = True
+                    break
+        if flag:
+            break
 
 
 if __name__ == '__main__':
