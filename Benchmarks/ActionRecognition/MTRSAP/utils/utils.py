@@ -5,8 +5,8 @@ from datautils.ems import *
 import torch.nn as nn
 from sklearn.metrics import precision_score, recall_score, f1_score
 import csv
-from EgoExoEMS.EgoExoEMS import EgoExoEMSDataset, collate_fn, transform
-
+from EgoExoEMS.EgoExoEMS import  WindowEgoExoEMSDataset, EgoExoEMSDataset, collate_fn, transform, window_collate_fn
+from functools import partial
 
 def init_model(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -192,7 +192,8 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
                 "end_t": end_t.item(),
                 "subject_id": subject_id[0],
                 "trial_id": trial_id[0],
-                "pred_keystep_id": pred.item()
+                "pred_keystep_id": pred.item(),
+                "all_preds": output.tolist()
             })
 
 
@@ -226,9 +227,9 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
     preds_path = f'{results_dir}/preds.csv'
     with open(preds_path, mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(["keystep_label", "keystep_id", "start_frame", "end_frame", "start_t", "end_t", "subject_id", "trial_id", "pred_keystep_id"])
+        writer.writerow(["keystep_label", "keystep_id", "start_frame", "end_frame", "start_t", "end_t", "subject_id", "trial_id", "pred_keystep_id","all_preds"])
         for pred in preds_detail:
-            writer.writerow([pred["keystep_label"], pred["keystep_id"], pred["start_frame"], pred["end_frame"], pred["start_t"], pred["end_t"], pred["subject_id"], pred["trial_id"], pred["pred_keystep_id"]])
+            writer.writerow([pred["keystep_label"], pred["keystep_id"], pred["start_frame"], pred["end_frame"], pred["start_t"], pred["end_t"], pred["subject_id"], pred["trial_id"], pred["pred_keystep_id"], pred["all_preds"]])
 
 
     return results
@@ -406,29 +407,62 @@ def eee_test_model(model, test_loader, criterion, device, logger, epoch, results
 
 # return train,val,test dataloaders using the EgoExoEMSDataset class
 def eee_get_dataloaders(args):
+    
+    if(args.dataloader_params["task"] == 'classification'):
+        print("*" * 10, "=" * 10, "*" * 10)
+        print("Loading dataloader for Classification task")
 
-    train_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
-                                    data_base_path='',
-                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+        train_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
+                                        data_base_path='',
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
 
-    val_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
-                                    data_base_path='',
-                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+        val_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
+                                        data_base_path='',
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
 
-    test_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
-                                    data_base_path='',
-                                    fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+        test_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
+                                        data_base_path='',
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
 
 
 
-    # Create DataLoaders for training and validation subsets
-    train_loader = DataLoader(train_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False)
-    val_loader = DataLoader(val_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False)
+        # Create DataLoaders for training and validation subsets
+        train_loader = DataLoader(train_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=True)
+        test_loader = DataLoader(test_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False)
+        val_loader = DataLoader(val_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False)
 
-    print("train dataset size: ", len(train_dataset))
-    print("val dataset size: ", len(val_dataset))
-    print("test dataset size: ", len(test_dataset))
+        print("train dataset size: ", len(train_dataset))
+        print("val dataset size: ", len(val_dataset))
+        print("test dataset size: ", len(test_dataset))
+    
+    elif (args.dataloader_params["task"] == 'segmentation'):
+        print("*" * 10, "=" * 10, "*" * 10)
+        print("Loading dataloader for Segmentation task")
+        
+        train_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
+                                        data_base_path='',
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+
+        val_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
+                                        data_base_path='',
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+
+        test_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
+                                        data_base_path='',
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+
+
+        # Use a partial function or lambda to pass the frames_per_clip argument
+        collate_fn_with_args = partial(window_collate_fn, frames_per_clip=120)
+
+        # Create DataLoaders for training and validation subsets
+        train_loader = DataLoader(train_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=True, collate_fn=collate_fn_with_args)
+        test_loader = DataLoader(test_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False, collate_fn=collate_fn_with_args)
+        val_loader = DataLoader(val_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False, collate_fn=collate_fn_with_args)
+
+        print("train dataset size: ", len(train_dataset))
+        print("val dataset size: ", len(val_dataset))
+        print("test dataset size: ", len(test_dataset))
 
     return train_loader, val_loader, test_loader
 

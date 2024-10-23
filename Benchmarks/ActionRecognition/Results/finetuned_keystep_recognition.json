@@ -1,0 +1,264 @@
+{
+    "model": [
+        {
+            "model_name": "ICRA Model",
+            "experiments": [
+                {
+                    "modality": "Video Features (Resnet50)",
+                    "window_size": "4s",
+                    "iou_results": [
+                        {
+                            "iou": 0,
+                            "results": {
+                                "accuracy": 0.700,
+                                "precision": 0.658,
+                                "recall": 0.701,
+                                "f1": 0.659,
+                                "edit_score": 0.862,
+                                "edit_distance": 4.909
+                            }
+                        },
+                        {
+                            "iou": 0.25,
+                            "results": {
+                                "accuracy": 0.700,
+                                "precision": 0.658,
+                                "recall": 0.701,
+                                "f1": 0.659,
+                                "edit_score": 0.862,
+                                "edit_distance": 4.909
+                            }
+                        },
+                        {
+                            "iou": 0.5,
+                            "results": {
+                                "accuracy": 0.565,
+                                "precision": 0.567,
+                                "recall": 0.594,
+                                "f1": 0.565,
+                                "edit_score": 0.798,
+                                "edit_distance": 3.955
+                            }
+                        }
+                    ]
+                },
+                {
+                    "modality": "Video Features (Resnet50)",
+                    "window_size": "full",
+                    "results": {
+                        "accuracy": 0.680,
+                        "precision": 0.644,
+                        "recall": 0.683,
+                        "f1": 0.641,
+                        "edit_score": 0.798,
+                        "edit_distance": 3.955
+                    }
+                },
+                {
+                    "modality": "i3d rgb, i3d flow",
+                    "window_size": "4s",
+                    "iou_results": [
+                        {
+                            "iou": 0,
+                            "results": {
+                                "accuracy": 0.711,
+                                "precision": 0.663,
+                                "recall": 0.715,
+                                "f1": 0.672,
+                                "edit_score": 0.865,
+                                "edit_distance": 4.909
+                            }
+                        },
+                        {
+                            "iou": 0.25,
+                            "results": {
+                                "accuracy": 0.711,
+                                "precision": 0.663,
+                                "recall": 0.715,
+                                "f1": 0.672,
+                                "edit_score": 0.865,
+                                "edit_distance": 4.909
+                            }
+                        },
+                        {
+                            "iou": 0.5,
+                            "results": {
+                                "accuracy": 0.640,
+                                "precision": 0.636,
+                                "recall": 0.674,
+                                "f1": 0.640,
+                                "edit_score": 0.810,
+                                "edit_distance": 3.682
+                            }
+                        }
+                    ]
+                },
+                {
+                    "modality": "i3d rgb, i3d flow",
+                    "window_size": "full",
+                    "results": {
+                        "accuracy": 0.701,
+                        "precision": 0.661,
+                        "recall": 0.703,
+                        "f1": 0.662,
+                        "edit_score": 0.810,
+                        "edit_distance": 3.682
+                    }
+                },
+                {
+                    "modality": "smartwatch",
+                    "window_size": "4s",
+                    "iou_results": [
+                        {
+                            "iou": 0,
+                            "results": {
+                                "accuracy": 0.603,
+                                "precision": 0.556,
+                                "recall": 0.614,
+                                "f1": 0.571,
+                                "edit_score": 0.839,
+                                "edit_distance": 5.591
+                            }
+                        },
+                        {
+                            "iou": 0.25,
+                            "results": {
+                                "accuracy": 0.603,
+                                "precision": 0.556,
+                                "recall": 0.614,
+                                "f1": 0.571,
+                                "edit_score": 0.839,
+                                "edit_distance": 5.591
+                            }
+                        },
+                        {
+                            "iou": 0.5,
+                            "results": {
+                                "accuracy": 0.542,
+                                "precision": 0.528,
+                                "recall": 0.584,
+                                "f1": 0.542,
+                                "edit_score": 0.839,
+                                "edit_distance": 5.591
+                            }
+                        }
+                    ]
+                },
+                {
+                    "modality": "smartwatch",
+                    "window_size": "full",
+                    "results": {
+                        "accuracy": 0.562,
+                        "precision": 0.490,
+                        "recall": 0.551,
+                        "f1": 0.500,
+                        "edit_score": 0.753,
+                        "edit_distance": 4.591
+                    }
+                },
+                {
+                    "modality": "Video Features Ego + Exo (Resnet50)",
+                    "window_size": "4s",
+                    "iou_results": [
+                        {
+                            "iou": 0,
+                            "results": {
+                                "accuracy": 0.729,
+                                "precision": 0.679,
+                                "recall": 0.729,
+                                "f1": 0.684,
+                                "edit_score": 0.870,
+                                "edit_distance": 4.591
+                            }
+                        },
+                        {
+                            "iou": 0.25,
+                            "results": {
+                                "accuracy": 0.729,
+                                "precision": 0.676,
+                                "recall": 0.718,
+                                "f1": 0.679,
+                                "edit_score": 0.870,
+                                "edit_distance": 4.591
+                            }
+                        },
+                        {
+                            "iou": 0.5,
+                            "results": {
+                                "accuracy": 0.651,
+                                "precision": 0.650,
+                                "recall": 0.685,
+                                "f1": 0.651,
+                                "edit_score": 0.847,
+                                "edit_distance": 5.273
+                            }
+                        }
+                    ]
+                },
+                {
+                    "modality": "Video Features Ego + Exo (Resnet50)",
+                    "window_size": "full",
+                    "results": {
+                        "accuracy": 0.444,
+                        "precision": 0.471,
+                        "recall": 0.490,
+                        "f1": 0.424,
+                        "edit_score": 0.847,
+                        "edit_distance": 5.273
+                    }
+                },
+                {
+                    "modality": "Video + Audio (Ego) (Resnet50, Mel-spectrogram)",
+                    "window_size": "4s",
+                    "iou_results": [
+                        {
+                            "iou": 0,
+                            "results": {
+                                "accuracy": 0.612,
+                                "precision": 0.539,
+                                "recall": 0.616,
+                                "f1": 0.555,
+                                "edit_score": 0.834,
+                                "edit_distance": 5.864
+                            }
+                        },
+                        {
+                            "iou": 0.25,
+                            "results": {
+                                "accuracy": 0.612,
+                                "precision": 0.539,
+                                "recall": 0.616,
+                                "f1": 0.555,
+                                "edit_score": 0.834,
+                                "edit_distance": 5.864
+                            }
+                        },
+                        {
+                            "iou": 0.5,
+                            "results": {
+                                "accuracy": 0.503,
+                                "precision": 0.494,
+                                "recall": 0.557,
+                                "f1": 0.503,
+                                "edit_score": 0.834,
+                                "edit_distance": 5.864
+                            }
+                        }
+                    ]
+                },
+                {
+                    "modality": "Video + Audio (Ego) (Resnet50, Mel-spectrogram)",
+                    "window_size": "full",
+                    "results": {
+                        "accuracy": 0.438,
+                        "precision": 0.304,
+                        "recall": 0.254,
+                        "f1": 0.230,
+                        "edit_score": 0.718,
+                        "edit_distance": 5.455
+                    }
+                }
+            ]
+        }
+    ]
+}
