@@ -20,10 +20,16 @@ def init_model(args):
     return model, optimizer, criterion, device
 
 
-def preprocess(x, modality, backbone, device):
+def preprocess(x, modality, backbone, device, task='classification'):
     # check the shape of the input tensor
     feature = None
     label = x['keystep_id']
+
+    if task == 'segmentation':
+        majority_label, _ = torch.mode(label, dim=1)  # [batch_size], mode returns (values, indices)
+        label = majority_label
+
+
     if('video' in modality):
         feature = None
         x = x['frames']
@@ -108,16 +114,16 @@ def preprocess(x, modality, backbone, device):
 
 
 # add wandb logging
-def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, modality):
+def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, modality, task='classification'):
     model.train()
     total_loss = 0
     for i, batch in enumerate(train_loader):
-        print("Batch: ", i)
-        input,feature_size, label = preprocess(batch, modality, model, device)
+        # print("Batch: ", i)
+        input,feature_size, label = preprocess(batch, modality, model, device, task=task)
         optimizer.zero_grad()
         output = model(input)
-        print("Output: ", output.shape)
-        print("Label: ", label.shape)
+        # print("Output: ", output.shape)
+        # print("Label: ", label.shape)
         loss = criterion(output, label)
         loss.backward()
         optimizer.step()
@@ -136,12 +142,12 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, m
 
 
 # validate the model 
-def validate(model, val_loader, criterion, device, logger, modality):
+def validate(model, val_loader, criterion, device, logger, modality, task='classification'):
     model.eval()
     total_loss = 0
     with torch.no_grad():
         for i, batch in enumerate(val_loader):
-            input,feature_size, label = preprocess(batch, modality, model, device)
+            input,feature_size, label = preprocess(batch, modality, model, device, task=task)
             output = model(input)
             loss = criterion(output, label)
             total_loss += loss.item()
@@ -154,7 +160,7 @@ def validate(model, val_loader, criterion, device, logger, modality):
 
 
 # test the model
-def test_model(model, test_loader, criterion, device, logger, epoch, results_dir, modality):
+def test_model(model, test_loader, criterion, device, logger, epoch, results_dir, modality, task='classification'):
     model.eval()
     total_loss = 0
 
@@ -167,7 +173,7 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
 
     with torch.no_grad():
         for i, batch in enumerate(test_loader):
-            input,feature_size, label = preprocess(batch, modality, model, device)
+            input,feature_size, label = preprocess(batch, modality, model, device, task=task)
 
             # get more info about input
             keystep_label = batch['keystep_label']
@@ -178,7 +184,8 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
             end_t = batch['end_t']
             subject_id = batch['subject_id']
             trial_id = batch['trial_id']
-
+            window_start_frame = batch['window_start_frame']
+            window_end_frame = batch['window_end_frame']
 
             output = model(input)
             pred = torch.argmax(output, dim=1)
@@ -188,11 +195,13 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
 
             preds_detail.append({
                 "keystep_label": keystep_label[0],
-                "keystep_id": keystep_id.item(),
-                "start_frame": start_frame.item(),
-                "end_frame": end_frame.item(),
-                "start_t": start_t.item(),
-                "end_t": end_t.item(),
+                "keystep_id": keystep_id,
+                "start_frame": start_frame,
+                "end_frame": end_frame,
+                "start_t": start_t,
+                "end_t": end_t,
+                "window_start_frame": window_start_frame.item(),
+                "window_end_frame": window_end_frame.item(),
                 "subject_id": subject_id[0],
                 "trial_id": trial_id[0],
                 "pred_keystep_id": pred.item(),
@@ -224,17 +233,15 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
         writer = csv.writer(file)
         writer.writerow(["epoch",  "precision", "recall", "f1", "accuracy"])
         writer.writerow([epoch,  precision, recall, f1, accuracy])
-    
 
     # Save detailed predictions to CSV
     preds_path = f'{results_dir}/preds.csv'
+    print("Saving predictions to: ", preds_path)
     with open(preds_path, mode='a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(["keystep_label", "keystep_id", "start_frame", "end_frame", "start_t", "end_t", "subject_id", "trial_id", "pred_keystep_id","all_preds"])
+        writer.writerow(["keystep_label", "keystep_id", "start_frame", "end_frame", "start_t", "end_t","window_start_frame","window_end_frame", "subject_id", "trial_id", "pred_keystep_id","all_preds"])
         for pred in preds_detail:
-            writer.writerow([pred["keystep_label"], pred["keystep_id"], pred["start_frame"], pred["end_frame"], pred["start_t"], pred["end_t"], pred["subject_id"], pred["trial_id"], pred["pred_keystep_id"], pred["all_preds"]])
-
-
+            writer.writerow([pred["keystep_label"], pred["keystep_id"], pred["start_frame"], pred["end_frame"], pred["start_t"], pred["end_t"], pred["window_start_frame"],pred["window_end_frame"], pred["subject_id"], pred["trial_id"], pred["pred_keystep_id"], pred["all_preds"]])
     return results
 
 

@@ -32,9 +32,9 @@ if __name__ == "__main__":
         # set the wandb project where this run will be logged
         project="EgoExoEMS",
         group="Keystep Recognition",
-        mode="disabled",
-        name="Train, Val on EgoExoEMS with ego and exo resnet Features - full clip - ICRA Model - Trial split",
-        notes="initial attempt ICRA model with ego and exo resnet  features only",
+        # mode="disabled",
+        name="Train, Val on EgoExoEMS with ego I3D Features - 4s clip - Segmentation Task - ICRA Model - Trial split",
+        notes="initial attempt ICRA model with  ego I3D Features  features only",
         config={
         "args": args,
         }
@@ -49,6 +49,9 @@ if __name__ == "__main__":
 
     window = args.dataloader_params['observation_window']
     print("Window: ", window)
+
+    task = args.dataloader_params['task']
+    print("Task: ", task)
     
 
     # train_loader, val_loader, test_loader = get_dataloaders(args)
@@ -88,9 +91,9 @@ if __name__ == "__main__":
     for epoch in range(args.learning_params["epochs"]):
         print("*"*10, "="*10, "*"*10)
         print(f"Epoch: {epoch}")
-        train_loss = train_one_epoch(model, train_loader, criterion, optimizer, device, wandb_logger, modality=modality)
+        train_loss = train_one_epoch(model, train_loader, criterion, optimizer, device, wandb_logger, modality=modality, task=task)
         wandb_logger.log({"avg_train_loss": train_loss, "epoch": epoch})
-        val_loss = validate(model, val_loader, criterion, device, wandb_logger, modality=modality)
+        val_loss = validate(model, val_loader, criterion, device, wandb_logger, modality=modality, task=task)
         wandb_logger.log({"avg_val_loss": val_loss, "epoch": epoch})
 
         # save checkpoints if validation loss is minimum 
@@ -102,7 +105,7 @@ if __name__ == "__main__":
         scheduler.step()
         print(f"Epoch: {epoch}, Train Loss: {train_loss}, Val Loss: {val_loss}")
 
-        results = test_model(model, test_loader, criterion, device, wandb_logger, epoch, results_dir, modality=modality)
+        results = test_model(model, test_loader, criterion, device, wandb_logger, epoch, results_dir, modality=modality, task=task)
         print(f"Results: {results}")
         
         print("*"*10, "="*10, "*"*10)

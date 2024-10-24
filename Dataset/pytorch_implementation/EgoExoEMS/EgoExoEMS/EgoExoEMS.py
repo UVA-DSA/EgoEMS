@@ -531,6 +531,8 @@ def window_collate_fn(batch, frames_per_clip=30):
     padded_depth_sensor_clips = []
     keystep_labels = []
     keystep_ids = []
+    window_start_frames = []
+    window_end_frames = []
     start_frames = []
     end_frames = []
     start_ts = []
@@ -633,8 +635,8 @@ def window_collate_fn(batch, frames_per_clip=30):
             padded_depth_sensor_clips.append(depth_sensor_clip)
 
 
+
         pad_length = frames_per_clip - len(b['keystep_id']) 
-        
         if pad_length > 0:
             # repeat last element of keystep_id and keystep_label
             b['keystep_id'] = b['keystep_id'] + [b['keystep_id'][-1]]*pad_length
@@ -652,6 +654,8 @@ def window_collate_fn(batch, frames_per_clip=30):
         end_ts.append(b['end_t'])
         subject_ids.append(b['subject_id'])
         trial_ids.append(b['trial_id'])
+        window_start_frames.append(b['window_start_frame'])
+        window_end_frames.append(b['window_end_frame'])
 
     output = {
         'keystep_label': keystep_labels,
@@ -661,7 +665,9 @@ def window_collate_fn(batch, frames_per_clip=30):
         'start_t': torch.tensor(start_ts),
         'end_t': torch.tensor(end_ts),
         'subject_id': subject_ids,
-        'trial_id': trial_ids
+        'trial_id': trial_ids,
+        'window_start_frame': torch.tensor(window_start_frames),
+        'window_end_frame': torch.tensor(window_end_frames)
     }
 
     # Only include modality data if it exists
@@ -974,6 +980,8 @@ class WindowEgoExoEMSDataset(Dataset):
             subject_ids.append( frame['subject'])
             trial_ids.append( frame['trial'])
 
+        first_frame_of_clip = torch.tensor(first_frame_of_clip)
+        last_frame_of_clip = torch.tensor(last_frame_of_clip)
         # print("batch_resnet:",batch_resnet[0].shape)
         # Stack frames to form a batch of frames_per_clip
         output = {
@@ -990,6 +998,8 @@ class WindowEgoExoEMSDataset(Dataset):
             'keystep_id': keystep_ids,
             'start_frame': start_frames,
             'end_frame': end_frames,
+            'window_start_frame': first_frame_of_clip,
+            'window_end_frame': last_frame_of_clip,
             'start_t': start_ts,
             'end_t': end_ts,
             'subject_id': subject_ids,
