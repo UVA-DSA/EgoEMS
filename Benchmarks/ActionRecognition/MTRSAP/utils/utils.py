@@ -112,9 +112,12 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, m
     model.train()
     total_loss = 0
     for i, batch in enumerate(train_loader):
+        print("Batch: ", i)
         input,feature_size, label = preprocess(batch, modality, model, device)
         optimizer.zero_grad()
         output = model(input)
+        print("Output: ", output.shape)
+        print("Label: ", label.shape)
         loss = criterion(output, label)
         loss.backward()
         optimizer.step()

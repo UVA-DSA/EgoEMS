@@ -42,7 +42,7 @@ def collate_fn(batch):
     max_smartwatch_len = max([clip['smartwatch'].shape[0] for clip in batch if isinstance(clip.get('smartwatch', None), torch.Tensor)], default=0)
     max_depth_sensor_len = max([clip['depth_sensor'].shape[0] for clip in batch if isinstance(clip.get('depth_sensor', None), torch.Tensor)], default=0)
 
-    print(batch)
+    # print(batch)
     
     for b in batch:
         # Pad video frames if available
@@ -105,7 +105,7 @@ def collate_fn(batch):
             if max_smartwatch_len > 0:
                 smartwatch_pad_size = max_smartwatch_len - smartwatch_clip.shape[0]
                 if smartwatch_pad_size > 0:
-                    smartwatch_pad = torch.zeros((smartwatch_clip.shape[0], smartwatch_pad_size))
+                    smartwatch_pad = torch.zeros((smartwatch_pad_size, smartwatch_clip.shape[1]))
                     smartwatch_clip = torch.cat([smartwatch_clip, smartwatch_pad], dim=0)
             padded_smartwatch_clips.append(smartwatch_clip)
 
@@ -115,7 +115,7 @@ def collate_fn(batch):
             if max_depth_sensor_len > 0:
                 depth_sensor_pad_size = max_depth_sensor_len - depth_sensor_clip.shape[0]
                 if depth_sensor_pad_size > 0:
-                    depth_sensor_pad = torch.zeros((depth_sensor_clip.shape[0], depth_sensor_pad_size))
+                    depth_sensor_pad = torch.zeros((depth_sensor_pad_size, depth_sensor_clip.shape[1]))
                     depth_sensor_clip = torch.cat([depth_sensor_clip, depth_sensor_pad], dim=0)
             padded_depth_sensor_clips.append(depth_sensor_clip)
 
@@ -540,7 +540,7 @@ def window_collate_fn(batch, frames_per_clip=30):
 
     # Initialize max lengths for each modality, check if each is available
     max_flow_len = max([clip['flow'].shape[0] for clip in batch if isinstance(clip.get('flow', None), torch.Tensor)], default=0)
-    max_audio_len = max([clip['audio'].shape[-1] for clip in batch if isinstance(clip.get('audio', None), torch.Tensor)], default=0)
+    max_audio_len = max([clip['audio'].shape[0] for clip in batch if isinstance(clip.get('audio', None), torch.Tensor)], default=0)
     max_rgb_len = max([clip['rgb'].shape[0] for clip in batch if isinstance(clip.get('rgb', None), torch.Tensor)], default=0)
     max_resnet_len = max([clip['resnet'].shape[0] for clip in batch if isinstance(clip.get('resnet', None), torch.Tensor)], default=0)
     max_resnet_exo_len = max([clip['resnet_exo'].shape[0] for clip in batch if isinstance(clip.get('resnet_exo', None), torch.Tensor)], default=0)  # Added for resnet_exo modality
@@ -562,8 +562,10 @@ def window_collate_fn(batch, frames_per_clip=30):
         if 'audio' in b and isinstance(b['audio'], torch.Tensor):
             audio_clip = b['audio']
             audio_pad_size = max_audio_len - audio_clip.shape[0]
+            # print("audio_pad_size:",audio_pad_size)
             if audio_pad_size > 0:
                 audio_pad = torch.zeros((audio_pad_size, *audio_clip.shape[1:]))
+                # print("audio_pad:",audio_pad.shape)
                 audio_clip = torch.cat([audio_clip, audio_pad], dim=0)
             padded_audio_clips.append(audio_clip)
 
@@ -571,7 +573,7 @@ def window_collate_fn(batch, frames_per_clip=30):
         # Pad flow data if available
         if 'flow' in b and isinstance(b['flow'], torch.Tensor):
             flow_clip = b['flow']
-            flow_pad_size = max_flow_len - flow_clip.shape[0]
+            flow_pad_size = frames_per_clip - flow_clip.shape[0]
             if flow_pad_size > 0:
                 flow_pad = torch.zeros((flow_pad_size, *flow_clip.shape[1:]))
                 flow_clip = torch.cat([flow_clip, flow_pad], dim=0)
@@ -580,7 +582,7 @@ def window_collate_fn(batch, frames_per_clip=30):
         # Pad rgb data if available
         if 'rgb' in b and isinstance(b['rgb'], torch.Tensor):
             rgb_clip = b['rgb']
-            rgb_pad_size = max_rgb_len - rgb_clip.shape[0]
+            rgb_pad_size = frames_per_clip - rgb_clip.shape[0]
             if rgb_pad_size > 0:
                 rgb_pad = torch.zeros((rgb_pad_size, *rgb_clip.shape[1:]))
                 rgb_clip = torch.cat([rgb_clip, rgb_pad], dim=0)
@@ -589,7 +591,7 @@ def window_collate_fn(batch, frames_per_clip=30):
         # Pad resnet data if available
         if 'resnet' in b and isinstance(b['resnet'], torch.Tensor):
             resnet_clip = b['resnet']
-            resnet_pad_size = max_resnet_len - resnet_clip.shape[0]
+            resnet_pad_size = frames_per_clip - resnet_clip.shape[0]
             if resnet_pad_size > 0:
                 resnet_pad = torch.zeros((resnet_pad_size, *resnet_clip.shape[1:]))
                 resnet_clip = torch.cat([resnet_clip, resnet_pad], dim=0)
@@ -598,7 +600,7 @@ def window_collate_fn(batch, frames_per_clip=30):
         # Pad resnet_exo data if available
         if 'resnet_exo' in b and isinstance(b['resnet_exo'], torch.Tensor):
             resnet_exo_clip = b['resnet_exo']
-            resnet_exo_pad_size = max_resnet_exo_len - resnet_exo_clip.shape[0]
+            resnet_exo_pad_size = frames_per_clip - resnet_exo_clip.shape[0]
             if resnet_exo_pad_size > 0:
                 resnet_exo_pad = torch.zeros((resnet_exo_pad_size, *resnet_exo_clip.shape[1:]))
                 resnet_exo_clip = torch.cat([resnet_exo_clip, resnet_exo_pad], dim=0)
@@ -607,20 +609,26 @@ def window_collate_fn(batch, frames_per_clip=30):
         # Pad smartwatch data if available
         if 'smartwatch' in b and isinstance(b['smartwatch'], torch.Tensor):
             smartwatch_clip = b['smartwatch']
+            # print("smartwatch_clip:",smartwatch_clip.shape)
             if max_smartwatch_len > 0:
-                smartwatch_pad_size = max_smartwatch_len - smartwatch_clip.shape[0]
+                smartwatch_pad_size = frames_per_clip - smartwatch_clip.shape[0]
+                # print("smartwatch_pad_size:",smartwatch_pad_size)
                 if smartwatch_pad_size > 0:
-                    smartwatch_pad = torch.zeros((smartwatch_clip.shape[0], smartwatch_pad_size))
+                    smartwatch_pad = torch.zeros((smartwatch_pad_size, smartwatch_clip.shape[1]))
+                    # print("padding_smartwatch", smartwatch_pad.shape)
                     smartwatch_clip = torch.cat([smartwatch_clip, smartwatch_pad], dim=0)
             padded_smartwatch_clips.append(smartwatch_clip)
 
         # Pad depth_sensor data if available
         if 'depth_sensor' in b and isinstance(b['depth_sensor'], torch.Tensor):
             depth_sensor_clip = b['depth_sensor']
+            # print("depth_sensor_clip:",depth_sensor_clip.shape)
             if max_depth_sensor_len > 0:
-                depth_sensor_pad_size = max_depth_sensor_len - depth_sensor_clip.shape[0]
+                depth_sensor_pad_size = frames_per_clip - depth_sensor_clip.shape[0]
+                # print("depth_sensor_pad_size:",depth_sensor_pad_size)
                 if depth_sensor_pad_size > 0:
-                    depth_sensor_pad = torch.zeros((depth_sensor_clip.shape[0], depth_sensor_pad_size))
+                    depth_sensor_pad = torch.zeros((depth_sensor_pad_size, depth_sensor_clip.shape[1]))
+                    # print("padding_depth_sensor", depth_sensor_pad.shape)
                     depth_sensor_clip = torch.cat([depth_sensor_clip, depth_sensor_pad], dim=0)
             padded_depth_sensor_clips.append(depth_sensor_clip)
 
@@ -671,7 +679,7 @@ def window_collate_fn(batch, frames_per_clip=30):
 class WindowEgoExoEMSDataset(Dataset):
     def __init__(self, annotation_file, data_base_path, fps, 
                 frames_per_clip=30, transform=None,
-                data_types=['resnet']):
+                data_types=['resnet'], audio_sample_rate=48000):
         
         self.annotation_file = annotation_file
         self.data_base_path = data_base_path
@@ -681,6 +689,7 @@ class WindowEgoExoEMSDataset(Dataset):
         self.data = []
         self.clip_indices = []  # This will store (item_idx, clip_idx) tuples
         self.data_types = data_types
+        self.audio_sample_rate = audio_sample_rate
         
         self.data_dict = None
         self._load_annotations()
@@ -896,8 +905,6 @@ class WindowEgoExoEMSDataset(Dataset):
             for audio_frame in itertools.takewhile(lambda x: x['pts'] <= clip_end_t, audio_reader.seek(clip_start_t)):
                 audio_clips.append(audio_frame['data'])
             audio_clips = torch.cat(audio_clips, dim=0) if audio_clips else torch.zeros(1, 0)
-
-            # pad the flow tensor to the i
             batch_audio.append(audio_clips)
 
 
