@@ -1,0 +1,4 @@
+{
+    "train": "ng4,ng5,ng6,ng7,ng8,ng9,wa1,ms1,ms2",
+    "validation": "ng1,ng2,ng3"
+}

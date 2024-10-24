@@ -3,7 +3,7 @@ import sys
 import json
 parent_directory = os.path.abspath('.')
 sys.path.append(parent_directory)
-from EgoExoEMS.EgoExoEMS import EgoExoEMSDataset
+from Dataset.pytorch_implementation.EgoExoEMS.EgoExoEMS.EgoExoEMS import EgoExoEMSDataset
 import torch
 from torch.utils.data import DataLoader
 from Benchmarks.CPR_quality.smartwatch import SWnet
@@ -28,8 +28,10 @@ MIN_DEPTH=0.0
 MAX_DEPTH=82.0
 
 annot_path=r'Annotations/main_annotation.json'
-split_path=r'Annotations/splits/cpr_quality/subject_splits.json'
-log_base_path=r'Benchmarks/CPR_quality/smartwatch/'
+split_paths = [r'Annotations/splits/cpr_quality/subject_splits_1.json', r'Annotations/splits/cpr_quality/subject_splits_2.json', r'Annotations/splits/cpr_quality/subject_splits_3.json', r'Annotations/splits/cpr_quality/subject_splits_4.json']
+split_path = split_paths[int(sys.argv[1])-1]
+print(f"Using {split_path} for train validate split.")
+log_base_path=r'Benchmarks/CPR_quality/smartwatch/logs/'
 log_path = r''
 
 #set these paths to your own paths
@@ -38,12 +40,12 @@ model_save_path = r''
 data_path = r''
 
 # initialize paths
-with open('split_path') as file:
+with open(split_path) as file:
     train_test_split = json.load(file)
 train = train_test_split.get("train")
 validate = train_test_split.get("validation")
-log_path = f"{log_base_path}{validate.replace(",", "")}.txt"
-model_save_path = f"{model_save_base_path}{train.replace(",", "")}_model.pth"
+log_path = f'{log_base_path}{validate.replace(",", "")}.txt'
+model_save_path = f'{model_save_base_path}{train.replace(",", "")}_model.pth'
 
 data = EgoExoEMSDataset(annotation_file=annot_path,
                         data_base_path=data_path,

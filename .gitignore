@@ -192,3 +192,8 @@ cython_debug/
 
 
 *.mp4
+
+# Slurm stuff
+*.output
+*.err
+
