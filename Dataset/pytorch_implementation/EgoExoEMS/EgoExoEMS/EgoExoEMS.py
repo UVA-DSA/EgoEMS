@@ -543,9 +543,9 @@ class EgoExoEMSDataset(Dataset):
                         if 'rgb' in self.data_types:
                             data_dict['rgb_path'] = os.path.join(self.data_base_path, rgb_path)
                         if 'smartwatch' in self.data_types:
-                            data_dict['smartwatch_path'] = os.path.join(self.data_base_path, smartwatch_path[1:])
+                            data_dict['smartwatch_path'] = os.path.join(self.data_base_path, smartwatch_path)
                         if 'depth_sensor' in self.data_types:
-                            data_dict['depth_sensor_path'] = os.path.join(self.data_base_path, depth_sensor_path[1:])
+                            data_dict['depth_sensor_path'] = os.path.join(self.data_base_path, depth_sensor_path)
                         data_dict['start_frame'] = start_frame
                         data_dict['end_frame'] = end_frame
                         data_dict['start_t'] = step['start_t']

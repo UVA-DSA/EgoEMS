@@ -2,7 +2,7 @@ import os
 import sys
 parent_directory = os.path.abspath('.')
 sys.path.append(parent_directory)
-from Dataset.pytorch_implementation.EgoExoEMS.EgoExoEMS.EgoExoEMS import EgoExoEMSDataset
+from EgoExoEMS.EgoExoEMS import EgoExoEMSDataset
 import torch
 from torch.utils.data import DataLoader
 from Benchmarks.CPR_quality.smartwatch import SWnet
@@ -31,12 +31,12 @@ split_path=r'Annotations/splits/cpr_quality/subject_splits.json'
 log_path=r'Benchmarks/CPR_quality/smartwatch/log.txt'
 
 #set these paths to your own paths
-model_save_path=r'C:/Users/lahir/Downloads/data/model.pth'
-data_path=r'C:/Users/lahir/Downloads/data/'
+model_save_path=r'Benchmarks/CPR_quality/smartwatch/checkpoints/model.pth'
+data_path=r''
 
 
 data = EgoExoEMSDataset(annotation_file=annot_path,
-                        data_base_path=data_path,
+                        data_base_path="",
                         fps=DATA_FPS,
                         frames_per_clip=DATA_FPS*CLIP_LENGTH,
                         data_types=['smartwatch','depth_sensor'],
@@ -112,6 +112,12 @@ def validate(model,data_loader):
         _,_,n_cpr_pred=get_avg_depth(rec)
         cpr_error=torch.mean((n_cpr-n_cpr_pred)**2)**0.5
         ncpr_error_meter.update(cpr_error.item(),bs)
+
+        subject = batch['subject_id']
+        trial = batch['trial_id']
+
+        msg = f'{subject},{trial},GT_Depth:{avg_depths_list.tolist()},Pred_Depth:{depth_pred.tolist()},Depth_error:{avg_depth_error:.2f}mm,GT_CPR_rate:{n_cpr.tolist()},Pred_CPR_rate:{n_cpr_pred.tolist()},CPR_rate_error:{cpr_error/(DATA_FPS*CLIP_LENGTH)*60:.2f}cpr/min'
+        write_log_line(log_path,msg)
 
     msg=f'Validation depth loss: {depth_loss_meter.avg:.2f} mm , CPR rate error: {ncpr_error_meter.avg/(DATA_FPS*CLIP_LENGTH)*60:.2f} cpr/min'
     print(msg)
