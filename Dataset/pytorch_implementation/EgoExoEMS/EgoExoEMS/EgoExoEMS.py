@@ -522,6 +522,7 @@ class EgoExoEMSDataset(Dataset):
 
 def window_collate_fn(batch, frames_per_clip=30):
     # Initialize empty lists for all possible modalities
+    padded_video_clips = []
     padded_audio_clips = []
     padded_flow_clips = []
     padded_rgb_clips = []
@@ -560,6 +561,14 @@ def window_collate_fn(batch, frames_per_clip=30):
     pad_length = 0
     for b in batch:
         # print("b:",b)
+        if 'video' in b and isinstance(b['video'], torch.Tensor):
+            video_clip = b['video']
+            video_pad_size = frames_per_clip - video_clip.shape[0]
+            if video_pad_size > 0:
+                video_pad = torch.zeros((video_pad_size, *video_clip.shape[1:]))
+                video_clip = torch.cat([video_clip, video_pad], dim=0)
+            padded_video_clips.append(video_clip)
+        
         # Pad audio if available
         if 'audio' in b and isinstance(b['audio'], torch.Tensor):
             audio_clip = b['audio']
@@ -671,6 +680,7 @@ def window_collate_fn(batch, frames_per_clip=30):
     }
 
     # Only include modality data if it exists
+    output['video'] = torch.stack(padded_video_clips) if padded_video_clips else torch.zeros(0)
     output['audio'] = torch.stack(padded_audio_clips) if padded_audio_clips else torch.zeros(0)
     output['flow'] = torch.stack(padded_flow_clips) if padded_flow_clips else torch.zeros(0)
     output['rgb'] = torch.stack(padded_rgb_clips) if padded_rgb_clips else torch.zeros(0)
@@ -712,6 +722,7 @@ class WindowEgoExoEMSDataset(Dataset):
                 avail_streams = trial['streams']
                 
                 # Initialize paths to None by default
+                video_path = None
                 audio_path = None
                 flow_path = None
                 rgb_path = None
@@ -721,6 +732,8 @@ class WindowEgoExoEMSDataset(Dataset):
                 depth_sensor_path = None
 
                 # Check for each data type and retrieve the corresponding file path
+                if 'video' in self.data_types:
+                    video_path = avail_streams.get('egocam_rgb_audio', {}).get('file_path', None)
                 if 'audio' in self.data_types:
                     audio_path = avail_streams.get('egocam_rgb_audio', {}).get('file_path', None)
                 if 'flow' in self.data_types:
@@ -739,6 +752,7 @@ class WindowEgoExoEMSDataset(Dataset):
                 # Skip the trial if any required data type is not available
                 if ('flow' in self.data_types and not flow_path) or \
                 ('audio' in self.data_types and not audio_path) or \
+                ('video' in self.data_types and not video_path) or \
                 ('rgb' in self.data_types and not rgb_path) or \
                 ('resnet' in self.data_types and not resnet_path) or \
                 ('resnet_exo' in self.data_types and not resnet_exo_path) or \
@@ -747,7 +761,7 @@ class WindowEgoExoEMSDataset(Dataset):
                     print(f"[Warning] Skipping trial {trial['trial_id']} for subject {subject['subject_id']} due to missing data")
                     continue
                 
-                if audio_path or flow_path or rgb_path or resnet_path or resnet_exo_path or smartwatch_path or depth_sensor_path:
+                if video_path or audio_path or flow_path or rgb_path or resnet_path or resnet_exo_path or smartwatch_path or depth_sensor_path:
                     keysteps = trial['keysteps']
                     keysteps_dict = []
                     for step in keysteps:
@@ -757,6 +771,8 @@ class WindowEgoExoEMSDataset(Dataset):
                         keystep_id = step['class_id']
 
                         data_dict = {}
+                        if 'video' in self.data_types:
+                            data_dict['video_path'] = os.path.join(self.data_base_path, video_path)
                         if 'audio' in self.data_types:
                             data_dict['audio_path'] = os.path.join(self.data_base_path, audio_path)
                         if 'flow' in self.data_types:
@@ -871,6 +887,7 @@ class WindowEgoExoEMSDataset(Dataset):
         # print(f"getting clip {idx} with frame {first_frame_of_clip} to {last_frame_of_clip} of length ({last_frame_of_clip - first_frame_of_clip})")
 
         # Initialize dictionaries to hold accumulated frames for each modality
+        batch_video = []
         batch_audio = []
         batch_flow = []
         batch_rgb = []
@@ -891,6 +908,7 @@ class WindowEgoExoEMSDataset(Dataset):
 
 
         # Initialize variables
+        frames = []
         flow = torch.zeros(0)
         rgb = torch.zeros(0)
         resnet = torch.zeros(0)
@@ -898,7 +916,22 @@ class WindowEgoExoEMSDataset(Dataset):
         sw_acc = torch.zeros(0)
         depth_sensor_readings = torch.zeros(0)
 
-        # Load flow if available
+        if 'video' in self.data_types:
+            video_path = window[0]['video_path']
+            clip_start_t = first_frame_of_clip / self.fps
+            clip_end_t = last_frame_of_clip / self.fps
+
+            print(f"loading video from {clip_start_t} to {clip_end_t} from file {video_path}")
+
+            video_reader = VideoReader(video_path, "video")
+            video_reader.seek(clip_start_t)
+            for frame in itertools.takewhile(lambda x: x['pts'] <= clip_end_t, video_reader):
+                if frame['pts'] > clip_start_t:
+                    img_tensor = transform(frame['data'])
+                    frames.append(img_tensor)
+            frames = torch.stack(frames) if frames else torch.zeros(0)
+            batch_video.append(frames)       
+                               
         if 'audio' in self.data_types:
             audio_path = window[0]['audio_path']
             clip_start_t = first_frame_of_clip / self.fps
@@ -985,6 +1018,7 @@ class WindowEgoExoEMSDataset(Dataset):
         # print("batch_resnet:",batch_resnet[0].shape)
         # Stack frames to form a batch of frames_per_clip
         output = {
+            'video': (batch_video[0]) if batch_video else torch.zeros(1,0),
             'audio': (batch_audio[0]) if batch_audio else torch.zeros(1,0),
             'flow': (batch_flow[0]) if batch_flow else torch.zeros(0),
             'rgb': (batch_rgb[0]) if batch_rgb else torch.zeros(0),
