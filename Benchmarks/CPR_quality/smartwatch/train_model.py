@@ -27,48 +27,24 @@ MIN_DEPTH=0.0
 MAX_DEPTH=82.0
 
 annot_path=r'Annotations/main_annotation.json'
-split_path=r'Annotations/splits/cpr_quality/subject_splits.json'
-log_path=r'Benchmarks/CPR_quality/smartwatch/log.txt'
+split_paths = [r'Annotations/splits/cpr_quality/subject_splits_1.json', r'Annotations/splits/cpr_quality/subject_splits_2.json', r'Annotations/splits/cpr_quality/subject_splits_3.json', r'Annotations/splits/cpr_quality/subject_splits_4.json']
+
+log_base_path=r'Benchmarks/CPR_quality/smartwatch/logs/'
 
 #set these paths to your own paths
-model_save_path=r'Benchmarks/CPR_quality/smartwatch/checkpoints/model.pth'
-data_path=r''
+model_save_base_path = r'Benchmarks/CPR_quality/smartwatch/checkpoints/'
+model_save_path = r''
+data_path = r''
 
 
-data = EgoExoEMSDataset(annotation_file=annot_path,
-                        data_base_path="",
-                        fps=DATA_FPS,
-                        frames_per_clip=DATA_FPS*CLIP_LENGTH,
-                        data_types=['smartwatch','depth_sensor'],
-                        split='train',
-                        activity='chest_compressions',
-                        split_path=split_path)
 
-train_data_loader = DataLoader(data, batch_size=bs, shuffle=True)
-
-data = EgoExoEMSDataset(annotation_file=annot_path,
-                        data_base_path=data_path,
-                        fps=DATA_FPS,
-                        frames_per_clip=DATA_FPS*CLIP_LENGTH,
-                        data_types=['smartwatch','depth_sensor'],
-                        split='validation',
-                        activity='chest_compressions',
-                        split_path=split_path)
-
-valid_data_loader = DataLoader(data, batch_size=bs, shuffle=True)
-
-model=SWnet.SWNET(in_channels=3,out_len=DATA_FPS*CLIP_LENGTH)
-criterion = torch.nn.MSELoss()
-optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
-
-scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=1, gamma=0.5)
-
-rec_loss_meter = utils.AverageMeter('recLoss', ':.4e')
-depth_loss_meter = utils.AverageMeter('depthLoss', ':.4e')
 
 def init_log(log_path):
     if os.path.exists(log_path):
         os.remove(log_path)
+        # create the log folder if it does not exist
+    else:
+        os.makedirs(os.path.dirname(log_path), exist_ok=True)
 
 def write_log_line(log_path, msg):
     with open(log_path, 'a') as file:
@@ -123,9 +99,7 @@ def validate(model,data_loader):
     print(msg)
     write_log_line(log_path,msg)
 
-init_log(log_path)
-def train():
-    init_log(log_path)
+def train(model, train_data_loader, valid_data_loader, criterion, optimizer, scheduler, log_path, model_save_path):
     for epoch in range(EPOCHS):
         for i, batch in enumerate(train_data_loader):
             print(f'Epoch {epoch} , {i}/{len(train_data_loader)} is done',end='\r')
@@ -166,11 +140,47 @@ def train():
             torch.save(model.state_dict(),model_save_path)
 
 if __name__ == "__main__":
-    train()
+    
+        # initialize paths
+    split_path = split_paths[0]
+    
+    split = split_path.split('/')[-1].split('.')[0]
+    
+    log_path = os.path.join(log_base_path, f'train_log_{split}.txt')
+    
+    model_save_path = os.path.join(model_save_base_path, f'model_{split}.pth')
+    
+    init_log(log_path)
+    
+    data = EgoExoEMSDataset(annotation_file=annot_path,
+                        data_base_path="",
+                        fps=DATA_FPS,
+                        frames_per_clip=DATA_FPS*CLIP_LENGTH,
+                        data_types=['smartwatch','depth_sensor'],
+                        split='train',
+                        activity='chest_compressions',
+                        split_path=split_path)
 
+    train_data_loader = DataLoader(data, batch_size=bs, shuffle=True)
 
+    data = EgoExoEMSDataset(annotation_file=annot_path,
+                            data_base_path=data_path,
+                            fps=DATA_FPS,
+                            frames_per_clip=DATA_FPS*CLIP_LENGTH,
+                            data_types=['smartwatch','depth_sensor'],
+                            split='validation',
+                            activity='chest_compressions',
+                            split_path=split_path)
 
+    valid_data_loader = DataLoader(data, batch_size=bs, shuffle=True)
 
+    model=SWnet.SWNET(in_channels=3,out_len=DATA_FPS*CLIP_LENGTH)
+    criterion = torch.nn.MSELoss()
+    optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=1, gamma=0.5)
 
-
+    rec_loss_meter = utils.AverageMeter('recLoss', ':.4e')
+    depth_loss_meter = utils.AverageMeter('depthLoss', ':.4e')
+    
+    train(model=model,train_data_loader=train_data_loader,valid_data_loader=valid_data_loader, criterion=criterion, optimizer=optimizer, scheduler=scheduler, log_path=log_path, model_save_path=model_save_path)
