@@ -7,15 +7,49 @@ from sklearn.metrics import precision_score, recall_score, f1_score
 import csv
 from EgoExoEMS.EgoExoEMS import  WindowEgoExoEMSDataset, EgoExoEMSDataset, collate_fn, transform, window_collate_fn
 from functools import partial
+import torch.nn.functional as F
+
+
+class ClassBalancedLoss(nn.Module):
+    def __init__(self, beta, num_classes, class_counts):
+        super(ClassBalancedLoss, self).__init__()
+        self.beta = beta
+        self.num_classes = num_classes
+        self.class_counts = torch.Tensor(class_counts)
+        self.weights = (1 - beta) / (1 - beta ** self.class_counts)
+        self.weights = self.weights / self.weights.sum()  # Normalize weights
+
+    def forward(self, logits, labels):
+        weights = self.weights.to(logits.device)
+        log_probs = F.log_softmax(logits, dim=1)
+        loss = F.nll_loss(log_probs, labels, weight=weights)
+        return loss
 
 def init_model(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = TransformerModel(args)
     model.to(device)
 
+
+    num_classes = len(args.dataloader_params["keysteps"])
+    class_counts = args.dataloader_params["train_class_stats"]
+
+    # update class_counts with missing classes from keysteps with 0 count
+    for key in args.dataloader_params["keysteps"].keys():
+        if key not in class_counts.keys():
+            class_counts[key] = 0
+
+    # convert dictionary values to list
+    class_counts = [class_counts[key] for key in class_counts.keys()]
+    class_counts = torch.Tensor([max(1, count) for count in class_counts])
+
+    print("Class counts: ", class_counts, len(class_counts))
            
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_params["lr"], weight_decay=args.learning_params["weight_decay"])
     criterion = nn.CrossEntropyLoss()
+    
+    # Class balanced loss
+    criterion = ClassBalancedLoss(beta=0.99, num_classes=num_classes, class_counts=class_counts)
         
     return model, optimizer, criterion, device
 
@@ -194,12 +228,12 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
             preds.append(pred.item())
 
             preds_detail.append({
-                "keystep_label": keystep_label[0],
-                "keystep_id": keystep_id,
-                "start_frame": start_frame,
-                "end_frame": end_frame,
-                "start_t": start_t,
-                "end_t": end_t,
+                "keystep_label": keystep_label,
+                "keystep_id": keystep_id.tolist(),
+                "start_frame": start_frame.tolist(),
+                "end_frame": end_frame.tolist(),
+                "start_t": start_t.tolist(),
+                "end_t": end_t.tolist(),
                 "window_start_frame": window_start_frame.item(),
                 "window_end_frame": window_end_frame.item(),
                 "subject_id": subject_id[0],
@@ -435,6 +469,15 @@ def eee_get_dataloaders(args):
                                         fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
 
 
+        train_class_stats = train_dataset._get_class_stats()
+        print("Train class stats: ", train_class_stats)
+        # print number of keys in the dictionary
+        print("Train Number of classes: ", len(train_class_stats.keys()))
+
+        val_class_stats = val_dataset._get_class_stats()
+        print("val class stats: ", val_class_stats)
+        # print number of keys in the dictionary
+        print("Val Number of classes: ", len(val_class_stats.keys()))
 
         # Create DataLoaders for training and validation subsets
         train_loader = DataLoader(train_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=True)
@@ -461,9 +504,19 @@ def eee_get_dataloaders(args):
                                         data_base_path='',
                                         fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
 
+        train_class_stats = train_dataset._get_class_stats()
+        print("Train class stats: ", train_class_stats)
+        # print number of keys in the dictionary
+        print("Train Number of classes: ", len(train_class_stats.keys()))
 
+        val_class_stats = val_dataset._get_class_stats()
+        print("val class stats: ", val_class_stats)
+        # print number of keys in the dictionary
+        print("Val Number of classes: ", len(val_class_stats.keys()))
+
+        
         # Use a partial function or lambda to pass the frames_per_clip argument
-        collate_fn_with_args = partial(window_collate_fn, frames_per_clip=120)
+        collate_fn_with_args = partial(window_collate_fn, frames_per_clip=args.dataloader_params["observation_window"])
 
         # Create DataLoaders for training and validation subsets
         train_loader = DataLoader(train_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=True, collate_fn=collate_fn_with_args)
@@ -474,6 +527,6 @@ def eee_get_dataloaders(args):
         print("val dataset size: ", len(val_dataset))
         print("test dataset size: ", len(test_dataset))
 
-    return train_loader, val_loader, test_loader
+    return train_loader, val_loader, test_loader, train_class_stats, val_class_stats
 
 

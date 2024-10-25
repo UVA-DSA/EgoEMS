@@ -50,7 +50,9 @@ find "$input_folder" -type f -name "*.MP4" | while read input_video; do
     # # Ensure there is a space after -i
     # ffmpeg -y -i "$input_video" -nostdin  -threads 16 -vcodec libx264 -acodec aac "$output_video"
 
-    ffmpeg -y -i "$input_video" -nostdin  -map_metadata 0 -map 0:u -c copy "$output_video"
+    # ffmpeg -y -i "$input_video" -nostdin  -map_metadata 0 -map 0:u -c copy "$output_video" # use for our dataset
+    ffmpeg -y -i "$input_video" -nostdin -map_metadata 0 -map 0:u -r 30 -c:v libx264 -c:a copy "$output_video" # use for lahirus videos
+
     # Capture exit code to check for errors
     if [ $? -eq 0 ]; then
         echo "Reencoding complete: $output_video"

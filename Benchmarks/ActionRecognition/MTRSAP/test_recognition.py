@@ -45,6 +45,8 @@ if __name__ == "__main__":
     print("Modality: ", modality)
     print("Num of classes: ", out_classes)
 
+    task = args.dataloader_params['task']
+    print("Task: ", task)
 
     # Access the parsed arguments
     model, optimizer, criterion, device = init_model(args)# verbose_mode = args.verbose
@@ -52,10 +54,10 @@ if __name__ == "__main__":
 
 
     # train_loader, val_loader, test_loader = get_dataloaders(args)
-    train_loader, val_loader, test_loader = eee_get_dataloaders(args)
+    train_loader, val_loader, test_loader, train_class_stats, val_class_stats = eee_get_dataloaders(args)
 
     # Find feature dimension
-    feature,feature_size,label = preprocess(next(iter(train_loader)), args.dataloader_params['modality'], model, device)
+    feature,feature_size,label = preprocess(next(iter(train_loader)), args.dataloader_params['modality'], model, device, task=task)
     print("Feature size: ", feature_size)
 
     print("Reinitializing model with feature size")
@@ -83,5 +85,5 @@ if __name__ == "__main__":
 
 
 # # Test the model
-    results = test_model(model, test_loader, criterion, device, wandb_logger, 0, results_dir, modality=modality)
+    results = test_model(model, test_loader, criterion, device, wandb_logger, 0, results_dir, modality=modality, task=task)
     print(f"Results: {results}")

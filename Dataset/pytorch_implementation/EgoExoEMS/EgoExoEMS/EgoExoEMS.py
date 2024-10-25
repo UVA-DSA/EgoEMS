@@ -179,6 +179,7 @@ class EgoExoEMSDataset(Dataset):
         self.data = []
         self.clip_indices = []  # This will store (item_idx, clip_idx) tuples
         self.data_types = data_types
+        self.class_stats = {}
         
         self._load_annotations()
         self._generate_clip_indices()
@@ -265,8 +266,14 @@ class EgoExoEMSDataset(Dataset):
                         data_dict['subject'] = subject['subject_id']
                         data_dict['trial'] = trial['trial_id']
 
+                        # Update class stats
+                        self.class_stats[label] = self.class_stats.get(label, 0) + 1
+
                         self.data.append(data_dict)
 
+    def _get_class_stats(self):
+        return self.class_stats
+    
     def _get_clips(self, data, frames_per_clip):
         # Ensure that data is not empty and frames_per_clip is greater than 0
         if len(data) == 0 or frames_per_clip <= 0:
@@ -620,7 +627,6 @@ def window_collate_fn(batch, frames_per_clip=30):
         # Pad smartwatch data if available
         if 'smartwatch' in b and isinstance(b['smartwatch'], torch.Tensor):
             smartwatch_clip = b['smartwatch']
-            # print("smartwatch_clip:",smartwatch_clip.shape)
             if max_smartwatch_len > 0:
                 smartwatch_pad_size = frames_per_clip - smartwatch_clip.shape[0]
                 # print("smartwatch_pad_size:",smartwatch_pad_size)
@@ -706,11 +712,15 @@ class WindowEgoExoEMSDataset(Dataset):
         self.clip_indices = []  # This will store (item_idx, clip_idx) tuples
         self.data_types = data_types
         self.audio_sample_rate = audio_sample_rate
+        self.class_stats = {}
         
         self.data_dict = None
         self._load_annotations()
         self._split_windows()
 
+    def _get_class_stats(self):
+        return self.class_stats
+    
     def _load_annotations(self):
         with open(self.annotation_file, 'r') as f:
             annotations = json.load(f)
@@ -856,6 +866,10 @@ class WindowEgoExoEMSDataset(Dataset):
                 # Once we reach the window size, store the window and reset
                 if accumulated_frames == self.frames_per_clip:
                     windowed_clips.append(current_window)
+                    
+                    # update class count
+                    self.class_stats[keystep_label] = self.class_stats.get(keystep_label, 0) + 1
+                    
                     current_window = []  # Reset the current window
                     accumulated_frames = 0  # Reset the frame counter
 
@@ -864,6 +878,7 @@ class WindowEgoExoEMSDataset(Dataset):
         #     json.dump(windowed_clips, f)
             
         self.data = windowed_clips
+        print("Class stats:", self.class_stats)
         print(f"Total windowed clips: {len(windowed_clips)}")
 
             

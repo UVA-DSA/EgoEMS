@@ -50,8 +50,9 @@ if __name__ == "__main__":
 
     sync_offset_folder = os.path.join(base_path , 'sync_offsets', sync_day)
 
+    sync_file_name = "sync_offset_data.csv"
     # Load sync offset data
-    offset_file_path = os.path.join(sync_offset_folder, f'{sync_day}.csv')
+    offset_file_path = os.path.join(sync_offset_folder, sync_file_name)
 
     
     # Check if the offset file exists

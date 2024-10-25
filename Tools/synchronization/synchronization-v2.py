@@ -54,6 +54,9 @@ def calculate_synchronized_frames(dc_ts, gp_adj_ts):
     last_frame = min(dc_length, gp_length)
     gp_sf, dc_sf, frames = 0, 0, 0
 
+    # find the matching start frame for GoPro and Depth Camera
+
+    
     if dc_ts[0] > gp_adj_ts[0]:  # GoPro starts first
         print("[INFO] GoPro starts first")
         for i in range(gp_length - 1):
@@ -135,7 +138,13 @@ def synchronize(base_dir, gopro_file_path, kinect_file_path, gopro_timestamp_pat
     """Synchronize trials."""
     gopro_file_id = os.path.basename(gopro_file_path).split('.')[0]
     trial_path_parts = gopro_file_path.split('/')
+    print(trial_path_parts)
     day, person, intervention, trial = trial_path_parts[-6], trial_path_parts[-5], trial_path_parts[-4], trial_path_parts[-3]
+
+    if ("Lahiru" in trial_path_parts):
+        intervention = ""
+        person = trial_path_parts[-4]
+        day = ""
 
     print(f"[INFO] Synchronizing {day} {person} {intervention} {trial}")
     print(f"[INFO] GoPro file ID: {gopro_file_id}")
@@ -213,11 +222,13 @@ if __name__ == "__main__":
     base_dir = sys.argv[1]
     sync_day = sys.argv[2]
 
+
     sync_offset_folder = os.path.join(base_dir , 'sync_offsets', sync_day)
 
+    sync_file_name = "sync_offset_data.csv"
 
     # Load sync offset data
-    offset_file_path = os.path.join(sync_offset_folder, f'{sync_day}.csv')
+    offset_file_path = os.path.join(sync_offset_folder, sync_file_name)
 
     if not os.path.exists(offset_file_path):
         exit(f"[ERROR] Sync offset file not found: {offset_file_path}")

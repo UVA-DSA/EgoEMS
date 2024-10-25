@@ -22,27 +22,27 @@ conda activate cogems &&
 module load ffmpeg &&
 
 # Set root directories and synchronization offset path
-root_dir="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
+root_dir="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Lahiru"
 repo_dir="/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Tools"
 
 # Set the day for which synchronization is being performed
-day="24-09-2024"
+day="2024-10-21_21-07-46"
 
 
-# # Step 1: Adjust GoPro timestamp offset
-# echo "[INFO] Adjusting GoPro timestamp offset..."
-# python "$repo_dir/synchronization/gopro_timestamp_adjuster.py" "$root_dir" "$day"
-# if [ $? -ne 0 ]; then
-#     echo "[ERROR] Failed to adjust GoPro timestamp offset."
-#     exit 1
-# fi
-# echo "[SUCCESS] GoPro timestamp adjustment completed."
-# echo ""
+# Step 1: Adjust GoPro timestamp offset
+echo "[INFO] Adjusting GoPro timestamp offset..."
+python "$repo_dir/synchronization/gopro_timestamp_adjuster.py" "$root_dir" "$day"
+if [ $? -ne 0 ]; then
+    echo "[ERROR] Failed to adjust GoPro timestamp offset."
+    exit 1
+fi
+echo "[SUCCESS] GoPro timestamp adjustment completed."
+echo ""
 
-# Ask the user to continue with the next steps
-# read -p "Press Enter to Generate Synchronization Metadata ..."
+Ask the user to continue with the next steps
+read -p "Press Enter to Generate Synchronization Metadata ..."
 
-# Step 2: Generate synchronization metadata
+Step 2: Generate synchronization metadata
 echo "[INFO] Generating synchronization metadata..."
 python "$repo_dir/synchronization/synchronization-v2.py" "$root_dir" "$day"
 if [ $? -ne 0 ]; then
@@ -66,39 +66,39 @@ echo ""
 # read -p "Press Enter to Trim GoPro Recordings ..."
 
 # # Step 4: Trim GoPro recordings
-# echo "[INFO] Trimming GoPro recordings..."
-# python "$repo_dir/video_tools/video_trimmer/gopro_trimmer.py" "$root_dir"
-# if [ $? -ne 0 ]; then
-#     echo "[ERROR] Failed to trim GoPro recordings."
-#     exit 1
-# fi
-# echo "[SUCCESS] GoPro recordings trimmed."
-# echo ""
+echo "[INFO] Trimming GoPro recordings..."
+python "$repo_dir/video_tools/video_trimmer/gopro_trimmer.py" "$root_dir"
+if [ $? -ne 0 ]; then
+    echo "[ERROR] Failed to trim GoPro recordings."
+    exit 1
+fi
+echo "[SUCCESS] GoPro recordings trimmed."
+echo ""
 
 # # Ask the user to continue with the next steps
 # # read -p "Press Enter to Trim Kinect Recordings ..."
 
-# # Step 5: Trim Kinect recordings
-# echo "[INFO] Trimming Kinect recordings..."
-# python "$repo_dir/video_tools/video_trimmer/kinect_trimmer.py" "$root_dir"
-# if [ $? -ne 0 ]; then
-#     echo "[ERROR] Failed to trim Kinect recordings."
-#     exit 1
-# fi
-# echo "[SUCCESS] Kinect recordings trimmed."
+# Step 5: Trim Kinect recordings
+echo "[INFO] Trimming Kinect recordings..."
+python "$repo_dir/video_tools/video_trimmer/kinect_trimmer.py" "$root_dir"
+if [ $? -ne 0 ]; then
+    echo "[ERROR] Failed to trim Kinect recordings."
+    exit 1
+fi
+echo "[SUCCESS] Kinect recordings trimmed."
 
 # # Ask the user to continue with the next steps
 # # read -p "Press Enter to Create Side-by-Side Preview ..."
 
-# # Step 6: Create a side-by-side preview of synchronized GoPro and Kinect videos
-# echo "[INFO] Creating side-by-side preview of synchronized videos..."
-# python "$repo_dir/synchronization/sync_clip_merger.py" "$root_dir" "$day"
-# if [ $? -ne 0 ]; then
-#     echo "[ERROR] Failed to create side-by-side preview."
-#     exit 1
-# fi
-# echo "[SUCCESS] Side-by-side preview created successfully."
-# echo ""
+# Step 6: Create a side-by-side preview of synchronized GoPro and Kinect videos
+echo "[INFO] Creating side-by-side preview of synchronized videos..."
+python "$repo_dir/synchronization/sync_clip_merger.py" "$root_dir" "$day"
+if [ $? -ne 0 ]; then
+    echo "[ERROR] Failed to create side-by-side preview."
+    exit 1
+fi
+echo "[SUCCESS] Side-by-side preview created successfully."
+echo ""
 
 # # # Final message after successful completion of all tasks
-# echo "[INFO] All synchronization steps completed successfully."
+echo "[INFO] All synchronization steps completed successfully."
