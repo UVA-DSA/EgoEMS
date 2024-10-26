@@ -58,6 +58,9 @@ data = EgoExoEMSDataset(annotation_file=annot_path,
 valid_data_loader = DataLoader(data, batch_size=bs, shuffle=True)
 
 model=SWnet.SWNET(in_channels=3,out_len=DATA_FPS*CLIP_LENGTH)
+#load weights
+model.load_state_dict(torch.load(model_save_path,weights_only=True))
+
 criterion = torch.nn.MSELoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
@@ -142,6 +145,12 @@ def train():
             rec_loss=criterion(rec[depth_gt_mask],depth_gt_norm[depth_gt_mask])
             d_loss=criterion(depth_pred,comp_depth)
             loss=rec_loss+d_loss
+
+            #delete
+            # import matplotlib.pyplot as plt
+
+            # plt.plot(rec[0,:].detach().numpy())
+            # plt.show(block=True)
             
             optimizer.zero_grad()
             loss.backward()
@@ -159,8 +168,28 @@ def train():
             validate(model,valid_data_loader)
             torch.save(model.state_dict(),model_save_path)
 
+def plot():
+    import matplotlib.pyplot as plt
+
+    for i, batch in enumerate(train_data_loader):
+        depth_gt=batch['depth_sensor'].squeeze()
+        data=batch['smartwatch'].float()
+        depth_gt_mask=depth_gt>0
+        avg_depths_list,min_depths_list,_=get_avg_depth(depth_gt)
+        comp_depth=avg_depths_list/MAX_DEPTH
+        depth_gt_norm=(depth_gt-min_depths_list.unsqueeze(1))/MAX_DEPTH
+        #normalize acceleration
+        data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
+        rec,depth_pred=model(data_norm.permute(0,2,1))
+
+        plt.plot(rec[10,:].detach().numpy())
+        plt.show(block=True)
+        pass
+    
 if __name__ == "__main__":
-    train()
+    # train()
+    # plot()
+    validate(model,valid_data_loader)
 
 
 
