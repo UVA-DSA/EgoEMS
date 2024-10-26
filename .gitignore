@@ -1,5 +1,6 @@
 *.mp4
 *.wav
+*.mkv
 *.gif
 *.png
 **/stats/*.csv
@@ -192,3 +193,8 @@ cython_debug/
 
 
 *.mp4
+
+# Slurm stuff
+*.output
+*.err
+

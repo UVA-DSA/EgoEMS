@@ -190,10 +190,3 @@ if __name__ == "__main__":
     # train()
     # plot()
     validate(model,valid_data_loader)
-
-
-
-
-
-
-
