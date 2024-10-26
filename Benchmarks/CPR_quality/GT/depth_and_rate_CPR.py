@@ -30,7 +30,6 @@ for sbj in range(0,24):
     with open(log_path,'a') as f:
         f.write(f'subject {sbj}, mean depth: {np.mean(depth_list)}, std depth: {np.std(depth_list)}, CPR rate: {np.mean(n_cpr_list)}, std CPR rate: {np.std(n_cpr_list)} \n')
         
-pass
 
 # plt.plot(gt_data[0,:])
 # peak_x=np.argwhere(peak_data[0,:])
