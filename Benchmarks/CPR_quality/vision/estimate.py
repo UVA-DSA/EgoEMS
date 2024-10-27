@@ -57,7 +57,8 @@ for n in ['train_root','test_root','val_root']:
         #read depth images
         rgb_imgs,depth_imgs=extract_depth.read_video(os.path.join(data_dir,mkv_file))
 
-        assert len(rgb_imgs)==len(json_data.keys()), 'Number of frames in video and json file do not match'
+        if not len(rgb_imgs)==len(json_data.keys()):
+            continue
 
         keys=[int(k) for k in json_data.keys()]
         keys.sort()
@@ -72,6 +73,16 @@ for n in ['train_root','test_root','val_root']:
             key_list.append(k)
         wrist_y=np.array(wrist_y,dtype=float)
         wrist_x=np.array(wrist_x,dtype=float)
+
+        # plt.plot(wrist_x)
+        # plt.show(block=True)
+
+        # diff_y=np.abs(np.diff(wrist_y))
+        # diff_x=np.abs(np.diff(wrist_x))
+        # outlier_idx=np.where(diff_y>10)[0]
+        # wrist_y[outlier_idx]=np.nan
+        # outlier_idx=np.where(diff_x>10)[0]
+        # wrist_x[outlier_idx]=np.nan
 
         #filter out outliers
         vals=wrist_y**2
@@ -94,7 +105,7 @@ for n in ['train_root','test_root','val_root']:
         # plt.show(block=True)
 
         #detect peaks and valleys
-        p,v=depth_tools.detect_peaks_and_valleys_depth_sensor(np.array(wrist_y),mul=1,show=True)
+        p,v=depth_tools.detect_peaks_and_valleys_depth_sensor(np.array(wrist_y),mul=1,show=False)
         n_cpr=(len(p)+len(v))*0.5
 
         depth_imgs=np.array(depth_imgs)
@@ -108,13 +119,13 @@ for n in ['train_root','test_root','val_root']:
         peakXYZ_p=[]
         for idx in range(len(depth_imgs_p)):
             depth_img=depth_imgs_p[idx]
-            d=int(depth_img[int(wrist_x_p[idx]),int(wrist_y_p[idx])])
+            d=int(depth_img[int(wrist_y_p[idx]),int(wrist_x_p[idx])])
             X,Y,Z=get_XYZ(int(wrist_x_p[idx]),int(wrist_y_p[idx]),d,CANON_K)
             peakXYZ_p.append([float(X),float(Y),float(Z)])
         peakXYZ_v=[]
         for idx in range(len(depth_imgs_v)):
             depth_img=depth_imgs_v[idx]
-            d=int(depth_img[int(wrist_x_v[idx]),int(wrist_y_v[idx])])
+            d=int(depth_img[int(wrist_y_v[idx]),int(wrist_x_v[idx])])
             X,Y,Z=get_XYZ(int(wrist_x_v[idx]),int(wrist_y_v[idx]),d,CANON_K)
             peakXYZ_v.append([float(X),float(Y),float(Z)])
 
@@ -136,7 +147,7 @@ for n in ['train_root','test_root','val_root']:
         with open(gt_path, 'r') as file:
             gt_lines = file.readlines()
         gt_lines = np.array([int(line.strip()) for line in gt_lines[1:]])
-        gt_peaks,gt_valleys=depth_tools.detect_peaks_and_valleys_depth_sensor(gt_lines,mul=5,show=True)
+        gt_peaks,gt_valleys=depth_tools.detect_peaks_and_valleys_depth_sensor(gt_lines,mul=5,show=False)
         gt_n_cpr=(len(gt_peaks)+len(gt_valleys))*0.5
         peak_depths=gt_lines[gt_peaks]
         valley_depths=gt_lines[gt_valleys]
@@ -155,7 +166,10 @@ for n in ['train_root','test_root','val_root']:
 
 
 
-
+        # plt.imshow(rgb_imgs[idx])
+        # plt.scatter(int(wrist_x_p[idx]), int(wrist_y_p[idx]), color='red')
+        # plt.title(f'Depth Image at Peak {idx}')
+        # plt.show(block=True)
 
 
 

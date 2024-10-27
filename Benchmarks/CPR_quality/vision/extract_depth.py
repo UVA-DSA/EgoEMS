@@ -41,3 +41,7 @@ def read_video(video_path):
         reader.close()
 
     return rgb_imgs,depth_imgs
+
+
+# path=r'C:\Users\lahir\Downloads\data\standard\UVA-DSA\NIST EMS Project Data\EgoExoEMS_CVPR2025\Dataset\Kinect_CPR_Clips\exo_kinect_cpr_clips\train_root\chest_compressions\ng5_t6_ks4_13.565_30.455_exo.mkv'
+# read_video(path)
