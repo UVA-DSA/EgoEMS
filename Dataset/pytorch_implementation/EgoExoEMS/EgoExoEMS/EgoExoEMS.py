@@ -655,6 +655,7 @@ def window_collate_fn(batch, frames_per_clip=30):
         if pad_length > 0:
             # repeat last element of keystep_id and keystep_label
             b['keystep_id'] = b['keystep_id'] + [b['keystep_id'][-1]]*pad_length
+            b['keystep_label'] = b['keystep_label'] + [b['keystep_label'][-1]]*pad_length
             b['start_frame'] = b['start_frame'] + [b['start_frame'][-1]]*pad_length
             b['end_frame'] = b['end_frame'] + [b['end_frame'][-1]]*pad_length
             b['start_t'] = b['start_t'] + [b['start_t'][-1]]*pad_length
