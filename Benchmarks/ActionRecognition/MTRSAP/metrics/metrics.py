@@ -1,5 +1,13 @@
 import numpy as np
 from sklearn.metrics import accuracy_score, f1_score, precision_score, recall_score
+import editdistance
+
+def calculate_iou(pred_interval, gt_intervals):
+
+    intersection = np.minimum(pred_interval[1],gt_intervals[:,1]) - np.maximum(pred_interval[0],gt_intervals[:,0])
+    union = np.maximum(pred_interval[1],gt_intervals[:,1]) - np.minimum(pred_interval[0],gt_intervals[:,0])
+    return (intersection / union)
+
 
 """
 Calculate the F1 score for a segmentation task.
@@ -133,3 +141,50 @@ def calculate_f1_classification(ground_truth, prediction):
     precision = precision_score(ground_truth, prediction, average='macro')
     recall = recall_score(ground_truth, prediction, average='macro')
     return F1, precision, recall
+
+
+
+
+
+
+# Function to calculate final average class-wise accuracy
+def calculate_final_classwise_accuracy(all_ground_truth, all_predicted, actions):
+    correct_predictions_per_class = {action: 0 for action in actions}
+    total_samples_per_class = {action: 0 for action in actions}
+
+    for ground_truth, predicted in zip(all_ground_truth, all_predicted):
+        for action in actions:
+            true_binary = np.array(ground_truth) == action
+            pred_binary = np.array(predicted) == action
+            
+            correct_predictions = np.sum(true_binary & pred_binary)
+            total_samples = np.sum(true_binary)
+
+            correct_predictions_per_class[action] += correct_predictions
+            total_samples_per_class[action] += total_samples
+
+    # Calculate accuracy for each class
+    classwise_accuracy = {}
+    for action in actions:
+        total_samples = total_samples_per_class[action]
+        if total_samples > 0:
+            classwise_accuracy[action] = np.round(correct_predictions_per_class[action] / total_samples, 4)
+        else:
+            classwise_accuracy[action] = 0.0  # If no samples for this class
+
+    return classwise_accuracy
+
+
+
+# Function to calculate edit score
+def calculate_edit_score(ground_truth, predicted, edit_distance):
+    max_len = max(len(ground_truth), len(predicted))
+    if max_len == 0:  # To avoid division by zero
+        return 1.0
+    edit_score = 1 - (edit_distance / max_len)
+    return np.round(edit_score, 4)
+
+# Function to calculate Levenshtein distance (edit distance)
+def calculate_edit_distance(ground_truth, predicted):
+    edit_distance = editdistance.eval(ground_truth, predicted)
+    return edit_distance
