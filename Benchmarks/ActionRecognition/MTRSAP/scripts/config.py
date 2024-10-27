@@ -45,7 +45,7 @@ learning_params = {
     "weight_decay": 1e-5,
     "patience": 3,
     "lr_drop": 20,
-    "best_chkpoint": "/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Benchmarks/ActionRecognition/MTRSAP/checkpoints/65302224/val_best_model.pt"
+    "best_chkpoint": "/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Benchmarks/ActionRecognition/MTRSAP/checkpoints/65294887/val_best_model.pt"
 }
 
 dataloader_params = {
@@ -61,7 +61,7 @@ dataloader_params = {
     "test_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split_segmentation.json',
     # Old dataset class
     'base_path': '/scratch/cjh9fw/Rivanna/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
-    'modality': [ 'resnet','resnet_exo'],
+    'modality': [ 'resnet','audio'],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
                     "check_responsiveness": "Check for responsiveness",

@@ -32,9 +32,9 @@ if __name__ == "__main__":
         # set the wandb project where this run will be logged
         project="EgoExoEMS",
         group="Keystep Recognition",
-        # mode="disabled",
-        name="Train, Val on EgoExoEMS with smartwatch Features - 4s clip - Segmentation Task - ICRA Model - Trial split - Class Balanced Loss",
-        notes="initial attempt ICRA model with exo resnet Features  features only",
+        mode="disabled",
+        name="Re Train, Val on EgoExoEMS with ego+exo resnet Features - Full clip - Classification Task - ICRA Model - Trial split - Class Balanced Loss",
+        notes="initial attempt ICRA model with egp+exo resnet Features  features only",
         config={
         "args": args,
         }
@@ -56,7 +56,8 @@ if __name__ == "__main__":
 
     # train_loader, val_loader, test_loader = get_dataloaders(args)
     train_loader, val_loader, test_loader, train_class_stats, val_class_stats = eee_get_dataloaders(args)
-
+    args.dataloader_params['train_class_stats'] = train_class_stats
+    args.dataloader_params['val_class_stats'] = val_class_stats
     model, optimizer, criterion, device = init_model(args)# verbose_mode = args.verbose
     model = model.to(device)
 

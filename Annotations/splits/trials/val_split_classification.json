@@ -27,7 +27,11 @@
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/4/audio/GX010400_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
-                        "BBOX_MASKS": [],
+                        "BBOX_MASKS": {
+                            "file_id": "bbox_annotations",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/4/BBOX_MASKS/bbox_annotations.json",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "i3d_rgb": {
                             "file_id": "GX010400_encoded_trimmed_rgb",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/4/i3d_rgb/GX010400_encoded_trimmed_rgb.npy",
@@ -68,13 +72,6 @@
                             "class_id": 0
                         },
                         {
-                            "keystep_id": "no_action_0",
-                            "start_t": 2.41892,
-                            "end_t": 2.419,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "9_3NNLPBU5",
                             "start_t": 2.419,
                             "end_t": 5.27309,
@@ -96,11 +93,11 @@
                             "class_id": 3
                         },
                         {
-                            "keystep_id": "9_bMDYvk5g",
-                            "start_t": 12.523,
-                            "end_t": 87.62901,
-                            "label": "chest_compressions",
-                            "class_id": 4
+                            "keystep_id": "9_Zk2jnoHi",
+                            "start_t": 87.629,
+                            "end_t": 92.092,
+                            "label": "no_action",
+                            "class_id": 15
                         },
                         {
                             "keystep_id": "9_xlJILnZT",
@@ -117,13 +114,6 @@
                             "class_id": 5
                         },
                         {
-                            "keystep_id": "no_action_6",
-                            "start_t": 21.31812,
-                            "end_t": 31.00903,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "9_EqIENflp",
                             "start_t": 31.00903,
                             "end_t": 34.11306,
@@ -138,18 +128,11 @@
                             "class_id": 8
                         },
                         {
-                            "keystep_id": "no_action_8",
-                            "start_t": 42.37848,
-                            "end_t": 87.629,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
-                            "keystep_id": "9_Zk2jnoHi",
-                            "start_t": 87.629,
-                            "end_t": 92.092,
-                            "label": "no_action",
-                            "class_id": 15
+                            "keystep_id": "9_bMDYvk5g",
+                            "start_t": 12.523,
+                            "end_t": 87.62901,
+                            "label": "chest_compressions",
+                            "class_id": 4
                         }
                     ],
                     "interventions": {}
@@ -183,7 +166,11 @@
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/4/audio/GX010399_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
-                        "BBOX_MASKS": [],
+                        "BBOX_MASKS": {
+                            "file_id": "bbox_annotations",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/4/BBOX_MASKS/bbox_annotations.json",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "i3d_rgb": {
                             "file_id": "GX010399_encoded_trimmed_rgb",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/4/i3d_rgb/GX010399_encoded_trimmed_rgb.npy",
@@ -245,20 +232,6 @@
                             "class_id": 3
                         },
                         {
-                            "keystep_id": "no_action_3",
-                            "start_t": 11.29282,
-                            "end_t": 11.293,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
-                            "keystep_id": "15_W6qMHSZk",
-                            "start_t": 11.293,
-                            "end_t": 44.87387,
-                            "label": "chest_compressions",
-                            "class_id": 4
-                        },
-                        {
                             "keystep_id": "15_cAZyklPo",
                             "start_t": 12.34237,
                             "end_t": 14.179,
@@ -273,13 +246,6 @@
                             "class_id": 5
                         },
                         {
-                            "keystep_id": "no_action_6",
-                            "start_t": 15.179,
-                            "end_t": 26.176,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "15_NCe86ntl",
                             "start_t": 26.176,
                             "end_t": 28.34743,
@@ -287,25 +253,11 @@
                             "class_id": 7
                         },
                         {
-                            "keystep_id": "no_action_7",
-                            "start_t": 28.34743,
-                            "end_t": 28.415,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "15_g22vjVjx",
                             "start_t": 28.415,
                             "end_t": 43.12254,
                             "label": "attach_defib_pads",
                             "class_id": 8
-                        },
-                        {
-                            "keystep_id": "no_action_8",
-                            "start_t": 43.12254,
-                            "end_t": 44.874,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "15_zQzhHkpJ",
@@ -322,13 +274,6 @@
                             "class_id": 10
                         },
                         {
-                            "keystep_id": "no_action_10",
-                            "start_t": 60.13378,
-                            "end_t": 60.134,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "15_iFAA4HXx",
                             "start_t": 60.134,
                             "end_t": 65.09706,
@@ -343,9 +288,30 @@
                             "class_id": 13
                         },
                         {
+                            "keystep_id": "15_W6qMHSZk",
+                            "start_t": 11.293,
+                            "end_t": 44.87387,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
                             "keystep_id": "15_WQK8mEye",
                             "start_t": 65.097,
                             "end_t": 83.94818,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "15_aXqyAdQS",
+                            "start_t": 90.724,
+                            "end_t": 110.34237,
+                            "label": "chest_compressions",
+                            "class_id": 4
+                        },
+                        {
+                            "keystep_id": "15_ABXHXk9m",
+                            "start_t": 114.654,
+                            "end_t": 134.42899,
                             "label": "chest_compressions",
                             "class_id": 4
                         },
@@ -357,39 +323,11 @@
                             "class_id": 14
                         },
                         {
-                            "keystep_id": "no_action_14",
-                            "start_t": 90.72359,
-                            "end_t": 90.724,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
-                            "keystep_id": "15_aXqyAdQS",
-                            "start_t": 90.724,
-                            "end_t": 110.34237,
-                            "label": "chest_compressions",
-                            "class_id": 4
-                        },
-                        {
                             "keystep_id": "15_5JgewUVa",
                             "start_t": 110.342,
                             "end_t": 114.65429,
                             "label": "ventilate_patient",
                             "class_id": 14
-                        },
-                        {
-                            "keystep_id": "15_ABXHXk9m",
-                            "start_t": 114.654,
-                            "end_t": 134.42899,
-                            "label": "chest_compressions",
-                            "class_id": 4
-                        },
-                        {
-                            "keystep_id": "no_action_17",
-                            "start_t": 134.42899,
-                            "end_t": 134.429,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "15_nPWgPfDP",
@@ -430,7 +368,11 @@
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/audio/GX010373_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
-                        "BBOX_MASKS": [],
+                        "BBOX_MASKS": {
+                            "file_id": "bbox_annotations",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/BBOX_MASKS/bbox_annotations.json",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "i3d_rgb": {
                             "file_id": "GX010373_encoded_trimmed_rgb",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/8/i3d_rgb/GX010373_encoded_trimmed_rgb.npy",
@@ -485,13 +427,6 @@
                             "class_id": 2
                         },
                         {
-                            "keystep_id": "no_action_2",
-                            "start_t": 9.72395,
-                            "end_t": 9.724,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_PcyI7nZK",
                             "start_t": 9.724,
                             "end_t": 13.5363,
@@ -504,13 +439,6 @@
                             "end_t": 14.22686,
                             "label": "request_assistance",
                             "class_id": 6
-                        },
-                        {
-                            "keystep_id": "no_action_4",
-                            "start_t": 14.22686,
-                            "end_t": 14.227,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_asy48dQP",
@@ -534,25 +462,11 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "no_action_7",
-                            "start_t": 36.46387,
-                            "end_t": 36.464,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_0ahzrMUe",
                             "start_t": 36.464,
                             "end_t": 42.22458,
                             "label": "ventilate_patient",
                             "class_id": 14
-                        },
-                        {
-                            "keystep_id": "no_action_8",
-                            "start_t": 42.22458,
-                            "end_t": 42.225,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_dtb3ZLbl",
@@ -562,13 +476,6 @@
                             "class_id": 4
                         },
                         {
-                            "keystep_id": "no_action_9",
-                            "start_t": 58.04966,
-                            "end_t": 58.05,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_grbyhjJA",
                             "start_t": 58.05,
                             "end_t": 61.07756,
@@ -576,25 +483,11 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "no_action_10",
-                            "start_t": 61.07756,
-                            "end_t": 61.078,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_W8S14oQq",
                             "start_t": 61.078,
                             "end_t": 65.47359,
                             "label": "ventilate_patient",
                             "class_id": 14
-                        },
-                        {
-                            "keystep_id": "no_action_11",
-                            "start_t": 65.47359,
-                            "end_t": 65.474,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_nWB1T8KA",
@@ -618,13 +511,6 @@
                             "class_id": 7
                         },
                         {
-                            "keystep_id": "no_action_14",
-                            "start_t": 74.23851,
-                            "end_t": 74.239,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_ctF6NNcu",
                             "start_t": 74.239,
                             "end_t": 83.45041,
@@ -637,13 +523,6 @@
                             "end_t": 97.90065,
                             "label": "clear_for_analysis",
                             "class_id": 9
-                        },
-                        {
-                            "keystep_id": "no_action_16",
-                            "start_t": 97.90065,
-                            "end_t": 97.901,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_XpbpMsPG",
@@ -660,25 +539,11 @@
                             "class_id": 11
                         },
                         {
-                            "keystep_id": "no_action_18",
-                            "start_t": 107.3905,
-                            "end_t": 107.391,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_jtCx3VSO",
                             "start_t": 107.391,
                             "end_t": 122.53655,
                             "label": "chest_compressions",
                             "class_id": 4
-                        },
-                        {
-                            "keystep_id": "no_action_19",
-                            "start_t": 122.53655,
-                            "end_t": 122.537,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_5RimHsyu",
@@ -700,13 +565,6 @@
                             "end_t": 145.41153,
                             "label": "chest_compressions",
                             "class_id": 4
-                        },
-                        {
-                            "keystep_id": "no_action_22",
-                            "start_t": 145.41153,
-                            "end_t": 145.412,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_Mu43rdZR",
@@ -741,7 +599,11 @@
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/audio/GX010365_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
-                        "BBOX_MASKS": [],
+                        "BBOX_MASKS": {
+                            "file_id": "bbox_annotations",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/BBOX_MASKS/bbox_annotations.json",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "i3d_rgb": {
                             "file_id": "GX010365_encoded_trimmed_rgb",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/i3d_rgb/GX010365_encoded_trimmed_rgb.npy",
@@ -789,25 +651,11 @@
                             "class_id": 1
                         },
                         {
-                            "keystep_id": "no_action_1",
-                            "start_t": 5.21059,
-                            "end_t": 5.41892,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_Ut5iXfIb",
                             "start_t": 5.41892,
                             "end_t": 8.81476,
                             "label": "check_pulse",
                             "class_id": 2
-                        },
-                        {
-                            "keystep_id": "no_action_2",
-                            "start_t": 8.81476,
-                            "end_t": 9.00226,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_maIggrpn",
@@ -817,25 +665,11 @@
                             "class_id": 3
                         },
                         {
-                            "keystep_id": "no_action_3",
-                            "start_t": 11.926,
-                            "end_t": 12.79392,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_HXDTaD3e",
                             "start_t": 12.79392,
                             "end_t": 14.08559,
                             "label": "request_aed",
                             "class_id": 5
-                        },
-                        {
-                            "keystep_id": "no_action_4",
-                            "start_t": 14.08559,
-                            "end_t": 14.37726,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_tSNqSVeX",
@@ -845,25 +679,11 @@
                             "class_id": 4
                         },
                         {
-                            "keystep_id": "no_action_5",
-                            "start_t": 30.87642,
-                            "end_t": 31.10642,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_CYrcdum3",
                             "start_t": 31.10642,
                             "end_t": 33.96059,
                             "label": "place_bvm",
                             "class_id": 13
-                        },
-                        {
-                            "keystep_id": "no_action_6",
-                            "start_t": 33.96059,
-                            "end_t": 33.961,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_BiHMmbki",
@@ -873,25 +693,11 @@
                             "class_id": 14
                         },
                         {
-                            "keystep_id": "no_action_7",
-                            "start_t": 37.77309,
-                            "end_t": 38.50226,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_i0M7iXps",
                             "start_t": 38.50226,
                             "end_t": 53.71059,
                             "label": "chest_compressions",
                             "class_id": 4
-                        },
-                        {
-                            "keystep_id": "no_action_8",
-                            "start_t": 53.71059,
-                            "end_t": 54.689,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_U9owuw6t",
@@ -908,25 +714,11 @@
                             "class_id": 14
                         },
                         {
-                            "keystep_id": "no_action_10",
-                            "start_t": 60.16892,
-                            "end_t": 62.68976,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_dZ9IAb43",
                             "start_t": 62.68976,
                             "end_t": 70.41892,
                             "label": "attach_defib_pads",
                             "class_id": 8
-                        },
-                        {
-                            "keystep_id": "no_action_11",
-                            "start_t": 70.41892,
-                            "end_t": 71.39809,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_OQ8SiBrx",
@@ -936,25 +728,11 @@
                             "class_id": 9
                         },
                         {
-                            "keystep_id": "no_action_12",
-                            "start_t": 80.29392,
-                            "end_t": 82.91892,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_uDx9QNld",
                             "start_t": 82.91892,
                             "end_t": 88.87726,
                             "label": "clear_for_shock",
                             "class_id": 10
-                        },
-                        {
-                            "keystep_id": "no_action_13",
-                            "start_t": 88.87726,
-                            "end_t": 89.02309,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_j3HMuwaa",
@@ -964,13 +742,6 @@
                             "class_id": 11
                         },
                         {
-                            "keystep_id": "no_action_14",
-                            "start_t": 93.39809,
-                            "end_t": 93.91892,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_LDgBARg3",
                             "start_t": 93.91892,
                             "end_t": 110.04392,
@@ -978,25 +749,11 @@
                             "class_id": 4
                         },
                         {
-                            "keystep_id": "no_action_15",
-                            "start_t": 110.04392,
-                            "end_t": 110.157,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_drKWDs0z",
                             "start_t": 110.157,
                             "end_t": 111.46059,
                             "label": "place_bvm",
                             "class_id": 13
-                        },
-                        {
-                            "keystep_id": "no_action_16",
-                            "start_t": 111.46059,
-                            "end_t": 111.461,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_cXyXBXzW",
@@ -1037,7 +794,11 @@
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/2/audio/GX010355_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
-                        "BBOX_MASKS": [],
+                        "BBOX_MASKS": {
+                            "file_id": "bbox_annotations",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/2/BBOX_MASKS/bbox_annotations.json",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "i3d_rgb": {
                             "file_id": "GX010355_encoded_trimmed_rgb",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/2/i3d_rgb/GX010355_encoded_trimmed_rgb.npy",
@@ -1078,39 +839,11 @@
                             "class_id": 0
                         },
                         {
-                            "keystep_id": "no_action_0",
-                            "start_t": 6.308,
-                            "end_t": 6.37726,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
-                            "keystep_id": "1_D8bQ8HEX",
-                            "start_t": 6.37726,
-                            "end_t": 8.68976,
-                            "label": "check_responsiveness",
-                            "class_id": 1
-                        },
-                        {
-                            "keystep_id": "no_action_1",
-                            "start_t": 8.68976,
-                            "end_t": 8.89809,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_itLx1Zd2",
                             "start_t": 8.89809,
                             "end_t": 9.60642,
                             "label": "check_pulse",
                             "class_id": 2
-                        },
-                        {
-                            "keystep_id": "no_action_2",
-                            "start_t": 9.60642,
-                            "end_t": 9.75226,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_C7orZ1vo",
@@ -1120,11 +853,11 @@
                             "class_id": 3
                         },
                         {
-                            "keystep_id": "no_action_3",
-                            "start_t": 12.10642,
-                            "end_t": 12.29392,
-                            "label": "no_action",
-                            "class_id": 15
+                            "keystep_id": "1_D8bQ8HEX",
+                            "start_t": 6.37726,
+                            "end_t": 8.68976,
+                            "label": "check_responsiveness",
+                            "class_id": 1
                         },
                         {
                             "keystep_id": "1_7a7xY3i8",
@@ -1132,13 +865,6 @@
                             "end_t": 12.71059,
                             "label": "check_pulse",
                             "class_id": 2
-                        },
-                        {
-                            "keystep_id": "no_action_4",
-                            "start_t": 12.71059,
-                            "end_t": 12.771,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_Zx9AQOBD",
@@ -1169,13 +895,6 @@
                             "class_id": 14
                         },
                         {
-                            "keystep_id": "no_action_8",
-                            "start_t": 34.14809,
-                            "end_t": 34.41892,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_yHLTKkIx",
                             "start_t": 34.41892,
                             "end_t": 35.68976,
@@ -1190,25 +909,11 @@
                             "class_id": 5
                         },
                         {
-                            "keystep_id": "no_action_10",
-                            "start_t": 35.71059,
-                            "end_t": 35.831,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_lP0OsY1H",
                             "start_t": 35.831,
                             "end_t": 60.101,
                             "label": "attach_defib_pads",
                             "class_id": 8
-                        },
-                        {
-                            "keystep_id": "no_action_11",
-                            "start_t": 60.101,
-                            "end_t": 60.29392,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_7TFmw46X",
@@ -1218,25 +923,11 @@
                             "class_id": 9
                         },
                         {
-                            "keystep_id": "no_action_12",
-                            "start_t": 69.18976,
-                            "end_t": 69.56476,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_fOEu1NFH",
                             "start_t": 69.56476,
                             "end_t": 71.08,
                             "label": "administer_shock_aed",
                             "class_id": 11
-                        },
-                        {
-                            "keystep_id": "no_action_13",
-                            "start_t": 71.08,
-                            "end_t": 73.96059,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_kCSXIBKr",
@@ -1246,25 +937,11 @@
                             "class_id": 10
                         },
                         {
-                            "keystep_id": "no_action_14",
-                            "start_t": 76.991,
-                            "end_t": 77.48142,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_On1GLlY1",
                             "start_t": 77.48142,
                             "end_t": 83.21059,
                             "label": "administer_shock_aed",
                             "class_id": 11
-                        },
-                        {
-                            "keystep_id": "no_action_15",
-                            "start_t": 83.21059,
-                            "end_t": 83.37726,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_A1T5zYag",
@@ -1281,13 +958,6 @@
                             "class_id": 2
                         },
                         {
-                            "keystep_id": "no_action_17",
-                            "start_t": 85.644,
-                            "end_t": 101.21059,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_I6sTqrXW",
                             "start_t": 101.21059,
                             "end_t": 102.77309,
@@ -1302,25 +972,11 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "no_action_19",
-                            "start_t": 102.77309,
-                            "end_t": 103.14809,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_azHN7jDx",
                             "start_t": 103.14809,
                             "end_t": 106.71059,
                             "label": "ventilate_patient",
                             "class_id": 14
-                        },
-                        {
-                            "keystep_id": "no_action_20",
-                            "start_t": 106.71059,
-                            "end_t": 108.047,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_cpQMrUYw",
@@ -1330,13 +986,6 @@
                             "class_id": 4
                         },
                         {
-                            "keystep_id": "no_action_21",
-                            "start_t": 123.91892,
-                            "end_t": 124.14809,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_k4AyXP4y",
                             "start_t": 124.14809,
                             "end_t": 125.60642,
@@ -1344,18 +993,18 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "1_R730Mpv8",
-                            "start_t": 124.16892,
-                            "end_t": 125.60642,
-                            "label": "open_airway",
-                            "class_id": 12
-                        },
-                        {
                             "keystep_id": "1_B5Qleygw",
                             "start_t": 125.508,
                             "end_t": 129.31476,
                             "label": "ventilate_patient",
                             "class_id": 14
+                        },
+                        {
+                            "keystep_id": "1_R730Mpv8",
+                            "start_t": 124.16892,
+                            "end_t": 125.60642,
+                            "label": "open_airway",
+                            "class_id": 12
                         }
                     ],
                     "interventions": {}
@@ -1389,7 +1038,11 @@
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/5/audio/GX010326_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
-                        "BBOX_MASKS": [],
+                        "BBOX_MASKS": {
+                            "file_id": "bbox_annotations",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/5/BBOX_MASKS/bbox_annotations.json",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "i3d_rgb": {
                             "file_id": "GX010326_encoded_trimmed_rgb",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/5/i3d_rgb/GX010326_encoded_trimmed_rgb.npy",
@@ -1465,13 +1118,6 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "no_action_5",
-                            "start_t": 33.97452,
-                            "end_t": 33.975,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "11_c9WsU3dr",
                             "start_t": 33.975,
                             "end_t": 39.64408,
@@ -1486,25 +1132,11 @@
                             "class_id": 7
                         },
                         {
-                            "keystep_id": "no_action_7",
-                            "start_t": 41.96565,
-                            "end_t": 41.966,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "11_oZ5KdRIt",
                             "start_t": 41.966,
                             "end_t": 50.99459,
                             "label": "attach_defib_pads",
                             "class_id": 8
-                        },
-                        {
-                            "keystep_id": "no_action_8",
-                            "start_t": 50.99459,
-                            "end_t": 50.995,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "11_FjkHX8Fi",
@@ -1514,13 +1146,6 @@
                             "class_id": 4
                         },
                         {
-                            "keystep_id": "no_action_9",
-                            "start_t": 56.5819,
-                            "end_t": 56.582,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "11_dLX0itBz",
                             "start_t": 56.582,
                             "end_t": 70.00298,
@@ -1528,25 +1153,11 @@
                             "class_id": 9
                         },
                         {
-                            "keystep_id": "no_action_10",
-                            "start_t": 70.00298,
-                            "end_t": 70.003,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "11_bWXgAUxr",
                             "start_t": 70.003,
                             "end_t": 73.95577,
                             "label": "clear_for_shock",
                             "class_id": 10
-                        },
-                        {
-                            "keystep_id": "no_action_11",
-                            "start_t": 73.95577,
-                            "end_t": 73.956,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "11_jtXWQXoL",
@@ -1591,13 +1202,6 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "no_action_17",
-                            "start_t": 121.98157,
-                            "end_t": 121.982,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "11_cNwG3eGw",
                             "start_t": 121.982,
                             "end_t": 125.44226,
@@ -1637,7 +1241,11 @@
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/3/audio/GX010319_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
-                        "BBOX_MASKS": [],
+                        "BBOX_MASKS": {
+                            "file_id": "bbox_annotations",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/3/BBOX_MASKS/bbox_annotations.json",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "i3d_rgb": {
                             "file_id": "GX010319_encoded_trimmed_rgb",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/3/i3d_rgb/GX010319_encoded_trimmed_rgb.npy",
@@ -1685,13 +1293,6 @@
                             "class_id": 1
                         },
                         {
-                            "keystep_id": "no_action_1",
-                            "start_t": 12.66051,
-                            "end_t": 12.661,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "9_xIkck9zX",
                             "start_t": 12.661,
                             "end_t": 14.23812,
@@ -1711,13 +1312,6 @@
                             "end_t": 35.24292,
                             "label": "chest_compressions",
                             "class_id": 4
-                        },
-                        {
-                            "keystep_id": "no_action_4",
-                            "start_t": 35.24292,
-                            "end_t": 35.243,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "9_qLGSEQYX",
@@ -1741,13 +1335,6 @@
                             "class_id": 7
                         },
                         {
-                            "keystep_id": "no_action_7",
-                            "start_t": 44.78959,
-                            "end_t": 44.79,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "9_GH6Ioasy",
                             "start_t": 44.79,
                             "end_t": 53.63647,
@@ -1762,13 +1349,6 @@
                             "class_id": 4
                         },
                         {
-                            "keystep_id": "9_X8G5dPBR",
-                            "start_t": 60.13,
-                            "end_t": 73.302,
-                            "label": "clear_for_analysis",
-                            "class_id": 9
-                        },
-                        {
                             "keystep_id": "9_Cb9icKp0",
                             "start_t": 73.302,
                             "end_t": 76.73683,
@@ -1776,11 +1356,11 @@
                             "class_id": 10
                         },
                         {
-                            "keystep_id": "no_action_11",
-                            "start_t": 76.73683,
-                            "end_t": 76.737,
-                            "label": "no_action",
-                            "class_id": 15
+                            "keystep_id": "9_X8G5dPBR",
+                            "start_t": 60.13,
+                            "end_t": 73.302,
+                            "label": "clear_for_analysis",
+                            "class_id": 9
                         },
                         {
                             "keystep_id": "9_3aCBJ1d8",
@@ -1790,25 +1370,11 @@
                             "class_id": 11
                         },
                         {
-                            "keystep_id": "no_action_12",
-                            "start_t": 80.76794,
-                            "end_t": 80.768,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "9_40RbWC9r",
                             "start_t": 80.768,
                             "end_t": 95.38177,
                             "label": "chest_compressions",
                             "class_id": 4
-                        },
-                        {
-                            "keystep_id": "no_action_13",
-                            "start_t": 95.38177,
-                            "end_t": 95.382,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "9_79MewPeQ",
@@ -1818,25 +1384,11 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "no_action_14",
-                            "start_t": 98.95273,
-                            "end_t": 98.953,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "9_mENqNRtu",
                             "start_t": 98.953,
                             "end_t": 104.89997,
                             "label": "ventilate_patient",
                             "class_id": 14
-                        },
-                        {
-                            "keystep_id": "no_action_15",
-                            "start_t": 104.89997,
-                            "end_t": 104.9,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "9_8MQ7TOa9",
@@ -1851,13 +1403,6 @@
                             "end_t": 122.55467,
                             "label": "place_bvm",
                             "class_id": 13
-                        },
-                        {
-                            "keystep_id": "no_action_17",
-                            "start_t": 122.55467,
-                            "end_t": 122.78404,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "9_QrGQwk4g",
@@ -1899,7 +1444,11 @@
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/1/audio/GX010317_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
-                        "BBOX_MASKS": [],
+                        "BBOX_MASKS": {
+                            "file_id": "bbox_annotations",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/1/BBOX_MASKS/bbox_annotations.json",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "i3d_rgb": {
                             "file_id": "GX010317_encoded_trimmed_rgb",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/1/i3d_rgb/GX010317_encoded_trimmed_rgb.npy",
@@ -1947,13 +1496,6 @@
                             "class_id": 1
                         },
                         {
-                            "keystep_id": "no_action_1",
-                            "start_t": 12.60456,
-                            "end_t": 12.605,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "5_2FyjIO3v",
                             "start_t": 12.605,
                             "end_t": 14.25233,
@@ -1982,13 +1524,6 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "no_action_5",
-                            "start_t": 37.55267,
-                            "end_t": 37.553,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "5_yRsyRojS",
                             "start_t": 37.553,
                             "end_t": 43.24047,
@@ -2001,13 +1536,6 @@
                             "end_t": 44.63451,
                             "label": "turn_on_aed",
                             "class_id": 7
-                        },
-                        {
-                            "keystep_id": "no_action_7",
-                            "start_t": 44.63451,
-                            "end_t": 44.635,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "5_vBKEdLKM",
@@ -2024,25 +1552,11 @@
                             "class_id": 4
                         },
                         {
-                            "keystep_id": "no_action_9",
-                            "start_t": 60.13351,
-                            "end_t": 60.134,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "5_E0rOUhhg",
                             "start_t": 60.134,
                             "end_t": 74.52651,
                             "label": "clear_for_analysis",
                             "class_id": 9
-                        },
-                        {
-                            "keystep_id": "no_action_10",
-                            "start_t": 74.52651,
-                            "end_t": 74.527,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "5_xNUUdWt4",
@@ -2052,25 +1566,11 @@
                             "class_id": 10
                         },
                         {
-                            "keystep_id": "no_action_11",
-                            "start_t": 77.48386,
-                            "end_t": 77.484,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "5_dfXHpWkS",
                             "start_t": 77.484,
                             "end_t": 82.93569,
                             "label": "administer_shock_aed",
                             "class_id": 11
-                        },
-                        {
-                            "keystep_id": "no_action_12",
-                            "start_t": 82.93569,
-                            "end_t": 82.936,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "5_qB8UL1K2",
@@ -2087,25 +1587,11 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "no_action_14",
-                            "start_t": 104.67276,
-                            "end_t": 104.673,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "5_sC6t88Yy",
                             "start_t": 104.673,
                             "end_t": 111.89072,
                             "label": "ventilate_patient",
                             "class_id": 14
-                        },
-                        {
-                            "keystep_id": "no_action_15",
-                            "start_t": 111.89072,
-                            "end_t": 111.891,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "5_9z4Yoydf",
@@ -2154,7 +1640,11 @@
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/8/audio/GX010329_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
-                        "BBOX_MASKS": [],
+                        "BBOX_MASKS": {
+                            "file_id": "bbox_annotations",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/8/BBOX_MASKS/bbox_annotations.json",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "i3d_rgb": {
                             "file_id": "GX010329_encoded_trimmed_rgb",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/8/i3d_rgb/GX010329_encoded_trimmed_rgb.npy",
@@ -2202,25 +1692,11 @@
                             "class_id": 1
                         },
                         {
-                            "keystep_id": "no_action_1",
-                            "start_t": 12.63593,
-                            "end_t": 12.636,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "7_80BBRCrq",
                             "start_t": 12.636,
                             "end_t": 19.36587,
                             "label": "check_pulse",
                             "class_id": 2
-                        },
-                        {
-                            "keystep_id": "no_action_2",
-                            "start_t": 19.36587,
-                            "end_t": 19.366,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "7_fHYjyZZf",
@@ -2237,25 +1713,11 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "no_action_4",
-                            "start_t": 37.80261,
-                            "end_t": 37.803,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "7_NwcllvXq",
                             "start_t": 37.803,
                             "end_t": 42.93881,
                             "label": "ventilate_patient",
                             "class_id": 14
-                        },
-                        {
-                            "keystep_id": "no_action_5",
-                            "start_t": 42.93881,
-                            "end_t": 42.939,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "7_UC1XIA6b",
@@ -2279,25 +1741,11 @@
                             "class_id": 9
                         },
                         {
-                            "keystep_id": "no_action_8",
-                            "start_t": 67.29693,
-                            "end_t": 67.297,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "7_euusieC5",
                             "start_t": 67.297,
                             "end_t": 71.27486,
                             "label": "clear_for_shock",
                             "class_id": 10
-                        },
-                        {
-                            "keystep_id": "no_action_9",
-                            "start_t": 71.27486,
-                            "end_t": 71.275,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "7_qAIFG5C4",
@@ -2314,13 +1762,6 @@
                             "class_id": 4
                         },
                         {
-                            "keystep_id": "no_action_11",
-                            "start_t": 92.17688,
-                            "end_t": 92.177,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "7_GJZOxtsC",
                             "start_t": 92.177,
                             "end_t": 94.55811,
@@ -2333,13 +1774,6 @@
                             "end_t": 100.22085,
                             "label": "ventilate_patient",
                             "class_id": 14
-                        },
-                        {
-                            "keystep_id": "no_action_13",
-                            "start_t": 100.22085,
-                            "end_t": 100.221,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "7_GoX5pWSm",
@@ -2356,25 +1790,11 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "no_action_15",
-                            "start_t": 119.41063,
-                            "end_t": 119.411,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "7_4PjWVsLw",
                             "start_t": 119.411,
                             "end_t": 124.79669,
                             "label": "ventilate_patient",
                             "class_id": 14
-                        },
-                        {
-                            "keystep_id": "no_action_16",
-                            "start_t": 124.79669,
-                            "end_t": 124.797,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "7_GpdBxZgg",
@@ -2415,7 +1835,11 @@
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/5/audio/GX010383_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
-                        "BBOX_MASKS": [],
+                        "BBOX_MASKS": {
+                            "file_id": "bbox_annotations",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/5/BBOX_MASKS/bbox_annotations.json",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "i3d_rgb": {
                             "file_id": "GX010383_encoded_trimmed_rgb",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/5/i3d_rgb/GX010383_encoded_trimmed_rgb.npy",
@@ -2456,13 +1880,6 @@
                             "class_id": 15
                         },
                         {
-                            "keystep_id": "no_action_0",
-                            "start_t": 3.12976,
-                            "end_t": 3.13,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "3_Sfg6fXQW",
                             "start_t": 3.13,
                             "end_t": 7.09915,
@@ -2498,25 +1915,11 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "no_action_5",
-                            "start_t": 34.75972,
-                            "end_t": 34.76,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "3_fv8Dkyje",
                             "start_t": 34.76,
                             "end_t": 39.80385,
                             "label": "ventilate_patient",
                             "class_id": 14
-                        },
-                        {
-                            "keystep_id": "no_action_6",
-                            "start_t": 39.80385,
-                            "end_t": 39.804,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "3_xZZ0UhUJ",
@@ -2533,13 +1936,6 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "no_action_8",
-                            "start_t": 59.39883,
-                            "end_t": 59.399,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "3_czgKkG94",
                             "start_t": 59.399,
                             "end_t": 64.20728,
@@ -2554,25 +1950,11 @@
                             "class_id": 2
                         },
                         {
-                            "keystep_id": "no_action_10",
-                            "start_t": 66.26355,
-                            "end_t": 66.309,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "3_ubumfpyY",
                             "start_t": 66.309,
                             "end_t": 69.3128,
                             "label": "turn_on_aed",
                             "class_id": 7
-                        },
-                        {
-                            "keystep_id": "no_action_11",
-                            "start_t": 69.3128,
-                            "end_t": 69.313,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "3_UAQilXoS",
@@ -2587,13 +1969,6 @@
                             "end_t": 117.78784,
                             "label": "clear_for_analysis",
                             "class_id": 9
-                        },
-                        {
-                            "keystep_id": "no_action_13",
-                            "start_t": 117.78784,
-                            "end_t": 117.788,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "3_r23BXbov",
@@ -2615,13 +1990,6 @@
                             "end_t": 146.91564,
                             "label": "chest_compressions",
                             "class_id": 4
-                        },
-                        {
-                            "keystep_id": "no_action_16",
-                            "start_t": 146.91564,
-                            "end_t": 146.916,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "3_inBUPhaH",
@@ -2669,7 +2037,11 @@
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/8/audio/GX010378_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
-                        "BBOX_MASKS": [],
+                        "BBOX_MASKS": {
+                            "file_id": "bbox_annotations",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/8/BBOX_MASKS/bbox_annotations.json",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "i3d_rgb": {
                             "file_id": "GX010378_encoded_trimmed_rgb",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/8/i3d_rgb/GX010378_encoded_trimmed_rgb.npy",
@@ -2717,25 +2089,11 @@
                             "class_id": 2
                         },
                         {
-                            "keystep_id": "no_action_1",
-                            "start_t": 6.47472,
-                            "end_t": 6.475,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_sQHGgS9x",
                             "start_t": 6.475,
                             "end_t": 26.66483,
                             "label": "chest_compressions",
                             "class_id": 4
-                        },
-                        {
-                            "keystep_id": "no_action_2",
-                            "start_t": 26.66483,
-                            "end_t": 26.665,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_gYK3Ax7y",
@@ -2759,13 +2117,6 @@
                             "class_id": 4
                         },
                         {
-                            "keystep_id": "no_action_5",
-                            "start_t": 52.39456,
-                            "end_t": 52.395,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_ZVhLLLMY",
                             "start_t": 52.395,
                             "end_t": 77.69427,
@@ -2787,13 +2138,6 @@
                             "class_id": 9
                         },
                         {
-                            "keystep_id": "no_action_8",
-                            "start_t": 95.34463,
-                            "end_t": 95.345,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_DP60IDLX",
                             "start_t": 95.345,
                             "end_t": 99.8271,
@@ -2808,13 +2152,6 @@
                             "class_id": 11
                         },
                         {
-                            "keystep_id": "no_action_10",
-                            "start_t": 105.92468,
-                            "end_t": 105.925,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "1_XSfAjz9h",
                             "start_t": 105.925,
                             "end_t": 123.75903,
@@ -2827,13 +2164,6 @@
                             "end_t": 127.85285,
                             "label": "place_bvm",
                             "class_id": 13
-                        },
-                        {
-                            "keystep_id": "no_action_12",
-                            "start_t": 127.85285,
-                            "end_t": 127.853,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "1_gD1MdftG",
@@ -2868,7 +2198,11 @@
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/3/audio/GX010324_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
-                        "BBOX_MASKS": [],
+                        "BBOX_MASKS": {
+                            "file_id": "bbox_annotations",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/3/BBOX_MASKS/bbox_annotations.json",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "i3d_rgb": {
                             "file_id": "GX010324_encoded_trimmed_rgb",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/3/i3d_rgb/GX010324_encoded_trimmed_rgb.npy",
@@ -2902,13 +2236,6 @@
                     },
                     "keysteps": [
                         {
-                            "keystep_id": "4_NNgmoDX6",
-                            "start_t": 0,
-                            "end_t": 4.941,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "4_Tcwx5cB2",
                             "start_t": 4.941,
                             "end_t": 9.23093,
@@ -2916,25 +2243,11 @@
                             "class_id": 2
                         },
                         {
-                            "keystep_id": "no_action_1",
-                            "start_t": 9.23093,
-                            "end_t": 9.231,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "4_5QraESfq",
                             "start_t": 9.231,
                             "end_t": 11.22285,
                             "label": "check_breathing",
                             "class_id": 3
-                        },
-                        {
-                            "keystep_id": "no_action_2",
-                            "start_t": 11.22285,
-                            "end_t": 11.223,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "4_JdMUTcs8",
@@ -2951,13 +2264,6 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "no_action_4",
-                            "start_t": 28.28858,
-                            "end_t": 28.289,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "4_Np5Kq6PS",
                             "start_t": 28.289,
                             "end_t": 32.51305,
@@ -2970,13 +2276,6 @@
                             "end_t": 33.77364,
                             "label": "turn_on_aed",
                             "class_id": 7
-                        },
-                        {
-                            "keystep_id": "no_action_6",
-                            "start_t": 33.77364,
-                            "end_t": 33.774,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "4_9q9juFuH",
@@ -3000,25 +2299,11 @@
                             "class_id": 10
                         },
                         {
-                            "keystep_id": "no_action_9",
-                            "start_t": 62.41269,
-                            "end_t": 62.413,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "4_cXHHrUVU",
                             "start_t": 62.413,
                             "end_t": 67.83786,
                             "label": "administer_shock_aed",
                             "class_id": 11
-                        },
-                        {
-                            "keystep_id": "no_action_10",
-                            "start_t": 67.83786,
-                            "end_t": 67.838,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "4_N6EeR3uq",
@@ -3028,25 +2313,11 @@
                             "class_id": 4
                         },
                         {
-                            "keystep_id": "no_action_11",
-                            "start_t": 86.39654,
-                            "end_t": 86.397,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "4_ZfAfMI5f",
                             "start_t": 86.397,
                             "end_t": 88.49376,
                             "label": "place_bvm",
                             "class_id": 13
-                        },
-                        {
-                            "keystep_id": "no_action_12",
-                            "start_t": 88.49376,
-                            "end_t": 88.494,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "4_dBDXibv9",
@@ -3070,13 +2341,6 @@
                             "class_id": 13
                         },
                         {
-                            "keystep_id": "no_action_15",
-                            "start_t": 112.05395,
-                            "end_t": 112.054,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "4_pTdFq2PG",
                             "start_t": 112.054,
                             "end_t": 116.01167,
@@ -3084,25 +2348,11 @@
                             "class_id": 14
                         },
                         {
-                            "keystep_id": "no_action_16",
-                            "start_t": 116.01167,
-                            "end_t": 116.012,
-                            "label": "no_action",
-                            "class_id": 15
-                        },
-                        {
                             "keystep_id": "4_iriAhW1H",
                             "start_t": 116.012,
                             "end_t": 133.9257,
                             "label": "chest_compressions",
                             "class_id": 4
-                        },
-                        {
-                            "keystep_id": "no_action_17",
-                            "start_t": 133.9257,
-                            "end_t": 133.926,
-                            "label": "no_action",
-                            "class_id": 15
                         },
                         {
                             "keystep_id": "4_Eu2cmuDT",
@@ -3117,6 +2367,13 @@
                             "end_t": 139.2391,
                             "label": "ventilate_patient",
                             "class_id": 14
+                        },
+                        {
+                            "keystep_id": "4_NNgmoDX6",
+                            "start_t": 0,
+                            "end_t": 4.941,
+                            "label": "no_action",
+                            "class_id": 15
                         }
                     ],
                     "interventions": {}

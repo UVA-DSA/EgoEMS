@@ -210,16 +210,16 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
             input,feature_size, label = preprocess(batch, modality, model, device, task=task)
 
             # get more info about input
-            keystep_label = batch['keystep_label']
-            keystep_id = batch['keystep_id']
-            start_frame = batch['start_frame']
-            end_frame = batch['end_frame']
-            start_t = batch['start_t']
-            end_t = batch['end_t']
-            subject_id = batch['subject_id']
-            trial_id = batch['trial_id']
-            window_start_frame = batch['window_start_frame']
-            window_end_frame = batch['window_end_frame']
+            keystep_label = batch['keystep_label'] if task == 'segmentation' else batch['keystep_label'][0]
+            keystep_id = batch['keystep_id'] if task == 'segmentation' else batch['keystep_id'][0]
+            start_frame = batch['start_frame'] if task == 'segmentation' else batch['start_frame'][0]
+            end_frame = batch['end_frame'] if task == 'segmentation' else batch['end_frame'][0]
+            start_t = batch['start_t'] if task == 'segmentation' else batch['start_t'][0]
+            end_t = batch['end_t'] if task == 'segmentation' else batch['end_t'][0]
+            subject_id = batch['subject_id'] if task == 'segmentation' else batch['subject_id']
+            trial_id = batch['trial_id'] if task == 'segmentation' else batch['trial_id']
+            window_start_frame = batch['window_start_frame'] if task == 'segmentation' else torch.tensor(-1)
+            window_end_frame = batch['window_end_frame'] if task == 'segmentation' else torch.tensor(-1)
 
             output = model(input)
             pred = torch.argmax(output, dim=1)

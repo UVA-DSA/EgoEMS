@@ -223,8 +223,10 @@ def generate_bboxes(video_files, model, target_fps, save_images=False):
             print(f'Processed frame {i}/{total_frames} at downsampled rate (every {skip_rate}th frame)')
             print(f'Inference time for frame {i}: {end_t - start_t} seconds')
 
+            # save the bbox_data to a json file
+            with open(f'{json_output_path}/bbox_annotations.json', 'w') as f:
+                json.dump(bbox_data, f, indent=4)
             
-
  
         # Release resources when done
         cap.release()
@@ -236,5 +238,4 @@ def generate_bboxes(video_files, model, target_fps, save_images=False):
         bbox_all[video_id] = bbox_data
         
         # Save bounding box data to a JSON file
-    with open(f'{json_output_path}/bbox_annotations.json', 'w') as f:
-        json.dump(bbox_all, f, indent=4)
+    return bbox_all

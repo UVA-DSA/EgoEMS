@@ -19,7 +19,8 @@ def process_modality_sw_depthsensor(trial_path, modalities):
     sw_data, depth_data =  None, None
 
     # Define paths with wildcards
-    sw_data_path = os.path.join(trial_path, 'smartwatch_data', '*', 'sw_data.csv')
+    # sw_data_path = os.path.join(trial_path, 'smartwatch_data', '*', 'sw_data.csv')
+    sw_data_path = os.path.join(trial_path, 'smartwatch_data',  'sw_data.csv') # lahirus
     depth_data_path = os.path.join(trial_path, 'VL6180', 'VL*.csv')
 
     # Use glob to resolve wildcard paths
@@ -75,7 +76,9 @@ def calculate_synchronized_frames(dc_ts, gp_adj_ts):
 
 def synchronize_smartwatch_depth(sw_data, depth_data, timestamps):
     """Synchronize smartwatch and depth sensor data based on GoPro timestamps."""
-    sw_timestamps = sw_data['sw_epoch_ms'].astype('int64')
+    # sw_timestamps = sw_data['sw_epoch_ms'].astype('int64')
+    
+    sw_timestamps = sw_data['server_epoch_ms'].astype('int64') # lahiru
     ds_timestamps = depth_data.iloc[:, 0].astype('int64')
     
     print(f"[INFO] Smartwatch timestamps: {len(sw_timestamps)}, Depth sensor timestamps: {len(ds_timestamps)}, GoPro timestamps: {len(timestamps)}")
@@ -90,7 +93,8 @@ def synchronize_smartwatch_depth(sw_data, depth_data, timestamps):
                #print(f"gopro_epoch: {gopro_epoch}")
         found_sw_data = False
         while sw_index < len(sw_timestamps) - 1:
-            if gopro_epoch >= sw_timestamps[sw_index] * 1000000 and gopro_epoch < sw_timestamps[sw_index + 1] * 1000000:
+            # if gopro_epoch >= sw_timestamps[sw_index] * 1000000 and gopro_epoch < sw_timestamps[sw_index + 1] * 1000000:
+            if gopro_epoch >= sw_timestamps[sw_index]  and gopro_epoch < sw_timestamps[sw_index + 1] : # lahiru
                 sw_data_list.append({
                     'sw_value_X_Axis': sw_data['value_X_Axis'].iloc[sw_index],
                     'sw_value_Y_Axis': sw_data['value_Y_Axis'].iloc[sw_index],
@@ -173,7 +177,9 @@ def synchronize(base_dir, gopro_file_path, kinect_file_path, gopro_timestamp_pat
 
     # Synchronize smartwatch and depth sensor data
     if sw_data is not None and depth_data is not None:
+        print(f"[INFO] goPro start frame: {gp_sf}, goPro end frame: {gp_ef}")
         timestamps = gp_adj_ts[gp_sf:gp_ef]
+        print(f"[INFO] GoPro timestamps: {(timestamps)}")
         df_sw, df_ds = synchronize_smartwatch_depth(sw_data, depth_data, timestamps)
 
         sync_sw_csv_path = os.path.join(trial_path, 'smartwatch_data')
@@ -203,6 +209,10 @@ def process_recordings(base_dir, sync_offset_path):
         gopro_timestamp_path = row['gopro_timestamp_path']
         kinect_timestamp_path = row['kinect_timestamp_path']
         
+                # update the path to the gopro timestamp file by appending _30fps.csv
+        gopro_timestamp_path = gopro_timestamp_path.replace(".csv", "_30fps.csv")
+        print("[INFO] GoPro timestamp file:", gopro_timestamp_path)
+
         # remove _fps_converted from the file name of kinect file if it exists
         kinect_file_path = kinect_file_path.replace('_fps_converted', '')
 

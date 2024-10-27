@@ -9,7 +9,7 @@ save_images = True
 target_fps = 1  # You can adjust this value as needed
 # Define the video file path and output path
 # video_root_path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/24-09-2024'
-video_root_path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Final/19-09-2024'
+video_root_path = '/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final'
 
 # load model
 model = torch.hub.load('facebookresearch/detr',
@@ -38,4 +38,9 @@ print(f'Found {len(video_files)} video files in the directory', video_files)
 
 # generate boxes for each video file
 
-generate_bboxes(video_files, model, target_fps, save_images=save_images)
+all_bbox_data = generate_bboxes(video_files, model, target_fps, save_images=save_images)
+
+# Save the bounding box data to a JSON file
+json_output_path = f'{video_root_path}/bbox_data.json'
+with open(json_output_path, 'w') as f:
+    json.dump(all_bbox_data, f)

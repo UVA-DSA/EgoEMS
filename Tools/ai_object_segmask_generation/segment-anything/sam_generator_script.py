@@ -82,7 +82,7 @@ def calculate_iou(box1, box2):
     return iou
 
 # Function to get bounding boxes with highest confidence for each class, ensuring non-overlapping boxes
-def get_bbox_for_video(bbox_json_path):
+def get_bbox_for_video(bbox_json_path, bbox_dir):
     """
     Get the highest confidence bounding boxes for each object class within each frame in the video, 
     ensuring that multiple boxes for the same class do not overlap by more than 50%.
@@ -94,68 +94,70 @@ def get_bbox_for_video(bbox_json_path):
     A dictionary containing the highest confidence bounding boxes per frame for each object class.
     """
     with open(bbox_json_path, 'r') as f:
-        data = json.load(f)
+        frames = json.load(f)
 
     class_to_obj_id = {"bvm": 1, "hands": 2, "defib pads": 3}
     video_data = {}
 
-    for video, frames in data.items():
-        video_dir = f'/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Tools/ai_object_bbox_generation/detr/outputs/bboxes/{video}/'
-        frame_names = frame_array(video_dir)
+    print(f'Processing video: {bbox_dir}')
+    video_dir = bbox_dir
+    frame_names = frame_array(video_dir)
 
-        # Store highest confidence boxes per class per frame
-        video_frames_bboxes = []
+    # print(f'Frame names: {frame_names}')
 
-        # Iterate over each frame in the video
-        for frame_info in frames:
-            highest_conf_bboxes = {}
+    # # Store highest confidence boxes per class per frame
+    video_frames_bboxes = []
 
-            # Iterate over each bounding box in the frame
-            for bbox in frame_info['bboxes']:
-                class_name = bbox['class']
-                confidence = bbox['confidence']
+    # Iterate over each frame in the video
+    for frame_info in frames:
+        highest_conf_bboxes = {}
 
-                # Ignore low confidence boxes
-                if confidence < 0.9:
-                    continue
+        # Iterate over each bounding box in the frame
+        for bbox in frame_info['bboxes']:
+            class_name = bbox['class']
+            confidence = bbox['confidence']
 
-                current_bbox = [int(bbox['xmin']), int(bbox['ymin']), int(bbox['xmax']), int(bbox['ymax'])]
+            # Ignore low confidence boxes
+            if confidence < 0.9:
+                continue
 
-                # Check if there is an existing bbox for the class
-                if class_name in highest_conf_bboxes:
-                    # Calculate IoU with all existing bboxes for this class
-                    overlaps = [calculate_iou(current_bbox, existing['bbox']) for existing in highest_conf_bboxes[class_name]]
-                    
-                    # Add new bbox if no overlaps are greater than 50%
-                    if all(iou < 0.5 for iou in overlaps):
-                        highest_conf_bboxes[class_name].append({
-                            'bbox': current_bbox,
-                            'confidence': confidence,
-                            'ann_obj_id': class_to_obj_id.get(class_name, 4)
-                        })
-                else:
-                    # Initialize a new list for this class and add the bbox
-                    highest_conf_bboxes[class_name] = [{
+            current_bbox = [int(bbox['xmin']), int(bbox['ymin']), int(bbox['xmax']), int(bbox['ymax'])]
+
+            # Check if there is an existing bbox for the class
+            if class_name in highest_conf_bboxes:
+                # Calculate IoU with all existing bboxes for this class
+                overlaps = [calculate_iou(current_bbox, existing['bbox']) for existing in highest_conf_bboxes[class_name]]
+                
+                # Add new bbox if no overlaps are greater than 50%
+                if all(iou < 0.5 for iou in overlaps):
+                    highest_conf_bboxes[class_name].append({
                         'bbox': current_bbox,
                         'confidence': confidence,
                         'ann_obj_id': class_to_obj_id.get(class_name, 4)
-                    }]
+                    })
+            else:
+                # Initialize a new list for this class and add the bbox
+                highest_conf_bboxes[class_name] = [{
+                    'bbox': current_bbox,
+                    'confidence': confidence,
+                    'ann_obj_id': class_to_obj_id.get(class_name, 4)
+                }]
 
-            # Append the highest confidence bboxes for this frame
-            if highest_conf_bboxes:
-                video_frames_bboxes.append({
-                    'frame_counter': frame_info['frame_counter'],
-                    'bboxes': highest_conf_bboxes,
-                    'ann_frame_idx': frame_info['frame_counter'],
-                    'actual_frame': frame_info['frame']
-                })
+        # Append the highest confidence bboxes for this frame
+        if highest_conf_bboxes:
+            video_frames_bboxes.append({
+                'frame_counter': frame_info['frame_counter'],
+                'bboxes': highest_conf_bboxes,
+                'ann_frame_idx': frame_info['frame_counter'],
+                'actual_frame': frame_info['frame']
+            })
 
-        if video_frames_bboxes:
-            video_data[video] = {
-                'video_dir': video_dir,
-                'frame_names': frame_names,
-                'class_conf_bboxes': video_frames_bboxes
-            }
+    if video_frames_bboxes:
+        video_data['video'] = {
+            'video_dir': video_dir,
+            'frame_names': frame_names,
+            'class_conf_bboxes': video_frames_bboxes
+        }
 
     return video_data if video_data else None
 
@@ -270,6 +272,8 @@ def render_video_segments_to_video(ann_frame_idx, frame_names, video_dir, video_
         # check if out_frame_idx exists in video_segments first
         if out_frame_idx in video_segments:
             for out_obj_id, out_mask in video_segments[out_frame_idx].items():
+                # save mask to file
+                cv2.imwrite(f"{output_video_path}/mask_{out_frame_idx}_{out_obj_id}.png", out_mask[0].astype(np.uint8) * 255)
                 show_mask(out_mask, plt.gca(), obj_id=out_obj_id)
         plt.axis('off')
         plt.tight_layout()
@@ -315,10 +319,10 @@ def generate_segmentations(result):
 
         video_segments = track_and_generate_mask(predictor, inference_state)
 
-        print(f"Video segments: {len(video_segments)}")
-        # print(f"Video segment keys: {(video_segments.keys())}")
         output_video_path = f"{video_dir}/segmentations/"
         render_video_segments_to_video(0, frame_names, original_video_dir, video_segments, output_video_path)
+
+
 
         # break
 
@@ -351,16 +355,28 @@ def generate_segments_multiple_frames(result):
             # break
 
 
-# Bounding box extraction from JSON
-bbox_json_path = '../../ai_object_bbox_generation/detr/outputs/bboxes/bboxes.json'
+if __name__ == "__main__":
 
+    # get command line arguments
+    import argparse
+    parser = argparse.ArgumentParser(description="Segmentation script for EgoExoEMS")
+    parser.add_argument('--bbox_json_path', type=str, help='Path to the JSON file containing bounding box data')
+    parser.add_argument('--bbox_dir', type=str, help='Path to the bbox folder contating frames')
 
-result = get_bbox_for_video(bbox_json_path)
-# Print result in pretty format
-# if result:
-#     print(json.dumps(result["GX010309_clipped_with_audio"], indent=4))
-generate_segmentations(result)
+    args = parser.parse_args()
 
-# does not work rn
-# result = get_bboxes_for_video(bbox_json_path)
-# generate_segments_multiple_frames(result)
+    bbox_json_path = args.bbox_json_path
+    bbox_dir = args.bbox_dir
+
+    print("[INFO] Bounding box JSON path: ", bbox_json_path)   
+    print("[INFO] Bounding box directory: ", bbox_dir)
+
+    result = get_bbox_for_video(bbox_json_path, bbox_dir=bbox_dir)
+    # Print result in pretty format
+    # if result:
+    #     print(json.dumps(result["GX010309_clipped_with_audio"], indent=4))
+    generate_segmentations(result)
+
+    # does not work rn
+    # result = get_bboxes_for_video(bbox_json_path)
+    # generate_segments_multiple_frames(result)

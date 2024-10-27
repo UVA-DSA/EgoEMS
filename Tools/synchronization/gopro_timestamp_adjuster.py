@@ -75,6 +75,11 @@ if __name__ == "__main__":
         sync_gopro_time = row['sync_gopro_time']
         sync_kinect_time = row['sync_kinect_time']
 
+        # update the path to the gopro timestamp file by appending _30fps.csv
+        gopro_timestamp_file = gopro_timestamp_file.replace(".csv", "_30fps.csv")
+        print("[INFO] GoPro timestamp file:", gopro_timestamp_file)
+
+
         # Check if both GoPro and Kinect timestamp files exist
         if not os.path.exists(gopro_timestamp_file) or not os.path.exists(kinect_timestamp_file):
             exit(f"[ERROR] Timestamps folder not found at {gopro_timestamp_file} or {kinect_timestamp_file}")
