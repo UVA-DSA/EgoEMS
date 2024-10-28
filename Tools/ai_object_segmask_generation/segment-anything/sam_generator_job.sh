@@ -53,4 +53,5 @@ find "$input_folder" -type f -name "bbox_annotations.json" | while read bbox_ann
     fi
     echo "****************************************************"
 
+echo "All mask generation tasks completed."
 done

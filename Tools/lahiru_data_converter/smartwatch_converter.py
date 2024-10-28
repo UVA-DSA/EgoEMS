@@ -31,6 +31,7 @@ def convert_smartwatch_data(input_file, timestamps_file, output_file):
         line_pattern = re.compile(r'^(\d+),(\d+),(\d+),(\[.*\]),(.+)$')
         
         # Reading and processing each line from the text file
+        index = 0
         for seq_num, line in enumerate(file, start=1):
             # Skip empty lines
             parts_length = len(line.strip().split(","))
@@ -41,12 +42,21 @@ def convert_smartwatch_data(input_file, timestamps_file, output_file):
                 print(f"Warning: Skipping empty line at seq_num {seq_num}")
                 continue
             
+            # check if first part is the number related to accelerometer
+            sensor = line.strip().split(",")[0]
+            if sensor != "1":
+                print(f"Warning: Skipping line with data not related accelerometer  at seq_num {seq_num}")
+                continue
+
+
             # Match the line against the pattern
             match = line_pattern.match(line.strip())
             if not match:
                 print(f"Warning: Skipping line with unexpected format at seq_num {seq_num}")
                 continue
             
+            print("[INFO] processing smartwatch data", sensor)
+
             # Extract matched groups
             sw_epoch_ms = match.group(3)
             values_str = match.group(4)
@@ -60,14 +70,15 @@ def convert_smartwatch_data(input_file, timestamps_file, output_file):
                 continue
             
             # Get server_epoch_ms from timestamps file using seq_num (1-based index)
-            server_epoch_ms = timestamps[seq_num - 1] if seq_num - 1 < len(timestamps) else ""
-            
+            server_epoch_ms = timestamps[index - 1] if index - 1 < len(timestamps) else timestamps[-1]
             # Prepare a row with the matched `server_epoch_ms`
             row = [
                 sw_epoch_ms, wrist_position, sensor_type,
                 values[0], values[1], values[2],
-                seq_num, server_epoch_ms
+                index, server_epoch_ms
             ]
+            
+            index += 1
             
             # Write the row to the CSV file
             writer.writerow(row)
