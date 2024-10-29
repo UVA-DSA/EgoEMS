@@ -76,6 +76,9 @@ if __name__ == "__main__":
                 gopro_file_path = os.path.join(gopro_path, gopro_files[0])
                 kinect_file_path = os.path.join(kinect_path, kinect_files[0])
 
+                if("cardiac_scenario/0/" not in gopro_file_path ):
+                    continue
+
                 print(f"[INFO] GoPro file: {gopro_file_path}")
                 print(f"[INFO] Kinect file: {kinect_file_path}")
 

@@ -12,7 +12,7 @@ def get_depth_camera_timestamps(file_path):
 
 def get_go_pro_adjusted_timestamps(gp_ts):
     """Adjust GoPro timestamps by the provided offset."""
-    return gp_ts['recalculated_epoch'].astype('int64') 
+    return gp_ts['recalculated_epoch'].astype('int64')//1e3 # Convert to microseconds for lahiru
 
 def process_modality_sw_depthsensor(trial_path, modalities):
     """Process modality files to find smartwatch, depth sensor, GoPro, and depth camera data."""
@@ -179,7 +179,6 @@ def synchronize(base_dir, gopro_file_path, kinect_file_path, gopro_timestamp_pat
     if sw_data is not None and depth_data is not None:
         print(f"[INFO] goPro start frame: {gp_sf}, goPro end frame: {gp_ef}")
         timestamps = gp_adj_ts[gp_sf:gp_ef]
-        print(f"[INFO] GoPro timestamps: {(timestamps)}")
         df_sw, df_ds = synchronize_smartwatch_depth(sw_data, depth_data, timestamps)
 
         sync_sw_csv_path = os.path.join(trial_path, 'smartwatch_data')
