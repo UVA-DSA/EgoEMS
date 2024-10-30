@@ -1,0 +1,24 @@
+{
+    "EXPERTISE_LEVELS" :{
+    "ms1": "EMT",
+    "ms2": "EMT",
+    "ng1": "EMT",
+    "ng2": "EMT",
+    "ng3": "EMT",
+    "ng4": "EMT",
+    "ng5": "EMT",
+    "ng6": "EMT",
+    "ng7": "Not certified",
+    "ng8": "Not certified",
+    "ng9": "Not certified",
+    "ng10": "EMT",
+    "ng11": "Not certified",
+    "wa0": "Paramedic",
+    "wa1": "EMT",
+    "wa2": "EMT",
+    "wa4": "EMT",
+    "wa5": "EMT",
+    "wa6": "EMT",
+    "wa7": "EMT"
+}
+}

@@ -16,20 +16,6 @@ def recalculate_timestamps_cts(gopro_timestamp_file, kinect_timestamp_file, sync
     cts_diff = int(cts_diff)
     print(f"[INFO] CTS difference in ns: {cts_diff}")
 
-    # Calculate the difference between the sync times
-    # find the sync time from the gopro_timestamps_df using the sync_gopro_frame
-    
-    #### since lahirus data is at 60fps, we need to adjust the sync_gopro_frame to 30fps
-    sync_gopro_frame = int(sync_gopro_frame / 2)
-    sync_gopro_time = gopro_timestamps_df.at[sync_gopro_frame, 'epoch']
-    sync_kinect_time = int(int(kinect_timestamps.at[sync_kinect_frame, 'timestamp'] ) * 1e3) # Convert to nanoseconds
-
-    print(f"[INFO] sync_gopro_time: {sync_gopro_time}")
-    print(f"[INFO] sync_kinect_time: {sync_kinect_time}")
-
-    sync_time_diff = sync_gopro_time - sync_kinect_time
-    print(f"[INFO] Sync time difference: {sync_time_diff}")
-
     # Assign Kinect sync time to GoPro recalculated_epoch for the sync frame
     gopro_timestamps_df.at[sync_gopro_frame, 'recalculated_epoch'] = sync_kinect_time
 
@@ -64,8 +50,9 @@ if __name__ == "__main__":
 
     sync_offset_folder = os.path.join(base_path , 'sync_offsets', sync_day)
 
+    sync_file_name = "sync_offset_data.csv"
     # Load sync offset data
-    offset_file_path = os.path.join(sync_offset_folder, f'sync_offset_data.csv')
+    offset_file_path = os.path.join(sync_offset_folder, sync_file_name)
 
     
     # Check if the offset file exists
@@ -88,9 +75,6 @@ if __name__ == "__main__":
         sync_gopro_time = row['sync_gopro_time']
         sync_kinect_time = row['sync_kinect_time']
 
-        # append _30fps.csv to the gopro_timestamp_file
-        gopro_timestamp_file = gopro_timestamp_file.replace(".csv", "_30fps.csv")
-
         # Check if both GoPro and Kinect timestamp files exist
         if not os.path.exists(gopro_timestamp_file) or not os.path.exists(kinect_timestamp_file):
             exit(f"[ERROR] Timestamps folder not found at {gopro_timestamp_file} or {kinect_timestamp_file}")
@@ -102,14 +86,7 @@ if __name__ == "__main__":
         print(f"[INFO] Sync offset: {sync_offset}")
 
         # Recalculate timestamps
-        try:
-            recalculate_timestamps_cts(gopro_timestamp_file, kinect_timestamp_file, sync_gopro_frame, sync_kinect_frame, sync_gopro_time, sync_kinect_time, sync_offset)
-        except Exception as e:
-            print(f"[ERROR] Failed to recalculate timestamps for GoPro recording: {row['gopro_file_id']}")
-            print(f"[ERROR] {e}")
-            continue
-        
+        recalculate_timestamps_cts(gopro_timestamp_file, kinect_timestamp_file, sync_gopro_frame, sync_kinect_frame, sync_gopro_time, sync_kinect_time, sync_offset)
+
         print(f"[SUCCESS] Timestamps recalculated for GoPro recording: {row['gopro_file_id']}")
         print("="*50)
-
-        # break
