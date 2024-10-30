@@ -553,6 +553,11 @@
                 {
                     "trial_id": "6",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010408_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/6/i3d_flow/GX010408_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/6/smartwatch_data/sync_smartwatch.csv",
@@ -561,6 +566,11 @@
                         "resnet50": {
                             "file_id": "GX010408_encoded_trimmed_resnet",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/6/resnet50/GX010408_encoded_trimmed_resnet.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010408_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/6/i3d_rgb/GX010408_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -574,8 +584,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
-                            "file_id": "GX010408_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/6/resnet50-exo/GX010408_encoded_trimmed_resnet.npy",
+                            "file_id": "ms1_t6_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/6/resnet50-exo/ms1_t6_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "VL6180": [],
@@ -641,6 +651,11 @@
                 {
                     "trial_id": "7",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010409_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/7/i3d_flow/GX010409_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/7/smartwatch_data/sync_smartwatch.csv",
@@ -649,6 +664,11 @@
                         "resnet50": {
                             "file_id": "GX010409_encoded_trimmed_resnet",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/7/resnet50/GX010409_encoded_trimmed_resnet.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010409_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/7/i3d_rgb/GX010409_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -662,8 +682,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
-                            "file_id": "GX010409_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/7/resnet50-exo/GX010409_encoded_trimmed_resnet.npy",
+                            "file_id": "ms1_t7_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/7/resnet50-exo/ms1_t7_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "VL6180": [],
@@ -715,6 +735,11 @@
                 {
                     "trial_id": "8",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010410_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/8/i3d_flow/GX010410_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/8/smartwatch_data/sync_smartwatch.csv",
@@ -723,6 +748,11 @@
                         "resnet50": {
                             "file_id": "GX010410_encoded_trimmed_resnet",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/8/resnet50/GX010410_encoded_trimmed_resnet.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010410_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/8/i3d_rgb/GX010410_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -736,8 +766,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
-                            "file_id": "GX010410_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/8/resnet50-exo/GX010410_encoded_trimmed_resnet.npy",
+                            "file_id": "ms1_t8_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/8/resnet50-exo/ms1_t8_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "VL6180": [],
@@ -7771,6 +7801,11 @@
                 {
                     "trial_id": "0",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010387_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/0/i3d_flow/GX010387_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": [],
                         "resnet50": {
                             "file_id": "GX010387_encoded_trimmed_resnet",
@@ -7780,6 +7815,11 @@
                         "audio": {
                             "file_id": "GX010387_encoded.MP4",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/0/audio/GX010387_encoded.MP4.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010387_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/0/i3d_rgb/GX010387_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -7793,8 +7833,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
-                            "file_id": "GX010387_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/0/resnet50-exo/GX010387_encoded_trimmed_resnet.npy",
+                            "file_id": "wa1_t0_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/0/resnet50-exo/wa1_t0_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "VL6180": [],
@@ -7889,8 +7929,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
-                            "file_id": "GX010388_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/1/resnet50-exo/GX010388_encoded_trimmed_resnet.npy",
+                            "file_id": "wa1_t1_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/1/resnet50-exo/wa1_t1_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
@@ -7991,8 +8031,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
-                            "file_id": "GX010389_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/2/resnet50-exo/GX010389_encoded_trimmed_resnet.npy",
+                            "file_id": "wa1_t2_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/2/resnet50-exo/wa1_t2_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
@@ -8079,8 +8119,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
-                            "file_id": "GX010390_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/3/resnet50-exo/GX010390_encoded_trimmed_resnet.npy",
+                            "file_id": "wa1_t3_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/3/resnet50-exo/wa1_t3_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
@@ -8480,6 +8520,11 @@
                 {
                     "trial_id": "0",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010411_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa2/chest_pain/0/i3d_flow/GX010411_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa2/chest_pain/0/smartwatch_data/sync_smartwatch.csv",
@@ -8488,6 +8533,11 @@
                         "resnet50": {
                             "file_id": "GX010411_encoded_trimmed_resnet",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa2/chest_pain/0/resnet50/GX010411_encoded_trimmed_resnet.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010411_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa2/chest_pain/0/i3d_rgb/GX010411_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -8501,8 +8551,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
-                            "file_id": "GX010411_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa2/chest_pain/0/resnet50-exo/GX010411_encoded_trimmed_resnet.npy",
+                            "file_id": "wa2_t0_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa2/chest_pain/0/resnet50-exo/wa2_t0_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "VL6180": [],
@@ -8567,6 +8617,11 @@
                 {
                     "trial_id": "0",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010405_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/0/i3d_flow/GX010405_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/0/smartwatch_data/sync_smartwatch.csv",
@@ -8575,6 +8630,11 @@
                         "resnet50": {
                             "file_id": "GX010405_encoded_trimmed_resnet",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/0/resnet50/GX010405_encoded_trimmed_resnet.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010405_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/0/i3d_rgb/GX010405_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -8588,8 +8648,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
-                            "file_id": "GX010405_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/0/resnet50-exo/GX010405_encoded_trimmed_resnet.npy",
+                            "file_id": "wa4_t0_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/0/resnet50-exo/wa4_t0_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "VL6180": [],
@@ -8641,6 +8701,11 @@
                 {
                     "trial_id": "1",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010406_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/1/i3d_flow/GX010406_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/1/smartwatch_data/sync_smartwatch.csv",
@@ -8649,6 +8714,11 @@
                         "resnet50": {
                             "file_id": "GX010406_encoded_trimmed_resnet",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/1/resnet50/GX010406_encoded_trimmed_resnet.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010406_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/1/i3d_rgb/GX010406_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -8662,8 +8732,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
-                            "file_id": "GX010406_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/1/resnet50-exo/GX010406_encoded_trimmed_resnet.npy",
+                            "file_id": "wa4_t1_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/1/resnet50-exo/wa4_t1_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "VL6180": [],
@@ -8735,6 +8805,11 @@
                 {
                     "trial_id": "0",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010407_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa6/chest_pain/0/i3d_flow/GX010407_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa6/chest_pain/0/smartwatch_data/sync_smartwatch.csv",
@@ -8743,6 +8818,11 @@
                         "resnet50": {
                             "file_id": "GX010407_encoded_trimmed_resnet",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa6/chest_pain/0/resnet50/GX010407_encoded_trimmed_resnet.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010407_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa6/chest_pain/0/i3d_rgb/GX010407_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -8756,8 +8836,8 @@
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
-                            "file_id": "GX010407_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa6/chest_pain/0/resnet50-exo/GX010407_encoded_trimmed_resnet.npy",
+                            "file_id": "wa6_t0_trimmed_final_resnet",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa6/chest_pain/0/resnet50-exo/wa6_t0_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "VL6180": [],

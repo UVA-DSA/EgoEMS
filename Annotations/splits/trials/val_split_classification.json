@@ -184,8 +184,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ]
         },
@@ -387,8 +386,7 @@
                             "class_id": 13
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ]
         },
@@ -611,8 +609,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "0",
@@ -836,8 +833,7 @@
                             "class_id": 4
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ]
         },
@@ -1081,8 +1077,7 @@
                             "class_id": 12
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ]
         },
@@ -1291,8 +1286,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "3",
@@ -1495,8 +1489,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "1",
@@ -1692,8 +1685,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "8",
@@ -1882,8 +1874,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ]
         },
@@ -2085,8 +2076,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ]
         },
@@ -2253,8 +2243,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "3",
@@ -2457,8 +2446,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ]
         },
@@ -3010,8 +2998,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ]
         }

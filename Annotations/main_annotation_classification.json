@@ -141,8 +141,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "1",
@@ -331,8 +330,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "2",
@@ -514,8 +512,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "3",
@@ -718,8 +715,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "4",
@@ -852,8 +848,7 @@
                             "class_id": 4
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "5",
@@ -1049,12 +1044,16 @@
                             "class_id": 4
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "6",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010408_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/6/i3d_flow/GX010408_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/6/smartwatch_data/sync_smartwatch.csv",
@@ -1063,6 +1062,11 @@
                         "resnet50": {
                             "file_id": "GX010408_encoded_trimmed_resnet",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/6/resnet50/GX010408_encoded_trimmed_resnet.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010408_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/6/i3d_rgb/GX010408_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -1236,12 +1240,16 @@
                             "class_id": 34
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "chest_pain"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "7",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010409_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/7/i3d_flow/GX010409_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/7/smartwatch_data/sync_smartwatch.csv",
@@ -1250,6 +1258,11 @@
                         "resnet50": {
                             "file_id": "GX010409_encoded_trimmed_resnet",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/7/resnet50/GX010409_encoded_trimmed_resnet.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010409_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/7/i3d_rgb/GX010409_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -1381,12 +1394,16 @@
                             "class_id": 34
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "chest_pain"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "8",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010410_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/8/i3d_flow/GX010410_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/8/smartwatch_data/sync_smartwatch.csv",
@@ -1395,6 +1412,11 @@
                         "resnet50": {
                             "file_id": "GX010410_encoded_trimmed_resnet",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/8/resnet50/GX010410_encoded_trimmed_resnet.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010410_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/8/i3d_rgb/GX010410_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -1526,8 +1548,7 @@
                             "class_id": 30
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "chest_pain"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "EMT"
@@ -1729,8 +1750,7 @@
                             "class_id": 13
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "1",
@@ -1926,8 +1946,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "2",
@@ -2116,8 +2135,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "3",
@@ -2299,8 +2317,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "4",
@@ -2496,8 +2513,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "EMT"
@@ -2643,8 +2659,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "1",
@@ -2875,8 +2890,7 @@
                             "class_id": 7
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "EMT"
@@ -3106,8 +3120,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "1",
@@ -3359,8 +3372,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "EMT"
@@ -3590,8 +3602,7 @@
                             "class_id": 4
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "1",
@@ -3794,8 +3805,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "10",
@@ -4047,8 +4057,7 @@
                             "class_id": 4
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "11",
@@ -4300,8 +4309,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "12",
@@ -4553,8 +4561,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "2",
@@ -4778,8 +4785,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "3",
@@ -5024,8 +5030,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "4",
@@ -5277,8 +5282,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "5",
@@ -5488,8 +5492,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "6",
@@ -5678,8 +5681,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "7",
@@ -5896,8 +5898,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "8",
@@ -6128,8 +6129,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "9",
@@ -6374,8 +6374,7 @@
                             "class_id": 4
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "EMT"
@@ -6612,8 +6611,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "1",
@@ -6816,8 +6814,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "2",
@@ -7055,8 +7052,7 @@
                             "class_id": 12
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "3",
@@ -7287,8 +7283,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "4",
@@ -7498,8 +7493,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "EMT"
@@ -7687,8 +7681,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "1",
@@ -7884,8 +7877,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "10",
@@ -8081,8 +8073,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "11",
@@ -8285,8 +8276,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "12",
@@ -8468,8 +8458,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "13",
@@ -8651,8 +8640,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "14",
@@ -8834,8 +8822,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "15",
@@ -9024,8 +9011,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "16",
@@ -9228,8 +9214,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "17",
@@ -9411,8 +9396,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "18",
@@ -9601,8 +9585,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "19",
@@ -9826,8 +9809,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "2",
@@ -10030,8 +10012,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "20",
@@ -10283,8 +10264,7 @@
                             "class_id": 6
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "3",
@@ -10487,8 +10467,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "4",
@@ -10684,8 +10663,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "5",
@@ -10888,8 +10866,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "6",
@@ -11085,8 +11062,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "7",
@@ -11282,8 +11258,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "8",
@@ -11472,8 +11447,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "9",
@@ -11669,8 +11643,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "EMT"
@@ -11865,8 +11838,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "1",
@@ -12041,8 +12013,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "2",
@@ -12196,8 +12167,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "3",
@@ -12365,8 +12335,7 @@
                             "class_id": 8
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "4",
@@ -12562,8 +12531,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "5",
@@ -12759,8 +12727,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "EMT"
@@ -12983,8 +12950,7 @@
                             "class_id": 11
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "Not certified"
@@ -13186,8 +13152,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "1",
@@ -13397,8 +13362,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "10",
@@ -13573,8 +13537,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "2",
@@ -13770,8 +13733,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "3",
@@ -13974,8 +13936,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "4",
@@ -14178,8 +14139,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "5",
@@ -14340,8 +14300,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "6",
@@ -14558,8 +14517,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "7",
@@ -14706,8 +14664,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "8",
@@ -14868,8 +14825,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "9",
@@ -15051,8 +15007,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "Not certified"
@@ -15170,8 +15125,7 @@
                             "class_id": 4
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "1",
@@ -15297,8 +15251,7 @@
                             "class_id": 4
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "Not certified"
@@ -15309,6 +15262,11 @@
                 {
                     "trial_id": "0",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010387_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/0/i3d_flow/GX010387_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": [],
                         "resnet50": {
                             "file_id": "GX010387_encoded_trimmed_resnet",
@@ -15318,6 +15276,11 @@
                         "audio": {
                             "file_id": "GX010387_encoded.MP4",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/0/audio/GX010387_encoded.MP4.mp3",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010387_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/0/i3d_rgb/GX010387_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -15470,8 +15433,7 @@
                             "class_id": 34
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "chest_pain"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "1",
@@ -15664,8 +15626,7 @@
                             "class_id": 29
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "chest_pain"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "2",
@@ -15844,8 +15805,7 @@
                             "class_id": 15
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "chest_pain"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "3",
@@ -16017,8 +15977,7 @@
                             "class_id": 34
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "chest_pain"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "4",
@@ -16564,8 +16523,7 @@
                             "class_id": 14
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "5",
@@ -16866,8 +16824,7 @@
                             "class_id": 9
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "cardiac_arrest"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "EMT"
@@ -16878,6 +16835,11 @@
                 {
                     "trial_id": "0",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010411_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa2/chest_pain/0/i3d_flow/GX010411_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa2/chest_pain/0/smartwatch_data/sync_smartwatch.csv",
@@ -16886,6 +16848,11 @@
                         "resnet50": {
                             "file_id": "GX010411_encoded_trimmed_resnet",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa2/chest_pain/0/resnet50/GX010411_encoded_trimmed_resnet.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010411_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa2/chest_pain/0/i3d_rgb/GX010411_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -17038,8 +17005,7 @@
                             "class_id": 34
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "chest_pain"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "EMT"
@@ -17050,6 +17016,11 @@
                 {
                     "trial_id": "0",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010405_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/0/i3d_flow/GX010405_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/0/smartwatch_data/sync_smartwatch.csv",
@@ -17058,6 +17029,11 @@
                         "resnet50": {
                             "file_id": "GX010405_encoded_trimmed_resnet",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/0/resnet50/GX010405_encoded_trimmed_resnet.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010405_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/0/i3d_rgb/GX010405_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -17203,12 +17179,16 @@
                             "class_id": 34
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "chest_pain"
+                    "interventions": {}
                 },
                 {
                     "trial_id": "1",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010406_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/1/i3d_flow/GX010406_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/1/smartwatch_data/sync_smartwatch.csv",
@@ -17217,6 +17197,11 @@
                         "resnet50": {
                             "file_id": "GX010406_encoded_trimmed_resnet",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/1/resnet50/GX010406_encoded_trimmed_resnet.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010406_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa4/chest_pain/1/i3d_rgb/GX010406_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -17397,8 +17382,7 @@
                             "class_id": 33
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "chest_pain"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "EMT"
@@ -17409,6 +17393,11 @@
                 {
                     "trial_id": "0",
                     "streams": {
+                        "i3d_flow": {
+                            "file_id": "GX010407_encoded_trimmed_flow",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa6/chest_pain/0/i3d_flow/GX010407_encoded_trimmed_flow.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa6/chest_pain/0/smartwatch_data/sync_smartwatch.csv",
@@ -17417,6 +17406,11 @@
                         "resnet50": {
                             "file_id": "GX010407_encoded_trimmed_resnet",
                             "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa6/chest_pain/0/resnet50/GX010407_encoded_trimmed_resnet.npy",
+                            "protocol": "Cardiac Arrest - 2-1"
+                        },
+                        "i3d_rgb": {
+                            "file_id": "GX010407_encoded_trimmed_rgb",
+                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa6/chest_pain/0/i3d_rgb/GX010407_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
@@ -17569,8 +17563,7 @@
                             "class_id": 34
                         }
                     ],
-                    "interventions": {},
-                    "scenario": "chest_pain"
+                    "interventions": {}
                 }
             ],
             "expertise_level": "EMT"
