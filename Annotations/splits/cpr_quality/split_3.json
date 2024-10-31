@@ -1,0 +1,4 @@
+{
+    "train": "ng2,P5,P21,ng7,wa1,P15,P14,P3,P22,P7,P20,ng9,wa6,ng5,ms1,wa2,P1,P4,ng6,P0,P11,ng3",
+    "validation": "ng1,P10,ms2,ng4,wa4,P12,ng8,P16,P2"
+}

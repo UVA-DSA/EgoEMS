@@ -26,8 +26,8 @@ MAX_ACC=torch.tensor([69.7335, 59.6060, 77.9001]).unsqueeze(0).unsqueeze(0)
 MIN_DEPTH=0.0
 MAX_DEPTH=82.0
 
-annot_path=r'Annotations/main_annotation.json'
-split_paths = [r'Annotations/splits/cpr_quality/subject_splits_1.json', r'Annotations/splits/cpr_quality/subject_splits_2.json', r'Annotations/splits/cpr_quality/subject_splits_3.json', r'Annotations/splits/cpr_quality/subject_splits_4.json']
+annot_path=r'Annotations/main_annotation_cpr_quality.json'
+split_paths = [r'Annotations/splits/cpr_quality/split_1.json', r'Annotations/splits/cpr_quality/split_2.json', r'Annotations/splits/cpr_quality/split_3.json', r'Annotations/splits/cpr_quality/split_4.json']
 
 log_base_path=r'Benchmarks/CPR_quality/smartwatch/logs/'
 
