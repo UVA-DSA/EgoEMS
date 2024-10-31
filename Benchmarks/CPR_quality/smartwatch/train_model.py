@@ -139,7 +139,7 @@ def train(model, train_data_loader, valid_data_loader, criterion, optimizer, sch
 if __name__ == "__main__":
     
         # initialize paths
-    split_path = split_paths[0]
+    split_path = split_paths[3]
     
     split = split_path.split('/')[-1].split('.')[0]
     

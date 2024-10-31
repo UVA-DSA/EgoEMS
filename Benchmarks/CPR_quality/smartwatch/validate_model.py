@@ -27,8 +27,8 @@ MAX_ACC=torch.tensor([69.7335, 59.6060, 77.9001]).unsqueeze(0).unsqueeze(0)
 MIN_DEPTH=0.0
 MAX_DEPTH=82.0
 
-annot_path=r'Annotations/main_annotation.json'
-split_paths = [r'Annotations/splits/cpr_quality/subject_splits_1.json', r'Annotations/splits/cpr_quality/subject_splits_2.json', r'Annotations/splits/cpr_quality/subject_splits_3.json', r'Annotations/splits/cpr_quality/subject_splits_4.json']
+annot_path=r'Annotations/main_annotation_cpr_quality.json'
+split_paths = [r'Annotations/splits/cpr_quality/split_1.json', r'Annotations/splits/cpr_quality/split_2.json', r'Annotations/splits/cpr_quality/split_3.json', r'Annotations/splits/cpr_quality/split_4.json']
 
 log_base_path=r'Benchmarks/CPR_quality/smartwatch/logs/'
 
@@ -69,9 +69,13 @@ def validate(model,data_loader):
     ncpr_error_meter = utils.AverageMeter('cprError', ':.4e')
 
     for i, batch in enumerate(data_loader):
+        print("-----------------")
         data=batch['smartwatch'].float()
         depth_gt=batch['depth_sensor'].squeeze()
         depth_gt_mask=depth_gt>0
+
+        print("data shape: ", data.shape)
+        print("depth_gt shape: ", depth_gt.shape)
 
         avg_depths_list,min_depths_list,n_cpr=get_avg_depth(depth_gt)
         data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
@@ -85,7 +89,13 @@ def validate(model,data_loader):
 
         #cpr frequency error
         _,_,n_cpr_pred=get_avg_depth(rec)
+
+        print("gt_cpr_rate: ", n_cpr)
+        print("pred_cpr_rate: ",n_cpr_pred)
+
         cpr_error=torch.mean((n_cpr-n_cpr_pred)**2)**0.5
+        print("cpr_error: ", cpr_error)
+        
         ncpr_error_meter.update(cpr_error.item(),bs)
 
         subject = batch['subject_id']
@@ -93,8 +103,9 @@ def validate(model,data_loader):
 
         msg = f'{subject},{trial},GT_Depth:{avg_depths_list.tolist()},Pred_Depth:{depth_pred.tolist()},Depth_error:{avg_depth_error:.2f}mm,GT_CPR_rate:{n_cpr.tolist()},Pred_CPR_rate:{n_cpr_pred.tolist()},CPR_rate_error:{cpr_error/(DATA_FPS*CLIP_LENGTH)*60:.2f}cpr/min'
         write_log_line(log_path,msg)
+        print("-----------------")
 
-    msg=f'Validation depth loss: {depth_loss_meter.avg:.2f} mm , CPR rate error: {ncpr_error_meter.avg/(DATA_FPS*CLIP_LENGTH)*60:.2f} cpr/min'
+    msg=f'Validation depth loss: {depth_loss_meter.avg:.2f} mm , CPR rate error: {ncpr_error_meter.avg/(CLIP_LENGTH*DATA_FPS)*60:.2f} cpr/min'
     print(msg)
     write_log_line(log_path,msg)
 
@@ -108,7 +119,7 @@ if __name__ == "__main__":
     
     split = split_path.split('/')[-1].split('.')[0]
     
-    log_path = os.path.join(log_base_path, f'validate_log_{split}.txt')
+    log_path = os.path.join(log_base_path, f'debug_validate_log_{split}.txt')
     
     init_log(log_path)
     
