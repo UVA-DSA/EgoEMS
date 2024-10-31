@@ -36,9 +36,6 @@ model_save_base_path = r'Benchmarks/CPR_quality/smartwatch/checkpoints/'
 model_save_path = r''
 data_path = r''
 
-
-
-
 def init_log(log_path):
     if os.path.exists(log_path):
         os.remove(log_path)
