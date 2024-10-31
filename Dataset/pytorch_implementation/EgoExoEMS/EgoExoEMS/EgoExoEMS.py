@@ -216,7 +216,11 @@ class EgoExoEMSDataset(Dataset):
                 if 'resnet_exo' in self.data_types:
                     resnet_exo_path = avail_streams.get('resnet50-exo', {}).get('file_path', None)  # Adjust key as needed
                 if 'smartwatch' in self.data_types:
-                    smartwatch_path = avail_streams.get('smartwatch_imu', {}).get('file_path', None)
+                    smartwatch_stream = avail_streams.get('smartwatch_imu', {})
+                    if smartwatch_stream:  # Check if smartwatch_imu is not an empty list or dict
+                        smartwatch_path = smartwatch_stream.get('file_path', None)
+                    else:
+                        smartwatch_path = None  # Set to None or handle accordingly if smartwatch_imu is empty
                 if 'depth_sensor' in self.data_types:
                     depth_sensor_path = avail_streams.get('vl6180_ToF_depth', {}).get('file_path', None)
 
@@ -756,7 +760,11 @@ class WindowEgoExoEMSDataset(Dataset):
                 if 'resnet_exo' in self.data_types:
                     resnet_exo_path = avail_streams.get('resnet50-exo', {}).get('file_path', None)  # Adjust key as needed
                 if 'smartwatch' in self.data_types:
-                    smartwatch_path = avail_streams.get('smartwatch_imu', {}).get('file_path', None)
+                    smartwatch_stream = avail_streams.get('smartwatch_imu', {})
+                    if smartwatch_stream:  # Check if smartwatch_imu is not an empty list or dict
+                        smartwatch_path = smartwatch_stream.get('file_path', None)
+                    else:
+                        smartwatch_path = None  # Set to None or handle accordingly if smartwatch_imu is empty
                 if 'depth_sensor' in self.data_types:
                     depth_sensor_path = avail_streams.get('vl6180_ToF_depth', {}).get('file_path', None)
 

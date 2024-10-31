@@ -33,7 +33,10 @@ def init_model(args):
 
     num_classes = len(args.dataloader_params["keysteps"])
     class_counts = args.dataloader_params["train_class_stats"]
+    val_class_counts = args.dataloader_params["val_class_stats"]
 
+    print("Training class counts: ", class_counts)
+    print("Validation class counts: ", val_class_counts)
     # update class_counts with missing classes from keysteps with 0 count
     for key in args.dataloader_params["keysteps"].keys():
         if key not in class_counts.keys():
@@ -49,7 +52,7 @@ def init_model(args):
     print("Class counts: ", class_counts, len(class_counts))
            
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_params["lr"], weight_decay=args.learning_params["weight_decay"])
-    # criterion = nn.CrossEntropyLoss()
+    criterion = nn.CrossEntropyLoss()
     
     # Class balanced loss
     criterion = ClassBalancedLoss(beta=0.99, num_classes=num_classes, class_counts=class_counts)

@@ -84,6 +84,8 @@ def calculate_f1_at_k(ground_truth, prediction, k, n_classes=3):
     n_pred = len(pred_intervals)
     n_true = len(gt_intervals)
 
+    print("n_pred: ", n_pred)
+    print("n_true: ", n_true)
     true_used = np.zeros(n_true, float)
 
     for i in range(n_pred):
@@ -96,6 +98,8 @@ def calculate_f1_at_k(ground_truth, prediction, k, n_classes=3):
 
         # If the IoU is high enough and the true segment isn't already used
         # Then it is a true positive. Otherwise is it a false positive.
+        print("i", i)
+        print("pred_labels[i]", pred_labels[i])
         if IoU[idx] >= k and not true_used[idx]:
             TP[pred_labels[i]] += 1
             true_used[idx] = 1

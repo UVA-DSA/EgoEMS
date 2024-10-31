@@ -98,9 +98,9 @@ if __name__ == "__main__":
         wandb_logger.log({"avg_val_loss": val_loss, "epoch": epoch})
 
         # save checkpoints if validation loss is minimum 
-        if val_loss < min_val_loss:
-            min_val_loss = val_loss
-            torch.save(model.state_dict(), f'{chkpoint_dir}/val_best_model.pt')
+        # if val_loss < min_val_loss:
+        #     min_val_loss = val_loss
+        torch.save(model.state_dict(), f'{chkpoint_dir}/val_best_model.pt')
 
 
         scheduler.step()
