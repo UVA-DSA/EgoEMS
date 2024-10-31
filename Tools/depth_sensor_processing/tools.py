@@ -48,3 +48,16 @@ def detect_peaks_and_valleys_depth_sensor(depth_vals,mul=1,show=True):
     depth_vals_norm=moving_normalize(depth_vals, 60)
     GT_peaks,GT_valleys,idx=find_peaks_and_valleys(depth_vals_norm,distance=dist,height=0.2,plot=show)
     return GT_peaks,GT_valleys
+
+'''
+CLIP_LENGTH : length of clip in seconds
+'''
+def is_CPR(x,CLIP_LENGTH=5,std_thres=5,ratio_thres=0.5):
+    import torch
+    parts=x.split(CLIP_LENGTH)
+    stds=[torch.std(p) for p in parts]
+    n_bad=len([s for s in stds if s<std_thres])
+    bad_ratio=n_bad/len(stds)
+    print(bad_ratio)
+    if bad_ratio>ratio_thres: return False
+    else: return True
