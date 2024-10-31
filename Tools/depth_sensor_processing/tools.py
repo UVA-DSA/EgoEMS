@@ -51,6 +51,9 @@ def detect_peaks_and_valleys_depth_sensor(depth_vals,mul=1,show=True):
 
 '''
 CLIP_LENGTH : length of clip in seconds
+use: 
+depth_gt=batch['depth_sensor'].squeeze()
+is_CPR(depth_gt)
 '''
 def is_CPR(x,CLIP_LENGTH=5,std_thres=5,ratio_thres=0.5):
     import torch
