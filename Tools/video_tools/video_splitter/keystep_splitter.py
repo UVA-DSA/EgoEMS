@@ -100,6 +100,11 @@ for subject_data in data['subjects']:
                 # Output file path for the clip
                 output_clip = os.path.join(output_dir, f"{clip_id}.mp4")
 
+                # Check if the clip already exists
+                if os.path.exists(output_clip):
+                    print(f"    [INFO] Clip already exists: {output_clip}")
+                    continue
+
                 print(f"    [INFO] Generating clip for view: {current_view}, label: {label}, subject: {subject_id}, trial: {trial_id}, keystep: {keystep_id}")
                 
                 # FFmpeg command to extract the clip
@@ -116,6 +121,7 @@ for subject_data in data['subjects']:
                 ]
                 # Uncomment to execute FFmpeg command
                 subprocess.run(ffmpeg_command)
+                print(f"    [INFO] FFmpeg command: {' '.join(ffmpeg_command)}")
 
 
   

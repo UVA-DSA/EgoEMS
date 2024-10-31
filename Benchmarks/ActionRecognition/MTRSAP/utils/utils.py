@@ -39,6 +39,9 @@ def init_model(args):
         if key not in class_counts.keys():
             class_counts[key] = 0
 
+    # reorganize class_counts to match the order of the keysteps
+    class_counts = {key: class_counts[key] for key in args.dataloader_params["keysteps"].keys()}
+
     # convert dictionary values to list
     class_counts = [class_counts[key] for key in class_counts.keys()]
     class_counts = torch.Tensor([max(1, count) for count in class_counts])
@@ -46,7 +49,7 @@ def init_model(args):
     print("Class counts: ", class_counts, len(class_counts))
            
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_params["lr"], weight_decay=args.learning_params["weight_decay"])
-    criterion = nn.CrossEntropyLoss()
+    # criterion = nn.CrossEntropyLoss()
     
     # Class balanced loss
     criterion = ClassBalancedLoss(beta=0.99, num_classes=num_classes, class_counts=class_counts)
