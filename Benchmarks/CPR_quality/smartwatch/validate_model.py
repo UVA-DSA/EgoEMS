@@ -9,6 +9,7 @@ from torch.utils.data import DataLoader
 from Benchmarks.CPR_quality.smartwatch import SWnet
 import utils
 from Tools.depth_sensor_processing import tools as depth_tools
+import numpy as np
 
 DATA_FPS=30
 bs=1
@@ -70,12 +71,14 @@ def validate(model,data_loader):
 
     for i, batch in enumerate(data_loader):
         print("-----------------")
+        print(f"Processing validation batch {i}/{len(data_loader)}")
+
         data=batch['smartwatch'].float()
         depth_gt=batch['depth_sensor'].squeeze()
         depth_gt_mask=depth_gt>0
 
-        print("data shape: ", data.shape)
-        print("depth_gt shape: ", depth_gt.shape)
+        # print("data shape: ", data.shape)
+        # print("depth_gt shape: ", depth_gt.shape)
 
         avg_depths_list,min_depths_list,n_cpr=get_avg_depth(depth_gt)
         data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
@@ -90,18 +93,39 @@ def validate(model,data_loader):
         #cpr frequency error
         _,_,n_cpr_pred=get_avg_depth(rec)
 
-        print("gt_cpr_rate: ", n_cpr)
-        print("pred_cpr_rate: ",n_cpr_pred)
+        # print("gt_cpr_rate: ", n_cpr)
+        # print("pred_cpr_rate: ",n_cpr_pred)
 
         cpr_error=torch.mean((n_cpr-n_cpr_pred)**2)**0.5
-        print("cpr_error: ", cpr_error)
+        # print("cpr_error: ", cpr_error)
         
         ncpr_error_meter.update(cpr_error.item(),bs)
 
         subject = batch['subject_id']
         trial = batch['trial_id']
 
-        msg = f'{subject},{trial},GT_Depth:{avg_depths_list.tolist()},Pred_Depth:{depth_pred.tolist()},Depth_error:{avg_depth_error:.2f}mm,GT_CPR_rate:{n_cpr.tolist()},Pred_CPR_rate:{n_cpr_pred.tolist()},CPR_rate_error:{cpr_error/(DATA_FPS*CLIP_LENGTH)*60:.2f}cpr/min'
+
+        accel_magnitude = torch.sqrt(torch.sum(data ** 2, axis=2))
+        # apply low pass filter
+        low_pass_accel_magnitude = depth_tools.low_pass_filter(accel_magnitude)
+
+        # no filtering
+        try:
+            avg_depths_list, min_depths_list, keshara_pred_cpr_rate = get_avg_depth(accel_magnitude)
+        except:
+            print("Error in calculating cpr rate for no filtering")
+            keshara_pred_cpr_rate = torch.tensor([0.0])
+        
+
+        # low pass filtering
+        try:
+            avg_depths_list, min_depths_list, low_pass_keshara_pred_cpr_rate = get_avg_depth(low_pass_accel_magnitude)
+        except:
+            print("Error in calculating cpr rate for low pass filtering")
+            low_pass_keshara_pred_cpr_rate = torch.tensor([0.0])
+
+        msg = f'{subject},{trial},GT_Depth:{avg_depths_list.tolist()},Pred_Depth:{depth_pred.tolist()},Depth_error:{avg_depth_error:.2f}mm,GT_CPR_rate:{n_cpr.tolist()},Pred_CPR_rate:{n_cpr_pred.tolist()},CPR_rate_error:{cpr_error/(CLIP_LENGTH)*60:.2f}cpr/min,Keshara_Pred_CPR_rate:{keshara_pred_cpr_rate.tolist()},Low_Pass_Keshara_Pred_CPR_rate:{low_pass_keshara_pred_cpr_rate.tolist()}'
+        print(msg)
         write_log_line(log_path,msg)
         print("-----------------")
 

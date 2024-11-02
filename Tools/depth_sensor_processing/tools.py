@@ -1,4 +1,6 @@
 import numpy as np
+from scipy.signal import butter, filtfilt
+import torch
 
 def moving_normalize(signal, window_size):
     # Initialize the normalized signal with zeros
@@ -64,3 +66,18 @@ def is_CPR(x,CLIP_LENGTH=5,std_thres=5,ratio_thres=0.5):
     print(bad_ratio)
     if bad_ratio>ratio_thres: return False
     else: return True
+
+
+
+# low pass filter
+def low_pass_filter(accel_magnitude, fs=30):
+
+    # Define filter parameters
+    cutoff = 5  # Cutoff frequency in Hz
+    order = 4  # Filter order
+
+    # Create Butterworth filter
+    b, a = butter(order, cutoff / (0.5 * fs), btype='low')
+    smoothed_magnitude = torch.tensor(filtfilt(b, a, accel_magnitude.cpu().numpy()).copy())
+
+    return smoothed_magnitude

@@ -8,10 +8,9 @@ from torch.utils.data import DataLoader
 from Benchmarks.CPR_quality.smartwatch import SWnet
 import utils
 from Tools.depth_sensor_processing import tools as depth_tools
-import numpy as np
 
 DATA_FPS=30
-bs=16
+bs=2
 CLIP_LENGTH=5
 EPOCHS=10
 # utils.get_data_stats(data_loader)
@@ -78,7 +77,7 @@ def validate(model,data_loader):
         gt_cpr_rate = n_cpr
 
         # run inference
-        rec,depth_pred=model(data_norm.permute(0,2,1))
+        rec,depth_pred, cpr_rate_pred=model(data_norm.permute(0,2,1))
 
         depth_pred=depth_pred*MAX_DEPTH
 
@@ -91,17 +90,10 @@ def validate(model,data_loader):
         cpr_error=torch.mean((n_cpr-n_cpr_pred)**2)**0.5
         ncpr_error_meter.update(cpr_error.item(),bs)
 
-
-        accel_magnitude = torch.sqrt(torch.sum(data ** 2, axis=2))
-        accel_magnitude_np = accel_magnitude.numpy().flatten()
-        timestamps = np.linspace(0, len(accel_magnitude_np) / DATA_FPS, len(accel_magnitude_np))
-        
-        avg_depths_list, min_depths_list, pred_cpr_rate = get_avg_depth(accel_magnitude)
-        
         subject = batch['subject_id']
         trial = batch['trial_id']
 
-        print(f"{subject},{trial},GT Rate:{gt_cpr_rate.tolist()},Lahiru Pred Rate:{n_cpr_pred.tolist()},Keshara Pred Rate:{pred_cpr_rate}")
+        print(f"{subject},{trial},GT Rate: {gt_cpr_rate}, Pred Rate: {cpr_rate_pred}")
         # msg = f'{subject},{trial},GT_Depth:{avg_depths_list.tolist()},Pred_Depth:{depth_pred.tolist()},Depth_error:{avg_depth_error:.2f}mm,GT_CPR_rate:{n_cpr.tolist()},Pred_CPR_rate:{n_cpr_pred.tolist()},CPR_rate_error:{cpr_error/(DATA_FPS*CLIP_LENGTH)*60:.2f}cpr/min'
         # write_log_line(log_path,msg)
 
@@ -116,35 +108,56 @@ def train(model, train_data_loader, valid_data_loader, criterion, optimizer, sch
             print(f'Epoch {epoch} , {i}/{len(train_data_loader)} is done',end='\r')
             data=batch['smartwatch'].float()
             depth_gt=batch['depth_sensor'].squeeze()
-            depth_gt_mask=depth_gt>0
 
             #get peaks and valleys from GT depth sensor data
             avg_depths_list,min_depths_list,gt_cpr_rate=get_avg_depth(depth_gt)
 
-            comp_depth=avg_depths_list/MAX_DEPTH
+            # Compute mean and standard deviation along the `samples` dimension for each channel
+            mean = data.mean(dim=1, keepdim=True)  # Shape: [batch_size, 1, 3]
+            std = data.std(dim=1, keepdim=True)     # Shape: [batch_size, 1, 3]
+            # Standardize each channel independently across the samples dimension
+            data_normalized = (data - mean) / (std + 1e-6)  # Adding epsilon to avoid division by zero
+            sw_data = data_normalized
 
-            #normnalize depth
-            depth_gt_norm=(depth_gt-min_depths_list.unsqueeze(1))/MAX_DEPTH
+            # run inference
+            pred_cpr_rate = model(sw_data)
 
-            #normalize acceleration
-            data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
-            # print(data_norm[0])
+            # Compute loss
+            cpr_rate_loss = criterion(pred_cpr_rate, gt_cpr_rate)
 
-            rec,depth_pred =model(data_norm.permute(0,2,1))
 
+            print("cpr_rate_pred: ", pred_cpr_rate)
+            print("cpr_rate_gt: ", gt_cpr_rate)
+            # depth_gt_mask=depth_gt>0
+
+            # comp_depth=avg_depths_list/MAX_DEPTH
+
+            # #normnalize depth
+            # depth_gt_norm=(depth_gt-min_depths_list.unsqueeze(1))/MAX_DEPTH
+
+            # #normalize acceleration
+            # data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
+            # # print(data_norm.shape)
+            # # print(data_norm[0])
+
+            # rec,depth_pred, cpr_rate_pred =model(data_norm.permute(0,2,1))
+
+            # # print("cpr_rate_pred: ", cpr_rate_pred)
+            # cpr_rate_loss = criterion(cpr_rate_pred, gt_cpr_rate)
             
-            rec_loss=criterion(rec[depth_gt_mask],depth_gt_norm[depth_gt_mask])
-            d_loss=criterion(depth_pred,comp_depth)
-            # print("rec_loss: ", rec_loss)
-            # print("d_loss: ", d_loss)
-            loss=rec_loss+d_loss
+            # rec_loss=criterion(rec[depth_gt_mask],depth_gt_norm[depth_gt_mask])
+            # d_loss=criterion(depth_pred,comp_depth)
+            # # print("rec_loss: ", rec_loss)
+            # # print("d_loss: ", d_loss)
+            # loss=rec_loss+d_loss+cpr_rate_loss
             
-            optimizer.zero_grad()
-            loss.backward()
-            optimizer.step()
+            # optimizer.zero_grad()
+            # loss.backward()
+            # optimizer.step()
 
-            rec_loss_meter.update(rec_loss.item(),bs)
-            depth_loss_meter.update(d_loss.item(),bs)
+            # rec_loss_meter.update(rec_loss.item(),bs)
+            # depth_loss_meter.update(d_loss.item(),bs)
+            cpr_rate_loss_meter.update(cpr_rate_loss.item(),bs)
 
         msg=f'Training Epoch {epoch} , rec loss: {rec_loss_meter.avg} , depth loss: {depth_loss_meter.avg}, cpr rate loss: {cpr_rate_loss_meter.avg}'
         print(msg)
@@ -190,7 +203,7 @@ if __name__ == "__main__":
 
     valid_data_loader = DataLoader(data, batch_size=bs, shuffle=True)
 
-    model=SWnet.SWNET(in_channels=3,out_len=DATA_FPS*CLIP_LENGTH)
+    model = SWnet.TransformerCPR()
     criterion = torch.nn.MSELoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
