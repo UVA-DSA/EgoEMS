@@ -45,7 +45,7 @@ learning_params = {
     "weight_decay": 1e-5,
     "patience": 3,
     "lr_drop": 20,
-    "best_chkpoint": "/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Benchmarks/ActionRecognition/MTRSAP/checkpoints/65608826/val_best_model.pt"
+    "best_chkpoint": "/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Benchmarks/ActionRecognition/MTRSAP/checkpoints/65620366/val_best_model.pt"
 }
 
 dataloader_params = {
