@@ -19,11 +19,12 @@ echo "[INFO] Running on node: $HOSTNAME"
 module load ffmpeg
 module load anaconda
 
+
 # Set the folder where MKV files are located
-annotation_file="/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/val_split.json"
-dataset_save_dir="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Kinect_CPR_Clips"
+annotation_file="/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split_cpr_quality.json"
+dataset_save_dir="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Kinect_CPR_Clips/Final"
 view="exo" # exo only
-split="val" # train, val, test
+split="test" # train, val, test
 
 # Quote paths with spaces
 python kinect_cpr_extract.py --annotation_file_path "$annotation_file" --dataset_root "$dataset_save_dir" --split "$split" --view "$view" &&

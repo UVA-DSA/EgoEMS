@@ -3,3 +3,6 @@
 *.onnx
 
 **/samples
+
+ai_object_bbox_generation/manual_verification/*.csv
+ai_object_bbox_generation/manual_verification/**/*.json

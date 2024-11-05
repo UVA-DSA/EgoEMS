@@ -38,8 +38,8 @@ class WristDet_mediapipe:
         self.mp_hands = mp.solutions.hands
         self.hands = self.mp_hands.Hands(
             static_image_mode=False,
-            max_num_hands=1,
-            min_detection_confidence=0.5
+            max_num_hands=4,
+            min_detection_confidence=0.6
         )
 
     def get_kypts(self, image):
