@@ -29,9 +29,9 @@ def write_log_line(log_path, msg):
     with open(log_path, 'a') as file:
         file.write(msg+'\n')
 
-GT_path=r'C:\Users\lahir\Downloads\data\standard\UVA-DSA\NIST EMS Project Data\EgoExoEMS_CVPR2025\Dataset\Final'
-data_path=r'C:\Users\lahir\Downloads\data\standard\UVA-DSA\NIST EMS Project Data\EgoExoEMS_CVPR2025\Dataset\Kinect_CPR_Clips\exo_kinect_cpr_clips'
-log_path=r'Benchmarks/CPR_quality/vision/log.txt'
+GT_path=r'/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final'
+data_path=r'/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Kinect_CPR_Clips/exo_kinect_cpr_clips'
+log_path=r'/scratch/cqa3ym/repos/EgoExoEMS/Benchmarks/CPR_quality/vision/cpr_depth_quality.txt'
 
 init_log(log_path)
 
@@ -64,6 +64,7 @@ for n in ['train_root','test_root','val_root']:
         keys.sort()
         wrist_x,wrist_y=[],[]
         key_list=[]
+
         for k in keys:
             kpt_data=json_data[str(k)]
             if len(kpt_data['x'])==0:
@@ -71,6 +72,7 @@ for n in ['train_root','test_root','val_root']:
             wrist_x.append(json_data[str(k)]['x'][0])
             wrist_y.append(json_data[str(k)]['y'][0])
             key_list.append(k)
+
         wrist_y=np.array(wrist_y,dtype=float)
         wrist_x=np.array(wrist_x,dtype=float)
 
@@ -162,8 +164,6 @@ for n in ['train_root','test_root','val_root']:
         msg=f'Subject: {sbj} CPR depth error : {depth_err} mm, CPR frequency error : {n_cpr_err/time*60} /min'
         print(msg)
         write_log_line(log_path,msg)
-
-
 
 
         # plt.imshow(rgb_imgs[idx])
