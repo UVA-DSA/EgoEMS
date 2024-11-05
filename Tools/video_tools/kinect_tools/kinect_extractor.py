@@ -5,7 +5,7 @@ import cv2
 
 
 # Define the path to your Kinect recording (MKV file)
-mkv_path = "c:/Users/kesha/Downloads/2024-09-05-19-58-16.mkv"
+mkv_path = "../../../TestData/wa1_t2_trimmed_final.mkv"
 
 # Create a reader for the MKV file
 reader = o3d.io.AzureKinectMKVReader()
