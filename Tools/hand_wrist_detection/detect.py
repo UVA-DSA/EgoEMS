@@ -42,46 +42,87 @@ class WristDet_mediapipe:
             min_detection_confidence=0.6
         )
 
+    ### This function is used to get the keypoints of the closest hand wrist
+    # def get_kypts(self, image):
+    #     height, width, _ = image.shape
+    #     results = self.hands.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+    #     xy_vals = []
+    #     z_vals = []
+    #     if results.multi_hand_landmarks:
+    #         for hand_landmarks in results.multi_hand_landmarks:
+    #             for i in range(21):
+    #                 x = int(hand_landmarks.landmark[i].x * width)
+    #                 y = int(hand_landmarks.landmark[i].y * height)
+    #                 z = hand_landmarks.landmark[i].z
+    #                 xy_vals.append((x, y))
+    #                 z_vals.append(z)
+    #         if len(xy_vals) == 42:
+    #             closest_hand = np.argmin([z_vals[0], z_vals[21]])
+    #             start_coord = 0 if closest_hand == 0 else 21
+    #             xy_vals = xy_vals[start_coord:start_coord + 21]
+    #     return image, xy_vals
+
+    ### This function is used to get the keypoints of all hands
     def get_kypts(self, image):
         height, width, _ = image.shape
         results = self.hands.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
-        xy_vals = []
-        z_vals = []
+        all_hands = []  # To store landmarks for all hands
+
         if results.multi_hand_landmarks:
             for hand_landmarks in results.multi_hand_landmarks:
+                xy_vals = []
                 for i in range(21):
                     x = int(hand_landmarks.landmark[i].x * width)
                     y = int(hand_landmarks.landmark[i].y * height)
-                    z = hand_landmarks.landmark[i].z
                     xy_vals.append((x, y))
-                    z_vals.append(z)
-            if len(xy_vals) == 42:
-                closest_hand = np.argmin([z_vals[0], z_vals[21]])
-                start_coord = 0 if closest_hand == 0 else 21
-                xy_vals = xy_vals[start_coord:start_coord + 21]
-        return image, xy_vals
+                all_hands.append(xy_vals)  # Add current hand's landmarks to the list
+
+        return image, all_hands
 
 
+### This function is used to get the keypoints of the closest hand wrist
+# def get_kpts(img, wrst, base_model):
+#     results = base_model.predict(img)
+#     bb = get_bb(results)
+
+#     if bb is None or len(bb) == 0:  # Check if bounding box is empty
+#         print("No bounding box detected.")
+#         return {"x": [], "y": []}  # Return empty keypoints
+    
+#     pad = 80
+#     img_crop = crop_img_bb(img, bb, pad, show=False)
+#     image, xy_vals = wrst.get_kypts(img_crop)
+
+#     if not xy_vals:  # Check if keypoints are detected
+#         print("No keypoints detected.")
+#         return {"x": [], "y": []}  # Return empty keypoints
+
+#     x_vals = [int(val[0] + bb[0] - pad) for val in xy_vals]
+#     y_vals = [int(val[1] + bb[1] - pad) for val in xy_vals]
+#     kpt_dict = {"x": x_vals, "y": y_vals}
+#     return kpt_dict
+
+### This function is used to get the keypoints of all hands
 def get_kpts(img, wrst, base_model):
     results = base_model.predict(img)
     bb = get_bb(results)
 
     if bb is None or len(bb) == 0:  # Check if bounding box is empty
         print("No bounding box detected.")
-        return {"x": [], "y": []}  # Return empty keypoints
+        return {"hands": []}  # Return empty list for hands
     
     pad = 80
     img_crop = crop_img_bb(img, bb, pad, show=False)
-    image, xy_vals = wrst.get_kypts(img_crop)
+    image, all_hands = wrst.get_kypts(img_crop)
 
-    if not xy_vals:  # Check if keypoints are detected
-        print("No keypoints detected.")
-        return {"x": [], "y": []}  # Return empty keypoints
+    hands_data = []
+    for hand in all_hands:
+        x_vals = [int(val[0] + bb[0] - pad) for val in hand]
+        y_vals = [int(val[1] + bb[1] - pad) for val in hand]
+        hands_data.append({"x": x_vals, "y": y_vals})
+    
+    return {"hands": hands_data}
 
-    x_vals = [int(val[0] + bb[0] - pad) for val in xy_vals]
-    y_vals = [int(val[1] + bb[1] - pad) for val in xy_vals]
-    kpt_dict = {"x": x_vals, "y": y_vals}
-    return kpt_dict
 
 
 def process_video(video_path, output_json_path, wrst, base_model):
