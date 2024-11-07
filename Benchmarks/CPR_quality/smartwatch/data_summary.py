@@ -1,6 +1,7 @@
 import pandas as pd
 import re
 import os
+import numpy as np
 
 data = []
 splits = 4
@@ -75,26 +76,58 @@ for i in range(1, splits + 1):
 
 # Create DataFrame and calculate averages
 df = pd.DataFrame(data)
+# replace GT_Depth column from data from a different file
+# Load original data and merge GT_Depth column based on participant
+original_data = pd.read_csv('./original_averages_output.csv')
+df = df.merge(original_data[['participant', 'GT_Depth']], on='participant', suffixes=('', '_from_original'))
+# If there’s a column mismatch, make sure to replace the existing GT_Depth
+df['GT_Depth'] = df['GT_Depth_from_original']
+df = df.drop(columns=['GT_Depth_from_original'])
+
+
 averages = df.groupby('participant').agg({
     'GT_Depth': 'mean',
     'Pred_Depth': 'mean',
     'Depth_error': 'mean',
     'GT_CPR_rate': 'mean',
-    'Pred_CPR_rate': 'mean',
-    'CPR_rate_error': 'mean',
+    # 'Pred_CPR_rate': 'mean',
+    # 'CPR_rate_error': 'mean',
     'GT_CPR_rate_per_min': 'mean',
-    'Pred_CPR_rate_per_min': 'mean',
-    'Keshara_Pred_CPR_rate': 'mean',
-    'Keshara_Pred_CPR_rate_per_min': 'mean',
-    'Keshara_Pred_CPR_rate_error': 'mean',
-    'Keshara_Low_Pass_Pred_CPR_rate': 'mean',
+    # 'Pred_CPR_rate_per_min': 'mean',
+    # 'Keshara_Pred_CPR_rate': 'mean',
+    # 'Keshara_Pred_CPR_rate_per_min': 'mean',
+    # 'Keshara_Pred_CPR_rate_error': 'mean',
+    # 'Keshara_Low_Pass_Pred_CPR_rate': 'mean',
     'Keshara_Low_Pass_Pred_CPR_rate_per_min': 'mean',
-    'Keshara_Low_Pass_Pred_CPR_rate_error': 'mean',
+    # 'Keshara_Low_Pass_Pred_CPR_rate_error': 'mean',
     'Keshara_Low_Pass_Pred_CPR_rate_per_min_error': 'mean'
 }).reset_index()
 
-# Save averages to CSV with header only on first write
-file_exists = os.path.isfile(output_name)
+
+# Calculate squared error and mean squared error for each participant
+averages['Depth_Error'] = (averages['GT_Depth'] - averages['Pred_Depth']) 
+
+# Save averages to CSV
 averages.to_csv(output_name, mode='w', index=False)
 
 print("Averages have been saved to 'averages_output.csv'.")
+
+
+# Calculate squared errors for RMSE
+averages['Depth_Error_Squared'] = (averages['GT_Depth'] - averages['Pred_Depth']) ** 2
+averages['Keshara_Low_Pass_Pred_CPR_rate_per_min_Error_Squared'] = averages['Keshara_Low_Pass_Pred_CPR_rate_per_min_error'] ** 2
+
+
+# Calculate overall average across all subjects
+overall_averages = averages.mean(numeric_only=True).to_frame().T
+overall_averages.insert(0, 'participant', 'Overall')
+
+# Calculate RMSE for Depth_error and Keshara_Low_Pass_Pred_CPR_rate_per_min_error
+overall_averages['RMSE_Depth_Error'] = np.sqrt(averages['Depth_Error_Squared'].mean())
+overall_averages['RMSE_Keshara_Low_Pass_Pred_CPR_rate_per_min_Error'] = np.sqrt(averages['Keshara_Low_Pass_Pred_CPR_rate_per_min_Error_Squared'].mean())
+
+# Save overall averages to a new CSV
+overall_output_name = 'overall_averages_output.csv'
+overall_averages.to_csv(overall_output_name, mode='w', index=False)
+print(f"Overall averages have been saved to '{overall_output_name}'.")
+

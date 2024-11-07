@@ -5,6 +5,8 @@
 *.png
 **/stats/*.csv
 
+**/debug
+
 **/*.tflite
 
 **/verification

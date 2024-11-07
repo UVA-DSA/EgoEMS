@@ -54,7 +54,7 @@ do
       pretty_print "[$(date)] Output Path" "$output_path"
       
       # Run the Python deidentification script
-      # python $script_path --face_model_path $model_path --input_video_path "$file" --output_video_path "$output_path" --face_model_score_threshold 0.5
+      python $script_path --face_model_path $model_path --input_video_path "$file" --output_video_path "$output_path" --face_model_score_threshold 0.5
       
       if [ $? -eq 0 ]; then
         pretty_print "[$(date)] Success" "Successfully deidentified video: $file"
