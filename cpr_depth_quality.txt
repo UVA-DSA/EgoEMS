@@ -1,9 +1,4 @@
-Subject: ng5 Trial: 0 | CPR depth error: 229.75 mm | CPR frequency error: 0.00 /min
-Subject: ms2 Trial: 0 | CPR depth error: 510.85 mm | CPR frequency error: 1.67 /min
-Subject: ng8 Trial: 9 | CPR depth error: 33.60 mm | CPR frequency error: 8.25 /min
-Subject: ms2 Trial: 0 | CPR depth error: 84.51 mm | CPR frequency error: 18.20 /min
-Subject: ng8 Trial: 5 | CPR depth error: 1.11 mm | CPR frequency error: 7.33 /min
-Subject: ng8 Trial: 4 | CPR depth error: 140.79 mm | CPR frequency error: 7.30 /min
-Subject: ng8 Trial: 7 | CPR depth error: 3.36 mm | CPR frequency error: 10.27 /min
-Subject: ng5 Trial: 19 | CPR depth error: 203.61 mm | CPR frequency error: 12.02 /min
-Subject: ng3 Trial: 5 | CPR depth error: 535.25 mm | CPR frequency error: 5.68 /min
+Subject: ng5 Trial: 0 | CPR depth error: 89.88 mm | CPR frequency error: 0.21 /min
+Subject: ms2 Trial: 0 | CPR depth error: 621.02 mm | CPR frequency error: 0.63 /min
+Subject: ng8 Trial: 9 | CPR depth error: 15.10 mm | CPR frequency error: 0.22 /min
+Subject: ms2 Trial: 0 | CPR depth error: 45.09 mm | CPR frequency error: 14.85 /min

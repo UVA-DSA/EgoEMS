@@ -12,6 +12,8 @@ CANON_K = np.array([[615.873673811006, 0, 640.803032851225],
                     [0, 615.918359977960, 365.547839233105], 
                     [0, 0, 1]])
 
+DEBUG = True
+
 def get_XYZ(x, y, depth, k):
     X = (x - k[0, 2]) * depth / k[0, 0]
     Y = (y - k[1, 2]) * depth / k[1, 1]
@@ -28,13 +30,22 @@ def write_log_line(log_path, msg):
     with open(log_path, 'a') as file:
         file.write(msg + '\n')
 
-def detect_outliers_mad(data, threshold=3):
+def detect_outliers_mad(data, threshold=2.0):
     median = np.median(data)
     mad = np.median([abs(x - median) for x in data])
     if mad == 0:
         print('Warning: All data entries are the same. MAD is zero.')
         return []
     return [i for i, x in enumerate(data) if abs(x - median) / mad > threshold]
+
+def detect_outliers_modified_z_score(data, threshold=1.75):
+    median = np.median(data)
+    mad = np.median(np.abs(data - median))
+    if mad == 0:
+        print('Warning: All data entries are the same. MAD is zero.')
+        return []
+    modified_z_scores = 0.6745 * (data - median) / mad
+    return np.where(np.abs(modified_z_scores) > threshold)[0]
 
 def safe_access_depth_image(depth_img, x, y):
     if 0 <= x < depth_img.shape[1] and 0 <= y < depth_img.shape[0]:
@@ -59,7 +70,6 @@ def read_gt_data(file_path):
 GT_path = '/home/cogems_nist/Documents/Final/Final'
 data_path = '/home/cogems_nist/Documents/Kinect_CPR_Clips/Kinect_CPR_Clips/exo_kinect_cpr_clips'
 log_path = './cpr_depth_quality.txt'
-DEBUG = True
 
 init_log(log_path)
 
@@ -105,42 +115,14 @@ for n in ['train_root', 'test_root', 'val_root']:
 
         if DEBUG:
             # Plot Wrist X
-            plt.plot(wrist_x)
-            plt.title('Wrist X')
+            plt.plot(wrist_y)
+            plt.title('Wrist Y')
             plt.show()  
             plt.clf()
-            
-        """
-        # Normalize and filter outliers based on squared values
-        vals_y = wrist_y**2
-        vals_y =(vals_y - vals_y.min()) / (vals_y.max() - vals_y.min())
-        outlier_idx_y = np.where(vals_y > 0.3)[0]
-        wrist_y[outlier_idx_y] = np.nan
-        not_nan_y_indices = np.where(~np.isnan(wrist_y))[0]
 
-        vals_x = wrist_x**2
-        vals_x = (vals_x - vals_x.min()) / (vals_x.max() - vals_x.min())
-        outlier_idx_x = np.where(vals_x > 0.3)[0]
-        wrist_x[outlier_idx_x] = np.nan
-        not_nan_x_indices = np.where(~np.isnan(wrist_x))[0]
-
-        if len(not_nan_y_indices) == 0 or len(not_nan_x_indices) == 0:
-            print(wrist_x)
-            print(wrist_y)
-            print(f"Warning: No valid wrist position data available for {json_file}.")
-            continue
-
-        # Interpolate
-        wrist_y[outlier_idx_y] = np.interp(outlier_idx_y, not_nan_y_indices, wrist_y[not_nan_y_indices])
-        wrist_x[outlier_idx_x] = np.interp(outlier_idx_x, not_nan_x_indices, wrist_x[not_nan_x_indices])
-        """
-
-        # Normalize without squaring
-        vals_y = (wrist_y - wrist_y.min()) / (wrist_y.max() - wrist_y.min())
-        vals_x = (wrist_x - wrist_x.min()) / (wrist_x.max() - wrist_x.min())
-
-        outlier_idx_y = np.where(vals_y > 0.9)[0]  # Adjust threshold as needed
-        outlier_idx_x = np.where(vals_x > 0.9)[0]
+        # Filter outliers using modified Z-score
+        outlier_idx_y = detect_outliers_modified_z_score(wrist_y)
+        outlier_idx_x = detect_outliers_modified_z_score(wrist_x)
 
         wrist_y[outlier_idx_y] = np.nan
         wrist_x[outlier_idx_x] = np.nan
@@ -163,13 +145,13 @@ for n in ['train_root', 'test_root', 'val_root']:
 
         if DEBUG:
             # Plot filtered Wrist X
-            plt.plot(wrist_x)
-            plt.title('Wrist X (Filtered)')
+            plt.plot(wrist_y)
+            plt.title('Wrist Y (Filtered)')
             plt.show() 
             plt.clf()  
 
         # Detect peaks and valleys
-        p_indices, v_indices = depth_tools.detect_peaks_and_valleys_depth_sensor(np.array(wrist_y), mul=1, show=DEBUG)
+        p_indices, v_indices = depth_tools.detect_peaks_and_valleys_depth_sensor(np.array(wrist_y), show=DEBUG)
 
         n_cpr_cycles = (len(p_indices) + len(v_indices)) * 0.5
 
@@ -194,21 +176,46 @@ for n in ['train_root', 'test_root', 'val_root']:
 
         l_min_len_peaks_valleys = min(len(peakXYZ_p), len(peakXYZ_v))
 
-        dist_list_cpr_depths_meaningful_diffs_between_peaks_valleys=[]
+        dist_list = np.zeros(l_min_len_peaks_valleys)
         
         # Calculate distances between corresponding peaks and valleys to estimate CPR depth.
         for idx in range(l_min_len_peaks_valleys):
              p_np_array_peak = np.array(peakXYZ_p[idx])
              v_np_array_valley = np.array(peakXYZ_v[idx])
-             dist = np.sum(np.linalg.norm(p_np_array_peak - v_np_array_valley))
-             dist_list_cpr_depths_meaningful_diffs_between_peaks_valleys.append(float(dist))
+             dist = np.linalg.norm(p_np_array_peak - v_np_array_valley)
+             dist_list[idx] = dist
+
+        if DEBUG:
+            plt.plot(dist_list)
+            plt.title('CPR Depth')
+            plt.show()
+            plt.clf()
+
+        # Filter outliers in the distance list
+        dist_outliers = detect_outliers_modified_z_score(dist_list)
+        dist_list[dist_outliers] = np.nan
+        not_nan_dist_indices = np.where(~np.isnan(dist_list))[0]
+
+        if len(not_nan_dist_indices) > 0:
+            dist_list[np.isnan(dist_list)] = np.interp(np.where(np.isnan(dist_list))[0], not_nan_dist_indices, dist_list[not_nan_dist_indices])
+        else:
+            print("Warning: No valid values in dist_list to interpolate.")
+            continue
+        
+        if DEBUG:
+            plt.plot(dist_list)
+            plt.title('CPR Depth Filtered')
+            plt.show()
+            plt.clf()
 
         # Calculate the mean CPR depth from the distances between peaks and valleys
-        cpr_depth = float(np.mean(dist_list_cpr_depths_meaningful_diffs_between_peaks_valleys))
+        cpr_depth = float(np.mean(dist_list))
 
         # Get ground truth (GT) CPR data
         sbj = json_file.split('_')[0]
         t = json_file.split('_')[1][1:]
+        start = int(float(mkv_file.split('_')[3]) * 30)
+        end = int(float(mkv_file.split('_')[4]) * 30)
 
         gt_path = os.path.join(GT_path, sbj, 'cardiac_arrest', t, 'distance_sensor_data', 'sync_depth_sensor.csv')
         gt_lines = read_gt_data(gt_path)
@@ -216,15 +223,26 @@ for n in ['train_root', 'test_root', 'val_root']:
         if gt_lines is None:
             print(f"Warning: Could not read ground truth data for subject {sbj}, trial {t}.")
             continue  # Skip this file if ground truth data could not be read
-        
-        gt_peaks, gt_valleys = depth_tools.detect_peaks_and_valleys_depth_sensor(gt_lines[:frames], mul=5, show=DEBUG)
-        gt_n_cpr_cycles = (len(gt_peaks) + len(gt_valleys)) * 0.5
 
-        peak_depths_gt = gt_lines[gt_peaks]
-        valley_depths_gt = gt_lines[gt_valleys]
+        if DEBUG:
+            plt.plot(gt_lines[start:end])
+            plt.title("Ground Truth Depth Data")
+            plt.show()
+            plt.clf()
+            
+        if end > len(gt_lines):
+            print(f"Warning: End index {end} out of bounds for ground truth data, defaulting to first {frames} datapoints")
+            start = 0
+            end = frames
+        
+        gt_peaks, gt_valleys = depth_tools.detect_peaks_and_valleys_depth_sensor(gt_lines[start:end], show=DEBUG)
+        gt_n_cpr_cycles = (len(gt_peaks) + len(gt_valleys)) * 0.5
+        peak_depths_gt = gt_lines[start:end][gt_peaks]
+        valley_depths_gt = gt_lines[start:end][gt_valleys]
 
         l_min_len_gt_peaks_valleys = min(len(peak_depths_gt), len(valley_depths_gt))
         gt_cpr_depth = float((peak_depths_gt[:l_min_len_gt_peaks_valleys] - valley_depths_gt[:l_min_len_gt_peaks_valleys]).mean())
+
 
         # Calculate time in seconds (assuming 30 frames per second)
         time_in_seconds = len(gt_lines) / 30
@@ -246,6 +264,6 @@ for n in ['train_root', 'test_root', 'val_root']:
             plt.imshow(rgb_imgs[p_indices[0]])
             plt.scatter(int(wrist_x[p_indices[0]]), int(wrist_y[p_indices[0]]), color='red')
             plt.title(f'Depth Image at Peak {p_indices[0]}')
-            plt.show()  # Remove block=False for better control
-            plt.clf()   # Clear the figure after showing it
+            plt.show()
+            plt.clf() 
     
