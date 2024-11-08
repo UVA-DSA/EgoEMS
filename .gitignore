@@ -200,4 +200,5 @@ cython_debug/
 
 # Logs
 cpr_depth_quality.txt
+cpr_depth_quality.csv
 

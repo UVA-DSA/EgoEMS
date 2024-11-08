@@ -73,7 +73,7 @@ def read_gt_data(file_path):
 
 GT_path = '/home/cogems_nist/Documents/Final/Final'
 data_path = '/home/cogems_nist/Documents/Kinect_CPR_Clips/Kinect_CPR_Clips/exo_kinect_cpr_clips'
-log_path = './cpr_depth_quality.txt'
+log_path = './cpr_depth_quality.csv'
 
 init_log(log_path)
 
