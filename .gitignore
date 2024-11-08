@@ -198,3 +198,6 @@ cython_debug/
 *.output
 *.err
 
+# Logs
+cpr_depth_quality.txt
+

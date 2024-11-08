@@ -12,7 +12,7 @@ CANON_K = np.array([[615.873673811006, 0, 640.803032851225],
                     [0, 615.918359977960, 365.547839233105], 
                     [0, 0, 1]])
 
-DEBUG = True
+DEBUG = False
 
 def get_XYZ(x, y, depth, k):
     X = (x - k[0, 2]) * depth / k[0, 0]
@@ -25,6 +25,10 @@ def init_log(log_path):
         os.remove(log_path)
     else:
         os.makedirs(os.path.dirname(log_path), exist_ok=True)
+    write_log_line(log_path, format_log_line('Subject', 'Trial', 'GT Depth', 'Est Depth', 'GT Cycles', 'Est Cycles', 'Depth Error', 'Frequency Error'))
+
+def format_log_line(sbj, t, gt_depth, est_depth, gt_cycles, est_cycles, depth_err, freq_err):
+    return f"{sbj}, {t}, {gt_depth}, {est_depth}, {gt_cycles}, {est_cycles}, {depth_err}, {freq_err}"
 
 def write_log_line(log_path, msg):
     with open(log_path, 'a') as file:
@@ -38,7 +42,7 @@ def detect_outliers_mad(data, threshold=2.0):
         return []
     return [i for i, x in enumerate(data) if abs(x - median) / mad > threshold]
 
-def detect_outliers_modified_z_score(data, threshold=1.75):
+def detect_outliers_modified_z_score(data, threshold=2.0):
     median = np.median(data)
     mad = np.median(np.abs(data - median))
     if mad == 0:
@@ -256,9 +260,8 @@ for n in ['train_root', 'test_root', 'val_root']:
         n_cpr_error_per_minute = abs(gt_n_cpr_cycles - n_cpr_cycles) / time_in_seconds * 60
 
         # Log results
-        msg = f'Subject: {sbj} Trial: {t} | CPR depth error: {depth_error_mm:.2f} mm | CPR frequency error: {n_cpr_error_per_minute:.2f} /min'
-        print(msg)
-        write_log_line(log_path, msg)
+        print(f"Subject: {sbj} Trial: {t} | CPR depth error: {depth_error_mm:.2f} mm | CPR frequency error: {n_cpr_error_per_minute:.2f} /min")
+        write_log_line(log_path, format_log_line(sbj, t, gt_cpr_depth, cpr_depth, gt_n_cpr_cycles, n_cpr_cycles, depth_error_mm, n_cpr_error_per_minute))
         
         if DEBUG:
             plt.imshow(rgb_imgs[p_indices[0]])
