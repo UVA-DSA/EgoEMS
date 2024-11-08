@@ -5,14 +5,13 @@ import cv2
 def read_video(video_path):
     # Create a reader for the MKV file
     reader = o3d.io.AzureKinectMKVReader()
+    rgb_imgs,depth_imgs = [],[]
 
     try:
         # Open the MKV file
         reader.open(video_path)
 
         # Start processing frames from the recording
-        # Start processing frames from the recording
-        rgb_imgs,depth_imgs = [],[]
         while not reader.is_eof():
             frame = reader.next_frame()
             if frame is None:
