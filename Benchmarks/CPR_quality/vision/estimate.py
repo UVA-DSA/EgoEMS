@@ -171,7 +171,7 @@ def process_ground_truth_data(sbj: str, trial: str, start: int, end: int) -> tup
         return None, None
         
     if end > len(gt_lines):
-        print(f"Warning: End index {end} out of bounds for ground truth data, defaulting to first {end - start} datapoints")
+        print(f"Warning: End index {end} out of bounds for ground truth data with size {len(gt_lines)}, defaulting to first {end - start} datapoints")
         start = 0
         end = end - start
     
@@ -228,22 +228,24 @@ def choose_wrist(wrists, cpr_depth_list, cpr_freq_list):
         if wrists[potential_wrist_ind]['frame'][1] - wrists[potential_wrist_ind]['frame'][0] > 150:
             wrist_ind = potential_wrist_ind
 
-    return 0
+    return np.argmax(cpr_freq_list)
 
 def get_video_start_end(wrist: Dict[str, np.ndarray], json_file: str) -> tuple:
     """Get the start and end indices of the video frames based on the wrist data."""
     # Get corresponding values from lists
+    print(wrist['frame'])
     wrist_start_offset = int(wrist['frame'][0])
     wrist_end_offset = int(wrist['frame'][1])
     
     # Get ground truth (GT) CPR data
     base = int(float(json_file.split('_')[3]) * FRAME_RATE)
     start = base + wrist_start_offset
-    end = start + wrist_end_offset
+    end = base + wrist_end_offset
+    print(f"Base: {base} Start: {start} End: {end}")
     return start, end
 
 # JSON Processing Target Function
-def process_trial(json_data, rgb_imgs, depth_imgs, window):
+def process_trial(json_file, json_data, rgb_imgs, depth_imgs, window):
     """Process a single trial (5 seconds of JSON Data) and return CPR depth and frequency estimates."""
     wrists = parse_json_data(json_data)
     n_cpr_cycles_list = np.zeros(len(wrists.keys()))
@@ -252,7 +254,20 @@ def process_trial(json_data, rgb_imgs, depth_imgs, window):
     for ind, wrist in enumerate(sorted(wrists)):
         wrist_x = wrists[wrist]['x']
         wrist_y = wrists[wrist]['y']
+
+        if DEBUG:
+            plt.plot(wrist_y)
+            plt.title('Wrist Y')
+            plt.show()
+            plt.clf()
+
         wrist = clean_wrist(wrists[wrist])
+
+        if DEBUG:
+            plt.plot(wrist_y)
+            plt.title('Wrist Y Cleaned')
+            plt.show()
+            plt.clf()
 
         # Detect peaks and valleys
         try:
@@ -311,16 +326,11 @@ if __name__ == "__main__":
 
         # Process each JSON file (trial)
         for json_file in json_files:
-            json_path = os.path.join(data_dir, json_file)
-            with open(json_path, 'r') as file:
-                json_data = json.load(file)
-
             # Read JSON data
             json_path = os.path.join(data_dir, json_file)
             with open(json_path, 'r') as file:
                 json_data = json.load(file)
 
-            # Match MKV file with JSON file
             mkv_file = next((f for f in mkv_files if json_file.replace('_keypoints.json', '') in f), None)
 
             if mkv_file is None:
@@ -338,10 +348,10 @@ if __name__ == "__main__":
                 end = start + FRAME_RATE * 5
                 json_data_window = {str(k): json_data[str(k)] for k in range(start, end) if str(k) in json_data}
 
-                if not json_data_window:
+                if not json_data_window or len(rgb_imgs[start:end]) < 100:
                     break
 
-                result = process_trial(json_data_window, rgb_imgs[start:end], depth_imgs[start:end], start // (FRAME_RATE * 5))
+                result = process_trial(json_file, json_data_window, rgb_imgs[start:end], depth_imgs[start:end], start // (FRAME_RATE * 5))
 
                 if result is not None:
                     write_log_line(LOG_PATH, result)
