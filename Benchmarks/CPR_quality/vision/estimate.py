@@ -145,12 +145,35 @@ def convert_p_v_to_XYZ(p_indices, v_indices, wrist_x, wrist_y, depth_imgs):
     for idx in v_indices:
         depth_img_v = depth_imgs[idx]
         d_v_value = safe_access_depth_image(depth_img_v, int(wrist_x[idx]), int(wrist_y[idx]))
+        
         if d_v_value is None:
             continue
+
         X_v, Y_v, Z_v = get_XYZ(int(wrist_x[idx]), int(wrist_y[idx]), d_v_value, CANON_K)
         peakXYZ_v.append([X_v, Y_v, Z_v])
     
     return peakXYZ_p, peakXYZ_v   
+
+def visualize_wrist_keypoints(rgb_imgs, wrist_data, idx):
+    """
+    Visualizes wrist keypoints on the RGB images.
+    
+    Args:
+        rgb_imgs (list): List of RGB frames (numpy arrays).
+        wrist_data (dict): Dictionary containing wrist keypoint data with 'x', 'y', and 'frame' indices.
+    """
+    frame = rgb_imgs[idx].copy()
+    # Get the corresponding wrist keypoint for the current frame
+    x = int(wrist_data['x'][idx])
+    y = int(wrist_data['y'][idx])
+        
+    plt.scatter(x, y, c='r', s=5)
+    
+    # Display the image with the keypoint
+    plt.imshow(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
+    plt.title(f"Frame {idx} - Wrist Keypoint")
+    plt.show()
+    plt.clf()
 
 def safe_access_depth_image(depth_img: np.ndarray, x: int, y: int) -> int:
     """Safely access a pixel value from a depth image."""
@@ -233,7 +256,6 @@ def choose_wrist(wrists, cpr_depth_list, cpr_freq_list):
 def get_video_start_end(wrist: Dict[str, np.ndarray], json_file: str) -> tuple:
     """Get the start and end indices of the video frames based on the wrist data."""
     # Get corresponding values from lists
-    print(wrist['frame'])
     wrist_start_offset = int(wrist['frame'][0])
     wrist_end_offset = int(wrist['frame'][1])
     
@@ -276,6 +298,14 @@ def process_trial(json_file, json_data, rgb_imgs, depth_imgs, window):
             print(f"Error: Zero division error in peak/valley detection for {json_file}.")
             continue
         peakXYZ_p, peakXYZ_v  = convert_p_v_to_XYZ(p_indices, v_indices, wrist_x, wrist_y, depth_imgs)
+
+        if DEBUG and len(p_indices):
+            print(f"Visualizing wrist {ind}")
+            visualize_wrist_keypoints(rgb_imgs, wrist, p_indices[0])
+            visualize_wrist_keypoints(rgb_imgs, wrist, p_indices[-1])
+
+        if not np.any(peakXYZ_p) or not np.any(peakXYZ_v):
+            print(f"Kinect Data is Invalid for {json_file}.")
 
         # Calculate the mean CPR depth from the distances between peaks and valleys
         mean_depth = calculate_cpr_depth(peakXYZ_p, peakXYZ_v)
@@ -325,7 +355,7 @@ if __name__ == "__main__":
         results = []
 
         # Process each JSON file (trial)
-        for json_file in json_files:
+        for json_file in json_files[0:]:
             # Read JSON data
             json_path = os.path.join(data_dir, json_file)
             with open(json_path, 'r') as file:
