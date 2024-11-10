@@ -3,10 +3,10 @@ import numpy as np
 import cv2
 
 # Define paths to save RGB, Depth, and Point Cloud videos
-mkv_path = "../../../TestData/wa1_t2_trimmed_final.mkv"
-rgb_video_path = "../../../TestData/rgb_output_2.mp4"
-depth_video_path = "../../../TestData/depth_output_2.mp4"
-pcd_video_path = "../../../TestData/pointcloud_output_2.mp4"
+mkv_path = "../../../TestData/ms1_t1_ks4_11.898_54.213_exo.mkv"
+rgb_video_path = "../../../TestData/ms1_t1_ks4_11.898_54.213_exo_rgb_output.mp4"
+depth_video_path = "../../../TestData/ms1_t1_ks4_11.898_54.213_exo_depth_output.mp4"
+pcd_video_path = "../../../TestData/ms1_t1_ks4_11.898_54.213_exo_pointcloud_output.mp4"
 
 # Define flags to enable or disable each stream
 enable_rgb_stream = True

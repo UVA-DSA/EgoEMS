@@ -120,6 +120,9 @@ for n in ['train_root', 'test_root', 'val_root']:
             gt_peaks, gt_valleys = depth_tools.detect_peaks_and_valleys_depth_sensor(gt_window, mul=1, show=False)
             n_cpr_window_gt = (len(gt_peaks) + len(gt_valleys)) * 0.5
 
+
+
+
             # Log both predicted and GT CPR cycles for the window
             log_msg = (f"File: {json_file}, Window {start // window_frames + 1}, "
                        f"Predicted CPR cycles: {n_cpr_window_pred}, GT CPR cycles: {n_cpr_window_gt}")
