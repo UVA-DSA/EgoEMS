@@ -103,7 +103,7 @@ class WristDet_mediapipe:
 #     return kpt_dict
 
 ### This function is used to get the keypoints of all hands
-def get_kpts(img, wrst, base_model):
+def get_kpts(img, wrst, base_model, frame_num, video_id):
     results = base_model.predict(img)
     bb = get_bb(results)
 
@@ -113,19 +113,30 @@ def get_kpts(img, wrst, base_model):
     
     pad = 80
     img_crop = crop_img_bb(img, bb, pad, show=False)
+
+
     image, all_hands = wrst.get_kypts(img_crop)
+
 
     hands_data = []
     for hand in all_hands:
         x_vals = [int(val[0] + bb[0] - pad) for val in hand]
         y_vals = [int(val[1] + bb[1] - pad) for val in hand]
         hands_data.append({"x": x_vals, "y": y_vals})
-    
+
+    # visualize the cropped image with keypoints
+    if len(hands_data) > 0:
+        for hand in hands_data:
+            img = draw_keypoints(img, hand["x"], hand["y"])
+
+        # save the cropped image as debug with a unique name for each frame
+        cv2.imwrite(f"./debug/{video_id}_{frame_num}.jpg", img)
+
     return {"hands": hands_data}
 
 
 
-def process_video(video_path, output_json_path, wrst, base_model):
+def process_video(video_path, output_json_path, wrst, base_model, video_id):
     cap = cv2.VideoCapture(video_path)
 
     if not cap.isOpened():
@@ -142,7 +153,7 @@ def process_video(video_path, output_json_path, wrst, base_model):
             break
 
         # Get keypoints for the current frame
-        kpt_dict = get_kpts(frame, wrst, base_model)
+        kpt_dict = get_kpts(frame, wrst, base_model, frame_num, video_id)
 
         # Store keypoints with the frame number
         keypoints_data[frame_num] = kpt_dict
@@ -238,7 +249,7 @@ def process_videos_in_directory(root_path, wrst, base_model):
                     # process_and_visualize_video(video_path, output_json_path, output_video_path, wrst, base_model)
           
                     # Process the video and save keypoints to JSON
-                    process_video(video_path, output_json_path, wrst, base_model)
+                    process_video(video_path, output_json_path, wrst, base_model, video_id)
                     print("*" * 60)
                     print("=" * 60)
                     flag = True
