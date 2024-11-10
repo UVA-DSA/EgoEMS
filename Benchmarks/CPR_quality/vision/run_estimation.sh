@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Starting the segmentation process"
+echo "Starting the vision benchmark"
 python /home/cogems_nist/repos/EgoExoEMS/Benchmarks/CPR_quality/vision/estimate.py 0 0 30
 
 echo "Benchmark 1 is done"
