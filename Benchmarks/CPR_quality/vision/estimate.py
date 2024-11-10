@@ -21,7 +21,7 @@ FRAME_RATE = 30
 # Paths
 GT_PATH = '/home/cogems_nist/Documents/Final/Final'
 DATA_PATH = '/home/cogems_nist/Documents/Kinect_CPR_Clips/Kinect_CPR_Clips/Final/exo_kinect_cpr_clips'
-LOG_PATH = './cpr_depth_quality.csv'
+LOG_PATH = './cpr_depth_quality'
 
 
 # Logging helpers
@@ -31,11 +31,11 @@ def init_log(log_path):
         os.remove(log_path)
     else:
         os.makedirs(os.path.dirname(log_path), exist_ok=True)
-    write_log_line(log_path, format_log_line('Subject', 'Trial', 'Window', 'GT Depth', 'Est Depth', 'GT Cycles', 'Est Cycles', 'Depth Error', 'Frequency Error'))
+    write_log_line(log_path, format_log_line('Subject', 'Trial', 'Window', 'GT Depth', 'Est Depth', 'GT Cycles', 'Est Cycles', 'Depth Error', 'Frequency Error', 'Start Frame', 'End Frame'))
 
-def format_log_line(sbj, t, window, gt_depth, est_depth, gt_cycles, est_cycles, depth_err, freq_err):
+def format_log_line(sbj, t, window, gt_depth, est_depth, gt_cycles, est_cycles, depth_err, freq_err, start, end):
     """Format log line for CSV output."""
-    return f"{sbj}, {t}, {window}, {gt_depth}, {est_depth}, {gt_cycles}, {est_cycles}, {depth_err}, {freq_err}"
+    return f"{sbj}, {t}, {window}, {gt_depth}, {est_depth}, {gt_cycles}, {est_cycles}, {depth_err}, {freq_err}, {start}, {end}"
 
 def write_log_line(log_path, msg):
     """Append log message to the log file."""
@@ -241,16 +241,6 @@ def calculate_cpr_depth(peakXYZ_p: list, peakXYZ_v: list) -> float:
 
 def choose_wrist(wrists, cpr_depth_list, cpr_freq_list):
     """Choose the wrist with the minimum depth and a minimum number of frames."""
-    wrist_ind = 0  # Find index of minimum depth
-    depth_inds = np.where((cpr_depth_list > 20)) 
-
-    if depth_inds[0].size > 0:  # Check if there are any valid indices
-        wrist_depth = np.min(cpr_depth_list[depth_inds])
-        potential_wrist_ind =  list(cpr_depth_list).index(wrist_depth)
-
-        if wrists[potential_wrist_ind]['frame'][1] - wrists[potential_wrist_ind]['frame'][0] > 150:
-            wrist_ind = potential_wrist_ind
-
     return np.argmax(cpr_freq_list)
 
 def get_video_start_end(wrist: Dict[str, np.ndarray], json_file: str) -> tuple:
@@ -315,6 +305,9 @@ def process_trial(json_file, json_data, rgb_imgs, depth_imgs, window):
         cpr_depth_list[ind] = mean_depth
     
     # Choose wrist
+    if len(n_cpr_cycles_list) == 0:
+        return None
+    
     wrist_ind = choose_wrist(wrists, cpr_depth_list, n_cpr_cycles_list)
     cpr_depth, n_cpr_cycles = cpr_depth_list[wrist_ind], n_cpr_cycles_list[wrist_ind]
 
@@ -335,53 +328,60 @@ def process_trial(json_file, json_data, rgb_imgs, depth_imgs, window):
 
     # Return results
     print(f"Subject: {sbj} Trial: {trial} | CPR depth error: {depth_error_mm:.2f} mm | CPR frequency error: {n_cpr_error_per_minute:.2f} /min")
-    return format_log_line(sbj, trial, window, gt_cpr_depth, cpr_depth, gt_n_cpr_cycles, n_cpr_cycles, depth_error_mm, n_cpr_error_per_minute)
+    return format_log_line(sbj, trial, window, gt_cpr_depth, cpr_depth, gt_n_cpr_cycles, n_cpr_cycles, depth_error_mm, n_cpr_error_per_minute, start, end)
 
 
 # Main Execution Block
 if __name__ == "__main__":
-    # Initialize logging
-    init_log(LOG_PATH)
-
     print(f"Debug mode is {DEBUG}.")
+    print(sys.argv)
+    index = int(sys.argv[1])
+    begin_ind = int(sys.argv[2])
 
-    # Iterate over each dataset folder (train/test/val)
-    for n in ['val_root', 'train_root', 'test_root']:
-        
-        data_dir = os.path.join(DATA_PATH, n, 'chest_compressions')
-        
-        json_files = [file for file in os.listdir(data_dir) if file.endswith('.json')]
-        mkv_files = [file for file in os.listdir(data_dir) if file.endswith('.mkv')]
-        results = []
+    if len (sys.argv) > 3:
+        end_ind = int(sys.argv[3])
+    else:
+        end_ind = 1000000
 
-        # Process each JSON file (trial)
-        for json_file in json_files[0:]:
-            # Read JSON data
-            json_path = os.path.join(data_dir, json_file)
-            with open(json_path, 'r') as file:
-                json_data = json.load(file)
+    dir_paths = ['train_root', 'val_root', 'test_root']
+    n = dir_paths[index]
 
-            mkv_file = next((f for f in mkv_files if json_file.replace('_keypoints.json', '') in f), None)
+    log_path = LOG_PATH + f'_{n}_{begin_ind}_final.csv'
+    init_log(log_path)
+    data_dir = os.path.join(DATA_PATH, n, 'chest_compressions')
+    
+    json_files = [file for file in os.listdir(data_dir) if file.endswith('.json')]
+    mkv_files = [file for file in os.listdir(data_dir) if file.endswith('.mkv')]
+    results = []
 
-            if mkv_file is None:
-                print(f'Warning: No matching MKV file found for JSON file {json_file}.')
-                continue
+    # Process each JSON file (trial)
+    for json_file in json_files[begin_ind:end_ind]:
+        # Read JSON data
+        json_path = os.path.join(data_dir, json_file)
+        with open(json_path, 'r') as file:
+            json_data = json.load(file)
 
-            # Read video frames
-            rgb_imgs, depth_imgs = extract_depth.read_video(os.path.join(data_dir, mkv_file))
+        mkv_file = next((f for f in mkv_files if json_file.replace('_keypoints.json', '') in f), None)
 
-            if len(rgb_imgs) != len(json_data.keys()):
-                print(f'Warning: Number of frames in video ({len(rgb_imgs)}) does not match number in keypoints.json ({len(json_data.keys())})')
-                continue
+        if mkv_file is None:
+            print(f'Warning: No matching MKV file found for JSON file {json_file}.')
+            continue
 
-            for start in range(0, len(rgb_imgs), FRAME_RATE * 5):
-                end = start + FRAME_RATE * 5
-                json_data_window = {str(k): json_data[str(k)] for k in range(start, end) if str(k) in json_data}
+        # Read video frames
+        rgb_imgs, depth_imgs = extract_depth.read_video(os.path.join(data_dir, mkv_file))
 
-                if not json_data_window or len(rgb_imgs[start:end]) < 100:
-                    break
+        if len(rgb_imgs) != len(json_data.keys()):
+            print(f'Warning: Number of frames in video ({len(rgb_imgs)}) does not match number in keypoints.json ({len(json_data.keys())})')
+            continue
 
-                result = process_trial(json_file, json_data_window, rgb_imgs[start:end], depth_imgs[start:end], start // (FRAME_RATE * 5))
+        for start in range(0, len(rgb_imgs), FRAME_RATE * 5):
+            end = start + FRAME_RATE * 5
+            json_data_window = {str(k): json_data[str(k)] for k in range(start, end) if str(k) in json_data}
 
-                if result is not None:
-                    write_log_line(LOG_PATH, result)
+            if not json_data_window or len(rgb_imgs[start:end]) < 100:
+                break
+
+            result = process_trial(json_file, json_data_window, rgb_imgs[start:end], depth_imgs[start:end], start // (FRAME_RATE * 5))
+
+            if result is not None:
+                write_log_line(log_path, result)
