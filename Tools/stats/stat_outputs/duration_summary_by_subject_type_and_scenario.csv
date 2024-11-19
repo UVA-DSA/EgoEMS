@@ -1,0 +1,5 @@
+subject_type,scenario,duration,duration_min,duration_hr
+EMT+Paramedic,CPR+Ventillation+Defibrillation,9170.961794,152.84936323333335,2.5474893872222224
+EMT+Paramedic,ECG,3474.404266,57.906737766666666,0.965112296111111
+General Public,CPR+Ventillation+Defibrillation,6965.866669,116.09777781666666,1.934962963611111
+EMS Member,CPR+Ventillation+Defibrillation,1847.712533,30.79520888333333,0.5132534813888888

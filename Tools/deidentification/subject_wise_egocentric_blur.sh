@@ -2,23 +2,26 @@
 
 # --- This job will run on any available node and deidentify the GoPro dataset.
 #SBATCH --job-name="Deidentify_EgoExoEMS_GoPro_dataset"
-#SBATCH --error="logs/tunnel.err"
-#SBATCH --output="logs/tunnel.output"
+#SBATCH --error="logs/job-%j-tunnel.err"
+#SBATCH --output="logs/job-%j-tunnel.output"
 #SBATCH --partition="gpu"
-#SBATCH --gres=gpu:a6000:1
+#SBATCH --gres=gpu:a100:1
 #SBATCH --time=3-00:00:00
 #SBATCH --cpus-per-task=12
+#SBATCH --mem=32G
 #SBATCH --ntasks=1
 #SBATCH --account="uva-dsa"
 
 # Define dataset directory and other paths
 DATASET_DIR="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final"
+TARGET_SUBJECT="wa1"
+TARGET_TRIAL="3"
 script_path='./egoblur/EgoBlur/script/demo_ego_blur.py'
 model_path='./egoblur/EgoBlur/weights/ego_blur_face.jit'
 
 # Pretty print function for consistent, professional output
 pretty_print() {
-    printf "\n%-50s : %s" "$1" "$2"
+    printf "\n%-50s : %s\n" "$1" "$2"
 }
 
 # Load necessary modules and activate the environment
@@ -36,14 +39,18 @@ pretty_print "[$(date)] Status" "Starting video deidentification process..."
 # Loop through each GoPro folder in the dataset directory
 for gopro_folder in "$DATASET_DIR"/*/*/*/GoPro/
 do
-  # # Check if any deidentified video already exists in the GoPro folder
-  # if ls "$gopro_folder"/*_deidentified.mp4 1> /dev/null 2>&1; then
-  #   pretty_print "[$(date)] Skipping Folder" "Deidentified video already exists in folder: $gopro_folder"
-  #   continue
-  # fi
+  # Extract subject and trial from the folder path
+  subject=$(basename "$(dirname "$(dirname "$(dirname "$gopro_folder")")")")
+  trial=$(basename "$(dirname "$gopro_folder")")
 
-  # Process each video in the GoPro folder if no deidentified video is found
-  for file in "$gopro_folder"*encoded_trimmed.mp4
+  # Skip if the subject or trial doesn't match the target
+  if [[ "$subject" != "$TARGET_SUBJECT" || "$trial" != "$TARGET_TRIAL" ]]; then
+    pretty_print "[$(date)] Skipping Folder" "Subject: $subject, Trial: $trial (Not Target)"
+    continue
+  fi
+
+  # Process only videos that match the pattern *_encoded_trimmed.mp4
+  for file in "$gopro_folder"*_encoded_trimmed.mp4
   do
     if [ -f "$file" ]; then
       pretty_print "[$(date)] Processing Video" "$file"
@@ -53,7 +60,7 @@ do
       
       pretty_print "[$(date)] Output Path" "$output_path"
       
-      # # Run the Python deidentification script
+      # Run the Python deidentification script
       python $script_path --face_model_path $model_path --input_video_path "$file" --output_video_path "$output_path" --face_model_score_threshold 0.95
       
       if [ $? -eq 0 ]; then
@@ -62,7 +69,7 @@ do
         pretty_print "[$(date)] Error" "Error deidentifying video: $file. Check log for details." >&2
       fi
     else
-      pretty_print "[$(date)] Warning" "No video file found at path: $file" >&2
+      pretty_print "[$(date)] Warning" "No matching video file found at path: $file" >&2
     fi
   done
 done

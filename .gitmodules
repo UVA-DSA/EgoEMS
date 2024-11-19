@@ -1,3 +1,6 @@
 [submodule "Tools/deidentification/egoblur/EgoBlur"]
 	path = Tools/deidentification/egoblur/EgoBlur
 	url = https://github.com/facebookresearch/EgoBlur.git
+[submodule "Tools/deidentification/deface"]
+	path = Tools/deidentification/deface
+	url = https://github.com/ORB-HD/deface.git
