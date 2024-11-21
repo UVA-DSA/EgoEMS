@@ -11,11 +11,11 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=16G
 #SBATCH --ntasks=1
-#SBATCH --account="uva-dsa"
+#SBATCH --account="anonymous"
 
 echo "$HOSTNAME" 
 # Set the folder where MP4 files are located
-input_folder="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025"
+input_folder="/standard/storage/EgoExoEMS_CVPR2025"
 output_folder="/scratch/cjh9fw/Rivanna/2024/" # mew wars data 
 
 cp -r "$input_folder" "$output_folder"

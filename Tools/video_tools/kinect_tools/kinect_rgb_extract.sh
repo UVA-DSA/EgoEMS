@@ -11,7 +11,7 @@
 #SBATCH --cpus-per-task=24
 #SBATCH --mem=32G
 #SBATCH --ntasks=1
-#SBATCH --account="uva-dsa"
+#SBATCH --account="anonymous"
 
 # Load necessary modules and activate the conda environment
 module purge &&
@@ -22,7 +22,7 @@ conda activate cogems &&
 module load ffmpeg &&
 
 # Set root directories and synchronization offset path
-root_dir="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final"
+root_dir="/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final"
 repo_dir="/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Tools"
 
 echo "[INFO] Extracting Kinect RGB streams..."

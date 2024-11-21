@@ -12,7 +12,7 @@
 #SBATCH --cpus-per-task=12
 #SBATCH --mem=16G
 #SBATCH --ntasks=1
-#SBATCH --account="uva-dsa"
+#SBATCH --account="anonymous"
 
 # Load necessary modules and activate the conda environment
 module purge &&
@@ -22,7 +22,7 @@ echo "[INFO] Running on node: $HOSTNAME" &&
 conda activate wrist_keypoint &&
 
 # Define the root directory for the dataset
-ROOT_DIR="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Kinect_CPR_Clips/Final/exo_kinect_cpr_clips/test_root/chest_compressions" &&
+ROOT_DIR="/standard/storage/EgoExoEMS_CVPR2025/Dataset/Kinect_CPR_Clips/Final/exo_kinect_cpr_clips/test_root/chest_compressions" &&
 
 python -u detect.py --root_dir "$ROOT_DIR" &&
 

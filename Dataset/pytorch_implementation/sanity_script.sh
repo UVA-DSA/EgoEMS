@@ -12,7 +12,7 @@
 #SBATCH --cpus-per-task=12
 #SBATCH --mem=32G
 #SBATCH --ntasks=1
-#SBATCH --account="uva-dsa"
+#SBATCH --account="anonymous"
 
 module purge &&
 module load anaconda  &&

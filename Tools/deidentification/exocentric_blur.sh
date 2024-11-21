@@ -9,10 +9,10 @@
 #SBATCH --time=3-00:00:00
 #SBATCH --cpus-per-task=12
 #SBATCH --ntasks=1
-#SBATCH --account="uva-dsa"
+#SBATCH --account="anonymous"
 
 # Define dataset directory and other paths
-DATASET_DIR="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final"
+DATASET_DIR="/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final"
 script_path='./egoblur/EgoBlur/script/demo_ego_blur.py'
 model_path='./egoblur/EgoBlur/weights/ego_blur_face.jit'
 

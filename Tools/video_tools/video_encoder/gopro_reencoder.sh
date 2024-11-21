@@ -11,7 +11,7 @@
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=32G
 #SBATCH --ntasks=1
-#SBATCH --account="uva-dsa"
+#SBATCH --account="anonymous"
 
 module purge 
 source /home/cjh9fw/.bashrc 
@@ -19,9 +19,9 @@ echo "$HOSTNAME"
 module load ffmpeg 
 
 # Set the folder where MP4 files are located
-input_folder="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/19-09-2024/"
-input_folder="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Lahiru/"
-input_folder="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/23-10-2024/" # mew wars data 
+input_folder="/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/19-09-2024/"
+input_folder="/standard/storage/EgoExoEMS_CVPR2025/Dataset/Lahiru/"
+input_folder="/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/23-10-2024/" # mew wars data 
 
 # Find all MP4 files in the folder and its subdirectories
 find "$input_folder" -type f -name "*.MP4" | while read input_video; do

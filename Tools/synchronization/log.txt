@@ -1,6 +1,6 @@
 [INFO] Running on node: udc-an40-9
 [INFO] Generating synchronization metadata...
-[INFO] Processing recordings in /standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/sync_offsets/05-09-2024/05-09-2024.csv
+[INFO] Processing recordings in /standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/sync_offsets/05-09-2024/05-09-2024.csv
 
 ==================================================
 [INFO] Processing trial at index: 0
@@ -60,7 +60,7 @@
 [INFO] Processing trial at index: 18
 [INFO] Synchronizing 05-09-2024 bryan cardiac_arrest 0
 [INFO] GoPro file ID: GX010321_encoded
-[INFO] Trial path: /standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/05-09-2024/bryan/cardiac_arrest/0
+[INFO] Trial path: /standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/05-09-2024/bryan/cardiac_arrest/0
 
 [INFO] GoPro first timestamp: 1725579078105849437
 [INFO] Depth Camera first timestamp: 1725579077617418300
@@ -4663,7 +4663,7 @@
 ==================================================
 [INFO] Processing trial at index: 20
 
-[INFO] Saving synchronization metadata to /standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw
+[INFO] Saving synchronization metadata to /standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw
 [INFO] Synchronization complete.
 [SUCCESS] Synchronization metadata generated.
 

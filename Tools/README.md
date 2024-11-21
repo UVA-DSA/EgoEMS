@@ -37,7 +37,7 @@ command = [
 
 ### Setup
 
-- **Root Directory:** - `/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/`
+- **Root Directory:** - `/standard/storage/CognitiveEMS_Datasets/North_Garden/`
 - **Day:** - `"05-09-2024"`
 
 ## Sync Steps

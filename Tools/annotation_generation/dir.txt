@@ -1,4 +1,4 @@
-/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/
+/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/
 ├── 3rd_person_iPhone
 │   └── ng3
 │       ├── 0

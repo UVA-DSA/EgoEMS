@@ -1,7 +1,7 @@
 import json
 
 # Load the JSON data
-transcript_path = '/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/3/audio/gemini_GX010390_encoded_trimmed_timestamped.json'
+transcript_path = '/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/3/audio/gemini_GX010390_encoded_trimmed_timestamped.json'
 with open(transcript_path, "r") as file:
     data = json.load(file)
 

@@ -6,7 +6,7 @@ import numpy as np
 import warnings
 warnings.filterwarnings("ignore", message="Accurate seek is not implemented for pyav backend")
 
-root = "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/1/GoPro/GX010346_encoded_trimmed.mp4"  # Folder in which all videos lie in a specific structure
+root = "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/1/GoPro/GX010346_encoded_trimmed.mp4"  # Folder in which all videos lie in a specific structure
 annotation_file = "../../Annotations/main_annotation.json"  # A row for each video sample as: (VIDEO_PATH START_FRAME END_FRAME CLASS_ID)
 
 # train_annotation_file = "../../Annotations/splits/keysteps/train_split.json"  # A row for each video sample as: (VIDEO_PATH START_FRAME END_FRAME CLASS_ID)

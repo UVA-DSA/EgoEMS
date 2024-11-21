@@ -9,22 +9,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010250_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s6/gopro/GH010250_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s6/gopro/GH010250_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-12-03-13-07-45_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s6/kinect/2023-12-03-13-07-45_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s6/kinect/2023-12-03-13-07-45_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -44,22 +44,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s11/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s11/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s11/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s11/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010251_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s11/gopro/GH010251_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s11/gopro/GH010251_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-12-03-13-10-27_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s11/kinect/2023-12-03-13-10-27_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s11/kinect/2023-12-03-13-10-27_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -79,22 +79,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s2/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s2/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s2/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s2/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010244_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s2/gopro/GH010244_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s2/gopro/GH010244_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-12-03-12-49-31_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s2/kinect/2023-12-03-12-49-31_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P0/cardiac_arrest/s2/kinect/2023-12-03-12-49-31_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -120,22 +120,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P1/cardiac_arrest/s2/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P1/cardiac_arrest/s2/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P1/cardiac_arrest/s2/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P1/cardiac_arrest/s2/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010022_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P1/cardiac_arrest/s2/gopro/GH010022_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P1/cardiac_arrest/s2/gopro/GH010022_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-28-10-12-02_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P1/cardiac_arrest/s2/kinect/2023-11-28-10-12-02_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P1/cardiac_arrest/s2/kinect/2023-11-28-10-12-02_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -161,22 +161,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P10/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P10/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P10/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P10/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010116_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P10/cardiac_arrest/s6/gopro/GH010116_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P10/cardiac_arrest/s6/gopro/GH010116_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-29-19-08-14_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P10/cardiac_arrest/s6/kinect/2023-11-29-19-08-14_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P10/cardiac_arrest/s6/kinect/2023-11-29-19-08-14_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -202,22 +202,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s2/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s2/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s2/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s2/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010123_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s2/gopro/GH010123_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s2/gopro/GH010123_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-30-11-39-02_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s2/kinect/2023-11-30-11-39-02_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s2/kinect/2023-11-30-11-39-02_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -237,22 +237,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s9/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s9/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s9/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s9/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010130_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s9/gopro/GH010130_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s9/gopro/GH010130_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-30-11-56-09_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s9/kinect/2023-11-30-11-56-09_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s9/kinect/2023-11-30-11-56-09_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -272,22 +272,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s10/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s10/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s10/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s10/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010132_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s10/gopro/GH010132_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s10/gopro/GH010132_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-30-11-58-30_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s10/kinect/2023-11-30-11-58-30_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P11/cardiac_arrest/s10/kinect/2023-11-30-11-58-30_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -313,22 +313,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010138_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s6/gopro/GH010138_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s6/gopro/GH010138_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-30-12-53-27_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s6/kinect/2023-11-30-12-53-27_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s6/kinect/2023-11-30-12-53-27_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -348,22 +348,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s8/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s8/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s8/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s8/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010140_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s8/gopro/GH010140_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s8/gopro/GH010140_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-30-12-58-45_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s8/kinect/2023-11-30-12-58-45_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P12/cardiac_arrest/s8/kinect/2023-11-30-12-58-45_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -389,22 +389,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s3/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s3/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s3/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s3/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010154_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s3/gopro/GH010154_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s3/gopro/GH010154_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-30-17-26-41_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s3/kinect/2023-11-30-17-26-41_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s3/kinect/2023-11-30-17-26-41_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -424,22 +424,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s5/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s5/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s5/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s5/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010156_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s5/gopro/GH010156_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s5/gopro/GH010156_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-30-17-31-21_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s5/kinect/2023-11-30-17-31-21_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P14/cardiac_arrest/s5/kinect/2023-11-30-17-31-21_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -465,22 +465,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010166_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s6/gopro/GH010166_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s6/gopro/GH010166_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-30-19-05-59_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s6/kinect/2023-11-30-19-05-59_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s6/kinect/2023-11-30-19-05-59_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -500,22 +500,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s8/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s8/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s8/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s8/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010168_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s8/gopro/GH010168_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s8/gopro/GH010168_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-30-19-11-32_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s8/kinect/2023-11-30-19-11-32_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P15/cardiac_arrest/s8/kinect/2023-11-30-19-11-32_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -541,22 +541,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s5/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s5/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s5/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s5/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010173_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s5/gopro/GH010173_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s5/gopro/GH010173_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-12-01-10-13-25_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s5/kinect/2023-12-01-10-13-25_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s5/kinect/2023-12-01-10-13-25_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -576,22 +576,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s7/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s7/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s7/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s7/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010174_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s7/gopro/GH010174_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s7/gopro/GH010174_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-12-01-10-18-32_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s7/kinect/2023-12-01-10-18-32_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P16/cardiac_arrest/s7/kinect/2023-12-01-10-18-32_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -617,22 +617,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s4/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s4/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s4/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s4/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010035_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s4/gopro/GH010035_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s4/gopro/GH010035_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-28-11-35-00_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s4/kinect/2023-11-28-11-35-00_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s4/kinect/2023-11-28-11-35-00_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -652,22 +652,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s3/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s3/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s3/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s3/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010032_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s3/gopro/GH010032_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s3/gopro/GH010032_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-28-11-29-19_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s3/kinect/2023-11-28-11-29-19_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P2/cardiac_arrest/s3/kinect/2023-11-28-11-29-19_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -693,22 +693,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P20/cardiac_arrest/s5/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P20/cardiac_arrest/s5/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P20/cardiac_arrest/s5/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P20/cardiac_arrest/s5/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010207_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P20/cardiac_arrest/s5/gopro/GH010207_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P20/cardiac_arrest/s5/gopro/GH010207_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-12-02-12-11-45_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P20/cardiac_arrest/s5/kinect/2023-12-02-12-11-45_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P20/cardiac_arrest/s5/kinect/2023-12-02-12-11-45_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -734,22 +734,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s5/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s5/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s5/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s5/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010219_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s5/gopro/GH010219_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s5/gopro/GH010219_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-12-02-14-49-42_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s5/kinect/2023-12-02-14-49-42_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s5/kinect/2023-12-02-14-49-42_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -769,22 +769,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s7/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s7/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s7/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s7/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010221_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s7/gopro/GH010221_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s7/gopro/GH010221_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-12-02-14-54-58_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s7/kinect/2023-12-02-14-54-58_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s7/kinect/2023-12-02-14-54-58_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -804,22 +804,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s1/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s1/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s1/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s1/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010213_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s1/gopro/GH010213_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s1/gopro/GH010213_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-12-02-14-14-06_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s1/kinect/2023-12-02-14-14-06_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P21/cardiac_arrest/s1/kinect/2023-12-02-14-14-06_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -845,22 +845,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P22/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P22/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P22/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P22/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010229_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P22/cardiac_arrest/s6/gopro/GH010229_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P22/cardiac_arrest/s6/gopro/GH010229_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-12-02-19-26-22_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P22/cardiac_arrest/s6/kinect/2023-12-02-19-26-22_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P22/cardiac_arrest/s6/kinect/2023-12-02-19-26-22_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -886,22 +886,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s3/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s3/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s3/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s3/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010044_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s3/gopro/GH010044_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s3/gopro/GH010044_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-28-13-04-05_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s3/kinect/2023-11-28-13-04-05_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s3/kinect/2023-11-28-13-04-05_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -921,22 +921,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010047_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s6/gopro/GH010047_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s6/gopro/GH010047_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-28-13-14-18_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s6/kinect/2023-11-28-13-14-18_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P3/cardiac_arrest/s6/kinect/2023-11-28-13-14-18_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -962,22 +962,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s2/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s2/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s2/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s2/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010052_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s2/gopro/GH010052_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s2/gopro/GH010052_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-28-14-14-30_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s2/kinect/2023-11-28-14-14-30_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s2/kinect/2023-11-28-14-14-30_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -997,22 +997,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s4/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s4/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s4/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s4/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010054_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s4/gopro/GH010054_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s4/gopro/GH010054_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-28-14-24-14_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s4/kinect/2023-11-28-14-24-14_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P4/cardiac_arrest/s4/kinect/2023-11-28-14-24-14_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1038,22 +1038,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010064_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s6/gopro/GH010064_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s6/gopro/GH010064_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-28-15-35-53_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s6/kinect/2023-11-28-15-35-53_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s6/kinect/2023-11-28-15-35-53_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1073,22 +1073,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s5/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s5/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s5/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s5/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010063_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s5/gopro/GH010063_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s5/gopro/GH010063_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-28-15-33-01_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s5/kinect/2023-11-28-15-33-01_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P5/cardiac_arrest/s5/kinect/2023-11-28-15-33-01_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1114,22 +1114,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010083_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s6/gopro/GH010083_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s6/gopro/GH010083_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-29-11-24-49_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s6/kinect/2023-11-29-11-24-49_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s6/kinect/2023-11-29-11-24-49_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1149,22 +1149,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s5/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s5/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s5/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s5/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010082_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s5/gopro/GH010082_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s5/gopro/GH010082_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-29-11-22-19_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s5/kinect/2023-11-29-11-22-19_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s5/kinect/2023-11-29-11-22-19_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1184,22 +1184,22 @@
                     "streams": {
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s4/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s4/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s4/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s4/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GH010081_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s4/gopro/GH010081_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s4/gopro/GH010081_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2023-11-29-11-20-15_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s4/kinect/2023-11-29-11-20-15_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s4/kinect/2023-11-29-11-20-15_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1225,47 +1225,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010394_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/i3d_flow/GX010394_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/i3d_flow/GX010394_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010394_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/resnet50/GX010394_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/resnet50/GX010394_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010394_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/audio/GX010394_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/audio/GX010394_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010394_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/i3d_rgb/GX010394_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/i3d_rgb/GX010394_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-24-17-52-18_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/Kinect/2024-09-24-17-52-18_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/Kinect/2024-09-24-17-52-18_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ms1_t3_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/resnet50-exo/ms1_t3_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/resnet50-exo/ms1_t3_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010394_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/GoPro/GX010394_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/3/GoPro/GX010394_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1306,47 +1306,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010392_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/i3d_flow/GX010392_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/i3d_flow/GX010392_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010392_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/resnet50/GX010392_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/resnet50/GX010392_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010392_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/audio/GX010392_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/audio/GX010392_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010392_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/i3d_rgb/GX010392_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/i3d_rgb/GX010392_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-24-17-52-18_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/Kinect/2024-09-24-17-52-18_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/Kinect/2024-09-24-17-52-18_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ms1_t1_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/resnet50-exo/ms1_t1_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/resnet50-exo/ms1_t1_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010392_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/GoPro/GX010392_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms1/cardiac_arrest/1/GoPro/GX010392_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1386,47 +1386,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010397_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/i3d_flow/GX010397_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/i3d_flow/GX010397_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010397_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/resnet50/GX010397_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/resnet50/GX010397_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010397_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/audio/GX010397_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/audio/GX010397_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010397_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/i3d_rgb/GX010397_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/i3d_rgb/GX010397_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-24-17-52-18_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/Kinect/2024-09-24-17-52-18_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/Kinect/2024-09-24-17-52-18_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ms2_t2_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/resnet50-exo/ms2_t2_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/resnet50-exo/ms2_t2_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010397_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/GoPro/GX010397_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ms2/cardiac_arrest/2/GoPro/GX010397_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1466,47 +1466,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010340_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/i3d_flow/GX010340_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/i3d_flow/GX010340_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010340_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/resnet50/GX010340_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/resnet50/GX010340_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010340_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/audio/GX010340_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/audio/GX010340_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010340_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/i3d_rgb/GX010340_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/i3d_rgb/GX010340_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-06-18-52-45_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/Kinect/2024-09-06-18-52-45_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/Kinect/2024-09-06-18-52-45_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng1_t1_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/resnet50-exo/ng1_t1_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/resnet50-exo/ng1_t1_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010340_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/GoPro/GX010340_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng1/cardiac_arrest/1/GoPro/GX010340_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1560,47 +1560,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010342_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/i3d_flow/GX010342_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/i3d_flow/GX010342_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010342_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/resnet50/GX010342_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/resnet50/GX010342_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010342_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/audio/GX010342_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/audio/GX010342_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010342_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/i3d_rgb/GX010342_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/i3d_rgb/GX010342_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-06-18-52-45_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/Kinect/2024-09-06-18-52-45_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/Kinect/2024-09-06-18-52-45_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng2_t1_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/resnet50-exo/ng2_t1_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/resnet50-exo/ng2_t1_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010342_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/GoPro/GX010342_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng2/cardiac_arrest/1/GoPro/GX010342_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1654,47 +1654,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010365_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/i3d_flow/GX010365_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/i3d_flow/GX010365_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010365_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/resnet50/GX010365_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/resnet50/GX010365_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010365_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/audio/GX010365_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/audio/GX010365_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010365_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/i3d_rgb/GX010365_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/i3d_rgb/GX010365_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-12-20-31-08_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/Kinect/2024-09-12-20-31-08_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/Kinect/2024-09-12-20-31-08_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng3_t6_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/resnet50-exo/ng3_t6_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/resnet50-exo/ng3_t6_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010365_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/GoPro/GX010365_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/6/GoPro/GX010365_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1728,47 +1728,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010376_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/i3d_flow/GX010376_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/i3d_flow/GX010376_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010376_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/resnet50/GX010376_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/resnet50/GX010376_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010376_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/audio/GX010376_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/audio/GX010376_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010376_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/i3d_rgb/GX010376_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/i3d_rgb/GX010376_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-19-19-08-12_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/Kinect/2024-09-19-19-08-12_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng3_t11_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/resnet50-exo/ng3_t11_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/resnet50-exo/ng3_t11_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010376_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/GoPro/GX010376_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/11/GoPro/GX010376_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1816,47 +1816,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010333_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/i3d_flow/GX010333_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/i3d_flow/GX010333_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010333_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/resnet50/GX010333_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/resnet50/GX010333_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010333_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/audio/GX010333_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/audio/GX010333_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010333_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/i3d_rgb/GX010333_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/i3d_rgb/GX010333_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-05-19-58-16_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/Kinect/2024-09-05-19-58-16_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/Kinect/2024-09-05-19-58-16_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng3_t1_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/resnet50-exo/ng3_t1_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/resnet50-exo/ng3_t1_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010333_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/GoPro/GX010333_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/1/GoPro/GX010333_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1890,47 +1890,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010377_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/i3d_flow/GX010377_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/i3d_flow/GX010377_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010377_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/resnet50/GX010377_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/resnet50/GX010377_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010377_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/audio/GX010377_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/audio/GX010377_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010377_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/i3d_rgb/GX010377_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/i3d_rgb/GX010377_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-19-19-08-12_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/Kinect/2024-09-19-19-08-12_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng3_t12_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/resnet50-exo/ng3_t12_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/resnet50-exo/ng3_t12_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010377_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/GoPro/GX010377_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng3/cardiac_arrest/12/GoPro/GX010377_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -1984,47 +1984,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010344_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/i3d_flow/GX010344_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/i3d_flow/GX010344_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010344_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/resnet50/GX010344_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/resnet50/GX010344_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010344_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/audio/GX010344_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/audio/GX010344_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010344_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/i3d_rgb/GX010344_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/i3d_rgb/GX010344_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-06-18-52-45_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/Kinect/2024-09-06-18-52-45_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/Kinect/2024-09-06-18-52-45_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng4_t1_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/resnet50-exo/ng4_t1_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/resnet50-exo/ng4_t1_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010344_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/GoPro/GX010344_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng4/cardiac_arrest/1/GoPro/GX010344_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -2057,47 +2057,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010371_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/i3d_flow/GX010371_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/i3d_flow/GX010371_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010371_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/resnet50/GX010371_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/resnet50/GX010371_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010371_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/audio/GX010371_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/audio/GX010371_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010371_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/i3d_rgb/GX010371_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/i3d_rgb/GX010371_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-19-19-08-12_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/Kinect/2024-09-19-19-08-12_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng5_t19_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/resnet50-exo/ng5_t19_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/resnet50-exo/ng5_t19_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010371_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/GoPro/GX010371_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/19/GoPro/GX010371_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -2138,47 +2138,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010318_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/i3d_flow/GX010318_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/i3d_flow/GX010318_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010318_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/resnet50/GX010318_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/resnet50/GX010318_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010318_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/audio/GX010318_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/audio/GX010318_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010318_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/i3d_rgb/GX010318_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/i3d_rgb/GX010318_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-05-19-07-43_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/Kinect/2024-09-05-19-07-43_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/Kinect/2024-09-05-19-07-43_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng5_t2_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/resnet50-exo/ng5_t2_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/resnet50-exo/ng5_t2_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010318_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/GoPro/GX010318_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/2/GoPro/GX010318_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -2219,47 +2219,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010330_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/i3d_flow/GX010330_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/i3d_flow/GX010330_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010330_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/resnet50/GX010330_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/resnet50/GX010330_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010330_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/audio/GX010330_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/audio/GX010330_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010330_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/i3d_rgb/GX010330_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/i3d_rgb/GX010330_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-05-19-58-16_fps_converted_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/Kinect/2024-09-05-19-58-16_fps_converted_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/Kinect/2024-09-05-19-58-16_fps_converted_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng5_t9_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/resnet50-exo/ng5_t9_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/resnet50-exo/ng5_t9_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010330_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/GoPro/GX010330_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/9/GoPro/GX010330_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -2293,47 +2293,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010372_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/i3d_flow/GX010372_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/i3d_flow/GX010372_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010372_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/resnet50/GX010372_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/resnet50/GX010372_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010372_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/audio/GX010372_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/audio/GX010372_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010372_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/i3d_rgb/GX010372_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/i3d_rgb/GX010372_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-19-19-08-12_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/Kinect/2024-09-19-19-08-12_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng5_t20_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/resnet50-exo/ng5_t20_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/resnet50-exo/ng5_t20_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010372_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/GoPro/GX010372_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/20/GoPro/GX010372_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -2374,47 +2374,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010328_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/i3d_flow/GX010328_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/i3d_flow/GX010328_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010328_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/resnet50/GX010328_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/resnet50/GX010328_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010328_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/audio/GX010328_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/audio/GX010328_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010328_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/i3d_rgb/GX010328_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/i3d_rgb/GX010328_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-05-19-58-16_fps_converted_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/Kinect/2024-09-05-19-58-16_fps_converted_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/Kinect/2024-09-05-19-58-16_fps_converted_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng5_t7_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/resnet50-exo/ng5_t7_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/resnet50-exo/ng5_t7_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010328_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/GoPro/GX010328_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng5/cardiac_arrest/7/GoPro/GX010328_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -2454,47 +2454,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010381_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/i3d_flow/GX010381_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/i3d_flow/GX010381_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010381_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/resnet50/GX010381_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/resnet50/GX010381_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010381_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/audio/GX010381_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/audio/GX010381_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010381_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/i3d_rgb/GX010381_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/i3d_rgb/GX010381_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-19-19-08-12_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/Kinect/2024-09-19-19-08-12_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng6_t3_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/resnet50-exo/ng6_t3_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/resnet50-exo/ng6_t3_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010381_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/GoPro/GX010381_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/3/GoPro/GX010381_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -2521,47 +2521,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010382_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/i3d_flow/GX010382_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/i3d_flow/GX010382_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010382_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/resnet50/GX010382_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/resnet50/GX010382_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010382_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/audio/GX010382_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/audio/GX010382_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010382_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/i3d_rgb/GX010382_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/i3d_rgb/GX010382_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-19-19-08-12_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/Kinect/2024-09-19-19-08-12_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng6_t4_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/resnet50-exo/ng6_t4_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/resnet50-exo/ng6_t4_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010382_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/GoPro/GX010382_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng6/cardiac_arrest/4/GoPro/GX010382_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -2601,47 +2601,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010347_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/i3d_flow/GX010347_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/i3d_flow/GX010347_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010347_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/resnet50/GX010347_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/resnet50/GX010347_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010347_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/audio/GX010347_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/audio/GX010347_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010347_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/i3d_rgb/GX010347_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/i3d_rgb/GX010347_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-06-18-52-45_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/Kinect/2024-09-06-18-52-45_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/Kinect/2024-09-06-18-52-45_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng7_t0_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/resnet50-exo/ng7_t0_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/resnet50-exo/ng7_t0_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010347_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/GoPro/GX010347_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng7/cardiac_arrest/0/GoPro/GX010347_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -2674,47 +2674,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010363_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/i3d_flow/GX010363_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/i3d_flow/GX010363_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010363_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/resnet50/GX010363_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/resnet50/GX010363_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010363_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/audio/GX010363_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/audio/GX010363_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010363_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/i3d_rgb/GX010363_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/i3d_rgb/GX010363_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-12-20-31-08_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/Kinect/2024-09-12-20-31-08_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/Kinect/2024-09-12-20-31-08_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng8_t7_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/resnet50-exo/ng8_t7_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/resnet50-exo/ng8_t7_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010363_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/GoPro/GX010363_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/7/GoPro/GX010363_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -2748,47 +2748,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010322_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/i3d_flow/GX010322_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/i3d_flow/GX010322_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010322_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/resnet50/GX010322_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/resnet50/GX010322_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010322_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/audio/GX010322_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/audio/GX010322_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010322_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/i3d_rgb/GX010322_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/i3d_rgb/GX010322_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-05-19-07-43_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/Kinect/2024-09-05-19-07-43_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/Kinect/2024-09-05-19-07-43_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng8_t1_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/resnet50-exo/ng8_t1_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/resnet50-exo/ng8_t1_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010322_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/GoPro/GX010322_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/1/GoPro/GX010322_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -2836,47 +2836,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010379_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/i3d_flow/GX010379_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/i3d_flow/GX010379_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010379_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/resnet50/GX010379_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/resnet50/GX010379_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010379_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/audio/GX010379_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/audio/GX010379_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010379_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/i3d_rgb/GX010379_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/i3d_rgb/GX010379_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-19-19-08-12_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/Kinect/2024-09-19-19-08-12_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/Kinect/2024-09-19-19-08-12_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng8_t9_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/resnet50-exo/ng8_t9_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/resnet50-exo/ng8_t9_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010379_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/GoPro/GX010379_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng8/cardiac_arrest/9/GoPro/GX010379_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -2923,47 +2923,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010345_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/i3d_flow/GX010345_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/i3d_flow/GX010345_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010345_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/resnet50/GX010345_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/resnet50/GX010345_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010345_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/audio/GX010345_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/audio/GX010345_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010345_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/i3d_rgb/GX010345_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/i3d_rgb/GX010345_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-06-18-52-45_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/Kinect/2024-09-06-18-52-45_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/Kinect/2024-09-06-18-52-45_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "ng9_t0_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/resnet50-exo/ng9_t0_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/resnet50-exo/ng9_t0_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010345_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/GoPro/GX010345_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/0/GoPro/GX010345_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },
@@ -2989,47 +2989,47 @@
                     "streams": {
                         "i3d_flow": {
                             "file_id": "GX010386_encoded_trimmed_flow",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/i3d_flow/GX010386_encoded_trimmed_flow.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/i3d_flow/GX010386_encoded_trimmed_flow.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "smartwatch_imu": {
                             "file_id": "sync_smartwatch",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/smartwatch_data/sync_smartwatch.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/smartwatch_data/sync_smartwatch.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50": {
                             "file_id": "GX010386_encoded_trimmed_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/resnet50/GX010386_encoded_trimmed_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/resnet50/GX010386_encoded_trimmed_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "audio": {
                             "file_id": "GX010386_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/audio/GX010386_encoded_trimmed.mp3",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/audio/GX010386_encoded_trimmed.mp3",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "i3d_rgb": {
                             "file_id": "GX010386_encoded_trimmed_rgb",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/i3d_rgb/GX010386_encoded_trimmed_rgb.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/i3d_rgb/GX010386_encoded_trimmed_rgb.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-09-20-15-44-09_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/Kinect/2024-09-20-15-44-09_trimmed.mkv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/Kinect/2024-09-20-15-44-09_trimmed.mkv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "vl6180_ToF_depth": {
                             "file_id": "sync_depth_sensor",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/distance_sensor_data/sync_depth_sensor.csv",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/distance_sensor_data/sync_depth_sensor.csv",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "resnet50-exo": {
                             "file_id": "wa1_t5_trimmed_final_resnet",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/resnet50-exo/wa1_t5_trimmed_final_resnet.npy",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/resnet50-exo/wa1_t5_trimmed_final_resnet.npy",
                             "protocol": "Cardiac Arrest - 2-1"
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010386_encoded_trimmed",
-                            "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/GoPro/GX010386_encoded_trimmed.mp4",
+                            "file_path": "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_arrest/5/GoPro/GX010386_encoded_trimmed.mp4",
                             "protocol": "Cardiac Arrest - 2-1"
                         }
                     },

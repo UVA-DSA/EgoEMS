@@ -4,8 +4,8 @@ import pandas as pd
 import os
 from datetime import datetime
 
-base_path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw'  # Update with your actual path
-# base_path = '/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Lahiru'  # Update with your actual path
+base_path = '/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw'  # Update with your actual path
+# base_path = '/standard/storage/EgoExoEMS_CVPR2025/Dataset/Lahiru'  # Update with your actual path
 # Load the CSV file
 csv_file_path = f'{base_path}/file_paths_for_sync.csv'
 csv_data = pd.read_csv(csv_file_path)

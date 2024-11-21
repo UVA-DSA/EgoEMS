@@ -23,7 +23,7 @@ def add_timestamps_to_transcript(input_file, output_file):
 
 if __name__ == "__main__":
 
-    root_dir = "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final"
+    root_dir = "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final"
     total_files = 0
     # iterate recursively through all files in the root directory
     for root, dirs, files in os.walk(root_dir):

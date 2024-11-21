@@ -181,7 +181,7 @@ def synchronize(base_dir, gopro_file_path, kinect_file_path, gopro_timestamp_pat
         print(f"[INFO] Synchronized smartwatch data: {len(df_sw)}, depth sensor data: {len(df_ds)}")
 
         # update trial path
-        trial_path = trial_path.replace('/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/23-10-2024', '/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final')
+        trial_path = trial_path.replace('/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/23-10-2024', '/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final')
         print(f"[INFO] Saving synchronized data to {trial_path}")
         sync_sw_csv_path = os.path.join(trial_path, 'smartwatch_data')
         # sync_ds_csv_path = os.path.join(trial_path, 'distance_sensor_data')

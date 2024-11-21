@@ -2,7 +2,7 @@
 module load ffmpeg
 
 # Set the folder where AVI files are located
-input_folder="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/EMS_Interventions/videos/oxygen-bvm"
+input_folder="/standard/storage/CognitiveEMS_Datasets/EMS_Interventions/videos/oxygen-bvm"
 
 # Desired output settings
 framerate=25  # Set the framerate explicitly

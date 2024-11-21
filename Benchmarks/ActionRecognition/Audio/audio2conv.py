@@ -174,7 +174,7 @@ def process_gspeech(bucket_name, folder_prefix):
     bucket = client.get_bucket(bucket_name)
     
     # Define save path
-    save_path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Final'
+    save_path = '/standard/storage/CognitiveEMS_Datasets/North_Garden/Final'
 
     # List all blobs in the specified folder
     blobs = bucket.list_blobs(prefix=folder_prefix)
@@ -340,8 +340,8 @@ if __name__ == "__main__":
     # Audio:
     # """
 
-    # path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/05-09-2024/'
-    path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Final'
+    # path = '/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/05-09-2024/'
+    path = '/standard/storage/CognitiveEMS_Datasets/North_Garden/Final'
 
     for root, dirs, files in tqdm(os.walk(path)):
         if 'audio' in dirs:

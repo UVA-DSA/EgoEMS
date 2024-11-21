@@ -40,7 +40,7 @@ def convert_depthsensor_data(input_file,  output_file):
 
 
 
-root_dir = "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Lahiru"
+root_dir = "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Lahiru"
 
 # iterate recursively through all files in the root directory
 for root, dirs, files in os.walk(root_dir):

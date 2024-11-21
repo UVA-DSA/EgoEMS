@@ -7,11 +7,11 @@ from tqdm import tqdm
 if __name__ == "__main__":
     # Load the video file
 
-    # path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/05-09-2024/'
+    # path = '/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/05-09-2024/'
 
 
-    # path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/20-09-2024/chas/cardiac_scenario'
-    path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Final'
+    # path = '/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/20-09-2024/chas/cardiac_scenario'
+    path = '/standard/storage/CognitiveEMS_Datasets/North_Garden/Final'
     for root, dirs, files in tqdm(os.walk(path)):
         if 'GoPro' in dirs:
             for file in os.listdir(os.path.join(root, 'GoPro')):
