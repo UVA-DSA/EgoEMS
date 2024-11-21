@@ -1,0 +1,127 @@
+[
+    {
+        "transcript": "Assessing patient",
+        "start time": 6.602,
+        "end time": 7.343
+    },
+    {
+        "transcript": "Hello, can you hear me?",
+        "start time": 7.923,
+        "end time": 8.804
+    },
+    {
+        "transcript": "Checking for a pulse",
+        "start time": 8.824,
+        "end time": 11.166
+    },
+    {
+        "transcript": "Looking for chest rise and fall.",
+        "start time": 11.546,
+        "end time": 13.007
+    },
+    {
+        "transcript": "No pulse.  Initiating CPR.",
+        "start time": 16.229,
+        "end time": 16.81
+    },
+    {
+        "transcript": "Patient's not breathing. Initiating CPR.",
+        "start time": 17.75,
+        "end time": 18.751
+    },
+    {
+        "transcript": "Starting CPR",
+        "start time": 18.911,
+        "end time": 19.452
+    },
+    {
+        "transcript": "Giving two rescue breaths.",
+        "start time": 36.032,
+        "end time": 37.352
+    },
+    {
+        "transcript": "Applying the pads to the patient from the AED.",
+        "start time": 44.514,
+        "end time": 49.115
+    },
+    {
+        "transcript": "Adult patient.",
+        "start time": 52.656,
+        "end time": 53.556
+    },
+    {
+        "transcript": "Resuming CPR",
+        "start time": 54.537,
+        "end time": 56.057
+    },
+    {
+        "transcript": "Assessing the child's pulse. No pulse. Initiating CPR.",
+        "start time": 56.477,
+        "end time": 57.738
+    },
+    {
+        "transcript": "Do not touch the patient.",
+        "start time": 59.938,
+        "end time": 61.318
+    },
+    {
+        "transcript": "Analyzing heart rhythm.",
+        "start time": 61.539,
+        "end time": 63.119
+    },
+    {
+        "transcript": "Do not touch the patient.",
+        "start time": 65.39,
+        "end time": 66.811
+    },
+    {
+        "transcript": "Analyzing heart rhythm.",
+        "start time": 67.031,
+        "end time": 68.692
+    },
+    {
+        "transcript": "Shock advised",
+        "start time": 69.433,
+        "end time": 70.474
+    },
+    {
+        "transcript": "Do not touch the patient.",
+        "start time": 71.795,
+        "end time": 73.236
+    },
+    {
+        "transcript": "Everyone clear.",
+        "start time": 74.397,
+        "end time": 75.498
+    },
+    {
+        "transcript": "Press the flashing shock button.",
+        "start time": 77.619,
+        "end time": 79.16
+    },
+    {
+        "transcript": "Shock delivered",
+        "start time": 80.561,
+        "end time": 81.382
+    },
+    {
+        "transcript": "Shock delivered",
+        "start time": 81.402,
+        "end time": 82.142
+    },
+    {
+        "transcript": "Giving two rescue breaths.",
+        "start time": 100.309,
+        "end time": 101.27
+    },
+    {
+        "transcript": "30. Give two breaths.",
+        "start time": 101.69,
+        "end time": 103.51
+    },
+    {
+        "transcript": "Initiating CPR. No pulse. Applying the pads to the patient from the AED. Analyzing heart rhythm. Shock advised. Everyone clear. Shock delivered. Giving two rescue breaths.",
+        "start time": 109.172,
+        "end time": 103.51
+    }
+]

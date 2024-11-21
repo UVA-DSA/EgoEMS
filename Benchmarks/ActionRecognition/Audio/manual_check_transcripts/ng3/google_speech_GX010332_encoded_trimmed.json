@@ -1,0 +1,876 @@
+{
+    "Full Transcript": "yeah I disconnected from my wife  can you have a gun on you in person  you guys are not even CPR after watching it 500  how do you set up a ride time with us yet  I haven't met you before I'm Deborah hi are you new to the project  yes you guys need to because it didn't have her  screaming and yelling  hey are you okay  checking for a pulse  breath  whether you come by 11 starting CPR  rescue breaths  the power of the cross  adult patient  if the patient is a child press the child button  do not touch the patient analyzing heart rhythm  do not touch the patient analyzing heart rhythm shock advised  do not touch the patient everyone clear  press the flashing shock button  shark delivered begin CPR  cast  20  30  30 give to breath  call Charles  30 breath",
+    "Segment": [
+        {
+            "Transcript": "yeah I disconnected from my wife",
+            "Confidence": 0.8650164008140564,
+            "Word Segment": [
+                {
+                    "word": "yeah",
+                    "start_time": 20.1,
+                    "end_time": 20.4
+                },
+                {
+                    "word": "I",
+                    "start_time": 20.4,
+                    "end_time": 20.7
+                },
+                {
+                    "word": "disconnected",
+                    "start_time": 20.7,
+                    "end_time": 21.2
+                },
+                {
+                    "word": "from",
+                    "start_time": 21.2,
+                    "end_time": 21.7
+                },
+                {
+                    "word": "my",
+                    "start_time": 21.7,
+                    "end_time": 21.8
+                },
+                {
+                    "word": "wife",
+                    "start_time": 21.8,
+                    "end_time": 22.2
+                }
+            ]
+        },
+        {
+            "Transcript": " can you have a gun on you in person",
+            "Confidence": 0.5416801571846008,
+            "Word Segment": [
+                {
+                    "word": "can",
+                    "start_time": 23.3,
+                    "end_time": 23.7
+                },
+                {
+                    "word": "you",
+                    "start_time": 23.7,
+                    "end_time": 23.8
+                },
+                {
+                    "word": "have",
+                    "start_time": 23.8,
+                    "end_time": 23.9
+                },
+                {
+                    "word": "a",
+                    "start_time": 23.9,
+                    "end_time": 23.9
+                },
+                {
+                    "word": "gun",
+                    "start_time": 23.9,
+                    "end_time": 24.1
+                },
+                {
+                    "word": "on",
+                    "start_time": 24.1,
+                    "end_time": 24.2
+                },
+                {
+                    "word": "you",
+                    "start_time": 24.2,
+                    "end_time": 24.4
+                },
+                {
+                    "word": "in",
+                    "start_time": 24.4,
+                    "end_time": 25.0
+                },
+                {
+                    "word": "person",
+                    "start_time": 25.0,
+                    "end_time": 25.4
+                }
+            ]
+        },
+        {
+            "Transcript": " you guys are not even CPR after watching it 500",
+            "Confidence": 0.802736759185791,
+            "Word Segment": [
+                {
+                    "word": "you",
+                    "start_time": 34.9,
+                    "end_time": 35.3
+                },
+                {
+                    "word": "guys",
+                    "start_time": 35.3,
+                    "end_time": 35.4
+                },
+                {
+                    "word": "are",
+                    "start_time": 35.4,
+                    "end_time": 35.6
+                },
+                {
+                    "word": "not",
+                    "start_time": 35.6,
+                    "end_time": 35.7
+                },
+                {
+                    "word": "even",
+                    "start_time": 35.7,
+                    "end_time": 36.0
+                },
+                {
+                    "word": "CPR",
+                    "start_time": 36.0,
+                    "end_time": 36.6
+                },
+                {
+                    "word": "after",
+                    "start_time": 36.6,
+                    "end_time": 37.8
+                },
+                {
+                    "word": "watching",
+                    "start_time": 37.8,
+                    "end_time": 38.1
+                },
+                {
+                    "word": "it",
+                    "start_time": 38.1,
+                    "end_time": 38.1
+                },
+                {
+                    "word": "500",
+                    "start_time": 38.1,
+                    "end_time": 38.9
+                }
+            ]
+        },
+        {
+            "Transcript": " how do you set up a ride time with us yet",
+            "Confidence": 0.9431204199790955,
+            "Word Segment": [
+                {
+                    "word": "how",
+                    "start_time": 48.5,
+                    "end_time": 48.8
+                },
+                {
+                    "word": "do",
+                    "start_time": 48.8,
+                    "end_time": 48.9
+                },
+                {
+                    "word": "you",
+                    "start_time": 48.9,
+                    "end_time": 49.0
+                },
+                {
+                    "word": "set",
+                    "start_time": 49.0,
+                    "end_time": 49.2
+                },
+                {
+                    "word": "up",
+                    "start_time": 49.2,
+                    "end_time": 49.3
+                },
+                {
+                    "word": "a",
+                    "start_time": 49.3,
+                    "end_time": 49.9
+                },
+                {
+                    "word": "ride",
+                    "start_time": 49.9,
+                    "end_time": 50.1
+                },
+                {
+                    "word": "time",
+                    "start_time": 50.1,
+                    "end_time": 50.5
+                },
+                {
+                    "word": "with",
+                    "start_time": 50.5,
+                    "end_time": 50.7
+                },
+                {
+                    "word": "us",
+                    "start_time": 50.7,
+                    "end_time": 50.8
+                },
+                {
+                    "word": "yet",
+                    "start_time": 50.8,
+                    "end_time": 51.2
+                }
+            ]
+        },
+        {
+            "Transcript": " I haven't met you before I'm Deborah hi are you new to the project",
+            "Confidence": 0.8889036178588867,
+            "Word Segment": [
+                {
+                    "word": "I",
+                    "start_time": 57.0,
+                    "end_time": 57.3
+                },
+                {
+                    "word": "haven't",
+                    "start_time": 57.3,
+                    "end_time": 57.6
+                },
+                {
+                    "word": "met",
+                    "start_time": 57.6,
+                    "end_time": 57.7
+                },
+                {
+                    "word": "you",
+                    "start_time": 57.7,
+                    "end_time": 57.8
+                },
+                {
+                    "word": "before",
+                    "start_time": 57.8,
+                    "end_time": 58.0
+                },
+                {
+                    "word": "I'm",
+                    "start_time": 58.0,
+                    "end_time": 58.3
+                },
+                {
+                    "word": "Deborah",
+                    "start_time": 58.3,
+                    "end_time": 58.6
+                },
+                {
+                    "word": "hi",
+                    "start_time": 58.6,
+                    "end_time": 58.9
+                },
+                {
+                    "word": "are",
+                    "start_time": 58.9,
+                    "end_time": 61.2
+                },
+                {
+                    "word": "you",
+                    "start_time": 61.2,
+                    "end_time": 61.2
+                },
+                {
+                    "word": "new",
+                    "start_time": 61.2,
+                    "end_time": 61.5
+                },
+                {
+                    "word": "to",
+                    "start_time": 61.5,
+                    "end_time": 61.6
+                },
+                {
+                    "word": "the",
+                    "start_time": 61.6,
+                    "end_time": 61.7
+                },
+                {
+                    "word": "project",
+                    "start_time": 61.7,
+                    "end_time": 62.2
+                }
+            ]
+        },
+        {
+            "Transcript": " yes you guys need to because it didn't have her",
+            "Confidence": 0.8434427380561829,
+            "Word Segment": [
+                {
+                    "word": "yes",
+                    "start_time": 64.8,
+                    "end_time": 65.9
+                },
+                {
+                    "word": "you",
+                    "start_time": 65.9,
+                    "end_time": 66.1
+                },
+                {
+                    "word": "guys",
+                    "start_time": 66.1,
+                    "end_time": 66.2
+                },
+                {
+                    "word": "need",
+                    "start_time": 66.2,
+                    "end_time": 66.5
+                },
+                {
+                    "word": "to",
+                    "start_time": 66.5,
+                    "end_time": 66.6
+                },
+                {
+                    "word": "because",
+                    "start_time": 66.6,
+                    "end_time": 67.0
+                },
+                {
+                    "word": "it",
+                    "start_time": 67.0,
+                    "end_time": 67.1
+                },
+                {
+                    "word": "didn't",
+                    "start_time": 67.1,
+                    "end_time": 67.3
+                },
+                {
+                    "word": "have",
+                    "start_time": 67.3,
+                    "end_time": 67.3
+                },
+                {
+                    "word": "her",
+                    "start_time": 67.3,
+                    "end_time": 67.5
+                }
+            ]
+        },
+        {
+            "Transcript": " screaming and yelling",
+            "Confidence": 0.701347827911377,
+            "Word Segment": [
+                {
+                    "word": "screaming",
+                    "start_time": 68.8,
+                    "end_time": 69.5
+                },
+                {
+                    "word": "and",
+                    "start_time": 69.5,
+                    "end_time": 69.7
+                },
+                {
+                    "word": "yelling",
+                    "start_time": 69.7,
+                    "end_time": 70.0
+                }
+            ]
+        },
+        {
+            "Transcript": " hey are you okay",
+            "Confidence": 0.903617799282074,
+            "Word Segment": [
+                {
+                    "word": "hey",
+                    "start_time": 83.7,
+                    "end_time": 84.9
+                },
+                {
+                    "word": "are",
+                    "start_time": 84.9,
+                    "end_time": 85.0
+                },
+                {
+                    "word": "you",
+                    "start_time": 85.0,
+                    "end_time": 85.1
+                },
+                {
+                    "word": "okay",
+                    "start_time": 85.1,
+                    "end_time": 85.2
+                }
+            ]
+        },
+        {
+            "Transcript": " checking for a pulse",
+            "Confidence": 0.9143180251121521,
+            "Word Segment": [
+                {
+                    "word": "checking",
+                    "start_time": 87.7,
+                    "end_time": 88.2
+                },
+                {
+                    "word": "for",
+                    "start_time": 88.2,
+                    "end_time": 88.3
+                },
+                {
+                    "word": "a",
+                    "start_time": 88.3,
+                    "end_time": 88.3
+                },
+                {
+                    "word": "pulse",
+                    "start_time": 88.3,
+                    "end_time": 88.4
+                }
+            ]
+        },
+        {
+            "Transcript": " breath",
+            "Confidence": 0.4926270544528961,
+            "Word Segment": [
+                {
+                    "word": "breath",
+                    "start_time": 91.3,
+                    "end_time": 91.9
+                }
+            ]
+        },
+        {
+            "Transcript": " whether you come by 11 starting CPR",
+            "Confidence": 0.6273087859153748,
+            "Word Segment": [
+                {
+                    "word": "whether",
+                    "start_time": 92.8,
+                    "end_time": 93.4
+                },
+                {
+                    "word": "you",
+                    "start_time": 93.4,
+                    "end_time": 94.4
+                },
+                {
+                    "word": "come",
+                    "start_time": 94.4,
+                    "end_time": 94.5
+                },
+                {
+                    "word": "by",
+                    "start_time": 94.5,
+                    "end_time": 94.8
+                },
+                {
+                    "word": "11",
+                    "start_time": 94.8,
+                    "end_time": 95.0
+                },
+                {
+                    "word": "starting",
+                    "start_time": 95.0,
+                    "end_time": 95.6
+                },
+                {
+                    "word": "CPR",
+                    "start_time": 95.6,
+                    "end_time": 95.8
+                }
+            ]
+        },
+        {
+            "Transcript": " rescue breaths",
+            "Confidence": 0.431988388299942,
+            "Word Segment": [
+                {
+                    "word": "rescue",
+                    "start_time": 112.3,
+                    "end_time": 113.0
+                },
+                {
+                    "word": "breaths",
+                    "start_time": 113.0,
+                    "end_time": 113.1
+                }
+            ]
+        },
+        {
+            "Transcript": " the power of the cross",
+            "Confidence": 0.4353448748588562,
+            "Word Segment": [
+                {
+                    "word": "the",
+                    "start_time": 121.2,
+                    "end_time": 121.7
+                },
+                {
+                    "word": "power",
+                    "start_time": 121.7,
+                    "end_time": 121.9
+                },
+                {
+                    "word": "of",
+                    "start_time": 121.9,
+                    "end_time": 122.1
+                },
+                {
+                    "word": "the",
+                    "start_time": 122.1,
+                    "end_time": 122.9
+                },
+                {
+                    "word": "cross",
+                    "start_time": 122.9,
+                    "end_time": 123.1
+                }
+            ]
+        },
+        {
+            "Transcript": " adult patient",
+            "Confidence": 0.9146158695220947,
+            "Word Segment": [
+                {
+                    "word": "adult",
+                    "start_time": 130.3,
+                    "end_time": 131.1
+                },
+                {
+                    "word": "patient",
+                    "start_time": 131.1,
+                    "end_time": 131.6
+                }
+            ]
+        },
+        {
+            "Transcript": " if the patient is a child press the child button",
+            "Confidence": 0.9571553468704224,
+            "Word Segment": [
+                {
+                    "word": "if",
+                    "start_time": 132.4,
+                    "end_time": 132.8
+                },
+                {
+                    "word": "the",
+                    "start_time": 132.8,
+                    "end_time": 133.0
+                },
+                {
+                    "word": "patient",
+                    "start_time": 133.0,
+                    "end_time": 133.4
+                },
+                {
+                    "word": "is",
+                    "start_time": 133.4,
+                    "end_time": 133.5
+                },
+                {
+                    "word": "a",
+                    "start_time": 133.5,
+                    "end_time": 133.6
+                },
+                {
+                    "word": "child",
+                    "start_time": 133.6,
+                    "end_time": 134.1
+                },
+                {
+                    "word": "press",
+                    "start_time": 134.1,
+                    "end_time": 134.7
+                },
+                {
+                    "word": "the",
+                    "start_time": 134.7,
+                    "end_time": 134.9
+                },
+                {
+                    "word": "child",
+                    "start_time": 134.9,
+                    "end_time": 135.4
+                },
+                {
+                    "word": "button",
+                    "start_time": 135.4,
+                    "end_time": 135.8
+                }
+            ]
+        },
+        {
+            "Transcript": " do not touch the patient analyzing heart rhythm",
+            "Confidence": 0.9749855399131775,
+            "Word Segment": [
+                {
+                    "word": "do",
+                    "start_time": 137.6,
+                    "end_time": 138.0
+                },
+                {
+                    "word": "not",
+                    "start_time": 138.0,
+                    "end_time": 138.3
+                },
+                {
+                    "word": "touch",
+                    "start_time": 138.3,
+                    "end_time": 138.5
+                },
+                {
+                    "word": "the",
+                    "start_time": 138.5,
+                    "end_time": 138.8
+                },
+                {
+                    "word": "patient",
+                    "start_time": 138.8,
+                    "end_time": 139.1
+                },
+                {
+                    "word": "analyzing",
+                    "start_time": 139.1,
+                    "end_time": 140.2
+                },
+                {
+                    "word": "heart",
+                    "start_time": 140.2,
+                    "end_time": 140.7
+                },
+                {
+                    "word": "rhythm",
+                    "start_time": 140.7,
+                    "end_time": 141.2
+                }
+            ]
+        },
+        {
+            "Transcript": " do not touch the patient analyzing heart rhythm shock advised",
+            "Confidence": 0.9753093719482422,
+            "Word Segment": [
+                {
+                    "word": "do",
+                    "start_time": 143.1,
+                    "end_time": 143.5
+                },
+                {
+                    "word": "not",
+                    "start_time": 143.5,
+                    "end_time": 143.8
+                },
+                {
+                    "word": "touch",
+                    "start_time": 143.8,
+                    "end_time": 144.0
+                },
+                {
+                    "word": "the",
+                    "start_time": 144.0,
+                    "end_time": 144.3
+                },
+                {
+                    "word": "patient",
+                    "start_time": 144.3,
+                    "end_time": 144.6
+                },
+                {
+                    "word": "analyzing",
+                    "start_time": 144.6,
+                    "end_time": 145.7
+                },
+                {
+                    "word": "heart",
+                    "start_time": 145.7,
+                    "end_time": 146.2
+                },
+                {
+                    "word": "rhythm",
+                    "start_time": 146.2,
+                    "end_time": 146.7
+                },
+                {
+                    "word": "shock",
+                    "start_time": 146.7,
+                    "end_time": 147.7
+                },
+                {
+                    "word": "advised",
+                    "start_time": 147.7,
+                    "end_time": 148.6
+                }
+            ]
+        },
+        {
+            "Transcript": " do not touch the patient everyone clear",
+            "Confidence": 0.977272629737854,
+            "Word Segment": [
+                {
+                    "word": "do",
+                    "start_time": 149.5,
+                    "end_time": 149.9
+                },
+                {
+                    "word": "not",
+                    "start_time": 149.9,
+                    "end_time": 150.2
+                },
+                {
+                    "word": "touch",
+                    "start_time": 150.2,
+                    "end_time": 150.4
+                },
+                {
+                    "word": "the",
+                    "start_time": 150.4,
+                    "end_time": 150.7
+                },
+                {
+                    "word": "patient",
+                    "start_time": 150.7,
+                    "end_time": 151.0
+                },
+                {
+                    "word": "everyone",
+                    "start_time": 151.0,
+                    "end_time": 152.9
+                },
+                {
+                    "word": "clear",
+                    "start_time": 152.9,
+                    "end_time": 153.4
+                }
+            ]
+        },
+        {
+            "Transcript": " press the flashing shock button",
+            "Confidence": 0.8154847025871277,
+            "Word Segment": [
+                {
+                    "word": "press",
+                    "start_time": 155.3,
+                    "end_time": 155.9
+                },
+                {
+                    "word": "the",
+                    "start_time": 155.9,
+                    "end_time": 156.1
+                },
+                {
+                    "word": "flashing",
+                    "start_time": 156.1,
+                    "end_time": 156.5
+                },
+                {
+                    "word": "shock",
+                    "start_time": 156.5,
+                    "end_time": 156.8
+                },
+                {
+                    "word": "button",
+                    "start_time": 156.8,
+                    "end_time": 157.1
+                }
+            ]
+        },
+        {
+            "Transcript": " shark delivered begin CPR",
+            "Confidence": 0.8867579698562622,
+            "Word Segment": [
+                {
+                    "word": "shark",
+                    "start_time": 158.2,
+                    "end_time": 158.8
+                },
+                {
+                    "word": "delivered",
+                    "start_time": 158.8,
+                    "end_time": 159.3
+                },
+                {
+                    "word": "begin",
+                    "start_time": 159.3,
+                    "end_time": 161.1
+                },
+                {
+                    "word": "CPR",
+                    "start_time": 161.1,
+                    "end_time": 161.5
+                }
+            ]
+        },
+        {
+            "Transcript": " cast",
+            "Confidence": 0.6521632671356201,
+            "Word Segment": [
+                {
+                    "word": "cast",
+                    "start_time": 165.5,
+                    "end_time": 168.7
+                }
+            ]
+        },
+        {
+            "Transcript": " 20",
+            "Confidence": 0.896259069442749,
+            "Word Segment": [
+                {
+                    "word": "20",
+                    "start_time": 173.7,
+                    "end_time": 174.4
+                }
+            ]
+        },
+        {
+            "Transcript": " 30",
+            "Confidence": 0.45329752564430237,
+            "Word Segment": [
+                {
+                    "word": "30",
+                    "start_time": 179.4,
+                    "end_time": 179.9
+                }
+            ]
+        },
+        {
+            "Transcript": " 30 give to breath",
+            "Confidence": 0.604049563407898,
+            "Word Segment": [
+                {
+                    "word": "30",
+                    "start_time": 203.3,
+                    "end_time": 203.9
+                },
+                {
+                    "word": "give",
+                    "start_time": 203.9,
+                    "end_time": 204.3
+                },
+                {
+                    "word": "to",
+                    "start_time": 204.3,
+                    "end_time": 204.7
+                },
+                {
+                    "word": "breath",
+                    "start_time": 204.7,
+                    "end_time": 205.4
+                }
+            ]
+        },
+        {
+            "Transcript": " call Charles",
+            "Confidence": 0.8290325403213501,
+            "Word Segment": [
+                {
+                    "word": "call",
+                    "start_time": 209.1,
+                    "end_time": 209.7
+                },
+                {
+                    "word": "Charles",
+                    "start_time": 209.7,
+                    "end_time": 210.7
+                }
+            ]
+        },
+        {
+            "Transcript": " 30 breath",
+            "Confidence": 0.704675018787384,
+            "Word Segment": [
+                {
+                    "word": "30",
+                    "start_time": 226.9,
+                    "end_time": 227.8
+                },
+                {
+                    "word": "breath",
+                    "start_time": 227.8,
+                    "end_time": 229.3
+                }
+            ]
+        }
+    ]
+}

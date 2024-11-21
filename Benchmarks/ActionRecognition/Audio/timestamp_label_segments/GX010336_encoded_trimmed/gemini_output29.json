@@ -1,0 +1,1 @@
+"Please provide the audio recording.  I need the audio file to perform the transcription and analysis as requested.  I cannot process an audio file that is not provided.  Once you provide the audio, I will follow the steps outlined and return the JSON formatted transcript.  If no audio is provided, I will return `[\"None\"]`.\n"

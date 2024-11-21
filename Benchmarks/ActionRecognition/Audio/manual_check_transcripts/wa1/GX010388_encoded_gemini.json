@@ -1,0 +1,246 @@
+[
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Is it going to screw you up in your data collection if he's like bending over and moving? Okay, so maybe just, you know, you really enjoy the like tripoding position because it's causing like that much pain."
+    },
+    {
+        "Role": "Bystander",
+        "Utterance": "No, no.  I mean, no, no."
+    },
+    {
+        "Role": "Bystander",
+        "Utterance": "And one of the things you say is very helpful for us for our labelings."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Okay."
+    },
+    {
+        "Role": "Bystander",
+        "Utterance": "Yeah."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Good evening or good afternoon sir, my name is Ryan. I'm a paramedic with the Western Almarast squad. What's going on today?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "My chest is killing me."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "All right, your chest is killing you? Okay. When did that start?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Maybe like an hour ago."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Okay. All right. My partner here, Chad is going to get a quick 12-lead EKG on you, okay? Just going to throw some stickers on your chest and arms and legs here, okay?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Okay, alright. Okay."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Have you ever had this happen to you before?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "No, I don't think so, nothing like this."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Okay. Do you have any, uh, medical problems with your heart?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Just high blood pressure and, uh, cholesterol."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Okay."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Do you have any other medical history?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Not, not that I can think of."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Okay. Did you take all your medications today?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Yep."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "What medications do you take?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Something for my blood pressure and something for the cholesterol. And I, I take a small aspirin every day."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Okay."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Where exactly in your chest is the, uh, the chest pain?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "The left side. It's going into my jaw."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Going into your jaw. All right. And on a scale of zero to 10, 10 being the worst pain you've ever had in your life, how would you describe this?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "This is a 12 right now."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "It's a 12. Okay. Sir, do you mind just rolling up your shirt for me here?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Yeah."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Perfect, if you can just hold it right there for us that'd be awesome. I'm going to get a quick blood pressure on you, okay?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Okay."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "All righty, going to have to borrow this arm. Okay, just going to stick this right here for you. Has anything made the pain better?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Um, no I don't, I don't think so, no."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Have you taken any medications to help you with the, the pain?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "No."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Okay. Does anything make it worse?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "It got, it got worse when I, when I got up to move."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Got up to move, okay. I'm going to put this probe on your finger here, okay? Just going to tell us how much oxygen is in your blood."
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Okay."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "What hospital do you want to go to?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Let's, let's do UVA."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "UVA.  All right.  Do you have any allergies to any medications?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Um, penicillin."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Penicillin, okay. When's the last time you had something to eat or drink?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "I had breakfast this morning."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Breakfast this morning. All right. Did you do anything, um, um, exertive today? Did you go on any, uh, runs or walks or anything like that?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "I mowed my lawn."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "You mowed your lawn. Okay, like with a push mower?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Yeah, yeah."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Okay, got ya. How old are you, sir?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "75."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "75 year old male. All right, do me a favor, I'm going to have you sit nice and still, okay? My monitor here's going to get a quick picture of your heart. While I'm doing that, if you go ahead and get me 324 milligrams of aspirin. Got it.  Sir, I'm going to hand you these four tablets here real quick, just put them in your mouth and chew them and swallow them like normal. 324 milligrams on board of aspirin. All right, sit nice and still. You're going to feel your blood pressure cuff expand here, okay? I'm going to get a quick blood pressure. Okay. Let's go ahead and also get, um, some nitro paste. We'll get some nitro paste on his chest."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Okay. Got it. Don't put it on yet, I just want to make sure we have it close by.  I have one inch prepped on the paper.  Okay."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Well sir, I think we need to go down to the hospital. It looks like you're having a, an MI, okay? I see, uh, elevation in leads, uh, V1, V2, V3, and V4 with, uh, looks like a little bit of reciprocal depression in our, uh, what'd I say depression or elevation?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Okay."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Depression."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Oh, I meant to say elevation. I see elevation in leads V1, V2, V3, and V4 with, uh, reciprocal depression in our, uh, posterior leads. All right. Would you be able to stand and pivot to our cot here?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Sure."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "All right."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "All right, we got you. All right, good job."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Good. I probably screwed up your system by, uh"
+    }
+]

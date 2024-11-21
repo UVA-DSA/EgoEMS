@@ -1,0 +1,383 @@
+{
+    "text": " Hey, are you okay? No pulse. No pulse. No breathing. Call 911. Get an AED. Starting CPR. Two breaths. Breath. Languages. Lang-A-Dee. pads firmly on skin. Do not touch the patient analyzing heart rhythm. Do not touch the patient analyzing heart rhythm. Shock advised. Do CPR. 10. 20. 30. Give two breaths",
+    "chunks": [
+        {
+            "text": " Hey,",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " are",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " you",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " okay?",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " No",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " pulse.",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " No",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " pulse.",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " No",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " breathing.",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " Call",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " 911.",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " Get",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " an",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " AED.",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " Starting",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " CPR.",
+            "timestamp": [
+                29.72,
+                29.72
+            ]
+        },
+        {
+            "text": " Two",
+            "timestamp": [
+                49.98,
+                49.98
+            ]
+        },
+        {
+            "text": " breaths.",
+            "timestamp": [
+                49.98,
+                49.98
+            ]
+        },
+        {
+            "text": " Breath.",
+            "timestamp": [
+                69.98,
+                69.98
+            ]
+        },
+        {
+            "text": " Languages.",
+            "timestamp": [
+                69.98,
+                69.98
+            ]
+        },
+        {
+            "text": " Lang",
+            "timestamp": [
+                89.98,
+                89.98
+            ]
+        },
+        {
+            "text": "-A",
+            "timestamp": [
+                89.98,
+                89.98
+            ]
+        },
+        {
+            "text": "-Dee.",
+            "timestamp": [
+                89.98,
+                89.98
+            ]
+        },
+        {
+            "text": " pads",
+            "timestamp": [
+                80.0,
+                80.22
+            ]
+        },
+        {
+            "text": " firmly",
+            "timestamp": [
+                80.22,
+                80.72
+            ]
+        },
+        {
+            "text": " on",
+            "timestamp": [
+                80.72,
+                81.08
+            ]
+        },
+        {
+            "text": " skin.",
+            "timestamp": [
+                81.08,
+                81.7
+            ]
+        },
+        {
+            "text": " Do",
+            "timestamp": [
+                81.7,
+                84.34
+            ]
+        },
+        {
+            "text": " not",
+            "timestamp": [
+                84.34,
+                84.7
+            ]
+        },
+        {
+            "text": " touch",
+            "timestamp": [
+                84.7,
+                85.08
+            ]
+        },
+        {
+            "text": " the",
+            "timestamp": [
+                85.08,
+                85.32
+            ]
+        },
+        {
+            "text": " patient",
+            "timestamp": [
+                85.32,
+                85.66
+            ]
+        },
+        {
+            "text": " analyzing",
+            "timestamp": [
+                85.66,
+                86.3
+            ]
+        },
+        {
+            "text": " heart",
+            "timestamp": [
+                86.3,
+                87.04
+            ]
+        },
+        {
+            "text": " rhythm.",
+            "timestamp": [
+                87.04,
+                87.82
+            ]
+        },
+        {
+            "text": " Do",
+            "timestamp": [
+                87.82,
+                89.92
+            ]
+        },
+        {
+            "text": " not",
+            "timestamp": [
+                89.92,
+                90.2
+            ]
+        },
+        {
+            "text": " touch",
+            "timestamp": [
+                90.2,
+                90.56
+            ]
+        },
+        {
+            "text": " the",
+            "timestamp": [
+                90.56,
+                90.84
+            ]
+        },
+        {
+            "text": " patient",
+            "timestamp": [
+                90.84,
+                91.16
+            ]
+        },
+        {
+            "text": " analyzing",
+            "timestamp": [
+                91.36,
+                91.88
+            ]
+        },
+        {
+            "text": " heart",
+            "timestamp": [
+                91.88,
+                92.56
+            ]
+        },
+        {
+            "text": " rhythm.",
+            "timestamp": [
+                92.56,
+                93.3
+            ]
+        },
+        {
+            "text": " Shock",
+            "timestamp": [
+                93.3,
+                94.08
+            ]
+        },
+        {
+            "text": " advised.",
+            "timestamp": [
+                94.08,
+                95.06
+            ]
+        },
+        {
+            "text": " Do",
+            "timestamp": [
+                95.06,
+                96.34
+            ]
+        },
+        {
+            "text": " CPR.",
+            "timestamp": [
+                107.24,
+                108.58
+            ]
+        },
+        {
+            "text": " 10.",
+            "timestamp": [
+                108.58,
+                115.06
+            ]
+        },
+        {
+            "text": " 20.",
+            "timestamp": [
+                115.06,
+                120.82
+            ]
+        },
+        {
+            "text": " 30.",
+            "timestamp": [
+                120.82,
+                126.28
+            ]
+        },
+        {
+            "text": " Give",
+            "timestamp": [
+                126.28,
+                126.68
+            ]
+        },
+        {
+            "text": " two",
+            "timestamp": [
+                149.86,
+                149.86
+            ]
+        },
+        {
+            "text": " breaths",
+            "timestamp": [
+                151.0,
+                151.6
+            ]
+        }
+    ]
+}

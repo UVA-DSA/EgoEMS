@@ -1,0 +1,1236 @@
+{
+    "text": " Is it in progress? In progress. Not breathing, no pulse. Starting CPR. Stalling the defibrillator. 10 20 30 Give two breaths. 10 20 30 Give two breaths. Stop CPR. Do not touch the patient. Analyzing heart rhythm. Do not touch the patient. Analyzing heart rhythm. Shock advised. Do not touch the patient. Everyone clear. Press the flashing shock button. Shock delivered. Begin CPR. 10 10 10 10 10 20 20 20 30 30 Give two breaths. Give two breaths.",
+    "segments": [
+        {
+            "id": 0,
+            "seek": 0,
+            "start": 0.0,
+            "end": 1.26,
+            "text": " Is it in progress?",
+            "tokens": [
+                50365,
+                1119,
+                309,
+                294,
+                4205,
+                30,
+                50465
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.4421532337482159,
+            "compression_ratio": 1.0294117647058822,
+            "no_speech_prob": 0.20309165120124817,
+            "confidence": 0.404,
+            "words": [
+                {
+                    "text": "Is",
+                    "start": 0.0,
+                    "end": 0.36,
+                    "confidence": 0.034
+                },
+                {
+                    "text": "it",
+                    "start": 0.36,
+                    "end": 0.52,
+                    "confidence": 0.572
+                },
+                {
+                    "text": "in",
+                    "start": 0.52,
+                    "end": 0.78,
+                    "confidence": 0.581
+                },
+                {
+                    "text": "progress?",
+                    "start": 0.78,
+                    "end": 1.26,
+                    "confidence": 0.981
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "seek": 0,
+            "start": 1.5,
+            "end": 2.4,
+            "text": " In progress.",
+            "tokens": [
+                50465,
+                682,
+                4205,
+                13,
+                50565
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.4421532337482159,
+            "compression_ratio": 1.0294117647058822,
+            "no_speech_prob": 0.20309165120124817,
+            "confidence": 0.685,
+            "words": [
+                {
+                    "text": "In",
+                    "start": 1.5,
+                    "end": 2.0,
+                    "confidence": 0.407
+                },
+                {
+                    "text": "progress.",
+                    "start": 2.0,
+                    "end": 2.4,
+                    "confidence": 0.89
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "seek": 0,
+            "start": 7.5,
+            "end": 9.24,
+            "text": " Not breathing, no pulse.",
+            "tokens": [
+                50765,
+                1726,
+                9570,
+                11,
+                572,
+                17709,
+                13,
+                50865
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.4421532337482159,
+            "compression_ratio": 1.0294117647058822,
+            "no_speech_prob": 0.20309165120124817,
+            "confidence": 0.814,
+            "words": [
+                {
+                    "text": "Not",
+                    "start": 7.5,
+                    "end": 8.1,
+                    "confidence": 0.44
+                },
+                {
+                    "text": "breathing,",
+                    "start": 8.1,
+                    "end": 8.48,
+                    "confidence": 0.867
+                },
+                {
+                    "text": "no",
+                    "start": 8.64,
+                    "end": 8.88,
+                    "confidence": 0.985
+                },
+                {
+                    "text": "pulse.",
+                    "start": 8.88,
+                    "end": 9.24,
+                    "confidence": 0.944
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "seek": 0,
+            "start": 9.5,
+            "end": 11.0,
+            "text": " Starting CPR.",
+            "tokens": [
+                50865,
+                16217,
+                47536,
+                13,
+                50965
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.4421532337482159,
+            "compression_ratio": 1.0294117647058822,
+            "no_speech_prob": 0.20309165120124817,
+            "confidence": 0.71,
+            "words": [
+                {
+                    "text": "Starting",
+                    "start": 9.5,
+                    "end": 10.56,
+                    "confidence": 0.472
+                },
+                {
+                    "text": "CPR.",
+                    "start": 10.56,
+                    "end": 11.0,
+                    "confidence": 0.87
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "seek": 3000,
+            "start": 35.64,
+            "end": 38.06,
+            "text": " Stalling the defibrillator.",
+            "tokens": [
+                50365,
+                745,
+                24021,
+                264,
+                1060,
+                6414,
+                373,
+                1639,
+                13,
+                50765
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.42659633299883676,
+            "compression_ratio": 0.8048780487804879,
+            "no_speech_prob": 0.019558070227503777,
+            "confidence": 0.657,
+            "words": [
+                {
+                    "text": "Stalling",
+                    "start": 35.64,
+                    "end": 36.28,
+                    "confidence": 0.222
+                },
+                {
+                    "text": "the",
+                    "start": 36.28,
+                    "end": 36.66,
+                    "confidence": 0.964
+                },
+                {
+                    "text": "defibrillator.",
+                    "start": 36.66,
+                    "end": 38.06,
+                    "confidence": 0.939
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "seek": 3000,
+            "start": 52.48,
+            "end": 52.5,
+            "text": " 10",
+            "tokens": [
+                51365,
+                1266,
+                51465
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.42659633299883676,
+            "compression_ratio": 0.8048780487804879,
+            "no_speech_prob": 0.019558070227503777,
+            "confidence": 0.001,
+            "words": [
+                {
+                    "text": "10",
+                    "start": 52.48,
+                    "end": 52.5,
+                    "confidence": 0.001
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "seek": 3000,
+            "start": 53.5,
+            "end": 55.52,
+            "text": " 20",
+            "tokens": [
+                51565,
+                945,
+                51665
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.42659633299883676,
+            "compression_ratio": 0.8048780487804879,
+            "no_speech_prob": 0.019558070227503777,
+            "confidence": 0.0,
+            "words": [
+                {
+                    "text": "20",
+                    "start": 53.5,
+                    "end": 55.52,
+                    "confidence": 0.0
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "seek": 6000,
+            "start": 59.5,
+            "end": 61.3,
+            "text": " 30",
+            "tokens": [
+                50365,
+                2217,
+                50465
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.0841568660736084,
+            "compression_ratio": 1.236842105263158,
+            "no_speech_prob": 0.010312121361494064,
+            "confidence": 0.316,
+            "words": [
+                {
+                    "text": "30",
+                    "start": 59.5,
+                    "end": 61.3,
+                    "confidence": 0.316
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "seek": 6000,
+            "start": 61.5,
+            "end": 62.74,
+            "text": " Give two breaths.",
+            "tokens": [
+                50465,
+                5303,
+                732,
+                33769,
+                13,
+                50565
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.0841568660736084,
+            "compression_ratio": 1.236842105263158,
+            "no_speech_prob": 0.010312121361494064,
+            "confidence": 0.631,
+            "words": [
+                {
+                    "text": "Give",
+                    "start": 61.5,
+                    "end": 61.74,
+                    "confidence": 0.449
+                },
+                {
+                    "text": "two",
+                    "start": 61.74,
+                    "end": 62.2,
+                    "confidence": 0.74
+                },
+                {
+                    "text": "breaths.",
+                    "start": 62.2,
+                    "end": 62.74,
+                    "confidence": 0.691
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "seek": 6000,
+            "start": 76.48,
+            "end": 76.5,
+            "text": " 10",
+            "tokens": [
+                51065,
+                1266,
+                51165
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.0841568660736084,
+            "compression_ratio": 1.236842105263158,
+            "no_speech_prob": 0.010312121361494064,
+            "confidence": 0.001,
+            "words": [
+                {
+                    "text": "10",
+                    "start": 76.48,
+                    "end": 76.5,
+                    "confidence": 0.001
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "seek": 6000,
+            "start": 79.5,
+            "end": 79.78,
+            "text": " 20",
+            "tokens": [
+                51365,
+                945,
+                51465
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.0841568660736084,
+            "compression_ratio": 1.236842105263158,
+            "no_speech_prob": 0.010312121361494064,
+            "confidence": 0.017,
+            "words": [
+                {
+                    "text": "20",
+                    "start": 79.5,
+                    "end": 79.78,
+                    "confidence": 0.017
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "seek": 6000,
+            "start": 88.48,
+            "end": 88.5,
+            "text": " 30",
+            "tokens": [
+                51665,
+                2217,
+                51765
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.0841568660736084,
+            "compression_ratio": 1.236842105263158,
+            "no_speech_prob": 0.010312121361494064,
+            "confidence": 0.0,
+            "words": [
+                {
+                    "text": "30",
+                    "start": 88.48,
+                    "end": 88.5,
+                    "confidence": 0.0
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "seek": 6000,
+            "start": 88.5,
+            "end": 89.84,
+            "text": " Give two breaths.",
+            "tokens": [
+                51765,
+                5303,
+                732,
+                33769,
+                13,
+                51865
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.0841568660736084,
+            "compression_ratio": 1.236842105263158,
+            "no_speech_prob": 0.010312121361494064,
+            "confidence": 0.002,
+            "words": [
+                {
+                    "text": "Give",
+                    "start": 88.5,
+                    "end": 89.04,
+                    "confidence": 0.0
+                },
+                {
+                    "text": "two",
+                    "start": 89.04,
+                    "end": 89.68,
+                    "confidence": 0.0
+                },
+                {
+                    "text": "breaths.",
+                    "start": 89.68,
+                    "end": 89.84,
+                    "confidence": 0.018
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "seek": 9000,
+            "start": 89.84,
+            "end": 93.22,
+            "text": " Stop CPR.",
+            "tokens": [
+                50365,
+                5535,
+                47536,
+                13,
+                50565
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.08580960454167547,
+            "compression_ratio": 1.8015873015873016,
+            "no_speech_prob": 0.014293348416686058,
+            "confidence": 0.372,
+            "words": [
+                {
+                    "text": "Stop",
+                    "start": 89.84,
+                    "end": 92.44,
+                    "confidence": 0.335
+                },
+                {
+                    "text": "CPR.",
+                    "start": 92.44,
+                    "end": 93.22,
+                    "confidence": 0.392
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "seek": 9000,
+            "start": 93.5,
+            "end": 95.58,
+            "text": " Do not touch the patient.",
+            "tokens": [
+                50565,
+                1144,
+                406,
+                2557,
+                264,
+                4537,
+                13,
+                50665
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.08580960454167547,
+            "compression_ratio": 1.8015873015873016,
+            "no_speech_prob": 0.014293348416686058,
+            "confidence": 0.703,
+            "words": [
+                {
+                    "text": "Do",
+                    "start": 93.5,
+                    "end": 94.28,
+                    "confidence": 0.241
+                },
+                {
+                    "text": "not",
+                    "start": 94.28,
+                    "end": 94.58,
+                    "confidence": 0.981
+                },
+                {
+                    "text": "touch",
+                    "start": 94.58,
+                    "end": 95.0,
+                    "confidence": 0.996
+                },
+                {
+                    "text": "the",
+                    "start": 95.0,
+                    "end": 95.16,
+                    "confidence": 0.988
+                },
+                {
+                    "text": "patient.",
+                    "start": 95.16,
+                    "end": 95.58,
+                    "confidence": 0.722
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "seek": 9000,
+            "start": 95.58,
+            "end": 97.44,
+            "text": " Analyzing heart rhythm.",
+            "tokens": [
+                50665,
+                1107,
+                5222,
+                8781,
+                1917,
+                11801,
+                13,
+                50765
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.08580960454167547,
+            "compression_ratio": 1.8015873015873016,
+            "no_speech_prob": 0.014293348416686058,
+            "confidence": 0.672,
+            "words": [
+                {
+                    "text": "Analyzing",
+                    "start": 95.58,
+                    "end": 96.56,
+                    "confidence": 0.5
+                },
+                {
+                    "text": "heart",
+                    "start": 96.56,
+                    "end": 96.98,
+                    "confidence": 0.918
+                },
+                {
+                    "text": "rhythm.",
+                    "start": 96.98,
+                    "end": 97.44,
+                    "confidence": 0.898
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "seek": 9000,
+            "start": 99.5,
+            "end": 101.1,
+            "text": " Do not touch the patient.",
+            "tokens": [
+                50865,
+                1144,
+                406,
+                2557,
+                264,
+                4537,
+                13,
+                50965
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.08580960454167547,
+            "compression_ratio": 1.8015873015873016,
+            "no_speech_prob": 0.014293348416686058,
+            "confidence": 0.849,
+            "words": [
+                {
+                    "text": "Do",
+                    "start": 99.5,
+                    "end": 99.82,
+                    "confidence": 0.883
+                },
+                {
+                    "text": "not",
+                    "start": 99.82,
+                    "end": 100.14,
+                    "confidence": 0.995
+                },
+                {
+                    "text": "touch",
+                    "start": 100.14,
+                    "end": 100.52,
+                    "confidence": 0.997
+                },
+                {
+                    "text": "the",
+                    "start": 100.52,
+                    "end": 100.68,
+                    "confidence": 0.995
+                },
+                {
+                    "text": "patient.",
+                    "start": 100.68,
+                    "end": 101.1,
+                    "confidence": 0.656
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "seek": 9000,
+            "start": 101.5,
+            "end": 102.96,
+            "text": " Analyzing heart rhythm.",
+            "tokens": [
+                50965,
+                1107,
+                5222,
+                8781,
+                1917,
+                11801,
+                13,
+                51065
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.08580960454167547,
+            "compression_ratio": 1.8015873015873016,
+            "no_speech_prob": 0.014293348416686058,
+            "confidence": 0.767,
+            "words": [
+                {
+                    "text": "Analyzing",
+                    "start": 101.5,
+                    "end": 102.08,
+                    "confidence": 0.646
+                },
+                {
+                    "text": "heart",
+                    "start": 102.08,
+                    "end": 102.54,
+                    "confidence": 0.916
+                },
+                {
+                    "text": "rhythm.",
+                    "start": 102.54,
+                    "end": 102.96,
+                    "confidence": 0.906
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "seek": 9000,
+            "start": 103.5,
+            "end": 104.58,
+            "text": " Shock advised.",
+            "tokens": [
+                51065,
+                39474,
+                26269,
+                13,
+                51165
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.08580960454167547,
+            "compression_ratio": 1.8015873015873016,
+            "no_speech_prob": 0.014293348416686058,
+            "confidence": 0.75,
+            "words": [
+                {
+                    "text": "Shock",
+                    "start": 103.5,
+                    "end": 104.08,
+                    "confidence": 0.767
+                },
+                {
+                    "text": "advised.",
+                    "start": 104.08,
+                    "end": 104.58,
+                    "confidence": 0.742
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "seek": 9000,
+            "start": 105.5,
+            "end": 107.5,
+            "text": " Do not touch the patient.",
+            "tokens": [
+                51165,
+                1144,
+                406,
+                2557,
+                264,
+                4537,
+                13,
+                51265
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.08580960454167547,
+            "compression_ratio": 1.8015873015873016,
+            "no_speech_prob": 0.014293348416686058,
+            "confidence": 0.927,
+            "words": [
+                {
+                    "text": "Do",
+                    "start": 105.5,
+                    "end": 106.22,
+                    "confidence": 0.741
+                },
+                {
+                    "text": "not",
+                    "start": 106.22,
+                    "end": 106.56,
+                    "confidence": 0.974
+                },
+                {
+                    "text": "touch",
+                    "start": 106.56,
+                    "end": 106.9,
+                    "confidence": 0.996
+                },
+                {
+                    "text": "the",
+                    "start": 106.9,
+                    "end": 107.08,
+                    "confidence": 0.996
+                },
+                {
+                    "text": "patient.",
+                    "start": 107.08,
+                    "end": 107.5,
+                    "confidence": 0.941
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "seek": 9000,
+            "start": 108.84,
+            "end": 109.68,
+            "text": " Everyone clear.",
+            "tokens": [
+                51265,
+                5198,
+                1850,
+                13,
+                51365
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.08580960454167547,
+            "compression_ratio": 1.8015873015873016,
+            "no_speech_prob": 0.014293348416686058,
+            "confidence": 0.726,
+            "words": [
+                {
+                    "text": "Everyone",
+                    "start": 108.84,
+                    "end": 108.86,
+                    "confidence": 0.549
+                },
+                {
+                    "text": "clear.",
+                    "start": 108.86,
+                    "end": 109.68,
+                    "confidence": 0.835
+                }
+            ]
+        },
+        {
+            "id": 21,
+            "seek": 9000,
+            "start": 111.54,
+            "end": 113.48,
+            "text": " Press the flashing shock button.",
+            "tokens": [
+                51465,
+                6776,
+                264,
+                31049,
+                5588,
+                2960,
+                13,
+                51565
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.08580960454167547,
+            "compression_ratio": 1.8015873015873016,
+            "no_speech_prob": 0.014293348416686058,
+            "confidence": 0.9,
+            "words": [
+                {
+                    "text": "Press",
+                    "start": 111.54,
+                    "end": 112.1,
+                    "confidence": 0.784
+                },
+                {
+                    "text": "the",
+                    "start": 112.1,
+                    "end": 112.38,
+                    "confidence": 0.993
+                },
+                {
+                    "text": "flashing",
+                    "start": 112.38,
+                    "end": 112.74,
+                    "confidence": 0.984
+                },
+                {
+                    "text": "shock",
+                    "start": 112.74,
+                    "end": 113.16,
+                    "confidence": 0.807
+                },
+                {
+                    "text": "button.",
+                    "start": 113.16,
+                    "end": 113.48,
+                    "confidence": 0.929
+                }
+            ]
+        },
+        {
+            "id": 22,
+            "seek": 9000,
+            "start": 115.5,
+            "end": 116.5,
+            "text": " Shock delivered.",
+            "tokens": [
+                51665,
+                39474,
+                10144,
+                13,
+                51765
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.08580960454167547,
+            "compression_ratio": 1.8015873015873016,
+            "no_speech_prob": 0.014293348416686058,
+            "confidence": 0.843,
+            "words": [
+                {
+                    "text": "Shock",
+                    "start": 115.5,
+                    "end": 115.82,
+                    "confidence": 0.76
+                },
+                {
+                    "text": "delivered.",
+                    "start": 115.82,
+                    "end": 116.5,
+                    "confidence": 0.887
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "seek": 9000,
+            "start": 117.5,
+            "end": 118.72,
+            "text": " Begin CPR.",
+            "tokens": [
+                51765,
+                20660,
+                47536,
+                13,
+                51865
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.08580960454167547,
+            "compression_ratio": 1.8015873015873016,
+            "no_speech_prob": 0.014293348416686058,
+            "confidence": 0.637,
+            "words": [
+                {
+                    "text": "Begin",
+                    "start": 117.5,
+                    "end": 118.1,
+                    "confidence": 0.654
+                },
+                {
+                    "text": "CPR.",
+                    "start": 118.1,
+                    "end": 118.72,
+                    "confidence": 0.629
+                }
+            ]
+        },
+        {
+            "id": 24,
+            "seek": 12000,
+            "start": 119.5,
+            "end": 120.04,
+            "text": " 10",
+            "tokens": [
+                50365,
+                1266,
+                50465
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.22011007264603016,
+            "compression_ratio": 1.7567567567567568,
+            "no_speech_prob": 0.008634950034320354,
+            "confidence": 0.0,
+            "words": [
+                {
+                    "text": "10",
+                    "start": 119.5,
+                    "end": 120.04,
+                    "confidence": 0.0
+                }
+            ]
+        },
+        {
+            "id": 25,
+            "seek": 12000,
+            "start": 121.5,
+            "end": 121.74,
+            "text": " 10",
+            "tokens": [
+                50465,
+                1266,
+                50565
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.22011007264603016,
+            "compression_ratio": 1.7567567567567568,
+            "no_speech_prob": 0.008634950034320354,
+            "confidence": 0.0,
+            "words": [
+                {
+                    "text": "10",
+                    "start": 121.5,
+                    "end": 121.74,
+                    "confidence": 0.0
+                }
+            ]
+        },
+        {
+            "id": 26,
+            "seek": 12000,
+            "start": 123.5,
+            "end": 125.46,
+            "text": " 10",
+            "tokens": [
+                50565,
+                1266,
+                50665
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.22011007264603016,
+            "compression_ratio": 1.7567567567567568,
+            "no_speech_prob": 0.008634950034320354,
+            "confidence": 0.002,
+            "words": [
+                {
+                    "text": "10",
+                    "start": 123.5,
+                    "end": 125.46,
+                    "confidence": 0.002
+                }
+            ]
+        },
+        {
+            "id": 27,
+            "seek": 12000,
+            "start": 128.48,
+            "end": 128.5,
+            "text": " 10",
+            "tokens": [
+                50665,
+                1266,
+                50765
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.22011007264603016,
+            "compression_ratio": 1.7567567567567568,
+            "no_speech_prob": 0.008634950034320354,
+            "confidence": 0.0,
+            "words": [
+                {
+                    "text": "10",
+                    "start": 128.48,
+                    "end": 128.5,
+                    "confidence": 0.0
+                }
+            ]
+        },
+        {
+            "id": 28,
+            "seek": 12000,
+            "start": 128.5,
+            "end": 128.82,
+            "text": " 10",
+            "tokens": [
+                50765,
+                1266,
+                50865
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.22011007264603016,
+            "compression_ratio": 1.7567567567567568,
+            "no_speech_prob": 0.008634950034320354,
+            "confidence": 0.0,
+            "words": [
+                {
+                    "text": "10",
+                    "start": 128.5,
+                    "end": 128.82,
+                    "confidence": 0.0
+                }
+            ]
+        },
+        {
+            "id": 29,
+            "seek": 12000,
+            "start": 129.5,
+            "end": 131.42,
+            "text": " 20",
+            "tokens": [
+                50865,
+                945,
+                50965
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.22011007264603016,
+            "compression_ratio": 1.7567567567567568,
+            "no_speech_prob": 0.008634950034320354,
+            "confidence": 0.58,
+            "words": [
+                {
+                    "text": "20",
+                    "start": 129.5,
+                    "end": 131.42,
+                    "confidence": 0.58
+                }
+            ]
+        },
+        {
+            "id": 30,
+            "seek": 12000,
+            "start": 131.5,
+            "end": 131.68,
+            "text": " 20",
+            "tokens": [
+                50965,
+                945,
+                51065
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.22011007264603016,
+            "compression_ratio": 1.7567567567567568,
+            "no_speech_prob": 0.008634950034320354,
+            "confidence": 0.0,
+            "words": [
+                {
+                    "text": "20",
+                    "start": 131.5,
+                    "end": 131.68,
+                    "confidence": 0.0
+                }
+            ]
+        },
+        {
+            "id": 31,
+            "seek": 12000,
+            "start": 133.5,
+            "end": 133.9,
+            "text": " 20",
+            "tokens": [
+                51065,
+                945,
+                51165
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.22011007264603016,
+            "compression_ratio": 1.7567567567567568,
+            "no_speech_prob": 0.008634950034320354,
+            "confidence": 0.0,
+            "words": [
+                {
+                    "text": "20",
+                    "start": 133.5,
+                    "end": 133.9,
+                    "confidence": 0.0
+                }
+            ]
+        },
+        {
+            "id": 32,
+            "seek": 12000,
+            "start": 135.5,
+            "end": 136.9,
+            "text": " 30",
+            "tokens": [
+                51165,
+                2217,
+                51265
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.22011007264603016,
+            "compression_ratio": 1.7567567567567568,
+            "no_speech_prob": 0.008634950034320354,
+            "confidence": 0.448,
+            "words": [
+                {
+                    "text": "30",
+                    "start": 135.5,
+                    "end": 136.9,
+                    "confidence": 0.448
+                }
+            ]
+        },
+        {
+            "id": 33,
+            "seek": 12000,
+            "start": 140.4,
+            "end": 140.42,
+            "text": " 30",
+            "tokens": [
+                51265,
+                2217,
+                51365
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.22011007264603016,
+            "compression_ratio": 1.7567567567567568,
+            "no_speech_prob": 0.008634950034320354,
+            "confidence": 0.0,
+            "words": [
+                {
+                    "text": "30",
+                    "start": 140.4,
+                    "end": 140.42,
+                    "confidence": 0.0
+                }
+            ]
+        },
+        {
+            "id": 34,
+            "seek": 12000,
+            "start": 140.42,
+            "end": 141.84,
+            "text": " Give two breaths.",
+            "tokens": [
+                51365,
+                5303,
+                732,
+                33769,
+                13,
+                51465
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.22011007264603016,
+            "compression_ratio": 1.7567567567567568,
+            "no_speech_prob": 0.008634950034320354,
+            "confidence": 0.002,
+            "words": [
+                {
+                    "text": "Give",
+                    "start": 140.42,
+                    "end": 140.96,
+                    "confidence": 0.0
+                },
+                {
+                    "text": "two",
+                    "start": 140.96,
+                    "end": 141.64,
+                    "confidence": 0.0
+                },
+                {
+                    "text": "breaths.",
+                    "start": 141.64,
+                    "end": 141.84,
+                    "confidence": 0.033
+                }
+            ]
+        },
+        {
+            "id": 35,
+            "seek": 12000,
+            "start": 141.84,
+            "end": 143.42,
+            "text": " Give two breaths.",
+            "tokens": [
+                51465,
+                5303,
+                732,
+                33769,
+                13,
+                51559
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.22011007264603016,
+            "compression_ratio": 1.7567567567567568,
+            "no_speech_prob": 0.008634950034320354,
+            "confidence": 0.002,
+            "words": [
+                {
+                    "text": "Give",
+                    "start": 141.84,
+                    "end": 142.72,
+                    "confidence": 0.0
+                },
+                {
+                    "text": "two",
+                    "start": 142.72,
+                    "end": 143.4,
+                    "confidence": 0.0
+                },
+                {
+                    "text": "breaths.",
+                    "start": 143.4,
+                    "end": 143.42,
+                    "confidence": 0.021
+                }
+            ]
+        }
+    ],
+    "language": "en"
+}

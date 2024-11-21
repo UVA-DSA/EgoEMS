@@ -1,0 +1,117 @@
+[
+    {
+        "transcript": "Assessing patient.  P...",
+        "start time": 4.44,
+        "end time": 6.062
+    },
+    {
+        "transcript": "Assessing patient.",
+        "start time": 10.787,
+        "end time": 11.848
+    },
+    {
+        "transcript": "No pulse, no breaths.  [Sound of chest compressions]",
+        "start time": 13.75,
+        "end time": 15.011
+    },
+    {
+        "transcript": "Beginning chest compressions.",
+        "start time": 16.493,
+        "end time": 16.933
+    },
+    {
+        "transcript": "CPR in progress.",
+        "start time": 16.953,
+        "end time": 17.334
+    },
+    {
+        "transcript": "Applying defibrillator pads.",
+        "start time": 37.369,
+        "end time": 38.21
+    },
+    {
+        "transcript": "Adult patient.",
+        "start time": 52.121,
+        "end time": 53.062
+    },
+    {
+        "transcript": "Beginning chest compressions. Applying defibrillator pads. Adult patient.",
+        "start time": 54.203,
+        "end time": 57.205
+    },
+    {
+        "transcript": "Do not touch the patient. [Sound of chest compressions]",
+        "start time": 59.347,
+        "end time": 60.788
+    },
+    {
+        "transcript": "Analyzing heart rhythm.",
+        "start time": 61.008,
+        "end time": 62.59
+    },
+    {
+        "transcript": "Do not touch the patient. Analyzing heart rhythm.",
+        "start time": 64.83,
+        "end time": 68.174
+    },
+    {
+        "transcript": "Shock advised.",
+        "start time": 68.874,
+        "end time": 69.956
+    },
+    {
+        "transcript": "Do not touch the patient.",
+        "start time": 71.237,
+        "end time": 72.679
+    },
+    {
+        "transcript": "Clear.  Beginning chest compressions.",
+        "start time": 73.86,
+        "end time": 74.941
+    },
+    {
+        "transcript": "Press the flashing shock button.",
+        "start time": 77.083,
+        "end time": 78.665
+    },
+    {
+        "transcript": "Shock delivered. Beginning chest compressions.",
+        "start time": 81.308,
+        "end time": 82.409
+    },
+    {
+        "transcript": "Begin CPR.",
+        "start time": 83.49,
+        "end time": 84.692
+    },
+    {
+        "transcript": "30. [Sound of chest compressions]",
+        "start time": 102.458,
+        "end time": 102.918
+    },
+    {
+        "transcript": "Give two breaths. [Sound of breaths]",
+        "start time": 103.078,
+        "end time": 104.339
+    },
+    {
+        "transcript": "20",
+        "start time": 120.588,
+        "end time": 121.308
+    },
+    {
+        "transcript": "No pulse, no breaths. Beginning chest compressions. Applying defibrillator pads. Adult patient.  Analyzing heart rhythm. Shock advised. Clear. Shock delivered. Beginning chest compressions.",
+        "start time": 126.371,
+        "end time": 126.871
+    },
+    {
+        "transcript": "Give two breaths.",
+        "start time": 126.971,
+        "end time": 128.232
+    },
+    {
+        "transcript": "30, give two breaths.",
+        "start time": 150.267,
+        "end time": 152.068
+    }
+]

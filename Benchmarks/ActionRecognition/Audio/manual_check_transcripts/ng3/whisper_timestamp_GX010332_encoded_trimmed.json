@@ -1,0 +1,2866 @@
+{
+    "text": " Subtitles by the Amara.org community Maybe he's got a new person. It just happens sometimes. You guys are going to know how to do CPR. After watching it 500 times. Actually, yeah. I should have some idea. I'm so sorry to say this. This thing usually works well. Have you set up a ride time with us yet? No. Why did you do that? I even got the phone last time. I should do it. I haven't met you before. I'm Debra. Nice to meet you. I'm Tessa. Are you new to the project? Yeah, I've been on it since the summer. Oh, sweet. Yes, you guys need to... Because it never... The screaming, the yelling... Yeah, I heard it's sometimes pretty... It's terrible. I mean, yeah. Yeah. And there's puke everywhere. I mean, yeah. There is, though. For sure. Hey, are you okay? Checking for a pulse. Yeah. Take a deep breath. Neither. You call 911, starting CPR. One, two, three, four. Take a rescue breath. Yeah. I'm okay. If the patient is a child, press the child button. Do not touch the patient analyzing heart rhythm. Do not touch the patient analyzing heart rhythm. Shock advised. Do not touch the patient. Everyone clear. Press the flashing shock button. Shock delivered. Begin CPR. 10. 20. 30. Give two breaths. Rest. 10. 20. 30. Give two breaths. Rest. 10. 10, 20, 30, give two breaths.",
+    "segments": [
+        {
+            "id": 0,
+            "seek": 0,
+            "start": 0.06,
+            "end": 1.84,
+            "text": " Subtitles by the Amara.org community",
+            "tokens": [
+                50365,
+                8511,
+                27689,
+                904,
+                538,
+                264,
+                2012,
+                2419,
+                13,
+                4646,
+                1768,
+                50515
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.5433755128279977,
+            "compression_ratio": 0.9027777777777778,
+            "no_speech_prob": 0.34827104210853577,
+            "confidence": 0.524,
+            "words": [
+                {
+                    "text": "Subtitles",
+                    "start": 0.06,
+                    "end": 0.88,
+                    "confidence": 0.168
+                },
+                {
+                    "text": "by",
+                    "start": 0.88,
+                    "end": 1.22,
+                    "confidence": 0.815
+                },
+                {
+                    "text": "the",
+                    "start": 1.22,
+                    "end": 1.24,
+                    "confidence": 0.406
+                },
+                {
+                    "text": "Amara.org",
+                    "start": 1.24,
+                    "end": 1.82,
+                    "confidence": 0.999
+                },
+                {
+                    "text": "community",
+                    "start": 1.82,
+                    "end": 1.84,
+                    "confidence": 1.0
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "seek": 0,
+            "start": 22.5,
+            "end": 25.0,
+            "text": " Maybe he's got a new person.",
+            "tokens": [
+                51515,
+                2704,
+                415,
+                311,
+                658,
+                257,
+                777,
+                954,
+                13,
+                51665
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.5433755128279977,
+            "compression_ratio": 0.9027777777777778,
+            "no_speech_prob": 0.34827104210853577,
+            "confidence": 0.698,
+            "words": [
+                {
+                    "text": "Maybe",
+                    "start": 22.5,
+                    "end": 23.6,
+                    "confidence": 0.6
+                },
+                {
+                    "text": "he's",
+                    "start": 23.6,
+                    "end": 23.8,
+                    "confidence": 0.375
+                },
+                {
+                    "text": "got",
+                    "start": 23.8,
+                    "end": 23.9,
+                    "confidence": 0.938
+                },
+                {
+                    "text": "a",
+                    "start": 23.9,
+                    "end": 24.04,
+                    "confidence": 0.984
+                },
+                {
+                    "text": "new",
+                    "start": 24.04,
+                    "end": 24.24,
+                    "confidence": 0.989
+                },
+                {
+                    "text": "person.",
+                    "start": 24.24,
+                    "end": 25.0,
+                    "confidence": 0.854
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "seek": 3000,
+            "start": 29.5,
+            "end": 31.7,
+            "text": " It just happens sometimes.",
+            "tokens": [
+                50365,
+                467,
+                445,
+                2314,
+                2171,
+                13,
+                50515
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.783,
+            "words": [
+                {
+                    "text": "It",
+                    "start": 29.5,
+                    "end": 29.88,
+                    "confidence": 0.498
+                },
+                {
+                    "text": "just",
+                    "start": 29.88,
+                    "end": 30.22,
+                    "confidence": 0.975
+                },
+                {
+                    "text": "happens",
+                    "start": 30.22,
+                    "end": 30.94,
+                    "confidence": 0.822
+                },
+                {
+                    "text": "sometimes.",
+                    "start": 30.94,
+                    "end": 31.7,
+                    "confidence": 0.86
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "seek": 3000,
+            "start": 34.5,
+            "end": 36.34,
+            "text": " You guys are going to know how to do CPR.",
+            "tokens": [
+                50615,
+                509,
+                1074,
+                366,
+                516,
+                281,
+                458,
+                577,
+                281,
+                360,
+                47536,
+                13,
+                50715
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.902,
+            "words": [
+                {
+                    "text": "You",
+                    "start": 34.5,
+                    "end": 35.08,
+                    "confidence": 0.731
+                },
+                {
+                    "text": "guys",
+                    "start": 35.08,
+                    "end": 35.3,
+                    "confidence": 0.986
+                },
+                {
+                    "text": "are",
+                    "start": 35.3,
+                    "end": 35.36,
+                    "confidence": 0.916
+                },
+                {
+                    "text": "going",
+                    "start": 35.36,
+                    "end": 35.52,
+                    "confidence": 0.621
+                },
+                {
+                    "text": "to",
+                    "start": 35.52,
+                    "end": 35.56,
+                    "confidence": 0.997
+                },
+                {
+                    "text": "know",
+                    "start": 35.56,
+                    "end": 35.66,
+                    "confidence": 0.987
+                },
+                {
+                    "text": "how",
+                    "start": 35.66,
+                    "end": 35.76,
+                    "confidence": 0.992
+                },
+                {
+                    "text": "to",
+                    "start": 35.76,
+                    "end": 35.86,
+                    "confidence": 0.989
+                },
+                {
+                    "text": "do",
+                    "start": 35.86,
+                    "end": 36.0,
+                    "confidence": 0.988
+                },
+                {
+                    "text": "CPR.",
+                    "start": 36.0,
+                    "end": 36.34,
+                    "confidence": 0.908
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "seek": 3000,
+            "start": 36.5,
+            "end": 38.8,
+            "text": " After watching it 500 times.",
+            "tokens": [
+                50715,
+                2381,
+                1976,
+                309,
+                5923,
+                1413,
+                13,
+                50815
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.477,
+            "words": [
+                {
+                    "text": "After",
+                    "start": 36.5,
+                    "end": 37.2,
+                    "confidence": 0.032
+                },
+                {
+                    "text": "watching",
+                    "start": 37.2,
+                    "end": 37.74,
+                    "confidence": 0.966
+                },
+                {
+                    "text": "it",
+                    "start": 37.74,
+                    "end": 38.1,
+                    "confidence": 0.963
+                },
+                {
+                    "text": "500",
+                    "start": 38.1,
+                    "end": 38.5,
+                    "confidence": 0.833
+                },
+                {
+                    "text": "times.",
+                    "start": 38.5,
+                    "end": 38.8,
+                    "confidence": 0.685
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "seek": 3000,
+            "start": 38.8,
+            "end": 39.8,
+            "text": " Actually, yeah.",
+            "tokens": [
+                50815,
+                5135,
+                11,
+                1338,
+                13,
+                50915
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.537,
+            "words": [
+                {
+                    "text": "Actually,",
+                    "start": 38.8,
+                    "end": 39.14,
+                    "confidence": 0.453
+                },
+                {
+                    "text": "yeah.",
+                    "start": 39.36,
+                    "end": 39.8,
+                    "confidence": 0.637
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "seek": 3000,
+            "start": 40.5,
+            "end": 42.52,
+            "text": " I should have some idea.",
+            "tokens": [
+                50915,
+                286,
+                820,
+                362,
+                512,
+                1558,
+                13,
+                51015
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.714,
+            "words": [
+                {
+                    "text": "I",
+                    "start": 40.5,
+                    "end": 40.9,
+                    "confidence": 0.792
+                },
+                {
+                    "text": "should",
+                    "start": 40.9,
+                    "end": 41.34,
+                    "confidence": 0.857
+                },
+                {
+                    "text": "have",
+                    "start": 41.34,
+                    "end": 41.62,
+                    "confidence": 0.988
+                },
+                {
+                    "text": "some",
+                    "start": 41.62,
+                    "end": 42.14,
+                    "confidence": 0.958
+                },
+                {
+                    "text": "idea.",
+                    "start": 42.14,
+                    "end": 42.52,
+                    "confidence": 0.453
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "seek": 3000,
+            "start": 44.5,
+            "end": 46.46,
+            "text": " I'm so sorry to say this.",
+            "tokens": [
+                51115,
+                286,
+                478,
+                370,
+                2597,
+                281,
+                584,
+                341,
+                13,
+                51215
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.252,
+            "words": [
+                {
+                    "text": "I'm",
+                    "start": 44.5,
+                    "end": 45.24,
+                    "confidence": 0.135
+                },
+                {
+                    "text": "so",
+                    "start": 45.24,
+                    "end": 45.42,
+                    "confidence": 0.641
+                },
+                {
+                    "text": "sorry",
+                    "start": 45.42,
+                    "end": 45.82,
+                    "confidence": 0.974
+                },
+                {
+                    "text": "to",
+                    "start": 45.82,
+                    "end": 45.96,
+                    "confidence": 0.067
+                },
+                {
+                    "text": "say",
+                    "start": 45.96,
+                    "end": 46.2,
+                    "confidence": 0.078
+                },
+                {
+                    "text": "this.",
+                    "start": 46.2,
+                    "end": 46.46,
+                    "confidence": 0.524
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "seek": 3000,
+            "start": 46.5,
+            "end": 48.52,
+            "text": " This thing usually works well.",
+            "tokens": [
+                51215,
+                639,
+                551,
+                2673,
+                1985,
+                731,
+                13,
+                51315
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.387,
+            "words": [
+                {
+                    "text": "This",
+                    "start": 46.5,
+                    "end": 47.1,
+                    "confidence": 0.043
+                },
+                {
+                    "text": "thing",
+                    "start": 47.1,
+                    "end": 47.38,
+                    "confidence": 0.716
+                },
+                {
+                    "text": "usually",
+                    "start": 47.38,
+                    "end": 47.68,
+                    "confidence": 0.732
+                },
+                {
+                    "text": "works",
+                    "start": 47.68,
+                    "end": 48.16,
+                    "confidence": 0.976
+                },
+                {
+                    "text": "well.",
+                    "start": 48.16,
+                    "end": 48.52,
+                    "confidence": 0.392
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "seek": 3000,
+            "start": 48.52,
+            "end": 50.98,
+            "text": " Have you set up a ride time with us yet?",
+            "tokens": [
+                51315,
+                3560,
+                291,
+                992,
+                493,
+                257,
+                5077,
+                565,
+                365,
+                505,
+                1939,
+                30,
+                51415
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.953,
+            "words": [
+                {
+                    "text": "Have",
+                    "start": 48.52,
+                    "end": 48.74,
+                    "confidence": 0.7
+                },
+                {
+                    "text": "you",
+                    "start": 48.74,
+                    "end": 48.9,
+                    "confidence": 0.997
+                },
+                {
+                    "text": "set",
+                    "start": 48.9,
+                    "end": 49.06,
+                    "confidence": 0.985
+                },
+                {
+                    "text": "up",
+                    "start": 49.06,
+                    "end": 49.32,
+                    "confidence": 0.995
+                },
+                {
+                    "text": "a",
+                    "start": 49.32,
+                    "end": 49.84,
+                    "confidence": 0.991
+                },
+                {
+                    "text": "ride",
+                    "start": 49.84,
+                    "end": 50.12,
+                    "confidence": 0.965
+                },
+                {
+                    "text": "time",
+                    "start": 50.12,
+                    "end": 50.36,
+                    "confidence": 0.973
+                },
+                {
+                    "text": "with",
+                    "start": 50.36,
+                    "end": 50.5,
+                    "confidence": 0.99
+                },
+                {
+                    "text": "us",
+                    "start": 50.5,
+                    "end": 50.78,
+                    "confidence": 0.991
+                },
+                {
+                    "text": "yet?",
+                    "start": 50.78,
+                    "end": 50.98,
+                    "confidence": 0.969
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "seek": 3000,
+            "start": 50.98,
+            "end": 51.74,
+            "text": " No.",
+            "tokens": [
+                51415,
+                883,
+                13,
+                51465
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.169,
+            "words": [
+                {
+                    "text": "No.",
+                    "start": 50.98,
+                    "end": 51.74,
+                    "confidence": 0.169
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "seek": 3000,
+            "start": 51.74,
+            "end": 53.48,
+            "text": " Why did you do that?",
+            "tokens": [
+                51465,
+                1545,
+                630,
+                291,
+                360,
+                300,
+                30,
+                51565
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.555,
+            "words": [
+                {
+                    "text": "Why",
+                    "start": 51.74,
+                    "end": 52.02,
+                    "confidence": 0.11
+                },
+                {
+                    "text": "did",
+                    "start": 52.02,
+                    "end": 52.5,
+                    "confidence": 0.334
+                },
+                {
+                    "text": "you",
+                    "start": 52.5,
+                    "end": 53.08,
+                    "confidence": 0.973
+                },
+                {
+                    "text": "do",
+                    "start": 53.08,
+                    "end": 53.1,
+                    "confidence": 0.98
+                },
+                {
+                    "text": "that?",
+                    "start": 53.1,
+                    "end": 53.48,
+                    "confidence": 0.913
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "seek": 3000,
+            "start": 53.5,
+            "end": 55.56,
+            "text": " I even got the phone last time.",
+            "tokens": [
+                51565,
+                286,
+                754,
+                658,
+                264,
+                2593,
+                1036,
+                565,
+                13,
+                51665
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.738,
+            "words": [
+                {
+                    "text": "I",
+                    "start": 53.5,
+                    "end": 53.88,
+                    "confidence": 0.524
+                },
+                {
+                    "text": "even",
+                    "start": 53.88,
+                    "end": 54.04,
+                    "confidence": 0.672
+                },
+                {
+                    "text": "got",
+                    "start": 54.04,
+                    "end": 54.42,
+                    "confidence": 0.927
+                },
+                {
+                    "text": "the",
+                    "start": 54.42,
+                    "end": 54.56,
+                    "confidence": 0.961
+                },
+                {
+                    "text": "phone",
+                    "start": 54.56,
+                    "end": 54.96,
+                    "confidence": 0.738
+                },
+                {
+                    "text": "last",
+                    "start": 54.96,
+                    "end": 55.2,
+                    "confidence": 0.964
+                },
+                {
+                    "text": "time.",
+                    "start": 55.2,
+                    "end": 55.56,
+                    "confidence": 0.628
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "seek": 3000,
+            "start": 55.56,
+            "end": 56.38,
+            "text": " I should do it.",
+            "tokens": [
+                51665,
+                286,
+                820,
+                360,
+                309,
+                13,
+                51715
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.525,
+            "words": [
+                {
+                    "text": "I",
+                    "start": 55.56,
+                    "end": 55.66,
+                    "confidence": 0.264
+                },
+                {
+                    "text": "should",
+                    "start": 55.66,
+                    "end": 55.82,
+                    "confidence": 0.302
+                },
+                {
+                    "text": "do",
+                    "start": 55.82,
+                    "end": 56.06,
+                    "confidence": 0.607
+                },
+                {
+                    "text": "it.",
+                    "start": 56.06,
+                    "end": 56.38,
+                    "confidence": 0.906
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "seek": 3000,
+            "start": 56.5,
+            "end": 57.98,
+            "text": " I haven't met you before.",
+            "tokens": [
+                51715,
+                286,
+                2378,
+                380,
+                1131,
+                291,
+                949,
+                13,
+                51765
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.753,
+            "words": [
+                {
+                    "text": "I",
+                    "start": 56.5,
+                    "end": 57.18,
+                    "confidence": 0.705
+                },
+                {
+                    "text": "haven't",
+                    "start": 57.18,
+                    "end": 57.52,
+                    "confidence": 0.967
+                },
+                {
+                    "text": "met",
+                    "start": 57.52,
+                    "end": 57.58,
+                    "confidence": 0.986
+                },
+                {
+                    "text": "you",
+                    "start": 57.58,
+                    "end": 57.78,
+                    "confidence": 0.996
+                },
+                {
+                    "text": "before.",
+                    "start": 57.78,
+                    "end": 57.98,
+                    "confidence": 0.461
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "seek": 3000,
+            "start": 57.98,
+            "end": 58.42,
+            "text": " I'm Debra.",
+            "tokens": [
+                51765,
+                286,
+                478,
+                1346,
+                6198,
+                13,
+                51815
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.627,
+            "words": [
+                {
+                    "text": "I'm",
+                    "start": 57.98,
+                    "end": 58.18,
+                    "confidence": 0.58
+                },
+                {
+                    "text": "Debra.",
+                    "start": 58.18,
+                    "end": 58.42,
+                    "confidence": 0.661
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "seek": 3000,
+            "start": 58.5,
+            "end": 59.56,
+            "text": " Nice to meet you. I'm Tessa.",
+            "tokens": [
+                51815,
+                5490,
+                281,
+                1677,
+                291,
+                13,
+                286,
+                478,
+                314,
+                8391,
+                13,
+                51865
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.16591776782319745,
+            "compression_ratio": 1.5060240963855422,
+            "no_speech_prob": 0.06937343627214432,
+            "confidence": 0.69,
+            "words": [
+                {
+                    "text": "Nice",
+                    "start": 58.5,
+                    "end": 58.82,
+                    "confidence": 0.513
+                },
+                {
+                    "text": "to",
+                    "start": 58.82,
+                    "end": 58.96,
+                    "confidence": 0.985
+                },
+                {
+                    "text": "meet",
+                    "start": 58.96,
+                    "end": 59.14,
+                    "confidence": 0.986
+                },
+                {
+                    "text": "you.",
+                    "start": 59.14,
+                    "end": 59.22,
+                    "confidence": 0.411
+                },
+                {
+                    "text": "I'm",
+                    "start": 59.26,
+                    "end": 59.38,
+                    "confidence": 0.626
+                },
+                {
+                    "text": "Tessa.",
+                    "start": 59.38,
+                    "end": 59.56,
+                    "confidence": 0.906
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "seek": 6000,
+            "start": 60.98,
+            "end": 61.98,
+            "text": " Are you new to the project?",
+            "tokens": [
+                50365,
+                2014,
+                291,
+                777,
+                281,
+                264,
+                1716,
+                30,
+                50465
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.798,
+            "words": [
+                {
+                    "text": "Are",
+                    "start": 60.98,
+                    "end": 61.0,
+                    "confidence": 0.219
+                },
+                {
+                    "text": "you",
+                    "start": 61.0,
+                    "end": 61.14,
+                    "confidence": 0.997
+                },
+                {
+                    "text": "new",
+                    "start": 61.14,
+                    "end": 61.3,
+                    "confidence": 0.997
+                },
+                {
+                    "text": "to",
+                    "start": 61.3,
+                    "end": 61.5,
+                    "confidence": 0.996
+                },
+                {
+                    "text": "the",
+                    "start": 61.5,
+                    "end": 61.62,
+                    "confidence": 0.994
+                },
+                {
+                    "text": "project?",
+                    "start": 61.62,
+                    "end": 61.98,
+                    "confidence": 0.978
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "seek": 6000,
+            "start": 61.98,
+            "end": 63.96,
+            "text": " Yeah, I've been on it since the summer.",
+            "tokens": [
+                50465,
+                865,
+                11,
+                286,
+                600,
+                668,
+                322,
+                309,
+                1670,
+                264,
+                4266,
+                13,
+                50565
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.804,
+            "words": [
+                {
+                    "text": "Yeah,",
+                    "start": 61.98,
+                    "end": 62.44,
+                    "confidence": 0.475
+                },
+                {
+                    "text": "I've",
+                    "start": 62.6,
+                    "end": 62.88,
+                    "confidence": 0.936
+                },
+                {
+                    "text": "been",
+                    "start": 62.88,
+                    "end": 63.0,
+                    "confidence": 0.993
+                },
+                {
+                    "text": "on",
+                    "start": 63.0,
+                    "end": 63.22,
+                    "confidence": 0.975
+                },
+                {
+                    "text": "it",
+                    "start": 63.22,
+                    "end": 63.38,
+                    "confidence": 0.884
+                },
+                {
+                    "text": "since",
+                    "start": 63.38,
+                    "end": 63.54,
+                    "confidence": 0.989
+                },
+                {
+                    "text": "the",
+                    "start": 63.54,
+                    "end": 63.66,
+                    "confidence": 0.605
+                },
+                {
+                    "text": "summer.",
+                    "start": 63.66,
+                    "end": 63.96,
+                    "confidence": 0.948
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "seek": 6000,
+            "start": 63.96,
+            "end": 64.9,
+            "text": " Oh, sweet.",
+            "tokens": [
+                50565,
+                876,
+                11,
+                3844,
+                13,
+                50615
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.42,
+            "words": [
+                {
+                    "text": "Oh,",
+                    "start": 63.96,
+                    "end": 64.46,
+                    "confidence": 0.219
+                },
+                {
+                    "text": "sweet.",
+                    "start": 64.68,
+                    "end": 64.9,
+                    "confidence": 0.805
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "seek": 6000,
+            "start": 65.66,
+            "end": 66.48,
+            "text": " Yes, you guys need to...",
+            "tokens": [
+                50615,
+                1079,
+                11,
+                291,
+                1074,
+                643,
+                281,
+                485,
+                50665
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.425,
+            "words": [
+                {
+                    "text": "Yes,",
+                    "start": 65.66,
+                    "end": 65.68,
+                    "confidence": 0.156
+                },
+                {
+                    "text": "you",
+                    "start": 65.8,
+                    "end": 65.92,
+                    "confidence": 0.924
+                },
+                {
+                    "text": "guys",
+                    "start": 65.92,
+                    "end": 66.16,
+                    "confidence": 0.985
+                },
+                {
+                    "text": "need",
+                    "start": 66.16,
+                    "end": 66.36,
+                    "confidence": 0.916
+                },
+                {
+                    "text": "to...",
+                    "start": 66.36,
+                    "end": 66.48,
+                    "confidence": 0.353
+                }
+            ]
+        },
+        {
+            "id": 21,
+            "seek": 6000,
+            "start": 66.48,
+            "end": 67.56,
+            "text": " Because it never...",
+            "tokens": [
+                50665,
+                1436,
+                309,
+                1128,
+                485,
+                50765
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.401,
+            "words": [
+                {
+                    "text": "Because",
+                    "start": 66.48,
+                    "end": 66.7,
+                    "confidence": 0.078
+                },
+                {
+                    "text": "it",
+                    "start": 66.7,
+                    "end": 67.02,
+                    "confidence": 0.867
+                },
+                {
+                    "text": "never...",
+                    "start": 67.02,
+                    "end": 67.56,
+                    "confidence": 0.617
+                }
+            ]
+        },
+        {
+            "id": 22,
+            "seek": 6000,
+            "start": 67.56,
+            "end": 70.04,
+            "text": " The screaming, the yelling...",
+            "tokens": [
+                50765,
+                440,
+                12636,
+                11,
+                264,
+                18381,
+                485,
+                50865
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.424,
+            "words": [
+                {
+                    "text": "The",
+                    "start": 67.56,
+                    "end": 68.78,
+                    "confidence": 0.15
+                },
+                {
+                    "text": "screaming,",
+                    "start": 68.78,
+                    "end": 69.12,
+                    "confidence": 0.699
+                },
+                {
+                    "text": "the",
+                    "start": 69.32,
+                    "end": 69.52,
+                    "confidence": 0.958
+                },
+                {
+                    "text": "yelling...",
+                    "start": 69.52,
+                    "end": 70.04,
+                    "confidence": 0.287
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "seek": 6000,
+            "start": 70.04,
+            "end": 72.98,
+            "text": " Yeah, I heard it's sometimes pretty...",
+            "tokens": [
+                50865,
+                865,
+                11,
+                286,
+                2198,
+                309,
+                311,
+                2171,
+                1238,
+                485,
+                51015
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.617,
+            "words": [
+                {
+                    "text": "Yeah,",
+                    "start": 70.04,
+                    "end": 70.9,
+                    "confidence": 0.366
+                },
+                {
+                    "text": "I",
+                    "start": 71.0,
+                    "end": 71.08,
+                    "confidence": 0.674
+                },
+                {
+                    "text": "heard",
+                    "start": 71.08,
+                    "end": 71.34,
+                    "confidence": 0.925
+                },
+                {
+                    "text": "it's",
+                    "start": 71.34,
+                    "end": 71.58,
+                    "confidence": 0.718
+                },
+                {
+                    "text": "sometimes",
+                    "start": 71.58,
+                    "end": 71.88,
+                    "confidence": 0.629
+                },
+                {
+                    "text": "pretty...",
+                    "start": 71.88,
+                    "end": 72.98,
+                    "confidence": 0.691
+                }
+            ]
+        },
+        {
+            "id": 24,
+            "seek": 6000,
+            "start": 72.98,
+            "end": 73.86,
+            "text": " It's terrible.",
+            "tokens": [
+                51015,
+                467,
+                311,
+                6237,
+                13,
+                51065
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.827,
+            "words": [
+                {
+                    "text": "It's",
+                    "start": 72.98,
+                    "end": 73.32,
+                    "confidence": 0.78
+                },
+                {
+                    "text": "terrible.",
+                    "start": 73.32,
+                    "end": 73.86,
+                    "confidence": 0.878
+                }
+            ]
+        },
+        {
+            "id": 25,
+            "seek": 6000,
+            "start": 73.86,
+            "end": 74.94,
+            "text": " I mean, yeah.",
+            "tokens": [
+                51065,
+                286,
+                914,
+                11,
+                1338,
+                13,
+                51115
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.605,
+            "words": [
+                {
+                    "text": "I",
+                    "start": 73.86,
+                    "end": 74.3,
+                    "confidence": 0.198
+                },
+                {
+                    "text": "mean,",
+                    "start": 74.3,
+                    "end": 74.58,
+                    "confidence": 0.686
+                },
+                {
+                    "text": "yeah.",
+                    "start": 74.66,
+                    "end": 74.94,
+                    "confidence": 0.931
+                }
+            ]
+        },
+        {
+            "id": 26,
+            "seek": 6000,
+            "start": 75.0,
+            "end": 75.38,
+            "text": " Yeah.",
+            "tokens": [
+                51115,
+                865,
+                13,
+                51165
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.632,
+            "words": [
+                {
+                    "text": "Yeah.",
+                    "start": 75.0,
+                    "end": 75.38,
+                    "confidence": 0.632
+                }
+            ]
+        },
+        {
+            "id": 27,
+            "seek": 6000,
+            "start": 75.5,
+            "end": 77.42,
+            "text": " And there's puke everywhere.",
+            "tokens": [
+                51165,
+                400,
+                456,
+                311,
+                2362,
+                330,
+                5315,
+                13,
+                51215
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.425,
+            "words": [
+                {
+                    "text": "And",
+                    "start": 75.5,
+                    "end": 76.38,
+                    "confidence": 0.025
+                },
+                {
+                    "text": "there's",
+                    "start": 76.38,
+                    "end": 76.9,
+                    "confidence": 0.585
+                },
+                {
+                    "text": "puke",
+                    "start": 76.9,
+                    "end": 77.28,
+                    "confidence": 0.666
+                },
+                {
+                    "text": "everywhere.",
+                    "start": 77.28,
+                    "end": 77.42,
+                    "confidence": 0.818
+                }
+            ]
+        },
+        {
+            "id": 28,
+            "seek": 6000,
+            "start": 77.42,
+            "end": 78.14,
+            "text": " I mean, yeah.",
+            "tokens": [
+                51215,
+                286,
+                914,
+                11,
+                1338,
+                13,
+                51265
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.554,
+            "words": [
+                {
+                    "text": "I",
+                    "start": 77.42,
+                    "end": 77.68,
+                    "confidence": 0.208
+                },
+                {
+                    "text": "mean,",
+                    "start": 77.68,
+                    "end": 77.82,
+                    "confidence": 0.624
+                },
+                {
+                    "text": "yeah.",
+                    "start": 77.9,
+                    "end": 78.14,
+                    "confidence": 0.804
+                }
+            ]
+        },
+        {
+            "id": 29,
+            "seek": 6000,
+            "start": 78.14,
+            "end": 79.12,
+            "text": " There is, though.",
+            "tokens": [
+                51265,
+                821,
+                307,
+                11,
+                1673,
+                13,
+                51315
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.3,
+            "words": [
+                {
+                    "text": "There",
+                    "start": 78.14,
+                    "end": 78.54,
+                    "confidence": 0.276
+                },
+                {
+                    "text": "is,",
+                    "start": 78.54,
+                    "end": 78.88,
+                    "confidence": 0.106
+                },
+                {
+                    "text": "though.",
+                    "start": 79.04,
+                    "end": 79.12,
+                    "confidence": 0.886
+                }
+            ]
+        },
+        {
+            "id": 30,
+            "seek": 6000,
+            "start": 79.12,
+            "end": 80.08,
+            "text": " For sure.",
+            "tokens": [
+                51315,
+                1171,
+                988,
+                13,
+                51365
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.311,
+            "words": [
+                {
+                    "text": "For",
+                    "start": 79.12,
+                    "end": 79.66,
+                    "confidence": 0.133
+                },
+                {
+                    "text": "sure.",
+                    "start": 79.66,
+                    "end": 80.08,
+                    "confidence": 0.476
+                }
+            ]
+        },
+        {
+            "id": 31,
+            "seek": 6000,
+            "start": 83.5,
+            "end": 85.26,
+            "text": " Hey, are you okay?",
+            "tokens": [
+                51565,
+                1911,
+                11,
+                366,
+                291,
+                1392,
+                30,
+                51615
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.792,
+            "words": [
+                {
+                    "text": "Hey,",
+                    "start": 83.5,
+                    "end": 84.72,
+                    "confidence": 0.553
+                },
+                {
+                    "text": "are",
+                    "start": 84.84,
+                    "end": 84.94,
+                    "confidence": 0.979
+                },
+                {
+                    "text": "you",
+                    "start": 84.94,
+                    "end": 85.08,
+                    "confidence": 0.999
+                },
+                {
+                    "text": "okay?",
+                    "start": 85.08,
+                    "end": 85.26,
+                    "confidence": 0.909
+                }
+            ]
+        },
+        {
+            "id": 32,
+            "seek": 6000,
+            "start": 86.5,
+            "end": 88.48,
+            "text": " Checking for a pulse.",
+            "tokens": [
+                51715,
+                6881,
+                278,
+                337,
+                257,
+                17709,
+                13,
+                51765
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23162743353074597,
+            "compression_ratio": 1.547945205479452,
+            "no_speech_prob": 0.017176320776343346,
+            "confidence": 0.38,
+            "words": [
+                {
+                    "text": "Checking",
+                    "start": 86.5,
+                    "end": 88.08,
+                    "confidence": 0.309
+                },
+                {
+                    "text": "for",
+                    "start": 88.08,
+                    "end": 88.16,
+                    "confidence": 0.977
+                },
+                {
+                    "text": "a",
+                    "start": 88.16,
+                    "end": 88.26,
+                    "confidence": 0.224
+                },
+                {
+                    "text": "pulse.",
+                    "start": 88.26,
+                    "end": 88.48,
+                    "confidence": 0.38
+                }
+            ]
+        },
+        {
+            "id": 33,
+            "seek": 9000,
+            "start": 89.5,
+            "end": 89.86,
+            "text": " Yeah.",
+            "tokens": [
+                50365,
+                865,
+                13,
+                50415
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.6333146725060805,
+            "compression_ratio": 1.1388888888888888,
+            "no_speech_prob": 0.0315304771065712,
+            "confidence": 0.045,
+            "words": [
+                {
+                    "text": "Yeah.",
+                    "start": 89.5,
+                    "end": 89.86,
+                    "confidence": 0.045
+                }
+            ]
+        },
+        {
+            "id": 34,
+            "seek": 9000,
+            "start": 90.5,
+            "end": 91.62,
+            "text": " Take a deep breath.",
+            "tokens": [
+                50415,
+                3664,
+                257,
+                2452,
+                6045,
+                13,
+                50515
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.6333146725060805,
+            "compression_ratio": 1.1388888888888888,
+            "no_speech_prob": 0.0315304771065712,
+            "confidence": 0.321,
+            "words": [
+                {
+                    "text": "Take",
+                    "start": 90.5,
+                    "end": 90.92,
+                    "confidence": 0.013
+                },
+                {
+                    "text": "a",
+                    "start": 90.92,
+                    "end": 91.18,
+                    "confidence": 0.941
+                },
+                {
+                    "text": "deep",
+                    "start": 91.18,
+                    "end": 91.36,
+                    "confidence": 0.471
+                },
+                {
+                    "text": "breath.",
+                    "start": 91.36,
+                    "end": 91.62,
+                    "confidence": 0.777
+                }
+            ]
+        },
+        {
+            "id": 35,
+            "seek": 9000,
+            "start": 92.56,
+            "end": 93.2,
+            "text": " Neither.",
+            "tokens": [
+                50515,
+                23956,
+                13,
+                50565
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.6333146725060805,
+            "compression_ratio": 1.1388888888888888,
+            "no_speech_prob": 0.0315304771065712,
+            "confidence": 0.536,
+            "words": [
+                {
+                    "text": "Neither.",
+                    "start": 92.56,
+                    "end": 93.2,
+                    "confidence": 0.536
+                }
+            ]
+        },
+        {
+            "id": 36,
+            "seek": 9000,
+            "start": 93.5,
+            "end": 95.74,
+            "text": " You call 911, starting CPR.",
+            "tokens": [
+                50565,
+                509,
+                818,
+                26901,
+                11,
+                2891,
+                47536,
+                13,
+                50715
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.6333146725060805,
+            "compression_ratio": 1.1388888888888888,
+            "no_speech_prob": 0.0315304771065712,
+            "confidence": 0.55,
+            "words": [
+                {
+                    "text": "You",
+                    "start": 93.5,
+                    "end": 94.2,
+                    "confidence": 0.144
+                },
+                {
+                    "text": "call",
+                    "start": 94.2,
+                    "end": 94.42,
+                    "confidence": 0.904
+                },
+                {
+                    "text": "911,",
+                    "start": 94.42,
+                    "end": 94.74,
+                    "confidence": 0.406
+                },
+                {
+                    "text": "starting",
+                    "start": 95.08,
+                    "end": 95.4,
+                    "confidence": 0.974
+                },
+                {
+                    "text": "CPR.",
+                    "start": 95.4,
+                    "end": 95.74,
+                    "confidence": 0.853
+                }
+            ]
+        },
+        {
+            "id": 37,
+            "seek": 9000,
+            "start": 96.5,
+            "end": 97.94,
+            "text": " One, two, three, four.",
+            "tokens": [
+                50715,
+                1485,
+                11,
+                732,
+                11,
+                1045,
+                11,
+                1451,
+                13,
+                50765
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.6333146725060805,
+            "compression_ratio": 1.1388888888888888,
+            "no_speech_prob": 0.0315304771065712,
+            "confidence": 0.863,
+            "words": [
+                {
+                    "text": "One,",
+                    "start": 96.5,
+                    "end": 96.64,
+                    "confidence": 0.66
+                },
+                {
+                    "text": "two,",
+                    "start": 96.66,
+                    "end": 96.98,
+                    "confidence": 0.945
+                },
+                {
+                    "text": "three,",
+                    "start": 97.08,
+                    "end": 97.4,
+                    "confidence": 0.949
+                },
+                {
+                    "text": "four.",
+                    "start": 97.5,
+                    "end": 97.94,
+                    "confidence": 0.937
+                }
+            ]
+        },
+        {
+            "id": 38,
+            "seek": 9000,
+            "start": 111.5,
+            "end": 113.1,
+            "text": " Take a rescue breath.",
+            "tokens": [
+                51465,
+                3664,
+                257,
+                13283,
+                6045,
+                13,
+                51565
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.6333146725060805,
+            "compression_ratio": 1.1388888888888888,
+            "no_speech_prob": 0.0315304771065712,
+            "confidence": 0.302,
+            "words": [
+                {
+                    "text": "Take",
+                    "start": 111.5,
+                    "end": 112.32,
+                    "confidence": 0.021
+                },
+                {
+                    "text": "a",
+                    "start": 112.32,
+                    "end": 112.5,
+                    "confidence": 0.873
+                },
+                {
+                    "text": "rescue",
+                    "start": 112.5,
+                    "end": 112.82,
+                    "confidence": 0.169
+                },
+                {
+                    "text": "breath.",
+                    "start": 112.82,
+                    "end": 113.1,
+                    "confidence": 0.909
+                }
+            ]
+        },
+        {
+            "id": 39,
+            "seek": 9000,
+            "start": 113.5,
+            "end": 114.16,
+            "text": " Yeah.",
+            "tokens": [
+                51565,
+                865,
+                13,
+                51665
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.6333146725060805,
+            "compression_ratio": 1.1388888888888888,
+            "no_speech_prob": 0.0315304771065712,
+            "confidence": 0.074,
+            "words": [
+                {
+                    "text": "Yeah.",
+                    "start": 113.5,
+                    "end": 114.16,
+                    "confidence": 0.074
+                }
+            ]
+        },
+        {
+            "id": 40,
+            "seek": 9000,
+            "start": 115.5,
+            "end": 117.26,
+            "text": " I'm okay.",
+            "tokens": [
+                51665,
+                286,
+                478,
+                1392,
+                13,
+                51765
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.6333146725060805,
+            "compression_ratio": 1.1388888888888888,
+            "no_speech_prob": 0.0315304771065712,
+            "confidence": 0.056,
+            "words": [
+                {
+                    "text": "I'm",
+                    "start": 115.5,
+                    "end": 116.12,
+                    "confidence": 0.07
+                },
+                {
+                    "text": "okay.",
+                    "start": 116.12,
+                    "end": 117.26,
+                    "confidence": 0.045
+                }
+            ]
+        },
+        {
+            "id": 41,
+            "seek": 11800,
+            "start": 130.54,
+            "end": 135.56,
+            "text": " If the patient is a child, press the child button.",
+            "tokens": [
+                50365,
+                759,
+                264,
+                4537,
+                307,
+                257,
+                1440,
+                11,
+                1886,
+                264,
+                1440,
+                2960,
+                13,
+                51361
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23587794052927116,
+            "compression_ratio": 1.7209302325581395,
+            "no_speech_prob": 0.6115897297859192,
+            "confidence": 0.701,
+            "words": [
+                {
+                    "text": "If",
+                    "start": 130.54,
+                    "end": 130.56,
+                    "confidence": 0.036
+                },
+                {
+                    "text": "the",
+                    "start": 130.56,
+                    "end": 132.18,
+                    "confidence": 0.787
+                },
+                {
+                    "text": "patient",
+                    "start": 132.18,
+                    "end": 133.14,
+                    "confidence": 0.949
+                },
+                {
+                    "text": "is",
+                    "start": 133.14,
+                    "end": 133.42,
+                    "confidence": 0.98
+                },
+                {
+                    "text": "a",
+                    "start": 133.42,
+                    "end": 133.52,
+                    "confidence": 0.98
+                },
+                {
+                    "text": "child,",
+                    "start": 133.52,
+                    "end": 133.86,
+                    "confidence": 0.927
+                },
+                {
+                    "text": "press",
+                    "start": 134.0,
+                    "end": 134.44,
+                    "confidence": 0.835
+                },
+                {
+                    "text": "the",
+                    "start": 134.44,
+                    "end": 134.76,
+                    "confidence": 0.962
+                },
+                {
+                    "text": "child",
+                    "start": 134.76,
+                    "end": 135.12,
+                    "confidence": 0.905
+                },
+                {
+                    "text": "button.",
+                    "start": 135.12,
+                    "end": 135.56,
+                    "confidence": 0.928
+                }
+            ]
+        },
+        {
+            "id": 42,
+            "seek": 11800,
+            "start": 137.42,
+            "end": 140.96,
+            "text": " Do not touch the patient analyzing heart rhythm.",
+            "tokens": [
+                51361,
+                1144,
+                406,
+                2557,
+                264,
+                4537,
+                23663,
+                1917,
+                11801,
+                13,
+                51636
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23587794052927116,
+            "compression_ratio": 1.7209302325581395,
+            "no_speech_prob": 0.6115897297859192,
+            "confidence": 0.883,
+            "words": [
+                {
+                    "text": "Do",
+                    "start": 137.42,
+                    "end": 137.86,
+                    "confidence": 0.778
+                },
+                {
+                    "text": "not",
+                    "start": 137.86,
+                    "end": 138.2,
+                    "confidence": 0.992
+                },
+                {
+                    "text": "touch",
+                    "start": 138.2,
+                    "end": 138.54,
+                    "confidence": 0.998
+                },
+                {
+                    "text": "the",
+                    "start": 138.54,
+                    "end": 138.7,
+                    "confidence": 0.996
+                },
+                {
+                    "text": "patient",
+                    "start": 138.7,
+                    "end": 139.08,
+                    "confidence": 0.997
+                },
+                {
+                    "text": "analyzing",
+                    "start": 139.08,
+                    "end": 139.72,
+                    "confidence": 0.744
+                },
+                {
+                    "text": "heart",
+                    "start": 139.72,
+                    "end": 140.48,
+                    "confidence": 0.94
+                },
+                {
+                    "text": "rhythm.",
+                    "start": 140.48,
+                    "end": 140.96,
+                    "confidence": 0.783
+                }
+            ]
+        },
+        {
+            "id": 43,
+            "seek": 11800,
+            "start": 142.92,
+            "end": 146.46,
+            "text": " Do not touch the patient analyzing heart rhythm.",
+            "tokens": [
+                51636,
+                1144,
+                406,
+                2557,
+                264,
+                4537,
+                23663,
+                1917,
+                11801,
+                13,
+                51830
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.23587794052927116,
+            "compression_ratio": 1.7209302325581395,
+            "no_speech_prob": 0.6115897297859192,
+            "confidence": 0.91,
+            "words": [
+                {
+                    "text": "Do",
+                    "start": 142.92,
+                    "end": 143.36,
+                    "confidence": 0.887
+                },
+                {
+                    "text": "not",
+                    "start": 143.36,
+                    "end": 143.7,
+                    "confidence": 0.993
+                },
+                {
+                    "text": "touch",
+                    "start": 143.7,
+                    "end": 144.06,
+                    "confidence": 0.998
+                },
+                {
+                    "text": "the",
+                    "start": 144.06,
+                    "end": 144.2,
+                    "confidence": 0.996
+                },
+                {
+                    "text": "patient",
+                    "start": 144.2,
+                    "end": 144.58,
+                    "confidence": 0.998
+                },
+                {
+                    "text": "analyzing",
+                    "start": 144.58,
+                    "end": 145.28,
+                    "confidence": 0.696
+                },
+                {
+                    "text": "heart",
+                    "start": 145.28,
+                    "end": 145.98,
+                    "confidence": 0.959
+                },
+                {
+                    "text": "rhythm.",
+                    "start": 145.98,
+                    "end": 146.46,
+                    "confidence": 0.855
+                }
+            ]
+        },
+        {
+            "id": 44,
+            "seek": 14730,
+            "start": 146.8,
+            "end": 148.12,
+            "text": " Shock advised.",
+            "tokens": [
+                50365,
+                39474,
+                26269,
+                13,
+                50488
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.3348104476928711,
+            "compression_ratio": 1.1574074074074074,
+            "no_speech_prob": 0.008249294012784958,
+            "confidence": 0.875,
+            "words": [
+                {
+                    "text": "Shock",
+                    "start": 146.8,
+                    "end": 147.6,
+                    "confidence": 0.824
+                },
+                {
+                    "text": "advised.",
+                    "start": 147.6,
+                    "end": 148.12,
+                    "confidence": 0.901
+                }
+            ]
+        },
+        {
+            "id": 45,
+            "seek": 14730,
+            "start": 149.26,
+            "end": 151.02,
+            "text": " Do not touch the patient.",
+            "tokens": [
+                50488,
+                1144,
+                406,
+                2557,
+                264,
+                4537,
+                13,
+                50614
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.3348104476928711,
+            "compression_ratio": 1.1574074074074074,
+            "no_speech_prob": 0.008249294012784958,
+            "confidence": 0.944,
+            "words": [
+                {
+                    "text": "Do",
+                    "start": 149.26,
+                    "end": 149.76,
+                    "confidence": 0.821
+                },
+                {
+                    "text": "not",
+                    "start": 149.76,
+                    "end": 150.1,
+                    "confidence": 0.995
+                },
+                {
+                    "text": "touch",
+                    "start": 150.1,
+                    "end": 150.44,
+                    "confidence": 0.997
+                },
+                {
+                    "text": "the",
+                    "start": 150.44,
+                    "end": 150.6,
+                    "confidence": 0.997
+                },
+                {
+                    "text": "patient.",
+                    "start": 150.6,
+                    "end": 151.02,
+                    "confidence": 0.933
+                }
+            ]
+        },
+        {
+            "id": 46,
+            "seek": 14730,
+            "start": 151.78,
+            "end": 153.26,
+            "text": " Everyone clear.",
+            "tokens": [
+                50614,
+                5198,
+                1850,
+                13,
+                50779
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.3348104476928711,
+            "compression_ratio": 1.1574074074074074,
+            "no_speech_prob": 0.008249294012784958,
+            "confidence": 0.62,
+            "words": [
+                {
+                    "text": "Everyone",
+                    "start": 151.78,
+                    "end": 152.5,
+                    "confidence": 0.4
+                },
+                {
+                    "text": "clear.",
+                    "start": 152.5,
+                    "end": 153.26,
+                    "confidence": 0.771
+                }
+            ]
+        },
+        {
+            "id": 47,
+            "seek": 14730,
+            "start": 155.08,
+            "end": 156.98,
+            "text": " Press the flashing shock button.",
+            "tokens": [
+                50779,
+                6776,
+                264,
+                31049,
+                5588,
+                2960,
+                13,
+                50916
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.3348104476928711,
+            "compression_ratio": 1.1574074074074074,
+            "no_speech_prob": 0.008249294012784958,
+            "confidence": 0.895,
+            "words": [
+                {
+                    "text": "Press",
+                    "start": 155.08,
+                    "end": 155.62,
+                    "confidence": 0.739
+                },
+                {
+                    "text": "the",
+                    "start": 155.62,
+                    "end": 155.92,
+                    "confidence": 0.993
+                },
+                {
+                    "text": "flashing",
+                    "start": 155.92,
+                    "end": 156.28,
+                    "confidence": 0.976
+                },
+                {
+                    "text": "shock",
+                    "start": 156.28,
+                    "end": 156.68,
+                    "confidence": 0.873
+                },
+                {
+                    "text": "button.",
+                    "start": 156.68,
+                    "end": 156.98,
+                    "confidence": 0.905
+                }
+            ]
+        },
+        {
+            "id": 48,
+            "seek": 14730,
+            "start": 157.82,
+            "end": 159.22,
+            "text": " Shock delivered.",
+            "tokens": [
+                50916,
+                39474,
+                10144,
+                13,
+                51029
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.3348104476928711,
+            "compression_ratio": 1.1574074074074074,
+            "no_speech_prob": 0.008249294012784958,
+            "confidence": 0.846,
+            "words": [
+                {
+                    "text": "Shock",
+                    "start": 157.82,
+                    "end": 158.46,
+                    "confidence": 0.744
+                },
+                {
+                    "text": "delivered.",
+                    "start": 158.46,
+                    "end": 159.22,
+                    "confidence": 0.902
+                }
+            ]
+        },
+        {
+            "id": 49,
+            "seek": 14730,
+            "start": 160.08,
+            "end": 161.44,
+            "text": " Begin CPR.",
+            "tokens": [
+                51029,
+                20660,
+                47536,
+                13,
+                51079
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.3348104476928711,
+            "compression_ratio": 1.1574074074074074,
+            "no_speech_prob": 0.008249294012784958,
+            "confidence": 0.807,
+            "words": [
+                {
+                    "text": "Begin",
+                    "start": 160.08,
+                    "end": 160.8,
+                    "confidence": 0.666
+                },
+                {
+                    "text": "CPR.",
+                    "start": 160.8,
+                    "end": 161.44,
+                    "confidence": 0.889
+                }
+            ]
+        },
+        {
+            "id": 50,
+            "seek": 14730,
+            "start": 167.66,
+            "end": 168.16,
+            "text": " 10.",
+            "tokens": [
+                51408,
+                1266,
+                13,
+                51433
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.3348104476928711,
+            "compression_ratio": 1.1574074074074074,
+            "no_speech_prob": 0.008249294012784958,
+            "confidence": 0.012,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 167.66,
+                    "end": 168.16,
+                    "confidence": 0.012
+                }
+            ]
+        },
+        {
+            "id": 51,
+            "seek": 14730,
+            "start": 173.36,
+            "end": 174.14,
+            "text": " 20.",
+            "tokens": [
+                51693,
+                945,
+                13,
+                51718
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.3348104476928711,
+            "compression_ratio": 1.1574074074074074,
+            "no_speech_prob": 0.008249294012784958,
+            "confidence": 0.456,
+            "words": [
+                {
+                    "text": "20.",
+                    "start": 173.36,
+                    "end": 174.14,
+                    "confidence": 0.456
+                }
+            ]
+        },
+        {
+            "id": 52,
+            "seek": 17730,
+            "start": 176.8,
+            "end": 179.76,
+            "text": " 30.",
+            "tokens": [
+                50365,
+                2217,
+                13,
+                50491
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.9011818490377287,
+            "compression_ratio": 1.5227272727272727,
+            "no_speech_prob": 0.03057699277997017,
+            "confidence": 0.51,
+            "words": [
+                {
+                    "text": "30.",
+                    "start": 176.8,
+                    "end": 179.76,
+                    "confidence": 0.51
+                }
+            ]
+        },
+        {
+            "id": 53,
+            "seek": 17730,
+            "start": 179.76,
+            "end": 181.22,
+            "text": " Give two breaths.",
+            "tokens": [
+                50491,
+                5303,
+                732,
+                33769,
+                13,
+                50562
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.9011818490377287,
+            "compression_ratio": 1.5227272727272727,
+            "no_speech_prob": 0.03057699277997017,
+            "confidence": 0.495,
+            "words": [
+                {
+                    "text": "Give",
+                    "start": 179.76,
+                    "end": 180.16,
+                    "confidence": 0.33
+                },
+                {
+                    "text": "two",
+                    "start": 180.16,
+                    "end": 180.66,
+                    "confidence": 0.26
+                },
+                {
+                    "text": "breaths.",
+                    "start": 180.66,
+                    "end": 181.22,
+                    "confidence": 0.835
+                }
+            ]
+        },
+        {
+            "id": 54,
+            "seek": 17730,
+            "start": 183.72,
+            "end": 183.74,
+            "text": " Rest.",
+            "tokens": [
+                50562,
+                13094,
+                13,
+                50662
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.9011818490377287,
+            "compression_ratio": 1.5227272727272727,
+            "no_speech_prob": 0.03057699277997017,
+            "confidence": 0.006,
+            "words": [
+                {
+                    "text": "Rest.",
+                    "start": 183.72,
+                    "end": 183.74,
+                    "confidence": 0.006
+                }
+            ]
+        },
+        {
+            "id": 55,
+            "seek": 17730,
+            "start": 192.08,
+            "end": 192.1,
+            "text": " 10.",
+            "tokens": [
+                50662,
+                1266,
+                13,
+                51112
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.9011818490377287,
+            "compression_ratio": 1.5227272727272727,
+            "no_speech_prob": 0.03057699277997017,
+            "confidence": 0.096,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 192.08,
+                    "end": 192.1,
+                    "confidence": 0.096
+                }
+            ]
+        },
+        {
+            "id": 56,
+            "seek": 17730,
+            "start": 197.74,
+            "end": 197.76,
+            "text": " 20.",
+            "tokens": [
+                51112,
+                945,
+                13,
+                51662
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.9011818490377287,
+            "compression_ratio": 1.5227272727272727,
+            "no_speech_prob": 0.03057699277997017,
+            "confidence": 0.052,
+            "words": [
+                {
+                    "text": "20.",
+                    "start": 197.74,
+                    "end": 197.76,
+                    "confidence": 0.052
+                }
+            ]
+        },
+        {
+            "id": 57,
+            "seek": 17730,
+            "start": 202.74,
+            "end": 203.54,
+            "text": " 30.",
+            "tokens": [
+                51662,
+                2217,
+                13,
+                51712
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.9011818490377287,
+            "compression_ratio": 1.5227272727272727,
+            "no_speech_prob": 0.03057699277997017,
+            "confidence": 0.253,
+            "words": [
+                {
+                    "text": "30.",
+                    "start": 202.74,
+                    "end": 203.54,
+                    "confidence": 0.253
+                }
+            ]
+        },
+        {
+            "id": 58,
+            "seek": 17730,
+            "start": 203.74,
+            "end": 205.14,
+            "text": " Give two breaths.",
+            "tokens": [
+                51712,
+                5303,
+                732,
+                33769,
+                13,
+                51762
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.9011818490377287,
+            "compression_ratio": 1.5227272727272727,
+            "no_speech_prob": 0.03057699277997017,
+            "confidence": 0.711,
+            "words": [
+                {
+                    "text": "Give",
+                    "start": 203.74,
+                    "end": 204.08,
+                    "confidence": 0.408
+                },
+                {
+                    "text": "two",
+                    "start": 204.08,
+                    "end": 204.6,
+                    "confidence": 0.844
+                },
+                {
+                    "text": "breaths.",
+                    "start": 204.6,
+                    "end": 205.14,
+                    "confidence": 0.862
+                }
+            ]
+        },
+        {
+            "id": 59,
+            "seek": 17730,
+            "start": 205.14,
+            "end": 205.26,
+            "text": " Rest.",
+            "tokens": [
+                51762,
+                13094,
+                13,
+                51812
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.9011818490377287,
+            "compression_ratio": 1.5227272727272727,
+            "no_speech_prob": 0.03057699277997017,
+            "confidence": 0.005,
+            "words": [
+                {
+                    "text": "Rest.",
+                    "start": 205.14,
+                    "end": 205.26,
+                    "confidence": 0.005
+                }
+            ]
+        },
+        {
+            "id": 60,
+            "seek": 17730,
+            "start": 205.74,
+            "end": 206.5,
+            "text": " 10.",
+            "tokens": [
+                51812,
+                1266,
+                13,
+                51862
+            ],
+            "temperature": 0.8,
+            "avg_logprob": -0.9011818490377287,
+            "compression_ratio": 1.5227272727272727,
+            "no_speech_prob": 0.03057699277997017,
+            "confidence": 0.005,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 205.74,
+                    "end": 206.5,
+                    "confidence": 0.005
+                }
+            ]
+        },
+        {
+            "id": 61,
+            "seek": 20730,
+            "start": 215.44,
+            "end": 229.04,
+            "text": " 10, 20, 30, give two breaths.",
+            "tokens": [
+                50365,
+                1266,
+                11,
+                945,
+                11,
+                2217,
+                11,
+                976,
+                732,
+                33769,
+                13,
+                51764
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.5125319774334247,
+            "compression_ratio": 0.8529411764705882,
+            "no_speech_prob": 0.03406619653105736,
+            "confidence": 0.529,
+            "words": [
+                {
+                    "text": "10,",
+                    "start": 215.44,
+                    "end": 215.46,
+                    "confidence": 0.174
+                },
+                {
+                    "text": "20,",
+                    "start": 216.3,
+                    "end": 220.88,
+                    "confidence": 0.747
+                },
+                {
+                    "text": "30,",
+                    "start": 222.14,
+                    "end": 227.4,
+                    "confidence": 0.552
+                },
+                {
+                    "text": "give",
+                    "start": 227.66,
+                    "end": 228.0,
+                    "confidence": 0.864
+                },
+                {
+                    "text": "two",
+                    "start": 228.0,
+                    "end": 228.48,
+                    "confidence": 0.629
+                },
+                {
+                    "text": "breaths.",
+                    "start": 228.48,
+                    "end": 229.04,
+                    "confidence": 0.784
+                }
+            ]
+        }
+    ],
+    "language": "en"
+}

@@ -1,0 +1,62 @@
+[
+    {
+        "transcript": "Checking for pulse.",
+        "start time": 9.06,
+        "end time": 10.4
+    },
+    {
+        "transcript": "Call 911, get an AED.",
+        "start time": 14.74,
+        "end time": 16.86
+    },
+    {
+        "transcript": "Call 911, get an AED.",
+        "start time": 29.54,
+        "end time": 30.16
+    },
+    {
+        "transcript": "Adult patient.  [Sound of AED being prepared/used]",
+        "start time": 71.38,
+        "end time": 72.96
+    },
+    {
+        "transcript": "Do not touch the patient",
+        "start time": 78.38,
+        "end time": 80.68
+    },
+    {
+        "transcript": "Analyzing heart rhythm",
+        "start time": 80.68,
+        "end time": 82.56
+    },
+    {
+        "transcript": "Do not touch the patient",
+        "start time": 83.88,
+        "end time": 86.22
+    },
+    {
+        "transcript": "Analyzing heart rhythm.",
+        "start time": 86.22,
+        "end time": 88.06
+    },
+    {
+        "transcript": "Shocks advised",
+        "start time": 88.48,
+        "end time": 89.68
+    },
+    {
+        "transcript": "Do not touch the patient",
+        "start time": 90.12,
+        "end time": 92.6
+    },
+    {
+        "transcript": "Press the flashing shock button",
+        "start time": 96.5,
+        "end time": 98.6
+    },
+    {
+        "transcript": "Shock delivered.",
+        "start time": 99.68,
+        "end time": 101.02
+    }
+]

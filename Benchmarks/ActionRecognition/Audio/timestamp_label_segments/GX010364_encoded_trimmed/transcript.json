@@ -1,0 +1,27 @@
+[
+    {
+        "transcript": "No breath.  [Sound of chest compressions and AED being used]",
+        "start time": 9.82,
+        "end time": 10.98
+    },
+    {
+        "transcript": "Do not touch the patient. Analyzing heart rhythm.",
+        "start time": 89.5,
+        "end time": 93.04
+    },
+    {
+        "transcript": "Shock advised",
+        "start time": 93.52,
+        "end time": 94.68
+    },
+    {
+        "transcript": "Press the flashing shock button.",
+        "start time": 101.06,
+        "end time": 103.22
+    },
+    {
+        "transcript": "Shock delivered.",
+        "start time": 103.84,
+        "end time": 105.7
+    }
+]
