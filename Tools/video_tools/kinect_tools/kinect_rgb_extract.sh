@@ -16,14 +16,14 @@
 # Load necessary modules and activate the conda environment
 module purge &&
 module load anaconda &&
-source /home/cjh9fw/.bashrc &&
+source /home/anonymous/.bashrc &&
 echo "[INFO] Running on node: $HOSTNAME" &&
 conda activate cogems &&
 module load ffmpeg &&
 
 # Set root directories and synchronization offset path
 root_dir="/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final"
-repo_dir="/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Tools"
+repo_dir="/scratch/anonymous/compute/2024/repos/EgoExoEMS/Tools"
 
 echo "[INFO] Extracting Kinect RGB streams..."
 

@@ -8,7 +8,7 @@
                     "streams": {
                         "vl6180_ToF_depth": {
                             "file_id": "depth_sensor_2024-05-23-20_05_23",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng1/1/depth_sensor_2024-05-23-20_05_23.txt",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/depth_sensor/ng1/1/depth_sensor_2024-05-23-20_05_23.txt",
                             "fps" : 60,
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
@@ -16,7 +16,7 @@
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010305",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng1/1/GX010305.MP4",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/ego_camera/ng1/1/GX010305.MP4",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": [
@@ -164,7 +164,7 @@
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-04-48",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng1/1/2024-05-23-20-04-48.mkv",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/RGBD_camera/ng1/1/2024-05-23-20-04-48.mkv",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -176,21 +176,21 @@
                     "streams": {
                         "vl6180_ToF_depth": {
                             "file_id": "depth_sensor_2024-05-23-20_10_58",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng1/2/depth_sensor_2024-05-23-20_10_58.txt",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/depth_sensor/ng1/2/depth_sensor_2024-05-23-20_10_58.txt",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010306",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng1/2/GX010306.MP4",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/ego_camera/ng1/2/GX010306.MP4",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-10-54",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng1/2/2024-05-23-20-10-54.mkv",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/RGBD_camera/ng1/2/2024-05-23-20-10-54.mkv",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -202,21 +202,21 @@
                     "streams": {
                         "vl6180_ToF_depth": {
                             "file_id": "depth_sensor_2024-05-23-20_14_15",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng1/3/depth_sensor_2024-05-23-20_14_15.txt",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/depth_sensor/ng1/3/depth_sensor_2024-05-23-20_14_15.txt",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010307",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng1/3/GX010307.MP4",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/ego_camera/ng1/3/GX010307.MP4",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-14-12",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng1/3/2024-05-23-20-14-12.mkv",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/RGBD_camera/ng1/3/2024-05-23-20-14-12.mkv",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -228,21 +228,21 @@
                     "streams": {
                         "vl6180_ToF_depth": {
                             "file_id": "depth_sensor_2024-05-23-20_17_53",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng1/4/depth_sensor_2024-05-23-20_17_53.txt",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/depth_sensor/ng1/4/depth_sensor_2024-05-23-20_17_53.txt",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010308",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng1/4/GX010308.MP4",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/ego_camera/ng1/4/GX010308.MP4",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-17-59",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng1/4/2024-05-23-20-17-59.mkv",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/RGBD_camera/ng1/4/2024-05-23-20-17-59.mkv",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -254,21 +254,21 @@
                     "streams": {
                         "vl6180_ToF_depth": {
                             "file_id": "depth_sensor_2024-05-23-20_22_15",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng1/5/depth_sensor_2024-05-23-20_22_15.txt",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/depth_sensor/ng1/5/depth_sensor_2024-05-23-20_22_15.txt",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010309",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng1/5/GX010309.MP4",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/ego_camera/ng1/5/GX010309.MP4",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-22-11",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng1/5/2024-05-23-20-22-11.mkv",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/RGBD_camera/ng1/5/2024-05-23-20-22-11.mkv",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -286,7 +286,7 @@
                     "streams": {
                         "3rd_person_iPhone": {
                             "file_id": "IMG_1195",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/3rd_person_iPhone/ng3/1/IMG_1195.MOV",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/3rd_person_iPhone/ng3/1/IMG_1195.MOV",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -298,7 +298,7 @@
                     "streams": {
                         "3rd_person_iPhone": {
                             "file_id": "IMG_1196",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/3rd_person_iPhone/ng3/2/IMG_1196.MOV",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/3rd_person_iPhone/ng3/2/IMG_1196.MOV",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -316,21 +316,21 @@
                     "streams": {
                         "vl6180_ToF_depth": {
                             "file_id": "depth_sensor_2024-05-23-20_33_47",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng5/1/depth_sensor_2024-05-23-20_33_47.txt",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/depth_sensor/ng5/1/depth_sensor_2024-05-23-20_33_47.txt",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010310",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng5/1/GX010310.MP4",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/ego_camera/ng5/1/GX010310.MP4",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-32-49",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng5/1/2024-05-23-20-32-49.mkv",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/RGBD_camera/ng5/1/2024-05-23-20-32-49.mkv",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -342,21 +342,21 @@
                     "streams": {
                         "vl6180_ToF_depth": {
                             "file_id": "depth_sensor_2024-05-23-20_36_29",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng5/2/depth_sensor_2024-05-23-20_36_29.txt",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/depth_sensor/ng5/2/depth_sensor_2024-05-23-20_36_29.txt",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010311",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng5/2/GX010311.MP4",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/ego_camera/ng5/2/GX010311.MP4",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-36-20",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng5/2/2024-05-23-20-36-20.mkv",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/RGBD_camera/ng5/2/2024-05-23-20-36-20.mkv",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -368,21 +368,21 @@
                     "streams": {
                         "vl6180_ToF_depth": {
                             "file_id": "depth_sensor_2024-05-23-20_41_23",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng5/3/depth_sensor_2024-05-23-20_41_23.txt",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/depth_sensor/ng5/3/depth_sensor_2024-05-23-20_41_23.txt",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010312",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng5/3/GX010312.MP4",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/ego_camera/ng5/3/GX010312.MP4",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-41-12",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng5/3/2024-05-23-20-41-12.mkv",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/RGBD_camera/ng5/3/2024-05-23-20-41-12.mkv",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -394,21 +394,21 @@
                     "streams": {
                         "vl6180_ToF_depth": {
                             "file_id": "depth_sensor_2024-05-23-20_43_47",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng5/4/depth_sensor_2024-05-23-20_43_47.txt",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/depth_sensor/ng5/4/depth_sensor_2024-05-23-20_43_47.txt",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010313",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng5/4/GX010313.MP4",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/ego_camera/ng5/4/GX010313.MP4",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-43-43",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng5/4/2024-05-23-20-43-43.mkv",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/RGBD_camera/ng5/4/2024-05-23-20-43-43.mkv",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
@@ -420,21 +420,21 @@
                     "streams": {
                         "vl6180_ToF_depth": {
                             "file_id": "depth_sensor_2024-05-23-20_45_59",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/depth_sensor/ng5/5/depth_sensor_2024-05-23-20_45_59.txt",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/depth_sensor/ng5/5/depth_sensor_2024-05-23-20_45_59.txt",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "egocam_rgb_audio": {
                             "file_id": "GX010314",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/ego_camera/ng5/5/GX010314.MP4",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/ego_camera/ng5/5/GX010314.MP4",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []
                         },
                         "exocam_rgbd": {
                             "file_id": "2024-05-23-20-45-50",
-                            "file_path": "/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/May24_updated_structure/RGBD_camera/ng5/5/2024-05-23-20-45-50.mkv",
+                            "file_path": "/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/May24_updated_structure/RGBD_camera/ng5/5/2024-05-23-20-45-50.mkv",
                             "protocol": "Cardiac Arrest - 2-1",
                             "interventions": [],
                             "keysteps": []

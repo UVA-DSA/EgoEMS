@@ -16,7 +16,7 @@
 
 module purge &&
 module load anaconda  &&
-source /home/cjh9fw/.bashrc  &&
+source /home/anonymous/.bashrc  &&
 echo "$HOSTNAME" &&
 conda activate egoexoems &&
 python -u train_recognition.py --job_id "$SLURM_JOB_ID" &&

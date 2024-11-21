@@ -16,7 +16,7 @@
 echo "$HOSTNAME" 
 # Set the folder where MP4 files are located
 input_folder="/standard/storage/EgoExoEMS_CVPR2025"
-output_folder="/scratch/cjh9fw/Rivanna/2024/" # mew wars data 
+output_folder="/scratch/anonymous/compute/2024/" # mew wars data 
 
 cp -r "$input_folder" "$output_folder"
 

@@ -15,7 +15,7 @@
 
 # Define the source and destination directories
 SRC_DIR="/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/wa1/cardiac_scenario/"
-DEST_DIR="/standard/storage/CognitiveEMS_Datasets/North_Garden/DataForKeshara/23-10-2024"
+DEST_DIR="/standard/storage/CognitiveEMS_Datasets/anonymous/DataForanonymous/23-10-2024"
 
 # File extension to search for
 GP_FILE_EXT="*encoded_trimmed.mp4" # GoPro

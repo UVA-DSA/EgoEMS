@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # Load the data
-data = pd.read_csv('/standard/storage/EgoExoEMS_CVPR2025/Dataset/Lahiru/P4/s4/smartwatch_data/sw_data.csv')
+data = pd.read_csv('/standard/storage/EgoExoEMS_CVPR2025/Dataset/anonymous/P4/s4/smartwatch_data/sw_data.csv')
 
 # Drop rows where server_epoch_ms is missing to calculate the offset
 data_with_both_epochs = data.dropna(subset=['server_epoch_ms', 'sw_epoch_ms'])

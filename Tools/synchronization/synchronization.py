@@ -2,7 +2,7 @@ import os, sys
 import pandas, numpy
 
 
-raw_data_path = "/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
+raw_data_path = "/standard/storage/CognitiveEMS_Datasets/anonymous/Sep_2024/Raw"
 
 goPro_timestamps = f"{raw_data_path}/goPro_timestamps"
 offsets = pandas.read_csv(f"{raw_data_path}/offsets.csv")

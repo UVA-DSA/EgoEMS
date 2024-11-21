@@ -14,12 +14,12 @@
 #SBATCH --account="anonymous"
 
 module purge 
-source /home/cjh9fw/.bashrc 
+source /home/anonymous/.bashrc 
 echo "$HOSTNAME" 
 module load ffmpeg 
 
 # Set the folder where MP4 files are located
-input_folder="/standard/storage/EgoExoEMS_CVPR2025/Dataset/Lahiru/"
+input_folder="/standard/storage/EgoExoEMS_CVPR2025/Dataset/anonymous/"
 
 # Find all MP4 files in the folder and its subdirectories
 find "$input_folder" -type f -name "*trimmed_deidentified.mp4" | while read input_video; do

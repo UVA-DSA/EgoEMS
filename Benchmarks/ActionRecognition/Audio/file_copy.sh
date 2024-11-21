@@ -14,8 +14,8 @@
 #SBATCH --account="anonymous"
 
 # Define the source and destination directories
-SRC_DIR="/standard/storage/CognitiveEMS_Datasets/North_Garden/Final/24-09-2024"
-DEST_DIR="/sfs/weka/scratch/zar8jw/EgoExo/24-09-2024"
+SRC_DIR="/standard/storage/CognitiveEMS_Datasets/anonymous/Final/24-09-2024"
+DEST_DIR="/sfs/weka/scratch/anonymous/EgoExo/24-09-2024"
 
 # File extension to search for
 GP_FILE_EXT="*encoded_trimmed.mp4" # GoPro

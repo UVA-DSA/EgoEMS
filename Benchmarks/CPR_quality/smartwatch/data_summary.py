@@ -23,8 +23,8 @@ for i in range(1, splits + 1):
                 gt_cpr_rate_match = re.search(r"GT_CPR_rate:\[(.*?)\]", line)
                 pred_cpr_rate_match = re.search(r"Pred_CPR_rate:\[(\d+\.\d+)\]", line)
                 cpr_rate_error_match = re.search(r"CPR_rate_error:(\d+\.\d+)", line)
-                keshara_pred_cpr_rate_match = re.search(r"Keshara_Pred_CPR_rate:\[(\d+\.\d+)\]", line)
-                keshara_low_pass_pred_cpr_rate_match = re.search(r"Low_Pass_Keshara_Pred_CPR_rate:\[(\d+\.\d+)\]", line)
+                anonymous_pred_cpr_rate_match = re.search(r"anonymous_Pred_CPR_rate:\[(\d+\.\d+)\]", line)
+                anonymous_low_pass_pred_cpr_rate_match = re.search(r"Low_Pass_anonymous_Pred_CPR_rate:\[(\d+\.\d+)\]", line)
 
 
                 # Extracted data
@@ -36,18 +36,18 @@ for i in range(1, splits + 1):
                 gt_cpr_rate = float(gt_cpr_rate_match.group(1)) if gt_cpr_rate_match else None
                 pred_cpr_rate = float(pred_cpr_rate_match.group(1)) if pred_cpr_rate_match else None
                 cpr_rate_error = float(cpr_rate_error_match.group(1)) if cpr_rate_error_match else None
-                keshara_cpr_rate = float(keshara_pred_cpr_rate_match.group(1)) if keshara_pred_cpr_rate_match else None
-                keshara_low_pass_cpr_rate = float(keshara_low_pass_pred_cpr_rate_match.group(1)) if keshara_low_pass_pred_cpr_rate_match else None
-                keshara_cpr_rate_error = keshara_cpr_rate - gt_cpr_rate if keshara_cpr_rate is not None and gt_cpr_rate is not None else None
-                keshara_low_pass_cpr_rate_error = keshara_low_pass_cpr_rate - gt_cpr_rate if keshara_low_pass_cpr_rate is not None and gt_cpr_rate is not None else None
+                anonymous_cpr_rate = float(anonymous_pred_cpr_rate_match.group(1)) if anonymous_pred_cpr_rate_match else None
+                anonymous_low_pass_cpr_rate = float(anonymous_low_pass_pred_cpr_rate_match.group(1)) if anonymous_low_pass_pred_cpr_rate_match else None
+                anonymous_cpr_rate_error = anonymous_cpr_rate - gt_cpr_rate if anonymous_cpr_rate is not None and gt_cpr_rate is not None else None
+                anonymous_low_pass_cpr_rate_error = anonymous_low_pass_cpr_rate - gt_cpr_rate if anonymous_low_pass_cpr_rate is not None and gt_cpr_rate is not None else None
                 # Compute additional rates per minute if both are available
                 gt_cpr_rate_per_min = gt_cpr_rate * 12 if gt_cpr_rate is not None else None
                 pred_cpr_rate_per_min = pred_cpr_rate * 12 if pred_cpr_rate is not None else None
-                keshara_cpr_rate_per_min = keshara_cpr_rate * 12 if keshara_cpr_rate is not None else None
-                keshara_low_pass_cpr_rate_per_min = keshara_low_pass_cpr_rate * 12 if keshara_low_pass_cpr_rate is not None else None
-                keshara_low_pass_cpr_rate_per_min_error = keshara_low_pass_cpr_rate_per_min - gt_cpr_rate_per_min if keshara_low_pass_cpr_rate_per_min is not None and gt_cpr_rate_per_min is not None else None
+                anonymous_cpr_rate_per_min = anonymous_cpr_rate * 12 if anonymous_cpr_rate is not None else None
+                anonymous_low_pass_cpr_rate_per_min = anonymous_low_pass_cpr_rate * 12 if anonymous_low_pass_cpr_rate is not None else None
+                anonymous_low_pass_cpr_rate_per_min_error = anonymous_low_pass_cpr_rate_per_min - gt_cpr_rate_per_min if anonymous_low_pass_cpr_rate_per_min is not None and gt_cpr_rate_per_min is not None else None
 
-                print("Low Pass Keshara Pred CPR rate: ", keshara_low_pass_cpr_rate)
+                print("Low Pass anonymous Pred CPR rate: ", anonymous_low_pass_cpr_rate)
 
                 # Append to data if participant and trial are found
                 if participant and trial:
@@ -62,13 +62,13 @@ for i in range(1, splits + 1):
                         'CPR_rate_error': cpr_rate_error,
                         'GT_CPR_rate_per_min': gt_cpr_rate_per_min,
                         'Pred_CPR_rate_per_min': pred_cpr_rate_per_min,
-                        'Keshara_Pred_CPR_rate': keshara_cpr_rate,
-                        'Keshara_Pred_CPR_rate_error': keshara_cpr_rate_error,
-                        'Keshara_Pred_CPR_rate_per_min': keshara_cpr_rate_per_min,
-                        'Keshara_Low_Pass_Pred_CPR_rate': keshara_low_pass_cpr_rate,
-                        'Keshara_Low_Pass_Pred_CPR_rate_error': keshara_low_pass_cpr_rate_error,
-                        'Keshara_Low_Pass_Pred_CPR_rate_per_min': keshara_low_pass_cpr_rate_per_min,
-                        'Keshara_Low_Pass_Pred_CPR_rate_per_min_error': keshara_low_pass_cpr_rate_per_min_error
+                        'anonymous_Pred_CPR_rate': anonymous_cpr_rate,
+                        'anonymous_Pred_CPR_rate_error': anonymous_cpr_rate_error,
+                        'anonymous_Pred_CPR_rate_per_min': anonymous_cpr_rate_per_min,
+                        'anonymous_Low_Pass_Pred_CPR_rate': anonymous_low_pass_cpr_rate,
+                        'anonymous_Low_Pass_Pred_CPR_rate_error': anonymous_low_pass_cpr_rate_error,
+                        'anonymous_Low_Pass_Pred_CPR_rate_per_min': anonymous_low_pass_cpr_rate_per_min,
+                        'anonymous_Low_Pass_Pred_CPR_rate_per_min_error': anonymous_low_pass_cpr_rate_per_min_error
 
                     })
             except Exception as e:
@@ -94,13 +94,13 @@ averages = df.groupby('participant').agg({
     # 'CPR_rate_error': 'mean',
     'GT_CPR_rate_per_min': 'mean',
     # 'Pred_CPR_rate_per_min': 'mean',
-    # 'Keshara_Pred_CPR_rate': 'mean',
-    # 'Keshara_Pred_CPR_rate_per_min': 'mean',
-    # 'Keshara_Pred_CPR_rate_error': 'mean',
-    # 'Keshara_Low_Pass_Pred_CPR_rate': 'mean',
-    'Keshara_Low_Pass_Pred_CPR_rate_per_min': 'mean',
-    # 'Keshara_Low_Pass_Pred_CPR_rate_error': 'mean',
-    'Keshara_Low_Pass_Pred_CPR_rate_per_min_error': 'mean'
+    # 'anonymous_Pred_CPR_rate': 'mean',
+    # 'anonymous_Pred_CPR_rate_per_min': 'mean',
+    # 'anonymous_Pred_CPR_rate_error': 'mean',
+    # 'anonymous_Low_Pass_Pred_CPR_rate': 'mean',
+    'anonymous_Low_Pass_Pred_CPR_rate_per_min': 'mean',
+    # 'anonymous_Low_Pass_Pred_CPR_rate_error': 'mean',
+    'anonymous_Low_Pass_Pred_CPR_rate_per_min_error': 'mean'
 }).reset_index()
 
 
@@ -115,16 +115,16 @@ print("Averages have been saved to 'averages_output.csv'.")
 
 # Calculate squared errors for RMSE
 averages['Depth_Error_Squared'] = (averages['GT_Depth'] - averages['Pred_Depth']) ** 2
-averages['Keshara_Low_Pass_Pred_CPR_rate_per_min_Error_Squared'] = averages['Keshara_Low_Pass_Pred_CPR_rate_per_min_error'] ** 2
+averages['anonymous_Low_Pass_Pred_CPR_rate_per_min_Error_Squared'] = averages['anonymous_Low_Pass_Pred_CPR_rate_per_min_error'] ** 2
 
 
 # Calculate overall average across all subjects
 overall_averages = averages.mean(numeric_only=True).to_frame().T
 overall_averages.insert(0, 'participant', 'Overall')
 
-# Calculate RMSE for Depth_error and Keshara_Low_Pass_Pred_CPR_rate_per_min_error
+# Calculate RMSE for Depth_error and anonymous_Low_Pass_Pred_CPR_rate_per_min_error
 overall_averages['RMSE_Depth_Error'] = np.sqrt(averages['Depth_Error_Squared'].mean())
-overall_averages['RMSE_Keshara_Low_Pass_Pred_CPR_rate_per_min_Error'] = np.sqrt(averages['Keshara_Low_Pass_Pred_CPR_rate_per_min_Error_Squared'].mean())
+overall_averages['RMSE_anonymous_Low_Pass_Pred_CPR_rate_per_min_Error'] = np.sqrt(averages['anonymous_Low_Pass_Pred_CPR_rate_per_min_Error_Squared'].mean())
 
 # Save overall averages to a new CSV
 overall_output_name = 'overall_averages_output.csv'

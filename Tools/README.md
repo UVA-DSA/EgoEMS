@@ -37,7 +37,7 @@ command = [
 
 ### Setup
 
-- **Root Directory:** - `/standard/storage/CognitiveEMS_Datasets/North_Garden/`
+- **Root Directory:** - `/standard/storage/CognitiveEMS_Datasets/anonymous/`
 - **Day:** - `"05-09-2024"`
 
 ## Sync Steps

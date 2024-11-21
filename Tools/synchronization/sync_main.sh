@@ -16,14 +16,14 @@
 # Load necessary modules and activate the conda environment
 module purge &&
 module load anaconda &&
-source /home/cjh9fw/.bashrc &&
+source /home/anonymous/.bashrc &&
 echo "[INFO] Running on node: $HOSTNAME" &&
 conda activate cogems &&
 module load ffmpeg &&
 
 # Set root directories and synchronization offset path
-root_dir="/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
-repo_dir="/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Tools"
+root_dir="/standard/storage/CognitiveEMS_Datasets/anonymous/Sep_2024/Raw"
+repo_dir="/scratch/anonymous/compute/2024/repos/EgoExoEMS/Tools"
 
 # Set the day for which synchronization is being performed
 day="2024-10-28_12-45-02"

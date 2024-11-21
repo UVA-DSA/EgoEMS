@@ -15,13 +15,13 @@
 
 module purge &&
 module load anaconda &&
-source /home/cjh9fw/.bashrc &&
+source /home/anonymous/.bashrc &&
 echo "[INFO] Running on node: $HOSTNAME" &&
 conda activate cogems &&
 
 # Set the folder where MP4 files are located
-input_folder="/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/19-09-2024/"
-input_folder="/standard/storage/EgoExoEMS_CVPR2025/Dataset/Lahiru/"
+input_folder="/standard/storage/CognitiveEMS_Datasets/anonymous/Sep_2024/Raw/19-09-2024/"
+input_folder="/standard/storage/EgoExoEMS_CVPR2025/Dataset/anonymous/"
 
 # Find all csv files in the folder and its subdirectories
 find "$input_folder" -type f -name "*.csv"  -path "*/gopro/*" | while read input_video; do

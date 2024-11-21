@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
     # Traverse the base directory for each participant's folder
     for root, dirs, files in os.walk(raw_data_path):
-        # Split the path and check if it's at the level of 'subject/trial' (e.g., 'bryan/cardiac_arrest/0')
+        # Split the path and check if it's at the level of 'subject/trial' (e.g., 'anonymous/cardiac_arrest/0')
         path_parts = root.split(os.sep)
 
         # We expect something like: [base, 'subject', 'cardiac_arrest', 'trial']

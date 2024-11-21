@@ -2,7 +2,7 @@ import os
 import csv
 
 # Base path to traverse
-base_path = "/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
+base_path = "/standard/storage/CognitiveEMS_Datasets/anonymous/Sep_2024/Raw"
 
 date_to_generate = ["20-09-2024"] 
 # CSV file to write

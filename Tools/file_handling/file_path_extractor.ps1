@@ -1,5 +1,5 @@
 # Variables
-$directory = "E:\EgoExoEMS\TestData\20-09-2024\chas\cardiac_arrest"  # Directory to search
+$directory = "E:\EgoExoEMS\TestData\20-09-2024\anonymous\cardiac_arrest"  # Directory to search
 $extension = "MP4"  # File extension to search for
 $output_file = "file_paths.txt"  # Output file to store the paths
 

@@ -6,8 +6,8 @@ from moviepy.editor import VideoFileClip
 #FILE DIRECTORY ASSUMES FILES HAVE BEEN DOWNLOADED TO LOCAL SPACE WITH SAME ORGANIZATION AS SCRATCH
 
 # Open the video file
-data_folder = r"C:\Users\vht2gm\Desktop\ng_sep_raw\05-09-2024"
-person = r"bryan"
+data_folder = r"C:\Users\anonymous\Desktop\ng_sep_raw\05-09-2024"
+person = r"anonymous"
 trial = r"0"
 general_dir = os.path.join(data_folder,person, trial)
 

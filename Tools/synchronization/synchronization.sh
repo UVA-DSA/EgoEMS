@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --job-name=synchronize
-#SBATCH --output=/scratch/vht2gm/
+#SBATCH --output=/scratch/anonymous/
 #SBATCH --time=01:00:00
 
 

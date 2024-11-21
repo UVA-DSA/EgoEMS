@@ -142,7 +142,7 @@ def synchronize(base_dir, gopro_file_path, kinect_file_path, gopro_timestamp_pat
     print(trial_path_parts)
     day, person, intervention, trial = trial_path_parts[-6], trial_path_parts[-5], trial_path_parts[-4], trial_path_parts[-3]
 
-    if ("Lahiru" in trial_path_parts):
+    if ("anonymous" in trial_path_parts):
         intervention = ""
         person = trial_path_parts[-4]
         day = ""
@@ -181,7 +181,7 @@ def synchronize(base_dir, gopro_file_path, kinect_file_path, gopro_timestamp_pat
         print(f"[INFO] Synchronized smartwatch data: {len(df_sw)}, depth sensor data: {len(df_ds)}")
 
         # update trial path
-        trial_path = trial_path.replace('/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/23-10-2024', '/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final')
+        trial_path = trial_path.replace('/standard/storage/CognitiveEMS_Datasets/anonymous/Sep_2024/Raw/23-10-2024', '/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final')
         print(f"[INFO] Saving synchronized data to {trial_path}")
         sync_sw_csv_path = os.path.join(trial_path, 'smartwatch_data')
         # sync_ds_csv_path = os.path.join(trial_path, 'distance_sensor_data')

@@ -72,7 +72,7 @@ if __name__ == "__main__":
         start_frame = video_data['start_frame'][idx]
         end_frame = video_data['end_frame'][idx]
 
-        # if("debrah/cardiac_arrest/2" not in filename):
+        # if("anonymous/cardiac_arrest/2" not in filename):
         #     continue
 
         print(f"Processing file {filename}")

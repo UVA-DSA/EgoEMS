@@ -5,8 +5,8 @@ import os
 #HAVE BEEN MOVED INTO A LOCAL DIRECTORY
 #PRESS 'S' TO GET CURRENT FRAME TIMESTAMP PRINTED 
 
-data_folder = r"C:\Users\vht2gm\Desktop\ng_sep_raw\05-09-2024"
-person = r"bryan"
+data_folder = r"C:\Users\anonymous\Desktop\ng_sep_raw\05-09-2024"
+person = r"anonymous"
 trial = r"0"
 general_dir = os.path.join(data_folder,person, trial)
 

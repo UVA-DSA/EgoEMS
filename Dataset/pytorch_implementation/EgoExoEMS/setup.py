@@ -8,5 +8,5 @@ setup(
         'numpy'
     ],
     description='Custom PyTorch dataset class for EgoExoEMS dataset',
-    author='Keshara Weerasinghe',
+    author='anonymous anonymous',
 )

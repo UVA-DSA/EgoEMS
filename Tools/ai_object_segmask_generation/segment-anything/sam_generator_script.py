@@ -188,7 +188,7 @@ def get_bboxes_for_video(bbox_json_path):
 
     # Iterate over each video and its frames
     for video, frames in data.items():
-        video_dir = f'/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Tools/ai_object_bbox_generation/detr/outputs/bboxes/{video}/'
+        video_dir = f'/scratch/anonymous/compute/2024/repos/EgoExoEMS/Tools/ai_object_bbox_generation/detr/outputs/bboxes/{video}/'
         print(f'Processing video: {video}')
 
         # Generate original frame array

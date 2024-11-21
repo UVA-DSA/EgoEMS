@@ -45,7 +45,7 @@ learning_params = {
     "weight_decay": 1e-5,
     "patience": 3,
     "lr_drop": 20,
-    "best_chkpoint": "/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Benchmarks/ActionRecognition/MTRSAP/checkpoints/65620366/val_best_model.pt"
+    "best_chkpoint": "/scratch/anonymous/compute/2024/repos/EgoExoEMS/Benchmarks/ActionRecognition/MTRSAP/checkpoints/65620366/val_best_model.pt"
 }
 
 dataloader_params = {
@@ -56,11 +56,11 @@ dataloader_params = {
     "fold": 1,
     "fps": 29.97,
     # update task specific parameters (Experimenting segmentation with classification annotations)
-    "train_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/train_split_segmentation.json',
-    "val_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/val_split_segmentation.json',
-    "test_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split_segmentation.json',
+    "train_annotation_path": '/scratch/anonymous/compute/2024/repos/EgoExoEMS/Annotations/splits/trials/train_split_segmentation.json',
+    "val_annotation_path": '/scratch/anonymous/compute/2024/repos/EgoExoEMS/Annotations/splits/trials/val_split_segmentation.json',
+    "test_annotation_path": '/scratch/anonymous/compute/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split_segmentation.json',
     # Old dataset class
-    'base_path': '/scratch/cjh9fw/Rivanna/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
+    'base_path': '/scratch/anonymous/compute/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
     'modality': [ 'resnet_exo'],
     'keysteps' : {
                     "approach_patient": "Approach the patient",

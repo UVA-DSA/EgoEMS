@@ -14,14 +14,14 @@
 #SBATCH --account="anonymous"
 
 module purge 
-source /home/cjh9fw/.bashrc 
+source /home/anonymous/.bashrc 
 echo "$HOSTNAME" 
 module load ffmpeg 
 
 # Set the folder where MP4 files are located
-input_folder="/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/19-09-2024/"
-input_folder="/standard/storage/EgoExoEMS_CVPR2025/Dataset/Lahiru/"
-input_folder="/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/23-10-2024/" # mew wars data 
+input_folder="/standard/storage/CognitiveEMS_Datasets/anonymous/Sep_2024/Raw/19-09-2024/"
+input_folder="/standard/storage/EgoExoEMS_CVPR2025/Dataset/anonymous/"
+input_folder="/standard/storage/CognitiveEMS_Datasets/anonymous/Sep_2024/Raw/23-10-2024/" # mew anonymous data 
 
 # Find all MP4 files in the folder and its subdirectories
 find "$input_folder" -type f -name "*.MP4" | while read input_video; do
@@ -52,7 +52,7 @@ find "$input_folder" -type f -name "*.MP4" | while read input_video; do
     # ffmpeg -y -i "$input_video" -nostdin  -threads 16 -vcodec libx264 -acodec aac "$output_video"
 
     ffmpeg -y -i "$input_video" -nostdin  -map_metadata 0 -map 0:u -c copy "$output_video" # use for our dataset
-    # ffmpeg -y -i "$input_video" -nostdin -map_metadata 0 -map 0:u -r 30 -c:v libx264 -c:a copy "$output_video" # use for lahirus videos
+    # ffmpeg -y -i "$input_video" -nostdin -map_metadata 0 -map 0:u -r 30 -c:v libx264 -c:a copy "$output_video" # use for anonymouss videos
 
     # Capture exit code to check for errors
     if [ $? -eq 0 ]; then

@@ -87,7 +87,7 @@ def convert_smartwatch_data(input_file, timestamps_file, output_file):
 
 
 
-root_dir = "/standard/storage/EgoExoEMS_CVPR2025/Dataset/Lahiru"
+root_dir = "/standard/storage/EgoExoEMS_CVPR2025/Dataset/anonymous"
 
 # iterate recursively through all files in the root directory
 for root, dirs, files in os.walk(root_dir):

@@ -16,13 +16,13 @@
 
 module purge &&
 module load anaconda  &&
-source /home/cjh9fw/.bashrc  &&
+source /home/anonymous/.bashrc  &&
 echo "$HOSTNAME" &&
 conda activate sam &&
 
 
 # Set the folder where MP4 files are located
-input_folder="/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/19-09-2024/"
+input_folder="/standard/storage/CognitiveEMS_Datasets/anonymous/Sep_2024/Raw/19-09-2024/"
 input_folder="/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final/"
 
 # Find all MP4 files in the folder and its subdirectories

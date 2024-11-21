@@ -8,7 +8,7 @@ save_images = True
 # Set the desired target FPS for downsampling
 target_fps = 1  # You can adjust this value as needed
 # Define the video file path and output path
-# video_root_path = '/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/24-09-2024'
+# video_root_path = '/standard/storage/CognitiveEMS_Datasets/anonymous/Sep_2024/24-09-2024'
 video_root_path = '/standard/storage/EgoExoEMS_CVPR2025/Dataset/Final'
 
 # load model

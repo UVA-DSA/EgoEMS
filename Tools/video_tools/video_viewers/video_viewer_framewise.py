@@ -1,7 +1,7 @@
 import cv2
 
 # Path to the video file
-video_path = '/Users/kesharaw/Desktop/repos/EgoExoEMS/TestData/Kinect/2024-09-05-19-07-43.mkv'
+video_path = '/Users/anonymous/Desktop/repos/EgoExoEMS/TestData/Kinect/2024-09-05-19-07-43.mkv'
 
 # Open the video file
 cap = cv2.VideoCapture(video_path)

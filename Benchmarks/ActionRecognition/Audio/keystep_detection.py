@@ -852,9 +852,9 @@ def recal_time_keystep(keystep_sequence_combined):
     return keystep
 
 if __name__ == "__main__":
-    # path = '/standard/storage/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/05-09-2024/bryan/cardiac_arrest/0'
+    # path = '/standard/storage/CognitiveEMS_Datasets/anonymous/Sep_2024/Raw/05-09-2024/anonymous/cardiac_arrest/0'
 
-    path = '/standard/storage/CognitiveEMS_Datasets/North_Garden/Final'
+    path = '/standard/storage/CognitiveEMS_Datasets/anonymous/Final'
     for root, dirs, files in tqdm(os.walk(path)):
         if 'audio' in dirs:
             for file in os.listdir(os.path.join(root, 'audio')):

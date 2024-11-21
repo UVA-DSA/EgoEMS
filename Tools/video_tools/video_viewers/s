@@ -1,2 +1,2 @@
--bash: /scratch/cjh9fw/conda/cogems/bin/pip: /scratch/cjh9fw/conda/cogems/bin/python: bad interpreter: No such file or directory
+-bash: /scratch/anonymous/conda/cogems/bin/pip: /scratch/anonymous/conda/cogems/bin/python: bad interpreter: No such file or directory
 

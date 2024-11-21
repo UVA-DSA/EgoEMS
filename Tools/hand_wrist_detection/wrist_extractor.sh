@@ -17,7 +17,7 @@
 # Load necessary modules and activate the conda environment
 module purge &&
 module load anaconda &&
-source /home/cjh9fw/.bashrc &&
+source /home/anonymous/.bashrc &&
 echo "[INFO] Running on node: $HOSTNAME" &&
 conda activate wrist_keypoint &&
 

@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Define the source and destination directories
-SRC_DIR="/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/DO_NOT_DELETE/ego_camera"
-# DEST_DIR="/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/DO_NOT_DELETE/ego_camera/interventions"
-DEST_DIR="/standard/storage/CognitiveEMS_Datasets/North_Garden/May_2024/DO_NOT_DELETE/ego_camera/clipped_with_audio"
+SRC_DIR="/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/DO_NOT_DELETE/ego_camera"
+# DEST_DIR="/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/DO_NOT_DELETE/ego_camera/interventions"
+DEST_DIR="/standard/storage/CognitiveEMS_Datasets/anonymous/May_2024/DO_NOT_DELETE/ego_camera/clipped_with_audio"
 
 # Create the destination directory if it doesn't exist
 mkdir -p "$DEST_DIR"
