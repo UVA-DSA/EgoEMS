@@ -56,8 +56,8 @@ def play(playback: PyK4APlayback, rgb_output_path: str, depth_output_path: str, 
     cv2.destroyAllWindows()
 
 def main() -> None:
-    filename: str = '../../../TestData/debrah/ng3_t0_ks4_184.505_200.641_exo.mkv'
-    output_path = "../../../TestData/debrah/ng3_t0_ks4/"
+    filename: str = '../../../TestData/ng2_t0/ng2_t0_trimmed_final.mkv'
+    output_path = "../../../TestData/ng2_t0/"
     rgb_output_path = output_path + "rgb/"
     depth_output_path = output_path + "depth/"
     ir_output_path = output_path + "ir/"
