@@ -10,6 +10,8 @@ from scipy.stats import zscore
 from torchvision import transforms
 from PIL import Image
 
+import time
+
 import matplotlib.pyplot as plt
 
 parent_directory = os.path.abspath('.')
@@ -26,7 +28,7 @@ window_frames = window_duration * sample_rate  # Number of frames per 5-second w
 
 model_type = "DPT_Large"     # MiDaS v3 - Large     (highest accuracy, slowest inference speed)
 #model_type = "DPT_Hybrid"   # MiDaS v3 - Hybrid    (medium accuracy, medium inference speed)
-model_type = "MiDaS_small"  # MiDaS v2.1 - Small   (lowest accuracy, highest inference speed)
+# model_type = "MiDaS_small"  # MiDaS v2.1 - Small   (lowest accuracy, highest inference speed)
 
 # Load MiDaS depth estimation model
 midas = torch.hub.load("intel-isl/MiDaS", model_type)
@@ -100,12 +102,24 @@ def write_log_line(log_path, msg):
     with open(log_path, 'a') as file:
         file.write(msg + '\n')
 
-# Define paths
-GT_path = r'D:\EgoExoEMS_CVPR2025\Dataset\Final'
-data_path = r'D:\EgoExoEMS_CVPR2025\CPR Test\GoPro_CPR_Clips\ego_gopro_cpr_clips\test_root'
-log_path = rf"E:\EgoExoEMS\Benchmarks\CPR_quality\vision\results\supervised_{model_type}_ego_depth_window_test_split_results.txt"
-old_log_path = rf"E:\EgoExoEMS\Benchmarks\CPR_quality\vision\supervised_{model_type}_ego_depth_window_test_split_log.txt"
-debug_plots_path = rf"E:\EgoExoEMS\Benchmarks\CPR_quality\vision\supervised_{model_type}_ego_depth_window_debug_plots"
+# Define base paths using environment variables or user input
+
+# Windows environment
+# GT_path = r'D:\EgoExoEMS_CVPR2025\Dataset\Final'
+# data_path = r'D:\EgoExoEMS_CVPR2025\CPR Test\GoPro_CPR_Clips\ego_gopro_cpr_clips\test_root'
+# log_path = rf"E:\EgoExoEMS\Benchmarks\CPR_quality\vision\results\supervised_{model_type}_ego_depth_window_test_split_results.txt"
+# old_log_path = rf"E:\EgoExoEMS\Benchmarks\CPR_quality\vision\supervised_{model_type}_ego_depth_window_test_split_log.txt"
+# debug_plots_path = rf"E:\EgoExoEMS\Benchmarks\CPR_quality\vision\supervised_{model_type}_ego_depth_window_debug_plots"
+
+
+# Linux environment
+BASE_DIR = "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025"  # Set an environment variable or update this
+BASE_REPO_DIR = "/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS"
+GT_path = os.path.join(BASE_DIR, "Dataset", "Final")
+data_path = os.path.join(BASE_DIR, "Dataset", "GoPro_CPR_Clips", "ego_gopro_cpr_clips", "test_root")
+log_path = os.path.join(BASE_REPO_DIR, "Benchmarks", "CPR_quality", "vision", f"supervised_{model_type}_ego_depth_window_test_split_results.txt")
+debug_plots_path = os.path.join(BASE_REPO_DIR, "Benchmarks", "CPR_quality", "vision", f"supervised_{model_type}_ego_depth_window_debug_plots")
+
 
 # Setup directories
 if os.path.exists(debug_plots_path):
@@ -184,6 +198,8 @@ for json_file in json_files:
         end = start + window_frames
         if end > len(low_pass_wrist_y):
             break
+
+        start_t = time.time()
         # Process the entire window
         wrist_y_window = low_pass_wrist_y[start:end].numpy()
         wrist_x_window = wrist_x[start:end]
@@ -246,8 +262,11 @@ for json_file in json_files:
         print(f"GT CPR Depth (mm): {gt_cpr_depth:.2f}")
         print(f"Predicted CPR Depth (mm): {cpr_depth:.2f}")
 
+        end_t = time.time()
+        inference_time = end_t - start_t
+        print(f"Time taken for window: {inference_time} seconds")
         # Log results
-        log_msg = f"File: {json_file}, Window {start // window_frames + 1}, Predicted CPR depth: {cpr_depth:.2f}mm, GT CPR depth: {gt_cpr_depth:.2f}mm"
+        log_msg = f"File: {json_file}, Window {start // window_frames + 1}, Predicted CPR depth: {cpr_depth:.2f}mm, GT CPR depth: {gt_cpr_depth:.2f}mm, Inference time: {inference_time} seconds"
         write_log_line(log_path, log_msg)
 
     print("*"*20)   
