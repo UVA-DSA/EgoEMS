@@ -16,14 +16,15 @@
 
 # Load necessary modules and activate the conda environment
 module purge &&
-module load anaconda &&
+module load miniforge &&
 source /home/cjh9fw/.bashrc &&
 echo "[INFO] Running on node: $HOSTNAME" &&
 conda activate wrist_keypoint &&
 
 # Define the root directory for the dataset
-ROOT_DIR="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Kinect_CPR_Clips/Final/exo_kinect_cpr_clips/test_root/chest_compressions" &&
+# ROOT_DIR="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Kinect_CPR_Clips/Final/exo_kinect_cpr_clips/test_root/chest_compressions" && # for exo kinect
+ROOT_DIR="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/GoPro_CPR_Clips/ego_gopro_cpr_clips/test_root" && # for gopro ego
 
-python -u detect.py --root_dir "$ROOT_DIR" &&
+python -u detect.py --root_dir "$ROOT_DIR" --view "ego"  &&
 
 echo "[INFO] Wrist keypoint detection task completed successfully." 

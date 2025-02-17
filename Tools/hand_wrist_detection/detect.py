@@ -228,13 +228,34 @@ def process_and_visualize_video(video_path, output_json_path, output_video_path,
     out.release()
 
 
-def process_videos_in_directory(root_path, wrst, base_model):
+def process_videos_in_directory(root_path, wrst, base_model, view):
     # Recursively search for videos inside 'GoPro' subdirectories
     flag = False
     for dirpath, _, filenames in os.walk(root_path):
-        if 'chest_compressions' in dirpath:
+        if view == "exo": 
+            if 'chest_compressions' in dirpath:
+                for filename in filenames:
+                    if filename.endswith(('.mkv')):  # You can add more video formats if needed
+                        print("=" * 60)
+                        print("*" * 60)
+                        print(f"Processing directory: {dirpath}")
+
+                        print(f"Processing video: {filename}")
+                        video_path = os.path.join(dirpath, filename)
+                        video_id = filename.split('.')[0]
+                        output_json_path = os.path.join(dirpath, f'{video_id}_keypoints.json')
+                        output_video_path = os.path.join(dirpath, f'{video_id}_keypoints.mp4')
+
+                        # Process the video and save keypoints to JSON and a new video
+                        # process_and_visualize_video(video_path, output_json_path, output_video_path, wrst, base_model)
+            
+                        # Process the video and save keypoints to JSON
+                        process_video(video_path, output_json_path, wrst, base_model, video_id)
+                        print("*" * 60)
+                        print("=" * 60)
+        else:
             for filename in filenames:
-                if filename.endswith(('.mkv')):  # You can add more video formats if needed
+                if filename.endswith(('.mp4')):  # You can add more video formats if needed
                     print("=" * 60)
                     print("*" * 60)
                     print(f"Processing directory: {dirpath}")
@@ -252,16 +273,11 @@ def process_videos_in_directory(root_path, wrst, base_model):
                     process_video(video_path, output_json_path, wrst, base_model, video_id)
                     print("*" * 60)
                     print("=" * 60)
-                    flag = True
-        #             break
-        # if flag:
-        #     break
-
-
 if __name__ == '__main__':
     # Parse arguments
     parser = argparse.ArgumentParser()
     parser.add_argument('--root_dir', type=str, required=True, help='path to root directory of videos')
+    parser.add_argument('--view', type=str, required=True, help='ego or exo')
 
     args = parser.parse_args()
 
@@ -271,4 +287,4 @@ if __name__ == '__main__':
     wrst = WristDet_mediapipe()
 
     # Process all videos inside GoPro subdirectories
-    process_videos_in_directory(args.root_dir, wrst, base_model)
+    process_videos_in_directory(args.root_dir, wrst, base_model, args.view)

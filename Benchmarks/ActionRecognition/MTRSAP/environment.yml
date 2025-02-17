@@ -96,8 +96,7 @@ dependencies:
   - ptyprocess=0.7.0=pyhd3deb0d_0
   - pure_eval=0.2.2=pyhd8ed1ab_0
   - pygments=2.17.2=pyhd8ed1ab_0
-  - python=3.8.19=h955ad1f_0
-  - python_abi=3.8=2_cp38
+  - python=3.9
   - pytorch-cuda=11.8=h7e8668a_5
   - pytorch-mutex=1.0=cuda
   - pyyaml=6.0.1=py38h5eee18b_0

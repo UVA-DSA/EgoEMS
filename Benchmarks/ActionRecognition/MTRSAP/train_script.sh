@@ -15,7 +15,7 @@
 #SBATCH --account="uva-dsa"
 
 module purge &&
-module load anaconda  &&
+module load miniforge  &&
 source /home/cjh9fw/.bashrc  &&
 echo "$HOSTNAME" &&
 conda activate egoexoems &&
