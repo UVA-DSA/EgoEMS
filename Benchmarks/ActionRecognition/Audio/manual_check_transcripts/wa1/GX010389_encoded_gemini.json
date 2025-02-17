@@ -1,0 +1,354 @@
+[
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Hey sir how are you?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Not feeling too good."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "What's going on?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "All right my chest hurts."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "All right I'm sorry to hear that how long has that been going on for?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Maybe like a half hour."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "All right well my name is Andre this is Chad We're with the rescue squad we're gonna help you out all right?"
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Uh Chad here is going to start taking an EKG We're gonna get a picture of your chest."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Do you mind taking your shirt off for us? You can hold it up up to you."
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Yeah I can hold it."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Okay."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Sounds like a plan."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "What other medical history do you have?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Um I don't I don't"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "You don't know?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Yeah I I take a bunch of meds."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Do you know what any of those meds are?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Uh no I One's for cholesterol."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Okay."
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Starts with an A"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Okay."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Does atorvastatin sound sound correct to you?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Yeah Yeah something like that Yeah"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Okay"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Anything else that you can remember? You got something for cholesterol."
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Um"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "I take uh aspirin"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Just going to go on your forearm here."
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Aspirin every day"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Uh-huh"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Yeah Yeah One of them small ones Little ones Yeah"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Little ones okay Gotcha"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "All right Can you tell me more about the pain? Where is it right now?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Uh it's my chest."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Where in your chest?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "All across my chest"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Gotcha"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "And is it radiating anywhere or is it just staying in the chest?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "I kind of feel it in my jaw."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "In your jaw okay"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Yeah"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "All right I'm sorry to hear that Um"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "I'm just going to get these three down on you right here."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "On a scale from zero being no pain and 10 being the worst pain you've ever felt What would you rate it?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Uh probably like a seven."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "A seven? Okay"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Yeah"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "And what does it feel like if you had to describe it?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Oh uh it's just uh it's just sharp All right"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "All right Have you had anything like this happen before?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "No"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "No? Okay Any family medical history?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Um uh my uh"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Cardiac things?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Yeah my my dad had a heart attack."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Gotcha All right And you took your one aspirin today?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Yeah yeah That's all I had this morning."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "All right I'm going to give you four more small aspirins It's going to be a total of 324 milligrams if you can chew them up for me."
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Okay"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "All right Giving them to you now All right"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Okay Okay these stickers are just going to go in your chest here."
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "It's cold"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Am I having a am I having a heart attack?"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "You know that's what this is for We're gonna get a little picture of your heart and then hopefully we'll have some more answers for you"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Okay Thank you sir Oh god Thank you"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "This is what got my dad."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "This is what got your dad?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Yep"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Was he having similar symptoms?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "I don't remember I was young but he he had a heart attack"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "How old was he when that happened?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "I think 58 58"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "And how old are you now?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "I'm 62."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "62 All right So that is connected"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Well I'm going to have you sit really still for me for just a minute while this takes its picture If you can hold this up as well"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Okay"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "How are you feeling with the aspirin on?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "It doesn't No it It doesn't feel any different."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Have you taken any other medications today?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Just uh just the ones I'm supposed to take in the morning Okay"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Okay"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "I got my um I got my bag of them over there."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Got ya Well I I think we're going to have to go to the hospital Looking at this I'm seeing ST elevations in lead one AVL V5 and V6 which is consistent with you having a an MI a cardiac event uh Is there a hospital that you would prefer to go to?"
+    },
+    {
+        "Role": "Patient",
+        "Utterance": "Um take me to to UVA"
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Okay Okay We'll get going um Let's get you up and onto our cot and then we'll get going."
+    },
+    {
+        "Role": "First Responder 1",
+        "Utterance": "Just stand up and pivot here."
+    },
+    {
+        "Role": "First Responder 2",
+        "Utterance": "Okay All right"
+    }
+]

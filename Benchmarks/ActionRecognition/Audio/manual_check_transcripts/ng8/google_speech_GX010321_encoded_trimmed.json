@@ -1,0 +1,415 @@
+{
+    "Full Transcript": "yes Sesame patient  assessing patient  no pulse no breasts  doing CPR  play indie.  Adult patient  if a patient is a child press the child button  do not touch the patient analyzing heart rhythm  do not touch the patient analyzing heart rhythm shock advised  do not touch the patient everyone clear  press the flashing shock button  shock delivered begin CPR  give to breath  breath breath",
+    "Segment": [
+        {
+            "Transcript": "yes Sesame patient",
+            "Confidence": 0.8676251769065857,
+            "Word Segment": [
+                {
+                    "word": "yes",
+                    "start_time": 1.1,
+                    "end_time": 1.7
+                },
+                {
+                    "word": "Sesame",
+                    "start_time": 1.7,
+                    "end_time": 5.5
+                },
+                {
+                    "word": "patient",
+                    "start_time": 5.5,
+                    "end_time": 6.1
+                }
+            ]
+        },
+        {
+            "Transcript": " assessing patient",
+            "Confidence": 0.9675306081771851,
+            "Word Segment": [
+                {
+                    "word": "assessing",
+                    "start_time": 10.6,
+                    "end_time": 11.3
+                },
+                {
+                    "word": "patient",
+                    "start_time": 11.3,
+                    "end_time": 11.5
+                }
+            ]
+        },
+        {
+            "Transcript": " no pulse no breasts",
+            "Confidence": 0.8598291873931885,
+            "Word Segment": [
+                {
+                    "word": "no",
+                    "start_time": 13.5,
+                    "end_time": 13.9
+                },
+                {
+                    "word": "pulse",
+                    "start_time": 13.9,
+                    "end_time": 14.3
+                },
+                {
+                    "word": "no",
+                    "start_time": 14.3,
+                    "end_time": 14.6
+                },
+                {
+                    "word": "breasts",
+                    "start_time": 14.6,
+                    "end_time": 15.2
+                }
+            ]
+        },
+        {
+            "Transcript": " doing CPR",
+            "Confidence": 0.9623783826828003,
+            "Word Segment": [
+                {
+                    "word": "doing",
+                    "start_time": 16.2,
+                    "end_time": 16.7
+                },
+                {
+                    "word": "CPR",
+                    "start_time": 16.7,
+                    "end_time": 17.0
+                }
+            ]
+        },
+        {
+            "Transcript": " play indie.",
+            "Confidence": 0.6075254678726196,
+            "Word Segment": [
+                {
+                    "word": "play",
+                    "start_time": 37.1,
+                    "end_time": 37.5
+                },
+                {
+                    "word": "indie.",
+                    "start_time": 37.5,
+                    "end_time": 38.1
+                }
+            ]
+        },
+        {
+            "Transcript": " Adult patient",
+            "Confidence": 0.9673817157745361,
+            "Word Segment": [
+                {
+                    "word": "Adult",
+                    "start_time": 51.8,
+                    "end_time": 52.6
+                },
+                {
+                    "word": "patient",
+                    "start_time": 52.6,
+                    "end_time": 53.1
+                }
+            ]
+        },
+        {
+            "Transcript": " if a patient is a child press the child button",
+            "Confidence": 0.9060529470443726,
+            "Word Segment": [
+                {
+                    "word": "if",
+                    "start_time": 53.9,
+                    "end_time": 54.3
+                },
+                {
+                    "word": "a",
+                    "start_time": 54.3,
+                    "end_time": 54.4
+                },
+                {
+                    "word": "patient",
+                    "start_time": 54.4,
+                    "end_time": 54.6
+                },
+                {
+                    "word": "is",
+                    "start_time": 54.6,
+                    "end_time": 55.0
+                },
+                {
+                    "word": "a",
+                    "start_time": 55.0,
+                    "end_time": 55.1
+                },
+                {
+                    "word": "child",
+                    "start_time": 55.1,
+                    "end_time": 55.6
+                },
+                {
+                    "word": "press",
+                    "start_time": 55.6,
+                    "end_time": 56.2
+                },
+                {
+                    "word": "the",
+                    "start_time": 56.2,
+                    "end_time": 56.4
+                },
+                {
+                    "word": "child",
+                    "start_time": 56.4,
+                    "end_time": 56.9
+                },
+                {
+                    "word": "button",
+                    "start_time": 56.9,
+                    "end_time": 57.3
+                }
+            ]
+        },
+        {
+            "Transcript": " do not touch the patient analyzing heart rhythm",
+            "Confidence": 0.954221248626709,
+            "Word Segment": [
+                {
+                    "word": "do",
+                    "start_time": 59.1,
+                    "end_time": 59.5
+                },
+                {
+                    "word": "not",
+                    "start_time": 59.5,
+                    "end_time": 59.8
+                },
+                {
+                    "word": "touch",
+                    "start_time": 59.8,
+                    "end_time": 60.0
+                },
+                {
+                    "word": "the",
+                    "start_time": 60.0,
+                    "end_time": 60.3
+                },
+                {
+                    "word": "patient",
+                    "start_time": 60.3,
+                    "end_time": 60.6
+                },
+                {
+                    "word": "analyzing",
+                    "start_time": 60.6,
+                    "end_time": 61.7
+                },
+                {
+                    "word": "heart",
+                    "start_time": 61.7,
+                    "end_time": 62.2
+                },
+                {
+                    "word": "rhythm",
+                    "start_time": 62.2,
+                    "end_time": 62.7
+                }
+            ]
+        },
+        {
+            "Transcript": " do not touch the patient analyzing heart rhythm shock advised",
+            "Confidence": 0.9625175595283508,
+            "Word Segment": [
+                {
+                    "word": "do",
+                    "start_time": 64.6,
+                    "end_time": 65.0
+                },
+                {
+                    "word": "not",
+                    "start_time": 65.0,
+                    "end_time": 65.3
+                },
+                {
+                    "word": "touch",
+                    "start_time": 65.3,
+                    "end_time": 65.5
+                },
+                {
+                    "word": "the",
+                    "start_time": 65.5,
+                    "end_time": 65.7
+                },
+                {
+                    "word": "patient",
+                    "start_time": 65.7,
+                    "end_time": 66.1
+                },
+                {
+                    "word": "analyzing",
+                    "start_time": 66.1,
+                    "end_time": 67.2
+                },
+                {
+                    "word": "heart",
+                    "start_time": 67.2,
+                    "end_time": 67.7
+                },
+                {
+                    "word": "rhythm",
+                    "start_time": 67.7,
+                    "end_time": 68.2
+                },
+                {
+                    "word": "shock",
+                    "start_time": 68.2,
+                    "end_time": 69.2
+                },
+                {
+                    "word": "advised",
+                    "start_time": 69.2,
+                    "end_time": 70.0
+                }
+            ]
+        },
+        {
+            "Transcript": " do not touch the patient everyone clear",
+            "Confidence": 0.9760597348213196,
+            "Word Segment": [
+                {
+                    "word": "do",
+                    "start_time": 70.9,
+                    "end_time": 71.4
+                },
+                {
+                    "word": "not",
+                    "start_time": 71.4,
+                    "end_time": 71.7
+                },
+                {
+                    "word": "touch",
+                    "start_time": 71.7,
+                    "end_time": 71.9
+                },
+                {
+                    "word": "the",
+                    "start_time": 71.9,
+                    "end_time": 72.1
+                },
+                {
+                    "word": "patient",
+                    "start_time": 72.1,
+                    "end_time": 72.5
+                },
+                {
+                    "word": "everyone",
+                    "start_time": 72.5,
+                    "end_time": 74.3
+                },
+                {
+                    "word": "clear",
+                    "start_time": 74.3,
+                    "end_time": 74.9
+                }
+            ]
+        },
+        {
+            "Transcript": " press the flashing shock button",
+            "Confidence": 0.9036760330200195,
+            "Word Segment": [
+                {
+                    "word": "press",
+                    "start_time": 76.8,
+                    "end_time": 77.4
+                },
+                {
+                    "word": "the",
+                    "start_time": 77.4,
+                    "end_time": 77.5
+                },
+                {
+                    "word": "flashing",
+                    "start_time": 77.5,
+                    "end_time": 77.9
+                },
+                {
+                    "word": "shock",
+                    "start_time": 77.9,
+                    "end_time": 78.3
+                },
+                {
+                    "word": "button",
+                    "start_time": 78.3,
+                    "end_time": 78.6
+                }
+            ]
+        },
+        {
+            "Transcript": " shock delivered begin CPR",
+            "Confidence": 0.9558931589126587,
+            "Word Segment": [
+                {
+                    "word": "shock",
+                    "start_time": 81.1,
+                    "end_time": 81.6
+                },
+                {
+                    "word": "delivered",
+                    "start_time": 81.6,
+                    "end_time": 82.4
+                },
+                {
+                    "word": "begin",
+                    "start_time": 82.4,
+                    "end_time": 84.0
+                },
+                {
+                    "word": "CPR",
+                    "start_time": 84.0,
+                    "end_time": 84.4
+                }
+            ]
+        },
+        {
+            "Transcript": " give to breath",
+            "Confidence": 0.6535266041755676,
+            "Word Segment": [
+                {
+                    "word": "give",
+                    "start_time": 102.3,
+                    "end_time": 103.3
+                },
+                {
+                    "word": "to",
+                    "start_time": 103.3,
+                    "end_time": 103.6
+                },
+                {
+                    "word": "breath",
+                    "start_time": 103.6,
+                    "end_time": 104.4
+                }
+            ]
+        },
+        {
+            "Transcript": " breath",
+            "Confidence": 0.8725387454032898,
+            "Word Segment": [
+                {
+                    "word": "breath",
+                    "start_time": 126.2,
+                    "end_time": 128.2
+                }
+            ]
+        },
+        {
+            "Transcript": "breath",
+            "Confidence": 0.2675187587738037,
+            "Word Segment": [
+                {
+                    "word": "breath",
+                    "start_time": 150.1,
+                    "end_time": 152.2
+                }
+            ]
+        }
+    ]
+}

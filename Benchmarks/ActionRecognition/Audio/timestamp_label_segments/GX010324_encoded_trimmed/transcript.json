@@ -1,0 +1,42 @@
+[
+    {
+        "transcript": "No pulse, no breathing. Starting CPR.",
+        "start time": 7.66,
+        "end time": 11.7
+    },
+    {
+        "transcript": "Press pads firmly on skin",
+        "start time": 38.82,
+        "end time": 41.04
+    },
+    {
+        "transcript": "Do not touch the patient. Analyzing heart rhythm.",
+        "start time": 42.3,
+        "end time": 46.6
+    },
+    {
+        "transcript": "Do not touch the patient. Analyzing heart rhythm.",
+        "start time": 47.8,
+        "end time": 52.1
+    },
+    {
+        "transcript": "Shock advised.",
+        "start time": 52.56,
+        "end time": 53.88
+    },
+    {
+        "transcript": "Do not touch the patient",
+        "start time": 54.8,
+        "end time": 56.66
+    },
+    {
+        "transcript": "Press the flashing shock button.",
+        "start time": 59.5,
+        "end time": 62.64
+    },
+    {
+        "transcript": "Shock",
+        "start time": 63.32,
+        "end time": 64.88
+    }
+]

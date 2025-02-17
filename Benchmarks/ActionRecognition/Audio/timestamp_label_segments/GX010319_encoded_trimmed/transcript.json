@@ -1,0 +1,42 @@
+[
+    {
+        "transcript": "Assessing patient. Hello, can you hear me? Checking for a pulse and breathing.",
+        "start time": 8.98,
+        "end time": 14.52
+    },
+    {
+        "transcript": "Patient's not breathing and there's no pulse. Starting CPR.",
+        "start time": 18.22,
+        "end time": 20.58
+    },
+    {
+        "transcript": "Giving two rescue breaths. Applying the AED pads to the patient.",
+        "start time": 35.82,
+        "end time": 46.7
+    },
+    {
+        "transcript": "Adult patient.  No pulse.  Initiating CPR.",
+        "start time": 50.34,
+        "end time": 54.06
+    },
+    {
+        "transcript": "Do not touch the patient. Analyzing heart rhythm. Do not touch the patient. Analyzing",
+        "start time": 57.34,
+        "end time": 66.62
+    },
+    {
+        "transcript": "Analyzing heart rhythm... Shock advised. Do not touch the patient. Everyone clear. Press the black button.",
+        "start time": 66.62,
+        "end time": 77.26
+    },
+    {
+        "transcript": "Charging shock. Shock delivered.",
+        "start time": 77.26,
+        "end time": 79.88
+    },
+    {
+        "transcript": "30. Give...",
+        "start time": 100.36,
+        "end time": 101.34
+    }
+]

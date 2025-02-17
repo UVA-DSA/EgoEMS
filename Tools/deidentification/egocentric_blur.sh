@@ -36,25 +36,25 @@ pretty_print "[$(date)] Status" "Starting video deidentification process..."
 # Loop through each GoPro folder in the dataset directory
 for gopro_folder in "$DATASET_DIR"/*/*/*/GoPro/
 do
-  # Check if any deidentified video already exists in the GoPro folder
-  if ls "$gopro_folder"/*_deidentified.mp4 1> /dev/null 2>&1; then
-    pretty_print "[$(date)] Skipping Folder" "Deidentified video already exists in folder: $gopro_folder"
-    continue
-  fi
+  # # Check if any deidentified video already exists in the GoPro folder
+  # if ls "$gopro_folder"/*_deidentified.mp4 1> /dev/null 2>&1; then
+  #   pretty_print "[$(date)] Skipping Folder" "Deidentified video already exists in folder: $gopro_folder"
+  #   continue
+  # fi
 
   # Process each video in the GoPro folder if no deidentified video is found
-  for file in "$gopro_folder"/*.mp4
+  for file in "$gopro_folder"*encoded_trimmed.mp4
   do
     if [ -f "$file" ]; then
       pretty_print "[$(date)] Processing Video" "$file"
       filename=$(basename "$file")
       new_filename="${filename%.mp4}_deidentified.mp4"
-      output_path="$gopro_folder/$new_filename"
+      output_path="$gopro_folder$new_filename"
       
       pretty_print "[$(date)] Output Path" "$output_path"
       
-      # Run the Python deidentification script
-      python $script_path --face_model_path $model_path --input_video_path "$file" --output_video_path "$output_path" --face_model_score_threshold 0.5
+      # # Run the Python deidentification script
+      python $script_path --face_model_path $model_path --input_video_path "$file" --output_video_path "$output_path" --face_model_score_threshold 0.95
       
       if [ $? -eq 0 ]; then
         pretty_print "[$(date)] Success" "Successfully deidentified video: $file"

@@ -1,0 +1,1272 @@
+{
+    "text": " No pulse, no breathing, starting CPR. Adult patient, if the patient is a child, press the child button. Press pads firmly on skin. Do not touch the patient, analyzing heart rhythm. Do not touch the patient, analyzing heart rhythm. Shock advised. Do not touch the patient. Everyone clear. Press the flashing shock button. Shock delivered. Begin CPR. 10. 20. 30. Give two breaths. 10. 20. 30. Give two breaths. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10. 10.",
+    "segments": [
+        {
+            "id": 0,
+            "seek": 0,
+            "start": 7.66,
+            "end": 11.7,
+            "text": " No pulse, no breathing, starting CPR.",
+            "tokens": [
+                50365,
+                883,
+                17709,
+                11,
+                572,
+                9570,
+                11,
+                2891,
+                47536,
+                13,
+                50957
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.34278738498687744,
+            "compression_ratio": 0.8604651162790697,
+            "no_speech_prob": 0.05261782184243202,
+            "confidence": 0.78,
+            "words": [
+                {
+                    "text": "No",
+                    "start": 7.66,
+                    "end": 7.68,
+                    "confidence": 0.263
+                },
+                {
+                    "text": "pulse,",
+                    "start": 7.68,
+                    "end": 7.88,
+                    "confidence": 0.825
+                },
+                {
+                    "text": "no",
+                    "start": 8.28,
+                    "end": 9.86,
+                    "confidence": 0.943
+                },
+                {
+                    "text": "breathing,",
+                    "start": 9.86,
+                    "end": 10.3,
+                    "confidence": 0.876
+                },
+                {
+                    "text": "starting",
+                    "start": 10.46,
+                    "end": 11.28,
+                    "confidence": 0.929
+                },
+                {
+                    "text": "CPR.",
+                    "start": 11.28,
+                    "end": 11.7,
+                    "confidence": 0.946
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "seek": 3000,
+            "start": 33.44,
+            "end": 38.38,
+            "text": " Adult patient, if the patient is a child, press the child button.",
+            "tokens": [
+                50365,
+                47987,
+                4537,
+                11,
+                498,
+                264,
+                4537,
+                307,
+                257,
+                1440,
+                11,
+                1886,
+                264,
+                1440,
+                2960,
+                13,
+                50791
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.25631388495950136,
+            "compression_ratio": 1.8308823529411764,
+            "no_speech_prob": 0.031671348959207535,
+            "confidence": 0.787,
+            "words": [
+                {
+                    "text": "Adult",
+                    "start": 33.44,
+                    "end": 33.46,
+                    "confidence": 0.29
+                },
+                {
+                    "text": "patient,",
+                    "start": 33.46,
+                    "end": 34.16,
+                    "confidence": 0.476
+                },
+                {
+                    "text": "if",
+                    "start": 34.32,
+                    "end": 35.5,
+                    "confidence": 0.935
+                },
+                {
+                    "text": "the",
+                    "start": 35.5,
+                    "end": 35.66,
+                    "confidence": 0.969
+                },
+                {
+                    "text": "patient",
+                    "start": 35.66,
+                    "end": 36.0,
+                    "confidence": 0.996
+                },
+                {
+                    "text": "is",
+                    "start": 36.0,
+                    "end": 36.28,
+                    "confidence": 0.99
+                },
+                {
+                    "text": "a",
+                    "start": 36.28,
+                    "end": 36.38,
+                    "confidence": 0.99
+                },
+                {
+                    "text": "child,",
+                    "start": 36.38,
+                    "end": 36.7,
+                    "confidence": 0.803
+                },
+                {
+                    "text": "press",
+                    "start": 36.84,
+                    "end": 37.26,
+                    "confidence": 0.909
+                },
+                {
+                    "text": "the",
+                    "start": 37.26,
+                    "end": 37.6,
+                    "confidence": 0.988
+                },
+                {
+                    "text": "child",
+                    "start": 37.6,
+                    "end": 37.96,
+                    "confidence": 0.926
+                },
+                {
+                    "text": "button.",
+                    "start": 37.96,
+                    "end": 38.38,
+                    "confidence": 0.942
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "seek": 3000,
+            "start": 38.82,
+            "end": 41.04,
+            "text": " Press pads firmly on skin.",
+            "tokens": [
+                50831,
+                6776,
+                19179,
+                20031,
+                322,
+                3178,
+                13,
+                50926
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.25631388495950136,
+            "compression_ratio": 1.8308823529411764,
+            "no_speech_prob": 0.031671348959207535,
+            "confidence": 0.961,
+            "words": [
+                {
+                    "text": "Press",
+                    "start": 38.82,
+                    "end": 39.44,
+                    "confidence": 0.9
+                },
+                {
+                    "text": "pads",
+                    "start": 39.44,
+                    "end": 39.82,
+                    "confidence": 0.975
+                },
+                {
+                    "text": "firmly",
+                    "start": 39.82,
+                    "end": 40.34,
+                    "confidence": 0.991
+                },
+                {
+                    "text": "on",
+                    "start": 40.34,
+                    "end": 40.72,
+                    "confidence": 0.994
+                },
+                {
+                    "text": "skin.",
+                    "start": 40.72,
+                    "end": 41.04,
+                    "confidence": 0.955
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "seek": 3000,
+            "start": 42.3,
+            "end": 46.6,
+            "text": " Do not touch the patient, analyzing heart rhythm.",
+            "tokens": [
+                51005,
+                1144,
+                406,
+                2557,
+                264,
+                4537,
+                11,
+                23663,
+                1917,
+                11801,
+                13,
+                51204
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.25631388495950136,
+            "compression_ratio": 1.8308823529411764,
+            "no_speech_prob": 0.031671348959207535,
+            "confidence": 0.686,
+            "words": [
+                {
+                    "text": "Do",
+                    "start": 42.3,
+                    "end": 43.48,
+                    "confidence": 0.62
+                },
+                {
+                    "text": "not",
+                    "start": 43.48,
+                    "end": 43.82,
+                    "confidence": 0.973
+                },
+                {
+                    "text": "touch",
+                    "start": 43.82,
+                    "end": 44.16,
+                    "confidence": 0.996
+                },
+                {
+                    "text": "the",
+                    "start": 44.16,
+                    "end": 44.34,
+                    "confidence": 0.991
+                },
+                {
+                    "text": "patient,",
+                    "start": 44.34,
+                    "end": 44.78,
+                    "confidence": 0.22
+                },
+                {
+                    "text": "analyzing",
+                    "start": 44.88,
+                    "end": 45.38,
+                    "confidence": 0.954
+                },
+                {
+                    "text": "heart",
+                    "start": 45.38,
+                    "end": 46.12,
+                    "confidence": 0.963
+                },
+                {
+                    "text": "rhythm.",
+                    "start": 46.12,
+                    "end": 46.6,
+                    "confidence": 0.935
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "seek": 3000,
+            "start": 47.8,
+            "end": 52.1,
+            "text": " Do not touch the patient, analyzing heart rhythm.",
+            "tokens": [
+                51280,
+                1144,
+                406,
+                2557,
+                264,
+                4537,
+                11,
+                23663,
+                1917,
+                11801,
+                13,
+                51479
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.25631388495950136,
+            "compression_ratio": 1.8308823529411764,
+            "no_speech_prob": 0.031671348959207535,
+            "confidence": 0.697,
+            "words": [
+                {
+                    "text": "Do",
+                    "start": 47.8,
+                    "end": 48.96,
+                    "confidence": 0.593
+                },
+                {
+                    "text": "not",
+                    "start": 48.96,
+                    "end": 49.32,
+                    "confidence": 0.957
+                },
+                {
+                    "text": "touch",
+                    "start": 49.32,
+                    "end": 49.68,
+                    "confidence": 0.996
+                },
+                {
+                    "text": "the",
+                    "start": 49.68,
+                    "end": 49.84,
+                    "confidence": 0.991
+                },
+                {
+                    "text": "patient,",
+                    "start": 49.84,
+                    "end": 50.26,
+                    "confidence": 0.254
+                },
+                {
+                    "text": "analyzing",
+                    "start": 50.38,
+                    "end": 50.82,
+                    "confidence": 0.946
+                },
+                {
+                    "text": "heart",
+                    "start": 50.82,
+                    "end": 51.64,
+                    "confidence": 0.946
+                },
+                {
+                    "text": "rhythm.",
+                    "start": 51.64,
+                    "end": 52.1,
+                    "confidence": 0.917
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "seek": 3000,
+            "start": 52.56,
+            "end": 53.88,
+            "text": " Shock advised.",
+            "tokens": [
+                51515,
+                39474,
+                26269,
+                13,
+                51570
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.25631388495950136,
+            "compression_ratio": 1.8308823529411764,
+            "no_speech_prob": 0.031671348959207535,
+            "confidence": 0.78,
+            "words": [
+                {
+                    "text": "Shock",
+                    "start": 52.56,
+                    "end": 53.24,
+                    "confidence": 0.69
+                },
+                {
+                    "text": "advised.",
+                    "start": 53.24,
+                    "end": 53.88,
+                    "confidence": 0.83
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "seek": 3000,
+            "start": 54.8,
+            "end": 56.66,
+            "text": " Do not touch the patient.",
+            "tokens": [
+                51630,
+                1144,
+                406,
+                2557,
+                264,
+                4537,
+                13,
+                51705
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.25631388495950136,
+            "compression_ratio": 1.8308823529411764,
+            "no_speech_prob": 0.031671348959207535,
+            "confidence": 0.935,
+            "words": [
+                {
+                    "text": "Do",
+                    "start": 54.8,
+                    "end": 55.38,
+                    "confidence": 0.745
+                },
+                {
+                    "text": "not",
+                    "start": 55.38,
+                    "end": 55.72,
+                    "confidence": 0.984
+                },
+                {
+                    "text": "touch",
+                    "start": 55.72,
+                    "end": 56.08,
+                    "confidence": 0.997
+                },
+                {
+                    "text": "the",
+                    "start": 56.08,
+                    "end": 56.24,
+                    "confidence": 0.997
+                },
+                {
+                    "text": "patient.",
+                    "start": 56.24,
+                    "end": 56.66,
+                    "confidence": 0.958
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "seek": 3000,
+            "start": 57.32,
+            "end": 58.84,
+            "text": " Everyone clear.",
+            "tokens": [
+                51756,
+                5198,
+                1850,
+                13,
+                51817
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.25631388495950136,
+            "compression_ratio": 1.8308823529411764,
+            "no_speech_prob": 0.031671348959207535,
+            "confidence": 0.826,
+            "words": [
+                {
+                    "text": "Everyone",
+                    "start": 57.32,
+                    "end": 58.06,
+                    "confidence": 0.791
+                },
+                {
+                    "text": "clear.",
+                    "start": 58.06,
+                    "end": 58.84,
+                    "confidence": 0.845
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "seek": 6000,
+            "start": 59.5,
+            "end": 62.64,
+            "text": " Press the flashing shock button.",
+            "tokens": [
+                50365,
+                6776,
+                264,
+                31049,
+                5588,
+                2960,
+                13,
+                50503
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.6155933173927101,
+            "compression_ratio": 1.0112359550561798,
+            "no_speech_prob": 0.005101327784359455,
+            "confidence": 0.848,
+            "words": [
+                {
+                    "text": "Press",
+                    "start": 59.5,
+                    "end": 61.24,
+                    "confidence": 0.677
+                },
+                {
+                    "text": "the",
+                    "start": 61.24,
+                    "end": 61.56,
+                    "confidence": 0.977
+                },
+                {
+                    "text": "flashing",
+                    "start": 61.56,
+                    "end": 61.9,
+                    "confidence": 0.959
+                },
+                {
+                    "text": "shock",
+                    "start": 61.9,
+                    "end": 62.32,
+                    "confidence": 0.748
+                },
+                {
+                    "text": "button.",
+                    "start": 62.32,
+                    "end": 62.64,
+                    "confidence": 0.885
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "seek": 6000,
+            "start": 63.32,
+            "end": 64.88,
+            "text": " Shock delivered.",
+            "tokens": [
+                50556,
+                39474,
+                10144,
+                13,
+                50634
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.6155933173927101,
+            "compression_ratio": 1.0112359550561798,
+            "no_speech_prob": 0.005101327784359455,
+            "confidence": 0.689,
+            "words": [
+                {
+                    "text": "Shock",
+                    "start": 63.32,
+                    "end": 64.38,
+                    "confidence": 0.39
+                },
+                {
+                    "text": "delivered.",
+                    "start": 64.38,
+                    "end": 64.88,
+                    "confidence": 0.917
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "seek": 6000,
+            "start": 66.02,
+            "end": 67.38,
+            "text": " Begin CPR.",
+            "tokens": [
+                50691,
+                20660,
+                47536,
+                13,
+                50745
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.6155933173927101,
+            "compression_ratio": 1.0112359550561798,
+            "no_speech_prob": 0.005101327784359455,
+            "confidence": 0.824,
+            "words": [
+                {
+                    "text": "Begin",
+                    "start": 66.02,
+                    "end": 66.74,
+                    "confidence": 0.691
+                },
+                {
+                    "text": "CPR.",
+                    "start": 66.74,
+                    "end": 67.38,
+                    "confidence": 0.901
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "seek": 6000,
+            "start": 72.52,
+            "end": 74.1,
+            "text": " 10.",
+            "tokens": [
+                51016,
+                1266,
+                13,
+                51090
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.6155933173927101,
+            "compression_ratio": 1.0112359550561798,
+            "no_speech_prob": 0.005101327784359455,
+            "confidence": 0.026,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 72.52,
+                    "end": 74.1,
+                    "confidence": 0.026
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "seek": 6000,
+            "start": 78.32,
+            "end": 79.86,
+            "text": " 20.",
+            "tokens": [
+                51306,
+                945,
+                13,
+                51382
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.6155933173927101,
+            "compression_ratio": 1.0112359550561798,
+            "no_speech_prob": 0.005101327784359455,
+            "confidence": 0.15,
+            "words": [
+                {
+                    "text": "20.",
+                    "start": 78.32,
+                    "end": 79.86,
+                    "confidence": 0.15
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "seek": 6000,
+            "start": 83.84,
+            "end": 85.7,
+            "text": " 30.",
+            "tokens": [
+                51582,
+                2217,
+                13,
+                51658
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.6155933173927101,
+            "compression_ratio": 1.0112359550561798,
+            "no_speech_prob": 0.005101327784359455,
+            "confidence": 0.179,
+            "words": [
+                {
+                    "text": "30.",
+                    "start": 83.84,
+                    "end": 85.7,
+                    "confidence": 0.179
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "seek": 6000,
+            "start": 85.7,
+            "end": 87.16,
+            "text": " Give two breaths.",
+            "tokens": [
+                51658,
+                5303,
+                732,
+                33769,
+                13,
+                51734
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.6155933173927101,
+            "compression_ratio": 1.0112359550561798,
+            "no_speech_prob": 0.005101327784359455,
+            "confidence": 0.295,
+            "words": [
+                {
+                    "text": "Give",
+                    "start": 85.7,
+                    "end": 86.08,
+                    "confidence": 0.051
+                },
+                {
+                    "text": "two",
+                    "start": 86.08,
+                    "end": 86.58,
+                    "confidence": 0.221
+                },
+                {
+                    "text": "breaths.",
+                    "start": 86.58,
+                    "end": 87.16,
+                    "confidence": 0.814
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "seek": 9000,
+            "start": 98.04,
+            "end": 98.06,
+            "text": " 10.",
+            "tokens": [
+                50365,
+                1266,
+                13,
+                50784
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.7770531598259421,
+            "compression_ratio": 1.605263157894737,
+            "no_speech_prob": 0.041202645748853683,
+            "confidence": 0.007,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 98.04,
+                    "end": 98.06,
+                    "confidence": 0.007
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "seek": 9000,
+            "start": 100.4,
+            "end": 103.94,
+            "text": " 20.",
+            "tokens": [
+                50910,
+                945,
+                13,
+                51072
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.7770531598259421,
+            "compression_ratio": 1.605263157894737,
+            "no_speech_prob": 0.041202645748853683,
+            "confidence": 0.443,
+            "words": [
+                {
+                    "text": "20.",
+                    "start": 100.4,
+                    "end": 103.94,
+                    "confidence": 0.443
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "seek": 9000,
+            "start": 106.64,
+            "end": 109.46,
+            "text": " 30.",
+            "tokens": [
+                51222,
+                2217,
+                13,
+                51351
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.7770531598259421,
+            "compression_ratio": 1.605263157894737,
+            "no_speech_prob": 0.041202645748853683,
+            "confidence": 0.427,
+            "words": [
+                {
+                    "text": "30.",
+                    "start": 106.64,
+                    "end": 109.46,
+                    "confidence": 0.427
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "seek": 9000,
+            "start": 109.5,
+            "end": 111.04,
+            "text": " Give two breaths.",
+            "tokens": [
+                51365,
+                5303,
+                732,
+                33769,
+                13,
+                51429
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.7770531598259421,
+            "compression_ratio": 1.605263157894737,
+            "no_speech_prob": 0.041202645748853683,
+            "confidence": 0.174,
+            "words": [
+                {
+                    "text": "Give",
+                    "start": 109.5,
+                    "end": 109.96,
+                    "confidence": 0.11
+                },
+                {
+                    "text": "two",
+                    "start": 109.96,
+                    "end": 110.52,
+                    "confidence": 0.726
+                },
+                {
+                    "text": "breaths.",
+                    "start": 110.52,
+                    "end": 111.04,
+                    "confidence": 0.107
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "seek": 9000,
+            "start": 111.78,
+            "end": 111.8,
+            "text": " 10.",
+            "tokens": [
+                51429,
+                1266,
+                13,
+                51479
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.7770531598259421,
+            "compression_ratio": 1.605263157894737,
+            "no_speech_prob": 0.041202645748853683,
+            "confidence": 0.002,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 111.78,
+                    "end": 111.8,
+                    "confidence": 0.002
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "seek": 9000,
+            "start": 111.84,
+            "end": 112.6,
+            "text": " 10.",
+            "tokens": [
+                51479,
+                1266,
+                13,
+                51529
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.7770531598259421,
+            "compression_ratio": 1.605263157894737,
+            "no_speech_prob": 0.041202645748853683,
+            "confidence": 0.003,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 111.84,
+                    "end": 112.6,
+                    "confidence": 0.003
+                }
+            ]
+        },
+        {
+            "id": 21,
+            "seek": 9000,
+            "start": 112.78,
+            "end": 113.08,
+            "text": " 10.",
+            "tokens": [
+                51529,
+                1266,
+                13,
+                51579
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.7770531598259421,
+            "compression_ratio": 1.605263157894737,
+            "no_speech_prob": 0.041202645748853683,
+            "confidence": 0.003,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 112.78,
+                    "end": 113.08,
+                    "confidence": 0.003
+                }
+            ]
+        },
+        {
+            "id": 22,
+            "seek": 9000,
+            "start": 113.78,
+            "end": 114.2,
+            "text": " 10.",
+            "tokens": [
+                51579,
+                1266,
+                13,
+                51629
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.7770531598259421,
+            "compression_ratio": 1.605263157894737,
+            "no_speech_prob": 0.041202645748853683,
+            "confidence": 0.003,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 113.78,
+                    "end": 114.2,
+                    "confidence": 0.003
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "seek": 9000,
+            "start": 114.78,
+            "end": 115.2,
+            "text": " 10.",
+            "tokens": [
+                51629,
+                1266,
+                13,
+                51679
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.7770531598259421,
+            "compression_ratio": 1.605263157894737,
+            "no_speech_prob": 0.041202645748853683,
+            "confidence": 0.004,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 114.78,
+                    "end": 115.2,
+                    "confidence": 0.004
+                }
+            ]
+        },
+        {
+            "id": 24,
+            "seek": 9000,
+            "start": 115.82,
+            "end": 116.68,
+            "text": " 10.",
+            "tokens": [
+                51679,
+                1266,
+                13,
+                51729
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.7770531598259421,
+            "compression_ratio": 1.605263157894737,
+            "no_speech_prob": 0.041202645748853683,
+            "confidence": 0.006,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 115.82,
+                    "end": 116.68,
+                    "confidence": 0.006
+                }
+            ]
+        },
+        {
+            "id": 25,
+            "seek": 9000,
+            "start": 116.78,
+            "end": 117.3,
+            "text": " 10.",
+            "tokens": [
+                51729,
+                1266,
+                13,
+                51779
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.7770531598259421,
+            "compression_ratio": 1.605263157894737,
+            "no_speech_prob": 0.041202645748853683,
+            "confidence": 0.003,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 116.78,
+                    "end": 117.3,
+                    "confidence": 0.003
+                }
+            ]
+        },
+        {
+            "id": 26,
+            "seek": 9000,
+            "start": 117.78,
+            "end": 118.06,
+            "text": " 10.",
+            "tokens": [
+                51779,
+                1266,
+                13,
+                51829
+            ],
+            "temperature": 0.0,
+            "avg_logprob": -0.7770531598259421,
+            "compression_ratio": 1.605263157894737,
+            "no_speech_prob": 0.041202645748853683,
+            "confidence": 0.004,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 117.78,
+                    "end": 118.06,
+                    "confidence": 0.004
+                }
+            ]
+        },
+        {
+            "id": 27,
+            "seek": 12000,
+            "start": 120.44,
+            "end": 120.92,
+            "text": " 10.",
+            "tokens": [
+                50412,
+                1266,
+                13,
+                50481
+            ],
+            "temperature": 1.0,
+            "avg_logprob": -1.7691688537597656,
+            "compression_ratio": 2.2142857142857144,
+            "no_speech_prob": 0.0034876700956374407,
+            "confidence": 0.011,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 120.44,
+                    "end": 120.92,
+                    "confidence": 0.011
+                }
+            ]
+        },
+        {
+            "id": 28,
+            "seek": 12000,
+            "start": 123.04,
+            "end": 123.38,
+            "text": " 10.",
+            "tokens": [
+                50542,
+                1266,
+                13,
+                50642
+            ],
+            "temperature": 1.0,
+            "avg_logprob": -1.7691688537597656,
+            "compression_ratio": 2.2142857142857144,
+            "no_speech_prob": 0.0034876700956374407,
+            "confidence": 0.006,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 123.04,
+                    "end": 123.38,
+                    "confidence": 0.006
+                }
+            ]
+        },
+        {
+            "id": 29,
+            "seek": 12000,
+            "start": 126.54,
+            "end": 127.0,
+            "text": " 10.",
+            "tokens": [
+                50717,
+                1266,
+                13,
+                50720
+            ],
+            "temperature": 1.0,
+            "avg_logprob": -1.7691688537597656,
+            "compression_ratio": 2.2142857142857144,
+            "no_speech_prob": 0.0034876700956374407,
+            "confidence": 0.004,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 126.54,
+                    "end": 127.0,
+                    "confidence": 0.004
+                }
+            ]
+        },
+        {
+            "id": 30,
+            "seek": 12000,
+            "start": 127.0,
+            "end": 127.48,
+            "text": " 10.",
+            "tokens": [
+                50720,
+                1266,
+                13,
+                50724
+            ],
+            "temperature": 1.0,
+            "avg_logprob": -1.7691688537597656,
+            "compression_ratio": 2.2142857142857144,
+            "no_speech_prob": 0.0034876700956374407,
+            "confidence": 0.005,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 127.0,
+                    "end": 127.48,
+                    "confidence": 0.005
+                }
+            ]
+        },
+        {
+            "id": 31,
+            "seek": 12000,
+            "start": 127.48,
+            "end": 127.66,
+            "text": " 10.",
+            "tokens": [
+                50724,
+                1266,
+                13,
+                50726
+            ],
+            "temperature": 1.0,
+            "avg_logprob": -1.7691688537597656,
+            "compression_ratio": 2.2142857142857144,
+            "no_speech_prob": 0.0034876700956374407,
+            "confidence": 0.006,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 127.48,
+                    "end": 127.66,
+                    "confidence": 0.006
+                }
+            ]
+        },
+        {
+            "id": 32,
+            "seek": 12000,
+            "start": 134.82,
+            "end": 134.84,
+            "text": " 10.",
+            "tokens": [
+                51020,
+                1266,
+                13,
+                51082
+            ],
+            "temperature": 1.0,
+            "avg_logprob": -1.7691688537597656,
+            "compression_ratio": 2.2142857142857144,
+            "no_speech_prob": 0.0034876700956374407,
+            "confidence": 0.014,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 134.82,
+                    "end": 134.84,
+                    "confidence": 0.014
+                }
+            ]
+        },
+        {
+            "id": 33,
+            "seek": 12000,
+            "start": 135.92,
+            "end": 135.94,
+            "text": " 10.",
+            "tokens": [
+                51082,
+                1266,
+                13,
+                51227
+            ],
+            "temperature": 1.0,
+            "avg_logprob": -1.7691688537597656,
+            "compression_ratio": 2.2142857142857144,
+            "no_speech_prob": 0.0034876700956374407,
+            "confidence": 0.002,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 135.92,
+                    "end": 135.94,
+                    "confidence": 0.002
+                }
+            ]
+        },
+        {
+            "id": 34,
+            "seek": 12000,
+            "start": 136.74,
+            "end": 137.16,
+            "text": " 10.",
+            "tokens": [
+                51227,
+                1266,
+                13,
+                51327
+            ],
+            "temperature": 1.0,
+            "avg_logprob": -1.7691688537597656,
+            "compression_ratio": 2.2142857142857144,
+            "no_speech_prob": 0.0034876700956374407,
+            "confidence": 0.002,
+            "words": [
+                {
+                    "text": "10.",
+                    "start": 136.74,
+                    "end": 137.16,
+                    "confidence": 0.002
+                }
+            ]
+        }
+    ],
+    "language": "en"
+}

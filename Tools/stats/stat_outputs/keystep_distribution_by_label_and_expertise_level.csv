@@ -1,0 +1,3 @@
+expertise_level,administer_shock_aed,approach_patient,ask_patient_age_sex,assess_patient,attach_defib_pads,check_breathing,check_pulse,check_responsiveness,chest_compressions,clear_for_analysis,clear_for_shock,connect_leads_to_ecg,explain_procedure,interpret_and_report,no_action,obtain_ecg_recording,open_airway,place_bvm,place_left_arm_lead,place_left_leg_lead,place_right_arm_lead,place_right_leg_lead,place_v1_lead,place_v2_lead,place_v3_lead,place_v4_lead,place_v5_lead,place_v6_lead,request_aed,request_assistance,request_patient_to_not_move,turn_on_aed,ventilate_patient
+EMT,64,40,11,15,67,59,90,64,245,65,61,3,13,10,55,13,13,159,11,11,12,11,11,11,11,11,11,11,29,24,11,55,225
+Not certified,13,4,0,0,14,5,13,4,47,13,13,0,0,0,9,0,0,41,0,0,0,0,0,0,0,0,0,0,0,1,0,10,45

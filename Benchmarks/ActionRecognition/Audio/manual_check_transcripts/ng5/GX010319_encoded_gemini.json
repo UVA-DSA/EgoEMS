@@ -1,0 +1,66 @@
+[
+    {
+        "Role": "First Responder",
+        "Utterance": "Assessing patient. Hello, can you hear me?"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Checking for a pulse and breathing."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Patient's not breathing and there's no pulse. Starting CPR."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Giving two rescue breaths."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Applying the AED pads to the patient. Adult patient."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Do not touch the patient. Analyzing heart rhythm."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Shock advised."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Do not touch the patient."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Everyone clear."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Press the flashing shock button."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Shock delivered."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Shock delivered. Starting CPR."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Giving two rescue breaths."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Giving two breaths."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Giving two rescue breaths."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Giving two breaths."
+    }
+]

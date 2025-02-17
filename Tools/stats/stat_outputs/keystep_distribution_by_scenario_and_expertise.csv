@@ -1,0 +1,50 @@
+scenario,expertise_level,keystep_label,count
+cardiac_arrest,EMT,administer_shock_aed,64
+cardiac_arrest,EMT,approach_patient,31
+cardiac_arrest,EMT,attach_defib_pads,67
+cardiac_arrest,EMT,check_breathing,59
+cardiac_arrest,EMT,check_pulse,90
+cardiac_arrest,EMT,check_responsiveness,64
+cardiac_arrest,EMT,chest_compressions,245
+cardiac_arrest,EMT,clear_for_analysis,65
+cardiac_arrest,EMT,clear_for_shock,61
+cardiac_arrest,EMT,no_action,52
+cardiac_arrest,EMT,open_airway,13
+cardiac_arrest,EMT,place_bvm,159
+cardiac_arrest,EMT,request_aed,29
+cardiac_arrest,EMT,request_assistance,24
+cardiac_arrest,EMT,turn_on_aed,55
+cardiac_arrest,EMT,ventilate_patient,225
+cardiac_arrest,Not certified,administer_shock_aed,13
+cardiac_arrest,Not certified,approach_patient,4
+cardiac_arrest,Not certified,attach_defib_pads,14
+cardiac_arrest,Not certified,check_breathing,5
+cardiac_arrest,Not certified,check_pulse,13
+cardiac_arrest,Not certified,check_responsiveness,4
+cardiac_arrest,Not certified,chest_compressions,47
+cardiac_arrest,Not certified,clear_for_analysis,13
+cardiac_arrest,Not certified,clear_for_shock,13
+cardiac_arrest,Not certified,no_action,9
+cardiac_arrest,Not certified,place_bvm,41
+cardiac_arrest,Not certified,request_assistance,1
+cardiac_arrest,Not certified,turn_on_aed,10
+cardiac_arrest,Not certified,ventilate_patient,45
+chest_pain,EMT,approach_patient,9
+chest_pain,EMT,ask_patient_age_sex,11
+chest_pain,EMT,assess_patient,15
+chest_pain,EMT,connect_leads_to_ecg,3
+chest_pain,EMT,explain_procedure,13
+chest_pain,EMT,interpret_and_report,10
+chest_pain,EMT,no_action,3
+chest_pain,EMT,obtain_ecg_recording,13
+chest_pain,EMT,place_left_arm_lead,11
+chest_pain,EMT,place_left_leg_lead,11
+chest_pain,EMT,place_right_arm_lead,12
+chest_pain,EMT,place_right_leg_lead,11
+chest_pain,EMT,place_v1_lead,11
+chest_pain,EMT,place_v2_lead,11
+chest_pain,EMT,place_v3_lead,11
+chest_pain,EMT,place_v4_lead,11
+chest_pain,EMT,place_v5_lead,11
+chest_pain,EMT,place_v6_lead,11
+chest_pain,EMT,request_patient_to_not_move,11

@@ -1,0 +1,110 @@
+[
+    {
+        "Role": "Background",
+        "Utterance": "I'm sorry. Yeah, I disconnected from the wifi. Maybe because I got a new person. I'm sorry.  It just happens sometimes. I have some. Actually, yeah. I should have some, I think. I'm so sorry. This thing usually works fine. No. I even got the phone last time. I should do it. I haven't met you before. I'm Debra. Nice to meet you. I'm Tessa. Hi, Tessa. Are you new to the project? Yeah, I've been on it since the summer. Oh, sweet. Yes, you guys need to, because it never, the screaming, the yelling. Yeah, I heard it sometimes pretty. It's terrible. I mean, yeah. Yeah. And there's puke everywhere. I mean, yeah. Oh, there is. For sure. I won't do that anymore. Now we have YouTube"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Hey, are you okay?"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Checking for a pulse."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Checking for breath."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Another"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "You call 911. Starting CPR."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Two rescue breaths."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Checking for pulse, no pulse"
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Adult patient."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "If the patient is a child, press the child button."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Do not touch the patient. Analyzing heart rhythm."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Do not touch the patient. Analyzing heart rhythm. Shock advised"
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Do not touch the patient."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Everyone clear."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Press the flashing shock button."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Shock delivered."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Begin CPR."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "10"
+    },
+    {
+        "Role": "AED",
+        "Utterance": "20"
+    },
+    {
+        "Role": "AED",
+        "Utterance": "30. Give two breaths."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "10"
+    },
+    {
+        "Role": "AED",
+        "Utterance": "20"
+    },
+    {
+        "Role": "AED",
+        "Utterance": "30. Give two breaths."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Checking for pulse, no pulse."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "10"
+    },
+    {
+        "Role": "AED",
+        "Utterance": "20"
+    },
+    {
+        "Role": "AED",
+        "Utterance": "30. Give two breaths."
+    }
+]

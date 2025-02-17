@@ -1,0 +1,86 @@
+[
+    {
+        "Role": "First Responder",
+        "Utterance": "In progress"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Checking pulse"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "No pulse, no breathing"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Starting CPR"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Give me two breaths"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "Starting"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "10"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "20"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "30, give two breaths"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "10"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "20"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "30, give two breaths"
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Stop CPR. Do not touch the patient, analyzing heart rhythm."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Do not touch the patient analyzing heart rhythm. Shock advised."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Do not touch the patient. Everyone clear."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Press the flashing shock button."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Shock delivered."
+    },
+    {
+        "Role": "AED",
+        "Utterance": "Begin CPR."
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "10"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "20"
+    },
+    {
+        "Role": "First Responder",
+        "Utterance": "30, give two breaths"
+    }
+]

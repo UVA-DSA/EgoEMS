@@ -1,0 +1,37 @@
+[
+    {
+        "transcript": "Checking pulse. No pulse, no breathing. Starting CPR.",
+        "start time": 0.0,
+        "end time": 11.34
+    },
+    {
+        "transcript": "Analyzing heart rhythm. Do not touch the patient.",
+        "start time": 111.64,
+        "end time": 115.36
+    },
+    {
+        "transcript": "Do not touch the patient. Analyzing heart rhythm.",
+        "start time": 117.72,
+        "end time": 120.86
+    },
+    {
+        "transcript": "Shock advised.",
+        "start time": 121.08,
+        "end time": 122.58
+    },
+    {
+        "transcript": "Do not touch the patient",
+        "start time": 123.38,
+        "end time": 125.42
+    },
+    {
+        "transcript": "Press the flashing shock button.",
+        "start time": 129.32,
+        "end time": 131.4
+    },
+    {
+        "transcript": "Shock delivered",
+        "start time": 132.68,
+        "end time": 134.02
+    }
+]
