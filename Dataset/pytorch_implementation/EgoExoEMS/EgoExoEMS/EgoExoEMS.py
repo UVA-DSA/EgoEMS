@@ -9,6 +9,11 @@ from torchvision import transforms
 from collections import OrderedDict
 import itertools
 
+from PIL import Image
+
+import cv2
+import random
+
 transform = transforms.Compose([
     transforms.Resize((224, 224)),
 ])
@@ -1067,3 +1072,97 @@ class WindowEgoExoEMSDataset(Dataset):
         return output
 
 
+
+class CLIP_EgoExo_Keystep_Dataset(Dataset):
+    def __init__(self, annotation_file, data_base_path, transform=None):
+        self.data_base_path = data_base_path
+        self.transform = transform
+        self.data = self._load_annotations(annotation_file)
+        print(f"Loaded {len(self.data)} keystep-aligned clips.")
+
+    def _load_annotations(self, annotation_file):
+        with open(annotation_file, 'r') as f:
+            annotations = json.load(f)
+
+        data = []
+        for subject in annotations['subjects']:
+            for trial in subject['trials']:
+                streams = trial['streams']
+                keysteps = trial.get('keysteps', [])
+
+                # Ensure both ego and exo CLIP features exist
+                if 'clip-ego' in streams and 'clip-exo' in streams:
+                    ego_features_path = os.path.join(self.data_base_path, streams['clip-ego']['file_path'])
+                    exo_features_path = os.path.join(self.data_base_path, streams['clip-exo']['file_path'])
+
+                    for keystep in keysteps:
+                        data.append({
+                            "subject_id": subject["subject_id"],
+                            "trial_id": trial["trial_id"],
+                            "keystep_id": keystep["class_id"],
+                            "keystep_label": keystep["label"],
+                            "start_frame": keystep["start_frame"],
+                            "end_frame": keystep["end_frame"],
+                            "start_t": keystep["start_t"],
+                            "end_t": keystep["end_t"],
+                            "ego_features_path": ego_features_path,
+                            "exo_features_path": exo_features_path,
+                        })
+        return data
+
+    def _load_clip_features(self, file_path, start_frame, end_frame):
+        """
+        Load pre-extracted CLIP features for a given video segment (keystep).
+        The features are assumed to be stored as a NumPy array with shape (num_frames, feature_dim).
+        """
+        features = np.load(file_path)  # Shape: (num_frames, feature_dim)
+        if start_frame < 0 or end_frame > features.shape[0]:
+            print(f"Warning: Clipping out-of-bounds frames ({start_frame}-{end_frame}) in {file_path}")
+            start_frame = max(0, start_frame)
+            end_frame = min(features.shape[0], end_frame)
+
+        return torch.from_numpy(features[start_frame:end_frame])  # Extract keystep-aligned segment
+
+    def _get_negative_exo(self, keystep_id, subject_id, trial_id):
+        """
+        Retrieve a negative exo clip by selecting a non-matching keystep from another trial.
+        """
+        negative_candidates = [
+            item for item in self.data if 
+            item['keystep_id'] != keystep_id and  # Ensure different keystep
+            (item['subject_id'] != subject_id or item['trial_id'] != trial_id)  # Ensure from another trial
+        ]
+        if not negative_candidates:
+            return None  # If no negatives are available, return None
+
+        neg_sample = random.choice(negative_candidates)
+        return self._load_clip_features(neg_sample["exo_features_path"], neg_sample["start_frame"], neg_sample["end_frame"])
+
+    def __len__(self):
+        return len(self.data)
+
+    def __getitem__(self, idx):
+        sample = self.data[idx]
+
+        # Load keystep-aligned ego and exo CLIP features
+        ego_clip = self._load_clip_features(sample["ego_features_path"], sample["start_frame"], sample["end_frame"])
+        exo_clip = self._load_clip_features(sample["exo_features_path"], sample["start_frame"], sample["end_frame"])
+
+        # Generate a negative exo clip (different keystep/trial)
+        neg_exo_clip = self._get_negative_exo(sample["keystep_id"], sample["subject_id"], sample["trial_id"])
+
+        # If no negative available, duplicate the exo_clip (neutral case)
+        if neg_exo_clip is None:
+            neg_exo_clip = exo_clip.clone()
+
+        return {
+            "ego_clip": ego_clip,  # Shape: (num_keystep_frames, feature_dim)
+            "exo_clip": exo_clip,  # Shape: (num_keystep_frames, feature_dim)
+            "neg_exo_clip": neg_exo_clip,  # Shape: (num_keystep_frames, feature_dim)
+            "keystep_id": sample["keystep_id"],
+            "keystep_label": sample["keystep_label"],
+            "start_frame": sample["start_frame"],
+            "end_frame": sample["end_frame"],
+            "subject_id": sample["subject_id"],
+            "trial_id": sample["trial_id"],
+        }

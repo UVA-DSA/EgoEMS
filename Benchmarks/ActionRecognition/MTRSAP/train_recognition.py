@@ -32,9 +32,9 @@ if __name__ == "__main__":
         # set the wandb project where this run will be logged
         project="EgoExoEMS",
         group="Keystep Recognition",
-        mode="disabled",
-        name="Re Train, Val on EgoExoEMS with ego+exo resnet Features - Full clip - Classification Task - ICRA Model - Trial split - Class Balanced Loss",
-        notes="initial attempt ICRA model with egp+exo resnet Features  features only",
+        # mode="disabled",
+        name="Rebuttal - ego,exo,imu",
+        notes="",
         config={
         "args": args,
         }

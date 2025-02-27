@@ -1,0 +1,30 @@
+import os
+import glob
+
+# Base directory where files are located
+base_directory = "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final"
+
+# Find all incorrectly named files
+incorrect_files = glob.glob(f"{base_directory}/**/*_trimmed_final_rgb_stream.mp4", recursive=True)
+
+for file_path in incorrect_files:
+    # Split the path into components
+    path_parts = file_path.split(os.sep)
+
+    # Extract subject and trial correctly
+    try:
+        subject = path_parts[-5]  # Subject (e.g., P16, ng2, ms1)
+        trial = path_parts[-3]    # Trial (e.g., s5, t1)
+
+        # Construct correct filename
+        correct_filename = f"{subject}_{trial}_trimmed_final_rgb_stream.mp4"
+        correct_filepath = os.path.join(os.path.dirname(file_path), correct_filename)
+
+        # Rename the file
+        os.rename(file_path, correct_filepath)
+        print(f"Fixed: {file_path} -> {correct_filepath}")
+    
+    except IndexError:
+        print(f"Skipping (Invalid path structure): {file_path}")
+
+print("✅ Renaming correction completed successfully.")

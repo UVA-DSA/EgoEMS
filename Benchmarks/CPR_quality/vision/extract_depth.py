@@ -45,5 +45,5 @@ def read_video(video_path):
 
 
 # Uncomment the following lines to test the function with a file path
-# path = r'C:\Users\lahir\Downloads\data\standard\UVA-DSA\NIST EMS Project Data\EgoExoEMS_CVPR2025\Dataset\Kinect_CPR_Clips\exo_kinect_cpr_clips\train_root\chest_compressions\ng5_t6_ks4_13.565_30.455_exo.mkv'
-# rgb_imgs, depth_imgs = read_video(path)
+path = '/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Kinect_CPR_Clips/Final/exo_kinect_cpr_clips/test_root/chest_compressions/ms1_t1_ks4_100.741_119.939_exo.mkv'
+rgb_imgs, depth_imgs = read_video(path)

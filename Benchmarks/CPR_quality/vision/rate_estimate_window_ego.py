@@ -13,12 +13,16 @@ import torch
 import re
 import shutil
 
+import time
+
 from scipy.stats import zscore
 
 sample_rate = 30
 subsample_rate = 30
 window_duration = 5  # 5-second window
 window_frames = window_duration * sample_rate  # Number of frames per 5-second window
+
+DEBUG = False
 
 
 # function to read video and load frames as numpy arrays using opencv
@@ -47,6 +51,25 @@ def read_video(video_path):
 
     return frames
 
+def visualize_wrist_keypoints(wrist_x, wrist_y, video_frames, output_path):
+    # Create a copy of the video frames to draw on
+    frames_copy = [frame.copy() for frame in video_frames
+                   if frame.shape[0] > 0 and frame.shape[1] > 0]
+    for i, (x, y) in enumerate(zip(wrist_x, wrist_y)):  
+        if x > 0 and y > 0 and i < len(frames_copy):
+            # Draw a circle on the frame
+            cv2.circle(frames_copy[i], (int(x), int(y)), 5, (255, 0, 0), -1)
+    # Save the frames as individually with frame_numbers
+    os.makedirs(output_path, exist_ok=True)
+
+    for i, frame in enumerate(frames_copy):
+        cv2.imwrite(f"{output_path}/frame_{i:04d}.png", cv2.cvtColor(frame, cv2.COLOR_RGB2BGR))
+
+
+    # video_writer = cv2.VideoWriter(output_path, cv2.VideoWriter_fourcc(*'mp4v'), 30, (width, height))
+    # for frame in frames_copy:
+    #     video_writer.write(frame)
+    # video_writer.release()
 
 
 
@@ -166,11 +189,27 @@ def write_log_line(log_path, msg):
     with open(log_path, 'a') as file:
         file.write(msg + '\n')
 
-GT_path = r'D:\EgoExoEMS_CVPR2025\Dataset\Final'
-data_path = r'D:\EgoExoEMS_CVPR2025\CPR Test\GoPro_CPR_Clips'
-log_path = r'E:\EgoExoEMS\Benchmarks\CPR_quality\vision\outlier_depth_window_ego_vision_log_pv_interpolated_final.txt'
-old_log_path = r'E:\EgoExoEMS\Benchmarks\CPR_quality\vision\ego_window_vision_log_backup.txt'
-debug_plots_path = r'E:\EgoExoEMS\Benchmarks\CPR_quality\vision\ego_depth_window_debug_plots'
+
+# Define paths
+# Windows environment
+# GT_path = r'D:\EgoExoEMS_CVPR2025\Dataset\Final'
+# data_path = r'D:\EgoExoEMS_CVPR2025\CPR Test\GoPro_CPR_Clips\ego_gopro_cpr_clips\test_root'
+# log_path = rf"E:\EgoExoEMS\Benchmarks\CPR_quality\vision\results\unsupervised_ego_rate_window_test_split_results.txt"
+# debug_plots_path = rf"E:\EgoExoEMS\Benchmarks\CPR_quality\vision\unsupervised_ego_rate_window_debug_plots"
+
+
+# Linux environment
+BASE_DIR = "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025"  # Set an environment variable or update this
+BASE_REPO_DIR = "/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS"
+GT_path = os.path.join(BASE_DIR, "Dataset", "Final")
+data_path = os.path.join(BASE_DIR, "Dataset", "GoPro_CPR_Clips", "ego_gopro_cpr_clips", "test_root")
+
+if DEBUG:
+    log_path = os.path.join(BASE_REPO_DIR, "Benchmarks", "CPR_quality", "vision", "debug", f"debug_unsupervised_ego_rate_window_test_split_results.txt")
+else:
+    log_path = os.path.join(BASE_REPO_DIR, "Benchmarks", "CPR_quality", "vision", "results", f"unsupervised_ego_rate_window_test_split_results.txt")
+
+debug_plots_path = os.path.join(BASE_REPO_DIR, "Benchmarks", "CPR_quality", "vision", "debug", f"unsupervised_ego_rate_window_debug_plots")
 
 # delete the directory if it already exists
 if os.path.exists(debug_plots_path):
@@ -181,13 +220,6 @@ os.makedirs(debug_plots_path, exist_ok=True)
 
 init_log(log_path)
 
-# 
-# Handle old log file safely
-if os.path.exists(old_log_path):
-    with open(old_log_path, 'r') as file:
-        old_log = file.readlines()
-else:
-    old_log = []
 
 
 data_dir = os.path.join(data_path, 'chest_compressions')
@@ -283,15 +315,20 @@ for json_file in json_files:
     gt_lines = np.array([float(line.strip()) for line in gt_lines[1:]])
     gt_readings_for_clip = gt_lines[start_frame:end_frame]
 
+    all_filtered_wrist_x, all_filtered_wrist_y = [], []
+
     print("number of wrist keypoints: ", len(low_pass_wrist_y))
     for start in range(0, len(low_pass_wrist_y), window_frames):
         end = start + window_frames
+        print("Window: ", start, end, len(low_pass_wrist_y[start:end]))
         if end > len(low_pass_wrist_y):
             break  # Stop if the last window is incomplete
 
         # Predicted CPR cycles for the window
         wrist_y_window = low_pass_wrist_y[start:end].numpy()
         wrist_x_window = wrist_x[start:end]
+
+        start_t = time.time()
 
                     # Filter indices based on outlier detection for both X and Y
         x_filtered_indices = remove_outliers(wrist_x_window, threshold=1)
@@ -332,10 +369,6 @@ for json_file in json_files:
         # Log both predicted and GT CPR cycles for the window
         window_num = start // window_frames + 1
 
-        log_msg = (f"File: {json_file}, Window {window_num}, "
-                    f"Predicted CPR cycles: {n_cpr_window_pred}, GT CPR cycles: {n_cpr_window_gt}")
-        write_log_line(log_path, log_msg)
-        print(log_msg)
 
 
         print("number of filtered wrist keypoints: ", len(filtered_wrist_x))
@@ -356,15 +389,28 @@ for json_file in json_files:
         wrist_y_v=filtered_wrist_y[v]
 
 
-        distances = []
-        cpr_depth = np.mean(distances)
+        print(f"Predicted CPR rate per window: {n_cpr_window_pred} cycles")
+        print(f"Ground truth CPR rate per window: {n_cpr_window_gt} cycles")
 
-        print(f"Predicted Mean distance between peaks and valleys: {cpr_depth}mm")
-        print(f"Ground truth CPR depth: {gt_cpr_depth}mm")
+        predicted_CPR_rate = n_cpr_window_pred * 60 / window_duration
+        ground_truth_CPR_rate = n_cpr_window_gt * 60 / window_duration
 
-        log_msg = (f"File: {json_file}, Window {window_num}, "
-                    f"Predicted CPR depth: {cpr_depth}mm, GT CPR depth: {gt_cpr_depth}mm")
+        print(f"Predicted CPR rate (BPM): {predicted_CPR_rate}")
+        print(f"Ground truth CPR rate (BPM): {ground_truth_CPR_rate}")
+
+        end_t = time.time()
+        inference_time = end_t - start_t
+        print(f"Time taken for window: {inference_time} seconds")
+
+        # Visualize wrist keypoints on the filtered RGB images
+        if DEBUG:
+            visualize_wrist_keypoints(wrist_x_p, wrist_y_p, filtered_rgb_imgs_p, f'{debug_plots_path}/{json_file.split(".")[0]}_window_{window_num}_wrist_kps')
+
+        log_msg = (f"File:{json_file},Window:{window_num},Predicted_CPR_Rate:{predicted_CPR_rate},GT_CPR_Rate:{ground_truth_CPR_rate},InferenceTimeSeconds:{inference_time}")
         write_log_line(log_path, log_msg)
+        print(log_msg)
+
+
 
     # Clear large arrays after processing
     rgb_imgs.clear()

@@ -72,7 +72,7 @@ for subject_data in data['subjects']:
         video_paths = []
 
         # Determine video paths based on view
-        video_path = trial_data['streams']['exocam_rgbd']['file_path']
+        video_path = trial_data['streams']['egocam_rgb_audio']['file_path']
         video_paths.append((video_path, "ego"))
 
         # Process each keystep

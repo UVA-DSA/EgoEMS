@@ -152,6 +152,9 @@ def process_video(video_path, output_json_path, wrst, base_model, video_id):
         if not ret:
             break
 
+        # resize the frame to 640x480
+        frame = cv2.resize(frame, (640, 480))
+
         # Get keypoints for the current frame
         kpt_dict = get_kpts(frame, wrst, base_model, frame_num, video_id)
 
@@ -263,7 +266,7 @@ def process_videos_in_directory(root_path, wrst, base_model, view):
                     print(f"Processing video: {filename}")
                     video_path = os.path.join(dirpath, filename)
                     video_id = filename.split('.')[0]
-                    output_json_path = os.path.join(dirpath, f'{video_id}_keypoints.json')
+                    output_json_path = os.path.join(dirpath, f'{video_id}_resized_640x480_keypoints.json')
                     output_video_path = os.path.join(dirpath, f'{video_id}_keypoints.mp4')
 
                     # Process the video and save keypoints to JSON and a new video

@@ -15,6 +15,8 @@ import re
 import open3d as o3d
 import shutil
 
+import time
+
 from scipy.stats import zscore
 
 sample_rate = 30
@@ -162,9 +164,8 @@ def write_log_line(log_path, msg):
         file.write(msg + '\n')
 
 GT_path = r'D:\EgoExoEMS_CVPR2025\Dataset\Final'
-data_path = r'D:\Final\exo_kinect_cpr_clips'
-log_path = r'E:\EgoExoEMS\Benchmarks\CPR_quality\vision\outlier_depth_window_vision_log_pv_interpolated_final.txt'
-old_log_path = r'E:\EgoExoEMS\Benchmarks\CPR_quality\vision\depth_window_vision_log_backup.txt'
+data_path = r'D:\EgoExoEMS_CVPR2025\CPR Test\Kinect_CPR_Clips\exo_kinect_cpr_clips'
+log_path = r'E:\EgoExoEMS\Benchmarks\CPR_quality\vision\results\all_splits_exocentric_kinect_depth_window_results.txt'
 debug_plots_path = r'E:\EgoExoEMS\Benchmarks\CPR_quality\vision\depth_window_debug_plots'
 
 # delete the directory if it already exists
@@ -176,15 +177,9 @@ os.makedirs(debug_plots_path, exist_ok=True)
 
 init_log(log_path)
 
-# 
-old_log = None
-with open(old_log_path, 'r') as file:
-    old_log = file.readlines()
-
-
-
 
 for n in ['train_root', 'test_root', 'val_root']:
+# for n in ['test_root']:
     data_dir = os.path.join(data_path, n, 'chest_compressions')
     json_files = [file for file in os.listdir(data_dir) if file.endswith('.json')]
     mkv_files = [file for file in os.listdir(data_dir) if file.endswith('.mkv')]
@@ -205,11 +200,24 @@ for n in ['train_root', 'test_root', 'val_root']:
         mkv_file = [f for f in mkv_files if json_file.replace('_keypoints.json', '') in f][0]
 
  
+        if "P20" not in mkv_file:
+            continue
 
+        print("*"*20)
+        print(f"Processing file: {json_file}")
+        
         rgb_imgs, depth_imgs = extract_depth.read_video(os.path.join(data_dir, mkv_file))
 
+        # print("Number of RGB images: ", len(rgb_imgs))
+        # print("Number of depth images: ", len(depth_imgs))
+        # print("Number of keypoints: ", len(json_data.keys()))
+
         if not len(rgb_imgs) == len(json_data.keys()) and not len(depth_imgs) == len(json_data.keys()):
-            continue
+            print(f"Number of frames in RGB and depth videos do not match the number of keypoints in {json_file}")
+            
+            # get only keypoints that have corresponding frames in the RGB and depth videos
+            json_data = {k: v for k, v in json_data.items() if int(k) < len(rgb_imgs) and int(k) < len(depth_imgs)}
+            print("Number of keypoints after filtering: ", len(json_data.keys()))
 
 
         keys = sorted([int(k) for k in json_data.keys()])
@@ -290,8 +298,17 @@ for n in ['train_root', 'test_root', 'val_root']:
         print("number of wrist keypoints: ", len(low_pass_wrist_y))
         for start in range(0, len(low_pass_wrist_y), window_frames):
             end = start + window_frames
+
+            print("*"*20)
+
+            window_num = start // window_frames + 1
+            print(f"Processing window {window_num}")
+            print(f"Start: {start}, End: {end}")
+
             if end > len(low_pass_wrist_y):
                 break  # Stop if the last window is incomplete
+
+            start_t = time.time()
 
             # Predicted CPR cycles for the window
             wrist_y_window = low_pass_wrist_y[start:end].numpy()
@@ -336,10 +353,9 @@ for n in ['train_root', 'test_root', 'val_root']:
             # Log both predicted and GT CPR cycles for the window
             window_num = start // window_frames + 1
 
-            log_msg = (f"File: {json_file}, Window {window_num}, "
-                       f"Predicted CPR cycles: {n_cpr_window_pred}, GT CPR cycles: {n_cpr_window_gt}")
-            write_log_line(log_path, log_msg)
-            print(log_msg)
+            # log_msg = (f"File: {json_file}, Window {window_num}, "
+            #            f"Predicted CPR cycles: {n_cpr_window_pred}, GT CPR cycles: {n_cpr_window_gt}")
+            # write_log_line(log_path, log_msg)
 
 
             print("number of filtered wrist keypoints: ", len(filtered_wrist_x))
@@ -420,19 +436,17 @@ for n in ['train_root', 'test_root', 'val_root']:
                         # Apply the outlier removal function to peak and valley points
             # filtered_peak_3d_points = remove_outliers_3d_pairs(peak_3d_points)
             # filtered_valley_3d_points = remove_outliers_3d_pairs(valley_3d_points)
-            print("***"*20)
-            print("3d peaks: ", peak_3d_points)
-            print("3d valleys: ", valley_3d_points)
+            # print("3d peaks: ", peak_3d_points)
+            # print("3d valleys: ", valley_3d_points)
 
             # interpolate zero valley and peak points
             peak_3d_points = interpolate_zero_coords(peak_3d_points)
             valley_3d_points = interpolate_zero_coords(valley_3d_points)
             print("-"*20)
 
-            print("3d peaks after interpolation: ", peak_3d_points)
-            print("3d valleys after interpolation: ", valley_3d_points)
+            # print("3d peaks after interpolation: ", peak_3d_points)
+            # print("3d valleys after interpolation: ", valley_3d_points)
 
-            print("***"*20)
 
             # Calculate Euclidean distances between consecutive peaks and valleys
             distances = []
@@ -463,9 +477,21 @@ for n in ['train_root', 'test_root', 'val_root']:
             print(f"Predicted Mean distance between peaks and valleys: {cpr_depth}mm")
             print(f"Ground truth CPR depth: {gt_cpr_depth}mm")
 
-            log_msg = (f"File: {json_file}, Window {window_num}, "
-                       f"Predicted CPR depth: {cpr_depth}mm, GT CPR depth: {gt_cpr_depth}mm")
+            end_t = time.time()
+            inference_time = end_t - start_t
+            print(f"Inference time for the window: {inference_time} seconds")
+
+            log_msg = (f"File:{json_file},Window:{window_num},Predicted_CPR_Depth:{cpr_depth:.2f},GT_CPR_Depth:{gt_cpr_depth:.2f},InferenceTimeSeconds:{inference_time}")
+
             write_log_line(log_path, log_msg)
+            print("*"*20)
+
+
+            del depth_imgs_window, filtered_depth_imgs_window
+
+
+
+
 
         # Clear large arrays after processing
         rgb_imgs.clear()

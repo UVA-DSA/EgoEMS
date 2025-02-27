@@ -9,6 +9,8 @@ import shutil
 from scipy.stats import zscore
 import matplotlib.pyplot as plt
 
+import time
+
 parent_directory = os.path.abspath('.')
 print(parent_directory)
 sys.path.append(parent_directory)
@@ -21,7 +23,7 @@ window_duration = 5  # 5-second window
 window_frames = window_duration * sample_rate  # Number of frames per 5-second window
 
 # Hyperparameter to scale x, y distances to mm
-depth_scale_factor = 0.5  # Adjust this based on empirical calibration
+depth_scale_factor = 0.3  # Adjust this based on empirical calibration
 
 def read_video(video_path):
     """Reads video and returns frames as RGB numpy arrays."""
@@ -54,11 +56,22 @@ def write_log_line(log_path, msg):
 
 
 # Define paths
-GT_path = r'D:\EgoExoEMS_CVPR2025\Dataset\Final'
-data_path = r'D:\EgoExoEMS_CVPR2025\CPR Test\GoPro_CPR_Clips\ego_gopro_cpr_clips\test_root'
-log_path = r'E:\EgoExoEMS\Benchmarks\CPR_quality\vision\results\unsupervised_ego_depth_window_test_split_results.txt'
-old_log_path = r'E:\EgoExoEMS\Benchmarks\CPR_quality\vision\unsupervised_ego_depth_window_test_split_log.txt'
-debug_plots_path = r'E:\EgoExoEMS\Benchmarks\CPR_quality\vision\unsupervised_ego_depth_window_debug_plots'
+# Windows environment
+# GT_path = r'D:\EgoExoEMS_CVPR2025\Dataset\Final'
+# data_path = r'D:\EgoExoEMS_CVPR2025\CPR Test\GoPro_CPR_Clips\ego_gopro_cpr_clips\test_root'
+# log_path = rf"E:\EgoExoEMS\Benchmarks\CPR_quality\vision\results\unsupervised_ego_depth_window_test_split_results.txt"
+# old_log_path = rf"E:\EgoExoEMS\Benchmarks\CPR_quality\vision\unsupervised_ego_depth_window_test_split_log.txt"
+# debug_plots_path = rf"E:\EgoExoEMS\Benchmarks\CPR_quality\vision\unsupervised_ego_depth_window_debug_plots"
+
+
+# Linux environment
+BASE_DIR = "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025"  # Set an environment variable or update this
+BASE_REPO_DIR = "/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS"
+GT_path = os.path.join(BASE_DIR, "Dataset", "Final")
+data_path = os.path.join(BASE_DIR, "Dataset", "GoPro_CPR_Clips", "ego_gopro_cpr_clips", "test_root")
+log_path = os.path.join(BASE_REPO_DIR, "Benchmarks", "CPR_quality", "vision", "results", f"unsupervised_ego_depth_window_test_split_results.txt")
+debug_plots_path = os.path.join(BASE_REPO_DIR, "Benchmarks", "CPR_quality", "vision", "debug", f"unsupervised_ego_depth_window_debug_plots")
+
 
 # Setup directories
 if os.path.exists(debug_plots_path):
@@ -140,6 +153,8 @@ for json_file in json_files:
         wrist_y_window = low_pass_wrist_y[start:end].numpy()
         wrist_x_window = wrist_x[start:end]
 
+        start_t = time.time()
+
         print("Processing window: ", start, end, len(wrist_y_window))
 
         # Detect peaks and valleys
@@ -181,8 +196,13 @@ for json_file in json_files:
         print(f"GT CPR Depth (mm): {gt_cpr_depth:.2f}")
         print(f"Predicted CPR Depth (mm): {cpr_depth:.2f}")
 
+        end_t = time.time()
+        inference_time = end_t - start_t
+        print(f"Time taken for window: {inference_time} seconds")
         # Log results
-        log_msg = f"File: {json_file}, Window {start // window_frames + 1}, Predicted CPR depth: {cpr_depth:.2f}mm, GT CPR depth: {gt_cpr_depth:.2f}mm"
+        window_num = start // window_frames + 1
+        log_msg = (f"File:{json_file},Window:{window_num},Predicted_CPR_Depth:{cpr_depth:.2f},GT_CPR_Depth:{gt_cpr_depth:.2f},InferenceTimeSeconds:{inference_time}")
+
         write_log_line(log_path, log_msg)
 
     rgb_imgs.clear()
