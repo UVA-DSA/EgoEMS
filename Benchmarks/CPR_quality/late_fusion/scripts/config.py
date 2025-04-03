@@ -50,9 +50,9 @@ learning_params = {
 
 dataloader_params = {
     
-    "task": "segmentation", # "segmentation" or "classification"
+    "task": "cpr_quality", # "segmentation" or "classification" or "cpr_quality"
     "batch_size": 1,
-    "observation_window": 120,
+    "observation_window": 150,
     "fold": 1,
     "fps": 29.97,
     # update task specific parameters (Experimenting segmentation with classification annotations)
@@ -61,7 +61,7 @@ dataloader_params = {
     "test_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split_segmentation.json',
     # Old dataset class
     'base_path': '/scratch/cjh9fw/Rivanna/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
-    'modality': [ 'resnet','smartwatch'],
+    'modality': [ 'video','smartwatch', 'depth_sensor'],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
                     "check_responsiveness": "Check for responsiveness",

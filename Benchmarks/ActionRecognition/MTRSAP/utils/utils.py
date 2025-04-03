@@ -108,6 +108,15 @@ def preprocess(x, modality, backbone, device, task='classification'):
         rgb = x['rgb'].float()
         feature = torch.cat((flow, rgb), dim=-1).float()
 
+    elif ('resnet' in modality and 'smartwatch' in modality):
+        # resnet50 features are already extracted
+        resnet = x['resnet'].float()
+        smartwatch = x['smartwatch'].float()
+        # normalize smartwatch data (batch, seq_len, 3) (3 = x,y,z)
+        smartwatch = (smartwatch - smartwatch.mean()) / smartwatch.std()
+
+        feature = torch.cat((resnet, smartwatch), dim=-1).float()
+
     elif ('resnet' in modality and 'resnet_exo' in modality and 'smartwatch' in modality):
         # resnet50 features are already extracted
         resnet = x['resnet'].float()
@@ -117,6 +126,7 @@ def preprocess(x, modality, backbone, device, task='classification'):
         smartwatch = (smartwatch - smartwatch.mean()) / smartwatch.std()
 
         feature = torch.cat((resnet, resnet_exo, smartwatch), dim=-1).float()
+
 
     elif ('resnet' in modality and 'resnet_exo' in modality):
         # resnet50 features are already extracted
