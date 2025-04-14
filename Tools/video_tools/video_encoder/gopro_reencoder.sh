@@ -9,7 +9,7 @@
 #SBATCH --partition="standard"
 #SBATCH --time=3-00:00:00
 #SBATCH --cpus-per-task=16
-#SBATCH --mem=32G
+#SBATCH --mem=16G
 #SBATCH --ntasks=1
 #SBATCH --account="uva-dsa"
 
@@ -19,9 +19,10 @@ echo "$HOSTNAME"
 module load ffmpeg 
 
 # Set the folder where MP4 files are located
-input_folder="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/19-09-2024/"
-input_folder="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Lahiru/"
-input_folder="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/23-10-2024/" # mew wars data 
+# input_folder="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/19-09-2024/"
+# input_folder="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Lahiru/"
+# input_folder="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/23-10-2024/" # mew wars data 
+input_folder="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/03-29/stroke/t1/GoPro/driver/" # mew wars data 
 
 # Find all MP4 files in the folder and its subdirectories
 find "$input_folder" -type f -name "*.MP4" | while read input_video; do
@@ -51,8 +52,14 @@ find "$input_folder" -type f -name "*.MP4" | while read input_video; do
     # # Ensure there is a space after -i
     # ffmpeg -y -i "$input_video" -nostdin  -threads 16 -vcodec libx264 -acodec aac "$output_video"
 
-    ffmpeg -y -i "$input_video" -nostdin  -map_metadata 0 -map 0:u -c copy "$output_video" # use for our dataset
+    # ffmpeg -y -i "$input_video" -nostdin  -map_metadata 0 -map 0:u -c copy "$output_video" # use for our dataset
     # ffmpeg -y -i "$input_video" -nostdin -map_metadata 0 -map 0:u -r 30 -c:v libx264 -c:a copy "$output_video" # use for lahirus videos
+
+    # encode and compress
+    #  ffmpeg -y -i "$input_video" -threads 16 -c:v libx264 -preset slow -crf 23 -c:a aac -b:a 128k "$output_video"
+
+    # reduce resolution 4k to HD and encode and compress
+    ffmpeg -y -i "$input_video" -threads 16 -vf "scale=1920:-2" -c:v libx265 -preset slow -crf 28 -c:a aac -b:a 128k "$output_video"
 
     # Capture exit code to check for errors
     if [ $? -eq 0 ]; then

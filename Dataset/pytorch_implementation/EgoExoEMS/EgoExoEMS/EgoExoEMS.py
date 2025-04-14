@@ -173,7 +173,7 @@ class EgoExoEMSDataset(Dataset):
     def __init__(self, annotation_file, data_base_path, fps, 
                 frames_per_clip=None, transform=None,
                 data_types=['smartwatch'],
-                audio_sample_rate=48000):
+                audio_sample_rate=48000, task="cpr_quality"):
         
         self.annotation_file = annotation_file
         self.data_base_path = data_base_path
@@ -185,6 +185,9 @@ class EgoExoEMSDataset(Dataset):
         self.clip_indices = []  # This will store (item_idx, clip_idx) tuples
         self.data_types = data_types
         self.class_stats = {}
+
+        self.task = task
+
         
         self._load_annotations()
         self._generate_clip_indices()
@@ -229,6 +232,19 @@ class EgoExoEMSDataset(Dataset):
                 if 'depth_sensor' in self.data_types:
                     depth_sensor_path = avail_streams.get('vl6180_ToF_depth', {}).get('file_path', None)
 
+                # Print paths for debugging
+                # print(f"video_path: {video_path}")
+                # print(f"audio_path: {audio_path}")
+                # print(f"flow_path: {flow_path}")
+                # print(f"rgb_path: {rgb_path}")
+                # print(f"resnet_path: {resnet_path}")
+                # print(f"resnet_exo_path: {resnet_exo_path}")
+                # print(f"smartwatch_path: {smartwatch_path}")
+                # print(f"depth_sensor_path: {depth_sensor_path}")
+
+                # print(f"data_types: {self.data_types}")
+
+
                 # Skip the trial if any required data type is not available
                 if ('video' in self.data_types and not video_path) or \
                 ('audio' in self.data_types and not audio_path) or \
@@ -249,6 +265,10 @@ class EgoExoEMSDataset(Dataset):
                         label = step['label']
                         keystep_id = step['class_id']
 
+                        # When task is cpr_quality, only keep chest_compressions
+                        if self.task == "cpr_quality" and label.lower() != "chest_compressions":
+                            continue
+                        
                         data_dict = {}
                         if 'video' in self.data_types:
                             data_dict['video_path'] = os.path.join(self.data_base_path, video_path)

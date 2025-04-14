@@ -21,7 +21,7 @@ def preprocess(x, modality, backbone, device, task='classification'):
 
     if ('video' in modality and 'smartwatch' in modality and task == 'cpr_quality'):
         # extract resnet50 features
-        frames = x['video']
+        frames = x['frames']
         frames = frames.to(device)
 
         smartwatch = x['smartwatch'].float()
@@ -198,15 +198,15 @@ def eee_get_dataloaders(args):
 
         train_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
 
         val_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
 
         test_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
 
 
         train_class_stats = train_dataset._get_class_stats()
@@ -272,17 +272,17 @@ def eee_get_dataloaders(args):
         print("*" * 10, "=" * 10, "*" * 10)
         print("Loading dataloader for CPR quality task")
         
-        train_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
+        train_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=None, transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
-        val_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
+        val_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=None, transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
-        test_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
+        test_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=None, transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
         train_class_stats = train_dataset._get_class_stats()
         print("Train class stats: ", train_class_stats)
@@ -295,13 +295,11 @@ def eee_get_dataloaders(args):
         print("Val Number of classes: ", len(val_class_stats.keys()))
 
         
-        # Use a partial function or lambda to pass the frames_per_clip argument
-        collate_fn_with_args = partial(window_collate_fn, frames_per_clip=args.dataloader_params["observation_window"])
 
         # Create DataLoaders for training and validation subsets
-        train_loader = DataLoader(train_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=True, collate_fn=collate_fn_with_args)
-        test_loader = DataLoader(test_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False, collate_fn=collate_fn_with_args)
-        val_loader = DataLoader(val_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False, collate_fn=collate_fn_with_args)
+        train_loader = DataLoader(train_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=True)
+        test_loader = DataLoader(test_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False)
+        val_loader = DataLoader(val_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False)
 
         print("train dataset size: ", len(train_dataset))
         print("val dataset size: ", len(val_dataset))
