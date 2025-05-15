@@ -22,16 +22,34 @@ module load ffmpeg
 # input_folder="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/19-09-2024/"
 # input_folder="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Lahiru/"
 # input_folder="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw/23-10-2024/" # mew wars data 
-input_folder="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/03-29/stroke/t1/GoPro/driver/" # mew wars data 
+# input_folder="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/03-23/" # mew wars data 
+
+# get input folder from command line argument
+input_folder="$1"
+
+echo "Running GoPro reencoder script..."
+echo "Input folder: $input_folder"
 
 # Find all MP4 files in the folder and its subdirectories
-find "$input_folder" -type f -name "*.MP4" | while read input_video; do
+find "$input_folder" -type f -name "*.mp4" | while read input_video; do
+# find "$input_folder" -type f -name "*synced.mp4" | while read input_video; do
+
+    # only process file with this particular suffix
+    # suffix="_encoded_trimmed_deidentified.mp4"
+    suffix="_synced_encoded.mp4"
+    # ONLY PROCESS file that contains "encoded_trimmed_deidentified" in its filename
+    if [[ "$input_video" != *"$suffix" ]]; then
+        echo "Skipping file: $input_video"
+        continue
+    fi
+
 
     # Skip any file that contains "encoded" in its filename
-    if [[ "$input_video" == *encoded* ]]; then
+    if [[ "$input_video" == *720p* ]]; then
         echo "Skipping already encoded file: $input_video"
         continue
     fi
+    
     # Extract filename without extension
     filename=$(basename -- "$input_video")
     filename="${filename%.*}"
@@ -42,8 +60,11 @@ find "$input_folder" -type f -name "*.MP4" | while read input_video; do
     echo "****************************************************"
     echo "Processing GoPro file ($input_video)"
 
+    clean_name="${filename//_encoded/}"
+
     # Set the output video path (same folder, same filename with -encoded.mp4 extension)
-    output_video="$video_dir/${filename}_encoded.MP4"
+    output_video="$video_dir/${clean_name}_720p.mp4"
+
 
     # Reencode the video using libx264
     echo "Reencoding GoPro $input_video to libx264 format..."
@@ -59,7 +80,20 @@ find "$input_folder" -type f -name "*.MP4" | while read input_video; do
     #  ffmpeg -y -i "$input_video" -threads 16 -c:v libx264 -preset slow -crf 23 -c:a aac -b:a 128k "$output_video"
 
     # reduce resolution 4k to HD and encode and compress
-    ffmpeg -y -i "$input_video" -threads 16 -vf "scale=1920:-2" -c:v libx265 -preset slow -crf 28 -c:a aac -b:a 128k "$output_video"
+    # ffmpeg -y -i "$input_video" -threads 16 -vf "scale=1920:-2" -c:v libx265 -preset slow -crf 28 -c:a aac -b:a 128k "$output_video"
+
+    # encode and compress with 720p resolution - FINAL
+    ffmpeg  -nostdin -y -i "$input_video" -threads 12 -vf "scale=1280:-2" -c:v libx264 -preset slow -crf 23 -c:a aac -b:a 128k "$output_video"
+
+    #   ffmpeg -y \ 
+    #   -nostdin \
+    #   -threads 16 \
+    #   -loglevel info -stats \
+    #   -i "$input_video" \
+    #   -vf "scale=1920:-2,format=yuv420p" \
+    #   -c:v libx264 -preset fast -crf 23 \
+    #   -c:a aac -b:a 128k \
+    #   "$output_video" < /dev/null
 
     # Capture exit code to check for errors
     if [ $? -eq 0 ]; then

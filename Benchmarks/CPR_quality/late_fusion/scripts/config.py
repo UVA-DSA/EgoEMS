@@ -56,9 +56,9 @@ dataloader_params = {
     "fold": 1,
     "fps": 29.97,
     # update task specific parameters (Experimenting segmentation with classification annotations)
-    "train_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/train_split_segmentation.json',
-    "val_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/val_split_segmentation.json',
-    "test_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split_segmentation.json',
+    "train_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/train_split_cpr_quality.json',
+    "val_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/val_split_cpr_quality.json',
+    "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split_cpr_quality.json',
     # Old dataset class
     'base_path': '/scratch/cjh9fw/Rivanna/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
     'modality': [ 'video','smartwatch', 'depth_sensor'],

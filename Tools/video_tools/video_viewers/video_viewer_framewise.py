@@ -1,86 +1,131 @@
 import cv2
+import pandas as pd
+import tkinter as tk
+from PIL import Image, ImageTk
 
-# Path to the video file
-video_path = '/Users/kesharaw/Desktop/repos/EgoExoEMS/TestData/Kinect/2024-09-05-19-07-43.mkv'
+# === CONFIG ===
+VIDEO_CSV = "/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Tools/file_handling/opvrs_data_mappings.csv"
+VIDEO_COLUMN = "GoPro_Path"
+WINDOW_SIZE = (1280, 720)
+FRAME_STEP = 5       # frames to skip on fine control
+PLAY_DELAY = 30      # ms between frames when playing
 
-# Open the video file
-cap = cv2.VideoCapture(video_path)
+class VideoPlayer:
+    def __init__(self, master, video_paths):
+        self.master = master
+        self.video_paths = video_paths
+        self.idx = 0
+        self.cap = None
+        self.playing = False
+        self.photo = None
 
-if not cap.isOpened():
-    print("Error: Cannot open video file.")
-    exit()
+        # --- UI ---
+        self.video_label = tk.Label(master)
+        self.video_label.pack()
 
-# Font settings
-font = cv2.FONT_HERSHEY_SIMPLEX
-font_scale = 1  # Font scale
-font_color = (0, 255, 0)  # Green color
-font_thickness = 2  # Font thickness
+        ctrl = tk.Frame(master)
+        ctrl.pack(fill="x", pady=5)
 
-# Variables for playback control
-playing = False  # Initially paused
-frame_delay = 30  # Delay between frames in milliseconds
+        tk.Button(ctrl, text="⏮ Prev Video", command=self.prev_video).pack(side="left")
+        tk.Button(ctrl, text="⏪ Back 5",     command=self.back_5).pack(side="left")
+        self.play_btn = tk.Button(ctrl, text="▶ Play",  command=self.toggle_play)
+        self.play_btn.pack(side="left", padx=10)
+        tk.Button(ctrl, text="Forward 5 ⏩", command=self.forward_5).pack(side="left")
+        tk.Button(ctrl, text="Next Video ⏭", command=self.next_video).pack(side="left")
+        tk.Button(ctrl, text="✖ Quit",       command=self.quit).pack(side="right")
 
-# Create the display window
-cv2.namedWindow('Video Frame', cv2.WINDOW_NORMAL)
+        self.open_video(self.video_paths[self.idx])
 
-def show_frame(cap, font, font_scale, font_color, font_thickness):
-    """ Function to read and display the current frame with the frame number """
-    ret, frame = cap.read()
-    
-    if not ret:
-        print("Reached the end of the video.")
-        return False
+    def open_video(self, path):
+        # release old if exists
+        if self.cap:
+            self.cap.release()
 
-    # Get the current frame number
-    frame_number = int(cap.get(cv2.CAP_PROP_POS_FRAMES))
+        self.cap = cv2.VideoCapture(path)
+        if not self.cap.isOpened():
+            raise RuntimeError(f"Cannot open {path}")
+        self.master.title(f"Video {self.idx+1}/{len(self.video_paths)}: {path.split('/')[-1]}")
+        # show first frame paused
+        self.playing = False
+        self.play_btn.config(text="▶ Play")
+        self.show_frame()
 
-    # Display the frame number on the video
-    text = f"Frame: {frame_number}"
-    cv2.putText(frame, text, (50, 50), font, font_scale, font_color, font_thickness)
+    def show_frame(self):
+        ret, frame = self.cap.read()
+        if not ret:
+            # loop or just pause
+            self.playing = False
+            self.play_btn.config(text="▶ Play")
+            return
 
-    # Resize the frame for display
-    frame = cv2.resize(frame, (1280, 720))
-    cv2.imshow('Video Frame', frame)
-    
-    return True
+        # draw frame number
+        fn = int(self.cap.get(cv2.CAP_PROP_POS_FRAMES))
+        cv2.putText(frame, f"Frame: {fn}", (30, 40),
+                    cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 2)
 
-# Show the first frame immediately
-if not show_frame(cap, font, font_scale, font_color, font_thickness):
-    exit()  # Exit if there is an error showing the first frame
+        # resize & convert for Tkinter
+        frame = cv2.resize(frame, WINDOW_SIZE)
+        frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        img = Image.fromarray(frame)
+        self.photo = ImageTk.PhotoImage(image=img)
+        self.video_label.config(image=self.photo)
 
-while True:
-    if playing:
-        if not show_frame(cap, font, font_scale, font_color, font_thickness):
-            break
-        # Wait for the specified delay for automatic playback
-        key = cv2.waitKey(frame_delay) & 0xFF
-    else:
-        # If paused, wait indefinitely for a key press
-        key = cv2.waitKey(0) & 0xFF
+    def toggle_play(self):
+        self.playing = not self.playing
+        self.play_btn.config(text="⏸ Pause" if self.playing else "▶ Play")
+        if self.playing:
+            self.master.after(PLAY_DELAY, self.play_loop)
 
-    # If spacebar is pressed, toggle play/pause
-    if key == ord(' '):
-        playing = not playing
+    def play_loop(self):
+        if not self.playing:
+            return
+        self.show_frame()
+        self.master.after(PLAY_DELAY, self.play_loop)
 
-    # Press 'q' to quit
-    if key == ord('q'):
-        break
+    def back_5(self):
+        self.playing = False
+        self.play_btn.config(text="▶ Play")
+        cur = int(self.cap.get(cv2.CAP_PROP_POS_FRAMES))
+        new = max(0, cur - FRAME_STEP)
+        self.cap.set(cv2.CAP_PROP_POS_FRAMES, new)
+        self.show_frame()
 
-    # Right arrow key (step forward one frame if paused)
-    if key == ord('d') and not playing:
-        if not show_frame(cap, font, font_scale, font_color, font_thickness):
-            break
+    def forward_5(self):
+        self.playing = False
+        self.play_btn.config(text="▶ Play")
+        cur = int(self.cap.get(cv2.CAP_PROP_POS_FRAMES))
+        new = cur + FRAME_STEP
+        self.cap.set(cv2.CAP_PROP_POS_FRAMES, new)
+        self.show_frame()
 
-    # Left arrow key (rewind one frame if paused)
-    if key == ord('a') and not playing:
-        current_pos = cap.get(cv2.CAP_PROP_POS_FRAMES)
-        new_pos = max(0, current_pos - 2)  # Go back by one frame (skip one due to zero-based index)
-        cap.set(cv2.CAP_PROP_POS_FRAMES, new_pos)  # Set the new frame position
+    def next_video(self):
+        self.idx = (self.idx + 1) % len(self.video_paths)
+        self.open_video(self.video_paths[self.idx])
 
-        # Display the updated frame after rewinding
-        if not show_frame(cap, font, font_scale, font_color, font_thickness):
-            break
+    def prev_video(self):
+        self.idx = (self.idx - 1) % len(self.video_paths)
+        self.open_video(self.video_paths[self.idx])
 
-# Release the video capture and close the window
-cap.release()
-cv2.destroyAllWindows()
+    def quit(self):
+        self.cap.release()
+        self.master.destroy()
+
+
+def load_video_list(csv_path, column):
+    df = pd.read_csv(csv_path)
+    paths = []
+    for p in df[column].dropna():
+        p = str(p).strip()
+        # adapt if you need to force "_synced.mp4":
+        p = p.replace(".MP4", "_synced.mp4")
+        paths.append(p)
+    return paths
+
+if __name__ == "__main__":
+    video_paths = load_video_list(VIDEO_CSV, VIDEO_COLUMN)
+    if not video_paths:
+        raise RuntimeError("No video paths found in CSV!")
+
+    root = tk.Tk()
+    player = VideoPlayer(root, video_paths)
+    root.mainloop()

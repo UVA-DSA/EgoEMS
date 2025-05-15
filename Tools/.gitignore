@@ -6,3 +6,10 @@
 
 ai_object_bbox_generation/manual_verification/*.csv
 ai_object_bbox_generation/manual_verification/**/*.json
+
+
+file_handling/*log.txt
+
+stats/**/*.csv
+
+synchronization/multi-responder-sync/*.csv

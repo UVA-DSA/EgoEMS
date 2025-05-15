@@ -127,6 +127,8 @@ def get_kpts(img, wrst, base_model, frame_num, video_id):
     
     pad = 80
     img_crop = crop_img_bb(img, bb, pad, show=False)
+    # save the cropped image as debug with a unique name for each frame
+    cv2.imwrite(f"./ego_rate_estimator/debug/cropped_{video_id}_{frame_num}.jpg", img_crop)
 
 
     image, all_hands = wrst.get_kypts(img_crop)
@@ -144,11 +146,64 @@ def get_kpts(img, wrst, base_model, frame_num, video_id):
             img = draw_keypoints(img, hand["x"], hand["y"])
 
         # save the cropped image as debug with a unique name for each frame
-        cv2.imwrite(f"./debug/{video_id}_{frame_num}.jpg", img)
+        save_path = f"./ego_rate_estimator/debug/{video_id}_{frame_num}.jpg"
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        cv2.imwrite(save_path, img)
+        print(f"Saved debug image: {save_path}")
 
     return {"hands": hands_data}
 
 
+def get_kpts_ego(img, wrst, base_model, frame_num, video_id):
+    """
+    1) DINO detects ALL hands → base_model.predict(img)
+    2) pick the box whose CENTER is closest to frame center
+    3) crop+pad → hand_crop
+    4) wrst.get_kypts(hand_crop) → (crop_img, all_hands)
+    5) take the first hand_kps = all_hands[0], map its 21 (x,y)s back.
+    """
+    H, W = img.shape[:2]
+
+    # 1) DINO hand detections
+    results = base_model.predict(img)
+    boxes = results.xyxy       # list of [x1,y1,x2,y2]
+    if len(boxes) == 0:
+        return {"hands": []}
+
+    # 2) pick the box nearest the image center
+    cx0, cy0 = W/2.0, H/2.0
+    dists = [ ((b[0]+b[2])/2 - cx0)**2 + ((b[1]+b[3])/2 - cy0)**2 for b in boxes ]
+    best = int(np.argmin(dists))
+    x1, y1, x2, y2 = [int(v) for v in boxes[best]]
+
+    # 3) crop + pad
+    pad = 40
+    x1p = max(0, x1 - pad)
+    y1p = max(0, y1 - pad)
+    x2p = min(W, x2 + pad)
+    y2p = min(H, y2 + pad)
+    crop = img[y1p:y2p, x1p:x2p]
+
+    # optional debug dump
+    dbg = "./ego_rate_estimator/debug"
+    os.makedirs(dbg, exist_ok=True)
+    cv2.imwrite(f"{dbg}/crop_{video_id}_{frame_num}.jpg", crop)
+
+    # 4) Mediapipe on that crop
+    _, all_hands = wrst.get_kypts(crop)   # unpack the two‑item return
+    if not all_hands:
+        return {"hands": []}
+
+    # 5) take first (largest) hand's 21 keypoints
+    hand_kps = all_hands[0]  # list of 21 (x,y)
+
+    # map them back
+    mapped_x, mapped_y = [], []
+    for (cx, cy) in hand_kps:
+        mapped_x.append(cx + x1p)
+        mapped_y.append(cy + y1p)
+
+    return {"hands": [{"x": mapped_x, "y": mapped_y}]}
 
 
 
@@ -315,14 +370,6 @@ def init_log(log_path):
 def write_log_line(log_path, msg):
     with open(log_path, 'a') as file:
         file.write(msg + '\n')
-
-
-def ego_rate_detect(rgb_imgs):
-
-    print("Starting ego rate detection...")
-    print("Number of RGB images: ", rgb_imgs.shape)
-
-    return 0
 
 
 
@@ -565,3 +612,111 @@ if __name__ == "__main__":
         del rgb_imgs
 
         
+base_model = None
+wrst = None
+
+# Initialize models
+def init_models():
+    global base_model, wrst
+    # Initialize the model
+    base_model = GroundingDINO(ontology=CaptionOntology({"hand": "hand"}))
+
+    # Initialize the wrist detector
+    wrst = WristDet_mediapipe()
+
+    print("Models initialized.")
+
+init_models()
+
+def ego_rate_detect(rgb_imgs,video_id):
+
+    # convert rgb_imgs to numpy array
+    if isinstance(rgb_imgs, torch.Tensor):
+        rgb_imgs = rgb_imgs.cpu().numpy()
+        rgb_imgs = np.array(rgb_imgs, dtype=np.uint8)
+        rgb_imgs = np.transpose(rgb_imgs, (0, 2, 3, 1))
+        rgb_imgs = np.array(rgb_imgs, dtype=np.uint8)
+
+    print("Starting ego rate detection...")
+    print("Number of RGB images: ", rgb_imgs.shape)
+
+    # print("base_model: ", base_model)
+    # print("wrst: ", wrst)
+
+    # Process each frame in the window rgb_imgs
+    keypoint_dict = {}
+    for i, img in enumerate(rgb_imgs):
+        # print("Processing frame: ", i)
+        # print("Image shape: ", img.shape)
+        # print("Image type: ", type(img))
+        # print("Image dtype: ", img.dtype)
+
+        # make image is open cv format from tensor
+        # resize the image to 640x480
+        img = cv2.resize(img, (640, 480))
+
+        img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
+
+        # Get keypoints
+        kpts = get_kpts_ego(img, wrst, base_model, i, video_id)
+        keypoint_dict[i] = kpts
+
+    wrist_x, wrist_y = [], []
+    # Extract wrist coordinates from keypoint_dict
+    for i in range(len(rgb_imgs)):
+        if keypoint_dict[i]['hands']:
+            wrist_x.append(keypoint_dict[i]['hands'][0]['x'][0])
+            wrist_y.append(keypoint_dict[i]['hands'][0]['y'][0])
+
+
+    # Convert wrist coordinates to NumPy arrays for easier manipulation
+    wrist_y = np.array(wrist_y, dtype=float)
+    wrist_x = np.array(wrist_x, dtype=float)
+
+    # Use the matching_frame_indices to retrieve the corresponding RGB and depth frames
+    matching_rgb_frames = [rgb_imgs[i] for i in range(len(rgb_imgs)) if i in keypoint_dict]
+    matching_rgb_frames = np.array(matching_rgb_frames)
+    print("Number of matching RGB frames: ", len(matching_rgb_frames))
+    print("Number of wrist keypoints: ", len(wrist_y))
+
+    # apply low pass filter to the wrist y coordinates
+    tensor_wrist_y = torch.tensor(wrist_y)
+    try:
+        low_pass_wrist_y = depth_tools.low_pass_filter(tensor_wrist_y, 30)
+    except Exception as e:
+        print(f"Error in low pass filter: {e}")
+        return None
+    
+    wrist_y = low_pass_wrist_y.numpy()
+                    # Filter indices based on outlier detection for both X and Y
+    x_filtered_indices = remove_outliers(wrist_x, threshold=1)
+    y_filtered_indices = remove_outliers(wrist_y, threshold=1)
+
+    # Combine filters to maintain synchronization
+    final_filtered_indices = x_filtered_indices & y_filtered_indices
+    # print("Final filtered indices: ", final_filtered_indices, len(final_filtered_indices))
+
+    # Filter the arrays
+    filtered_wrist_x = wrist_x[final_filtered_indices]
+    filtered_wrist_y = wrist_y[final_filtered_indices]
+
+    # Output the filtered data
+    # print("Filtered Wrist X:", filtered_wrist_x)
+    # print("Filtered Wrist Y:", filtered_wrist_y)
+
+    # filter the depth images for the window
+
+
+    print("number of filtered wrist keypoints: ", len(filtered_wrist_x))
+
+    # Filter indices based on outlier detection for both X and Y
+    p, v = depth_tools.detect_peaks_and_valleys_depth_sensor(filtered_wrist_y, mul=1, show=False)
+    n_cpr_window_pred = (len(p) + len(v)) * 0.5
+
+    print(f"Predicted CPR rate per window: {n_cpr_window_pred} cycles")
+    predicted_CPR_rate = n_cpr_window_pred * 60 / window_duration
+
+    print(f"Predicted CPR rate (BPM): {predicted_CPR_rate}")
+
+    return predicted_CPR_rate
+

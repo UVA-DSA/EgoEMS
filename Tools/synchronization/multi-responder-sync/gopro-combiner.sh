@@ -14,7 +14,7 @@
 #SBATCH --account="uva-dsa"
 
 # Directory with your GoPro videos
-VIDEO_DIR="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/03-29/stroke/t2/GoPro/driver/"
+VIDEO_DIR="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/03-29/stroke/t2/GoPro/secondary/"
 OUTPUT="GX_COMBINED.mp4"
 TEMP_LIST="file_list.txt"
 

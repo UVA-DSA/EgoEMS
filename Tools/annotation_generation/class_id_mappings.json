@@ -1,5 +1,5 @@
 {
-    "keysteps" : {
+    "keysteps": {
         "approach_patient": 0,
         "check_responsiveness": 1,
         "check_pulse": 2,
@@ -34,7 +34,34 @@
         "turn_on_ecg": 31,
         "connect_leads_to_ecg": 32,
         "obtain_ecg_recording": 33,
-        "interpret_and_report": 34
+        "interpret_and_report": 34,
+        "transport": 35,
+        "check_grip_strength": 36,
+        "check_symptom_duration": 37,
+        "review_medications": 38,
+        "inquire_medication_anticoagulants": 39,
+        "document_hpi_and_pmh": 40,
+        "inquire_substance_use": 41,
+        "notify_hospital_of_stroke_alert": 42,
+        "check_blood_pressure": 43,
+        "check_heart_rate": 44,
+        "check_oxygen_saturation": 45,
+        "check_respiratory_rate": 46,
+        "face_droop_check": 47,
+        "arm_drift_check": 48,
+        "speech_abnormality_check": 49,
+        "note_time_last_known_well": 50,
+        "check_vision_deficits": 51,
+        "evaluate_aphasia": 52,
+        "assess_neglect_signs": 53,
+        "document_lkw_time": 54,
+        "prepare_glucometer_and_strip": 55,
+        "read_and_record_glucose_level": 56,
+        "suction_airway": 57,
+        "inset_NPA": 58,
+        "load_patient_to_stretcher": 59,
+        "secure_patient_on_stretcher": 60,
+        "handoff_patient_to_hospital": 61
     },
     "interventions": {
         "cpr": 0,

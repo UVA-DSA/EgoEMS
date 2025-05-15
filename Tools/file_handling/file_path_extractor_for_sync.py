@@ -2,9 +2,9 @@ import os
 import csv
 
 # Base path to traverse
-base_path = "/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Datasets/North_Garden/Sep_2024/Raw"
+base_path = "/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS"
 
-date_to_generate = ["20-09-2024"] 
+date_to_generate = ["03-23"] 
 # CSV file to write
 output_csv = f"{base_path}/file_paths_for_sync.csv"
 
@@ -21,13 +21,13 @@ trial_dict = {}
 for root, dirs, files in os.walk(base_path):
     # Split the root path to extract date, subject, procedure, and trial information
     path_parts = root.split(os.sep)
-    
+    # print(f"Processing path: {path_parts}")
     # Ensure the folder structure matches expectations
-    if len(path_parts) >= 13:
-        date = path_parts[8]
-        subject = path_parts[9]
-        procedure = path_parts[10]
-        trial = path_parts[11]
+    if len(path_parts) >= 11:
+        date = path_parts[6]
+        subject = path_parts[7]
+        procedure = path_parts[8]
+        trial = path_parts[9]
         
         if(date not in date_to_generate):
             continue
@@ -45,7 +45,7 @@ for root, dirs, files in os.walk(base_path):
             gopro_file_path = root
             # Find the MP4 file
             for file in os.listdir(gopro_file_path):
-                if file.endswith("_encoded.MP4"):
+                if file.endswith("_encoded.mp4"):
                     trial_dict[trial_key]['GoPro'] = os.path.join(gopro_file_path, file)
                     print(f"GoPro: {os.path.join(gopro_file_path, file)}")
                     gopro_file_id = file.split('.')[0]  # Extract file name without extension

@@ -13,7 +13,7 @@ sys.path.append(parent_directory)
 from scipy.signal import find_peaks, lombscargle
 from EgoExoEMS.EgoExoEMS import EgoExoEMSDataset
 import utils
-from Tools.depth_sensor_processing import tools as depth_tools
+from tools import tools as depth_tools
 import matplotlib.pyplot as plt
 
 DATA_FPS = 30
@@ -59,10 +59,18 @@ def get_avg_depth(depth_gt):
         p, v = depth_tools.detect_peaks_and_valleys_depth_sensor(depth_gt[i, :].detach().numpy(), show=False)
         peak_depths = depth_gt[i, p]
         valley_depths = depth_gt[i, v]
+        # how many complete peak–valley pairs?
         l = min(len(peak_depths), len(valley_depths))
-        avg_depth_list.append((peak_depths[:l] - valley_depths[:l]).mean().item())
-        min_depth_list.append(valley_depths[:l].min().item())
-        n_cpr.append((len(p) + len(v)) * 0.5)
+        if l == 0:
+            # no valid CPR cycles in this segment
+            avg_depth_list.append(0.0)
+            min_depth_list.append(0.0)
+            n_cpr.append(0.0)
+        else:
+            diffs = peak_depths[:l] - valley_depths[:l]
+            avg_depth_list.append(diffs.mean().item())
+            min_depth_list.append(valley_depths[:l].min().item())
+            n_cpr.append((len(p) + len(v)) * 0.5)
     return torch.tensor(avg_depth_list), torch.tensor(min_depth_list), torch.tensor(n_cpr)
 
 def calculate_cpr_rate_with_lombscargle(accel_magnitude, timestamps, window, stride):
@@ -202,3 +210,73 @@ if __name__ == "__main__":
     print("Validation data loader length:", len(valid_data_loader))
     
     generate_cpr_rate(train_data_loader=train_data_loader, valid_data_loader=valid_data_loader, log_path=log_path)
+
+
+# a function to detect the cpr rate from smartwatch data given a window of data
+# and return the cpr rate
+def smartwatch_rate_detect(smartwatch_window):
+    """
+    Estimate CPR rate (compressions per minute) from one window of raw
+    3‑axis accelerometer data.
+
+    Args:
+        smartwatch_window (np.ndarray or torch.Tensor): shape (N,3) or (1,N,3)
+    Returns:
+        float: estimated compressions per minute (CPM)
+    """
+    # 1) Turn input into a (1, N, 3) torch tensor
+    if not torch.is_tensor(smartwatch_window):
+        data = torch.tensor(smartwatch_window, dtype=torch.float32)
+    else:
+        data = smartwatch_window.float()
+    if data.ndim == 2:             # (N,3) → (1,N,3)
+        data = data.unsqueeze(0)
+    elif data.ndim == 3 and data.shape[0] != 1:
+        raise ValueError("Expected window shape (N,3) or (1,N,3), got %s" % (data.shape,))
+
+    # 2) Compute per‑sample magnitude → shape (1, N)
+    accel_mag = torch.norm(data, dim=2)
+
+    # 3) Apply low-pass filter
+    low_pass_accel_magnitude = depth_tools.low_pass_filter(accel_mag)
+
+
+    # 3) Detect peaks/valleys and get raw # of compressions
+    #    get_avg_depth returns (avg_depths, min_depths, n_cpr)
+    _, _, n_cpr = get_avg_depth(low_pass_accel_magnitude)
+
+    # avg_depths_list, min_depths_list, low_pass_keshara_pred_cpr_rate = get_avg_depth(low_pass_accel_magnitude)
+    # print("Low Pass Pred CPR rate:", low_pass_keshara_pred_cpr_rate)
+
+    # 4) Convert count → rate (CPM)
+    window_secs = accel_mag.shape[1] / DATA_FPS
+    cpr_rate = n_cpr.item() * (60.0 / window_secs)
+
+    return cpr_rate
+
+def get_gt_cpr_rate(gt_window):
+    # 1) Turn input into a (1, N, 3) torch tensor
+
+    print("GT Window shape:", gt_window.shape)
+    if not torch.is_tensor(gt_window):
+        data = torch.tensor(gt_window, dtype=torch.float32)
+    else:
+        data = gt_window.float()
+    if data.ndim == 2:             # (N,3) → (1,N,3)
+        data = data.unsqueeze(0)
+    elif data.ndim == 3 and data.shape[0] != 1:
+        raise ValueError("Expected window shape (N,3) or (1,N,3), got %s" % (data.shape,))
+
+    # 2) Compute per‑sample magnitude → shape (1, N)
+    accel_mag = torch.norm(data, dim=2)
+
+
+    # 3) Detect peaks/valleys and get raw # of compressions
+    #    get_avg_depth returns (avg_depths, min_depths, n_cpr)
+    _, _, n_cpr = get_avg_depth(accel_mag)
+
+    # 4) Convert count → rate (CPM)
+    window_secs = accel_mag.shape[1] / DATA_FPS
+    cpr_rate = n_cpr.item() * (60.0 / window_secs)
+
+    return cpr_rate

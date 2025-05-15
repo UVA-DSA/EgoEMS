@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Variables
-directory="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final"
+directory="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized/"
 extension="mp4"  # File extension to search for
-output_file="./exo_file_paths.txt"   # Output file to store the paths
+output_file="./cars_ego_file_paths.txt"   # Output file to store the paths
 
 # Find files with the specified extension and write their full paths to the output file
-find "$directory" -type f -name "*trimmed_final_rgb_stream.$extension" > "$output_file"
+find "$directory" -type f -name "*synced_720p.$extension" > "$output_file"
 
 # Print a message when done
 echo "File paths with extension .$extension written to $output_file"

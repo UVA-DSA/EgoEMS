@@ -335,7 +335,7 @@ to annotate temporal segments of a video: contains 4 rows
 .temporal_segmenter_container > .tmetadata_container .twocolgrid {
     display: grid;
     width: 100%;
-    grid-template-columns: 8em 1fr;
+    grid-template-columns: 20em 1fr;
 }
 
 .temporal_segmenter_container > .tmetadata_container .gidcol {
@@ -7837,20 +7837,20 @@ _via_temporal_segmenter.prototype._init = function() {
   "check_responsiveness": "Check for responsiveness",
   "check_pulse": "Check patient's pulse",
   "check_breathing": "Check if patient is breathing",
-  "chest_compressions": "Perform chest compressions",
-  "request_aed": "Request an AED",
+  //"chest_compressions": "Perform chest compressions",
+  //"request_aed": "Request an AED",
   "request_assistance": "Request additional assistance",
-  "turn_on_aed": "Turn on the AED",
-  "attach_defib_pads": "Attach defibrillator pads",
-  "clear_for_analysis": "Clear for analysis",
-  "clear_for_shock": "Clear for shock",
-  "administer_shock_aed": "Administer shock using AED",
-  "open_airway": "Open patient's airway",
-  "place_bvm": "Place bag valve mask (BVM)",
-  "ventilate_patient": "Ventilate patient",
-  "cpr": "CPR",
-  "defib": "Defibrillation",
-  "bvm": "BVM Ventilation",
+  //"turn_on_aed": "Turn on the AED",
+  //"attach_defib_pads": "Attach defibrillator pads",
+  //"clear_for_analysis": "Clear for analysis",
+  //"clear_for_shock": "Clear for shock",
+  //"administer_shock_aed": "Administer shock using AED",
+  //"open_airway": "Open patient's airway",
+  //"place_bvm": "Place bag valve mask (BVM)",
+  //"ventilate_patient": "Ventilate patient",
+  //"cpr": "CPR",
+  //"defib": "Defibrillation",
+  //"bvm": "BVM Ventilation",
   "assess_patient": "Assess the patient",
   "explain_procedure": "Explain the ECG procedure to the patient",
   "shave_patient": "Shave or cleanse the patient for ECG",
@@ -7871,6 +7871,7 @@ _via_temporal_segmenter.prototype._init = function() {
   "obtain_ecg_recording": "Obtain the ECG recording",
   "interpret_and_report": "Interpret the ECG and report findings",
   "no_action": "No action",
+  "transport": "Transport Patient",
     // Added steps
   "check_grip_strength": "Check patient's grip strength",
   "check_symptom_duration": "Determine duration of patient's symptoms",
@@ -7882,6 +7883,7 @@ _via_temporal_segmenter.prototype._init = function() {
   "check_blood_pressure": "Check patient's blood pressure",
   "check_heart_rate": "Check patient's heart rate",
   "check_oxygen_saturation": "Check patient's oxygen saturation",
+  "check_respiratory_rate": "Check patient's respiratory rate",
   
 
   // Stroke assessments
@@ -7892,7 +7894,7 @@ _via_temporal_segmenter.prototype._init = function() {
   
   // VAN Stroke
   "check_vision_deficits": "Check for vision deficits",
-  "evaluate_aphasia_or_unresponsiveness": "Evaluate for aphasia or unresponsiveness",
+  "evaluate_aphasia": "Evaluate for aphasia",
   "assess_neglect_signs": "Assess signs of spatial neglect",
 
   // Last Known Well
@@ -7900,7 +7902,18 @@ _via_temporal_segmenter.prototype._init = function() {
 
   // Glucose
   "prepare_glucometer_and_strip": "Prepare glucometer and test strip",
-  "read_and_record_glucose_level": "Read and record blood glucose level"
+  "read_and_record_glucose_level": "Read and record blood glucose level",
+
+  // Secure Airway
+  "suction_airway": "Suction the airway if needed",
+  "inset_NPA": "Insert nasopharyngeal airway",
+
+  // loading to stretcher
+  "load_patient_to_stretcher": "Load the patient onto the stretcher",
+  "secure_patient_on_stretcher": "Secure the patient on the stretcher",
+
+  // Hospital transfer
+  "handoff_patient_to_hospital": "Hand off the patient to hospital staff"
 
 };
 
