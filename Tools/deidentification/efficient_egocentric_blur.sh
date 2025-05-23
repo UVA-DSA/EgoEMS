@@ -14,8 +14,8 @@
 
 # Define dataset directory and other paths
 DATASET_DIR="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final"
-DATASET_DIR="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized/cars_1/chest_pain/"
-script_path='./egoblur/EgoBlur/script/demo_ego_blur.py'
+DATASET_DIR="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized"
+script_path='./egoblur/EgoBlur/script/efficient_ego_blur.py'
 model_path='./egoblur/EgoBlur/weights/ego_blur_face.jit'
 
 # Pretty print function for consistent, professional output
@@ -36,7 +36,7 @@ conda activate ego_blur
 pretty_print "[$(date)] Status" "Starting video deidentification process..."
 
 # Loop through each GoPro folder in the dataset directory
-for gopro_folder in "$DATASET_DIR"/*/GoPro/
+for gopro_folder in "$DATASET_DIR"/*/*/*/GoPro/
 do
   # # Check if any deidentified video already exists in the GoPro folder
   # if ls "$gopro_folder"/*_deidentified.mp4 1> /dev/null 2>&1; then
@@ -65,7 +65,7 @@ do
         pretty_print "[$(date)] Error" "Error deidentifying video: $file. Check log for details." >&2
       fi
 
-      # break
+      break
 
     else
       pretty_print "[$(date)] Warning" "No video file found at path: $file" >&2
@@ -73,7 +73,7 @@ do
 
   done
 
-  # break
+  break
 
 done
 

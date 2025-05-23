@@ -18,17 +18,13 @@ module purge &&
 module load miniforge &&
 source /home/cjh9fw/.bashrc &&
 echo "[INFO] Running on node: $HOSTNAME" &&
-conda activate egoexoems &&
+conda activate speech_deidentify &&
 module load ffmpeg &&
 
-tools_dir="/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Tools"
-
 # set root directory for the dataset
-root_dir="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized/cars_1/chest_pain/"
+root_dir="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/OPVRS/organized/"
 
-# step 1: compress ego videos to 720p and reduce size
-echo "[INFO] Compressing ego videos to 720p and reducing size..."
-bash "$tools_dir/video_tools/video_encoder/gopro_reencoder.sh" "$root_dir" 
+echo "[INFO] PII deidentificatio for speech and transcript"
+python -u speech_censor.py "$root_dir" 
 
-
-# step 2: remove unnecessary files
+echo "[INFO] PII deidentificatio for speech and transcript done"

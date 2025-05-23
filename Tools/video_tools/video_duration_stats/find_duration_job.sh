@@ -20,8 +20,8 @@ echo "$HOSTNAME" &&
 conda activate egoexoems &&
 
 # Set the folder where MP4 files are located
-input_folder="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS" # mew wars data 
+input_folder="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/OPVRS/organized" # mew wars data 
 
-python -u find_duration.py --input_folder "$input_folder" --output_csv "./video_duration_stats.csv"
+python -u find_duration.py --input_folder "$input_folder" --output_csv "./OPVRS_video_duration_stats.csv"
 
 echo "Video duration stats completed."

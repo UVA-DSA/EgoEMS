@@ -13,3 +13,5 @@ file_handling/*log.txt
 stats/**/*.csv
 
 synchronization/multi-responder-sync/*.csv
+
+deidentification/speech/data

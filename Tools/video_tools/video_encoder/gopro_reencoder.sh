@@ -35,8 +35,8 @@ find "$input_folder" -type f -name "*.mp4" | while read input_video; do
 # find "$input_folder" -type f -name "*synced.mp4" | while read input_video; do
 
     # only process file with this particular suffix
-    # suffix="_encoded_trimmed_deidentified.mp4"
-    suffix="_synced_encoded.mp4"
+    suffix="_encoded_trimmed.mp4"
+    # suffix="_synced_encoded.mp4"
     # ONLY PROCESS file that contains "encoded_trimmed_deidentified" in its filename
     if [[ "$input_video" != *"$suffix" ]]; then
         echo "Skipping file: $input_video"
