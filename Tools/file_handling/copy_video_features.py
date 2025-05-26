@@ -2,10 +2,10 @@ import os
 import glob
 
 # ─── CONFIG: set to None to disable that branch ──────────────────────────────
-ego_file_list_path = "/home/cjh9fw/Desktop/2024/repos/video_features/videos_to_extract/opvrs_ego_file_paths_p1.txt"   # ← set to None if you don’t want ego
+ego_file_list_path = "/home/cjh9fw/Desktop/2024/repos/video_features/videos_to_extract/opvrs_ego_file_paths_p2.txt"   # ← set to None if you don’t want ego
 exo_file_list_path = None   # ← set to None if you don’t want exo
 
-video_feature_directory = "/home/cjh9fw/Desktop/2024/repos/video_features/extracted_features/opvrs/opvrs_ego_file_paths_p1/resnet/resnet50"
+video_feature_directory = "/home/cjh9fw/Desktop/2024/repos/video_features/extracted_features/opvrs/opvrs_ego_file_paths_p2/resnet/resnet50"
 
 
 # ─── LOAD FILE‑PATH MAPS ─────────────────────────────────────────────────────
@@ -33,19 +33,19 @@ def handle_branch(mapping, tag):
     vid_path = mapping[video_name]
     # go up two levels from the GoPro file to get subject/trial folder
     base_dir = os.path.dirname(os.path.dirname(vid_path))
-    target_dir = os.path.join(base_dir, f"clip_{tag}")
-    # os.makedirs(target_dir, exist_ok=True)
+    target_dir = os.path.join(base_dir, f"resnet_{tag}")
+    os.makedirs(target_dir, exist_ok=True)
 
     # extract subject & trial for naming
     parts  = base_dir.split(os.sep)
     subject, scenario, trial = parts[-3], parts[-2], parts[-1]
 
-    dst_name = f"{subject}_{scenario}_{trial}_{tag}_clip.npy"
+    dst_name = f"{subject}_{scenario}_{trial}_{tag}_resnet.npy"
     dst_path = os.path.join(target_dir, dst_name)
 
     print(f"dst_path: {dst_path}")
     print(f"[{tag.upper()}] copying {basename} → {dst_path}")
-    # os.system(f'cp "{feat_path}" "{dst_path}"')
+    os.system(f'cp "{feat_path}" "{dst_path}"')
     
 
 
@@ -59,9 +59,9 @@ if __name__ == "__main__":
 
 
     # process each feature file
-    for feat_path in glob.glob(f"{video_feature_directory}/*_clip.npy"):
+    for feat_path in glob.glob(f"{video_feature_directory}/*_resnet.npy"):
         basename    = os.path.basename(feat_path)
-        video_name  = basename.split("_clip.npy")[0]
+        video_name  = basename.split("_resnet.npy")[0]
 
         print("-" * 20)
         print(f"Processing {basename}...")
