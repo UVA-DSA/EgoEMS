@@ -36,8 +36,8 @@ def play(playback: PyK4APlayback, output_hdf5_path: str):
                 break
 
 def main() -> None:
-    filename = '../../../TestData/debrah/ng3_t0_ks4_184.505_200.641_exo.mkv'
-    output_hdf5_path = "../../../TestData/debrah/ng3_t0_ks4/depth_ir_data.hdf5"
+    filename = '../../../TestData/cars_1/2025-03-23-18-00-05.mkv'
+    output_hdf5_path = "../../../TestData/cars_1/depth_ir_data.hdf5"
 
     playback = PyK4APlayback(filename)
     playback.open()
