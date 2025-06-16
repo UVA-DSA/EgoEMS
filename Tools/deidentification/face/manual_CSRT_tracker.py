@@ -68,8 +68,7 @@ class FaceBlurApp(QMainWindow):
         # ROI & tracking state
         # Changed self.bbox = None to self.rois = []
         self.rois = []
-        # Getting rid of the line underneat as the array above does not need this information
-        ##self.start_frame = None
+        self.start_frame = None
         self.blurred_frames = {}  # frame_idx → blurred_frame
         self.saved = False
 
@@ -193,8 +192,10 @@ class FaceBlurApp(QMainWindow):
         if not ret: return
         dlg = ROISelector(frame, self)
         if dlg.exec_() == QDialog.Accepted and dlg.rect:
-            self.bbox = tuple(dlg.rect)
+            bbox = tuple(dlg.rect)
             self.start_frame = self.current
+            ## added the line bellow
+            self.rois.append((self.start_frame, bbox))
             QMessageBox.information(self, "ROI",
                 f"Start frame {self.start_frame}, BBox {self.bbox}")
 
