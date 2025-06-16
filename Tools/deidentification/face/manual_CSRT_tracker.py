@@ -200,53 +200,45 @@ class FaceBlurApp(QMainWindow):
                 f"Start frame {self.start_frame}, BBox {self.bbox}")
 
     def track_blur(self):
-        blurred_ranges = []
-        #modifed condition
         if len(self.rois) < 1:
-            QMessageBox.warning(self, "No ROI", "Please mark at least one ROI first.")
+            QMessageBox.warning(self, "No ROI", "Please mark at least ROI first.")
             return
         for btn in (self.play_btn, self.prev3_btn, self.prev_btn,
                     self.next_btn, self.next3_btn,
                     self.mark_btn, self.track_btn):
             btn.setEnabled(False)
         QMessageBox.information(self, "Tracking", "Running tracker…")
-        #Loop over all ROIS
-        for start_frame, bbox in self.rois:
-            cap2 = cv2.VideoCapture(self.video_path)
-            cap2.set(cv2.CAP_PROP_POS_FRAMES, start_frame)
-            ret, first = cap2.read()
-            tracker = cv2.TrackerCSRT_create()
-            tracker.init(first, bbox)
 
-            maxf = int(TIME_TO_TRACK * self.fps)
-            for i in range(maxf):
-                ret, frm = cap2.read()
-                if not ret: break
-                ok, box = tracker.update(frm)
-                if not ok: break
-                x,y,w,h = map(int, box)
-                x,y = max(0,x), max(0,y)
-                w = min(w, frm.shape[1]-x)
-                h = min(h, frm.shape[0]-y)
-                if w>0 and h>0:
-                    roi = frm[y:y+h, x:x+w]
-                    frm[y:y+h, x:x+w] = cv2.GaussianBlur(roi, (51,51), 0)
-                idx = start_frame + i
-                blurred_ranges.append((start_frame, idx))
-                self.blurred_frames[idx] = frm.copy()
-                self._display(frm)
-                QApplication.processEvents()
+        cap2 = cv2.VideoCapture(self.video_path)
+        cap2.set(cv2.CAP_PROP_POS_FRAMES, self.start_frame)
+        ret, first = cap2.read()
+        tracker = cv2.TrackerCSRT_create()
+        tracker.init(first, self.bbox)
 
-            self.end_frame = idx
-            self.show_frame(self.current)
-            cap2.release()
+        maxf = int(TIME_TO_TRACK * self.fps)
+        for i in range(maxf):
+            ret, frm = cap2.read()
+            if not ret: break
+            ok, box = tracker.update(frm)
+            if not ok: break
+            x,y,w,h = map(int, box)
+            x,y = max(0,x), max(0,y)
+            w = min(w, frm.shape[1]-x)
+            h = min(h, frm.shape[0]-y)
+            if w>0 and h>0:
+                roi = frm[y:y+h, x:x+w]
+                frm[y:y+h, x:x+w] = cv2.GaussianBlur(roi, (51,51), 0)
+            idx = self.start_frame + i
+            self.blurred_frames[idx] = frm.copy()
+            self._display(frm)
+            QApplication.processEvents()
 
-        #fixed the message so that it shows frames for multiple ROIS
-        msg = "Blurred the following ROI frame ranges:\n"
-        for start, end in blurred_ranges:
-            msg += f"  - {start} → {end}\n"
+        self.end_frame = idx
+        self.show_frame(self.end_frame)
+        cap2.release()
 
-        QMessageBox.information(self, "Done", msg)
+        QMessageBox.information(self, "Done",
+            f"Blurred frames {self.start_frame}→{self.end_frame}")
 
         for btn in (self.play_btn, self.prev3_btn, self.prev_btn,
                     self.next_btn, self.next3_btn,
