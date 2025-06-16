@@ -66,8 +66,10 @@ class FaceBlurApp(QMainWindow):
         self.video_path = ""
 
         # ROI & tracking state
-        self.bbox = None
-        self.start_frame = None
+        # Changed self.bbox = None to self.rois = []
+        self.rois = []
+        # Getting rid of the line underneat as the array above does not need this information
+        ##self.start_frame = None
         self.blurred_frames = {}  # frame_idx → blurred_frame
         self.saved = False
 
