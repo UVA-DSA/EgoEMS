@@ -257,7 +257,7 @@ class FaceBlurApp(QMainWindow):
         cap2.release()
 
         self.show_frame(self.current)
-        QMessageBox.information(self, "Done", "All ROIs tracked and blurred.")
+        QMessageBox.information(self, "Completed", "All ROIs tracked and blurred.")
         # clears self.rois
         self.rois.clear()
         for btn in (self.play_btn, self.prev3_btn, self.prev_btn,
