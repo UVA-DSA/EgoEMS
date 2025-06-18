@@ -284,6 +284,7 @@ class FaceBlurApp(QMainWindow):
 
         out_cont = av.open(path, mode="w")
         out_v = out_cont.add_stream("mpeg4", rate=rate)
+        ##added this line
         out_v.bit_rate = in_v.codec_context.bit_rate
         out_v.width  = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         out_v.height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
