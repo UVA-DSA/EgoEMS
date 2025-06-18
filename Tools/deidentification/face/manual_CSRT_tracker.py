@@ -9,7 +9,7 @@ from PyQt5.QtCore import Qt, QTimer, QRect, QSize, QPoint
 from PyQt5.QtGui import QImage, QPixmap
 
 # Constants
-TIME_TO_TRACK = 5  # seconds to track after marking ROI
+TIME_TO_TRACK = 2 # seconds to track after marking ROI
 
 # ── ROI DRAWER ────────────────────────────────────────────────────────────────
 class ROISelector(QDialog):
