@@ -266,94 +266,100 @@ class FaceBlurApp(QMainWindow):
             btn.setEnabled(True)
 
     def save(self):
+    # 1) Nothing to do?
         if not self.blurred_frames:
             QMessageBox.warning(self, "Nothing", "No blurred segments to save.")
             return
 
-        # Ask user where to write the new file
+        # 2) Ask where to save
         path, _ = QFileDialog.getSaveFileName(
             self, "Save Video", "blurred_with_audio.mp4", "MP4 Files (*.mp4)"
         )
         if not path:
             return
 
-        # Open the input container & streams
+        # 3) Open input container & find streams
         in_cont = av.open(self.video_path)
         in_v    = in_cont.streams.video[0]
-        # Compute a proper time_base = 1 / fps
-        rate    = in_v.average_rate            # e.g. Fraction(30,1)
-        tb      = Fraction(rate.denominator, rate.numerator)
-
-        # Grab the first audio stream if present
         in_a    = next((s for s in in_cont.streams if s.type == "audio"), None)
 
-        # Open the output container
+        # 4) Compute a true 1/fps time_base
+        fps = in_v.average_rate            # Fraction(30,1), etc.
+        tb  = Fraction(fps.denominator, fps.numerator)
+
+        # 5) Open output container
         out_cont = av.open(path, mode="w")
 
-        # Configure video encoder: same codec + fps + bitrate + resolution + pixel format
-        out_v = out_cont.add_stream("mpeg4", rate=rate)
-        out_v.bit_rate                  = in_v.codec_context.bit_rate
-        out_v.width                     = in_v.codec_context.width
-        out_v.height                    = in_v.codec_context.height
-        out_v.pix_fmt                   = in_v.codec_context.pix_fmt or "yuv420p"
-        out_v.time_base                 = tb
-        out_v.codec_context.time_base   = tb
-        out_v.codec_context.width       = in_v.codec_context.width
-        out_v.codec_context.height      = in_v.codec_context.height
-        out_v.codec_context.pix_fmt     = out_v.pix_fmt
+        # 6) Add a libx264 video stream in lossless mode
+        out_v = out_cont.add_stream("libx264", rate=fps)
+        ctx   = out_v.codec_context
 
-        # Configure audio passthrough if any
+        #  6a) Tell the encoder how to timestamp and size frames
+        ctx.time_base = tb
+        out_v.time_base = tb
+
+        #  6b) Match the input resolution & force yuv420p
+        ctx.width   = in_v.codec_context.width
+        ctx.height  = in_v.codec_context.height
+        ctx.pix_fmt = "yuv420p"
+        out_v.width  = ctx.width
+        out_v.height = ctx.height
+        out_v.pix_fmt = ctx.pix_fmt
+
+        #  6c) Lossless: CRF=0, you can raise CRF if you want smaller size
+        ctx.options = {"crf": "0", "preset": "slow"}
+
+        # 7) Configure audio passthrough, if present
         if in_a:
             out_a = out_cont.add_stream(in_a.codec_context.name,
                                         rate=in_a.codec_context.sample_rate)
-            out_a.codec_context.channels     = in_a.codec_context.channels
-            out_a.codec_context.layout       = in_a.codec_context.layout
-            out_a.codec_context.sample_rate  = in_a.codec_context.sample_rate
+            ac    = out_a.codec_context
+            ac.channels    = in_a.codec_context.channels
+            ac.layout      = in_a.codec_context.layout
+            ac.sample_rate = in_a.codec_context.sample_rate
 
-        # Read frames with OpenCV, apply blur-overrides, reformat, timestamp, encode + mux
-        cap2  = cv2.VideoCapture(self.video_path)
-        total = int(cap2.get(cv2.CAP_PROP_FRAME_COUNT))
-
+        # 8) Read, blur-substitute, reformat, timestamp, encode + mux each frame
+        cap   = cv2.VideoCapture(self.video_path)
+        total = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
         for i in range(total):
-            ret, frame = cap2.read()
+            ret, frame = cap.read()
             if not ret:
                 break
 
-            # Either the original or your blurred version
+            # pick either original or blurred
             frm = self.blurred_frames.get(i, frame)
 
-            # Wrap as a VideoFrame in BGR, then reformat to encoder’s pix_fmt & size
-            vf = av.VideoFrame.from_ndarray(frm, format="bgr24").reformat(
-                format=out_v.pix_fmt,
-                width =out_v.width,
-                height=out_v.height,
+            # wrap & convert into encoder’s expected format/size
+            vf = (
+                av.VideoFrame.from_ndarray(frm, format="bgr24")
+                .reformat(format=ctx.pix_fmt, width=ctx.width, height=ctx.height)
             )
 
-            # Stamp with a non-zero PTS in the correct time_base
+            # stamp with proper PTS in 1/fps timebase
             vf.pts       = i
             vf.time_base = tb
 
-            # Encode + mux
             for pkt in out_v.encode(vf):
                 out_cont.mux(pkt)
 
-        # Flush video encoder
+        # 9) Flush the video encoder
         for pkt in out_v.encode(None):
             out_cont.mux(pkt)
-        cap2.release()
+        cap.release()
 
-        # Mux audio unchanged
+        # 10) Mux audio unchanged
         if in_a:
             for packet in in_cont.demux(in_a):
                 packet.stream = out_a
                 out_cont.mux(packet)
 
-        # Close everything
+        # 11) Close containers & notify
         out_cont.close()
         in_cont.close()
-
         self.saved = True
-        QMessageBox.information(self, "Saved", f"Video with audio written to {path}")
+        QMessageBox.information(
+            self, "Saved", f"Video (with audio) written to {path}"
+        )
 
     def close_app(self):
         if self.blurred_frames and not self.saved:
