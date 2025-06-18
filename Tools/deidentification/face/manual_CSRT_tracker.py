@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import sys, cv2, av
+import sys, cv2, av, os
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QPushButton, QLabel,
     QSlider, QFileDialog, QMessageBox, QDialog,
@@ -10,6 +10,10 @@ from PyQt5.QtGui import QImage, QPixmap
 
 # Constants
 TIME_TO_TRACK = 2 # seconds to track after marking ROI
+#global var
+Video_Path=""
+Video_Name=""
+
 
 # ── ROI DRAWER ────────────────────────────────────────────────────────────────
 class ROISelector(QDialog):
@@ -113,11 +117,15 @@ class FaceBlurApp(QMainWindow):
             btn.setEnabled(False)
 
     def load(self):
+        global Video_Name, Video_Path
         path, _ = QFileDialog.getOpenFileName(
             self, "Open Video", "", "Videos (*.mp4 *.avi *.mov *.mkv)"
         )
         if not path:
             return
+        Video_Path = path
+        Video_Name = os.path.splitext(os.path.basename(path))[0]
+
         cap = cv2.VideoCapture(path)
         if not cap.isOpened():
             QMessageBox.critical(self, "Error", "Cannot open video")
@@ -266,12 +274,19 @@ class FaceBlurApp(QMainWindow):
             btn.setEnabled(True)
 
     def save(self):
+        global Video_Path, Video_Name
         if not self.blurred_frames:
             QMessageBox.warning(self, "Nothing", "No blurred segments to save.")
             return
+        orig_dir     = os.path.dirname(Video_Path)
+        default_fname = f"Verified_{Video_Name}.mp4"
+        default_path  = os.path.join(orig_dir, default_fname)
 
         path, _ = QFileDialog.getSaveFileName(
-            self, "Save Video", "blurred_with_audio.mp4", "MP4 Files (*.mp4)"
+            self,
+            "Save Video",
+            default_path,
+            "MP4 Files (*.mp4)"
         )
         if not path:
             return
