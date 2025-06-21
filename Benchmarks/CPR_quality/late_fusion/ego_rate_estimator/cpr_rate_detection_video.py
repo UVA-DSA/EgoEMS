@@ -35,6 +35,7 @@ window_frames = window_duration * sample_rate  # Number of frames per 5-second w
 
 DEBUG = False
 
+
 def draw_keypoints(frame, x_vals, y_vals):
     """Draw keypoints on the frame."""
     for x, y in zip(x_vals, y_vals):
@@ -146,7 +147,7 @@ def get_kpts(img, wrst, base_model, frame_num, video_id):
             img = draw_keypoints(img, hand["x"], hand["y"])
 
         # save the cropped image as debug with a unique name for each frame
-        save_path = f"./ego_rate_estimator/debug/{video_id}_{frame_num}.jpg"
+        save_path = f"./ego_rate_estimator/debug/wrist_keypoints/{video_id}_{frame_num}.jpg"
         os.makedirs(os.path.dirname(save_path), exist_ok=True)
         cv2.imwrite(save_path, img)
         print(f"Saved debug image: {save_path}")
@@ -154,56 +155,106 @@ def get_kpts(img, wrst, base_model, frame_num, video_id):
     return {"hands": hands_data}
 
 
+# def get_kpts_ego(img, wrst, base_model, frame_num, video_id):
+#     """
+#     1) DINO detects ALL hands → base_model.predict(img)
+#     2) pick the box whose CENTER is closest to frame center
+#     3) crop+pad → hand_crop
+#     4) wrst.get_kypts(hand_crop) → (crop_img, all_hands)
+#     5) take the first hand_kps = all_hands[0], map its 21 (x,y)s back.
+#     """
+#     H, W = img.shape[:2]
+
+#     # 1) DINO hand detections
+#     results = base_model.predict(img)
+#     boxes = results.xyxy       # list of [x1,y1,x2,y2]
+#     if len(boxes) == 0:
+#         return {"hands": []}
+
+#     # 2) pick the box nearest the image center
+#     cx0, cy0 = W/2.0, H/2.0
+#     dists = [ ((b[0]+b[2])/2 - cx0)**2 + ((b[1]+b[3])/2 - cy0)**2 for b in boxes ]
+#     best = int(np.argmin(dists))
+#     x1, y1, x2, y2 = [int(v) for v in boxes[best]]
+
+#     # 3) crop + pad
+#     pad = 40
+#     x1p = max(0, x1 - pad)
+#     y1p = max(0, y1 - pad)
+#     x2p = min(W, x2 + pad)
+#     y2p = min(H, y2 + pad)
+#     crop = img[y1p:y2p, x1p:x2p]
+
+#     # optional debug dump
+#     dbg = "./ego_rate_estimator/debug"
+#     os.makedirs(dbg, exist_ok=True)
+#     cv2.imwrite(f"{dbg}/crop_{video_id}_{frame_num}.jpg", crop)
+
+#     # 4) Mediapipe on that crop
+#     _, all_hands = wrst.get_kypts(crop)   # unpack the two‑item return
+#     if not all_hands:
+#         print("No hands detected in the cropped image.")
+#         return {"hands": []}
+
+#     # 5) take first (largest) hand's 21 keypoints
+#     hand_kps = all_hands[0]  # list of 21 (x,y)
+
+#     # map them back
+#     mapped_x, mapped_y = [], []
+#     for (cx, cy) in hand_kps:
+#         mapped_x.append(cx + x1p)
+#         mapped_y.append(cy + y1p)
+
+#     # print(f"Frame {frame_num}: Keypoints X: {mapped_x}")
+#     # print(f"Frame {frame_num}: Keypoints Y: {mapped_y}")
+
+#     return {"hands": [{"x": mapped_x, "y": mapped_y}]}
+
 def get_kpts_ego(img, wrst, base_model, frame_num, video_id):
     """
     1) DINO detects ALL hands → base_model.predict(img)
-    2) pick the box whose CENTER is closest to frame center
-    3) crop+pad → hand_crop
-    4) wrst.get_kypts(hand_crop) → (crop_img, all_hands)
-    5) take the first hand_kps = all_hands[0], map its 21 (x,y)s back.
+    2) if no boxes: return empty
+    3) run wrst.get_kypts on the full image
+    4) take the first hand's 21 (x,y)s and return
     """
-    H, W = img.shape[:2]
-
-    # 1) DINO hand detections
     results = base_model.predict(img)
-    boxes = results.xyxy       # list of [x1,y1,x2,y2]
-    if len(boxes) == 0:
-        return {"hands": []}
+    bb = get_bb(results)
 
-    # 2) pick the box nearest the image center
-    cx0, cy0 = W/2.0, H/2.0
-    dists = [ ((b[0]+b[2])/2 - cx0)**2 + ((b[1]+b[3])/2 - cy0)**2 for b in boxes ]
-    best = int(np.argmin(dists))
-    x1, y1, x2, y2 = [int(v) for v in boxes[best]]
+    if bb is None or len(bb) == 0:  # Check if bounding box is empty
+        print("No bounding box detected.")
+        return {"hands": []}  # Return empty list for hands
+    
+    pad = 80
+    img_crop = crop_img_bb(img, bb, pad, show=False)
+    # save the cropped image as debug with a unique name for each frame
+    if DEBUG:
+        cv2.imwrite(f"./ego_rate_estimator/debug/cropped_{video_id}_{frame_num}.jpg", img_crop)
 
-    # 3) crop + pad
-    pad = 40
-    x1p = max(0, x1 - pad)
-    y1p = max(0, y1 - pad)
-    x2p = min(W, x2 + pad)
-    y2p = min(H, y2 + pad)
-    crop = img[y1p:y2p, x1p:x2p]
 
-    # optional debug dump
-    dbg = "./ego_rate_estimator/debug"
-    os.makedirs(dbg, exist_ok=True)
-    cv2.imwrite(f"{dbg}/crop_{video_id}_{frame_num}.jpg", crop)
+    image, all_hands = wrst.get_kypts(img_crop)
 
-    # 4) Mediapipe on that crop
-    _, all_hands = wrst.get_kypts(crop)   # unpack the two‑item return
-    if not all_hands:
-        return {"hands": []}
 
-    # 5) take first (largest) hand's 21 keypoints
-    hand_kps = all_hands[0]  # list of 21 (x,y)
+    hands_data = []
+    x_vals = []
+    y_vals = []
+    for hand in all_hands:
+        x_vals = [int(val[0] + bb[0] - pad) for val in hand]
+        y_vals = [int(val[1] + bb[1] - pad) for val in hand]
+        hands_data.append({"x": x_vals, "y": y_vals})
 
-    # map them back
-    mapped_x, mapped_y = [], []
-    for (cx, cy) in hand_kps:
-        mapped_x.append(cx + x1p)
-        mapped_y.append(cy + y1p)
+    # visualize the cropped image with keypoints
+    # if len(hands_data) > 0:
+    #     for hand in hands_data:
+    #         img = draw_keypoints(img, hand["x"], hand["y"])
 
-    return {"hands": [{"x": mapped_x, "y": mapped_y}]}
+        # save the cropped image as debug with a unique name for each frame
+        # save_path = f"./ego_rate_estimator/debug/wrist_keypoints/{video_id}_{frame_num}.jpg"
+        # os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        # cv2.imwrite(save_path, img)
+        # print(f"Saved debug image: {save_path}")
+
+    return {"hands": [{"x": x_vals, "y": y_vals}]}
+
 
 
 
@@ -309,6 +360,18 @@ def remove_outliers_zscore(data, threshold=2):
     filtered_data = [val for val, z in zip(data, z_scores) if abs(z) < threshold]
 
     return filtered_data
+
+
+def pick_first_valid(x_vals, y_vals):
+    """
+    Return the first (x,y) where both >0.
+    If none are valid, return (None, None).
+    """
+    for x, y in zip(x_vals, y_vals):
+        if x > 0 and y > 0:
+            return x, y
+    return None, None
+
 
 # Function to remove outliers
 def remove_outliers(data, threshold=2):
@@ -659,14 +722,33 @@ def ego_rate_detect(rgb_imgs,video_id):
 
         # Get keypoints
         kpts = get_kpts_ego(img, wrst, base_model, i, video_id)
+
+        # visualize the keypoints on the image
+        if DEBUG:
+            try:
+                img_with_kpts = draw_keypoints(img, kpts['hands'][0]['x'], kpts['hands'][0]['y'])
+                cv2.imwrite(f"./ego_rate_estimator/debug/wrist_kp_{video_id}_{i}.jpg", img_with_kpts)
+            except Exception as e:
+                print(f"Error visualizing keypoints for frame {i}: {e}")
+                continue
         keypoint_dict[i] = kpts
 
     wrist_x, wrist_y = [], []
     # Extract wrist coordinates from keypoint_dict
     for i in range(len(rgb_imgs)):
-        if keypoint_dict[i]['hands']:
-            wrist_x.append(keypoint_dict[i]['hands'][0]['x'][0])
-            wrist_y.append(keypoint_dict[i]['hands'][0]['y'][0])
+        try:
+            if keypoint_dict[i]['hands']:
+                xs = keypoint_dict[i]['hands'][0]['x'][0]
+                ys = keypoint_dict[i]['hands'][0]['y'][0]
+                # x_i, y_i = pick_first_valid(xs, ys)
+                # if x_i is None:
+                #     continue
+                wrist_x.append(xs)
+                wrist_y.append(ys)
+        except Exception as e:
+            print(f"Wrist IndexError for frame {i}: {e}")
+            continue
+
 
 
     # Convert wrist coordinates to NumPy arrays for easier manipulation
@@ -720,3 +802,121 @@ def ego_rate_detect(rgb_imgs,video_id):
 
     return predicted_CPR_rate
 
+
+def ego_rate_detect_cached(rgb_imgs, video_id, window_start, window_end, cache_dir):
+    """
+    For a given video (as list/array of RGB frames) and its ID,
+    either load cached keypoints or extract them, then compute CPR rate.
+    """
+    keypoint_json =  f"{video_id}_ego_resized_640x480_keypoints.json"
+    print(f"Keypoint JSON: {keypoint_json}")
+    cache_file = os.path.join(cache_dir, keypoint_json)
+
+    rate_bpm = None
+
+    # 1) Load or extract keypoints
+    if os.path.exists(cache_file):
+        print(f"Loading cached keypoints for {video_id} from {cache_file}")
+        with open(cache_file, 'r') as f:
+            json_data = json.load(f)
+        # JSON keys are strings, convert back to int
+        keypoint_dict = {int(k): v for k, v in json_data.items()}
+
+        print(f"Loaded {len(keypoint_dict)} keypoints from cache.")
+
+        keys = sorted([int(k) for k in json_data.keys()])
+
+        wrist_x, wrist_y = [], []
+
+        # Store the frame indices where wrist keypoints were detected
+        matching_frame_indices = []
+
+        for k in keys:
+            kpt_data = json_data.get(str(k), {})
+            hands = kpt_data.get('hands', {})
+            if len(hands) == 0:
+                continue
+            # Append wrist coordinates and store the frame index
+            wrist_x.append(hands[0]['x'][0])
+            wrist_y.append(hands[0]['y'][0])
+            matching_frame_indices.append(k)  # Store frame index for detected wrist
+
+
+        # Convert wrist coordinates to NumPy arrays for easier manipulation
+        wrist_y = np.array(wrist_y, dtype=float)
+        wrist_x = np.array(wrist_x, dtype=float)
+
+        # get the data within the start and end window
+        wrist_x = wrist_x[window_start:window_end]
+        wrist_y = wrist_y[window_start:window_end]
+        start = window_start
+        end = window_end
+        print(f"Processing window from {start} to {end} for video {video_id}")
+
+        print("Number of RGB images: ", len(rgb_imgs))
+        print("Number of wrist keypoints: ", len(wrist_y))
+
+        tensor_wrist_y = torch.tensor(wrist_y)
+        try:
+            low_pass_wrist_y = depth_tools.low_pass_filter(tensor_wrist_y, 30)
+        except Exception as e:
+            print(f"Error in low pass filter: {e}")
+            return None
+
+
+        print("number of wrist keypoints: ", len(low_pass_wrist_y))
+    
+        # Predicted CPR cycles for the window
+
+        wrist_y_window = low_pass_wrist_y.numpy()
+        wrist_x_window = wrist_x
+
+        start_t = time.time()
+
+                    # Filter indices based on outlier detection for both X and Y
+        x_filtered_indices = remove_outliers(wrist_x_window, threshold=1)
+        y_filtered_indices = remove_outliers(wrist_y_window, threshold=1)
+
+        # Combine filters to maintain synchronization
+        final_filtered_indices = x_filtered_indices & y_filtered_indices
+        # print("Final filtered indices: ", final_filtered_indices, len(final_filtered_indices))
+
+        # Filter the arrays
+        filtered_wrist_x = wrist_x_window[final_filtered_indices]
+        filtered_wrist_y = wrist_y_window[final_filtered_indices]
+
+        # filter the depth images for the window
+        rgb_imgs_window = rgb_imgs
+        rgb_imgs_window = np.array(rgb_imgs_window)
+
+
+
+        p, v = depth_tools.detect_peaks_and_valleys_depth_sensor(wrist_y_window, mul=1, show=False)
+        n_cpr_window_pred = (len(p) + len(v)) * 0.5
+
+
+        print("number of filtered wrist keypoints: ", len(filtered_wrist_x))
+
+        # Filter indices based on outlier detection for both X and Y
+
+        p, v = depth_tools.detect_peaks_and_valleys_depth_sensor(filtered_wrist_y, mul=1, show=False)
+
+        print(f"Predicted CPR rate per window: {n_cpr_window_pred} cycles")
+
+        predicted_CPR_rate = n_cpr_window_pred * 60 / window_duration
+
+        print(f"Predicted CPR rate (BPM): {predicted_CPR_rate}")
+
+        rate_bpm = predicted_CPR_rate
+
+        end_t = time.time()
+        inference_time = end_t - start_t
+        print(f"Time taken for window: {inference_time} seconds")
+
+    else:
+        print(f"No cache found for {video_id}. ")
+        return None
+
+
+    print(f"Predicted CPR rate (BPM): {rate_bpm}")
+    return rate_bpm

@@ -20,11 +20,11 @@ module load ffmpeg
 module load miniforge
 
 
-# Set the folder where mp4 files are located
-annotation_file="/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split_cpr_quality.json"
+# Set the folder where mp4 files are locatedAnnotations/splits/trials/train_split_cpr_quality.json
+annotation_file="/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/train_split_cpr_quality.json"
 dataset_save_dir="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/GoPro_CPR_Clips/"
 view="ego" # exo only
-split="test" # train, val, test
+split="train" # train, val, test
 
 # Quote paths with spaces
 python gopro_cpr_extract.py --annotation_file_path "$annotation_file" --dataset_root "$dataset_save_dir" --split "$split" --view "$view" &&

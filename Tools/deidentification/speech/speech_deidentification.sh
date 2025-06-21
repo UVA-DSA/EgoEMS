@@ -8,8 +8,8 @@
 #SBATCH --output="./logs/job-%j-egoexoems_finalize_task.output"
 #SBATCH --partition="standard"
 #SBATCH --time=3-00:00:00
-#SBATCH --cpus-per-task=24
-#SBATCH --mem=32G
+#SBATCH --cpus-per-task=12
+#SBATCH --mem=16G
 #SBATCH --ntasks=1
 #SBATCH --account="uva-dsa"
 
@@ -22,7 +22,7 @@ conda activate speech_deidentify &&
 module load ffmpeg &&
 
 # set root directory for the dataset
-root_dir="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/OPVRS/organized/"
+root_dir="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized/"
 
 echo "[INFO] PII deidentificatio for speech and transcript"
 python -u speech_censor.py "$root_dir" 

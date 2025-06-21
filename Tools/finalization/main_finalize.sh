@@ -24,7 +24,8 @@ module load ffmpeg &&
 tools_dir="/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Tools"
 
 # set root directory for the dataset
-root_dir="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized/cars_1/chest_pain/"
+# root_dir="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized/cars_1/chest_pain/"
+root_dir="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final"
 
 # step 1: compress ego videos to 720p and reduce size
 echo "[INFO] Compressing ego videos to 720p and reducing size..."

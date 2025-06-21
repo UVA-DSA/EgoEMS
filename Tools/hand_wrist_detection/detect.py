@@ -231,9 +231,15 @@ def process_and_visualize_video(video_path, output_json_path, output_video_path,
     out.release()
 
 
+
+
 def process_videos_in_directory(root_path, wrst, base_model, view):
     # Recursively search for videos inside 'GoPro' subdirectories
     flag = False
+
+    videos_to_process = []
+
+
     for dirpath, _, filenames in os.walk(root_path):
         if view == "exo": 
             if 'chest_compressions' in dirpath:
@@ -245,7 +251,7 @@ def process_videos_in_directory(root_path, wrst, base_model, view):
 
                         print(f"Processing video: {filename}")
                         video_path = os.path.join(dirpath, filename)
-                        video_id = filename.split('.')[0]
+                        video_id = filename.replace('.mp4', '')  # Remove the file extension to get the video ID
                         output_json_path = os.path.join(dirpath, f'{video_id}_keypoints.json')
                         output_video_path = os.path.join(dirpath, f'{video_id}_keypoints.mp4')
 
@@ -253,6 +259,13 @@ def process_videos_in_directory(root_path, wrst, base_model, view):
                         # process_and_visualize_video(video_path, output_json_path, output_video_path, wrst, base_model)
             
                         # Process the video and save keypoints to JSON
+
+                        # check if the output JSON file already exists
+                        if os.path.exists(output_json_path):
+                            print(f"Output JSON file {output_json_path} already exists. Skipping processing for {video_path}.")
+                            continue
+
+
                         process_video(video_path, output_json_path, wrst, base_model, video_id)
                         print("*" * 60)
                         print("=" * 60)
@@ -265,22 +278,109 @@ def process_videos_in_directory(root_path, wrst, base_model, view):
 
                     print(f"Processing video: {filename}")
                     video_path = os.path.join(dirpath, filename)
-                    video_id = filename.split('.')[0]
-                    output_json_path = os.path.join(dirpath, f'{video_id}_resized_640x480_keypoints.json')
-                    output_video_path = os.path.join(dirpath, f'{video_id}_keypoints.mp4')
+                    videos_to_process.append(video_path)
+
+                    # video_id = filename.replace('.mp4', '')  # Remove the file extension to get the video ID
+                    # output_json_path = os.path.join(dirpath, f'{video_id}_resized_640x480_keypoints.json')
+                    # output_video_path = os.path.join(dirpath, f'{video_id}_keypoints.mp4')
+
+                    # if os.path.exists(output_json_path):
+                    #     print(f"Output JSON file {output_json_path} already exists. Skipping processing for {video_path}.")
+                    #     continue
 
                     # Process the video and save keypoints to JSON and a new video
                     # process_and_visualize_video(video_path, output_json_path, output_video_path, wrst, base_model)
           
                     # Process the video and save keypoints to JSON
-                    process_video(video_path, output_json_path, wrst, base_model, video_id)
+                    # process_video(video_path, output_json_path, wrst, base_model, video_id)
                     print("*" * 60)
                     print("=" * 60)
+
+    # save the list of videos to process in a text file
+    if videos_to_process:
+        with open(os.path.join(root_path, 'videos_to_process.txt'), 'w') as f:
+            for video in videos_to_process:
+                f.write(video + '\n')
+        print(f"List of videos to process saved to {os.path.join(root_path, 'videos_to_process.txt')}")
+
+
+
+
+def process_videos_in_list(
+    root_path,
+    wrst,
+    base_model,
+    view,
+    video_list_txt: str = None
+):
+    """
+    Either:
+      - Read `video_list_txt`, expecting one full path per line,
+        and process only those videos
+    Or:
+      - Walk `root_path` and auto-discover videos exactly as before.
+    """
+    videos_to_process = []
+
+
+
+
+    # 1) If user supplied a txt file, load that list
+    if video_list_txt and os.path.isfile(video_list_txt):
+        print(f"Reading video list from: {video_list_txt}")
+        with open(video_list_txt, 'r') as f:
+            for line in f:
+                path = line.strip()
+                if path:
+                    videos_to_process.append(path)
+
+    else:
+        print("No video list provided or file not found. Auto-discovering videos...")
+        # 2) Otherwise fallback to the old recursive walk
+        for dirpath, _, filenames in os.walk(root_path):
+            if view == "exo":
+                if 'chest_compressions' not in dirpath:
+                    continue
+                exts = ('.mkv',)
+            else:
+                exts = ('.mp4',)
+
+            for filename in filenames:
+                if filename.endswith(exts):
+                    full = os.path.join(dirpath, filename)
+                    videos_to_process.append(full)
+
+    # 3) Process each video exactly once
+    for video_path in videos_to_process:
+        dirpath, filename = os.path.split(video_path)
+        video_id, ext = os.path.splitext(filename)
+
+        if view == "exo":
+            output_json = os.path.join(dirpath, f"{video_id}_keypoints.json")
+        else:
+            output_json = os.path.join(dirpath, f"{video_id}_resized_640x480_keypoints.json")
+
+        print(f"Video ID: {video_id}"
+              f"\nOutput JSON: {output_json}")
+        # skip if already done
+        if os.path.exists(output_json):
+            print(f"SKIP (exists): {output_json}")
+            continue
+
+        print("=" * 60)
+        print(f"Processing video: {video_path}")
+        process_video(video_path, output_json, wrst, base_model, video_id)
+        print("=" * 60)
+
+
+
+
 if __name__ == '__main__':
     # Parse arguments
     parser = argparse.ArgumentParser()
     parser.add_argument('--root_dir', type=str, required=True, help='path to root directory of videos')
     parser.add_argument('--view', type=str, required=True, help='ego or exo')
+    parser.add_argument('--video_list_txt', type=str, required=False, help='path to video list text file', default=None)
 
     args = parser.parse_args()
 
@@ -289,5 +389,9 @@ if __name__ == '__main__':
 
     wrst = WristDet_mediapipe()
 
+
     # Process all videos inside GoPro subdirectories
-    process_videos_in_directory(args.root_dir, wrst, base_model, args.view)
+    # process_videos_in_directory(args.root_dir, wrst, base_model, args.view)
+
+
+    process_videos_in_list(args.root_dir, wrst, base_model, args.view, args.video_list_txt)

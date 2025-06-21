@@ -35,7 +35,7 @@ find "$input_folder" -type f -name "*.mp4" | while read input_video; do
 # find "$input_folder" -type f -name "*synced.mp4" | while read input_video; do
 
     # only process file with this particular suffix
-    suffix="_encoded_trimmed.mp4"
+    suffix="_encoded_trimmed_deidentified.mp4"
     # suffix="_synced_encoded.mp4"
     # ONLY PROCESS file that contains "encoded_trimmed_deidentified" in its filename
     if [[ "$input_video" != *"$suffix" ]]; then
@@ -62,8 +62,16 @@ find "$input_folder" -type f -name "*.mp4" | while read input_video; do
 
     clean_name="${filename//_encoded/}"
 
+    # expected filename: "GX010391_encoded_trimmed_deidentified.mp4"
+    # expectod clean name: "GX010391_trimmed_deidentified"
+
+
     # Set the output video path (same folder, same filename with -encoded.mp4 extension)
-    output_video="$video_dir/${clean_name}_720p.mp4"
+    # output_video="$video_dir/${clean_name}_720p.mp4"
+
+    # Only for older videos
+    # expected output filename: "GX010391_trimmed_720p_deidentified.mp4"
+    output_video="$video_dir/${clean_name/_deidentified/_720p_deidentified}.mp4"
 
 
     # Reencode the video using libx264
