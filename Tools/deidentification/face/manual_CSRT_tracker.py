@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import sys, cv2, av
+import sys, cv2, av, os
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QPushButton, QLabel,
     QSlider, QFileDialog, QMessageBox, QDialog,
@@ -9,7 +9,11 @@ from PyQt5.QtCore import Qt, QTimer, QRect, QSize, QPoint
 from PyQt5.QtGui import QImage, QPixmap
 
 # Constants
-TIME_TO_TRACK = 5  # seconds to track after marking ROI
+TIME_TO_TRACK = 2 # seconds to track after marking ROI
+#global var
+Video_Path=""
+Video_Name=""
+
 
 # ── ROI DRAWER ────────────────────────────────────────────────────────────────
 class ROISelector(QDialog):
@@ -66,7 +70,8 @@ class FaceBlurApp(QMainWindow):
         self.video_path = ""
 
         # ROI & tracking state
-        self.bbox = None
+        # Changed self.bbox = None to self.rois = []
+        self.rois = []
         self.start_frame = None
         self.blurred_frames = {}  # frame_idx → blurred_frame
         self.saved = False
@@ -112,11 +117,15 @@ class FaceBlurApp(QMainWindow):
             btn.setEnabled(False)
 
     def load(self):
+        global Video_Name, Video_Path
         path, _ = QFileDialog.getOpenFileName(
             self, "Open Video", "", "Videos (*.mp4 *.avi *.mov *.mkv)"
         )
         if not path:
             return
+        Video_Path = path
+        Video_Name = os.path.splitext(os.path.basename(path))[0]
+
         cap = cv2.VideoCapture(path)
         if not cap.isOpened():
             QMessageBox.critical(self, "Error", "Cannot open video")
@@ -148,6 +157,10 @@ class FaceBlurApp(QMainWindow):
         ret, frame = self.cap.read()
         if not ret:
             return
+        
+        # **pick up the blurred version if we have one**
+        frame = self.blurred_frames.get(idx, frame)
+        
         self._display(frame)
         self.slider.blockSignals(True)
         self.slider.setValue(idx)
@@ -191,64 +204,93 @@ class FaceBlurApp(QMainWindow):
         if not ret: return
         dlg = ROISelector(frame, self)
         if dlg.exec_() == QDialog.Accepted and dlg.rect:
-            self.bbox = tuple(dlg.rect)
+            bbox = tuple(dlg.rect)
             self.start_frame = self.current
+            ## added the line bellow
+            self.rois.append((self.start_frame, bbox))
             QMessageBox.information(self, "ROI",
                 f"Start frame {self.start_frame}, BBox {self.bbox}")
 
     def track_blur(self):
-        if not self.bbox or self.start_frame is None:
-            QMessageBox.warning(self, "No ROI", "Please mark ROI first.")
+        if len(self.rois) <1:
+            QMessageBox.warning(self, "No ROI", "Please mark at least one ROI first.")
             return
+
         for btn in (self.play_btn, self.prev3_btn, self.prev_btn,
                     self.next_btn, self.next3_btn,
                     self.mark_btn, self.track_btn):
             btn.setEnabled(False)
         QMessageBox.information(self, "Tracking", "Running tracker…")
 
+        #caluclates frame window
+        to_track = int(TIME_TO_TRACK * self.fps)
+        start_frames = [sf for sf, _ in self.rois]
+        min_sf = min(start_frames)
+        max_end = max(start_frames) + to_track
+
         cap2 = cv2.VideoCapture(self.video_path)
-        cap2.set(cv2.CAP_PROP_POS_FRAMES, self.start_frame)
-        ret, first = cap2.read()
-        tracker = cv2.TrackerCSRT_create()
-        tracker.init(first, self.bbox)
+        cap2.set(cv2.CAP_PROP_POS_FRAMES, min_sf)
+        current = min_sf
 
-        maxf = int(TIME_TO_TRACK * self.fps)
-        for i in range(maxf):
-            ret, frm = cap2.read()
-            if not ret: break
-            ok, box = tracker.update(frm)
-            if not ok: break
-            x,y,w,h = map(int, box)
-            x,y = max(0,x), max(0,y)
-            w = min(w, frm.shape[1]-x)
-            h = min(h, frm.shape[0]-y)
-            if w>0 and h>0:
-                roi = frm[y:y+h, x:x+w]
-                frm[y:y+h, x:x+w] = cv2.GaussianBlur(roi, (51,51), 0)
-            idx = self.start_frame + i
-            self.blurred_frames[idx] = frm.copy()
-            self._display(frm)
+        # current (start, tracker) pairs running in current pass
+        active = []
+
+        # useses caluted end frame to pass through once
+        while current <= max_end:
+            ret, frame = cap2.read()
+            if not ret:
+                break
+
+            for sf, bbox in self.rois:
+                if sf == current:
+                    tr = cv2.TrackerCSRT_create()
+                    tr.init(frame, bbox)
+                    active.append((sf, tr))
+
+            #update & blur all active trackers
+            for sf, tr in active:
+                rel = current - sf
+                if 0 <= rel < to_track:
+                    ok, box = tr.update(frame)
+                    if ok:
+                        x, y, w, h = map(int, box)
+                        x, y = max(0, x), max(0, y)
+                        w = min(w, frame.shape[1]-x)
+                        h = min(h, frame.shape[0]-y)
+                        if w > 0 and h > 0:
+                            roi = frame[y:y+h, x:x+w]
+                            frame[y:y+h, x:x+w] = cv2.GaussianBlur(roi, (51,51), 0)
+
+            self.blurred_frames[current] = frame.copy()
+            self._display(frame)
             QApplication.processEvents()
+            current += 1
 
-        self.end_frame = idx
-        self.show_frame(self.end_frame)
         cap2.release()
 
-        QMessageBox.information(self, "Done",
-            f"Blurred frames {self.start_frame}→{self.end_frame}")
-
+        self.show_frame(self.current)
+        QMessageBox.information(self, "Completed", "All ROIs tracked and blurred.")
+        # clears self.rois
+        self.rois.clear()
         for btn in (self.play_btn, self.prev3_btn, self.prev_btn,
                     self.next_btn, self.next3_btn,
                     self.mark_btn, self.track_btn, self.save_btn):
             btn.setEnabled(True)
 
     def save(self):
+        global Video_Path, Video_Name
         if not self.blurred_frames:
             QMessageBox.warning(self, "Nothing", "No blurred segments to save.")
             return
+        orig_dir     = os.path.dirname(Video_Path)
+        default_fname = f"Verified_{Video_Name}.mp4"
+        default_path  = os.path.join(orig_dir, default_fname)
 
         path, _ = QFileDialog.getSaveFileName(
-            self, "Save Video", "blurred_with_audio.mp4", "MP4 Files (*.mp4)"
+            self,
+            "Save Video",
+            default_path,
+            "MP4 Files (*.mp4)"
         )
         if not path:
             return
@@ -260,10 +302,9 @@ class FaceBlurApp(QMainWindow):
         in_a = audio_streams[0] if audio_streams else None
 
         out_cont = av.open(path, mode="w")
-        # out_v = out_cont.add_stream("mpeg4", rate=rate) # very low quality
-        # instead of add_stream("mpeg4", rate=rate) + manual w/h
-        out_v = out_cont.add_stream(template=in_v)
-
+        out_v = out_cont.add_stream("mpeg4", rate=rate)
+        ##added this line
+        out_v.bit_rate = in_v.codec_context.bit_rate
         out_v.width  = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         out_v.height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
         out_v.pix_fmt = "yuv420p"
