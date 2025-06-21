@@ -5,7 +5,7 @@
 #SBATCH --error="logs/egoblur_task_%j.err"
 #SBATCH --output="logs/egoblur_task_%j.output"
 #SBATCH --partition="gpu"
-#SBATCH --gres=gpu:a100:1
+#SBATCH --gres=gpu:a40:1
 #SBATCH --time=3-00:00:00
 #SBATCH --mem=64G  
 #SBATCH --cpus-per-task=12
@@ -14,6 +14,7 @@
 
 # Define dataset directory and other paths
 DATASET_DIR="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final"
+DATASET_DIR="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized/cars_1/chest_pain/"
 # DATASET_DIR="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized"
 script_path='./egoblur/EgoBlur/script/efficient_ego_blur.py'
 model_path='./egoblur/EgoBlur/weights/ego_blur_face.jit'
@@ -37,7 +38,8 @@ pretty_print "[$(date)] Status" "Starting video deidentification process..."
 
 # Loop through each GoPro folder in the dataset directory
 # for gopro_folder in "$DATASET_DIR"/*/*/*/GoPro/
-for gopro_folder in "$DATASET_DIR"/*/*/*/gopro/ # adjusted to match lahirus data
+# for gopro_folder in "$DATASET_DIR"/*/*/*/gopro/ # adjusted to match lahirus data
+for gopro_folder in "$DATASET_DIR"/*/GoPro/
 do
   # # Check if any deidentified video already exists in the GoPro folder
   # if ls "$gopro_folder"/*_deidentified.mp4 1> /dev/null 2>&1; then
@@ -47,8 +49,8 @@ do
 
   # Process each video in the GoPro folder if no deidentified video is found
   # for file in "$gopro_folder"*encoded_trimmed.mp4
-  # for file in "$gopro_folder"*synced_720p.mp4
-  for file in "$gopro_folder"*trimmed_720p.mp4
+  for file in "$gopro_folder"*synced_720p.mp4
+  # for file in "$gopro_folder"*trimmed_720p.mp4
   do
     if [ -f "$file" ]; then
       pretty_print "----------------------" 

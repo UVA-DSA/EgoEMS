@@ -47,6 +47,9 @@ else:
     raise ValueError(f"Invalid split: {split}")
 print(f"{'*'*60}\n")
 
+print(f"[INFO] Final dataset root directory: {dataset_root}")
+
+
 # Ensure the root directory exists
 if not os.path.exists(dataset_root):
     print(f"[INFO] Creating root directory: {dataset_root}")

@@ -9,6 +9,39 @@ from functools import partial
 import torch.nn.functional as F
 import numpy as np
 
+import numpy as np
+from collections import Counter
+
+def trim_pre_cpr(sw_rates, vid_rates, gt_rates):
+    """
+    Automatically finds the modal GT rate (i.e. the most frequent rate)
+    and chops off all leading windows until we hit that rate.
+
+    Returns:
+      sw2, vid2, gt2, fused2, start_idx
+    """
+    # to guard against floating‐point artifacts, round to nearest integer
+    gt_int = np.rint(gt_rates).astype(int)
+
+    # find the most common GT value
+    mode_val, _ = Counter(gt_int).most_common(1)[0]
+
+    # find the first window where GT == mode_val
+    idxs = np.where(gt_int == mode_val)[0]
+    if len(idxs) == 0:
+        # no “normal” windows found; return everything
+        start_idx = 0
+    else:
+        start_idx = idxs[0]
+
+    # slice all four series from that point onward
+    return (
+        np.asarray(sw_rates)[start_idx:],
+        np.asarray(vid_rates)[start_idx:],
+        np.asarray(gt_rates)[start_idx:],
+        int(start_idx)
+    )
+
 def preprocess(x, modality, backbone, device, task='classification'):
     # check the shape of the input tensor
     feature = None
@@ -297,7 +330,7 @@ def eee_get_dataloaders(args):
         
 
         # Create DataLoaders for training and validation subsets
-        train_loader = DataLoader(train_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=True)
+        train_loader = DataLoader(train_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False) # temporary set shuffle=False
         test_loader = DataLoader(test_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False)
         val_loader = DataLoader(val_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False)
 

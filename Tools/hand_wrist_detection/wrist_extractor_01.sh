@@ -7,7 +7,7 @@
 #SBATCH --error="./logs/job-%j-egoexoems_wrist_keypoint_extraction.err"
 #SBATCH --output="./logs/job-%j-egoexoems_wrist_keypoint_extraction.output"
 #SBATCH --partition="gpu"
-#SBATCH --gres=gpu:h200:1
+#SBATCH --gres=gpu:1
 #SBATCH --time=3-00:00:00
 #SBATCH --cpus-per-task=12
 #SBATCH --mem=16G

@@ -260,7 +260,10 @@ class FaceBlurApp(QMainWindow):
         in_a = audio_streams[0] if audio_streams else None
 
         out_cont = av.open(path, mode="w")
-        out_v = out_cont.add_stream("mpeg4", rate=rate)
+        # out_v = out_cont.add_stream("mpeg4", rate=rate) # very low quality
+        # instead of add_stream("mpeg4", rate=rate) + manual w/h
+        out_v = out_cont.add_stream(template=in_v)
+
         out_v.width  = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
         out_v.height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
         out_v.pix_fmt = "yuv420p"
