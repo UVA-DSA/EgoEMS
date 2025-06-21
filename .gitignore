@@ -5,6 +5,8 @@
 *.png
 **/stats/*.csv
 
+Benchmarks/CPR_quality/smartwatch/swcode].zip
+
 Tools/video_tools/video_duration_stats/OPVRS_video_duration_stats.csv
 
 **/debug
