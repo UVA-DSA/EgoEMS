@@ -266,12 +266,18 @@ class FaceBlurApp(QMainWindow):
             QApplication.processEvents()
             current += 1
 
-        cap2.release()
+        ## removed this line to test feature cap2.release()
 
         ##Removed this line to test feature
         #self.show_frame(self.current)
-        total = int(cap2.get(cv2.CAP_PROP_FRAME_COUNT))
-        self.current = min(current, total-1)
+        # figure out how many frames are in the video
+        total_frames = int(cap2.get(cv2.CAP_PROP_FRAME_COUNT))
+        cap2.release()
+
+        # jump to the first frame AFTER the last blur
+        # (clamp so we never go past the final frame)
+        next_frame = min(max_end + 1, total_frames - 1)
+        self.current = next_frame
         self.show_frame(self.current)
         QMessageBox.information(self, "Completed", "All ROIs tracked and blurred.")
         # clears self.rois
