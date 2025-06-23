@@ -268,6 +268,10 @@ class FaceBlurApp(QMainWindow):
 
         cap2.release()
 
+        ##Removed this line to test feature
+        #self.show_frame(self.current)
+        total = int(cap2.get(cv2.CAP_PROP_FRAME_COUNT))
+        self.current = min(current, total-1)
         self.show_frame(self.current)
         QMessageBox.information(self, "Completed", "All ROIs tracked and blurred.")
         # clears self.rois
