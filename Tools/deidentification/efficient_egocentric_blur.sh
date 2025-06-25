@@ -62,10 +62,10 @@ do
       pretty_print "[$(date)] Output Path" "$output_path"
 
       # Check if the output file already exists
-      if [ -f "$output_path" ]; then
-        pretty_print "[$(date)] Skipping" "Deidentified video already exists: $output_path"
-        continue
-      fi
+      # if [ -f "$output_path" ]; then
+      #   pretty_print "[$(date)] Skipping" "Deidentified video already exists: $output_path"
+      #   continue
+      # fi
       
       # # Run the Python deidentification script
       python -u $script_path --face_model_path $model_path --input_video_path "$file" --output_video_path "$output_path" --face_model_score_threshold 0.8

@@ -12,6 +12,213 @@ import numpy as np
 import numpy as np
 from collections import Counter
 
+
+from ego_rate_estimator.cpr_rate_detection_video import init_models, ego_rate_detect,ego_rate_detect_cached
+from ego_depth_estimator.supervised_depth_estimate_window_ego import ego_depth_estimator_cached
+from smartwatch_rate_estimator.cpr_rate_detection_smartwatch import smartwatch_rate_detect, get_gt_cpr_rate, get_gt_cpr_depth
+from smartwatch_depth_estimator.cpr_depth_detection_smartwatch import smartwatch_depth_estimator, smartwatch_depth_estimator_inference
+
+
+# detect function for train fusion cpr rate estimation
+def detect_depth(frames, smartwatch, gt, window_size, video_id, CACHE_DIR, midas_model, midas_transform, device, SCALE_FACTOR, smartwatch_model, smartwatch_optimizer, smartwatch_criterion, MODE="train"):
+    """
+    Slide a tumbling window and compute:
+      - smartwatch_depth per window
+      - ego_video_depth per window
+      - gt_depth per window
+    Returns three 1D numpy arrays: (sw_rates, vid_rates, gt_rates)
+    """
+    sw_depths, vid_depths, gt_depths = [], [], []
+    total = frames.shape[0]
+
+    print("\n\n" + "=" * 50)
+    print(f"Processing video {video_id} with {total} frames, smartwatch data length {len(smartwatch)}, and gt data length {len(gt)}")
+    print(f"In mode: {MODE}")
+    for start in range(0, total, window_size):
+        end = start + window_size
+        if end > total:
+            break
+
+        print("-*" * 20)
+        print(f"[CPR DEPTH DETECTION]:Processing window {start}:{end} for video {video_id}...")
+
+        try:
+                
+            win_frames = frames[start:end]
+            win_smart = smartwatch[start:end]
+            win_gt = gt[start:end]
+
+            print(f"Window size: {len(win_frames)} frames, {len(win_smart)} smartwatch data points, {len(win_gt)} GT data points")
+# 
+            # v_rate = ego_rate_detect(win_frames, video_id)
+            v_depth, v_depth_3d, v_abs  = ego_depth_estimator_cached(win_frames, video_id, start, end, CACHE_DIR,  midas_model, midas_transform, device, SCALE_FACTOR)
+
+            if MODE == "train":
+                s_depth = smartwatch_depth_estimator(win_smart, win_gt, smartwatch_model, smartwatch_optimizer, smartwatch_criterion)
+            else:
+                s_depth = smartwatch_depth_estimator_inference(win_smart, win_gt, smartwatch_model, None, None)
+            
+            g_depth = get_gt_cpr_depth(win_gt)
+
+            print(f"depths for window {start}:{end} - Video: {v_depth}, SWDepth: {s_depth}, GT: {g_depth}")
+            # skip if any rate is None
+
+            # ensure Python floats
+            try:
+                v_depth = float(v_depth)
+                v_abs = float(v_abs)
+                s_depth = float(s_depth)
+                g_depth = float(g_depth)
+            except (TypeError, ValueError):
+                continue
+
+            # skip NaNs
+            if np.isnan(v_abs) or np.isnan(s_depth) or np.isnan(g_depth):
+                continue 
+
+            sw_depths.append(s_depth)
+            vid_depths.append(v_abs) # using v_abs as the ego depth
+            gt_depths.append(g_depth)
+
+            print(f"window:{start}:{end},sw_depths:{s_depth:.2f},ego_rate:{v_depth:.2f},gt_rate:{g_depth:.2f}")
+
+        except Exception as e:
+            print(f"Error processing window {start}:{end} for video {video_id}: {e}")
+            # stack trace for debugging
+            import traceback
+            traceback.print_exc()
+            continue
+
+        print("-*" * 20)
+    return np.array(sw_depths), np.array(vid_depths), np.array(gt_depths)
+
+
+
+
+
+
+
+
+
+
+# detect function for train fusion cpr rate estimation
+def detect_rate(frames, smartwatch, gt, window_size, video_id, CACHE_DIR):
+    """
+    Slide a tumbling window and compute:
+      - smartwatch_rate per window
+      - ego_video_rate per window
+      - gt_rate per window
+    Returns three 1D numpy arrays: (sw_rates, vid_rates, gt_rates)
+    """
+    sw_rates, vid_rates, gt_rates = [], [], []
+    total = frames.shape[0]
+
+    print(f"Processing video {video_id} with {total} frames, smartwatch data length {len(smartwatch)}, and gt data length {len(gt)}")
+
+    for start in range(0, total, window_size):
+        end = start + window_size
+        if end > total:
+            break
+
+        print("-*" * 20)
+        print(f"[CPR RATE DETECTION]: Processing window {start}:{end} for video {video_id}...")
+
+        try:
+                
+            win_frames = frames[start:end]
+            win_smart = smartwatch[start:end]
+            win_gt = gt[start:end]
+
+            print(f"Window size: {len(win_frames)} frames, {len(win_smart)} smartwatch data points, {len(win_gt)} GT data points")
+# 
+            # v_rate = ego_rate_detect(win_frames, video_id)
+            v_rate = ego_rate_detect_cached(win_frames, video_id, start, end, CACHE_DIR)
+            s_rate = smartwatch_rate_detect(win_smart)
+            g_rate = get_gt_cpr_rate(win_gt)
+
+            print(f"Rates for window {start}:{end} - Video: {v_rate}, Smartwatch: {s_rate}, GT: {g_rate}")
+            # skip if any rate is None
+
+            # ensure Python floats
+            try:
+                v_rate = float(v_rate)
+                s_rate = float(s_rate)
+                g_rate = float(g_rate)
+            except (TypeError, ValueError):
+                continue
+
+            # skip NaNs
+            if np.isnan(v_rate) or np.isnan(s_rate) or np.isnan(g_rate):
+                continue
+
+            sw_rates.append(s_rate)
+            vid_rates.append(v_rate)
+            gt_rates.append(g_rate)
+
+            print(f"window:{start}:{end},sw_rate:{s_rate:.2f},ego_rate:{v_rate:.2f},gt_rate:{g_rate:.2f}")
+
+        except Exception as e:
+            print(f"Error processing window {start}:{end} for video {video_id}: {e}")
+            # stack trace for debugging
+            import traceback
+            traceback.print_exc()
+            continue
+
+        print("-*" * 20)
+    return np.array(sw_rates), np.array(vid_rates), np.array(gt_rates)
+
+
+
+
+
+# # detect function for test fusion cpr rate estimation
+# def detect_rate(frames, smartwatch, gt, window_size, video_id):
+#     """Compute per-window rates for one clip."""
+#     sw_rates, vid_rates, gt_rates = [], [], []
+#     total = frames.shape[0]
+#     for start in range(0, total, window_size):
+#         end = start + window_size
+#         if end > total:
+#             break
+#         win_frames = frames[start:end]
+#         win_sw = smartwatch[start:end]
+#         win_gt = gt[start:end]
+
+#         # estimates
+#         # v = ego_rate_detect(win_frames, video_id)
+#         v = ego_rate_detect_cached(win_frames, video_id, start, end, cache_dir=CACHE_DIR)
+#         s = smartwatch_rate_detect(win_sw)
+#         g = get_gt_cpr_rate(win_gt)
+
+#         print(f"Window {start}-{end}: Video rate: {v}, Smartwatch rate: {s}, GT rate: {g}")
+
+#         try:
+#             v = float(v); s = float(s); g = float(g)
+#         except:
+#             continue
+#         if np.isnan(v) or np.isnan(s) or np.isnan(g):
+#             continue
+
+#         sw_rates.append(s)
+#         vid_rates.append(v)
+#         gt_rates.append(g)
+#     return np.array(sw_rates), np.array(vid_rates), np.array(gt_rates)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 def trim_pre_cpr(sw_rates, vid_rates, gt_rates):
     """
     Automatically finds the modal GT rate (i.e. the most frequent rate)

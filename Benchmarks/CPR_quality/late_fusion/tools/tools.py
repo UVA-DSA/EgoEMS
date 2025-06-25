@@ -81,3 +81,4 @@ def low_pass_filter(accel_magnitude, fs=30):
     smoothed_magnitude = torch.tensor(filtfilt(b, a, accel_magnitude.cpu().numpy()).copy())
 
     return smoothed_magnitude
+

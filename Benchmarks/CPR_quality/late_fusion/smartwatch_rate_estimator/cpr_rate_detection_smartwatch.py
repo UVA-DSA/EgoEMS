@@ -280,3 +280,42 @@ def get_gt_cpr_rate(gt_window):
     cpr_rate = n_cpr.item() * (60.0 / window_secs)
 
     return cpr_rate
+
+
+def get_gt_cpr_depth(gt_window):
+    # 1) Turn input into a (1, N, 3) torch tensor
+
+    print("GT Window shape:", gt_window.shape)
+    if not torch.is_tensor(gt_window):
+        data = torch.tensor(gt_window, dtype=torch.float32)
+    else:
+        data = gt_window.float()
+    if data.ndim == 2:             # (N,3) → (1,N,3)
+        data = data.unsqueeze(0)
+    elif data.ndim == 3 and data.shape[0] != 1:
+        raise ValueError("Expected window shape (N,3) or (1,N,3), got %s" % (data.shape,))
+
+    # 2) Compute per‑sample magnitude → shape (1, N)
+    accel_mag = torch.norm(data, dim=2)
+
+
+    # gt_peaks, gt_valleys = depth_tools.detect_peaks_and_valleys_depth_sensor(gt_window, mul=1, show=False)
+    # n_cpr_window_gt = (len(gt_peaks) + len(gt_valleys)) * 0.5
+
+    # peak_depths_gt = gt_window[gt_peaks]
+    # valley_depths_gt = gt_window[gt_valleys]
+    # l = min(len(peak_depths_gt), len(valley_depths_gt))
+    # gt_cpr_depth = float((peak_depths_gt[:l] - valley_depths_gt[:l]).mean()) if l > 0 else 0
+
+    # print(f"GT CPR Depth (mm): {gt_cpr_depth:.2f}")
+
+
+    #    get_avg_depth returns (avg_depths, min_depths, n_cpr)
+    avg_depths, _, n_cpr = get_avg_depth(accel_mag)
+
+    gt_cpr_depth = avg_depths.mean().item()
+
+    print(f"GT CPR Depth (mm): {gt_cpr_depth:.2f}")
+
+
+    return gt_cpr_depth
