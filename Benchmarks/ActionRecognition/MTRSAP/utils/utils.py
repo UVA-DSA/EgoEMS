@@ -78,9 +78,9 @@ def preprocess(x, modality, backbone, device, task='classification'):
         x = backbone.extract_resnet(x)
         feature = x
 
-    elif ( 'audio' in modality and  'resnet' in modality):
+    elif ( 'audio' in modality and  'resnet_ego' in modality):
         # resnet50 features are already extracted
-        resnet = x['resnet'].float()
+        resnet = x['resnet_ego'].float()
         resnet = resnet.to(device)
 
         audio = x['audio']
@@ -108,18 +108,18 @@ def preprocess(x, modality, backbone, device, task='classification'):
         rgb = x['rgb'].float()
         feature = torch.cat((flow, rgb), dim=-1).float()
 
-    elif ('resnet' in modality and 'smartwatch' in modality):
+    elif ('resnet_ego' in modality and 'smartwatch' in modality):
         # resnet50 features are already extracted
-        resnet = x['resnet'].float()
+        resnet = x['resnet_ego'].float()
         smartwatch = x['smartwatch'].float()
         # normalize smartwatch data (batch, seq_len, 3) (3 = x,y,z)
         smartwatch = (smartwatch - smartwatch.mean()) / smartwatch.std()
 
         feature = torch.cat((resnet, smartwatch), dim=-1).float()
 
-    elif ('resnet' in modality and 'resnet_exo' in modality and 'smartwatch' in modality):
+    elif ('resnet_ego' in modality and 'resnet_exo' in modality and 'smartwatch' in modality):
         # resnet50 features are already extracted
-        resnet = x['resnet'].float()
+        resnet = x['resnet_ego'].float()
         resnet_exo = x['resnet_exo'].float()
         smartwatch = x['smartwatch'].float()
         # normalize smartwatch data (batch, seq_len, 3) (3 = x,y,z)
@@ -128,20 +128,34 @@ def preprocess(x, modality, backbone, device, task='classification'):
         feature = torch.cat((resnet, resnet_exo, smartwatch), dim=-1).float()
 
 
-    elif ('resnet' in modality and 'resnet_exo' in modality):
+    elif ('resnet_ego' in modality and 'resnet_exo' in modality):
         # resnet50 features are already extracted
-        resnet = x['resnet'].float()
+        resnet = x['resnet_ego'].float()
         resnet_exo = x['resnet_exo'].float()
         feature = torch.cat((resnet, resnet_exo), dim=-1).float()
 
 
-    elif ('resnet' in modality):
+    elif ('resnet_ego' in modality):
         # resnet50 features are already extracted
-        feature = x['resnet'].float()
+        feature = x['resnet_ego'].float()
 
     elif ('resnet_exo' in modality):
         # resnet50 features are already extracted
         feature = x['resnet_exo'].float()
+
+    elif ('clip_ego' in modality):
+        # resnet50 features are already extracted
+        feature = x['clip_ego'].float()
+        # print("Clip ego feature shape: ", feature.shape)
+    elif ('clip_exo' in modality):
+        # resnet50 features are already extracted
+        feature = x['clip_exo'].float()
+        # print("Clip exo feature shape: ", feature.shape)
+
+    elif ('clip_ego' in modality and 'clip_exo' in modality):
+        # resnet50 features are already extracted
+        feature = torch.cat((x['clip_ego'].float(), x['clip_exo'].float()), dim=-1)
+        # print("Clip ego and exo feature shape: ", feature.shape)
 
     elif ('rgb' in modality):
         # I3D features are already extracted
@@ -171,7 +185,6 @@ def preprocess(x, modality, backbone, device, task='classification'):
         feature = backbone.extract_wav2vec_features(audio_clips)
         # print("Wav2Vec feature shape: ", feature.shape)
 
-        
     feature_size = feature.shape[-1]
 
     if(feature is not None):
