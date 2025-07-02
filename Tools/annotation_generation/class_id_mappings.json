@@ -41,6 +41,7 @@
         "review_medications": 38,
         "inquire_medication_anticoagulants": 39,
         "inquire_hpi_and_pmh": 40,
+        "document_hpi_and_pmh": 40,
         "inquire_substance_use": 41,
         "notify_hospital_of_stroke_alert": 42,
         "check_blood_pressure": 43,

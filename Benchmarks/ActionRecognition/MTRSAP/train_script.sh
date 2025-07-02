@@ -18,7 +18,7 @@ module purge &&
 module load miniforge  &&
 source /home/cjh9fw/.bashrc  &&
 echo "$HOSTNAME" &&
-conda activate egoexoems &&
+conda activate egoems &&
 python -u train_recognition.py --job_id "$SLURM_JOB_ID" &&
 echo "Done" &&
 exit

@@ -8,6 +8,9 @@ from scripts.config import DefaultArgsNamespace
 import torchvision.models as models
 import torchaudio.transforms as transforms
 
+# NEW: Add these two lines to import wav2vec
+from transformers import Wav2Vec2Processor, Wav2Vec2Model
+
 class PositionalEncoding(nn.Module):
 
     def __init__(self, d_model, dropout=0.1, max_len=5000):
@@ -184,6 +187,12 @@ class TransformerModel(nn.Module):
         self.projection_layer = nn.Linear(args.transformer_params['n_mels'], args.transformer_params['input_dim'] )
         self.projection_layer_multimodal = nn.Linear(args.transformer_params['n_mels'], args.transformer_params['resnet_dim'] )
 
+        # NEW: Initialize wav2vec processor and model
+        self.wav2vec_processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-base-960h")
+        self.wav2vec_model = Wav2Vec2Model.from_pretrained("facebook/wav2vec2-base-960h")
+        # Ensure wav2vec model is in evaluation mode
+        self.wav2vec_model.eval()
+
         
     def extract_resnet(self, x):
         # check the shape of the input tensor
@@ -219,6 +228,51 @@ class TransformerModel(nn.Module):
             feature = self.projection_layer(feature)
         return feature
 
+
+            # NEW: Add wav2vec feature extraction
+    def extract_wav2vec_features(self, waveform):
+        """
+        waveform: Tensor of shape [batch_size, num_samples, channels]
+        Converts to mono, preprocesses on CPU, runs Wav2Vec2 fully on GPU.
+        """
+        # print("Input shape:", waveform.shape)
+
+        # Ensure CPU for preprocessing
+        waveform_cpu = waveform.cpu()
+
+        # Convert stereo → mono
+        if waveform_cpu.shape[-1] == 2:
+            waveform_cpu = waveform_cpu.mean(dim=-1)
+        elif waveform_cpu.ndim == 3:
+            waveform_cpu = waveform_cpu.squeeze(-1)
+
+        # print("Converted mono shape:", waveform_cpu.shape)
+
+        # Convert batch tensor [B, T] → list of numpy arrays
+        wave_list = [waveform_cpu[i].detach().numpy() for i in range(waveform_cpu.shape[0])]
+
+        # Process on CPU, but prepare to move to GPU next
+        with torch.no_grad():
+            inputs = self.wav2vec_processor(
+                wave_list, sampling_rate=16000, return_tensors="pt", padding=True
+            )
+            # print("Processed input_values shape:", inputs.input_values.shape)
+
+            # Move to GPU
+            inputs_device = inputs.input_values.to("cuda")
+
+            # Move model to GPU if not already
+            self.wav2vec_model = self.wav2vec_model.to("cuda")
+
+            # 💥 IMPORTANT: Set eval AFTER moving
+            self.wav2vec_model.eval()
+
+            outputs = self.wav2vec_model(inputs_device)
+
+            features = outputs.last_hidden_state
+
+        # print("Extracted Wav2Vec2 features:", features.shape)
+        return features
 
     def forward(self, x):
         

@@ -151,19 +151,26 @@ def preprocess(x, modality, backbone, device, task='classification'):
         # I3D features are already extracted
         feature = x['flow'].float()
 
-    elif ('audio' in modality):
-        # Audio features are already extracted
+    # elif ('audio' in modality):
+    #     # Audio features are already extracted
 
-        # Example batch of audio clips (batch, samples, channels)
-        audio_clips = x['audio']  # Assume shape [batch, samples, channels]
-        audio_clips = audio_clips.to(device)
-        feature = backbone.extract_mel_spectrogram(audio_clips)
+    #     # Example batch of audio clips (batch, samples, channels)
+    #     audio_clips = x['audio']  # Assume shape [batch, samples, channels]
+    #     audio_clips = audio_clips.to(device)
+    #     feature = backbone.extract_mel_spectrogram(audio_clips)
 
     elif ('smartwatch' in modality):
         # Audio features are already extracted
         smartwatch = x['smartwatch'].float()
         smartwatch = (smartwatch - smartwatch.mean()) / smartwatch.std()
         feature = smartwatch
+
+    elif ('audio' in modality): # uncomment this if you want to use wav2vec features
+        audio_clips = x['audio']  # Assume shape [batch, samples, channels]
+        audio_clips = audio_clips.to(device)
+        feature = backbone.extract_wav2vec_features(audio_clips)
+        # print("Wav2Vec feature shape: ", feature.shape)
+
         
     feature_size = feature.shape[-1]
 
@@ -485,15 +492,15 @@ def eee_get_dataloaders(args):
 
         train_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
         val_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
         test_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
 
         train_class_stats = train_dataset._get_class_stats()
@@ -521,15 +528,15 @@ def eee_get_dataloaders(args):
         
         train_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
         val_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
         test_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
         train_class_stats = train_dataset._get_class_stats()
         print("Train class stats: ", train_class_stats)

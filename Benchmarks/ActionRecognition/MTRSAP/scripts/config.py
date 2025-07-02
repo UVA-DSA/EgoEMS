@@ -50,18 +50,21 @@ learning_params = {
 
 dataloader_params = {
     
-    "task": "segmentation", # "segmentation" or "classification"
+    "task": "classification", # "segmentation" or "classification"
     "batch_size": 1,
-    "observation_window": 120,
+    "observation_window": 150,  # 5 seconds at 30 fps
     "fold": 1,
     "fps": 29.97,
     # update task specific parameters (Experimenting segmentation with classification annotations)
-    "train_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/train_split_segmentation.json',
-    "val_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/val_split_segmentation.json',
-    "test_annotation_path": '/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split_segmentation.json',
+    # "train_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/train_split_classification.json',
+    # "val_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/val_split_classification.json',
+    # "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split_classification.json',
+    "train_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_classification.json',
+    "val_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_classification.json',
+    "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_classification.json',
     # Old dataset class
-    'base_path': '/scratch/cjh9fw/Rivanna/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
-    'modality': [ 'resnet','smartwatch'],
+    'base_path': '/home/cjh9fw/Desktop/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
+    'modality': [ 'resnet'],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
                     "check_responsiveness": "Check for responsiveness",
@@ -97,7 +100,37 @@ dataloader_params = {
                     "turn_on_ecg": "Turn on the ECG machine",
                     "connect_leads_to_ecg": "Verify all ECG leads are properly connected",
                     "obtain_ecg_recording": "Obtain the ECG recording",
-                    "interpret_and_report": "Interpret the ECG and report findings"
+                    "interpret_and_report": "Interpret the ECG and report findings",
+                    "transport": "Transport the patient to the hospital",
+                    "check_grip_strength": "Check grip strength",
+                    "check_symptom_duration": "Check symptom duration",
+                    "review_medications": "Review medications",
+                    "inquire_medication_anticoagulants": "Inquire about anticoagulant medications",
+                    "inquire_hpi_and_pmh": "Inquire about HPI and PMH",
+                    "inquire_substance_use": "Inquire about substance use",
+                    "notify_hospital_of_stroke_alert": "Notify hospital of stroke alert",
+                    "check_blood_pressure": "Check blood pressure",
+                    "check_heart_rate": "Check heart rate",
+                    "check_oxygen_saturation": "Check oxygen saturation",
+                    "check_respiratory_rate": "Check respiratory rate",
+                    "face_droop_check": "Check for facial droop",
+                    "arm_drift_check": "Check for arm drift",
+                    "speech_abnormality_check": "Check for speech abnormalities",
+                    "assess_balance_and_coordination": "Assess balance and coordination",
+                    "document_lkw_time": "Document last known well time",
+                    "check_vision_deficits": "Check for vision deficits",
+                    "evaluate_aphasia": "Evaluate for aphasia",
+                    "assess_neglect_signs": "Assess for neglect signs",
+                    "prepare_glucometer_and_strip": "Prepare glucometer and test strip",
+                    "read_and_record_glucose_level": "Read and record glucose level",
+                    "suction_airway": "Suction airway",
+                    "inset_NPA": "Insert NPA",
+                    "load_patient_to_stretcher": "Load patient to stretcher",
+                    "secure_patient_on_stretcher": "Secure patient on stretcher",
+                    "handoff_patient_to_hospital": "Handoff patient to hospital staff",
+                    "check_perrl": "Check PERRL",
+                    "check_skin_condition": "Check skin condition",
+                    "check_a&o": "Check A&O"
                 },
             "train_class_stats": {},
             "val_class_stats": {}
