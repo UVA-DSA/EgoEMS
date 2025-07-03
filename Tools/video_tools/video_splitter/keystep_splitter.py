@@ -50,8 +50,8 @@ if not os.path.exists(dataset_root):
     os.makedirs(dataset_root)
 
 # Function to create a unique ID for each clip
-def create_clip_id(subject, trial, keystep, start_t, end_t, view):
-    return f"{subject}_t{trial}_ks{keystep}_{start_t:.3f}_{end_t:.3f}_{view}"
+def create_clip_id(subject, scenario, trial, keystep, start_t, end_t, view):
+    return f"{subject}_{scenario}_t{trial}_ks{keystep}_{start_t:.3f}_{end_t:.3f}_{view}"
 
 # Iterate over each subject and trial
 print(f"{'='*60}")
@@ -62,75 +62,81 @@ for subject_data in data['subjects']:
     print(f"{'*'*60}")
     print(f"[INFO] Processing subject: {subject_id}")
     
-    for trial_data in subject_data['trials']:
-        trial_id = trial_data['trial_id']
-        print(f"  [INFO] Processing trial: {trial_id}")
-        
-        video_paths = []
+    for scenario in subject_data['scenarios']:
+        scenario_id = scenario['scenario_id']
+        print(f"  [INFO] Processing scenario: {scenario_id}")
 
-        # Determine video paths based on view
-        if view == 'ego':
-            video_path = trial_data['streams']['egocam_rgb_audio']['file_path']
-            video_paths.append((video_path, "ego"))
-        elif view == 'exo':
-            video_path = trial_data['streams']['exocam_rgbd']['file_path']
-            video_paths.append((video_path, "exo"))
-        elif view == 'ego+exo':  # Extract both ego and exo video clips
-            video_paths.append((trial_data['streams']['egocam_rgb_audio']['file_path'], "ego"))
-            video_paths.append((trial_data['streams']['exocam_rgbd']['file_path'], "exo"))
+        for trial_data in scenario['trials']:
+            trial_id = trial_data['trial_id']
+            print(f"  [INFO] Processing trial: {trial_id}")
+            
+            video_paths = []
 
-        # Process each keystep
-        for keystep in trial_data['keysteps']:
-            label = keystep['label']
-            start_t = keystep['start_t']
-            end_t = keystep['end_t']
-            keystep_id = keystep['class_id']
+            try:
+                # Determine video paths based on view
+                if view == 'ego':
+                    video_path = trial_data['streams']['egocam_rgb_audio']['file_path']
+                    video_paths.append((video_path, "ego"))
+                elif view == 'exo':
+                    video_path = trial_data['streams']['exocam_rgbd']['file_path']
+                    video_paths.append((video_path, "exo"))
+                elif view == 'ego+exo':  # Extract both ego and exo video clips
+                    video_paths.append((trial_data['streams']['egocam_rgb_audio']['file_path'], "ego"))
+                    video_paths.append((trial_data['streams']['exocam_rgbd']['file_path'], "exo"))
 
-            for video_path, current_view in video_paths:
-                print(f"{'='*60}")
+            except KeyError as e:
+                print(f"[ERROR] Missing modality in trial data for subject {subject_id}, scenario {scenario_id}, trial {trial_id}: {e}")
+                continue
+            
+            # Process each keystep
+            for keystep in trial_data['keysteps']:
+                label = keystep['label']
+                start_t = keystep['start_t']
+                end_t = keystep['end_t']
+                keystep_id = keystep['class_id']
 
-                clip_id = create_clip_id(subject_id, trial_id, keystep_id, start_t, end_t, current_view)
-                
-                # Output directory based on label
-                output_dir = os.path.join(dataset_root, label)
-                if not os.path.exists(output_dir):
-                    print(f"    [INFO] Creating directory for label '{label}': {output_dir}")
-                    os.makedirs(output_dir)
+                for video_path, current_view in video_paths:
+                    print(f"{'='*60}")
 
-                # Output file path for the clip
-                output_clip = os.path.join(output_dir, f"{clip_id}.mp4")
+                    clip_id = create_clip_id(subject_id, scenario_id, trial_id, keystep_id, start_t, end_t, current_view)
+                    
+                    # Output directory based on label
+                    output_dir = os.path.join(dataset_root, label)
+                    if not os.path.exists(output_dir):
+                        print(f"    [INFO] Creating directory for label '{label}': {output_dir}")
+                        os.makedirs(output_dir)
 
-                # Check if the clip already exists
-                if os.path.exists(output_clip):
-                    print(f"    [INFO] Clip already exists: {output_clip}")
-                    continue
+                    # Output file path for the clip
+                    output_clip = os.path.join(output_dir, f"{clip_id}.mp4")
 
-                print(f"    [INFO] Generating clip for view: {current_view}, label: {label}, subject: {subject_id}, trial: {trial_id}, keystep: {keystep_id}")
-                
-                # FFmpeg command to extract the clip
-                ffmpeg_command = [
-                    'ffmpeg',
-                    '-ss', str(start_t),  # Start time
-                    '-to', str(end_t),    # End time
-                    '-i', video_path,     # Input video
-                    '-c:v', 'libx264',    # Re-encode the video using H.264 to ensure proper extraction
-                    '-c:a', 'aac',        # Re-encode audio to AAC
-                    '-strict', 'experimental',  # Enable experimental features if needed
-                    '-y',  # Overwrite output if exists
-                    output_clip  # Output clip
-                ]
-                # Uncomment to execute FFmpeg command
-                subprocess.run(ffmpeg_command)
-                print(f"    [INFO] FFmpeg command: {' '.join(ffmpeg_command)}")
+                    # Check if the clip already exists
+                    if os.path.exists(output_clip):
+                        print(f"    [INFO] Clip already exists: {output_clip}")
+                        continue
 
-
-  
-                print(f"    [INFO] Generated clip: {output_clip}")
+                    print(f"    [INFO] Generating clip for view: {current_view}, label: {label}, subject: {subject_id}, trial: {trial_id}, keystep: {keystep_id}")
+                    
+                    # FFmpeg command to extract the clip
+                    ffmpeg_command = [
+                        'ffmpeg',
+                        '-ss', str(start_t),  # Start time
+                        '-to', str(end_t),    # End time
+                        '-i', video_path,     # Input video
+                        '-c:v', 'libx264',    # Re-encode the video using H.264 to ensure proper extraction
+                        '-c:a', 'aac',        # Re-encode audio to AAC
+                        '-strict', 'experimental',  # Enable experimental features if needed
+                        '-y',  # Overwrite output if exists
+                        output_clip  # Output clip
+                    ]
+                    # Uncomment to execute FFmpeg command
+                    subprocess.run(ffmpeg_command)
+                    print(f"    [INFO] FFmpeg command: {' '.join(ffmpeg_command)}")
+                    print(f"    [INFO] Generated clip: {output_clip}")
+                    # break
                 # break
+            print(f"{'*'*60}\n")
             # break
-        print(f"{'*'*60}\n")
         # break
-    # break
 
 print(f"{'='*60}")
 print("[INFO] All clips have been generated.")

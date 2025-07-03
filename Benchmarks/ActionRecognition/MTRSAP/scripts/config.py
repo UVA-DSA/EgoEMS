@@ -50,7 +50,7 @@ learning_params = {
 
 dataloader_params = {
     
-    "task": "classification", # "segmentation" or "classification"
+    "task": "segmentation", # "segmentation" or "classification"
     "batch_size": 1,
     "observation_window": 150,  # 5 seconds at 30 fps
     "fold": 1,
@@ -59,12 +59,12 @@ dataloader_params = {
     # "train_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/train_split_classification.json',
     # "val_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/val_split_classification.json',
     # "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split_classification.json',
-    "train_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_classification.json',
-    "val_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_classification.json',
-    "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_classification.json',
+    "train_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_segmentation.json',
+    "val_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_segmentation.json',
+    "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_segmentation.json',
     # Old dataset class
     'base_path': '/home/cjh9fw/Desktop/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
-    'modality': [ 'resnet_ego'],
+    'modality': [ 'flow', 'rgb'],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
                     "check_responsiveness": "Check for responsiveness",

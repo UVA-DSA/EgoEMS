@@ -1,0 +1,1389 @@
+{
+    "subjects": [
+        {
+            "subject_id": "P0",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s3",
+                            "streams": {
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P0/cardiac_arrest/s3/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "exocam_rgbd": [],
+                                "clip_ego": {
+                                    "file_id": "P0_s3_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P0/cardiac_arrest/s3/clip_ego/P0_s3_ego_clip.npy"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P0_s3_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P0/cardiac_arrest/s3/clip_exo/P0_s3_exo_clip.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P0/cardiac_arrest/s3/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GH010245_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P0/cardiac_arrest/s3/ego/GH010245_trimmed_720p_deidentified.mp4"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 61.400000000000006,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P1",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s7",
+                            "streams": {
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P1/cardiac_arrest/s7/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P1/cardiac_arrest/s7/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P1_s7_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P1/cardiac_arrest/s7/clip_exo/P1_s7_exo_clip.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P1_s7_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P1/cardiac_arrest/s7/clip_ego/P1_s7_ego_clip.npy"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GH010030_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P1/cardiac_arrest/s7/ego/GH010030_trimmed_720p_deidentified.mp4"
+                                },
+                                "exocam_rgbd": []
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 60.266666666666666,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P11",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s7",
+                            "streams": {
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P11/cardiac_arrest/s7/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "exocam_rgbd": [],
+                                "clip_exo": {
+                                    "file_id": "P11_s7_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P11/cardiac_arrest/s7/clip_exo/P11_s7_exo_clip.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P11_s7_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P11/cardiac_arrest/s7/clip_ego/P11_s7_ego_clip.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P11/cardiac_arrest/s7/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GH010128_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P11/cardiac_arrest/s7/ego/GH010128_trimmed_720p_deidentified.mp4"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 58.5,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P12",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s5",
+                            "streams": {
+                                "egocam_rgb_audio": {
+                                    "file_id": "GH010137_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P12/cardiac_arrest/s5/ego/GH010137_trimmed_720p_deidentified.mp4"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P12_s5_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P12/cardiac_arrest/s5/clip_ego/P12_s5_ego_clip.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P12/cardiac_arrest/s5/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "exocam_rgbd": [],
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P12/cardiac_arrest/s5/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P12_s5_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P12/cardiac_arrest/s5/clip_exo/P12_s5_exo_clip.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 63.3,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P15",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s5",
+                            "streams": {
+                                "clip_ego": {
+                                    "file_id": "P15_s5_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P15/cardiac_arrest/s5/clip_ego/P15_s5_ego_clip.npy"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P15_s5_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P15/cardiac_arrest/s5/clip_exo/P15_s5_exo_clip.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P15/cardiac_arrest/s5/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P15/cardiac_arrest/s5/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "exocam_rgbd": [],
+                                "egocam_rgb_audio": {
+                                    "file_id": "GH010165_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P15/cardiac_arrest/s5/ego/GH010165_trimmed_720p_deidentified.mp4"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 62.13333333333334,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P20",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s9",
+                            "streams": {
+                                "clip_ego": {
+                                    "file_id": "P20_s9_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P20/cardiac_arrest/s9/clip_ego/P20_s9_ego_clip.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P20/cardiac_arrest/s9/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P20/cardiac_arrest/s9/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P20_s9_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P20/cardiac_arrest/s9/clip_exo/P20_s9_exo_clip.npy"
+                                },
+                                "exocam_rgbd": [],
+                                "egocam_rgb_audio": {
+                                    "file_id": "GH010211_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P20/cardiac_arrest/s9/ego/GH010211_trimmed_720p_deidentified.mp4"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 65.83333333333333,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P21",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s6",
+                            "streams": {
+                                "egocam_rgb_audio": {
+                                    "file_id": "GH010220_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P21/cardiac_arrest/s6/ego/GH010220_trimmed_720p_deidentified.mp4"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P21_s6_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P21/cardiac_arrest/s6/clip_exo/P21_s6_exo_clip.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P21/cardiac_arrest/s6/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P21/cardiac_arrest/s6/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P21_s6_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P21/cardiac_arrest/s6/clip_ego/P21_s6_ego_clip.npy"
+                                },
+                                "exocam_rgbd": []
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 66.56666666666666,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P22",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s3",
+                            "streams": {
+                                "clip_exo": {
+                                    "file_id": "P22_s3_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P22/cardiac_arrest/s3/clip_exo/P22_s3_exo_clip.npy"
+                                },
+                                "exocam_rgbd": [],
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P22/cardiac_arrest/s3/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P22_s3_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P22/cardiac_arrest/s3/clip_ego/P22_s3_ego_clip.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P22/cardiac_arrest/s3/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GH010226_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P22/cardiac_arrest/s3/ego/GH010226_trimmed_720p_deidentified.mp4"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 65.3,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P3",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s1",
+                            "streams": {
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P3/cardiac_arrest/s1/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P3/cardiac_arrest/s1/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P3_s1_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P3/cardiac_arrest/s1/clip_ego/P3_s1_ego_clip.npy"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GH010042_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P3/cardiac_arrest/s1/ego/GH010042_trimmed_720p_deidentified.mp4"
+                                },
+                                "exocam_rgbd": [],
+                                "clip_exo": {
+                                    "file_id": "P3_s1_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P3/cardiac_arrest/s1/clip_exo/P3_s1_exo_clip.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 72.13333333333334,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P4",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s3",
+                            "streams": {
+                                "egocam_rgb_audio": {
+                                    "file_id": "GH010053_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P4/cardiac_arrest/s3/ego/GH010053_trimmed_720p_deidentified.mp4"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P4_s3_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P4/cardiac_arrest/s3/clip_ego/P4_s3_ego_clip.npy"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P4_s3_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P4/cardiac_arrest/s3/clip_exo/P4_s3_exo_clip.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P4/cardiac_arrest/s3/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "exocam_rgbd": [],
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P4/cardiac_arrest/s3/smartwatch_data/sync_smartwatch.csv"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 66.4,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P5",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s9",
+                            "streams": {
+                                "exocam_rgbd": [],
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P5/cardiac_arrest/s9/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P5/cardiac_arrest/s9/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GH010067_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P5/cardiac_arrest/s9/ego/GH010067_trimmed_720p_deidentified.mp4"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P5_s9_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P5/cardiac_arrest/s9/clip_exo/P5_s9_exo_clip.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P5_s9_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P5/cardiac_arrest/s9/clip_ego/P5_s9_ego_clip.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 60.53333333333333,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P7",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s7",
+                            "streams": {
+                                "clip_ego": {
+                                    "file_id": "P7_s7_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P7/cardiac_arrest/s7/clip_ego/P7_s7_ego_clip.npy"
+                                },
+                                "exocam_rgbd": [],
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P7/cardiac_arrest/s7/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P7_s7_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P7/cardiac_arrest/s7/clip_exo/P7_s7_exo_clip.npy"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GH010084_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P7/cardiac_arrest/s7/ego/GH010084_trimmed_720p_deidentified.mp4"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/P7/cardiac_arrest/s7/distance_sensor_data/sync_depth_sensor.csv"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 58.36666666666666,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "ms1",
+            "expertise_level": "EMT",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "4",
+                            "streams": {
+                                "resnet_exo": {
+                                    "file_id": "ms1_t4_trimmed_final_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms1/cardiac_arrest/4/resnet_exo/ms1_t4_trimmed_final_resnet.npy"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GX010400_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms1/cardiac_arrest/4/ego/GX010400_trimmed_720p_deidentified.mp4"
+                                },
+                                "audio": {
+                                    "file_id": "GX010400_encoded_trimmed_gemini_timestamped_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms1/cardiac_arrest/4/audio/GX010400_encoded_trimmed_gemini_timestamped_deidentified.mp3"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ms1_4_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms1/cardiac_arrest/4/clip_exo/ms1_4_exo_clip.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "GX010400_encoded_trimmed_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms1/cardiac_arrest/4/resnet_ego/GX010400_encoded_trimmed_resnet.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms1/cardiac_arrest/4/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ms1_4_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms1/cardiac_arrest/4/clip_ego/ms1_4_ego_clip.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms1/cardiac_arrest/4/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "exocam_rgbd": []
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "9_bMDYvk5g",
+                                    "start_t": 12.523,
+                                    "end_t": 87.62901,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "ms2",
+            "expertise_level": "EMT",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "0",
+                            "streams": {
+                                "audio": {
+                                    "file_id": "GX010395_encoded_trimmed_gemini_timestamped_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms2/cardiac_arrest/0/audio/GX010395_encoded_trimmed_gemini_timestamped_deidentified.mp3"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GX010395_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms2/cardiac_arrest/0/ego/GX010395_trimmed_720p_deidentified.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ms2_t0_trimmed_final_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms2/cardiac_arrest/0/resnet_exo/ms2_t0_trimmed_final_resnet.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms2/cardiac_arrest/0/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ms2_0_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms2/cardiac_arrest/0/clip_ego/ms2_0_ego_clip.npy"
+                                },
+                                "exocam_rgbd": [],
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms2/cardiac_arrest/0/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "GX010395_encoded_trimmed_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms2/cardiac_arrest/0/resnet_ego/GX010395_encoded_trimmed_resnet.npy"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ms2_0_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ms2/cardiac_arrest/0/clip_exo/ms2_0_exo_clip.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "11_0O5zdYcX",
+                                    "start_t": 9.153,
+                                    "end_t": 49.85542,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "11_NPl8B4nJ",
+                                    "start_t": 70.523,
+                                    "end_t": 90.17118,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "11_lttbXtzk",
+                                    "start_t": 95.369,
+                                    "end_t": 115.42504,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "11_1NGAMZed",
+                                    "start_t": 119.043,
+                                    "end_t": 138.64575,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "ng3",
+            "expertise_level": "EMT",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "6",
+                            "streams": {
+                                "exocam_rgbd": [],
+                                "clip_exo": {
+                                    "file_id": "ng3_6_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/6/clip_exo/ng3_6_exo_clip.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng3_6_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/6/clip_ego/ng3_6_ego_clip.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/6/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "GX010365_encoded_trimmed_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/6/resnet_ego/GX010365_encoded_trimmed_resnet.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/6/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "audio": {
+                                    "file_id": "GX010365_encoded_trimmed_gemini_timestamped_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/6/audio/GX010365_encoded_trimmed_gemini_timestamped_deidentified.mp3"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GX010365_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/6/ego/GX010365_trimmed_720p_deidentified.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng3_t6_trimmed_final_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/6/resnet_exo/ng3_t6_trimmed_final_resnet.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_tSNqSVeX",
+                                    "start_t": 14.37726,
+                                    "end_t": 30.87642,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_i0M7iXps",
+                                    "start_t": 38.50226,
+                                    "end_t": 53.71059,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_LDgBARg3",
+                                    "start_t": 93.91892,
+                                    "end_t": 110.04392,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        },
+                        {
+                            "trial_id": "2",
+                            "streams": {
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/2/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng3_2_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/2/clip_ego/ng3_2_ego_clip.npy"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng3_2_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/2/clip_exo/ng3_2_exo_clip.npy"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GX010334_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/2/ego/GX010334_trimmed_720p_deidentified.mp4"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/2/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "exocam_rgbd": [],
+                                "resnet_exo": {
+                                    "file_id": "ng3_t2_trimmed_final_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/2/resnet_exo/ng3_t2_trimmed_final_resnet.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "GX010334_encoded_trimmed_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/2/resnet_ego/GX010334_encoded_trimmed_resnet.npy"
+                                },
+                                "audio": {
+                                    "file_id": "GX010334_encoded_trimmed_gemini_timestamped_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng3/cardiac_arrest/2/audio/GX010334_encoded_trimmed_gemini_timestamped_deidentified.mp3"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "5_ZjV1uCip",
+                                    "start_t": 16.923,
+                                    "end_t": 31.75026,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "5_xAVIWusP",
+                                    "start_t": 38.941,
+                                    "end_t": 54.18773,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "5_ijOXiXU6",
+                                    "start_t": 107.606,
+                                    "end_t": 122.44513,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "5_3oB8Xxm0",
+                                    "start_t": 128.949,
+                                    "end_t": 144.11994,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "ng4",
+            "expertise_level": "EMT",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "4",
+                            "streams": {
+                                "clip_ego": {
+                                    "file_id": "ng4_4_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng4/cardiac_arrest/4/clip_ego/ng4_4_ego_clip.npy"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng4_4_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng4/cardiac_arrest/4/clip_exo/ng4_4_exo_clip.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng4/cardiac_arrest/4/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GX010357_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng4/cardiac_arrest/4/ego/GX010357_trimmed_720p_deidentified.mp4"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng4/cardiac_arrest/4/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "audio": {
+                                    "file_id": "GX010357_encoded_trimmed_gemini_timestamped_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng4/cardiac_arrest/4/audio/GX010357_encoded_trimmed_gemini_timestamped_deidentified.mp3"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "GX010357_encoded_trimmed_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng4/cardiac_arrest/4/resnet_ego/GX010357_encoded_trimmed_resnet.npy"
+                                },
+                                "exocam_rgbd": [],
+                                "resnet_exo": {
+                                    "file_id": "ng4_t4_trimmed_final_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng4/cardiac_arrest/4/resnet_exo/ng4_t4_trimmed_final_resnet.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_wElR9icx",
+                                    "start_t": 11.10642,
+                                    "end_t": 27.35642,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_79nxXPDk",
+                                    "start_t": 81.34108,
+                                    "end_t": 97.17108,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_eazJGIq1",
+                                    "start_t": 103.49108,
+                                    "end_t": 119.42108,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "ng5",
+            "expertise_level": "EMT",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "4",
+                            "streams": {
+                                "resnet_ego": {
+                                    "file_id": "GX010320_encoded_trimmed_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/4/resnet_ego/GX010320_encoded_trimmed_resnet.npy"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng5_4_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/4/clip_exo/ng5_4_exo_clip.npy"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng5_t4_trimmed_final_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/4/resnet_exo/ng5_t4_trimmed_final_resnet.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng5_4_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/4/clip_ego/ng5_4_ego_clip.npy"
+                                },
+                                "audio": {
+                                    "file_id": "GX010320_encoded_trimmed_gemini_timestamped_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/4/audio/GX010320_encoded_trimmed_gemini_timestamped_deidentified.mp3"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/4/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GX010320_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/4/ego/GX010320_trimmed_720p_deidentified.mp4"
+                                },
+                                "exocam_rgbd": [],
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/4/smartwatch_data/sync_smartwatch.csv"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "8_Uc0aU8Qj",
+                                    "start_t": 18.385,
+                                    "end_t": 32.75452,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "8_wDcV3hRC",
+                                    "start_t": 71.493,
+                                    "end_t": 85.75903,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "8_o2K5iA15",
+                                    "start_t": 94.569,
+                                    "end_t": 108.49432,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        },
+                        {
+                            "trial_id": "16",
+                            "streams": {
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/16/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "GX010368_encoded_trimmed_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/16/resnet_ego/GX010368_encoded_trimmed_resnet.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/16/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "audio": {
+                                    "file_id": "GX010368_encoded_trimmed_gemini_timestamped_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/16/audio/GX010368_encoded_trimmed_gemini_timestamped_deidentified.mp3"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng5_t16_trimmed_final_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/16/resnet_exo/ng5_t16_trimmed_final_resnet.npy"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng5_16_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/16/clip_exo/ng5_16_exo_clip.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng5_16_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/16/clip_ego/ng5_16_ego_clip.npy"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GX010368_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/16/ego/GX010368_trimmed_720p_deidentified.mp4"
+                                },
+                                "exocam_rgbd": []
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_zqZf7W8Z",
+                                    "start_t": 14.191,
+                                    "end_t": 29.15259,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_JnXsnFw9",
+                                    "start_t": 90.671,
+                                    "end_t": 105.97444,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_FDv5FdmV",
+                                    "start_t": 113.267,
+                                    "end_t": 127.8919,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        },
+                        {
+                            "trial_id": "10",
+                            "streams": {
+                                "resnet_ego": {
+                                    "file_id": "GX010331_encoded_trimmed_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/10/resnet_ego/GX010331_encoded_trimmed_resnet.npy"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GX010331_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/10/ego/GX010331_trimmed_720p_deidentified.mp4"
+                                },
+                                "audio": {
+                                    "file_id": "GX010331_encoded_trimmed_gemini_timestamped_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/10/audio/GX010331_encoded_trimmed_gemini_timestamped_deidentified.mp3"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng5_t10_trimmed_final_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/10/resnet_exo/ng5_t10_trimmed_final_resnet.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/10/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/10/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng5_10_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/10/clip_exo/ng5_10_exo_clip.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng5_10_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/10/clip_ego/ng5_10_ego_clip.npy"
+                                },
+                                "exocam_rgbd": []
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "6_KfT4mbXl",
+                                    "start_t": 16.749,
+                                    "end_t": 31.67118,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "6_HKQxpWPk",
+                                    "start_t": 71.202,
+                                    "end_t": 89.92012,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "6_FlM9zqMZ",
+                                    "start_t": 98.933,
+                                    "end_t": 115.59316,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        },
+                        {
+                            "trial_id": "15",
+                            "streams": {
+                                "clip_ego": {
+                                    "file_id": "ng5_15_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/15/clip_ego/ng5_15_ego_clip.npy"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GX010354_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/15/ego/GX010354_trimmed_720p_deidentified.mp4"
+                                },
+                                "audio": {
+                                    "file_id": "GX010354_encoded_trimmed_gemini_timestamped_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/15/audio/GX010354_encoded_trimmed_gemini_timestamped_deidentified.mp3"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng5_t15_trimmed_final_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/15/resnet_exo/ng5_t15_trimmed_final_resnet.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "GX010354_encoded_trimmed_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/15/resnet_ego/GX010354_encoded_trimmed_resnet.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/15/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng5_15_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/15/clip_exo/ng5_15_exo_clip.npy"
+                                },
+                                "exocam_rgbd": [],
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng5/cardiac_arrest/15/distance_sensor_data/sync_depth_sensor.csv"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_QdKe9cVa",
+                                    "start_t": 13.79392,
+                                    "end_t": 28.50226,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_5fHM3A7a",
+                                    "start_t": 89.54392,
+                                    "end_t": 104.04392,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_MjT0c7VS",
+                                    "start_t": 111.455,
+                                    "end_t": 126.89809,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "ng6",
+            "expertise_level": "EMT",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "2",
+                            "streams": {
+                                "resnet_ego": {
+                                    "file_id": "GX010360_encoded_trimmed_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng6/cardiac_arrest/2/resnet_ego/GX010360_encoded_trimmed_resnet.npy"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GX010360_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng6/cardiac_arrest/2/ego/GX010360_trimmed_720p_deidentified.mp4"
+                                },
+                                "audio": {
+                                    "file_id": "GX010360_encoded_trimmed_gemini_timestamped_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng6/cardiac_arrest/2/audio/GX010360_encoded_trimmed_gemini_timestamped_deidentified.mp3"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng6/cardiac_arrest/2/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng6_t2_trimmed_final_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng6/cardiac_arrest/2/resnet_exo/ng6_t2_trimmed_final_resnet.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng6_2_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng6/cardiac_arrest/2/clip_ego/ng6_2_ego_clip.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng6/cardiac_arrest/2/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "exocam_rgbd": [],
+                                "clip_exo": {
+                                    "file_id": "ng6_2_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng6/cardiac_arrest/2/clip_exo/ng6_2_exo_clip.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_EKo7M6QC",
+                                    "start_t": 13.25226,
+                                    "end_t": 30.79392,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_zrfYyQlG",
+                                    "start_t": 77.75226,
+                                    "end_t": 97.58559,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "ng8",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "5",
+                            "streams": {
+                                "resnet_exo": {
+                                    "file_id": "ng8_t5_trimmed_final_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/5/resnet_exo/ng8_t5_trimmed_final_resnet.npy"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng8_5_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/5/clip_exo/ng8_5_exo_clip.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/5/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GX010361_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/5/ego/GX010361_trimmed_720p_deidentified.mp4"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/5/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng8_5_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/5/clip_ego/ng8_5_ego_clip.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "GX010361_encoded_trimmed_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/5/resnet_ego/GX010361_encoded_trimmed_resnet.npy"
+                                },
+                                "exocam_rgbd": [],
+                                "audio": {
+                                    "file_id": "GX010361_encoded_trimmed_gemini_timestamped_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/5/audio/GX010361_encoded_trimmed_gemini_timestamped_deidentified.mp3"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_HOqGbiea",
+                                    "start_t": 3.79392,
+                                    "end_t": 21.60642,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_UjFLxTMa",
+                                    "start_t": 72.60642,
+                                    "end_t": 91.83559,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_kLQc6Arf",
+                                    "start_t": 100.60642,
+                                    "end_t": 115.54392,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        },
+                        {
+                            "trial_id": "3",
+                            "streams": {
+                                "resnet_exo": {
+                                    "file_id": "ng8_t3_trimmed_final_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/3/resnet_exo/ng8_t3_trimmed_final_resnet.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "sync_smartwatch",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/3/smartwatch_data/sync_smartwatch.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "GX010324_trimmed_720p_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/3/ego/GX010324_trimmed_720p_deidentified.mp4"
+                                },
+                                "audio": {
+                                    "file_id": "GX010324_encoded_trimmed_gemini_timestamped_deidentified",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/3/audio/GX010324_encoded_trimmed_gemini_timestamped_deidentified.mp3"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng8_3_exo_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/3/clip_exo/ng8_3_exo_clip.npy"
+                                },
+                                "exocam_rgbd": [],
+                                "clip_ego": {
+                                    "file_id": "ng8_3_ego_clip",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/3/clip_ego/ng8_3_ego_clip.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "sync_depth_sensor",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/3/distance_sensor_data/sync_depth_sensor.csv"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "GX010324_encoded_trimmed_resnet",
+                                    "file_path": "/scratch/cjh9fw/aaai_2026_test/ng8/cardiac_arrest/3/resnet_ego/GX010324_encoded_trimmed_resnet.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "4_JdMUTcs8",
+                                    "start_t": 11.223,
+                                    "end_t": 25.92118,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "4_N6EeR3uq",
+                                    "start_t": 67.838,
+                                    "end_t": 86.39654,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "4_WMNRQBPb",
+                                    "start_t": 93.078,
+                                    "end_t": 110.17103,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "4_iriAhW1H",
+                                    "start_t": 116.012,
+                                    "end_t": 133.9257,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
