@@ -19,6 +19,6 @@ module load miniforge  &&
 source /home/cjh9fw/.bashrc  &&
 echo "$HOSTNAME" &&
 conda activate egoems &&
-python -u train_recognition.py --job_id "$SLURM_JOB_ID" &&
+python -u test_recognition.py --job_id "$SLURM_JOB_ID" &&
 echo "Done" &&
 exit

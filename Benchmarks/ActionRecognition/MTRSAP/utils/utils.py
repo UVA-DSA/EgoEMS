@@ -85,9 +85,11 @@ def preprocess(x, modality, backbone, device, task='classification'):
 
         audio = x['audio']
         audio = audio.to(device)
-        audio = backbone.extract_mel_spectrogram(audio, multimodal=True)
-        
-        feature = torch.cat((resnet, audio), dim=1).float()
+        audio_feature = backbone.extract_wav2vec_features(audio, multimodal=True) # for wav2vec features
+        # print("Wav2Vec feature shape: ", audio_feature.shape)
+        # audio = backbone.extract_mel_spectrogram(audio, multimodal=True) # for mel spectrogram features
+
+        feature = torch.cat((resnet, audio_feature), dim=1).float()
 
     elif ( 'flow' in modality and  'rgb' in modality and  'smartwatch' in modality):
 
@@ -183,6 +185,8 @@ def preprocess(x, modality, backbone, device, task='classification'):
         audio_clips = x['audio']  # Assume shape [batch, samples, channels]
         audio_clips = audio_clips.to(device)
         feature = backbone.extract_wav2vec_features(audio_clips)
+#       feature = backbone.extract_mel_spectrogram(audio_clips)
+
         # print("Wav2Vec feature shape: ", feature.shape)
 
     feature_size = feature.shape[-1]

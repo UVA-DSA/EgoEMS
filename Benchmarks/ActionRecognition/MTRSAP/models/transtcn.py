@@ -190,6 +190,8 @@ class TransformerModel(nn.Module):
         # NEW: Initialize wav2vec processor and model
         self.wav2vec_processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-base-960h")
         self.wav2vec_model = Wav2Vec2Model.from_pretrained("facebook/wav2vec2-base-960h")
+        self.wav2vec_project_layer = nn.Linear(self.wav2vec_model.config.hidden_size, self.input_dim)
+        self.wav2vec_project_layer_multimodal = nn.Linear(self.wav2vec_model.config.hidden_size,  args.transformer_params['resnet_dim'] )
         # Ensure wav2vec model is in evaluation mode
         self.wav2vec_model.eval()
 
@@ -230,7 +232,7 @@ class TransformerModel(nn.Module):
 
 
             # NEW: Add wav2vec feature extraction
-    def extract_wav2vec_features(self, waveform):
+    def extract_wav2vec_features(self, waveform, multimodal=False):
         """
         waveform: Tensor of shape [batch_size, num_samples, channels]
         Converts to mono, preprocesses on CPU, runs Wav2Vec2 fully on GPU.
@@ -272,6 +274,11 @@ class TransformerModel(nn.Module):
             features = outputs.last_hidden_state
 
         # print("Extracted Wav2Vec2 features:", features.shape)
+        if multimodal:
+            features = self.wav2vec_project_layer_multimodal(features)
+        else:
+            features = self.wav2vec_project_layer(features)
+            
         return features
 
     def forward(self, x):
