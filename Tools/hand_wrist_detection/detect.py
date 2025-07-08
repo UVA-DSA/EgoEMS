@@ -255,6 +255,8 @@ def process_videos_in_directory(root_path, wrst, base_model, view):
                         output_json_path = os.path.join(dirpath, f'{video_id}_keypoints.json')
                         output_video_path = os.path.join(dirpath, f'{video_id}_keypoints.mp4')
 
+                        print(f"Output JSON path: {output_json_path}")
+
                         # Process the video and save keypoints to JSON and a new video
                         # process_and_visualize_video(video_path, output_json_path, output_video_path, wrst, base_model)
             
@@ -350,13 +352,15 @@ def process_videos_in_list(
                     full = os.path.join(dirpath, filename)
                     videos_to_process.append(full)
 
+    # shuffle the list of videos to process for randomness
+    np.random.shuffle(videos_to_process)
     # 3) Process each video exactly once
     for video_path in videos_to_process:
         dirpath, filename = os.path.split(video_path)
         video_id, ext = os.path.splitext(filename)
 
         if view == "exo":
-            output_json = os.path.join(dirpath, f"{video_id}_keypoints.json")
+            output_json = os.path.join(dirpath, f"{video_id}_resized_640x480_keypoints.json")
         else:
             output_json = os.path.join(dirpath, f"{video_id}_resized_640x480_keypoints.json")
 

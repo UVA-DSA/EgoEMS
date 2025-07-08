@@ -64,7 +64,10 @@
         "check_perrl": 61,
         "check_skin_condition": 62,
         "check_a&o": 63,
-        "notify_hospital": 64
+        "notify_hospital": 64,
+        "check_symptom_duration": 65,
+        "document_hpi_and_pmh": 66
+
     },
     "interventions": {
         "cpr": 0,

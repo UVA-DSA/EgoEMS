@@ -1,4 +1,4 @@
 {
-    "train": "opvrs_8,cars_14,cars_12,cars_1,cars_11,P22,cars_9,ms2,wa4,wa6,cars_13,P20,cars_16,opvrs_2,ng6,ng3,opvrs_11,P11,P3,ng2,opvrs_10,ng5,ms1,opvrs_7,P4,opvrs_14,wa2,P10,cars_5,ng4,P14,ng1,opvrs_5,opvrs_1,P15,wa1,P2,P5,P7,cars_10,opvrs_13,P1,P16,ng7",
-    "validation": "cars_7,opvrs_4,P12,opvrs_6,P21,ng9,cars_15,opvrs_3,cars_8,cars_2,P0,opvrs_12,cars_3,opvrs_9,cars_6,ng8,cars_4,opvrs_15"
+    "train": "ng1,ms1,P21,ng4,wa1,P15,P14,P22,P4,P10,ms2,ng9,P12,ng5,P16,P2,ng6,P0,P11,ng3",
+    "validation": "P5,P20,ng7,P3,ng2,P7,ng8,P1"
 }

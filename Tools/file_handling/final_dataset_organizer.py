@@ -20,10 +20,10 @@ def should_copy_gopro(file_name):
 
 def should_copy_kinect(file_name):
     base, ext = os.path.splitext(file_name)
-    if ext == '.mp4' and (base.endswith('kinect_rgb_stream_gsam2_deidentified') or base.endswith('_trimmed_rgb_stream_deidentified')):
+    if ext == '.mp4' and (base.endswith('kinect_rgb_stream_gsam2_deidentified') or base.endswith('_trimmed_rgb_stream_deidentified')  or base.endswith('_final_rgb_stream_deidentified')):
         return True
     if ext == '.hdf5':
-        return True
+        return False
     return False
 
 def should_copy_i3d(file_name):
@@ -74,7 +74,14 @@ def copy_structure(src_dir, dest_dir, csv_path):
             rel_path = os.path.relpath(root, src_dir)
             dest_path = os.path.join(dest_dir, rel_path)
 
+
+
+
             folder_name = os.path.basename(root)
+
+            if not (folder_name == "Kinect" or folder_name == "kinect"):
+                continue
+
             if folder_name == "audio":
                 filtered_files = [f for f in files if should_copy_audio(f)]
                 file_type = "audio"
@@ -169,8 +176,14 @@ def copy_structure(src_dir, dest_dir, csv_path):
                 dest_file = os.path.join(dest_path, f)
 
                 src_size = os.path.getsize(src_file)
-                total_transfer_size += src_size
-                total_transfer_count += 1
+
+                print(f"ROOT: {root}") # /standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/P7/cardiac_arrest/s5/kinect
+
+                subject = root.split("/")[-4]  # P7
+                subject = subject.replace("_", "")  # P7 -> P7
+                scenario = root.split("/")[-3]  # cardiac_arrest
+                scenario = scenario.replace("_", "")  # cardiac_arrest -> cardiacarrest
+                trial = root.split("/")[-2]  # s5
 
                 print(f"Source file size: {src_size / (1024 * 1024):.2f} MB")
                 # Uncomment to actually copy
@@ -184,9 +197,26 @@ def copy_structure(src_dir, dest_dir, csv_path):
                     else:
                         print(f"File exists but size differs: {dest_file} (src: {src_size}, dest: {dest_size})")
 
+  
+                if folder_name == "Kinect" or folder_name == "kinect":
+                    f = f"{subject}_{scenario}_{trial}_exo_rgb_final.mp4"
+                    dest_file = os.path.join(dest_path, f)
+
+                if os.path.exists(dest_file):
+                        dest_size = os.path.getsize(dest_file)
+                        if dest_size == src_size:
+                            print(f"File already exists and matches size: {dest_file}")
+                            continue
+                        else:
+                            print(f"File exists but size differs: {dest_file} (src: {src_size}, dest: {dest_size})")
+
+                
                 shutil.copy2(src_file, dest_file)
                 print(f"Copied: {src_file} \n→\nTo: {dest_file}")
                 print("-*" * 20)
+
+                total_transfer_size += src_size
+                total_transfer_count += 1
 
                 # Write CSV row
                 writer.writerow({
@@ -200,7 +230,7 @@ def copy_structure(src_dir, dest_dir, csv_path):
 
 if __name__ == "__main__":
     src_directories = ["/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/OPVRS/organized","/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized", "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final"]
-    dest_directory = "/scratch/cjh9fw/aaai_2026_test/"
+    dest_directory = "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/"
     csv_log_path = "transfer_log.csv"
 
     for src_directory in src_directories:
