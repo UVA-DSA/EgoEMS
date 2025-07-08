@@ -64,6 +64,7 @@ def preprocess(x, modality, backbone, device, task='classification'):
     # check the shape of the input tensor
     feature = None
     label = x['keystep_id']
+    # print(f"\nSubject ID: {x['subject_id']}, Trial ID: {x['trial_id']}, Start Frame: {x['start_frame']}, End Frame: {x['end_frame']}, Start Time: {x['start_t']}, End Time: {x['end_t']}")
 
     if task == 'segmentation':
         majority_label, _ = torch.mode(label, dim=1)  # [batch_size], mode returns (values, indices)
@@ -190,6 +191,7 @@ def preprocess(x, modality, backbone, device, task='classification'):
         # print("Wav2Vec feature shape: ", feature.shape)
 
     feature_size = feature.shape[-1]
+    # print("Feature shape: ", feature.shape, "\n")
 
     if(feature is not None):
         feature = feature.to(device)
@@ -205,6 +207,13 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, m
     for i, batch in enumerate(train_loader):
         # print("Batch: ", i)
         input,feature_size, label = preprocess(batch, modality, model, device, task=task)
+                # ←—— ADDED CHECK ———→
+        # if the time-dimension is zero, skip this batch
+        # (inputs.shape == [B, T, F] or [B, C, T] depending on your preprocess)
+        if input.size(1) == 0:
+            print(f"Skipping batch {i}: empty feature sequence : {input.shape}")
+            continue
+
         optimizer.zero_grad()
         output = model(input)
         # print("Output: ", output.shape)
