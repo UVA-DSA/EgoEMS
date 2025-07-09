@@ -3,11 +3,11 @@
 # --- this job will be run on any available node
 # and simply output the node's hostname to
 # my_job.output
-#SBATCH --job-name="EgoExoEMS CPR Late Fusion Benchmark"
+#SBATCH --job-name="CPR Late Fusion Benchmark"
 #SBATCH --error="./logs/job-%j-cpr_fusion_train_script.err"
 #SBATCH --output="./logs/job-%j-cpr_fusion_train_script.output"
 #SBATCH --partition="gpu"
-#SBATCH --gres=gpu:a6000:1
+#SBATCH --gres=gpu:1
 #SBATCH --time=3-00:00:00
 #SBATCH --cpus-per-task=12
 #SBATCH --mem=32G
@@ -23,7 +23,7 @@ conda activate wrist_keypoint &&
 python -u fusion_train.py \
   --window_size 150 \
   --batch_size 1 \
-  --job_id "$SLURM_JOB_ID"
+  --job_id 999999
 
 echo "Done" &&
 exit

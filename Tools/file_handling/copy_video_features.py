@@ -22,7 +22,7 @@ exo_file_list_path = None   # ← set to None if you don’t want exo
 # video_feature_directory = "/standard/UVA-DSA/NIST EMS Project Data/video_features/cvpr/cvpr_ego_file_paths/resnet/resnet50" # resnet cvpr old
 # video_feature_directory = "/standard/UVA-DSA/NIST EMS Project Data/video_features/cvpr/cvpr_ego_file_paths/i3d" # i3d cvpr old
 
-video_feature_directory = "/standard/UVA-DSA/NIST EMS Project Data/video_features/cvpr/missing_cvpr_ego_file_paths/resnet/resnet50" # resnet cvpr exo
+video_feature_directory = "/standard/UVA-DSA/NIST EMS Project Data/video_features/cvpr/missing_cvpr_ego_file_paths/i3d" # resnet cvpr exo
 
 
 success_count = 0
@@ -71,7 +71,7 @@ def handle_branch(mapping, tag):
         raise ValueError("Unknown video feature directory structure.")
     
     print(f"Creating target directory: {target_dir}")
-    # os.makedirs(target_dir, exist_ok=True)
+    os.makedirs(target_dir, exist_ok=True)
 
     # extract subject & trial for naming
     subject = subject.replace("_","")
@@ -96,7 +96,7 @@ def handle_branch(mapping, tag):
         print(f"File {dst_path} already exists, skipping copy.")
         return False
     
-    # os.system(f'cp "{feat_path}" "{dst_path}"')
+    os.system(f'cp "{feat_path}" "{dst_path}"')
 
     print(f"Copied {feat_path} to {dst_path}")
 

@@ -69,6 +69,10 @@
                                     "file_id": "P0_cardiacarrest_s2_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s2/exo/P0_cardiacarrest_s2_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s2_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s2/i3d_flow/P0_cardiacarrest_s2_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P0_cardiacarrest_s2_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s2/smartwatch_data/P0_cardiacarrest_s2_sync_smartwatch.csv"
@@ -76,6 +80,10 @@
                                 "clip_exo": {
                                     "file_id": "P0_cardiacarrest_s2_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s2/clip_exo/P0_cardiacarrest_s2_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s2_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s2/i3d_rgb/P0_cardiacarrest_s2_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P0_cardiacarrest_s2_ego_resnet",
@@ -120,6 +128,10 @@
                                     "file_id": "P0_cardiacarrest_s3_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/exo/P0_cardiacarrest_s3_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s3_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/i3d_flow/P0_cardiacarrest_s3_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P0_cardiacarrest_s3_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/smartwatch_data/P0_cardiacarrest_s3_sync_smartwatch.csv"
@@ -127,6 +139,10 @@
                                 "clip_exo": {
                                     "file_id": "P0_cardiacarrest_s3_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/clip_exo/P0_cardiacarrest_s3_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s3_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/i3d_rgb/P0_cardiacarrest_s3_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P0_cardiacarrest_s3_ego_resnet",
@@ -171,6 +187,10 @@
                                     "file_id": "P0_cardiacarrest_s4_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s4/exo/P0_cardiacarrest_s4_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s4_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s4/i3d_flow/P0_cardiacarrest_s4_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P0_cardiacarrest_s4_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s4/smartwatch_data/P0_cardiacarrest_s4_sync_smartwatch.csv"
@@ -178,6 +198,10 @@
                                 "clip_exo": {
                                     "file_id": "P0_cardiacarrest_s4_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s4/clip_exo/P0_cardiacarrest_s4_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s4_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s4/i3d_rgb/P0_cardiacarrest_s4_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P0_cardiacarrest_s4_ego_resnet",
@@ -222,6 +246,10 @@
                                     "file_id": "P0_cardiacarrest_s5_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s5/exo/P0_cardiacarrest_s5_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s5_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s5/i3d_flow/P0_cardiacarrest_s5_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P0_cardiacarrest_s5_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s5/smartwatch_data/P0_cardiacarrest_s5_sync_smartwatch.csv"
@@ -229,6 +257,10 @@
                                 "clip_exo": {
                                     "file_id": "P0_cardiacarrest_s5_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s5/clip_exo/P0_cardiacarrest_s5_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s5_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s5/i3d_rgb/P0_cardiacarrest_s5_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P0_cardiacarrest_s5_ego_resnet",
@@ -273,6 +305,10 @@
                                     "file_id": "P0_cardiacarrest_s6_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s6/exo/P0_cardiacarrest_s6_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s6_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s6/i3d_flow/P0_cardiacarrest_s6_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P0_cardiacarrest_s6_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s6/smartwatch_data/P0_cardiacarrest_s6_sync_smartwatch.csv"
@@ -280,6 +316,10 @@
                                 "clip_exo": {
                                     "file_id": "P0_cardiacarrest_s6_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s6/clip_exo/P0_cardiacarrest_s6_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s6_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s6/i3d_rgb/P0_cardiacarrest_s6_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P0_cardiacarrest_s6_ego_resnet",
@@ -324,6 +364,10 @@
                                     "file_id": "P0_cardiacarrest_s8_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s8/exo/P0_cardiacarrest_s8_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s8_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s8/i3d_flow/P0_cardiacarrest_s8_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P0_cardiacarrest_s8_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s8/smartwatch_data/P0_cardiacarrest_s8_sync_smartwatch.csv"
@@ -331,6 +375,10 @@
                                 "clip_exo": {
                                     "file_id": "P0_cardiacarrest_s8_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s8/clip_exo/P0_cardiacarrest_s8_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s8_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s8/i3d_rgb/P0_cardiacarrest_s8_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P0_cardiacarrest_s8_ego_resnet",
@@ -375,6 +423,10 @@
                                     "file_id": "P0_cardiacarrest_s9_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s9/exo/P0_cardiacarrest_s9_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s9_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s9/i3d_flow/P0_cardiacarrest_s9_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P0_cardiacarrest_s9_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s9/smartwatch_data/P0_cardiacarrest_s9_sync_smartwatch.csv"
@@ -382,6 +434,10 @@
                                 "clip_exo": {
                                     "file_id": "P0_cardiacarrest_s9_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s9/clip_exo/P0_cardiacarrest_s9_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s9_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s9/i3d_rgb/P0_cardiacarrest_s9_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P0_cardiacarrest_s9_ego_resnet",
@@ -1967,6 +2023,10 @@
                                     "file_id": "P15_cardiacarrest_s10_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s10/exo/P15_cardiacarrest_s10_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P15_cardiacarrest_s10_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s10/i3d_flow/P15_cardiacarrest_s10_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P15_cardiacarrest_s10_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s10/smartwatch_data/P15_cardiacarrest_s10_sync_smartwatch.csv"
@@ -1974,6 +2034,10 @@
                                 "clip_exo": {
                                     "file_id": "P15_cardiacarrest_s10_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s10/clip_exo/P15_cardiacarrest_s10_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P15_cardiacarrest_s10_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s10/i3d_rgb/P15_cardiacarrest_s10_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P15_cardiacarrest_s10_ego_resnet",
@@ -2136,6 +2200,10 @@
                                     "file_id": "P15_cardiacarrest_s6_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s6/exo/P15_cardiacarrest_s6_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P15_cardiacarrest_s6_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s6/i3d_flow/P15_cardiacarrest_s6_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P15_cardiacarrest_s6_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s6/smartwatch_data/P15_cardiacarrest_s6_sync_smartwatch.csv"
@@ -2143,6 +2211,10 @@
                                 "clip_exo": {
                                     "file_id": "P15_cardiacarrest_s6_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s6/clip_exo/P15_cardiacarrest_s6_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P15_cardiacarrest_s6_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s6/i3d_rgb/P15_cardiacarrest_s6_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P15_cardiacarrest_s6_ego_resnet",
@@ -2375,6 +2447,10 @@
                                     "file_id": "P16_cardiacarrest_s5_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s5/exo/P16_cardiacarrest_s5_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P16_cardiacarrest_s5_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s5/i3d_flow/P16_cardiacarrest_s5_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P16_cardiacarrest_s5_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s5/smartwatch_data/P16_cardiacarrest_s5_sync_smartwatch.csv"
@@ -2382,6 +2458,10 @@
                                 "clip_exo": {
                                     "file_id": "P16_cardiacarrest_s5_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s5/clip_exo/P16_cardiacarrest_s5_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P16_cardiacarrest_s5_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s5/i3d_rgb/P16_cardiacarrest_s5_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P16_cardiacarrest_s5_ego_resnet",
@@ -2426,6 +2506,10 @@
                                     "file_id": "P16_cardiacarrest_s7_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s7/exo/P16_cardiacarrest_s7_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P16_cardiacarrest_s7_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s7/i3d_flow/P16_cardiacarrest_s7_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P16_cardiacarrest_s7_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s7/smartwatch_data/P16_cardiacarrest_s7_sync_smartwatch.csv"
@@ -2433,6 +2517,10 @@
                                 "clip_exo": {
                                     "file_id": "P16_cardiacarrest_s7_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s7/clip_exo/P16_cardiacarrest_s7_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P16_cardiacarrest_s7_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s7/i3d_rgb/P16_cardiacarrest_s7_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P16_cardiacarrest_s7_ego_resnet",
@@ -2477,6 +2565,10 @@
                                     "file_id": "P16_cardiacarrest_s8_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s8/exo/P16_cardiacarrest_s8_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P16_cardiacarrest_s8_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s8/i3d_flow/P16_cardiacarrest_s8_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P16_cardiacarrest_s8_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s8/smartwatch_data/P16_cardiacarrest_s8_sync_smartwatch.csv"
@@ -2484,6 +2576,10 @@
                                 "clip_exo": {
                                     "file_id": "P16_cardiacarrest_s8_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s8/clip_exo/P16_cardiacarrest_s8_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P16_cardiacarrest_s8_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s8/i3d_rgb/P16_cardiacarrest_s8_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P16_cardiacarrest_s8_ego_resnet",
@@ -2539,6 +2635,10 @@
                                     "file_id": "P2_cardiacarrest_s3_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s3/exo/P2_cardiacarrest_s3_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P2_cardiacarrest_s3_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s3/i3d_flow/P2_cardiacarrest_s3_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P2_cardiacarrest_s3_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s3/smartwatch_data/P2_cardiacarrest_s3_sync_smartwatch.csv"
@@ -2546,6 +2646,10 @@
                                 "clip_exo": {
                                     "file_id": "P2_cardiacarrest_s3_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s3/clip_exo/P2_cardiacarrest_s3_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P2_cardiacarrest_s3_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s3/i3d_rgb/P2_cardiacarrest_s3_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P2_cardiacarrest_s3_ego_resnet",
@@ -2590,6 +2694,10 @@
                                     "file_id": "P2_cardiacarrest_s4_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s4/exo/P2_cardiacarrest_s4_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P2_cardiacarrest_s4_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s4/i3d_flow/P2_cardiacarrest_s4_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P2_cardiacarrest_s4_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s4/smartwatch_data/P2_cardiacarrest_s4_sync_smartwatch.csv"
@@ -2597,6 +2705,10 @@
                                 "clip_exo": {
                                     "file_id": "P2_cardiacarrest_s4_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s4/clip_exo/P2_cardiacarrest_s4_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P2_cardiacarrest_s4_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s4/i3d_rgb/P2_cardiacarrest_s4_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P2_cardiacarrest_s4_ego_resnet",
@@ -2641,6 +2753,10 @@
                                     "file_id": "P2_cardiacarrest_s8_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s8/exo/P2_cardiacarrest_s8_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P2_cardiacarrest_s8_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s8/i3d_flow/P2_cardiacarrest_s8_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P2_cardiacarrest_s8_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s8/smartwatch_data/P2_cardiacarrest_s8_sync_smartwatch.csv"
@@ -2648,6 +2764,10 @@
                                 "clip_exo": {
                                     "file_id": "P2_cardiacarrest_s8_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s8/clip_exo/P2_cardiacarrest_s8_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P2_cardiacarrest_s8_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s8/i3d_rgb/P2_cardiacarrest_s8_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P2_cardiacarrest_s8_ego_resnet",
@@ -2692,6 +2812,10 @@
                                     "file_id": "P2_cardiacarrest_s9_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s9/exo/P2_cardiacarrest_s9_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P2_cardiacarrest_s9_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s9/i3d_flow/P2_cardiacarrest_s9_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P2_cardiacarrest_s9_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s9/smartwatch_data/P2_cardiacarrest_s9_sync_smartwatch.csv"
@@ -2699,6 +2823,10 @@
                                 "clip_exo": {
                                     "file_id": "P2_cardiacarrest_s9_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s9/clip_exo/P2_cardiacarrest_s9_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P2_cardiacarrest_s9_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s9/i3d_rgb/P2_cardiacarrest_s9_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P2_cardiacarrest_s9_ego_resnet",
@@ -3543,6 +3671,10 @@
                                     "file_id": "P22_cardiacarrest_s1_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s1/exo/P22_cardiacarrest_s1_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P22_cardiacarrest_s1_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s1/i3d_flow/P22_cardiacarrest_s1_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P22_cardiacarrest_s1_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s1/smartwatch_data/P22_cardiacarrest_s1_sync_smartwatch.csv"
@@ -3550,6 +3682,10 @@
                                 "clip_exo": {
                                     "file_id": "P22_cardiacarrest_s1_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s1/clip_exo/P22_cardiacarrest_s1_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P22_cardiacarrest_s1_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s1/i3d_rgb/P22_cardiacarrest_s1_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P22_cardiacarrest_s1_ego_resnet",
@@ -3594,6 +3730,10 @@
                                     "file_id": "P22_cardiacarrest_s2_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s2/exo/P22_cardiacarrest_s2_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P22_cardiacarrest_s2_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s2/i3d_flow/P22_cardiacarrest_s2_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P22_cardiacarrest_s2_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s2/smartwatch_data/P22_cardiacarrest_s2_sync_smartwatch.csv"
@@ -3601,6 +3741,10 @@
                                 "clip_exo": {
                                     "file_id": "P22_cardiacarrest_s2_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s2/clip_exo/P22_cardiacarrest_s2_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P22_cardiacarrest_s2_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s2/i3d_rgb/P22_cardiacarrest_s2_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P22_cardiacarrest_s2_ego_resnet",
@@ -3645,6 +3789,10 @@
                                     "file_id": "P22_cardiacarrest_s3_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/exo/P22_cardiacarrest_s3_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P22_cardiacarrest_s3_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/i3d_flow/P22_cardiacarrest_s3_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P22_cardiacarrest_s3_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/smartwatch_data/P22_cardiacarrest_s3_sync_smartwatch.csv"
@@ -3652,6 +3800,10 @@
                                 "clip_exo": {
                                     "file_id": "P22_cardiacarrest_s3_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/clip_exo/P22_cardiacarrest_s3_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P22_cardiacarrest_s3_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/i3d_rgb/P22_cardiacarrest_s3_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P22_cardiacarrest_s3_ego_resnet",
@@ -3696,6 +3848,10 @@
                                     "file_id": "P22_cardiacarrest_s5_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s5/exo/P22_cardiacarrest_s5_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P22_cardiacarrest_s5_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s5/i3d_flow/P22_cardiacarrest_s5_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P22_cardiacarrest_s5_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s5/smartwatch_data/P22_cardiacarrest_s5_sync_smartwatch.csv"
@@ -3703,6 +3859,10 @@
                                 "clip_exo": {
                                     "file_id": "P22_cardiacarrest_s5_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s5/clip_exo/P22_cardiacarrest_s5_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P22_cardiacarrest_s5_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s5/i3d_rgb/P22_cardiacarrest_s5_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P22_cardiacarrest_s5_ego_resnet",
@@ -3747,6 +3907,10 @@
                                     "file_id": "P22_cardiacarrest_s6_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s6/exo/P22_cardiacarrest_s6_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P22_cardiacarrest_s6_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s6/i3d_flow/P22_cardiacarrest_s6_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P22_cardiacarrest_s6_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s6/smartwatch_data/P22_cardiacarrest_s6_sync_smartwatch.csv"
@@ -3754,6 +3918,10 @@
                                 "clip_exo": {
                                     "file_id": "P22_cardiacarrest_s6_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s6/clip_exo/P22_cardiacarrest_s6_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P22_cardiacarrest_s6_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s6/i3d_rgb/P22_cardiacarrest_s6_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P22_cardiacarrest_s6_ego_resnet",
@@ -4174,6 +4342,10 @@
                                     "file_id": "P4_cardiacarrest_s2_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s2/exo/P4_cardiacarrest_s2_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P4_cardiacarrest_s2_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s2/i3d_flow/P4_cardiacarrest_s2_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P4_cardiacarrest_s2_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s2/smartwatch_data/P4_cardiacarrest_s2_sync_smartwatch.csv"
@@ -4181,6 +4353,10 @@
                                 "clip_exo": {
                                     "file_id": "P4_cardiacarrest_s2_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s2/clip_exo/P4_cardiacarrest_s2_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P4_cardiacarrest_s2_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s2/i3d_rgb/P4_cardiacarrest_s2_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P4_cardiacarrest_s2_ego_resnet",
@@ -4225,6 +4401,10 @@
                                     "file_id": "P4_cardiacarrest_s3_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/exo/P4_cardiacarrest_s3_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P4_cardiacarrest_s3_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/i3d_flow/P4_cardiacarrest_s3_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P4_cardiacarrest_s3_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/smartwatch_data/P4_cardiacarrest_s3_sync_smartwatch.csv"
@@ -4232,6 +4412,10 @@
                                 "clip_exo": {
                                     "file_id": "P4_cardiacarrest_s3_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/clip_exo/P4_cardiacarrest_s3_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P4_cardiacarrest_s3_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/i3d_rgb/P4_cardiacarrest_s3_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P4_cardiacarrest_s3_ego_resnet",
@@ -4276,6 +4460,10 @@
                                     "file_id": "P4_cardiacarrest_s4_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s4/exo/P4_cardiacarrest_s4_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P4_cardiacarrest_s4_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s4/i3d_flow/P4_cardiacarrest_s4_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P4_cardiacarrest_s4_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s4/smartwatch_data/P4_cardiacarrest_s4_sync_smartwatch.csv"
@@ -4283,6 +4471,10 @@
                                 "clip_exo": {
                                     "file_id": "P4_cardiacarrest_s4_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s4/clip_exo/P4_cardiacarrest_s4_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P4_cardiacarrest_s4_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s4/i3d_rgb/P4_cardiacarrest_s4_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P4_cardiacarrest_s4_ego_resnet",
@@ -4327,6 +4519,10 @@
                                     "file_id": "P4_cardiacarrest_s5_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s5/exo/P4_cardiacarrest_s5_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P4_cardiacarrest_s5_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s5/i3d_flow/P4_cardiacarrest_s5_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P4_cardiacarrest_s5_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s5/smartwatch_data/P4_cardiacarrest_s5_sync_smartwatch.csv"
@@ -4334,6 +4530,10 @@
                                 "clip_exo": {
                                     "file_id": "P4_cardiacarrest_s5_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s5/clip_exo/P4_cardiacarrest_s5_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P4_cardiacarrest_s5_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s5/i3d_rgb/P4_cardiacarrest_s5_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P4_cardiacarrest_s5_ego_resnet",
@@ -4378,6 +4578,10 @@
                                     "file_id": "P4_cardiacarrest_s7_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s7/exo/P4_cardiacarrest_s7_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P4_cardiacarrest_s7_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s7/i3d_flow/P4_cardiacarrest_s7_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P4_cardiacarrest_s7_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s7/smartwatch_data/P4_cardiacarrest_s7_sync_smartwatch.csv"
@@ -4385,6 +4589,10 @@
                                 "clip_exo": {
                                     "file_id": "P4_cardiacarrest_s7_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s7/clip_exo/P4_cardiacarrest_s7_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P4_cardiacarrest_s7_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s7/i3d_rgb/P4_cardiacarrest_s7_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P4_cardiacarrest_s7_ego_resnet",
@@ -4429,6 +4637,10 @@
                                     "file_id": "P4_cardiacarrest_s8_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s8/exo/P4_cardiacarrest_s8_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P4_cardiacarrest_s8_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s8/i3d_flow/P4_cardiacarrest_s8_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P4_cardiacarrest_s8_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s8/smartwatch_data/P4_cardiacarrest_s8_sync_smartwatch.csv"
@@ -4436,6 +4648,10 @@
                                 "clip_exo": {
                                     "file_id": "P4_cardiacarrest_s8_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s8/clip_exo/P4_cardiacarrest_s8_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P4_cardiacarrest_s8_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s8/i3d_rgb/P4_cardiacarrest_s8_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P4_cardiacarrest_s8_ego_resnet",
@@ -4491,6 +4707,10 @@
                                     "file_id": "P5_cardiacarrest_s2_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s2/exo/P5_cardiacarrest_s2_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s2_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s2/i3d_flow/P5_cardiacarrest_s2_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P5_cardiacarrest_s2_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s2/smartwatch_data/P5_cardiacarrest_s2_sync_smartwatch.csv"
@@ -4498,6 +4718,10 @@
                                 "clip_exo": {
                                     "file_id": "P5_cardiacarrest_s2_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s2/clip_exo/P5_cardiacarrest_s2_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s2_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s2/i3d_rgb/P5_cardiacarrest_s2_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P5_cardiacarrest_s2_ego_resnet",
@@ -4542,6 +4766,10 @@
                                     "file_id": "P5_cardiacarrest_s4_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s4/exo/P5_cardiacarrest_s4_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s4_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s4/i3d_flow/P5_cardiacarrest_s4_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P5_cardiacarrest_s4_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s4/smartwatch_data/P5_cardiacarrest_s4_sync_smartwatch.csv"
@@ -4549,6 +4777,10 @@
                                 "clip_exo": {
                                     "file_id": "P5_cardiacarrest_s4_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s4/clip_exo/P5_cardiacarrest_s4_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s4_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s4/i3d_rgb/P5_cardiacarrest_s4_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P5_cardiacarrest_s4_ego_resnet",
@@ -4593,6 +4825,10 @@
                                     "file_id": "P5_cardiacarrest_s5_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s5/exo/P5_cardiacarrest_s5_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s5_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s5/i3d_flow/P5_cardiacarrest_s5_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P5_cardiacarrest_s5_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s5/smartwatch_data/P5_cardiacarrest_s5_sync_smartwatch.csv"
@@ -4600,6 +4836,10 @@
                                 "clip_exo": {
                                     "file_id": "P5_cardiacarrest_s5_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s5/clip_exo/P5_cardiacarrest_s5_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s5_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s5/i3d_rgb/P5_cardiacarrest_s5_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P5_cardiacarrest_s5_ego_resnet",
@@ -4644,6 +4884,10 @@
                                     "file_id": "P5_cardiacarrest_s6_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s6/exo/P5_cardiacarrest_s6_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s6_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s6/i3d_flow/P5_cardiacarrest_s6_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P5_cardiacarrest_s6_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s6/smartwatch_data/P5_cardiacarrest_s6_sync_smartwatch.csv"
@@ -4651,6 +4895,10 @@
                                 "clip_exo": {
                                     "file_id": "P5_cardiacarrest_s6_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s6/clip_exo/P5_cardiacarrest_s6_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s6_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s6/i3d_rgb/P5_cardiacarrest_s6_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P5_cardiacarrest_s6_ego_resnet",
@@ -4695,6 +4943,10 @@
                                     "file_id": "P5_cardiacarrest_s7_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s7/exo/P5_cardiacarrest_s7_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s7_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s7/i3d_flow/P5_cardiacarrest_s7_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P5_cardiacarrest_s7_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s7/smartwatch_data/P5_cardiacarrest_s7_sync_smartwatch.csv"
@@ -4702,6 +4954,10 @@
                                 "clip_exo": {
                                     "file_id": "P5_cardiacarrest_s7_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s7/clip_exo/P5_cardiacarrest_s7_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s7_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s7/i3d_rgb/P5_cardiacarrest_s7_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P5_cardiacarrest_s7_ego_resnet",
@@ -4746,6 +5002,10 @@
                                     "file_id": "P5_cardiacarrest_s8_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s8/exo/P5_cardiacarrest_s8_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s8_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s8/i3d_flow/P5_cardiacarrest_s8_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P5_cardiacarrest_s8_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s8/smartwatch_data/P5_cardiacarrest_s8_sync_smartwatch.csv"
@@ -4753,6 +5013,10 @@
                                 "clip_exo": {
                                     "file_id": "P5_cardiacarrest_s8_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s8/clip_exo/P5_cardiacarrest_s8_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s8_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s8/i3d_rgb/P5_cardiacarrest_s8_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P5_cardiacarrest_s8_ego_resnet",
@@ -4797,6 +5061,10 @@
                                     "file_id": "P5_cardiacarrest_s9_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/exo/P5_cardiacarrest_s9_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s9_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/i3d_flow/P5_cardiacarrest_s9_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P5_cardiacarrest_s9_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/smartwatch_data/P5_cardiacarrest_s9_sync_smartwatch.csv"
@@ -4804,6 +5072,10 @@
                                 "clip_exo": {
                                     "file_id": "P5_cardiacarrest_s9_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/clip_exo/P5_cardiacarrest_s9_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s9_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/i3d_rgb/P5_cardiacarrest_s9_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P5_cardiacarrest_s9_ego_resnet",
@@ -4859,6 +5131,10 @@
                                     "file_id": "P7_cardiacarrest_s1_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s1/exo/P7_cardiacarrest_s1_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s1_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s1/i3d_flow/P7_cardiacarrest_s1_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s1_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s1/smartwatch_data/P7_cardiacarrest_s1_sync_smartwatch.csv"
@@ -4866,6 +5142,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s1_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s1/clip_exo/P7_cardiacarrest_s1_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s1_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s1/i3d_rgb/P7_cardiacarrest_s1_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s1_ego_resnet",
@@ -4910,6 +5190,10 @@
                                     "file_id": "P7_cardiacarrest_s2_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s2/exo/P7_cardiacarrest_s2_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s2_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s2/i3d_flow/P7_cardiacarrest_s2_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s2_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s2/smartwatch_data/P7_cardiacarrest_s2_sync_smartwatch.csv"
@@ -4917,6 +5201,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s2_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s2/clip_exo/P7_cardiacarrest_s2_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s2_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s2/i3d_rgb/P7_cardiacarrest_s2_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s2_ego_resnet",
@@ -4961,6 +5249,10 @@
                                     "file_id": "P7_cardiacarrest_s3_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s3/exo/P7_cardiacarrest_s3_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s3_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s3/i3d_flow/P7_cardiacarrest_s3_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s3_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s3/smartwatch_data/P7_cardiacarrest_s3_sync_smartwatch.csv"
@@ -4968,6 +5260,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s3_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s3/clip_exo/P7_cardiacarrest_s3_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s3_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s3/i3d_rgb/P7_cardiacarrest_s3_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s3_ego_resnet",
@@ -5012,6 +5308,10 @@
                                     "file_id": "P7_cardiacarrest_s4_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s4/exo/P7_cardiacarrest_s4_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s4_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s4/i3d_flow/P7_cardiacarrest_s4_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s4_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s4/smartwatch_data/P7_cardiacarrest_s4_sync_smartwatch.csv"
@@ -5019,6 +5319,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s4_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s4/clip_exo/P7_cardiacarrest_s4_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s4_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s4/i3d_rgb/P7_cardiacarrest_s4_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s4_ego_resnet",
@@ -5063,6 +5367,10 @@
                                     "file_id": "P7_cardiacarrest_s5_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s5/exo/P7_cardiacarrest_s5_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s5_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s5/i3d_flow/P7_cardiacarrest_s5_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s5_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s5/smartwatch_data/P7_cardiacarrest_s5_sync_smartwatch.csv"
@@ -5070,6 +5378,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s5_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s5/clip_exo/P7_cardiacarrest_s5_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s5_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s5/i3d_rgb/P7_cardiacarrest_s5_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s5_ego_resnet",
@@ -5114,6 +5426,10 @@
                                     "file_id": "P7_cardiacarrest_s6_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s6/exo/P7_cardiacarrest_s6_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s6_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s6/i3d_flow/P7_cardiacarrest_s6_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s6_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s6/smartwatch_data/P7_cardiacarrest_s6_sync_smartwatch.csv"
@@ -5121,6 +5437,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s6_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s6/clip_exo/P7_cardiacarrest_s6_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s6_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s6/i3d_rgb/P7_cardiacarrest_s6_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s6_ego_resnet",
@@ -5165,6 +5485,10 @@
                                     "file_id": "P7_cardiacarrest_s7_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/exo/P7_cardiacarrest_s7_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s7_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/i3d_flow/P7_cardiacarrest_s7_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s7_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/smartwatch_data/P7_cardiacarrest_s7_sync_smartwatch.csv"
@@ -5172,6 +5496,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s7_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/clip_exo/P7_cardiacarrest_s7_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s7_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/i3d_rgb/P7_cardiacarrest_s7_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s7_ego_resnet",
@@ -5216,6 +5544,10 @@
                                     "file_id": "P7_cardiacarrest_s8_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s8/exo/P7_cardiacarrest_s8_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s8_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s8/i3d_flow/P7_cardiacarrest_s8_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s8_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s8/smartwatch_data/P7_cardiacarrest_s8_sync_smartwatch.csv"
@@ -5223,6 +5555,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s8_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s8/clip_exo/P7_cardiacarrest_s8_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s8_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s8/i3d_rgb/P7_cardiacarrest_s8_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s8_ego_resnet",
@@ -5267,6 +5603,10 @@
                                     "file_id": "P7_cardiacarrest_s9_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s9/exo/P7_cardiacarrest_s9_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s9_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s9/i3d_flow/P7_cardiacarrest_s9_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s9_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s9/smartwatch_data/P7_cardiacarrest_s9_sync_smartwatch.csv"
@@ -5274,6 +5614,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s9_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s9/clip_exo/P7_cardiacarrest_s9_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s9_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s9/i3d_rgb/P7_cardiacarrest_s9_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s9_ego_resnet",

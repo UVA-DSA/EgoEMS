@@ -61,6 +61,7 @@ def init_model(args):
 
 
 def preprocess(x, modality, backbone, device, task='classification'):
+    # print("-*" * 10, "Preprocessing", "*" * 10, "=" * 10)
     # check the shape of the input tensor
     feature = None
     label = x['keystep_id']
@@ -86,8 +87,10 @@ def preprocess(x, modality, backbone, device, task='classification'):
 
         audio = x['audio']
         audio = audio.to(device)
+        # print("Raw Audio shape: ", audio.shape)
         audio_feature = backbone.extract_wav2vec_features(audio, multimodal=True) # for wav2vec features
         # print("Wav2Vec feature shape: ", audio_feature.shape)
+        # print("Resnet feature shape: ", resnet.shape)
         # audio = backbone.extract_mel_spectrogram(audio, multimodal=True) # for mel spectrogram features
 
         feature = torch.cat((resnet, audio_feature), dim=1).float()
@@ -205,33 +208,40 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, m
     model.train()
     total_loss = 0
     for i, batch in enumerate(train_loader):
-        # print("Batch: ", i)
-        input,feature_size, label = preprocess(batch, modality, model, device, task=task)
-                # ←—— ADDED CHECK ———→
-        # if the time-dimension is zero, skip this batch
-        # (inputs.shape == [B, T, F] or [B, C, T] depending on your preprocess)
-        if input.size(1) == 0:
-            print(f"Skipping batch {i}: empty feature sequence : {input.shape}")
+
+        try:
+            # print("Batch: ", i)
+            input,feature_size, label = preprocess(batch, modality, model, device, task=task)
+                    # ←—— ADDED CHECK ———→
+            # if the time-dimension is zero, skip this batch
+            # (inputs.shape == [B, T, F] or [B, C, T] depending on your preprocess)
+            if input.size(1) == 0:
+                print(f"Skipping batch {i}: empty feature sequence : {input.shape}")
+                continue
+
+            optimizer.zero_grad()
+            output = model(input)
+            # print("Output: ", output.shape)
+            # print("Label: ", label.shape)
+            loss = criterion(output, label)
+            loss.backward()
+            optimizer.step()
+            total_loss += loss.item()
+            if i % 100 == 0:
+                print("\n")
+                print("*" * 10, "=" * 10, "*" * 10)
+                print(f"Pred: {torch.argmax(output, dim=1)} GT: {label}")
+                logger.log({"train_loss": loss.item()})
+                print(f"Batch: {i}, Loss: {loss.item()}")
+                print("*" * 10, "=" * 10, "*" * 10)
+                print("\n")
+            # break
+        
+        except Exception as e:
+            print(f"Error in batch {i}: {e}")
+            print(f"Batch data: {batch}")
             continue
 
-        optimizer.zero_grad()
-        output = model(input)
-        # print("Output: ", output.shape)
-        # print("Label: ", label.shape)
-        loss = criterion(output, label)
-        loss.backward()
-        optimizer.step()
-        total_loss += loss.item()
-        if i % 100 == 0:
-            print("\n")
-            print("*" * 10, "=" * 10, "*" * 10)
-            print(f"Pred: {torch.argmax(output, dim=1)} GT: {label}")
-            logger.log({"train_loss": loss.item()})
-            print(f"Batch: {i}, Loss: {loss.item()}")
-            print("*" * 10, "=" * 10, "*" * 10)
-            print("\n")
-        # break
-        
     return total_loss / len(train_loader)
 
 
@@ -241,14 +251,25 @@ def validate(model, val_loader, criterion, device, logger, modality, task='class
     total_loss = 0
     with torch.no_grad():
         for i, batch in enumerate(val_loader):
-            input,feature_size, label = preprocess(batch, modality, model, device, task=task)
-            output = model(input)
-            loss = criterion(output, label)
-            total_loss += loss.item()
-            if i % 100 == 0:
-                logger.log({"val_loss": loss.item()})
+            try:
+                input,feature_size, label = preprocess(batch, modality, model, device, task=task)
+
+                # check if the time-dimension is zero, skip this batch
+                if input.size(1) == 0:
+                    print(f"Skipping batch {i}: empty feature sequence : {input.shape}")
+                    continue
+
+                output = model(input)
+                loss = criterion(output, label)
+                total_loss += loss.item()
+                if i % 100 == 0:
+                    logger.log({"val_loss": loss.item()})
             # break
             
+            except Exception as e:
+                print(f"Error in batch {i}: {e}")
+                print(f"Batch data: {batch}")
+                continue
             
     return total_loss / len(val_loader)
 
@@ -267,41 +288,51 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
 
     with torch.no_grad():
         for i, batch in enumerate(test_loader):
-            input,feature_size, label = preprocess(batch, modality, model, device, task=task)
+            try:
+                input,feature_size, label = preprocess(batch, modality, model, device, task=task)
 
-            # get more info about input
-            keystep_label = batch['keystep_label'] if task == 'segmentation' else batch['keystep_label'][0]
-            keystep_id = batch['keystep_id'] if task == 'segmentation' else batch['keystep_id'][0]
-            start_frame = batch['start_frame'] if task == 'segmentation' else batch['start_frame'][0]
-            end_frame = batch['end_frame'] if task == 'segmentation' else batch['end_frame'][0]
-            start_t = batch['start_t'] if task == 'segmentation' else batch['start_t'][0]
-            end_t = batch['end_t'] if task == 'segmentation' else batch['end_t'][0]
-            subject_id = batch['subject_id'] if task == 'segmentation' else batch['subject_id']
-            trial_id = batch['trial_id'] if task == 'segmentation' else batch['trial_id']
-            window_start_frame = batch['window_start_frame'] if task == 'segmentation' else torch.tensor(-1)
-            window_end_frame = batch['window_end_frame'] if task == 'segmentation' else torch.tensor(-1)
+                # check if the time-dimension is zero, skip this batch
+                if input.size(1) == 0:
+                    print(f"Skipping batch {i}: empty feature sequence : {input.shape}")
+                    continue
 
-            output = model(input)
-            pred = torch.argmax(output, dim=1)
+                # get more info about input
+                keystep_label = batch['keystep_label'] if task == 'segmentation' else batch['keystep_label'][0]
+                keystep_id = batch['keystep_id'] if task == 'segmentation' else batch['keystep_id'][0]
+                start_frame = batch['start_frame'] if task == 'segmentation' else batch['start_frame'][0]
+                end_frame = batch['end_frame'] if task == 'segmentation' else batch['end_frame'][0]
+                start_t = batch['start_t'] if task == 'segmentation' else batch['start_t'][0]
+                end_t = batch['end_t'] if task == 'segmentation' else batch['end_t'][0]
+                subject_id = batch['subject_id'] if task == 'segmentation' else batch['subject_id']
+                trial_id = batch['trial_id'] if task == 'segmentation' else batch['trial_id']
+                window_start_frame = batch['window_start_frame'] if task == 'segmentation' else torch.tensor(-1)
+                window_end_frame = batch['window_end_frame'] if task == 'segmentation' else torch.tensor(-1)
 
-            gt.append(label.item())
-            preds.append(pred.item())
+                output = model(input)
+                pred = torch.argmax(output, dim=1)
 
-            preds_detail.append({
-                "keystep_label": keystep_label,
-                "keystep_id": keystep_id.tolist(),
-                "start_frame": start_frame.tolist(),
-                "end_frame": end_frame.tolist(),
-                "start_t": start_t.tolist(),
-                "end_t": end_t.tolist(),
-                "window_start_frame": window_start_frame.item(),
-                "window_end_frame": window_end_frame.item(),
-                "subject_id": subject_id[0],
-                "trial_id": trial_id[0],
-                "pred_keystep_id": pred.item(),
-                "all_preds": output.tolist()
-            })
+                gt.append(label.item())
+                preds.append(pred.item())
 
+                preds_detail.append({
+                    "keystep_label": keystep_label,
+                    "keystep_id": keystep_id.tolist(),
+                    "start_frame": start_frame.tolist(),
+                    "end_frame": end_frame.tolist(),
+                    "start_t": start_t.tolist(),
+                    "end_t": end_t.tolist(),
+                    "window_start_frame": window_start_frame.item(),
+                    "window_end_frame": window_end_frame.item(),
+                    "subject_id": subject_id[0],
+                    "trial_id": trial_id[0],
+                    "pred_keystep_id": pred.item(),
+                    "all_preds": output.tolist()
+                })
+
+            except Exception as e:
+                print(f"Error in batch {i}: {e}")
+                print(f"Batch data: {batch}")
+                continue
 
             # break
             
