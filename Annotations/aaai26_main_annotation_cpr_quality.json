@@ -69,6 +69,10 @@
                                     "file_id": "P0_cardiacarrest_s2_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s2/exo/P0_cardiacarrest_s2_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s2_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s2/i3d_flow/P0_cardiacarrest_s2_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P0_cardiacarrest_s2_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s2/smartwatch_data/P0_cardiacarrest_s2_sync_smartwatch.csv"
@@ -76,6 +80,10 @@
                                 "clip_exo": {
                                     "file_id": "P0_cardiacarrest_s2_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s2/clip_exo/P0_cardiacarrest_s2_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s2_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s2/i3d_rgb/P0_cardiacarrest_s2_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P0_cardiacarrest_s2_ego_resnet",
@@ -120,6 +128,10 @@
                                     "file_id": "P0_cardiacarrest_s3_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/exo/P0_cardiacarrest_s3_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s3_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/i3d_flow/P0_cardiacarrest_s3_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P0_cardiacarrest_s3_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/smartwatch_data/P0_cardiacarrest_s3_sync_smartwatch.csv"
@@ -127,6 +139,10 @@
                                 "clip_exo": {
                                     "file_id": "P0_cardiacarrest_s3_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/clip_exo/P0_cardiacarrest_s3_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s3_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/i3d_rgb/P0_cardiacarrest_s3_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P0_cardiacarrest_s3_ego_resnet",
@@ -171,6 +187,10 @@
                                     "file_id": "P0_cardiacarrest_s4_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s4/exo/P0_cardiacarrest_s4_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s4_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s4/i3d_flow/P0_cardiacarrest_s4_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P0_cardiacarrest_s4_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s4/smartwatch_data/P0_cardiacarrest_s4_sync_smartwatch.csv"
@@ -178,6 +198,10 @@
                                 "clip_exo": {
                                     "file_id": "P0_cardiacarrest_s4_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s4/clip_exo/P0_cardiacarrest_s4_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s4_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s4/i3d_rgb/P0_cardiacarrest_s4_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P0_cardiacarrest_s4_ego_resnet",
@@ -222,6 +246,10 @@
                                     "file_id": "P0_cardiacarrest_s5_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s5/exo/P0_cardiacarrest_s5_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s5_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s5/i3d_flow/P0_cardiacarrest_s5_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P0_cardiacarrest_s5_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s5/smartwatch_data/P0_cardiacarrest_s5_sync_smartwatch.csv"
@@ -229,6 +257,10 @@
                                 "clip_exo": {
                                     "file_id": "P0_cardiacarrest_s5_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s5/clip_exo/P0_cardiacarrest_s5_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s5_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s5/i3d_rgb/P0_cardiacarrest_s5_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P0_cardiacarrest_s5_ego_resnet",
@@ -273,6 +305,10 @@
                                     "file_id": "P0_cardiacarrest_s6_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s6/exo/P0_cardiacarrest_s6_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s6_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s6/i3d_flow/P0_cardiacarrest_s6_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P0_cardiacarrest_s6_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s6/smartwatch_data/P0_cardiacarrest_s6_sync_smartwatch.csv"
@@ -280,6 +316,10 @@
                                 "clip_exo": {
                                     "file_id": "P0_cardiacarrest_s6_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s6/clip_exo/P0_cardiacarrest_s6_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s6_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s6/i3d_rgb/P0_cardiacarrest_s6_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P0_cardiacarrest_s6_ego_resnet",
@@ -324,6 +364,10 @@
                                     "file_id": "P0_cardiacarrest_s8_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s8/exo/P0_cardiacarrest_s8_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s8_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s8/i3d_flow/P0_cardiacarrest_s8_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P0_cardiacarrest_s8_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s8/smartwatch_data/P0_cardiacarrest_s8_sync_smartwatch.csv"
@@ -331,6 +375,10 @@
                                 "clip_exo": {
                                     "file_id": "P0_cardiacarrest_s8_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s8/clip_exo/P0_cardiacarrest_s8_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s8_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s8/i3d_rgb/P0_cardiacarrest_s8_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P0_cardiacarrest_s8_ego_resnet",
@@ -375,6 +423,10 @@
                                     "file_id": "P0_cardiacarrest_s9_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s9/exo/P0_cardiacarrest_s9_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s9_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s9/i3d_flow/P0_cardiacarrest_s9_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P0_cardiacarrest_s9_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s9/smartwatch_data/P0_cardiacarrest_s9_sync_smartwatch.csv"
@@ -382,6 +434,10 @@
                                 "clip_exo": {
                                     "file_id": "P0_cardiacarrest_s9_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s9/clip_exo/P0_cardiacarrest_s9_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s9_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s9/i3d_rgb/P0_cardiacarrest_s9_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P0_cardiacarrest_s9_ego_resnet",
@@ -1967,6 +2023,10 @@
                                     "file_id": "P15_cardiacarrest_s10_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s10/exo/P15_cardiacarrest_s10_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P15_cardiacarrest_s10_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s10/i3d_flow/P15_cardiacarrest_s10_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P15_cardiacarrest_s10_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s10/smartwatch_data/P15_cardiacarrest_s10_sync_smartwatch.csv"
@@ -1974,6 +2034,10 @@
                                 "clip_exo": {
                                     "file_id": "P15_cardiacarrest_s10_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s10/clip_exo/P15_cardiacarrest_s10_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P15_cardiacarrest_s10_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s10/i3d_rgb/P15_cardiacarrest_s10_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P15_cardiacarrest_s10_ego_resnet",
@@ -2136,6 +2200,10 @@
                                     "file_id": "P15_cardiacarrest_s6_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s6/exo/P15_cardiacarrest_s6_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P15_cardiacarrest_s6_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s6/i3d_flow/P15_cardiacarrest_s6_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P15_cardiacarrest_s6_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s6/smartwatch_data/P15_cardiacarrest_s6_sync_smartwatch.csv"
@@ -2143,6 +2211,10 @@
                                 "clip_exo": {
                                     "file_id": "P15_cardiacarrest_s6_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s6/clip_exo/P15_cardiacarrest_s6_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P15_cardiacarrest_s6_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s6/i3d_rgb/P15_cardiacarrest_s6_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P15_cardiacarrest_s6_ego_resnet",
@@ -2375,6 +2447,10 @@
                                     "file_id": "P16_cardiacarrest_s5_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s5/exo/P16_cardiacarrest_s5_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P16_cardiacarrest_s5_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s5/i3d_flow/P16_cardiacarrest_s5_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P16_cardiacarrest_s5_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s5/smartwatch_data/P16_cardiacarrest_s5_sync_smartwatch.csv"
@@ -2382,6 +2458,10 @@
                                 "clip_exo": {
                                     "file_id": "P16_cardiacarrest_s5_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s5/clip_exo/P16_cardiacarrest_s5_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P16_cardiacarrest_s5_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s5/i3d_rgb/P16_cardiacarrest_s5_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P16_cardiacarrest_s5_ego_resnet",
@@ -2426,6 +2506,10 @@
                                     "file_id": "P16_cardiacarrest_s7_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s7/exo/P16_cardiacarrest_s7_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P16_cardiacarrest_s7_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s7/i3d_flow/P16_cardiacarrest_s7_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P16_cardiacarrest_s7_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s7/smartwatch_data/P16_cardiacarrest_s7_sync_smartwatch.csv"
@@ -2433,6 +2517,10 @@
                                 "clip_exo": {
                                     "file_id": "P16_cardiacarrest_s7_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s7/clip_exo/P16_cardiacarrest_s7_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P16_cardiacarrest_s7_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s7/i3d_rgb/P16_cardiacarrest_s7_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P16_cardiacarrest_s7_ego_resnet",
@@ -2477,6 +2565,10 @@
                                     "file_id": "P16_cardiacarrest_s8_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s8/exo/P16_cardiacarrest_s8_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P16_cardiacarrest_s8_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s8/i3d_flow/P16_cardiacarrest_s8_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P16_cardiacarrest_s8_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s8/smartwatch_data/P16_cardiacarrest_s8_sync_smartwatch.csv"
@@ -2484,6 +2576,10 @@
                                 "clip_exo": {
                                     "file_id": "P16_cardiacarrest_s8_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s8/clip_exo/P16_cardiacarrest_s8_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P16_cardiacarrest_s8_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s8/i3d_rgb/P16_cardiacarrest_s8_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P16_cardiacarrest_s8_ego_resnet",
@@ -2539,6 +2635,10 @@
                                     "file_id": "P2_cardiacarrest_s3_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s3/exo/P2_cardiacarrest_s3_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P2_cardiacarrest_s3_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s3/i3d_flow/P2_cardiacarrest_s3_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P2_cardiacarrest_s3_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s3/smartwatch_data/P2_cardiacarrest_s3_sync_smartwatch.csv"
@@ -2546,6 +2646,10 @@
                                 "clip_exo": {
                                     "file_id": "P2_cardiacarrest_s3_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s3/clip_exo/P2_cardiacarrest_s3_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P2_cardiacarrest_s3_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s3/i3d_rgb/P2_cardiacarrest_s3_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P2_cardiacarrest_s3_ego_resnet",
@@ -2590,6 +2694,10 @@
                                     "file_id": "P2_cardiacarrest_s4_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s4/exo/P2_cardiacarrest_s4_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P2_cardiacarrest_s4_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s4/i3d_flow/P2_cardiacarrest_s4_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P2_cardiacarrest_s4_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s4/smartwatch_data/P2_cardiacarrest_s4_sync_smartwatch.csv"
@@ -2597,6 +2705,10 @@
                                 "clip_exo": {
                                     "file_id": "P2_cardiacarrest_s4_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s4/clip_exo/P2_cardiacarrest_s4_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P2_cardiacarrest_s4_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s4/i3d_rgb/P2_cardiacarrest_s4_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P2_cardiacarrest_s4_ego_resnet",
@@ -2641,6 +2753,10 @@
                                     "file_id": "P2_cardiacarrest_s8_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s8/exo/P2_cardiacarrest_s8_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P2_cardiacarrest_s8_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s8/i3d_flow/P2_cardiacarrest_s8_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P2_cardiacarrest_s8_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s8/smartwatch_data/P2_cardiacarrest_s8_sync_smartwatch.csv"
@@ -2648,6 +2764,10 @@
                                 "clip_exo": {
                                     "file_id": "P2_cardiacarrest_s8_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s8/clip_exo/P2_cardiacarrest_s8_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P2_cardiacarrest_s8_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s8/i3d_rgb/P2_cardiacarrest_s8_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P2_cardiacarrest_s8_ego_resnet",
@@ -2692,6 +2812,10 @@
                                     "file_id": "P2_cardiacarrest_s9_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s9/exo/P2_cardiacarrest_s9_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P2_cardiacarrest_s9_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s9/i3d_flow/P2_cardiacarrest_s9_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P2_cardiacarrest_s9_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s9/smartwatch_data/P2_cardiacarrest_s9_sync_smartwatch.csv"
@@ -2699,6 +2823,10 @@
                                 "clip_exo": {
                                     "file_id": "P2_cardiacarrest_s9_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s9/clip_exo/P2_cardiacarrest_s9_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P2_cardiacarrest_s9_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s9/i3d_rgb/P2_cardiacarrest_s9_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P2_cardiacarrest_s9_ego_resnet",
@@ -3543,6 +3671,10 @@
                                     "file_id": "P22_cardiacarrest_s1_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s1/exo/P22_cardiacarrest_s1_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P22_cardiacarrest_s1_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s1/i3d_flow/P22_cardiacarrest_s1_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P22_cardiacarrest_s1_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s1/smartwatch_data/P22_cardiacarrest_s1_sync_smartwatch.csv"
@@ -3550,6 +3682,10 @@
                                 "clip_exo": {
                                     "file_id": "P22_cardiacarrest_s1_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s1/clip_exo/P22_cardiacarrest_s1_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P22_cardiacarrest_s1_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s1/i3d_rgb/P22_cardiacarrest_s1_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P22_cardiacarrest_s1_ego_resnet",
@@ -3594,6 +3730,10 @@
                                     "file_id": "P22_cardiacarrest_s2_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s2/exo/P22_cardiacarrest_s2_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P22_cardiacarrest_s2_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s2/i3d_flow/P22_cardiacarrest_s2_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P22_cardiacarrest_s2_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s2/smartwatch_data/P22_cardiacarrest_s2_sync_smartwatch.csv"
@@ -3601,6 +3741,10 @@
                                 "clip_exo": {
                                     "file_id": "P22_cardiacarrest_s2_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s2/clip_exo/P22_cardiacarrest_s2_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P22_cardiacarrest_s2_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s2/i3d_rgb/P22_cardiacarrest_s2_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P22_cardiacarrest_s2_ego_resnet",
@@ -3645,6 +3789,10 @@
                                     "file_id": "P22_cardiacarrest_s3_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/exo/P22_cardiacarrest_s3_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P22_cardiacarrest_s3_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/i3d_flow/P22_cardiacarrest_s3_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P22_cardiacarrest_s3_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/smartwatch_data/P22_cardiacarrest_s3_sync_smartwatch.csv"
@@ -3652,6 +3800,10 @@
                                 "clip_exo": {
                                     "file_id": "P22_cardiacarrest_s3_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/clip_exo/P22_cardiacarrest_s3_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P22_cardiacarrest_s3_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/i3d_rgb/P22_cardiacarrest_s3_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P22_cardiacarrest_s3_ego_resnet",
@@ -3696,6 +3848,10 @@
                                     "file_id": "P22_cardiacarrest_s5_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s5/exo/P22_cardiacarrest_s5_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P22_cardiacarrest_s5_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s5/i3d_flow/P22_cardiacarrest_s5_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P22_cardiacarrest_s5_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s5/smartwatch_data/P22_cardiacarrest_s5_sync_smartwatch.csv"
@@ -3703,6 +3859,10 @@
                                 "clip_exo": {
                                     "file_id": "P22_cardiacarrest_s5_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s5/clip_exo/P22_cardiacarrest_s5_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P22_cardiacarrest_s5_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s5/i3d_rgb/P22_cardiacarrest_s5_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P22_cardiacarrest_s5_ego_resnet",
@@ -3747,6 +3907,10 @@
                                     "file_id": "P22_cardiacarrest_s6_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s6/exo/P22_cardiacarrest_s6_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P22_cardiacarrest_s6_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s6/i3d_flow/P22_cardiacarrest_s6_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P22_cardiacarrest_s6_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s6/smartwatch_data/P22_cardiacarrest_s6_sync_smartwatch.csv"
@@ -3754,6 +3918,10 @@
                                 "clip_exo": {
                                     "file_id": "P22_cardiacarrest_s6_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s6/clip_exo/P22_cardiacarrest_s6_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P22_cardiacarrest_s6_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s6/i3d_rgb/P22_cardiacarrest_s6_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P22_cardiacarrest_s6_ego_resnet",
@@ -4174,6 +4342,10 @@
                                     "file_id": "P4_cardiacarrest_s2_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s2/exo/P4_cardiacarrest_s2_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P4_cardiacarrest_s2_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s2/i3d_flow/P4_cardiacarrest_s2_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P4_cardiacarrest_s2_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s2/smartwatch_data/P4_cardiacarrest_s2_sync_smartwatch.csv"
@@ -4181,6 +4353,10 @@
                                 "clip_exo": {
                                     "file_id": "P4_cardiacarrest_s2_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s2/clip_exo/P4_cardiacarrest_s2_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P4_cardiacarrest_s2_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s2/i3d_rgb/P4_cardiacarrest_s2_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P4_cardiacarrest_s2_ego_resnet",
@@ -4225,6 +4401,10 @@
                                     "file_id": "P4_cardiacarrest_s3_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/exo/P4_cardiacarrest_s3_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P4_cardiacarrest_s3_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/i3d_flow/P4_cardiacarrest_s3_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P4_cardiacarrest_s3_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/smartwatch_data/P4_cardiacarrest_s3_sync_smartwatch.csv"
@@ -4232,6 +4412,10 @@
                                 "clip_exo": {
                                     "file_id": "P4_cardiacarrest_s3_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/clip_exo/P4_cardiacarrest_s3_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P4_cardiacarrest_s3_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/i3d_rgb/P4_cardiacarrest_s3_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P4_cardiacarrest_s3_ego_resnet",
@@ -4276,6 +4460,10 @@
                                     "file_id": "P4_cardiacarrest_s4_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s4/exo/P4_cardiacarrest_s4_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P4_cardiacarrest_s4_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s4/i3d_flow/P4_cardiacarrest_s4_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P4_cardiacarrest_s4_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s4/smartwatch_data/P4_cardiacarrest_s4_sync_smartwatch.csv"
@@ -4283,6 +4471,10 @@
                                 "clip_exo": {
                                     "file_id": "P4_cardiacarrest_s4_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s4/clip_exo/P4_cardiacarrest_s4_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P4_cardiacarrest_s4_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s4/i3d_rgb/P4_cardiacarrest_s4_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P4_cardiacarrest_s4_ego_resnet",
@@ -4327,6 +4519,10 @@
                                     "file_id": "P4_cardiacarrest_s5_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s5/exo/P4_cardiacarrest_s5_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P4_cardiacarrest_s5_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s5/i3d_flow/P4_cardiacarrest_s5_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P4_cardiacarrest_s5_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s5/smartwatch_data/P4_cardiacarrest_s5_sync_smartwatch.csv"
@@ -4334,6 +4530,10 @@
                                 "clip_exo": {
                                     "file_id": "P4_cardiacarrest_s5_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s5/clip_exo/P4_cardiacarrest_s5_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P4_cardiacarrest_s5_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s5/i3d_rgb/P4_cardiacarrest_s5_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P4_cardiacarrest_s5_ego_resnet",
@@ -4378,6 +4578,10 @@
                                     "file_id": "P4_cardiacarrest_s7_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s7/exo/P4_cardiacarrest_s7_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P4_cardiacarrest_s7_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s7/i3d_flow/P4_cardiacarrest_s7_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P4_cardiacarrest_s7_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s7/smartwatch_data/P4_cardiacarrest_s7_sync_smartwatch.csv"
@@ -4385,6 +4589,10 @@
                                 "clip_exo": {
                                     "file_id": "P4_cardiacarrest_s7_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s7/clip_exo/P4_cardiacarrest_s7_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P4_cardiacarrest_s7_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s7/i3d_rgb/P4_cardiacarrest_s7_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P4_cardiacarrest_s7_ego_resnet",
@@ -4429,6 +4637,10 @@
                                     "file_id": "P4_cardiacarrest_s8_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s8/exo/P4_cardiacarrest_s8_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P4_cardiacarrest_s8_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s8/i3d_flow/P4_cardiacarrest_s8_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P4_cardiacarrest_s8_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s8/smartwatch_data/P4_cardiacarrest_s8_sync_smartwatch.csv"
@@ -4436,6 +4648,10 @@
                                 "clip_exo": {
                                     "file_id": "P4_cardiacarrest_s8_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s8/clip_exo/P4_cardiacarrest_s8_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P4_cardiacarrest_s8_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s8/i3d_rgb/P4_cardiacarrest_s8_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P4_cardiacarrest_s8_ego_resnet",
@@ -4491,6 +4707,10 @@
                                     "file_id": "P5_cardiacarrest_s2_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s2/exo/P5_cardiacarrest_s2_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s2_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s2/i3d_flow/P5_cardiacarrest_s2_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P5_cardiacarrest_s2_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s2/smartwatch_data/P5_cardiacarrest_s2_sync_smartwatch.csv"
@@ -4498,6 +4718,10 @@
                                 "clip_exo": {
                                     "file_id": "P5_cardiacarrest_s2_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s2/clip_exo/P5_cardiacarrest_s2_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s2_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s2/i3d_rgb/P5_cardiacarrest_s2_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P5_cardiacarrest_s2_ego_resnet",
@@ -4542,6 +4766,10 @@
                                     "file_id": "P5_cardiacarrest_s4_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s4/exo/P5_cardiacarrest_s4_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s4_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s4/i3d_flow/P5_cardiacarrest_s4_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P5_cardiacarrest_s4_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s4/smartwatch_data/P5_cardiacarrest_s4_sync_smartwatch.csv"
@@ -4549,6 +4777,10 @@
                                 "clip_exo": {
                                     "file_id": "P5_cardiacarrest_s4_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s4/clip_exo/P5_cardiacarrest_s4_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s4_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s4/i3d_rgb/P5_cardiacarrest_s4_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P5_cardiacarrest_s4_ego_resnet",
@@ -4593,6 +4825,10 @@
                                     "file_id": "P5_cardiacarrest_s5_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s5/exo/P5_cardiacarrest_s5_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s5_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s5/i3d_flow/P5_cardiacarrest_s5_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P5_cardiacarrest_s5_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s5/smartwatch_data/P5_cardiacarrest_s5_sync_smartwatch.csv"
@@ -4600,6 +4836,10 @@
                                 "clip_exo": {
                                     "file_id": "P5_cardiacarrest_s5_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s5/clip_exo/P5_cardiacarrest_s5_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s5_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s5/i3d_rgb/P5_cardiacarrest_s5_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P5_cardiacarrest_s5_ego_resnet",
@@ -4644,6 +4884,10 @@
                                     "file_id": "P5_cardiacarrest_s6_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s6/exo/P5_cardiacarrest_s6_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s6_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s6/i3d_flow/P5_cardiacarrest_s6_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P5_cardiacarrest_s6_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s6/smartwatch_data/P5_cardiacarrest_s6_sync_smartwatch.csv"
@@ -4651,6 +4895,10 @@
                                 "clip_exo": {
                                     "file_id": "P5_cardiacarrest_s6_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s6/clip_exo/P5_cardiacarrest_s6_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s6_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s6/i3d_rgb/P5_cardiacarrest_s6_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P5_cardiacarrest_s6_ego_resnet",
@@ -4695,6 +4943,10 @@
                                     "file_id": "P5_cardiacarrest_s7_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s7/exo/P5_cardiacarrest_s7_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s7_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s7/i3d_flow/P5_cardiacarrest_s7_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P5_cardiacarrest_s7_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s7/smartwatch_data/P5_cardiacarrest_s7_sync_smartwatch.csv"
@@ -4702,6 +4954,10 @@
                                 "clip_exo": {
                                     "file_id": "P5_cardiacarrest_s7_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s7/clip_exo/P5_cardiacarrest_s7_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s7_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s7/i3d_rgb/P5_cardiacarrest_s7_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P5_cardiacarrest_s7_ego_resnet",
@@ -4746,6 +5002,10 @@
                                     "file_id": "P5_cardiacarrest_s8_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s8/exo/P5_cardiacarrest_s8_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s8_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s8/i3d_flow/P5_cardiacarrest_s8_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P5_cardiacarrest_s8_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s8/smartwatch_data/P5_cardiacarrest_s8_sync_smartwatch.csv"
@@ -4753,6 +5013,10 @@
                                 "clip_exo": {
                                     "file_id": "P5_cardiacarrest_s8_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s8/clip_exo/P5_cardiacarrest_s8_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s8_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s8/i3d_rgb/P5_cardiacarrest_s8_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P5_cardiacarrest_s8_ego_resnet",
@@ -4797,6 +5061,10 @@
                                     "file_id": "P5_cardiacarrest_s9_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/exo/P5_cardiacarrest_s9_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s9_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/i3d_flow/P5_cardiacarrest_s9_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P5_cardiacarrest_s9_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/smartwatch_data/P5_cardiacarrest_s9_sync_smartwatch.csv"
@@ -4804,6 +5072,10 @@
                                 "clip_exo": {
                                     "file_id": "P5_cardiacarrest_s9_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/clip_exo/P5_cardiacarrest_s9_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s9_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/i3d_rgb/P5_cardiacarrest_s9_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P5_cardiacarrest_s9_ego_resnet",
@@ -4859,6 +5131,10 @@
                                     "file_id": "P7_cardiacarrest_s1_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s1/exo/P7_cardiacarrest_s1_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s1_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s1/i3d_flow/P7_cardiacarrest_s1_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s1_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s1/smartwatch_data/P7_cardiacarrest_s1_sync_smartwatch.csv"
@@ -4866,6 +5142,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s1_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s1/clip_exo/P7_cardiacarrest_s1_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s1_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s1/i3d_rgb/P7_cardiacarrest_s1_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s1_ego_resnet",
@@ -4910,6 +5190,10 @@
                                     "file_id": "P7_cardiacarrest_s2_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s2/exo/P7_cardiacarrest_s2_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s2_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s2/i3d_flow/P7_cardiacarrest_s2_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s2_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s2/smartwatch_data/P7_cardiacarrest_s2_sync_smartwatch.csv"
@@ -4917,6 +5201,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s2_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s2/clip_exo/P7_cardiacarrest_s2_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s2_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s2/i3d_rgb/P7_cardiacarrest_s2_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s2_ego_resnet",
@@ -4961,6 +5249,10 @@
                                     "file_id": "P7_cardiacarrest_s3_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s3/exo/P7_cardiacarrest_s3_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s3_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s3/i3d_flow/P7_cardiacarrest_s3_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s3_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s3/smartwatch_data/P7_cardiacarrest_s3_sync_smartwatch.csv"
@@ -4968,6 +5260,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s3_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s3/clip_exo/P7_cardiacarrest_s3_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s3_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s3/i3d_rgb/P7_cardiacarrest_s3_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s3_ego_resnet",
@@ -5012,6 +5308,10 @@
                                     "file_id": "P7_cardiacarrest_s4_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s4/exo/P7_cardiacarrest_s4_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s4_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s4/i3d_flow/P7_cardiacarrest_s4_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s4_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s4/smartwatch_data/P7_cardiacarrest_s4_sync_smartwatch.csv"
@@ -5019,6 +5319,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s4_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s4/clip_exo/P7_cardiacarrest_s4_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s4_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s4/i3d_rgb/P7_cardiacarrest_s4_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s4_ego_resnet",
@@ -5063,6 +5367,10 @@
                                     "file_id": "P7_cardiacarrest_s5_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s5/exo/P7_cardiacarrest_s5_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s5_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s5/i3d_flow/P7_cardiacarrest_s5_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s5_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s5/smartwatch_data/P7_cardiacarrest_s5_sync_smartwatch.csv"
@@ -5070,6 +5378,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s5_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s5/clip_exo/P7_cardiacarrest_s5_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s5_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s5/i3d_rgb/P7_cardiacarrest_s5_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s5_ego_resnet",
@@ -5114,6 +5426,10 @@
                                     "file_id": "P7_cardiacarrest_s6_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s6/exo/P7_cardiacarrest_s6_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s6_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s6/i3d_flow/P7_cardiacarrest_s6_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s6_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s6/smartwatch_data/P7_cardiacarrest_s6_sync_smartwatch.csv"
@@ -5121,6 +5437,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s6_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s6/clip_exo/P7_cardiacarrest_s6_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s6_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s6/i3d_rgb/P7_cardiacarrest_s6_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s6_ego_resnet",
@@ -5165,6 +5485,10 @@
                                     "file_id": "P7_cardiacarrest_s7_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/exo/P7_cardiacarrest_s7_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s7_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/i3d_flow/P7_cardiacarrest_s7_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s7_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/smartwatch_data/P7_cardiacarrest_s7_sync_smartwatch.csv"
@@ -5172,6 +5496,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s7_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/clip_exo/P7_cardiacarrest_s7_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s7_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/i3d_rgb/P7_cardiacarrest_s7_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s7_ego_resnet",
@@ -5216,6 +5544,10 @@
                                     "file_id": "P7_cardiacarrest_s8_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s8/exo/P7_cardiacarrest_s8_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s8_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s8/i3d_flow/P7_cardiacarrest_s8_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s8_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s8/smartwatch_data/P7_cardiacarrest_s8_sync_smartwatch.csv"
@@ -5223,6 +5555,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s8_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s8/clip_exo/P7_cardiacarrest_s8_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s8_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s8/i3d_rgb/P7_cardiacarrest_s8_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s8_ego_resnet",
@@ -5267,6 +5603,10 @@
                                     "file_id": "P7_cardiacarrest_s9_exo_rgbd_ir",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s9/exo/P7_cardiacarrest_s9_exo_rgbd_ir.hdf5"
                                 },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s9_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s9/i3d_flow/P7_cardiacarrest_s9_flow_i3d.npy"
+                                },
                                 "smartwatch_imu": {
                                     "file_id": "P7_cardiacarrest_s9_sync_smartwatch",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s9/smartwatch_data/P7_cardiacarrest_s9_sync_smartwatch.csv"
@@ -5274,6 +5614,10 @@
                                 "clip_exo": {
                                     "file_id": "P7_cardiacarrest_s9_clip_exo_features",
                                     "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s9/clip_exo/P7_cardiacarrest_s9_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s9_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s9/i3d_rgb/P7_cardiacarrest_s9_rgb_i3d.npy"
                                 },
                                 "resnet_ego": {
                                     "file_id": "P7_cardiacarrest_s9_ego_resnet",
@@ -5364,76 +5708,6 @@
                             },
                             "keysteps": [
                                 {
-                                    "keystep_id": "1_RM4zBxgS",
-                                    "start_t": 0,
-                                    "end_t": 5.75226,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_yQUpL8f1",
-                                    "start_t": 10.332,
-                                    "end_t": 23.54392,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_TA5m7KWX",
-                                    "start_t": 28.536,
-                                    "end_t": 29.67118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_xBuuONeA",
-                                    "start_t": 16.984,
-                                    "end_t": 32.75657,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_4QDsDc0l",
-                                    "start_t": 37.077,
-                                    "end_t": 52.93563,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_vEt0d9Sj",
-                                    "start_t": 74.804,
-                                    "end_t": 95.01355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_1XX4edjR",
-                                    "start_t": 98.577,
-                                    "end_t": 118.76355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_ivX47ymZ",
-                                    "start_t": 121.911,
-                                    "end_t": 142.5271,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "3_6hY2irkd",
-                                    "start_t": 13.169,
-                                    "end_t": 88,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "4_nKFeFvCF",
-                                    "start_t": 9.561,
-                                    "end_t": 71,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
                                     "keystep_id": "5_2FerCyqc",
                                     "start_t": 15.773,
                                     "end_t": 83.70723,
@@ -5488,83 +5762,6 @@
                                 }
                             },
                             "keysteps": [
-                                {
-                                    "keystep_id": "1_RM4zBxgS",
-                                    "start_t": 0,
-                                    "end_t": 5.75226,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_yQUpL8f1",
-                                    "start_t": 10.332,
-                                    "end_t": 23.54392,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_TA5m7KWX",
-                                    "start_t": 28.536,
-                                    "end_t": 29.67118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_xBuuONeA",
-                                    "start_t": 16.984,
-                                    "end_t": 32.75657,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_4QDsDc0l",
-                                    "start_t": 37.077,
-                                    "end_t": 52.93563,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_vEt0d9Sj",
-                                    "start_t": 74.804,
-                                    "end_t": 95.01355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_1XX4edjR",
-                                    "start_t": 98.577,
-                                    "end_t": 118.76355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_ivX47ymZ",
-                                    "start_t": 121.911,
-                                    "end_t": 142.5271,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "3_6hY2irkd",
-                                    "start_t": 13.169,
-                                    "end_t": 88,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "4_nKFeFvCF",
-                                    "start_t": 9.561,
-                                    "end_t": 71,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "5_2FerCyqc",
-                                    "start_t": 15.773,
-                                    "end_t": 83.70723,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
                                 {
                                     "keystep_id": "6_DItX8txT",
                                     "start_t": 11.898,
@@ -5635,104 +5832,6 @@
                             },
                             "keysteps": [
                                 {
-                                    "keystep_id": "1_RM4zBxgS",
-                                    "start_t": 0,
-                                    "end_t": 5.75226,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_yQUpL8f1",
-                                    "start_t": 10.332,
-                                    "end_t": 23.54392,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_TA5m7KWX",
-                                    "start_t": 28.536,
-                                    "end_t": 29.67118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_xBuuONeA",
-                                    "start_t": 16.984,
-                                    "end_t": 32.75657,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_4QDsDc0l",
-                                    "start_t": 37.077,
-                                    "end_t": 52.93563,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_vEt0d9Sj",
-                                    "start_t": 74.804,
-                                    "end_t": 95.01355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_1XX4edjR",
-                                    "start_t": 98.577,
-                                    "end_t": 118.76355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_ivX47ymZ",
-                                    "start_t": 121.911,
-                                    "end_t": 142.5271,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "3_6hY2irkd",
-                                    "start_t": 13.169,
-                                    "end_t": 88,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "4_nKFeFvCF",
-                                    "start_t": 9.561,
-                                    "end_t": 71,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "5_2FerCyqc",
-                                    "start_t": 15.773,
-                                    "end_t": 83.70723,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_DItX8txT",
-                                    "start_t": 11.898,
-                                    "end_t": 54.21285,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_csNvmEoX",
-                                    "start_t": 74.825,
-                                    "end_t": 96.5488,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_Or9u0pJI",
-                                    "start_t": 100.741,
-                                    "end_t": 119.93882,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
                                     "keystep_id": "7_GRMtiPl3",
                                     "start_t": 11.252,
                                     "end_t": 37.79145,
@@ -5801,125 +5900,6 @@
                                 }
                             },
                             "keysteps": [
-                                {
-                                    "keystep_id": "1_RM4zBxgS",
-                                    "start_t": 0,
-                                    "end_t": 5.75226,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_yQUpL8f1",
-                                    "start_t": 10.332,
-                                    "end_t": 23.54392,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_TA5m7KWX",
-                                    "start_t": 28.536,
-                                    "end_t": 29.67118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_xBuuONeA",
-                                    "start_t": 16.984,
-                                    "end_t": 32.75657,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_4QDsDc0l",
-                                    "start_t": 37.077,
-                                    "end_t": 52.93563,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_vEt0d9Sj",
-                                    "start_t": 74.804,
-                                    "end_t": 95.01355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_1XX4edjR",
-                                    "start_t": 98.577,
-                                    "end_t": 118.76355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_ivX47ymZ",
-                                    "start_t": 121.911,
-                                    "end_t": 142.5271,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "3_6hY2irkd",
-                                    "start_t": 13.169,
-                                    "end_t": 88,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "4_nKFeFvCF",
-                                    "start_t": 9.561,
-                                    "end_t": 71,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "5_2FerCyqc",
-                                    "start_t": 15.773,
-                                    "end_t": 83.70723,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_DItX8txT",
-                                    "start_t": 11.898,
-                                    "end_t": 54.21285,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_csNvmEoX",
-                                    "start_t": 74.825,
-                                    "end_t": 96.5488,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_Or9u0pJI",
-                                    "start_t": 100.741,
-                                    "end_t": 119.93882,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_GRMtiPl3",
-                                    "start_t": 11.252,
-                                    "end_t": 37.79145,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_eIj13Zg7",
-                                    "start_t": 58.007,
-                                    "end_t": 78.69427,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_yT6nAe86",
-                                    "start_t": 84.005,
-                                    "end_t": 127.2771,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
                                 {
                                     "keystep_id": "8_vBgMbSpz",
                                     "start_t": 10.502,
@@ -5996,160 +5976,6 @@
                                 }
                             },
                             "keysteps": [
-                                {
-                                    "keystep_id": "1_RM4zBxgS",
-                                    "start_t": 0,
-                                    "end_t": 5.75226,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_yQUpL8f1",
-                                    "start_t": 10.332,
-                                    "end_t": 23.54392,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_TA5m7KWX",
-                                    "start_t": 28.536,
-                                    "end_t": 29.67118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_xBuuONeA",
-                                    "start_t": 16.984,
-                                    "end_t": 32.75657,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_4QDsDc0l",
-                                    "start_t": 37.077,
-                                    "end_t": 52.93563,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_vEt0d9Sj",
-                                    "start_t": 74.804,
-                                    "end_t": 95.01355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_1XX4edjR",
-                                    "start_t": 98.577,
-                                    "end_t": 118.76355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_ivX47ymZ",
-                                    "start_t": 121.911,
-                                    "end_t": 142.5271,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "3_6hY2irkd",
-                                    "start_t": 13.169,
-                                    "end_t": 88,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "4_nKFeFvCF",
-                                    "start_t": 9.561,
-                                    "end_t": 71,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "5_2FerCyqc",
-                                    "start_t": 15.773,
-                                    "end_t": 83.70723,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_DItX8txT",
-                                    "start_t": 11.898,
-                                    "end_t": 54.21285,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_csNvmEoX",
-                                    "start_t": 74.825,
-                                    "end_t": 96.5488,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_Or9u0pJI",
-                                    "start_t": 100.741,
-                                    "end_t": 119.93882,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_GRMtiPl3",
-                                    "start_t": 11.252,
-                                    "end_t": 37.79145,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_eIj13Zg7",
-                                    "start_t": 58.007,
-                                    "end_t": 78.69427,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_yT6nAe86",
-                                    "start_t": 84.005,
-                                    "end_t": 127.2771,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_vBgMbSpz",
-                                    "start_t": 10.502,
-                                    "end_t": 36.78013,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_vIPeYeDC",
-                                    "start_t": 55.861,
-                                    "end_t": 76.50677,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_CUu5LGiN",
-                                    "start_t": 81.903,
-                                    "end_t": 100.86993,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_BElY5ZEr",
-                                    "start_t": 105.906,
-                                    "end_t": 124.96191,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "10_o8FqGlPa",
-                                    "start_t": 8.941,
-                                    "end_t": 38.90508,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
                                 {
                                     "keystep_id": "9_bMDYvk5g",
                                     "start_t": 12.523,
@@ -6297,167 +6123,6 @@
                             },
                             "keysteps": [
                                 {
-                                    "keystep_id": "1_RM4zBxgS",
-                                    "start_t": 0,
-                                    "end_t": 5.75226,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_yQUpL8f1",
-                                    "start_t": 10.332,
-                                    "end_t": 23.54392,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_TA5m7KWX",
-                                    "start_t": 28.536,
-                                    "end_t": 29.67118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_xBuuONeA",
-                                    "start_t": 16.984,
-                                    "end_t": 32.75657,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_4QDsDc0l",
-                                    "start_t": 37.077,
-                                    "end_t": 52.93563,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_vEt0d9Sj",
-                                    "start_t": 74.804,
-                                    "end_t": 95.01355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_1XX4edjR",
-                                    "start_t": 98.577,
-                                    "end_t": 118.76355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_ivX47ymZ",
-                                    "start_t": 121.911,
-                                    "end_t": 142.5271,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "3_6hY2irkd",
-                                    "start_t": 13.169,
-                                    "end_t": 88,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "4_nKFeFvCF",
-                                    "start_t": 9.561,
-                                    "end_t": 71,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "5_2FerCyqc",
-                                    "start_t": 15.773,
-                                    "end_t": 83.70723,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_DItX8txT",
-                                    "start_t": 11.898,
-                                    "end_t": 54.21285,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_csNvmEoX",
-                                    "start_t": 74.825,
-                                    "end_t": 96.5488,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_Or9u0pJI",
-                                    "start_t": 100.741,
-                                    "end_t": 119.93882,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_GRMtiPl3",
-                                    "start_t": 11.252,
-                                    "end_t": 37.79145,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_eIj13Zg7",
-                                    "start_t": 58.007,
-                                    "end_t": 78.69427,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_yT6nAe86",
-                                    "start_t": 84.005,
-                                    "end_t": 127.2771,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_vBgMbSpz",
-                                    "start_t": 10.502,
-                                    "end_t": 36.78013,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_vIPeYeDC",
-                                    "start_t": 55.861,
-                                    "end_t": 76.50677,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_CUu5LGiN",
-                                    "start_t": 81.903,
-                                    "end_t": 100.86993,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_BElY5ZEr",
-                                    "start_t": 105.906,
-                                    "end_t": 124.96191,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "10_o8FqGlPa",
-                                    "start_t": 8.941,
-                                    "end_t": 38.90508,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "9_bMDYvk5g",
-                                    "start_t": 12.523,
-                                    "end_t": 87.62901,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
                                     "keystep_id": "11_0O5zdYcX",
                                     "start_t": 9.153,
                                     "end_t": 49.85542,
@@ -6533,195 +6198,6 @@
                                 }
                             },
                             "keysteps": [
-                                {
-                                    "keystep_id": "1_RM4zBxgS",
-                                    "start_t": 0,
-                                    "end_t": 5.75226,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_yQUpL8f1",
-                                    "start_t": 10.332,
-                                    "end_t": 23.54392,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_TA5m7KWX",
-                                    "start_t": 28.536,
-                                    "end_t": 29.67118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_xBuuONeA",
-                                    "start_t": 16.984,
-                                    "end_t": 32.75657,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_4QDsDc0l",
-                                    "start_t": 37.077,
-                                    "end_t": 52.93563,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_vEt0d9Sj",
-                                    "start_t": 74.804,
-                                    "end_t": 95.01355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_1XX4edjR",
-                                    "start_t": 98.577,
-                                    "end_t": 118.76355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_ivX47ymZ",
-                                    "start_t": 121.911,
-                                    "end_t": 142.5271,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "3_6hY2irkd",
-                                    "start_t": 13.169,
-                                    "end_t": 88,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "4_nKFeFvCF",
-                                    "start_t": 9.561,
-                                    "end_t": 71,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "5_2FerCyqc",
-                                    "start_t": 15.773,
-                                    "end_t": 83.70723,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_DItX8txT",
-                                    "start_t": 11.898,
-                                    "end_t": 54.21285,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_csNvmEoX",
-                                    "start_t": 74.825,
-                                    "end_t": 96.5488,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_Or9u0pJI",
-                                    "start_t": 100.741,
-                                    "end_t": 119.93882,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_GRMtiPl3",
-                                    "start_t": 11.252,
-                                    "end_t": 37.79145,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_eIj13Zg7",
-                                    "start_t": 58.007,
-                                    "end_t": 78.69427,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_yT6nAe86",
-                                    "start_t": 84.005,
-                                    "end_t": 127.2771,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_vBgMbSpz",
-                                    "start_t": 10.502,
-                                    "end_t": 36.78013,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_vIPeYeDC",
-                                    "start_t": 55.861,
-                                    "end_t": 76.50677,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_CUu5LGiN",
-                                    "start_t": 81.903,
-                                    "end_t": 100.86993,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_BElY5ZEr",
-                                    "start_t": 105.906,
-                                    "end_t": 124.96191,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "10_o8FqGlPa",
-                                    "start_t": 8.941,
-                                    "end_t": 38.90508,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "9_bMDYvk5g",
-                                    "start_t": 12.523,
-                                    "end_t": 87.62901,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_0O5zdYcX",
-                                    "start_t": 9.153,
-                                    "end_t": 49.85542,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_NPl8B4nJ",
-                                    "start_t": 70.523,
-                                    "end_t": 90.17118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_lttbXtzk",
-                                    "start_t": 95.369,
-                                    "end_t": 115.42504,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_1NGAMZed",
-                                    "start_t": 119.043,
-                                    "end_t": 138.64575,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
                                 {
                                     "keystep_id": "12_5MEtMXrW",
                                     "start_t": 9.227,
@@ -6799,223 +6275,6 @@
                             },
                             "keysteps": [
                                 {
-                                    "keystep_id": "1_RM4zBxgS",
-                                    "start_t": 0,
-                                    "end_t": 5.75226,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_yQUpL8f1",
-                                    "start_t": 10.332,
-                                    "end_t": 23.54392,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_TA5m7KWX",
-                                    "start_t": 28.536,
-                                    "end_t": 29.67118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_xBuuONeA",
-                                    "start_t": 16.984,
-                                    "end_t": 32.75657,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_4QDsDc0l",
-                                    "start_t": 37.077,
-                                    "end_t": 52.93563,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_vEt0d9Sj",
-                                    "start_t": 74.804,
-                                    "end_t": 95.01355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_1XX4edjR",
-                                    "start_t": 98.577,
-                                    "end_t": 118.76355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_ivX47ymZ",
-                                    "start_t": 121.911,
-                                    "end_t": 142.5271,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "3_6hY2irkd",
-                                    "start_t": 13.169,
-                                    "end_t": 88,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "4_nKFeFvCF",
-                                    "start_t": 9.561,
-                                    "end_t": 71,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "5_2FerCyqc",
-                                    "start_t": 15.773,
-                                    "end_t": 83.70723,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_DItX8txT",
-                                    "start_t": 11.898,
-                                    "end_t": 54.21285,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_csNvmEoX",
-                                    "start_t": 74.825,
-                                    "end_t": 96.5488,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_Or9u0pJI",
-                                    "start_t": 100.741,
-                                    "end_t": 119.93882,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_GRMtiPl3",
-                                    "start_t": 11.252,
-                                    "end_t": 37.79145,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_eIj13Zg7",
-                                    "start_t": 58.007,
-                                    "end_t": 78.69427,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_yT6nAe86",
-                                    "start_t": 84.005,
-                                    "end_t": 127.2771,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_vBgMbSpz",
-                                    "start_t": 10.502,
-                                    "end_t": 36.78013,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_vIPeYeDC",
-                                    "start_t": 55.861,
-                                    "end_t": 76.50677,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_CUu5LGiN",
-                                    "start_t": 81.903,
-                                    "end_t": 100.86993,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_BElY5ZEr",
-                                    "start_t": 105.906,
-                                    "end_t": 124.96191,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "10_o8FqGlPa",
-                                    "start_t": 8.941,
-                                    "end_t": 38.90508,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "9_bMDYvk5g",
-                                    "start_t": 12.523,
-                                    "end_t": 87.62901,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_0O5zdYcX",
-                                    "start_t": 9.153,
-                                    "end_t": 49.85542,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_NPl8B4nJ",
-                                    "start_t": 70.523,
-                                    "end_t": 90.17118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_lttbXtzk",
-                                    "start_t": 95.369,
-                                    "end_t": 115.42504,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_1NGAMZed",
-                                    "start_t": 119.043,
-                                    "end_t": 138.64575,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "12_5MEtMXrW",
-                                    "start_t": 9.227,
-                                    "end_t": 44.13177,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "12_QIJHHNCN",
-                                    "start_t": 63.069,
-                                    "end_t": 85.82299,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "12_ylH9edyR",
-                                    "start_t": 90.167,
-                                    "end_t": 110.0508,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "12_xdDSKC27",
-                                    "start_t": 113.548,
-                                    "end_t": 133.21903,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
                                     "keystep_id": "13_IvOmWJ0i",
                                     "start_t": 9.247,
                                     "end_t": 71.72782,
@@ -7085,244 +6344,6 @@
                             },
                             "keysteps": [
                                 {
-                                    "keystep_id": "1_RM4zBxgS",
-                                    "start_t": 0,
-                                    "end_t": 5.75226,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_yQUpL8f1",
-                                    "start_t": 10.332,
-                                    "end_t": 23.54392,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_TA5m7KWX",
-                                    "start_t": 28.536,
-                                    "end_t": 29.67118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_xBuuONeA",
-                                    "start_t": 16.984,
-                                    "end_t": 32.75657,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_4QDsDc0l",
-                                    "start_t": 37.077,
-                                    "end_t": 52.93563,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_vEt0d9Sj",
-                                    "start_t": 74.804,
-                                    "end_t": 95.01355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_1XX4edjR",
-                                    "start_t": 98.577,
-                                    "end_t": 118.76355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_ivX47ymZ",
-                                    "start_t": 121.911,
-                                    "end_t": 142.5271,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "3_6hY2irkd",
-                                    "start_t": 13.169,
-                                    "end_t": 88,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "4_nKFeFvCF",
-                                    "start_t": 9.561,
-                                    "end_t": 71,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "5_2FerCyqc",
-                                    "start_t": 15.773,
-                                    "end_t": 83.70723,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_DItX8txT",
-                                    "start_t": 11.898,
-                                    "end_t": 54.21285,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_csNvmEoX",
-                                    "start_t": 74.825,
-                                    "end_t": 96.5488,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_Or9u0pJI",
-                                    "start_t": 100.741,
-                                    "end_t": 119.93882,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_GRMtiPl3",
-                                    "start_t": 11.252,
-                                    "end_t": 37.79145,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_eIj13Zg7",
-                                    "start_t": 58.007,
-                                    "end_t": 78.69427,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_yT6nAe86",
-                                    "start_t": 84.005,
-                                    "end_t": 127.2771,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_vBgMbSpz",
-                                    "start_t": 10.502,
-                                    "end_t": 36.78013,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_vIPeYeDC",
-                                    "start_t": 55.861,
-                                    "end_t": 76.50677,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_CUu5LGiN",
-                                    "start_t": 81.903,
-                                    "end_t": 100.86993,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_BElY5ZEr",
-                                    "start_t": 105.906,
-                                    "end_t": 124.96191,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "10_o8FqGlPa",
-                                    "start_t": 8.941,
-                                    "end_t": 38.90508,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "9_bMDYvk5g",
-                                    "start_t": 12.523,
-                                    "end_t": 87.62901,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_0O5zdYcX",
-                                    "start_t": 9.153,
-                                    "end_t": 49.85542,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_NPl8B4nJ",
-                                    "start_t": 70.523,
-                                    "end_t": 90.17118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_lttbXtzk",
-                                    "start_t": 95.369,
-                                    "end_t": 115.42504,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_1NGAMZed",
-                                    "start_t": 119.043,
-                                    "end_t": 138.64575,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "12_5MEtMXrW",
-                                    "start_t": 9.227,
-                                    "end_t": 44.13177,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "12_QIJHHNCN",
-                                    "start_t": 63.069,
-                                    "end_t": 85.82299,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "12_ylH9edyR",
-                                    "start_t": 90.167,
-                                    "end_t": 110.0508,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "12_xdDSKC27",
-                                    "start_t": 113.548,
-                                    "end_t": 133.21903,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "13_IvOmWJ0i",
-                                    "start_t": 9.247,
-                                    "end_t": 71.72782,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "13_aTBOFFwU",
-                                    "start_t": 89.99,
-                                    "end_t": 111.17823,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "13_0W2vkXww",
-                                    "start_t": 115.012,
-                                    "end_t": 134.53538,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
                                     "keystep_id": "14_irYeqTkX",
                                     "start_t": 11.794,
                                     "end_t": 69.63177,
@@ -7391,265 +6412,6 @@
                                 }
                             },
                             "keysteps": [
-                                {
-                                    "keystep_id": "1_RM4zBxgS",
-                                    "start_t": 0,
-                                    "end_t": 5.75226,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_yQUpL8f1",
-                                    "start_t": 10.332,
-                                    "end_t": 23.54392,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_TA5m7KWX",
-                                    "start_t": 28.536,
-                                    "end_t": 29.67118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_xBuuONeA",
-                                    "start_t": 16.984,
-                                    "end_t": 32.75657,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_4QDsDc0l",
-                                    "start_t": 37.077,
-                                    "end_t": 52.93563,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_vEt0d9Sj",
-                                    "start_t": 74.804,
-                                    "end_t": 95.01355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_1XX4edjR",
-                                    "start_t": 98.577,
-                                    "end_t": 118.76355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_ivX47ymZ",
-                                    "start_t": 121.911,
-                                    "end_t": 142.5271,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "3_6hY2irkd",
-                                    "start_t": 13.169,
-                                    "end_t": 88,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "4_nKFeFvCF",
-                                    "start_t": 9.561,
-                                    "end_t": 71,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "5_2FerCyqc",
-                                    "start_t": 15.773,
-                                    "end_t": 83.70723,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_DItX8txT",
-                                    "start_t": 11.898,
-                                    "end_t": 54.21285,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_csNvmEoX",
-                                    "start_t": 74.825,
-                                    "end_t": 96.5488,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "6_Or9u0pJI",
-                                    "start_t": 100.741,
-                                    "end_t": 119.93882,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_GRMtiPl3",
-                                    "start_t": 11.252,
-                                    "end_t": 37.79145,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_eIj13Zg7",
-                                    "start_t": 58.007,
-                                    "end_t": 78.69427,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "7_yT6nAe86",
-                                    "start_t": 84.005,
-                                    "end_t": 127.2771,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_vBgMbSpz",
-                                    "start_t": 10.502,
-                                    "end_t": 36.78013,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_vIPeYeDC",
-                                    "start_t": 55.861,
-                                    "end_t": 76.50677,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_CUu5LGiN",
-                                    "start_t": 81.903,
-                                    "end_t": 100.86993,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "8_BElY5ZEr",
-                                    "start_t": 105.906,
-                                    "end_t": 124.96191,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "10_o8FqGlPa",
-                                    "start_t": 8.941,
-                                    "end_t": 38.90508,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "9_bMDYvk5g",
-                                    "start_t": 12.523,
-                                    "end_t": 87.62901,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_0O5zdYcX",
-                                    "start_t": 9.153,
-                                    "end_t": 49.85542,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_NPl8B4nJ",
-                                    "start_t": 70.523,
-                                    "end_t": 90.17118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_lttbXtzk",
-                                    "start_t": 95.369,
-                                    "end_t": 115.42504,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "11_1NGAMZed",
-                                    "start_t": 119.043,
-                                    "end_t": 138.64575,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "12_5MEtMXrW",
-                                    "start_t": 9.227,
-                                    "end_t": 44.13177,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "12_QIJHHNCN",
-                                    "start_t": 63.069,
-                                    "end_t": 85.82299,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "12_ylH9edyR",
-                                    "start_t": 90.167,
-                                    "end_t": 110.0508,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "12_xdDSKC27",
-                                    "start_t": 113.548,
-                                    "end_t": 133.21903,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "13_IvOmWJ0i",
-                                    "start_t": 9.247,
-                                    "end_t": 71.72782,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "13_aTBOFFwU",
-                                    "start_t": 89.99,
-                                    "end_t": 111.17823,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "13_0W2vkXww",
-                                    "start_t": 115.012,
-                                    "end_t": 134.53538,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "14_irYeqTkX",
-                                    "start_t": 11.794,
-                                    "end_t": 69.63177,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "14_mUtppXwJ",
-                                    "start_t": 88.44,
-                                    "end_t": 110.0271,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "14_3WX6wKPE",
-                                    "start_t": 113.976,
-                                    "end_t": 134.04365,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
                                 {
                                     "keystep_id": "15_W6qMHSZk",
                                     "start_t": 11.293,
@@ -7806,27 +6568,6 @@
                                 }
                             },
                             "keysteps": [
-                                {
-                                    "keystep_id": "1_RM4zBxgS",
-                                    "start_t": 0,
-                                    "end_t": 5.75226,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_yQUpL8f1",
-                                    "start_t": 10.332,
-                                    "end_t": 23.54392,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_TA5m7KWX",
-                                    "start_t": 28.536,
-                                    "end_t": 29.67118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
                                 {
                                     "keystep_id": "2_xBuuONeA",
                                     "start_t": 16.984,
@@ -8004,41 +6745,6 @@
                                 }
                             },
                             "keysteps": [
-                                {
-                                    "keystep_id": "1_Xh8fOUpe",
-                                    "start_t": 10.4,
-                                    "end_t": 32.00903,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_xy74zqnT",
-                                    "start_t": 37.176,
-                                    "end_t": 54.73433,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_TAqlcDAR",
-                                    "start_t": 59.68,
-                                    "end_t": 91.76355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_M4kyiOSZ",
-                                    "start_t": 121.424,
-                                    "end_t": 145.88855,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_6VhXsQAA",
-                                    "start_t": 149.569,
-                                    "end_t": 165.56023,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
                                 {
                                     "keystep_id": "2_AeUqnHKP",
                                     "start_t": 15.795,
@@ -9215,27 +7921,6 @@
                                 }
                             },
                             "keysteps": [
-                                {
-                                    "keystep_id": "1_FKZ7tO7U",
-                                    "start_t": 7.677,
-                                    "end_t": 78.7771,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_wZmBeDn1",
-                                    "start_t": 83.358,
-                                    "end_t": 103.1757,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_NHLbnJVX",
-                                    "start_t": 129.045,
-                                    "end_t": 158.91043,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
                                 {
                                     "keystep_id": "2_iwU9o4Hk",
                                     "start_t": 9.026,
@@ -11409,41 +10094,6 @@
                             },
                             "keysteps": [
                                 {
-                                    "keystep_id": "1_FKZ7tO7U",
-                                    "start_t": 7.677,
-                                    "end_t": 78.7771,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_wZmBeDn1",
-                                    "start_t": 83.358,
-                                    "end_t": 103.1757,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_NHLbnJVX",
-                                    "start_t": 129.045,
-                                    "end_t": 158.91043,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_iwU9o4Hk",
-                                    "start_t": 9.026,
-                                    "end_t": 70.76355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_XrA6fTJ9",
-                                    "start_t": 91.322,
-                                    "end_t": 141.88855,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
                                     "keystep_id": "3_TldWpCZ2",
                                     "start_t": 7.635,
                                     "end_t": 57.13177,
@@ -12357,62 +11007,6 @@
                             },
                             "keysteps": [
                                 {
-                                    "keystep_id": "1_RM4zBxgS",
-                                    "start_t": 0,
-                                    "end_t": 5.75226,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_yQUpL8f1",
-                                    "start_t": 10.332,
-                                    "end_t": 23.54392,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_TA5m7KWX",
-                                    "start_t": 28.536,
-                                    "end_t": 29.67118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_xBuuONeA",
-                                    "start_t": 16.984,
-                                    "end_t": 32.75657,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_4QDsDc0l",
-                                    "start_t": 37.077,
-                                    "end_t": 52.93563,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_vEt0d9Sj",
-                                    "start_t": 74.804,
-                                    "end_t": 95.01355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_1XX4edjR",
-                                    "start_t": 98.577,
-                                    "end_t": 118.76355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_ivX47ymZ",
-                                    "start_t": 121.911,
-                                    "end_t": 142.5271,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
                                     "keystep_id": "3_6hY2irkd",
                                     "start_t": 13.169,
                                     "end_t": 88,
@@ -12468,69 +11062,6 @@
                             },
                             "keysteps": [
                                 {
-                                    "keystep_id": "1_RM4zBxgS",
-                                    "start_t": 0,
-                                    "end_t": 5.75226,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_yQUpL8f1",
-                                    "start_t": 10.332,
-                                    "end_t": 23.54392,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "1_TA5m7KWX",
-                                    "start_t": 28.536,
-                                    "end_t": 29.67118,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_xBuuONeA",
-                                    "start_t": 16.984,
-                                    "end_t": 32.75657,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_4QDsDc0l",
-                                    "start_t": 37.077,
-                                    "end_t": 52.93563,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_vEt0d9Sj",
-                                    "start_t": 74.804,
-                                    "end_t": 95.01355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_1XX4edjR",
-                                    "start_t": 98.577,
-                                    "end_t": 118.76355,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "2_ivX47ymZ",
-                                    "start_t": 121.911,
-                                    "end_t": 142.5271,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
-                                    "keystep_id": "3_6hY2irkd",
-                                    "start_t": 13.169,
-                                    "end_t": 88,
-                                    "label": "chest_compressions",
-                                    "class_id": 4
-                                },
-                                {
                                     "keystep_id": "4_nKFeFvCF",
                                     "start_t": 9.561,
                                     "end_t": 71,
@@ -12551,6 +11082,264 @@
                 {
                     "scenario_id": "cardiac_arrest",
                     "trials": [
+                        {
+                            "trial_id": "4",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "wa1_cardiacarrest_4_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/wa1/cardiac_arrest/4/exo/wa1_cardiacarrest_4_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "wa1_cardiacarrest_4_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/wa1/cardiac_arrest/4/exo/wa1_cardiacarrest_4_exo_rgbd_ir.hdf5"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "wa1_cardiacarrest_4_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/wa1/cardiac_arrest/4/smartwatch_data/wa1_cardiacarrest_4_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "wa1_cardiacarrest_4_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/wa1/cardiac_arrest/4/clip_exo/wa1_cardiacarrest_4_clip_exo_features.npy"
+                                },
+                                "audio": {
+                                    "file_id": "wa1_cardiacarrest_4_audio_deidentified",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/wa1/cardiac_arrest/4/audio/wa1_cardiacarrest_4_audio_deidentified.mp3"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "wa1_cardiacarrest_4_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/wa1/cardiac_arrest/4/resnet_ego/wa1_cardiacarrest_4_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "wa1_cardiacarrest_4_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/wa1/cardiac_arrest/4/clip_ego/wa1_cardiacarrest_4_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "wa1_cardiacarrest_4_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/wa1/cardiac_arrest/4/distance_sensor_data/wa1_cardiacarrest_4_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "wa1_cardiacarrest_4_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/wa1/cardiac_arrest/4/ego/wa1_cardiacarrest_4_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "wa1_cardiac_arrest_4_exo_resnet",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/wa1/cardiac_arrest/4/resnet_exo/wa1_cardiac_arrest_4_exo_resnet.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "3_Nauag3XN",
+                                    "start_t": 9.098,
+                                    "end_t": 27.43413,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_mekvEevD",
+                                    "start_t": 31.377,
+                                    "end_t": 45.31678,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_P0X6YuXU",
+                                    "start_t": 49.758,
+                                    "end_t": 50.758,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_EXupnbSX",
+                                    "start_t": 59.033,
+                                    "end_t": 77.38887,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_YAF55aEf",
+                                    "start_t": 79.71059,
+                                    "end_t": 98.80586,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_HhPegvUm",
+                                    "start_t": 102.33559,
+                                    "end_t": 120.32277,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_4PlAH8Ag",
+                                    "start_t": 124.619,
+                                    "end_t": 172.93976,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_zOlgEkqj",
+                                    "start_t": 177.655,
+                                    "end_t": 194.9102,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_WXQMAEe7",
+                                    "start_t": 198.47,
+                                    "end_t": 215.29178,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_Kc8s0UXN",
+                                    "start_t": 219.955,
+                                    "end_t": 235.97993,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_KcFyczuK",
+                                    "start_t": 239.551,
+                                    "end_t": 256.61555,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_EXdrXBAE",
+                                    "start_t": 260.807,
+                                    "end_t": 277.30778,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_c2ZQQslR",
+                                    "start_t": 282.148,
+                                    "end_t": 293.74803,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_nVBpeK8l",
+                                    "start_t": 298.34,
+                                    "end_t": 314.95583,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_ASFzpaEq",
+                                    "start_t": 318.647,
+                                    "end_t": 336.1664,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_DkU7pEnc",
+                                    "start_t": 340.287,
+                                    "end_t": 356.8464,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_DFek9Ar0",
+                                    "start_t": 360.934,
+                                    "end_t": 377.02833,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_rVJh5WGx",
+                                    "start_t": 381.325,
+                                    "end_t": 397.45677,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_CxXPTJ3K",
+                                    "start_t": 401.559,
+                                    "end_t": 417.7469,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_O0fWGvXX",
+                                    "start_t": 425.494,
+                                    "end_t": 439.24652,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_c5udtZrM",
+                                    "start_t": 442.58,
+                                    "end_t": 459.23742,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_XJtL0pFa",
+                                    "start_t": 463.492,
+                                    "end_t": 479.16479,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_XiDpytVJ",
+                                    "start_t": 483.193,
+                                    "end_t": 502.67823,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_94UFT5ia",
+                                    "start_t": 508.207,
+                                    "end_t": 525.23042,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_NMKpdT4b",
+                                    "start_t": 529.976,
+                                    "end_t": 549.10859,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_9XFx2SXX",
+                                    "start_t": 553.357,
+                                    "end_t": 566.71796,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_L9R3d9TX",
+                                    "start_t": 572.137,
+                                    "end_t": 590.65333,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_Z2szhQN6",
+                                    "start_t": 595.018,
+                                    "end_t": 611.92565,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_hZ6ehenh",
+                                    "start_t": 616.225,
+                                    "end_t": 632.68893,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "3_JVFLAEWu",
+                                    "start_t": 636.549,
+                                    "end_t": 658.12116,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        },
                         {
                             "trial_id": "5",
                             "streams": {
