@@ -163,10 +163,12 @@ def write_log_line(log_path, msg):
     with open(log_path, 'a') as file:
         file.write(msg + '\n')
 
-GT_path = r'D:\EgoExoEMS_CVPR2025\Dataset\Final'
-data_path = r'D:\EgoExoEMS_CVPR2025\CPR Test\Kinect_CPR_Clips\exo_kinect_cpr_clips'
-log_path = r'E:\EgoExoEMS\Benchmarks\CPR_quality\vision\results\exocentric_kinect_cpr_rate_window_results.txt'
-debug_plots_path = r'E:\EgoExoEMS\Benchmarks\CPR_quality\vision\rate_window_debug_plots'
+GT_path = r'F:\EgoEMS Dataset\Dataset\Final'
+data_path = r'G:\Research\EgoEMS\Dataset\CPR\exo_kinect_cpr_clips'
+log_path = r'F:\repos\EgoExoEMS\Benchmarks\CPR_quality\vision\logs\july10_final_exocentric_kinect_cpr_rate_window_results.txt'
+debug_plots_path = r'F:\repos\EgoExoEMS\Benchmarks\CPR_quality\vision\debug_plots\july10_final_exocentric_kinect_cpr_rate_window_debug_plots'
+
+
 
 # delete the directory if it already exists
 if os.path.exists(debug_plots_path):
@@ -181,7 +183,7 @@ init_log(log_path)
 # for n in ['train_root', 'test_root', 'val_root']:
 for n in ['test_root']:
     data_dir = os.path.join(data_path, n, 'chest_compressions')
-    json_files = [file for file in os.listdir(data_dir) if file.endswith('.json')]
+    json_files = [file for file in os.listdir(data_dir) if file.endswith('_resized_640x480_keypoints.json')]
     mkv_files = [file for file in os.listdir(data_dir) if file.endswith('.mkv')]
 
     for json_file in json_files:
@@ -197,7 +199,7 @@ for n in ['test_root']:
 
         json_path = os.path.join(data_dir, json_file)
         json_data = json.load(open(json_path))
-        mkv_file = [f for f in mkv_files if json_file.replace('_keypoints.json', '') in f][0]
+        mkv_file = [f for f in mkv_files if json_file.replace('_resized_640x480_keypoints.json', '') in f][0]
 
  
         # if "P14" not in mkv_file:
