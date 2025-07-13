@@ -22,7 +22,8 @@ conda activate speech_deidentify &&
 module load ffmpeg &&
 
 # set root directory for the dataset
-root_dir="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized/"
+# root_dir="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized/"
+root_dir="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/"
 
 echo "[INFO] PII deidentificatio for speech and transcript"
 python -u speech_censor.py "$root_dir" 

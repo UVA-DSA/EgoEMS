@@ -2,7 +2,7 @@ import os
 import glob
 
 # Base directory where files are located
-base_directory = "/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized/"
+base_directory = "/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/OPVRS/organized/"
 
 # Find all incorrectly named files
 incorrect_files = glob.glob(f"{base_directory}/**/*_synced_720p_gsam2_deidentified.mp4", recursive=True)
@@ -19,6 +19,8 @@ for file_path in incorrect_files:
         subject = path_parts[-5]  # Subject (e.g., P16, ng2, ms1)
         # for cars and opvrs only
 
+        scenario = path_parts[-4]  # Scenario (e.g., s5, t1, etc.)
+
         if("cars" in subject or "opvrs" in subject):
             subject = subject.replace("_", "")  # Remove underscores for CARS and OPVRS subjects
 
@@ -26,7 +28,7 @@ for file_path in incorrect_files:
         trial = path_parts[-3]    # Trial (e.g., s5, t1)
 
         # Construct correct filename
-        correct_filename = f"{subject}_t{trial}_synced_720p_gsam2_deidentified.mp4"
+        correct_filename = f"{subject}_{scenario}_t{trial}_ego_final.mp4"
         correct_filepath = os.path.join(os.path.dirname(file_path), correct_filename)
 
         print(f"Renaming: {file_path} -> {correct_filepath}")
@@ -34,7 +36,7 @@ for file_path in incorrect_files:
         counter += 1
 
         # Rename the file
-        os.rename(file_path, correct_filepath)
+        # os.rename(file_path, correct_filepath)
         print("-" * 40)
 
     

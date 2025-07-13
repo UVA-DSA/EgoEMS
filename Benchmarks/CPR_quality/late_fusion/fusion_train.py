@@ -173,9 +173,9 @@ def main():
 
 
     # define variable for model_size
-    model_type="DPT_Large"     # MiDaS v3 - Large     (highest accuracy, slowest inference speed)
+    # model_type="DPT_Large"     # MiDaS v3 - Large     (highest accuracy, slowest inference speed)
     # model_type="DPT_Hybrid"   # MiDaS v3 - Hybrid    (medium accuracy, medium inference speed)
-    # model_type="MiDaS_small"  # MiDaS v2.1 - Small   (lowest accuracy, highest inference speed)
+    model_type="MiDaS_small"  # MiDaS v2.1 - Small   (lowest accuracy, highest inference speed)
 
     # initializing midas model for depth estimation
     midas_model, midas_transform, SCALE_FACTOR = initialize_midas_model(model_type=model_type, device=device)

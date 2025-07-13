@@ -1,39 +1,48 @@
 import os
 import torchaudio
 import torch
-from EgoExoEMS.EgoExoEMS import EgoExoEMSDataset, collate_fn, transform
+from EgoExoEMS.EgoExoEMS.EgoExoEMS import EgoExoEMSDataset, collate_fn, transform
 import numpy as np
 import warnings
+from torch.utils.data import  DataLoader
+
 warnings.filterwarnings("ignore", message="Accurate seek is not implemented for pyav backend")
 
-root = "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ng9/cardiac_arrest/1/GoPro/GX010346_encoded_trimmed.mp4"  # Folder in which all videos lie in a specific structure
-annotation_file = "../../Annotations/main_annotation.json"  # A row for each video sample as: (VIDEO_PATH START_FRAME END_FRAME CLASS_ID)
 
-# train_annotation_file = "../../Annotations/splits/keysteps/train_split.json"  # A row for each video sample as: (VIDEO_PATH START_FRAME END_FRAME CLASS_ID)
-# val_annotation_file = "../../Annotations/splits/keysteps/val_split.json"  # A row for each video sample as: (VIDEO_PATH START_FRAME END_FRAME CLASS_ID)
-# test_annotation_file = "../../Annotations/splits/keysteps/test_split.json"  # A row for each video sample as: (VIDEO_PATH START_FRAME END_FRAME CLASS_ID)
+annotation_file = "../../Annotations/aaai26_main_annotation_classification.json"  # A row for each video sample as: (VIDEO_PATH START_FRAME END_FRAME CLASS_ID)
+
+fps = 29.97
+observation_window = 150
+data_types = [ 'video', 'audio']
+task = "classification"  # or "segmentation" or "cpr_quality"
 
 train_dataset = EgoExoEMSDataset(annotation_file=annotation_file,
                                 data_base_path='',
-                                fps=29.97, frames_per_clip=30, transform=transform, data_types=[ 'video','audio','smartwatch', 'flow', 'rgb', 'depth_sensor'])
-
-# Access a sample
-print(len(train_dataset))
+                                fps=fps, frames_per_clip=observation_window, transform=transform, data_types=data_types, task=task)
 
 
-# create a data loader
-# batch size is 1 for simplicity and to ensure only a full clip related to a key step is given without collating.
-# if batch size is greater than 1, collate_fn will be called to collate the data.
-data_loader = torch.utils.data.DataLoader(train_dataset, batch_size=1, shuffle=False, collate_fn=collate_fn)
-print(len(data_loader))
+train_class_stats = train_dataset._get_class_stats()
+print("Train class stats: ", train_class_stats)
+# print number of keys in the dictionary
+print("Train Number of classes: ", len(train_class_stats.keys()))
 
-# Iterate over the data loader and print the shape of the batch
-for batch in data_loader:
-    print(batch['frames'].shape, batch['audio'].shape, batch['flow'].shape, batch['rgb'].shape, batch['smartwatch'].shape, batch['depth_sensor'].shape , batch['keystep_label'], batch['keystep_id'], batch['start_frame'], batch['end_frame'],batch['start_t'], batch['end_t'],  batch['subject_id'], batch['trial_id'])
-    print("*"*4 + "="*50 + "*"*4)
+# Create DataLoaders for training and validation subsets
+train_loader = DataLoader(train_dataset, batch_size=1, shuffle=True)
+
+print("Number of batches in train loader:", len(train_loader))
+
+for i, batch in enumerate(train_loader):
+    print("-*"*30)
+    print(f"Batch {i+1}:")
     
-    # audio_tensor = batch['audio'][0]
-    # #transpose
-    # audio_tensor = audio_tensor.transpose(0,1)
-    # torchaudio.save("./visualizations/audio.wav", audio_tensor,48000)
-    # break   
+    # Print shapes of the tensors in the batch
+    print("frames shape:", batch['frames'].shape)
+    print("audio shape:", batch['audio'].shape)
+    
+    # Print labels and other metadata
+    print("Label", batch['keystep_label'])
+    print("Start Frames:", batch['start_frame'])
+    print("End Frames:", batch['end_frame'])
+    print("Trial IDs:", batch['trial_id'])
+    print("Subject IDs:", batch['subject_id'])
+    

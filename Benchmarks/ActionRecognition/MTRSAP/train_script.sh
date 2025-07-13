@@ -7,7 +7,7 @@
 #SBATCH --error="./logs/job-%j-mtrsap_train_script.err"
 #SBATCH --output="./logs/job-%j-mtrsap_train_script.output"
 #SBATCH --partition="gpu"
-#SBATCH --gres=gpu:a6000:1
+#SBATCH --gres=gpu:1
 #SBATCH --time=3-00:00:00
 #SBATCH --cpus-per-task=12
 #SBATCH --mem=32G
@@ -18,7 +18,7 @@ module purge &&
 module load miniforge  &&
 source /home/cjh9fw/.bashrc  &&
 echo "$HOSTNAME" &&
-conda activate egoexoems &&
+conda activate egoems &&
 python -u train_recognition.py --job_id "$SLURM_JOB_ID" &&
 echo "Done" &&
 exit

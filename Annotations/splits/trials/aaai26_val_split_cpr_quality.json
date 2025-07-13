@@ -1,0 +1,1756 @@
+{
+    "subjects": [
+        {
+            "subject_id": "P0",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s3",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "P0_cardiacarrest_s3_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/exo/P0_cardiacarrest_s3_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "P0_cardiacarrest_s3_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/exo/P0_cardiacarrest_s3_exo_rgbd_ir.hdf5"
+                                },
+                                "i3d_flow": {
+                                    "file_id": "P0_cardiacarrest_s3_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/i3d_flow/P0_cardiacarrest_s3_flow_i3d.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "P0_cardiacarrest_s3_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/smartwatch_data/P0_cardiacarrest_s3_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P0_cardiacarrest_s3_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/clip_exo/P0_cardiacarrest_s3_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P0_cardiacarrest_s3_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/i3d_rgb/P0_cardiacarrest_s3_rgb_i3d.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "P0_cardiacarrest_s3_ego_resnet",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/resnet_ego/P0_cardiacarrest_s3_ego_resnet.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P0_cardiacarrest_s3_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/clip_ego/P0_cardiacarrest_s3_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "P0_cardiacarrest_s3_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/distance_sensor_data/P0_cardiacarrest_s3_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "P0_cardiacarrest_s3_ego_rgb_partial",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/ego/P0_cardiacarrest_s3_ego_rgb_partial.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "P0_cardiacarrest_s3_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s3/resnet_exo/P0_cardiacarrest_s3_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 61.400000000000006,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P1",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s7",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "P1_cardiacarrest_s7_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P1/cardiac_arrest/s7/exo/P1_cardiacarrest_s7_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "P1_cardiacarrest_s7_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P1/cardiac_arrest/s7/exo/P1_cardiacarrest_s7_exo_rgbd_ir.hdf5"
+                                },
+                                "i3d_flow": {
+                                    "file_id": "P1_cardiacarrest_s7_i3d_flow_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P1/cardiac_arrest/s7/i3d_flow/P1_cardiacarrest_s7_i3d_flow_features.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "P1_cardiacarrest_s7_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P1/cardiac_arrest/s7/smartwatch_data/P1_cardiacarrest_s7_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P1_cardiacarrest_s7_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P1/cardiac_arrest/s7/clip_exo/P1_cardiacarrest_s7_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P1_cardiacarrest_s7_i3d_rgb_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P1/cardiac_arrest/s7/i3d_rgb/P1_cardiacarrest_s7_i3d_rgb_features.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "P1_cardiacarrest_s7_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P1/cardiac_arrest/s7/resnet_ego/P1_cardiacarrest_s7_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P1_cardiacarrest_s7_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P1/cardiac_arrest/s7/clip_ego/P1_cardiacarrest_s7_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "P1_cardiacarrest_s7_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P1/cardiac_arrest/s7/distance_sensor_data/P1_cardiacarrest_s7_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "P1_cardiacarrest_s7_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P1/cardiac_arrest/s7/ego/P1_cardiacarrest_s7_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "P1_cardiacarrest_s7_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P1/cardiac_arrest/s7/resnet_exo/P1_cardiacarrest_s7_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 60.266666666666666,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P11",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s7",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "P11_cardiacarrest_s7_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s7/exo/P11_cardiacarrest_s7_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "P11_cardiacarrest_s7_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s7/exo/P11_cardiacarrest_s7_exo_rgbd_ir.hdf5"
+                                },
+                                "i3d_flow": {
+                                    "file_id": "P11_cardiacarrest_s7_i3d_flow_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s7/i3d_flow/P11_cardiacarrest_s7_i3d_flow_features.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "P11_cardiacarrest_s7_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s7/smartwatch_data/P11_cardiacarrest_s7_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P11_cardiacarrest_s7_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s7/clip_exo/P11_cardiacarrest_s7_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P11_cardiacarrest_s7_i3d_rgb_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s7/i3d_rgb/P11_cardiacarrest_s7_i3d_rgb_features.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "P11_cardiacarrest_s7_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s7/resnet_ego/P11_cardiacarrest_s7_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P11_cardiacarrest_s7_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s7/clip_ego/P11_cardiacarrest_s7_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "P11_cardiacarrest_s7_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s7/distance_sensor_data/P11_cardiacarrest_s7_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "P11_cardiacarrest_s7_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s7/ego/P11_cardiacarrest_s7_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "P11_cardiacarrest_s7_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s7/resnet_exo/P11_cardiacarrest_s7_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 58.5,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P12",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s5",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "P12_cardiacarrest_s5_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P12/cardiac_arrest/s5/exo/P12_cardiacarrest_s5_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "P12_cardiacarrest_s5_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P12/cardiac_arrest/s5/exo/P12_cardiacarrest_s5_exo_rgbd_ir.hdf5"
+                                },
+                                "i3d_flow": {
+                                    "file_id": "P12_cardiacarrest_s5_i3d_flow_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P12/cardiac_arrest/s5/i3d_flow/P12_cardiacarrest_s5_i3d_flow_features.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "P12_cardiacarrest_s5_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P12/cardiac_arrest/s5/smartwatch_data/P12_cardiacarrest_s5_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P12_cardiacarrest_s5_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P12/cardiac_arrest/s5/clip_exo/P12_cardiacarrest_s5_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P12_cardiacarrest_s5_i3d_rgb_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P12/cardiac_arrest/s5/i3d_rgb/P12_cardiacarrest_s5_i3d_rgb_features.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "P12_cardiacarrest_s5_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P12/cardiac_arrest/s5/resnet_ego/P12_cardiacarrest_s5_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P12_cardiacarrest_s5_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P12/cardiac_arrest/s5/clip_ego/P12_cardiacarrest_s5_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "P12_cardiacarrest_s5_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P12/cardiac_arrest/s5/distance_sensor_data/P12_cardiacarrest_s5_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "P12_cardiacarrest_s5_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P12/cardiac_arrest/s5/ego/P12_cardiacarrest_s5_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "P12_cardiacarrest_s5_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P12/cardiac_arrest/s5/resnet_exo/P12_cardiacarrest_s5_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 63.3,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P15",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s5",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "P15_cardiacarrest_s5_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s5/exo/P15_cardiacarrest_s5_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "P15_cardiacarrest_s5_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s5/exo/P15_cardiacarrest_s5_exo_rgbd_ir.hdf5"
+                                },
+                                "i3d_flow": {
+                                    "file_id": "P15_cardiacarrest_s5_i3d_flow_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s5/i3d_flow/P15_cardiacarrest_s5_i3d_flow_features.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "P15_cardiacarrest_s5_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s5/smartwatch_data/P15_cardiacarrest_s5_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P15_cardiacarrest_s5_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s5/clip_exo/P15_cardiacarrest_s5_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P15_cardiacarrest_s5_i3d_rgb_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s5/i3d_rgb/P15_cardiacarrest_s5_i3d_rgb_features.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "P15_cardiacarrest_s5_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s5/resnet_ego/P15_cardiacarrest_s5_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P15_cardiacarrest_s5_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s5/clip_ego/P15_cardiacarrest_s5_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "P15_cardiacarrest_s5_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s5/distance_sensor_data/P15_cardiacarrest_s5_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "P15_cardiacarrest_s5_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s5/ego/P15_cardiacarrest_s5_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "P15_cardiacarrest_s5_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s5/resnet_exo/P15_cardiacarrest_s5_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 62.13333333333334,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P20",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s9",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "P20_cardiacarrest_s9_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P20/cardiac_arrest/s9/exo/P20_cardiacarrest_s9_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "P20_cardiacarrest_s9_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P20/cardiac_arrest/s9/exo/P20_cardiacarrest_s9_exo_rgbd_ir.hdf5"
+                                },
+                                "i3d_flow": {
+                                    "file_id": "P20_cardiacarrest_s9_i3d_flow_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P20/cardiac_arrest/s9/i3d_flow/P20_cardiacarrest_s9_i3d_flow_features.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "P20_cardiacarrest_s9_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P20/cardiac_arrest/s9/smartwatch_data/P20_cardiacarrest_s9_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P20_cardiacarrest_s9_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P20/cardiac_arrest/s9/clip_exo/P20_cardiacarrest_s9_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P20_cardiacarrest_s9_i3d_rgb_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P20/cardiac_arrest/s9/i3d_rgb/P20_cardiacarrest_s9_i3d_rgb_features.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "P20_cardiacarrest_s9_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P20/cardiac_arrest/s9/resnet_ego/P20_cardiacarrest_s9_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P20_cardiacarrest_s9_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P20/cardiac_arrest/s9/clip_ego/P20_cardiacarrest_s9_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "P20_cardiacarrest_s9_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P20/cardiac_arrest/s9/distance_sensor_data/P20_cardiacarrest_s9_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "P20_cardiacarrest_s9_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P20/cardiac_arrest/s9/ego/P20_cardiacarrest_s9_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "P20_cardiacarrest_s9_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P20/cardiac_arrest/s9/resnet_exo/P20_cardiacarrest_s9_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 65.83333333333333,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P21",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s6",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "P21_cardiacarrest_s6_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s6/exo/P21_cardiacarrest_s6_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "P21_cardiacarrest_s6_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s6/exo/P21_cardiacarrest_s6_exo_rgbd_ir.hdf5"
+                                },
+                                "i3d_flow": {
+                                    "file_id": "P21_cardiacarrest_s6_i3d_flow_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s6/i3d_flow/P21_cardiacarrest_s6_i3d_flow_features.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "P21_cardiacarrest_s6_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s6/smartwatch_data/P21_cardiacarrest_s6_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P21_cardiacarrest_s6_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s6/clip_exo/P21_cardiacarrest_s6_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P21_cardiacarrest_s6_i3d_rgb_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s6/i3d_rgb/P21_cardiacarrest_s6_i3d_rgb_features.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "P21_cardiacarrest_s6_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s6/resnet_ego/P21_cardiacarrest_s6_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P21_cardiacarrest_s6_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s6/clip_ego/P21_cardiacarrest_s6_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "P21_cardiacarrest_s6_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s6/distance_sensor_data/P21_cardiacarrest_s6_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "P21_cardiacarrest_s6_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s6/ego/P21_cardiacarrest_s6_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "P21_cardiacarrest_s6_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s6/resnet_exo/P21_cardiacarrest_s6_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 66.56666666666666,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P22",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s3",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "P22_cardiacarrest_s3_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/exo/P22_cardiacarrest_s3_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "P22_cardiacarrest_s3_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/exo/P22_cardiacarrest_s3_exo_rgbd_ir.hdf5"
+                                },
+                                "i3d_flow": {
+                                    "file_id": "P22_cardiacarrest_s3_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/i3d_flow/P22_cardiacarrest_s3_flow_i3d.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "P22_cardiacarrest_s3_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/smartwatch_data/P22_cardiacarrest_s3_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P22_cardiacarrest_s3_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/clip_exo/P22_cardiacarrest_s3_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P22_cardiacarrest_s3_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/i3d_rgb/P22_cardiacarrest_s3_rgb_i3d.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "P22_cardiacarrest_s3_ego_resnet",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/resnet_ego/P22_cardiacarrest_s3_ego_resnet.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P22_cardiacarrest_s3_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/clip_ego/P22_cardiacarrest_s3_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "P22_cardiacarrest_s3_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/distance_sensor_data/P22_cardiacarrest_s3_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "P22_cardiacarrest_s3_ego_rgb_partial",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/ego/P22_cardiacarrest_s3_ego_rgb_partial.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "P22_cardiacarrest_s3_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s3/resnet_exo/P22_cardiacarrest_s3_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 65.3,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P3",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s1",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "P3_cardiacarrest_s1_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P3/cardiac_arrest/s1/exo/P3_cardiacarrest_s1_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "P3_cardiacarrest_s1_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P3/cardiac_arrest/s1/exo/P3_cardiacarrest_s1_exo_rgbd_ir.hdf5"
+                                },
+                                "i3d_flow": {
+                                    "file_id": "P3_cardiacarrest_s1_i3d_flow_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P3/cardiac_arrest/s1/i3d_flow/P3_cardiacarrest_s1_i3d_flow_features.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "P3_cardiacarrest_s1_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P3/cardiac_arrest/s1/smartwatch_data/P3_cardiacarrest_s1_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P3_cardiacarrest_s1_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P3/cardiac_arrest/s1/clip_exo/P3_cardiacarrest_s1_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P3_cardiacarrest_s1_i3d_rgb_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P3/cardiac_arrest/s1/i3d_rgb/P3_cardiacarrest_s1_i3d_rgb_features.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "P3_cardiacarrest_s1_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P3/cardiac_arrest/s1/resnet_ego/P3_cardiacarrest_s1_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P3_cardiacarrest_s1_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P3/cardiac_arrest/s1/clip_ego/P3_cardiacarrest_s1_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "P3_cardiacarrest_s1_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P3/cardiac_arrest/s1/distance_sensor_data/P3_cardiacarrest_s1_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "P3_cardiacarrest_s1_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P3/cardiac_arrest/s1/ego/P3_cardiacarrest_s1_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "P3_cardiacarrest_s1_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P3/cardiac_arrest/s1/resnet_exo/P3_cardiacarrest_s1_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 72.13333333333334,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P4",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s3",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "P4_cardiacarrest_s3_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/exo/P4_cardiacarrest_s3_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "P4_cardiacarrest_s3_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/exo/P4_cardiacarrest_s3_exo_rgbd_ir.hdf5"
+                                },
+                                "i3d_flow": {
+                                    "file_id": "P4_cardiacarrest_s3_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/i3d_flow/P4_cardiacarrest_s3_flow_i3d.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "P4_cardiacarrest_s3_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/smartwatch_data/P4_cardiacarrest_s3_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P4_cardiacarrest_s3_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/clip_exo/P4_cardiacarrest_s3_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P4_cardiacarrest_s3_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/i3d_rgb/P4_cardiacarrest_s3_rgb_i3d.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "P4_cardiacarrest_s3_ego_resnet",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/resnet_ego/P4_cardiacarrest_s3_ego_resnet.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P4_cardiacarrest_s3_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/clip_ego/P4_cardiacarrest_s3_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "P4_cardiacarrest_s3_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/distance_sensor_data/P4_cardiacarrest_s3_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "P4_cardiacarrest_s3_ego_rgb_partial",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/ego/P4_cardiacarrest_s3_ego_rgb_partial.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "P4_cardiacarrest_s3_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s3/resnet_exo/P4_cardiacarrest_s3_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 66.4,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P5",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s9",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "P5_cardiacarrest_s9_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/exo/P5_cardiacarrest_s9_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "P5_cardiacarrest_s9_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/exo/P5_cardiacarrest_s9_exo_rgbd_ir.hdf5"
+                                },
+                                "i3d_flow": {
+                                    "file_id": "P5_cardiacarrest_s9_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/i3d_flow/P5_cardiacarrest_s9_flow_i3d.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "P5_cardiacarrest_s9_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/smartwatch_data/P5_cardiacarrest_s9_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P5_cardiacarrest_s9_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/clip_exo/P5_cardiacarrest_s9_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P5_cardiacarrest_s9_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/i3d_rgb/P5_cardiacarrest_s9_rgb_i3d.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "P5_cardiacarrest_s9_ego_resnet",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/resnet_ego/P5_cardiacarrest_s9_ego_resnet.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P5_cardiacarrest_s9_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/clip_ego/P5_cardiacarrest_s9_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "P5_cardiacarrest_s9_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/distance_sensor_data/P5_cardiacarrest_s9_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "P5_cardiacarrest_s9_ego_rgb_partial",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/ego/P5_cardiacarrest_s9_ego_rgb_partial.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "P5_cardiacarrest_s9_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s9/resnet_exo/P5_cardiacarrest_s9_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 60.53333333333333,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "P7",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "s7",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "P7_cardiacarrest_s7_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/exo/P7_cardiacarrest_s7_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "P7_cardiacarrest_s7_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/exo/P7_cardiacarrest_s7_exo_rgbd_ir.hdf5"
+                                },
+                                "i3d_flow": {
+                                    "file_id": "P7_cardiacarrest_s7_flow_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/i3d_flow/P7_cardiacarrest_s7_flow_i3d.npy"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "P7_cardiacarrest_s7_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/smartwatch_data/P7_cardiacarrest_s7_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "P7_cardiacarrest_s7_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/clip_exo/P7_cardiacarrest_s7_clip_exo_features.npy"
+                                },
+                                "i3d_rgb": {
+                                    "file_id": "P7_cardiacarrest_s7_rgb_i3d",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/i3d_rgb/P7_cardiacarrest_s7_rgb_i3d.npy"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "P7_cardiacarrest_s7_ego_resnet",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/resnet_ego/P7_cardiacarrest_s7_ego_resnet.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "P7_cardiacarrest_s7_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/clip_ego/P7_cardiacarrest_s7_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "P7_cardiacarrest_s7_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/distance_sensor_data/P7_cardiacarrest_s7_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "P7_cardiacarrest_s7_ego_rgb_partial",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/ego/P7_cardiacarrest_s7_ego_rgb_partial.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "P7_cardiacarrest_s7_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s7/resnet_exo/P7_cardiacarrest_s7_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_metadata",
+                                    "start_t": 0,
+                                    "end_t": 58.36666666666666,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "ms1",
+            "expertise_level": "EMT",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "4",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "ms1_cardiacarrest_4_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/cardiac_arrest/4/exo/ms1_cardiacarrest_4_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "ms1_cardiacarrest_4_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/cardiac_arrest/4/exo/ms1_cardiacarrest_4_exo_rgbd_ir.hdf5"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "ms1_cardiacarrest_4_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/cardiac_arrest/4/smartwatch_data/ms1_cardiacarrest_4_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ms1_cardiacarrest_4_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/cardiac_arrest/4/clip_exo/ms1_cardiacarrest_4_clip_exo_features.npy"
+                                },
+                                "audio": {
+                                    "file_id": "ms1_cardiacarrest_4_audio_deidentified",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/cardiac_arrest/4/audio/ms1_cardiacarrest_4_audio_deidentified.mp3"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "ms1_cardiacarrest_4_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/cardiac_arrest/4/resnet_ego/ms1_cardiacarrest_4_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ms1_cardiacarrest_4_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/cardiac_arrest/4/clip_ego/ms1_cardiacarrest_4_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "ms1_cardiacarrest_4_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/cardiac_arrest/4/distance_sensor_data/ms1_cardiacarrest_4_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "ms1_cardiacarrest_4_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/cardiac_arrest/4/ego/ms1_cardiacarrest_4_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ms1_cardiacarrest_4_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/cardiac_arrest/4/resnet_exo/ms1_cardiacarrest_4_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "9_bMDYvk5g",
+                                    "start_t": 12.523,
+                                    "end_t": 87.62901,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "ms2",
+            "expertise_level": "EMT",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "0",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "ms2_cardiacarrest_0_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms2/cardiac_arrest/0/exo/ms2_cardiacarrest_0_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "ms2_cardiacarrest_0_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms2/cardiac_arrest/0/exo/ms2_cardiacarrest_0_exo_rgbd_ir.hdf5"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "ms2_cardiacarrest_0_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms2/cardiac_arrest/0/smartwatch_data/ms2_cardiacarrest_0_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ms2_cardiacarrest_0_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms2/cardiac_arrest/0/clip_exo/ms2_cardiacarrest_0_clip_exo_features.npy"
+                                },
+                                "audio": {
+                                    "file_id": "ms2_cardiacarrest_0_audio_deidentified",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms2/cardiac_arrest/0/audio/ms2_cardiacarrest_0_audio_deidentified.mp3"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "ms2_cardiacarrest_0_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms2/cardiac_arrest/0/resnet_ego/ms2_cardiacarrest_0_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ms2_cardiacarrest_0_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms2/cardiac_arrest/0/clip_ego/ms2_cardiacarrest_0_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "ms2_cardiacarrest_0_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms2/cardiac_arrest/0/distance_sensor_data/ms2_cardiacarrest_0_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "ms2_cardiacarrest_0_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms2/cardiac_arrest/0/ego/ms2_cardiacarrest_0_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ms2_cardiac_arrest_0_exo_resnet",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms2/cardiac_arrest/0/resnet_exo/ms2_cardiac_arrest_0_exo_resnet.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "11_0O5zdYcX",
+                                    "start_t": 9.153,
+                                    "end_t": 49.85542,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "11_NPl8B4nJ",
+                                    "start_t": 70.523,
+                                    "end_t": 90.17118,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "11_lttbXtzk",
+                                    "start_t": 95.369,
+                                    "end_t": 115.42504,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "11_1NGAMZed",
+                                    "start_t": 119.043,
+                                    "end_t": 138.64575,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "ng3",
+            "expertise_level": "EMT",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "7",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "ng3_cardiacarrest_7_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/7/exo/ng3_cardiacarrest_7_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "ng3_cardiacarrest_7_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/7/exo/ng3_cardiacarrest_7_exo_rgbd_ir.hdf5"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "ng3_cardiacarrest_7_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/7/smartwatch_data/ng3_cardiacarrest_7_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng3_cardiacarrest_7_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/7/clip_exo/ng3_cardiacarrest_7_clip_exo_features.npy"
+                                },
+                                "audio": {
+                                    "file_id": "ng3_cardiacarrest_7_audio_deidentified",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/7/audio/ng3_cardiacarrest_7_audio_deidentified.mp3"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "ng3_cardiacarrest_7_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/7/resnet_ego/ng3_cardiacarrest_7_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng3_cardiacarrest_7_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/7/clip_ego/ng3_cardiacarrest_7_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "ng3_cardiacarrest_7_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/7/distance_sensor_data/ng3_cardiacarrest_7_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "ng3_cardiacarrest_7_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/7/ego/ng3_cardiacarrest_7_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng3_cardiac_arrest_7_exo_resnet",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/7/resnet_exo/ng3_cardiac_arrest_7_exo_resnet.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "2_bB8W5G5m",
+                                    "start_t": 15.64809,
+                                    "end_t": 31.54392,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "2_tVWXEA59",
+                                    "start_t": 38.35642,
+                                    "end_t": 54.27309,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "2_wAn8k3S9",
+                                    "start_t": 93.48142,
+                                    "end_t": 110.23142,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "2_jzZc2d19",
+                                    "start_t": 115.71059,
+                                    "end_t": 131.46059,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        },
+                        {
+                            "trial_id": "2",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "ng3_cardiacarrest_2_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/2/exo/ng3_cardiacarrest_2_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "ng3_cardiacarrest_2_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/2/exo/ng3_cardiacarrest_2_exo_rgbd_ir.hdf5"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "ng3_cardiacarrest_2_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/2/smartwatch_data/ng3_cardiacarrest_2_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng3_cardiacarrest_2_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/2/clip_exo/ng3_cardiacarrest_2_clip_exo_features.npy"
+                                },
+                                "audio": {
+                                    "file_id": "ng3_cardiacarrest_2_audio_deidentified",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/2/audio/ng3_cardiacarrest_2_audio_deidentified.mp3"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "ng3_cardiacarrest_2_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/2/resnet_ego/ng3_cardiacarrest_2_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng3_cardiacarrest_2_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/2/clip_ego/ng3_cardiacarrest_2_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "ng3_cardiacarrest_2_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/2/distance_sensor_data/ng3_cardiacarrest_2_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "ng3_cardiacarrest_2_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/2/ego/ng3_cardiacarrest_2_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng3_cardiac_arrest_2_exo_resnet",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/2/resnet_exo/ng3_cardiac_arrest_2_exo_resnet.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "5_ZjV1uCip",
+                                    "start_t": 16.923,
+                                    "end_t": 31.75026,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "5_xAVIWusP",
+                                    "start_t": 38.941,
+                                    "end_t": 54.18773,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "5_ijOXiXU6",
+                                    "start_t": 107.606,
+                                    "end_t": 122.44513,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "5_3oB8Xxm0",
+                                    "start_t": 128.949,
+                                    "end_t": 144.11994,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "ng4",
+            "expertise_level": "EMT",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "4",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "ng4_cardiacarrest_4_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng4/cardiac_arrest/4/exo/ng4_cardiacarrest_4_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "ng4_cardiacarrest_4_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng4/cardiac_arrest/4/exo/ng4_cardiacarrest_4_exo_rgbd_ir.hdf5"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "ng4_cardiacarrest_4_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng4/cardiac_arrest/4/smartwatch_data/ng4_cardiacarrest_4_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng4_cardiacarrest_4_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng4/cardiac_arrest/4/clip_exo/ng4_cardiacarrest_4_clip_exo_features.npy"
+                                },
+                                "audio": {
+                                    "file_id": "ng4_cardiacarrest_4_audio_deidentified",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng4/cardiac_arrest/4/audio/ng4_cardiacarrest_4_audio_deidentified.mp3"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "ng4_cardiacarrest_4_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng4/cardiac_arrest/4/resnet_ego/ng4_cardiacarrest_4_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng4_cardiacarrest_4_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng4/cardiac_arrest/4/clip_ego/ng4_cardiacarrest_4_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "ng4_cardiacarrest_4_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng4/cardiac_arrest/4/distance_sensor_data/ng4_cardiacarrest_4_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "ng4_cardiacarrest_4_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng4/cardiac_arrest/4/ego/ng4_cardiacarrest_4_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng4_cardiacarrest_4_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng4/cardiac_arrest/4/resnet_exo/ng4_cardiacarrest_4_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_wElR9icx",
+                                    "start_t": 11.10642,
+                                    "end_t": 27.35642,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_79nxXPDk",
+                                    "start_t": 81.34108,
+                                    "end_t": 97.17108,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_eazJGIq1",
+                                    "start_t": 103.49108,
+                                    "end_t": 119.42108,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "ng5",
+            "expertise_level": "EMT",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "4",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "ng5_cardiacarrest_4_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/4/exo/ng5_cardiacarrest_4_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "ng5_cardiacarrest_4_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/4/exo/ng5_cardiacarrest_4_exo_rgbd_ir.hdf5"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "ng5_cardiacarrest_4_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/4/smartwatch_data/ng5_cardiacarrest_4_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng5_cardiacarrest_4_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/4/clip_exo/ng5_cardiacarrest_4_clip_exo_features.npy"
+                                },
+                                "audio": {
+                                    "file_id": "ng5_cardiacarrest_4_audio_deidentified",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/4/audio/ng5_cardiacarrest_4_audio_deidentified.mp3"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "ng5_cardiacarrest_4_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/4/resnet_ego/ng5_cardiacarrest_4_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng5_cardiacarrest_4_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/4/clip_ego/ng5_cardiacarrest_4_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "ng5_cardiacarrest_4_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/4/distance_sensor_data/ng5_cardiacarrest_4_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "ng5_cardiacarrest_4_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/4/ego/ng5_cardiacarrest_4_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng5_cardiacarrest_4_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/4/resnet_exo/ng5_cardiacarrest_4_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "8_Uc0aU8Qj",
+                                    "start_t": 18.385,
+                                    "end_t": 32.75452,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "8_wDcV3hRC",
+                                    "start_t": 71.493,
+                                    "end_t": 85.75903,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "8_o2K5iA15",
+                                    "start_t": 94.569,
+                                    "end_t": 108.49432,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        },
+                        {
+                            "trial_id": "16",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "ng5_cardiacarrest_16_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/16/exo/ng5_cardiacarrest_16_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "ng5_cardiacarrest_16_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/16/exo/ng5_cardiacarrest_16_exo_rgbd_ir.hdf5"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "ng5_cardiacarrest_16_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/16/smartwatch_data/ng5_cardiacarrest_16_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng5_cardiacarrest_16_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/16/clip_exo/ng5_cardiacarrest_16_clip_exo_features.npy"
+                                },
+                                "audio": {
+                                    "file_id": "ng5_cardiacarrest_16_audio_deidentified",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/16/audio/ng5_cardiacarrest_16_audio_deidentified.mp3"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "ng5_cardiacarrest_16_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/16/resnet_ego/ng5_cardiacarrest_16_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng5_cardiacarrest_16_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/16/clip_ego/ng5_cardiacarrest_16_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "ng5_cardiacarrest_16_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/16/distance_sensor_data/ng5_cardiacarrest_16_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "ng5_cardiacarrest_16_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/16/ego/ng5_cardiacarrest_16_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng5_cardiacarrest_16_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/16/resnet_exo/ng5_cardiacarrest_16_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_zqZf7W8Z",
+                                    "start_t": 14.191,
+                                    "end_t": 29.15259,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_JnXsnFw9",
+                                    "start_t": 90.671,
+                                    "end_t": 105.97444,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_FDv5FdmV",
+                                    "start_t": 113.267,
+                                    "end_t": 127.8919,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        },
+                        {
+                            "trial_id": "10",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "ng5_cardiacarrest_10_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/10/exo/ng5_cardiacarrest_10_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "ng5_cardiacarrest_10_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/10/exo/ng5_cardiacarrest_10_exo_rgbd_ir.hdf5"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "ng5_cardiacarrest_10_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/10/smartwatch_data/ng5_cardiacarrest_10_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng5_cardiacarrest_10_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/10/clip_exo/ng5_cardiacarrest_10_clip_exo_features.npy"
+                                },
+                                "audio": {
+                                    "file_id": "ng5_cardiacarrest_10_audio_deidentified",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/10/audio/ng5_cardiacarrest_10_audio_deidentified.mp3"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "ng5_cardiacarrest_10_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/10/resnet_ego/ng5_cardiacarrest_10_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng5_cardiacarrest_10_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/10/clip_ego/ng5_cardiacarrest_10_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "ng5_cardiacarrest_10_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/10/distance_sensor_data/ng5_cardiacarrest_10_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "ng5_cardiacarrest_10_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/10/ego/ng5_cardiacarrest_10_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng5_cardiac_arrest_10_exo_resnet",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/10/resnet_exo/ng5_cardiac_arrest_10_exo_resnet.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "6_KfT4mbXl",
+                                    "start_t": 16.749,
+                                    "end_t": 31.67118,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "6_HKQxpWPk",
+                                    "start_t": 71.202,
+                                    "end_t": 89.92012,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "6_FlM9zqMZ",
+                                    "start_t": 98.933,
+                                    "end_t": 115.59316,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        },
+                        {
+                            "trial_id": "15",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "ng5_cardiacarrest_15_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/15/exo/ng5_cardiacarrest_15_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "ng5_cardiacarrest_15_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/15/exo/ng5_cardiacarrest_15_exo_rgbd_ir.hdf5"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "ng5_cardiacarrest_15_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/15/smartwatch_data/ng5_cardiacarrest_15_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng5_cardiacarrest_15_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/15/clip_exo/ng5_cardiacarrest_15_clip_exo_features.npy"
+                                },
+                                "audio": {
+                                    "file_id": "ng5_cardiacarrest_15_audio_deidentified",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/15/audio/ng5_cardiacarrest_15_audio_deidentified.mp3"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "ng5_cardiacarrest_15_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/15/resnet_ego/ng5_cardiacarrest_15_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng5_cardiacarrest_15_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/15/clip_ego/ng5_cardiacarrest_15_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "ng5_cardiacarrest_15_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/15/distance_sensor_data/ng5_cardiacarrest_15_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "ng5_cardiacarrest_15_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/15/ego/ng5_cardiacarrest_15_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng5_cardiacarrest_15_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/15/resnet_exo/ng5_cardiacarrest_15_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_QdKe9cVa",
+                                    "start_t": 13.79392,
+                                    "end_t": 28.50226,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_5fHM3A7a",
+                                    "start_t": 89.54392,
+                                    "end_t": 104.04392,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_MjT0c7VS",
+                                    "start_t": 111.455,
+                                    "end_t": 126.89809,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "ng6",
+            "expertise_level": "EMT",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "2",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "ng6_cardiacarrest_2_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng6/cardiac_arrest/2/exo/ng6_cardiacarrest_2_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "ng6_cardiacarrest_2_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng6/cardiac_arrest/2/exo/ng6_cardiacarrest_2_exo_rgbd_ir.hdf5"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "ng6_cardiacarrest_2_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng6/cardiac_arrest/2/smartwatch_data/ng6_cardiacarrest_2_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng6_cardiacarrest_2_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng6/cardiac_arrest/2/clip_exo/ng6_cardiacarrest_2_clip_exo_features.npy"
+                                },
+                                "audio": {
+                                    "file_id": "ng6_cardiacarrest_2_audio_deidentified",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng6/cardiac_arrest/2/audio/ng6_cardiacarrest_2_audio_deidentified.mp3"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "ng6_cardiacarrest_2_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng6/cardiac_arrest/2/resnet_ego/ng6_cardiacarrest_2_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng6_cardiacarrest_2_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng6/cardiac_arrest/2/clip_ego/ng6_cardiacarrest_2_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "ng6_cardiacarrest_2_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng6/cardiac_arrest/2/distance_sensor_data/ng6_cardiacarrest_2_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "ng6_cardiacarrest_2_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng6/cardiac_arrest/2/ego/ng6_cardiacarrest_2_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng6_cardiacarrest_2_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng6/cardiac_arrest/2/resnet_exo/ng6_cardiacarrest_2_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_EKo7M6QC",
+                                    "start_t": 13.25226,
+                                    "end_t": 30.79392,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_zrfYyQlG",
+                                    "start_t": 77.75226,
+                                    "end_t": 97.58559,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "subject_id": "ng8",
+            "expertise_level": "Not certified",
+            "scenarios": [
+                {
+                    "scenario_id": "cardiac_arrest",
+                    "trials": [
+                        {
+                            "trial_id": "5",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "ng8_cardiacarrest_5_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/5/exo/ng8_cardiacarrest_5_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "ng8_cardiacarrest_5_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/5/exo/ng8_cardiacarrest_5_exo_rgbd_ir.hdf5"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "ng8_cardiacarrest_5_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/5/smartwatch_data/ng8_cardiacarrest_5_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng8_cardiacarrest_5_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/5/clip_exo/ng8_cardiacarrest_5_clip_exo_features.npy"
+                                },
+                                "audio": {
+                                    "file_id": "ng8_cardiacarrest_5_audio_deidentified",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/5/audio/ng8_cardiacarrest_5_audio_deidentified.mp3"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "ng8_cardiacarrest_5_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/5/resnet_ego/ng8_cardiacarrest_5_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng8_cardiacarrest_5_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/5/clip_ego/ng8_cardiacarrest_5_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "ng8_cardiacarrest_5_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/5/distance_sensor_data/ng8_cardiacarrest_5_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "ng8_cardiacarrest_5_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/5/ego/ng8_cardiacarrest_5_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng8_cardiacarrest_5_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/5/resnet_exo/ng8_cardiacarrest_5_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "1_HOqGbiea",
+                                    "start_t": 3.79392,
+                                    "end_t": 21.60642,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_UjFLxTMa",
+                                    "start_t": 72.60642,
+                                    "end_t": 91.83559,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "1_kLQc6Arf",
+                                    "start_t": 100.60642,
+                                    "end_t": 115.54392,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        },
+                        {
+                            "trial_id": "3",
+                            "streams": {
+                                "exocam_rgb": {
+                                    "file_id": "ng8_cardiacarrest_3_exo_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/3/exo/ng8_cardiacarrest_3_exo_rgb_final.mp4"
+                                },
+                                "exocam_rgbd": {
+                                    "file_id": "ng8_cardiacarrest_3_exo_rgbd_ir",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/3/exo/ng8_cardiacarrest_3_exo_rgbd_ir.hdf5"
+                                },
+                                "smartwatch_imu": {
+                                    "file_id": "ng8_cardiacarrest_3_sync_smartwatch",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/3/smartwatch_data/ng8_cardiacarrest_3_sync_smartwatch.csv"
+                                },
+                                "clip_exo": {
+                                    "file_id": "ng8_cardiacarrest_3_clip_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/3/clip_exo/ng8_cardiacarrest_3_clip_exo_features.npy"
+                                },
+                                "audio": {
+                                    "file_id": "ng8_cardiacarrest_3_audio_deidentified",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/3/audio/ng8_cardiacarrest_3_audio_deidentified.mp3"
+                                },
+                                "resnet_ego": {
+                                    "file_id": "ng8_cardiacarrest_3_resnet_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/3/resnet_ego/ng8_cardiacarrest_3_resnet_ego_features.npy"
+                                },
+                                "clip_ego": {
+                                    "file_id": "ng8_cardiacarrest_3_clip_ego_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/3/clip_ego/ng8_cardiacarrest_3_clip_ego_features.npy"
+                                },
+                                "vl6180_ToF_depth": {
+                                    "file_id": "ng8_cardiacarrest_3_sync_depth_sensor",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/3/distance_sensor_data/ng8_cardiacarrest_3_sync_depth_sensor.csv"
+                                },
+                                "egocam_rgb_audio": {
+                                    "file_id": "ng8_cardiacarrest_3_ego_rgb_final",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/3/ego/ng8_cardiacarrest_3_ego_rgb_final.mp4"
+                                },
+                                "resnet_exo": {
+                                    "file_id": "ng8_cardiacarrest_3_resnet_exo_features",
+                                    "file_path": "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/3/resnet_exo/ng8_cardiacarrest_3_resnet_exo_features.npy"
+                                }
+                            },
+                            "keysteps": [
+                                {
+                                    "keystep_id": "4_JdMUTcs8",
+                                    "start_t": 11.223,
+                                    "end_t": 25.92118,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "4_N6EeR3uq",
+                                    "start_t": 67.838,
+                                    "end_t": 86.39654,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "4_WMNRQBPb",
+                                    "start_t": 93.078,
+                                    "end_t": 110.17103,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                },
+                                {
+                                    "keystep_id": "4_iriAhW1H",
+                                    "start_t": 116.012,
+                                    "end_t": 133.9257,
+                                    "label": "chest_compressions",
+                                    "class_id": 4
+                                }
+                            ],
+                            "interventions": {}
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

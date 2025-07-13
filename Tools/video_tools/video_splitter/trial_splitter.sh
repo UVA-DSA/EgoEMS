@@ -20,11 +20,11 @@ module load ffmpeg
 module load anaconda
 
 # Set the folder where MKV files are located
-annotation_file="/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS/Annotations/splits/trials/test_split.json"
+annotation_file="/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_classification.json"
 dataset_save_dir="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/TimeSformer_Format"
-view="ego+exo" # ego, exo, ego+exo
-split="test" # train,  test
+view="ego" # ego, exo, ego+exo
+split="train" # train,  test
 
 # Quote paths with spaces
-python keystep_splitter.py --annotation_file_path "$annotation_file" --dataset_root "$dataset_save_dir" --split "$split" --view "$view" &&
+python trial_splitter.py --annotation_file_path "$annotation_file" --dataset_root "$dataset_save_dir" --split "$split" --view "$view" &&
 echo done

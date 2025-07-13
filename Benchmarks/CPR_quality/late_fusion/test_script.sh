@@ -23,9 +23,9 @@ conda activate wrist_keypoint &&
 python -u fusion_test.py \
   --window_size 150 \
   --batch_size 1 \
-  --rate_weights_file ./weights/414469_fusion_weights.txt \
-  --depth_weights_file ./weights/414469_fusion_depth_weights.txt \
-  --sw_model_checkpoint ./weights/414469_smartwatch_model.pth 
+  --rate_weights_file ./weights/752743_fusion_weights.txt \
+  --depth_weights_file ./weights/752743_fusion_depth_weights.txt \
+  --sw_model_checkpoint ./weights/752743_smartwatch_model.pth 
 
 echo "Done" &&
 exit

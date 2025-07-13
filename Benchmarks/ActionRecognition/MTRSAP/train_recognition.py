@@ -32,7 +32,7 @@ if __name__ == "__main__":
         # set the wandb project where this run will be logged
         project="EgoExoEMS",
         group="Keystep Recognition",
-        # mode="disabled",
+        mode="disabled",
         name="Rebuttal - ego,exo,imu",
         notes="",
         config={
@@ -75,8 +75,8 @@ if __name__ == "__main__":
     scheduler = StepLR(optimizer, step_size=args.learning_params["lr_drop"], gamma=0.1)  # adjust parameters as needed
 
     current_time = datetime.now().strftime("%Y%m%d-%H%M%S")
-    results_dir = f'./results/{cmd_args.job_id}'
-    chkpoint_dir = f'./checkpoints/{cmd_args.job_id}'
+    results_dir = f'./results/job_{cmd_args.job_id}_task_{task}'
+    chkpoint_dir = f'./checkpoints/job_{cmd_args.job_id}_task_{task}'
 
     # create results directory if not exists
     if not os.path.exists(results_dir):

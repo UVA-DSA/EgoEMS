@@ -312,8 +312,11 @@ def ego_depth_estimator_cached(rgb_imgs, video_id, window_start, window_end, cac
     wrist_x = np.array(wrist_x, dtype=float)
 
     # scale wrist coordinates to match the depth map resolution (224, 224)
-    wrist_x = (wrist_x * 224 // 640).astype(int)
-    wrist_y = (wrist_y * 224 // 480).astype(int)
+    # wrist_x = (wrist_x * 224 // 640).astype(int) # it seems only train set is 640x480. test set is 1920x1080
+    # wrist_y = (wrist_y * 224 // 480).astype(int)
+
+    wrist_x = (wrist_x *224 // 1920).astype(int)  # scale to 224x224
+    wrist_y = (wrist_y *224 // 1080).astype(int)  # scale to 224x224
 
     # get the data within the start and end window
     wrist_x = wrist_x[window_start:window_end]
@@ -330,7 +333,7 @@ def ego_depth_estimator_cached(rgb_imgs, video_id, window_start, window_end, cac
         low_pass_wrist_y = depth_tools.low_pass_filter(tensor_wrist_y, 30)
     except Exception as e:
         print(f"Error in low pass filter: {e}")
-        return None
+        return 0.0, 0.0, 0.0
 
 
 
@@ -389,8 +392,8 @@ def ego_depth_estimator_cached(rgb_imgs, video_id, window_start, window_end, cac
 
     peak_3d_points, valley_3d_points = [], []
     for i, depth_img in enumerate(filtered_depth_imgs_p):
-        # print(f"Wrist peak coordinates: ({wrist_x_p[i]}, {wrist_y_p[i]})  ")
-        # print(f"Depth image shape: {depth_img.shape}")
+        print(f"Wrist peak coordinates: ({wrist_x_p[i]}, {wrist_y_p[i]})  ")
+        print(f"Depth image shape: {depth_img.shape}")
         if 0 <= wrist_x_p[i] < depth_img.shape[1] and 0 <= wrist_y_p[i] < depth_img.shape[0]:
             depth_val = depth_img[int(wrist_y_p[i]), int(wrist_x_p[i])]
             # print(f"Peak depth value at ({wrist_x_p[i]}, {wrist_y_p[i]}): {depth_val}")

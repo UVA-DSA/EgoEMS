@@ -61,9 +61,11 @@ def init_model(args):
 
 
 def preprocess(x, modality, backbone, device, task='classification'):
+    # print("-*" * 10, "Preprocessing", "*" * 10, "=" * 10)
     # check the shape of the input tensor
     feature = None
     label = x['keystep_id']
+    # print(f"\nSubject ID: {x['subject_id']}, Trial ID: {x['trial_id']}, Start Frame: {x['start_frame']}, End Frame: {x['end_frame']}, Start Time: {x['start_t']}, End Time: {x['end_t']}")
 
     if task == 'segmentation':
         majority_label, _ = torch.mode(label, dim=1)  # [batch_size], mode returns (values, indices)
@@ -78,16 +80,20 @@ def preprocess(x, modality, backbone, device, task='classification'):
         x = backbone.extract_resnet(x)
         feature = x
 
-    elif ( 'audio' in modality and  'resnet' in modality):
+    elif ( 'audio' in modality and  'resnet_ego' in modality):
         # resnet50 features are already extracted
-        resnet = x['resnet'].float()
+        resnet = x['resnet_ego'].float()
         resnet = resnet.to(device)
 
         audio = x['audio']
         audio = audio.to(device)
-        audio = backbone.extract_mel_spectrogram(audio, multimodal=True)
-        
-        feature = torch.cat((resnet, audio), dim=1).float()
+        # print("Raw Audio shape: ", audio.shape)
+        audio_feature = backbone.extract_wav2vec_features(audio, multimodal=True) # for wav2vec features
+        # print("Wav2Vec feature shape: ", audio_feature.shape)
+        # print("Resnet feature shape: ", resnet.shape)
+        # audio = backbone.extract_mel_spectrogram(audio, multimodal=True) # for mel spectrogram features
+
+        feature = torch.cat((resnet, audio_feature), dim=1).float()
 
     elif ( 'flow' in modality and  'rgb' in modality and  'smartwatch' in modality):
 
@@ -108,18 +114,18 @@ def preprocess(x, modality, backbone, device, task='classification'):
         rgb = x['rgb'].float()
         feature = torch.cat((flow, rgb), dim=-1).float()
 
-    elif ('resnet' in modality and 'smartwatch' in modality):
+    elif ('resnet_ego' in modality and 'smartwatch' in modality):
         # resnet50 features are already extracted
-        resnet = x['resnet'].float()
+        resnet = x['resnet_ego'].float()
         smartwatch = x['smartwatch'].float()
         # normalize smartwatch data (batch, seq_len, 3) (3 = x,y,z)
         smartwatch = (smartwatch - smartwatch.mean()) / smartwatch.std()
 
         feature = torch.cat((resnet, smartwatch), dim=-1).float()
 
-    elif ('resnet' in modality and 'resnet_exo' in modality and 'smartwatch' in modality):
+    elif ('resnet_ego' in modality and 'resnet_exo' in modality and 'smartwatch' in modality):
         # resnet50 features are already extracted
-        resnet = x['resnet'].float()
+        resnet = x['resnet_ego'].float()
         resnet_exo = x['resnet_exo'].float()
         smartwatch = x['smartwatch'].float()
         # normalize smartwatch data (batch, seq_len, 3) (3 = x,y,z)
@@ -128,20 +134,34 @@ def preprocess(x, modality, backbone, device, task='classification'):
         feature = torch.cat((resnet, resnet_exo, smartwatch), dim=-1).float()
 
 
-    elif ('resnet' in modality and 'resnet_exo' in modality):
+    elif ('resnet_ego' in modality and 'resnet_exo' in modality):
         # resnet50 features are already extracted
-        resnet = x['resnet'].float()
+        resnet = x['resnet_ego'].float()
         resnet_exo = x['resnet_exo'].float()
         feature = torch.cat((resnet, resnet_exo), dim=-1).float()
 
 
-    elif ('resnet' in modality):
+    elif ('resnet_ego' in modality):
         # resnet50 features are already extracted
-        feature = x['resnet'].float()
+        feature = x['resnet_ego'].float()
 
     elif ('resnet_exo' in modality):
         # resnet50 features are already extracted
         feature = x['resnet_exo'].float()
+
+    elif ('clip_ego' in modality):
+        # resnet50 features are already extracted
+        feature = x['clip_ego'].float()
+        # print("Clip ego feature shape: ", feature.shape)
+    elif ('clip_exo' in modality):
+        # resnet50 features are already extracted
+        feature = x['clip_exo'].float()
+        # print("Clip exo feature shape: ", feature.shape)
+
+    elif ('clip_ego' in modality and 'clip_exo' in modality):
+        # resnet50 features are already extracted
+        feature = torch.cat((x['clip_ego'].float(), x['clip_exo'].float()), dim=-1)
+        # print("Clip ego and exo feature shape: ", feature.shape)
 
     elif ('rgb' in modality):
         # I3D features are already extracted
@@ -151,21 +171,30 @@ def preprocess(x, modality, backbone, device, task='classification'):
         # I3D features are already extracted
         feature = x['flow'].float()
 
-    elif ('audio' in modality):
-        # Audio features are already extracted
+    # elif ('audio' in modality):
+    #     # Audio features are already extracted
 
-        # Example batch of audio clips (batch, samples, channels)
-        audio_clips = x['audio']  # Assume shape [batch, samples, channels]
-        audio_clips = audio_clips.to(device)
-        feature = backbone.extract_mel_spectrogram(audio_clips)
+    #     # Example batch of audio clips (batch, samples, channels)
+    #     audio_clips = x['audio']  # Assume shape [batch, samples, channels]
+    #     audio_clips = audio_clips.to(device)
+    #     feature = backbone.extract_mel_spectrogram(audio_clips)
 
     elif ('smartwatch' in modality):
         # Audio features are already extracted
         smartwatch = x['smartwatch'].float()
         smartwatch = (smartwatch - smartwatch.mean()) / smartwatch.std()
         feature = smartwatch
-        
+
+    elif ('audio' in modality): # uncomment this if you want to use wav2vec features
+        audio_clips = x['audio']  # Assume shape [batch, samples, channels]
+        audio_clips = audio_clips.to(device)
+        feature = backbone.extract_wav2vec_features(audio_clips)
+#       feature = backbone.extract_mel_spectrogram(audio_clips)
+
+        # print("Wav2Vec feature shape: ", feature.shape)
+
     feature_size = feature.shape[-1]
+    # print("Feature shape: ", feature.shape, "\n")
 
     if(feature is not None):
         feature = feature.to(device)
@@ -179,26 +208,40 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, m
     model.train()
     total_loss = 0
     for i, batch in enumerate(train_loader):
-        # print("Batch: ", i)
-        input,feature_size, label = preprocess(batch, modality, model, device, task=task)
-        optimizer.zero_grad()
-        output = model(input)
-        # print("Output: ", output.shape)
-        # print("Label: ", label.shape)
-        loss = criterion(output, label)
-        loss.backward()
-        optimizer.step()
-        total_loss += loss.item()
-        if i % 100 == 0:
-            print("\n")
-            print("*" * 10, "=" * 10, "*" * 10)
-            print(f"Pred: {torch.argmax(output, dim=1)} GT: {label}")
-            logger.log({"train_loss": loss.item()})
-            print(f"Batch: {i}, Loss: {loss.item()}")
-            print("*" * 10, "=" * 10, "*" * 10)
-            print("\n")
-        # break
+
+        try:
+            # print("Batch: ", i)
+            input,feature_size, label = preprocess(batch, modality, model, device, task=task)
+                    # ←—— ADDED CHECK ———→
+            # if the time-dimension is zero, skip this batch
+            # (inputs.shape == [B, T, F] or [B, C, T] depending on your preprocess)
+            if input.size(1) == 0:
+                print(f"Skipping batch {i}: empty feature sequence : {input.shape}")
+                continue
+
+            optimizer.zero_grad()
+            output = model(input)
+            # print("Output: ", output.shape)
+            # print("Label: ", label.shape)
+            loss = criterion(output, label)
+            loss.backward()
+            optimizer.step()
+            total_loss += loss.item()
+            if i % 100 == 0:
+                print("\n")
+                print("*" * 10, "=" * 10, "*" * 10)
+                print(f"Pred: {torch.argmax(output, dim=1)} GT: {label}")
+                logger.log({"train_loss": loss.item()})
+                print(f"Batch: {i}, Loss: {loss.item()}")
+                print("*" * 10, "=" * 10, "*" * 10)
+                print("\n")
+            # break
         
+        except Exception as e:
+            print(f"Error in batch {i}: {e}")
+            print(f"Batch data: {batch}")
+            continue
+
     return total_loss / len(train_loader)
 
 
@@ -208,14 +251,25 @@ def validate(model, val_loader, criterion, device, logger, modality, task='class
     total_loss = 0
     with torch.no_grad():
         for i, batch in enumerate(val_loader):
-            input,feature_size, label = preprocess(batch, modality, model, device, task=task)
-            output = model(input)
-            loss = criterion(output, label)
-            total_loss += loss.item()
-            if i % 100 == 0:
-                logger.log({"val_loss": loss.item()})
+            try:
+                input,feature_size, label = preprocess(batch, modality, model, device, task=task)
+
+                # check if the time-dimension is zero, skip this batch
+                if input.size(1) == 0:
+                    print(f"Skipping batch {i}: empty feature sequence : {input.shape}")
+                    continue
+
+                output = model(input)
+                loss = criterion(output, label)
+                total_loss += loss.item()
+                if i % 100 == 0:
+                    logger.log({"val_loss": loss.item()})
             # break
             
+            except Exception as e:
+                print(f"Error in batch {i}: {e}")
+                print(f"Batch data: {batch}")
+                continue
             
     return total_loss / len(val_loader)
 
@@ -234,41 +288,51 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
 
     with torch.no_grad():
         for i, batch in enumerate(test_loader):
-            input,feature_size, label = preprocess(batch, modality, model, device, task=task)
+            try:
+                input,feature_size, label = preprocess(batch, modality, model, device, task=task)
 
-            # get more info about input
-            keystep_label = batch['keystep_label'] if task == 'segmentation' else batch['keystep_label'][0]
-            keystep_id = batch['keystep_id'] if task == 'segmentation' else batch['keystep_id'][0]
-            start_frame = batch['start_frame'] if task == 'segmentation' else batch['start_frame'][0]
-            end_frame = batch['end_frame'] if task == 'segmentation' else batch['end_frame'][0]
-            start_t = batch['start_t'] if task == 'segmentation' else batch['start_t'][0]
-            end_t = batch['end_t'] if task == 'segmentation' else batch['end_t'][0]
-            subject_id = batch['subject_id'] if task == 'segmentation' else batch['subject_id']
-            trial_id = batch['trial_id'] if task == 'segmentation' else batch['trial_id']
-            window_start_frame = batch['window_start_frame'] if task == 'segmentation' else torch.tensor(-1)
-            window_end_frame = batch['window_end_frame'] if task == 'segmentation' else torch.tensor(-1)
+                # check if the time-dimension is zero, skip this batch
+                if input.size(1) == 0:
+                    print(f"Skipping batch {i}: empty feature sequence : {input.shape}")
+                    continue
 
-            output = model(input)
-            pred = torch.argmax(output, dim=1)
+                # get more info about input
+                keystep_label = batch['keystep_label'] if task == 'segmentation' else batch['keystep_label'][0]
+                keystep_id = batch['keystep_id'] if task == 'segmentation' else batch['keystep_id'][0]
+                start_frame = batch['start_frame'] if task == 'segmentation' else batch['start_frame'][0]
+                end_frame = batch['end_frame'] if task == 'segmentation' else batch['end_frame'][0]
+                start_t = batch['start_t'] if task == 'segmentation' else batch['start_t'][0]
+                end_t = batch['end_t'] if task == 'segmentation' else batch['end_t'][0]
+                subject_id = batch['subject_id'] if task == 'segmentation' else batch['subject_id']
+                trial_id = batch['trial_id'] if task == 'segmentation' else batch['trial_id']
+                window_start_frame = batch['window_start_frame'] if task == 'segmentation' else torch.tensor(-1)
+                window_end_frame = batch['window_end_frame'] if task == 'segmentation' else torch.tensor(-1)
 
-            gt.append(label.item())
-            preds.append(pred.item())
+                output = model(input)
+                pred = torch.argmax(output, dim=1)
 
-            preds_detail.append({
-                "keystep_label": keystep_label,
-                "keystep_id": keystep_id.tolist(),
-                "start_frame": start_frame.tolist(),
-                "end_frame": end_frame.tolist(),
-                "start_t": start_t.tolist(),
-                "end_t": end_t.tolist(),
-                "window_start_frame": window_start_frame.item(),
-                "window_end_frame": window_end_frame.item(),
-                "subject_id": subject_id[0],
-                "trial_id": trial_id[0],
-                "pred_keystep_id": pred.item(),
-                "all_preds": output.tolist()
-            })
+                gt.append(label.item())
+                preds.append(pred.item())
 
+                preds_detail.append({
+                    "keystep_label": keystep_label,
+                    "keystep_id": keystep_id.tolist(),
+                    "start_frame": start_frame.tolist(),
+                    "end_frame": end_frame.tolist(),
+                    "start_t": start_t.tolist(),
+                    "end_t": end_t.tolist(),
+                    "window_start_frame": window_start_frame.item(),
+                    "window_end_frame": window_end_frame.item(),
+                    "subject_id": subject_id[0],
+                    "trial_id": trial_id[0],
+                    "pred_keystep_id": pred.item(),
+                    "all_preds": output.tolist()
+                })
+
+            except Exception as e:
+                print(f"Error in batch {i}: {e}")
+                print(f"Batch data: {batch}")
+                continue
 
             # break
             
@@ -485,15 +549,15 @@ def eee_get_dataloaders(args):
 
         train_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
         val_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
         test_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
 
         train_class_stats = train_dataset._get_class_stats()
@@ -521,15 +585,15 @@ def eee_get_dataloaders(args):
         
         train_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
         val_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
         test_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
         train_class_stats = train_dataset._get_class_stats()
         print("Train class stats: ", train_class_stats)

@@ -6,12 +6,7 @@ import torch
 from torch.utils.data import Dataset
 from torchvision.io import VideoReader
 from torchvision import transforms
-from collections import OrderedDict
 import itertools
-
-from PIL import Image
-
-import cv2
 import random
 
 transform = transforms.Compose([
@@ -25,7 +20,9 @@ def collate_fn(batch):
     padded_flow_clips = []
     padded_rgb_clips = []
     padded_resnet_clips = []
-    padded_resnet_exo_clips = []  # Added for resnet_exo modality
+    padded_resnet_exo_clips = []    # for resnet_exo modality
+    padded_clip_ego_clips = []      # for clip_ego modality
+    padded_clip_exo_clips = []      # for clip_exo modality
     padded_smartwatch_clips = []
     padded_depth_sensor_clips = []
     keystep_labels = []
@@ -37,105 +34,100 @@ def collate_fn(batch):
     subject_ids = []
     trial_ids = []
 
-    # Initialize max lengths for each modality, check if each is available
+    # Compute max lengths
     max_video_len = max([clip['frames'].shape[0] for clip in batch if isinstance(clip.get('frames', None), torch.Tensor)], default=0)
     max_audio_len = max([clip['audio'].shape[0] for clip in batch if isinstance(clip.get('audio', None), torch.Tensor)], default=0)
     max_flow_len = max([clip['flow'].shape[0] for clip in batch if isinstance(clip.get('flow', None), torch.Tensor)], default=0)
     max_rgb_len = max([clip['rgb'].shape[0] for clip in batch if isinstance(clip.get('rgb', None), torch.Tensor)], default=0)
-    max_resnet_len = max([clip['resnet'].shape[0] for clip in batch if isinstance(clip.get('resnet', None), torch.Tensor)], default=0)
-    max_resnet_exo_len = max([clip['resnet_exo'].shape[0] for clip in batch if isinstance(clip.get('resnet_exo', None), torch.Tensor)], default=0)  # Added for resnet_exo modality
+    max_resnet_len = max([clip['resnet_ego'].shape[0] for clip in batch if isinstance(clip.get('resnet_ego', None), torch.Tensor)], default=0)
+    max_resnet_exo_len = max([clip['resnet_exo'].shape[0] for clip in batch if isinstance(clip.get('resnet_exo', None), torch.Tensor)], default=0)
+    max_clip_ego_len = max([clip['clip_ego'].shape[0] for clip in batch if isinstance(clip.get('clip_ego', None), torch.Tensor)], default=0)
+    max_clip_exo_len = max([clip['clip_exo'].shape[0] for clip in batch if isinstance(clip.get('clip_exo', None), torch.Tensor)], default=0)
     max_smartwatch_len = max([clip['smartwatch'].shape[0] for clip in batch if isinstance(clip.get('smartwatch', None), torch.Tensor)], default=0)
     max_depth_sensor_len = max([clip['depth_sensor'].shape[0] for clip in batch if isinstance(clip.get('depth_sensor', None), torch.Tensor)], default=0)
 
-    # print(batch)
-    
     for b in batch:
-        # Pad video frames if available
+        # Pad video frames
         if 'frames' in b and isinstance(b['frames'], torch.Tensor):
             video_clip = b['frames']
-            video_pad_size = max_video_len - video_clip.shape[0]
-            if video_pad_size > 0:
-                video_pad = torch.zeros((video_pad_size, *video_clip.shape[1:]))
-                video_clip = torch.cat([video_clip, video_pad], dim=0)
+            pad = max_video_len - video_clip.shape[0]
+            if pad > 0:
+                video_clip = torch.cat([video_clip, torch.zeros((pad, *video_clip.shape[1:]))], dim=0)
             padded_clips.append(video_clip)
 
-        # Pad audio if available
+        # Pad audio
         if 'audio' in b and isinstance(b['audio'], torch.Tensor):
             audio_clip = b['audio']
-            audio_pad_size = max_audio_len - audio_clip.shape[0]
-            if audio_pad_size > 0:
-                audio_pad = torch.zeros((audio_pad_size, *audio_clip.shape[1:]))
-                audio_clip = torch.cat([audio_clip, audio_pad], dim=0)
+            pad = max_audio_len - audio_clip.shape[0]
+            if pad > 0:
+                audio_clip = torch.cat([audio_clip, torch.zeros((pad, *audio_clip.shape[1:]))], dim=0)
             padded_audio_clips.append(audio_clip)
 
-        # Pad flow data if available
+        # Pad flow
         if 'flow' in b and isinstance(b['flow'], torch.Tensor):
             flow_clip = b['flow']
-            flow_pad_size = max_flow_len - flow_clip.shape[0]
-            if flow_pad_size > 0:
-                flow_pad = torch.zeros((flow_pad_size, *flow_clip.shape[1:]))
-                flow_clip = torch.cat([flow_clip, flow_pad], dim=0)
+            pad = max_flow_len - flow_clip.shape[0]
+            if pad > 0:
+                flow_clip = torch.cat([flow_clip, torch.zeros((pad, *flow_clip.shape[1:]))], dim=0)
             padded_flow_clips.append(flow_clip)
 
-        # Pad rgb data if available
+        # Pad rgb
         if 'rgb' in b and isinstance(b['rgb'], torch.Tensor):
             rgb_clip = b['rgb']
-            rgb_pad_size = max_rgb_len - rgb_clip.shape[0]
-            if rgb_pad_size > 0:
-                rgb_pad = torch.zeros((rgb_pad_size, *rgb_clip.shape[1:]))
-                rgb_clip = torch.cat([rgb_clip, rgb_pad], dim=0)
+            pad = max_rgb_len - rgb_clip.shape[0]
+            if pad > 0:
+                rgb_clip = torch.cat([rgb_clip, torch.zeros((pad, *rgb_clip.shape[1:]))], dim=0)
             padded_rgb_clips.append(rgb_clip)
 
-        # Pad resnet data if available
-        if 'resnet' in b and isinstance(b['resnet'], torch.Tensor):
-            resnet_clip = b['resnet']
-            resnet_pad_size = max_resnet_len - resnet_clip.shape[0]
-            if resnet_pad_size > 0:
-                resnet_pad = torch.zeros((resnet_pad_size, *resnet_clip.shape[1:]))
-                resnet_clip = torch.cat([resnet_clip, resnet_pad], dim=0)
+        # Pad resnet_ego
+        if 'resnet_ego' in b and isinstance(b['resnet_ego'], torch.Tensor):
+            resnet_clip = b['resnet_ego']
+            pad = max_resnet_len - resnet_clip.shape[0]
+            if pad > 0:
+                resnet_clip = torch.cat([resnet_clip, torch.zeros((pad, *resnet_clip.shape[1:]))], dim=0)
             padded_resnet_clips.append(resnet_clip)
 
-        # Pad resnet_exo data if available
+        # Pad resnet_exo
         if 'resnet_exo' in b and isinstance(b['resnet_exo'], torch.Tensor):
             resnet_exo_clip = b['resnet_exo']
-            resnet_exo_pad_size = max_resnet_exo_len - resnet_exo_clip.shape[0]
-            if resnet_exo_pad_size > 0:
-                resnet_exo_pad = torch.zeros((resnet_exo_pad_size, *resnet_exo_clip.shape[1:]))
-                resnet_exo_clip = torch.cat([resnet_exo_clip, resnet_exo_pad], dim=0)
+            pad = max_resnet_exo_len - resnet_exo_clip.shape[0]
+            if pad > 0:
+                resnet_exo_clip = torch.cat([resnet_exo_clip, torch.zeros((pad, *resnet_exo_clip.shape[1:]))], dim=0)
             padded_resnet_exo_clips.append(resnet_exo_clip)
 
-        # Pad smartwatch data if available
+        # Pad clip_ego
+        if 'clip_ego' in b and isinstance(b['clip_ego'], torch.Tensor):
+            clip_ego_clip = b['clip_ego']
+            pad = max_clip_ego_len - clip_ego_clip.shape[0]
+            if pad > 0:
+                clip_ego_clip = torch.cat([clip_ego_clip, torch.zeros((pad, *clip_ego_clip.shape[1:]))], dim=0)
+            padded_clip_ego_clips.append(clip_ego_clip)
+
+        # Pad clip_exo
+        if 'clip_exo' in b and isinstance(b['clip_exo'], torch.Tensor):
+            clip_exo_clip = b['clip_exo']
+            pad = max_clip_exo_len - clip_exo_clip.shape[0]
+            if pad > 0:
+                clip_exo_clip = torch.cat([clip_exo_clip, torch.zeros((pad, *clip_exo_clip.shape[1:]))], dim=0)
+            padded_clip_exo_clips.append(clip_exo_clip)
+
+        # Pad smartwatch
         if 'smartwatch' in b and isinstance(b['smartwatch'], torch.Tensor):
-            smartwatch_clip = b['smartwatch']
-            if max_smartwatch_len > 0:
-                smartwatch_pad_size = max_smartwatch_len - smartwatch_clip.shape[0]
-                if smartwatch_pad_size > 0:
-                    smartwatch_pad = torch.zeros((smartwatch_pad_size, smartwatch_clip.shape[1]))
-                    smartwatch_clip = torch.cat([smartwatch_clip, smartwatch_pad], dim=0)
-            padded_smartwatch_clips.append(smartwatch_clip)
+            sw = b['smartwatch']
+            pad = max_smartwatch_len - sw.shape[0]
+            if pad > 0:
+                sw = torch.cat([sw, torch.zeros((pad, sw.shape[1]))], dim=0)
+            padded_smartwatch_clips.append(sw)
 
-        # Pad depth_sensor data if available
+        # Pad depth_sensor
         if 'depth_sensor' in b and isinstance(b['depth_sensor'], torch.Tensor):
-            depth_sensor_clip = b['depth_sensor']
-            if max_depth_sensor_len > 0:
-                depth_sensor_pad_size = max_depth_sensor_len - depth_sensor_clip.shape[0]
-                if depth_sensor_pad_size > 0:
-                    depth_sensor_pad = torch.zeros((depth_sensor_pad_size, depth_sensor_clip.shape[1]))
-                    depth_sensor_clip = torch.cat([depth_sensor_clip, depth_sensor_pad], dim=0)
-            padded_depth_sensor_clips.append(depth_sensor_clip)
+            ds = b['depth_sensor']
+            pad = max_depth_sensor_len - ds.shape[0]
+            if pad > 0:
+                ds = torch.cat([ds, torch.zeros((pad, ds.shape[1]))], dim=0)
+            padded_depth_sensor_clips.append(ds)
 
-        # max_length = max(max_rgb_len, max_resnet_len, max_resnet_exo_len, max_smartwatch_len, max_depth_sensor_len, max_video_len,  max_flow_len)
-        # pad_length = max_length - len(b['keystep_id']) 
-        
-        # if pad_length > 0:
-        #     # repeat last element of keystep_id and keystep_label
-        #     b['keystep_id'] = b['keystep_id'] + [b['keystep_id'][-1]]*pad_length
-        #     b['start_frame'] = b['start_frame'] + [b['start_frame'][-1]]*pad_length
-        #     b['end_frame'] = b['end_frame'] + [b['end_frame'][-1]]*pad_length
-        #     b['start_t'] = b['start_t'] + [b['start_t'][-1]]*pad_length
-        #     b['end_t'] = b['end_t'] + [b['end_t'][-1]]*pad_length
-            
-        # Collect other fields
+        # Other fields
         keystep_labels.append(b['keystep_label'])
         keystep_ids.append(b['keystep_id'])
         start_frames.append(b['start_frame'])
@@ -161,8 +153,10 @@ def collate_fn(batch):
     output['audio'] = torch.stack(padded_audio_clips) if padded_audio_clips else torch.zeros(0)
     output['flow'] = torch.stack(padded_flow_clips) if padded_flow_clips else torch.zeros(0)
     output['rgb'] = torch.stack(padded_rgb_clips) if padded_rgb_clips else torch.zeros(0)
-    output['resnet'] = torch.stack(padded_resnet_clips) if padded_resnet_clips else torch.zeros(0)
-    output['resnet_exo'] = torch.stack(padded_resnet_exo_clips) if padded_resnet_exo_clips else torch.zeros(0)  # Added for resnet_exo
+    output['resnet_ego'] = torch.stack(padded_resnet_clips) if padded_resnet_clips else torch.zeros(0)
+    output['resnet_exo'] = torch.stack(padded_resnet_exo_clips) if padded_resnet_exo_clips else torch.zeros(0)
+    output['clip_ego'] = torch.stack(padded_clip_ego_clips) if padded_clip_ego_clips else torch.zeros(0)
+    output['clip_exo'] = torch.stack(padded_clip_exo_clips) if padded_clip_exo_clips else torch.zeros(0)
     output['smartwatch'] = torch.stack(padded_smartwatch_clips) if padded_smartwatch_clips else torch.zeros(0)
     output['depth_sensor'] = torch.stack(padded_depth_sensor_clips) if padded_depth_sensor_clips else torch.zeros(0)
 
@@ -171,24 +165,22 @@ def collate_fn(batch):
 
 class EgoExoEMSDataset(Dataset):
     def __init__(self, annotation_file, data_base_path, fps, 
-                frames_per_clip=None, transform=None,
-                data_types=['smartwatch'],
-                audio_sample_rate=48000, task="cpr_quality"):
+                 frames_per_clip=None, transform=None,
+                 data_types=['smartwatch'],
+                 audio_sample_rate=16000, task="cpr_quality"):
         
         self.annotation_file = annotation_file
         self.data_base_path = data_base_path
         self.fps = fps
-        self.frames_per_clip = frames_per_clip  # Store frames_per_clip
+        self.frames_per_clip = frames_per_clip
         self.transform = transform
         self.audio_sample_rate = audio_sample_rate
         self.data = []
-        self.clip_indices = []  # This will store (item_idx, clip_idx) tuples
+        self.clip_indices = []
         self.data_types = data_types
         self.class_stats = {}
-
         self.task = task
 
-        
         self._load_annotations()
         self._generate_clip_indices()
 
@@ -197,345 +189,319 @@ class EgoExoEMSDataset(Dataset):
             annotations = json.load(f)
         
         for subject in annotations['subjects']:
-            for trial in subject['trials']:
-                avail_streams = trial['streams']
-                
-                # Initialize paths to None by default
-                video_path = None
-                audio_path = None
-                flow_path = None
-                rgb_path = None
-                resnet_path = None
-                resnet_exo_path = None  # Added for resnet_exo modality
-                smartwatch_path = None
-                depth_sensor_path = None
+            for scenario in subject['scenarios']:
+                for trial in scenario['trials']:
+                    avail = trial['streams']
+                    # default None
+                    video_path = audio_path = flow_path = rgb_path = None
+                    resnet_path = resnet_exo_path = None
+                    clip_ego_path = clip_exo_path = None
+                    smartwatch_path = depth_sensor_path = None
 
-                # Check for each data type and retrieve the corresponding file path
-                if 'video' in self.data_types:
-                    video_path = avail_streams.get('egocam_rgb_audio', {}).get('file_path', None)
-                if 'audio' in self.data_types:
-                    audio_path = avail_streams.get('egocam_rgb_audio', {}).get('file_path', None)
-                if 'flow' in self.data_types:
-                    flow_path = avail_streams.get('i3d_flow', {}).get('file_path', None)
-                if 'rgb' in self.data_types:
-                    rgb_path = avail_streams.get('i3d_rgb', {}).get('file_path', None)
-                if 'resnet' in self.data_types:
-                    resnet_path = avail_streams.get('resnet50', {}).get('file_path', None)
-                if 'resnet_exo' in self.data_types:
-                    resnet_exo_path = avail_streams.get('resnet50-exo', {}).get('file_path', None)  # Adjust key as needed
-                if 'smartwatch' in self.data_types:
-                    smartwatch_stream = avail_streams.get('smartwatch_imu', {})
-                    if smartwatch_stream:  # Check if smartwatch_imu is not an empty list or dict
-                        smartwatch_path = smartwatch_stream.get('file_path', None)
-                    else:
-                        smartwatch_path = None  # Set to None or handle accordingly if smartwatch_imu is empty
-                if 'depth_sensor' in self.data_types:
-                    depth_sensor_path = avail_streams.get('vl6180_ToF_depth', {}).get('file_path', None)
+                    if 'video' in self.data_types:
+                        video_path = avail.get('egocam_rgb_audio', {}).get('file_path')
+                    if 'video_exo' in self.data_types:
+                        video_path = avail.get('exo', {}).get('file_path')
+                    if 'audio' in self.data_types:
+                        audio_path = avail.get('audio', {}).get('file_path')
+                    if 'flow' in self.data_types:
+                        flow_path = avail.get('i3d_flow', {}).get('file_path')
+                    if 'rgb' in self.data_types:
+                        rgb_path = avail.get('i3d_rgb', {}).get('file_path')
+                    if 'resnet_ego' in self.data_types:
+                        resnet_path = avail.get('resnet_ego', {}).get('file_path')
+                    if 'resnet_exo' in self.data_types:
+                        resnet_exo_path = avail.get('resnet_exo', {}).get('file_path')
+                    if 'clip_ego' in self.data_types:
+                        clip_ego_path = avail.get('clip_ego', {}).get('file_path')
+                    if 'clip_exo' in self.data_types:
+                        clip_exo_path = avail.get('clip_exo', {}).get('file_path')
+                    if 'smartwatch' in self.data_types:
+                        sw = avail.get('smartwatch_imu', {})
+                        smartwatch_path = sw.get('file_path') if sw else None
+                    if 'depth_sensor' in self.data_types:
+                        depth_sensor_path = avail.get('vl6180_ToF_depth', {}).get('file_path')
 
-                # Print paths for debugging
-                # print(f"video_path: {video_path}")
-                # print(f"audio_path: {audio_path}")
-                # print(f"flow_path: {flow_path}")
-                # print(f"rgb_path: {rgb_path}")
-                # print(f"resnet_path: {resnet_path}")
-                # print(f"resnet_exo_path: {resnet_exo_path}")
-                # print(f"smartwatch_path: {smartwatch_path}")
-                # print(f"depth_sensor_path: {depth_sensor_path}")
+                    # skip if requested but missing
+                    if (('video' in self.data_types and not video_path) or
+                        ('audio' in self.data_types and not audio_path) or
+                        ('flow' in self.data_types and not flow_path) or
+                        ('rgb' in self.data_types and not rgb_path) or
+                        ('resnet_ego' in self.data_types and not resnet_path) or
+                        ('resnet_exo' in self.data_types and not resnet_exo_path) or
+                        ('clip_ego' in self.data_types and not clip_ego_path) or
+                        ('clip_exo' in self.data_types and not clip_exo_path) or
+                        ('smartwatch' in self.data_types and not smartwatch_path) or
+                        ('depth_sensor' in self.data_types and not depth_sensor_path)):
+                        print(f"[Warning] Skipping trial {trial['trial_id']} (missing data)")
+                        continue
 
-                # print(f"data_types: {self.data_types}")
+                    if any([video_path, audio_path, flow_path, rgb_path,
+                            resnet_path, resnet_exo_path,
+                            clip_ego_path, clip_exo_path,
+                            smartwatch_path, depth_sensor_path]):
+                        for step in trial['keysteps']:
+                            start_f = math.floor(step['start_t'] * self.fps)
+                            end_f = math.floor(step['end_t'] * self.fps)
+                            lbl = step['label']
+                            cid = step['class_id']
+                            if self.task == "cpr_quality" and lbl.lower() != "chest_compressions":
+                                continue
 
+                            d = {}
+                            if 'video' in self.data_types:
+                                d['video_path'] = os.path.join(self.data_base_path, video_path)
+                            if 'audio' in self.data_types:
+                                d['audio_path'] = os.path.join(self.data_base_path, audio_path)
+                            if 'flow' in self.data_types:
+                                d['flow_path'] = os.path.join(self.data_base_path, flow_path)
+                            if 'rgb' in self.data_types:
+                                d['rgb_path'] = os.path.join(self.data_base_path, rgb_path)
+                            if 'resnet_ego' in self.data_types:
+                                d['resnet_path'] = os.path.join(self.data_base_path, resnet_path)
+                            if 'resnet_exo' in self.data_types:
+                                d['resnet_exo_path'] = os.path.join(self.data_base_path, resnet_exo_path)
+                            if 'clip_ego' in self.data_types:
+                                d['clip_ego_path'] = os.path.join(self.data_base_path, clip_ego_path)
+                            if 'clip_exo' in self.data_types:
+                                d['clip_exo_path'] = os.path.join(self.data_base_path, clip_exo_path)
+                            if 'smartwatch' in self.data_types:
+                                d['smartwatch_path'] = os.path.join(self.data_base_path, smartwatch_path)
+                            if 'depth_sensor' in self.data_types:
+                                d['depth_sensor_path'] = os.path.join(self.data_base_path, depth_sensor_path)
 
-                # Skip the trial if any required data type is not available
-                if ('video' in self.data_types and not video_path) or \
-                ('audio' in self.data_types and not audio_path) or \
-                ('flow' in self.data_types and not flow_path) or \
-                ('rgb' in self.data_types and not rgb_path) or \
-                ('resnet' in self.data_types and not resnet_path) or \
-                ('resnet_exo' in self.data_types and not resnet_exo_path) or \
-                ('smartwatch' in self.data_types and not smartwatch_path) or \
-                ('depth_sensor' in self.data_types and not depth_sensor_path):
-                    print(f"[Warning] Skipping trial {trial['trial_id']} for subject {subject['subject_id']} due to missing data")
-                    continue
+                            d['start_frame'] = start_f
+                            d['end_frame'] = end_f
+                            d['start_t'] = step['start_t']
+                            d['end_t'] = step['end_t']
+                            d['keystep_label'] = lbl
+                            d['keystep_id'] = cid
+                            d['subject'] = subject['subject_id']
+                            d['trial'] = trial['trial_id']
 
-                if video_path or audio_path or flow_path or rgb_path or resnet_path or resnet_exo_path or smartwatch_path or depth_sensor_path:
-                    keysteps = trial['keysteps']
-                    for step in keysteps:
-                        start_frame = math.floor(step['start_t'] * self.fps)
-                        end_frame = math.floor(step['end_t'] * self.fps)
-                        label = step['label']
-                        keystep_id = step['class_id']
-
-                        # When task is cpr_quality, only keep chest_compressions
-                        if self.task == "cpr_quality" and label.lower() != "chest_compressions":
-                            continue
-                        
-                        data_dict = {}
-                        if 'video' in self.data_types:
-                            data_dict['video_path'] = os.path.join(self.data_base_path, video_path)
-                        if 'audio' in self.data_types:
-                            data_dict['audio_path'] = os.path.join(self.data_base_path, audio_path)
-                        if 'flow' in self.data_types:
-                            data_dict['flow_path'] = os.path.join(self.data_base_path, flow_path)
-                        if 'rgb' in self.data_types:
-                            data_dict['rgb_path'] = os.path.join(self.data_base_path, rgb_path)
-                        if 'resnet' in self.data_types:
-                            data_dict['resnet_path'] = os.path.join(self.data_base_path, resnet_path)
-                        if 'resnet_exo' in self.data_types:
-                            data_dict['resnet_exo_path'] = os.path.join(self.data_base_path, resnet_exo_path)
-                        if 'smartwatch' in self.data_types:
-                            data_dict['smartwatch_path'] = os.path.join(self.data_base_path, smartwatch_path)
-                        if 'depth_sensor' in self.data_types:
-                            data_dict['depth_sensor_path'] = os.path.join(self.data_base_path, depth_sensor_path)
-                        data_dict['start_frame'] = start_frame
-                        data_dict['end_frame'] = end_frame
-                        data_dict['start_t'] = step['start_t']
-                        data_dict['end_t'] = step['end_t']
-                        data_dict['keystep_label'] = label
-                        data_dict['keystep_id'] = keystep_id
-                        data_dict['subject'] = subject['subject_id']
-                        data_dict['trial'] = trial['trial_id']
-
-                        # Update class stats
-                        self.class_stats[label] = self.class_stats.get(label, 0) + 1
-
-                        self.data.append(data_dict)
+                            self.class_stats[lbl] = self.class_stats.get(lbl, 0) + 1
+                            self.data.append(d)
 
     def _get_class_stats(self):
         return self.class_stats
     
     def _get_clips(self, data, frames_per_clip):
-        # Ensure that data is not empty and frames_per_clip is greater than 0
         if len(data) == 0 or frames_per_clip <= 0:
             return []
-        
         clips = []
-        num_clips = math.ceil(len(data) / frames_per_clip)
-        
-        for i in range(num_clips):
-            start_idx = i * frames_per_clip
-            end_idx = min((i + 1) * frames_per_clip, len(data))
-            clip = data[start_idx:end_idx]
-            # Ensure that the clip has data before appending
-            clips.append(clip)
-        
+        num = math.ceil(len(data) / frames_per_clip)
+        for i in range(num):
+            s = i * frames_per_clip
+            e = min((i + 1) * frames_per_clip, len(data))
+            clips.append(data[s:e])
         return clips
     
     def _generate_clip_indices(self):
-        # Clear clip_indices to start fresh
         self.clip_indices = []
-        
-        for item_idx, item in enumerate(self.data):
-            num_frames = item['end_frame'] - item['start_frame']
-            
-            # Skip the item if it doesn't have enough frames
-            if num_frames <= 0:
+        for idx, item in enumerate(self.data):
+            nf = item['end_frame'] - item['start_frame']
+            if nf <= 0:
                 continue
-            
-            num_clips = math.floor(num_frames / self.frames_per_clip) if self.frames_per_clip else 1
-            if num_clips == 0:
-                num_clips = 1
-            for clip_idx in range(num_clips):
-                # Ensure clip_idx is valid
-                self.clip_indices.append((item_idx, clip_idx))
+            nclips = math.floor(nf / self.frames_per_clip) if self.frames_per_clip else 1
+            nclips = max(nclips, 1)
+            for ci in range(nclips):
+                self.clip_indices.append((idx, ci))
 
     def __len__(self):
-        # The length should now be based on the number of clips, not items
         return len(self.clip_indices)
 
     def __getitem__(self, idx):
-        # Get the actual item and the clip index for this sample
         item_idx, clip_idx = self.clip_indices[idx]
         item = self.data[item_idx]
-        
-        # Initialize variables
+
+        # initialize
         frames = []
         flow = torch.zeros(0)
         rgb = torch.zeros(0)
         resnet = torch.zeros(0)
-        resnet_exo = torch.zeros(0)  # Added for resnet_exo modality
+        resnet_exo = torch.zeros(0)
+        clip_ego = torch.zeros(0)
+        clip_exo = torch.zeros(0)
         audio = torch.zeros(1, 0)
         sw_acc = torch.zeros(0)
         depth_sensor_readings = torch.zeros(0)
 
-        
-        # Load video if available
+        # load video frames
         if 'video' in self.data_types:
-            video_path = item['video_path']
-            video_reader = VideoReader(video_path, "video")
-            video_reader.seek(item['start_t'])
-            for frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], video_reader):
-                if frame['pts'] > item['start_t']:
-                    img_tensor = transform(frame['data'])
-                    frames.append(img_tensor)
+            vr = VideoReader(item['video_path'], "video")
+            vr.seek(item['start_t'])
+            for fr in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], vr):
+                if fr['pts'] > item['start_t']:
+                    frames.append(transform(fr['data']))
             frames = torch.stack(frames) if frames else torch.zeros(0)
 
-        # Load flow if available
+        # load flow
         if 'flow' in self.data_types:
-            flow_path = item['flow_path']
-            flow = torch.from_numpy(np.load(flow_path))[item['start_frame']:item['end_frame']]
+            flow = torch.from_numpy(np.load(item['flow_path']))[item['start_frame']:item['end_frame']]
 
-        # Load rgb if available
+        # load rgb
         if 'rgb' in self.data_types:
-            rgb_path = item['rgb_path']
-            rgb = torch.from_numpy(np.load(rgb_path))[item['start_frame']:item['end_frame']]
+            rgb = torch.from_numpy(np.load(item['rgb_path']))[item['start_frame']:item['end_frame']]
 
-        # Load resnet if available
-        if 'resnet' in self.data_types:
-            resnet_path = item['resnet_path']
-            resnet = torch.from_numpy(np.load(resnet_path))[item['start_frame']:item['end_frame']]
+        # load resnet_ego
+        if 'resnet_ego' in self.data_types:
+            resnet = torch.from_numpy(np.load(item['resnet_path']))[item['start_frame']:item['end_frame']]
 
-        # Load resnet_exo if available
+        # load resnet_exo
         if 'resnet_exo' in self.data_types:
-            resnet_exo_path = item['resnet_exo_path']
-            resnet_exo = torch.from_numpy(np.load(resnet_exo_path))[item['start_frame']:item['end_frame']]
+            resnet_exo = torch.from_numpy(np.load(item['resnet_exo_path']))[item['start_frame']:item['end_frame']]
 
-        # Load smartwatch data if available
+        # load clip_ego
+        if 'clip_ego' in self.data_types:
+            clip_ego = torch.from_numpy(np.load(item['clip_ego_path']))[item['start_frame']:item['end_frame']]
+
+        # load clip_exo
+        if 'clip_exo' in self.data_types:
+            clip_exo = torch.from_numpy(np.load(item['clip_exo_path']))[item['start_frame']:item['end_frame']]
+
+        # load smartwatch
         if 'smartwatch' in self.data_types:
-            smartwatch_path = item['smartwatch_path']
-            with open(smartwatch_path, 'r') as f:
+            with open(item['smartwatch_path'], 'r') as f:
                 lines = f.readlines()[1:]
-            sw_acc = [line.strip() for line in lines][item['start_frame']:item['end_frame']]
-            acc_x = [float(l.split(',')[0]) for l in sw_acc]
-            acc_y = [float(l.split(',')[1]) for l in sw_acc]
-            acc_z = [float(l.split(',')[2]) for l in sw_acc]
-            sw_acc = torch.from_numpy(np.array([acc_x, acc_y, acc_z])).float()
-            sw_acc = sw_acc.permute(1, 0)  # (frames, channels)
+            seg = lines[item['start_frame']:item['end_frame']]
+            xs = [float(l.split(',')[0]) for l in seg]
+            ys = [float(l.split(',')[1]) for l in seg]
+            zs = [float(l.split(',')[2]) for l in seg]
+            sw_acc = torch.from_numpy(np.array([xs, ys, zs])).float().permute(1,0)
 
-        # Load depth_sensor data if available
+        # load depth_sensor
         if 'depth_sensor' in self.data_types:
-            depth_sensor_path = item['depth_sensor_path']
-            with open(depth_sensor_path, 'r') as f:
+            with open(item['depth_sensor_path'], 'r') as f:
                 lines = f.readlines()[1:]
-            depth_sensor_readings = [line.strip() for line in lines][item['start_frame']:item['end_frame']]
-            depth_reading = [float(l.split(',')[0]) for l in depth_sensor_readings]
-            depth_sensor_readings = torch.from_numpy(np.array([depth_reading])).float()
-            depth_sensor_readings = depth_sensor_readings.permute(1, 0)
+            seg = lines[item['start_frame']:item['end_frame']]
+            vals = [float(l.split(',')[0]) for l in seg]
+            depth_sensor_readings = torch.from_numpy(np.array([vals])).float().permute(1,0)
 
-        if 'audio' in self.data_types:  # Check if audio is available
-            audio_path = item['audio_path']
-
+        # load audio
+        if 'audio' in self.data_types:
+            vr_audio = VideoReader(item['audio_path'], "audio")
             if self.frames_per_clip:
-                clip_duration = self.frames_per_clip / self.fps  # Time in seconds for frames_per_clip
-                audio_samples_per_clip = int(clip_duration * self.audio_sample_rate)
-                audio_reader = VideoReader(audio_path, "audio")
-                audio_clips = []
-                for audio_frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], audio_reader.seek(item['start_t'])):
-                    audio_clips.append(audio_frame['data'])
-                audio_clips = torch.cat(audio_clips, dim=0) if audio_clips else torch.zeros(1, 0)
-                # Get the slice corresponding to the current clip
-                audio = audio_clips[clip_idx * audio_samples_per_clip : (clip_idx + 1) * audio_samples_per_clip]
+                dur = self.frames_per_clip / self.fps
+                samples_per = int(dur * self.audio_sample_rate)
+                buf = []
+                for af in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], vr_audio.seek(item['start_t'])):
+                    buf.append(af['data'])
+                buf = torch.cat(buf, dim=0) if buf else torch.zeros(1,0)
+                audio = buf[clip_idx*samples_per:(clip_idx+1)*samples_per]
             else:
-                audio_reader = VideoReader(audio_path, "audio")
-                audio = []
-                for audio_frame in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], audio_reader.seek(item['start_t'])):
-                    audio.append(audio_frame['data'])
-                audio = torch.cat(audio, dim=0) if audio else torch.zeros(1, 0)
+                buf = []
+                for af in itertools.takewhile(lambda x: x['pts'] <= item['end_t'], vr_audio.seek(item['start_t'])):
+                    buf.append(af['data'])
+                audio = torch.cat(buf, dim=0) if buf else torch.zeros(1,0)
 
-
-        # Split into smaller clips if frames_per_clip is specified
+        # split into sub-clips if needed
         if self.frames_per_clip:
-            if 'video' in self.data_types:
-                frames_clips = self._get_clips(frames, self.frames_per_clip)
-                frames = frames_clips[clip_idx]
-                # Pad if less than frames_per_clip
-                if frames.shape[0] < self.frames_per_clip:
-                    pad_size = self.frames_per_clip - frames.shape[0]
-                    frames = torch.cat([frames, torch.zeros((pad_size, *frames.shape[1:]))], dim=0)
+            # frames
+            if isinstance(frames, torch.Tensor) and frames.shape[0]>0:
+                fc = self._get_clips(frames, self.frames_per_clip)
+                frames = fc[clip_idx]
+                if frames.shape[0]<self.frames_per_clip:
+                    pad = self.frames_per_clip - frames.shape[0]
+                    frames = torch.cat([frames, torch.zeros((pad,*frames.shape[1:]))], dim=0)
+            # flow
+            if isinstance(flow, torch.Tensor) and flow.shape[0]>0:
+                flc = self._get_clips(flow, self.frames_per_clip)
+                flow = flc[min(clip_idx, len(flc)-1)]
+                if flow.shape[0]<self.frames_per_clip:
+                    pad = self.frames_per_clip - flow.shape[0]
+                    flow = torch.cat([flow, torch.zeros((pad,*flow.shape[1:]))], dim=0)
+            # rgb
+            if isinstance(rgb, torch.Tensor) and rgb.shape[0]>0:
+                rc = self._get_clips(rgb, self.frames_per_clip)
+                rgb = rc[min(clip_idx, len(rc)-1)]
+                if rgb.shape[0]<self.frames_per_clip:
+                    pad = self.frames_per_clip - rgb.shape[0]
+                    rgb = torch.cat([rgb, torch.zeros((pad,*rgb.shape[1:]))], dim=0)
+            # resnet_ego
+            if isinstance(resnet, torch.Tensor) and resnet.shape[0]>0:
+                rnc = self._get_clips(resnet, self.frames_per_clip)
+                resnet = rnc[min(clip_idx, len(rnc)-1)]
+                if resnet.shape[0]<self.frames_per_clip:
+                    pad = self.frames_per_clip - resnet.shape[0]
+                    resnet = torch.cat([resnet, torch.zeros((pad,*resnet.shape[1:]))], dim=0)
+            # resnet_exo
+            if isinstance(resnet_exo, torch.Tensor) and resnet_exo.shape[0]>0:
+                rne = self._get_clips(resnet_exo, self.frames_per_clip)
+                resnet_exo = rne[min(clip_idx, len(rne)-1)]
+                if resnet_exo.shape[0]<self.frames_per_clip:
+                    pad = self.frames_per_clip - resnet_exo.shape[0]
+                    resnet_exo = torch.cat([resnet_exo, torch.zeros((pad,*resnet_exo.shape[1:]))], dim=0)
+            # clip_ego
+            if isinstance(clip_ego, torch.Tensor) and clip_ego.shape[0]>0:
+                ce = self._get_clips(clip_ego, self.frames_per_clip)
+                clip_ego = ce[min(clip_idx, len(ce)-1)]
+                if clip_ego.shape[0]<self.frames_per_clip:
+                    pad = self.frames_per_clip - clip_ego.shape[0]
+                    clip_ego = torch.cat([clip_ego, torch.zeros((pad,*clip_ego.shape[1:]))], dim=0)
+            # clip_exo
+            if isinstance(clip_exo, torch.Tensor) and clip_exo.shape[0]>0:
+                cxo = self._get_clips(clip_exo, self.frames_per_clip)
+                clip_exo = cxo[min(clip_idx, len(cxo)-1)]
+                if clip_exo.shape[0]<self.frames_per_clip:
+                    pad = self.frames_per_clip - clip_exo.shape[0]
+                    clip_exo = torch.cat([clip_exo, torch.zeros((pad,*clip_exo.shape[1:]))], dim=0)
+            # smartwatch
+            if isinstance(sw_acc, torch.Tensor) and sw_acc.shape[0]>0:
+                swa = self._get_clips(sw_acc, self.frames_per_clip)
+                sw_acc = swa[min(clip_idx, len(swa)-1)]
+                if sw_acc.shape[0]<self.frames_per_clip:
+                    pad = self.frames_per_clip - sw_acc.shape[0]
+                    sw_acc = torch.cat([sw_acc, torch.zeros((pad, sw_acc.shape[1]))], dim=0)
+            # depth_sensor
+            if isinstance(depth_sensor_readings, torch.Tensor) and depth_sensor_readings.shape[0]>0:
+                dsc = self._get_clips(depth_sensor_readings, self.frames_per_clip)
+                depth_sensor_readings = dsc[min(clip_idx, len(dsc)-1)]
+                if depth_sensor_readings.shape[0]<self.frames_per_clip:
+                    pad = self.frames_per_clip - depth_sensor_readings.shape[0]
+                    depth_sensor_readings = torch.cat([depth_sensor_readings, torch.zeros((pad, depth_sensor_readings.shape[1]))], dim=0)
 
-
-                clip_duration = self.frames_per_clip / self.fps
-
-
-            if 'flow' in self.data_types:
-                flow_clips = self._get_clips(flow, self.frames_per_clip)
-                clip_idx = min(clip_idx, len(flow_clips) - 1)
-                flow = flow_clips[clip_idx]
-                # Pad if less than frames_per_clip
-                if flow.shape[0] < self.frames_per_clip:
-                    pad_size = self.frames_per_clip - flow.shape[0]
-                    flow = torch.cat([flow, torch.zeros((pad_size, *flow.shape[1:]))], dim=0)
-
-            if 'rgb' in self.data_types:
-                rgb_clips = self._get_clips(rgb, self.frames_per_clip)
-                clip_idx = min(clip_idx, len(rgb_clips) - 1)
-                rgb = rgb_clips[clip_idx]
-                # Pad if less than frames_per_clip
-                if rgb.shape[0] < self.frames_per_clip:
-                    pad_size = self.frames_per_clip - rgb.shape[0]
-                    rgb = torch.cat([rgb, torch.zeros((pad_size, *rgb.shape[1:]))], dim=0)
-
-            if 'resnet' in self.data_types:
-                resnet_clips = self._get_clips(resnet, self.frames_per_clip)
-                clip_idx = min(clip_idx, len(resnet_clips) - 1)
-                resnet = resnet_clips[clip_idx]
-                # Pad if less than frames_per_clip
-                if resnet.shape[0] < self.frames_per_clip:
-                    pad_size = self.frames_per_clip - resnet.shape[0]
-                    resnet = torch.cat([resnet, torch.zeros((pad_size, *resnet.shape[1:]))], dim=0)
-
-            if 'resnet_exo' in self.data_types:
-                resnet_exo_clips = self._get_clips(resnet_exo, self.frames_per_clip)
-                clip_idx = min(clip_idx, len(resnet_exo_clips) - 1)
-                resnet_exo = resnet_exo_clips[clip_idx]
-                # Pad if less than frames_per_clip
-                if resnet_exo.shape[0] < self.frames_per_clip:
-                    pad_size = self.frames_per_clip - resnet_exo.shape[0]
-                    resnet_exo = torch.cat([resnet_exo, torch.zeros((pad_size, *resnet_exo.shape[1:]))], dim=0)
-
-            if 'smartwatch' in self.data_types:
-                sw_acc_clips = self._get_clips(sw_acc, self.frames_per_clip)
-                sw_acc = sw_acc_clips[clip_idx]
-                # Pad if less than frames_per_clip
-                if sw_acc.shape[0] < self.frames_per_clip:
-                    pad_size = self.frames_per_clip - sw_acc.shape[0]
-                    sw_acc = torch.cat([sw_acc, torch.zeros((pad_size, sw_acc.shape[1]))], dim=0)
-
-            if 'depth_sensor' in self.data_types:
-                depth_sensor_clips = self._get_clips(depth_sensor_readings, self.frames_per_clip)
-                depth_sensor_readings = depth_sensor_clips[clip_idx]
-                # Pad if less than frames_per_clip
-                if depth_sensor_readings.shape[0] < self.frames_per_clip:
-                    pad_size = self.frames_per_clip - depth_sensor_readings.shape[0]
-                    depth_sensor_readings = torch.cat([depth_sensor_readings, torch.zeros((pad_size, depth_sensor_readings.shape[1]))], dim=0)
-
-        # Calculate the minimum length of all available modalities
+        # truncate to min length across all
         min_length = min(
-            frames.shape[0] if isinstance(frames, torch.Tensor) and frames.shape[0] > 0 else float('inf'),
-            flow.shape[0] if isinstance(flow, torch.Tensor) and flow.shape[0] > 0 else float('inf'),
-            rgb.shape[0] if isinstance(rgb, torch.Tensor) and rgb.shape[0] > 0 else float('inf'),
-            resnet.shape[0] if isinstance(resnet, torch.Tensor) and resnet.shape[0] > 0 else float('inf'),
-            resnet_exo.shape[0] if isinstance(resnet_exo, torch.Tensor) and resnet_exo.shape[0] > 0 else float('inf'),
-            sw_acc.shape[0] if isinstance(sw_acc, torch.Tensor) and sw_acc.shape[0] > 0 else float('inf'),
-            depth_sensor_readings.shape[0] if isinstance(depth_sensor_readings, torch.Tensor) and depth_sensor_readings.shape[0] > 0 else float('inf')
+            (frames.shape[0] if isinstance(frames, torch.Tensor) and frames.shape[0]>0 else float('inf')),
+            (flow.shape[0] if isinstance(flow, torch.Tensor) and flow.shape[0]>0 else float('inf')),
+            (rgb.shape[0] if isinstance(rgb, torch.Tensor) and rgb.shape[0]>0 else float('inf')),
+            (resnet.shape[0] if isinstance(resnet, torch.Tensor) and resnet.shape[0]>0 else float('inf')),
+            (resnet_exo.shape[0] if isinstance(resnet_exo, torch.Tensor) and resnet_exo.shape[0]>0 else float('inf')),
+            (clip_ego.shape[0] if isinstance(clip_ego, torch.Tensor) and clip_ego.shape[0]>0 else float('inf')),
+            (clip_exo.shape[0] if isinstance(clip_exo, torch.Tensor) and clip_exo.shape[0]>0 else float('inf')),
+            (sw_acc.shape[0] if isinstance(sw_acc, torch.Tensor) and sw_acc.shape[0]>0 else float('inf')),
+            (depth_sensor_readings.shape[0] if isinstance(depth_sensor_readings, torch.Tensor) and depth_sensor_readings.shape[0]>0 else float('inf')),
         )
-
-        # Make sure min_length is a valid integer
         if min_length == float('inf'):
-            min_length = 0  # Handle the case where none of the data types are available
+            min_length = 0
 
-        # Truncate all modalities to the minimum length
-        if isinstance(frames, torch.Tensor) and frames.shape[0] > 0:
+        if isinstance(frames, torch.Tensor) and frames.shape[0]>0:
             frames = frames[:min_length]
-        if isinstance(flow, torch.Tensor) and flow.shape[0] > 0:
+        if isinstance(flow, torch.Tensor) and flow.shape[0]>0:
             flow = flow[:min_length]
-        if isinstance(rgb, torch.Tensor) and rgb.shape[0] > 0:
+        if isinstance(rgb, torch.Tensor) and rgb.shape[0]>0:
             rgb = rgb[:min_length]
-        if isinstance(resnet, torch.Tensor) and resnet.shape[0] > 0:
+        if isinstance(resnet, torch.Tensor) and resnet.shape[0]>0:
             resnet = resnet[:min_length]
-        if isinstance(resnet_exo, torch.Tensor) and resnet_exo.shape[0] > 0:
+        if isinstance(resnet_exo, torch.Tensor) and resnet_exo.shape[0]>0:
             resnet_exo = resnet_exo[:min_length]
-        if isinstance(sw_acc, torch.Tensor) and sw_acc.shape[0] > 0:
+        if isinstance(clip_ego, torch.Tensor) and clip_ego.shape[0]>0:
+            clip_ego = clip_ego[:min_length]
+        if isinstance(clip_exo, torch.Tensor) and clip_exo.shape[0]>0:
+            clip_exo = clip_exo[:min_length]
+        if isinstance(sw_acc, torch.Tensor) and sw_acc.shape[0]>0:
             sw_acc = sw_acc[:min_length]
-        if isinstance(depth_sensor_readings, torch.Tensor) and depth_sensor_readings.shape[0] > 0:
+        if isinstance(depth_sensor_readings, torch.Tensor) and depth_sensor_readings.shape[0]>0:
             depth_sensor_readings = depth_sensor_readings[:min_length]
 
-
-        output = {
+        return {
             'frames': frames,
             'flow': flow,
             'rgb': rgb,
-            'resnet': resnet,
-            'resnet_exo': resnet_exo,  # Added for resnet_exo modality
+            'resnet_ego': resnet,
+            'resnet_exo': resnet_exo,
+            'clip_ego': clip_ego,
+            'clip_exo': clip_exo,
             'audio': audio,
             'smartwatch': sw_acc,
             'depth_sensor': depth_sensor_readings,
@@ -546,11 +512,8 @@ class EgoExoEMSDataset(Dataset):
             'start_t': item['start_t'],
             'end_t': item['end_t'],
             'subject_id': item['subject'],
-            'trial_id': item['trial']
+            'trial_id': item['trial'],
         }
-
-        return output
-
 
 
 
@@ -562,8 +525,10 @@ def window_collate_fn(batch, frames_per_clip=30):
     padded_audio_clips = []
     padded_flow_clips = []
     padded_rgb_clips = []
-    padded_resnet_clips = []
+    padded_resnet_ego_clips = []
     padded_resnet_exo_clips = []  # Added for resnet_exo modality
+    padded_clip_ego_clips = []      # for clip_ego modality
+    padded_clip_exo_clips = []      # for clip_exo modality
     padded_smartwatch_clips = []
     padded_depth_sensor_clips = []
     keystep_labels = []
@@ -581,8 +546,10 @@ def window_collate_fn(batch, frames_per_clip=30):
     max_flow_len = max([clip['flow'].shape[0] for clip in batch if isinstance(clip.get('flow', None), torch.Tensor)], default=0)
     max_audio_len = max([clip['audio'].shape[0] for clip in batch if isinstance(clip.get('audio', None), torch.Tensor)], default=0)
     max_rgb_len = max([clip['rgb'].shape[0] for clip in batch if isinstance(clip.get('rgb', None), torch.Tensor)], default=0)
-    max_resnet_len = max([clip['resnet'].shape[0] for clip in batch if isinstance(clip.get('resnet', None), torch.Tensor)], default=0)
+    max_resnet_ego_len = max([clip['resnet_ego'].shape[0] for clip in batch if isinstance(clip.get('resnet_ego', None), torch.Tensor)], default=0)
     max_resnet_exo_len = max([clip['resnet_exo'].shape[0] for clip in batch if isinstance(clip.get('resnet_exo', None), torch.Tensor)], default=0)  # Added for resnet_exo modality
+    max_clip_ego_len = max([clip['clip_ego'].shape[0] for clip in batch if isinstance(clip.get('clip_ego', None), torch.Tensor)], default=0)
+    max_clip_exo_len = max([clip['clip_exo'].shape[0] for clip in batch if isinstance(clip.get('clip_exo', None), torch.Tensor)], default=0)
     max_smartwatch_len = max([clip['smartwatch'].shape[0] for clip in batch if isinstance(clip.get('smartwatch', None), torch.Tensor)], default=0)
     max_depth_sensor_len = max([clip['depth_sensor'].shape[0] for clip in batch if isinstance(clip.get('depth_sensor', None), torch.Tensor)], default=0)
 
@@ -636,13 +603,13 @@ def window_collate_fn(batch, frames_per_clip=30):
             padded_rgb_clips.append(rgb_clip)
 
         # Pad resnet data if available
-        if 'resnet' in b and isinstance(b['resnet'], torch.Tensor):
-            resnet_clip = b['resnet']
+        if 'resnet_ego' in b and isinstance(b['resnet_ego'], torch.Tensor):
+            resnet_clip = b['resnet_ego']
             resnet_pad_size = frames_per_clip - resnet_clip.shape[0]
             if resnet_pad_size > 0:
                 resnet_pad = torch.zeros((resnet_pad_size, *resnet_clip.shape[1:]))
                 resnet_clip = torch.cat([resnet_clip, resnet_pad], dim=0)
-            padded_resnet_clips.append(resnet_clip)
+            padded_resnet_ego_clips.append(resnet_clip)
 
         # Pad resnet_exo data if available
         if 'resnet_exo' in b and isinstance(b['resnet_exo'], torch.Tensor):
@@ -652,6 +619,24 @@ def window_collate_fn(batch, frames_per_clip=30):
                 resnet_exo_pad = torch.zeros((resnet_exo_pad_size, *resnet_exo_clip.shape[1:]))
                 resnet_exo_clip = torch.cat([resnet_exo_clip, resnet_exo_pad], dim=0)
             padded_resnet_exo_clips.append(resnet_exo_clip)
+
+        # Pad clip_ego data if available
+        if 'clip_ego' in b and isinstance(b['clip_ego'], torch.Tensor):
+            clip_ego_clip = b['clip_ego']
+            clip_ego_pad_size = frames_per_clip - clip_ego_clip.shape[0]
+            if clip_ego_pad_size > 0:
+                clip_ego_pad = torch.zeros((clip_ego_pad_size, *clip_ego_clip.shape[1:]))
+                clip_ego_clip = torch.cat([clip_ego_clip, clip_ego_pad], dim=0)
+            padded_clip_ego_clips.append(clip_ego_clip)
+        
+        # Pad clip_exo data if available
+        if 'clip_exo' in b and isinstance(b['clip_exo'], torch.Tensor):
+            clip_exo_clip = b['clip_exo']
+            clip_exo_pad_size = frames_per_clip - clip_exo_clip.shape[0]
+            if clip_exo_pad_size > 0:
+                clip_exo_pad = torch.zeros((clip_exo_pad_size, *clip_exo_clip.shape[1:]))
+                clip_exo_clip = torch.cat([clip_exo_clip, clip_exo_pad], dim=0)
+            padded_clip_exo_clips.append(clip_exo_clip)
 
         # Pad smartwatch data if available
         if 'smartwatch' in b and isinstance(b['smartwatch'], torch.Tensor):
@@ -720,8 +705,10 @@ def window_collate_fn(batch, frames_per_clip=30):
     output['audio'] = torch.stack(padded_audio_clips) if padded_audio_clips else torch.zeros(0)
     output['flow'] = torch.stack(padded_flow_clips) if padded_flow_clips else torch.zeros(0)
     output['rgb'] = torch.stack(padded_rgb_clips) if padded_rgb_clips else torch.zeros(0)
-    output['resnet'] = torch.stack(padded_resnet_clips) if padded_resnet_clips else torch.zeros(0)
+    output['resnet_ego'] = torch.stack(padded_resnet_ego_clips) if padded_resnet_ego_clips else torch.zeros(0)
     output['resnet_exo'] = torch.stack(padded_resnet_exo_clips) if padded_resnet_exo_clips else torch.zeros(0)  # Added for resnet_exo
+    output['clip_ego'] = torch.stack(padded_clip_ego_clips) if padded_clip_ego_clips else torch.zeros(0)
+    output['clip_exo'] = torch.stack(padded_clip_exo_clips) if padded_clip_exo_clips else torch.zeros(0)
     output['smartwatch'] = torch.stack(padded_smartwatch_clips) if padded_smartwatch_clips else torch.zeros(0)
     output['depth_sensor'] = torch.stack(padded_depth_sensor_clips) if padded_depth_sensor_clips else torch.zeros(0)
 
@@ -731,7 +718,7 @@ def window_collate_fn(batch, frames_per_clip=30):
 class WindowEgoExoEMSDataset(Dataset):
     def __init__(self, annotation_file, data_base_path, fps, 
                 frames_per_clip=30, transform=None,
-                data_types=['resnet'], audio_sample_rate=48000, task="cpr_quality"):
+                data_types=['resnet_ego'], audio_sample_rate=16000, task="cpr_quality"):
         
         self.annotation_file = annotation_file
         self.data_base_path = data_base_path
@@ -761,98 +748,112 @@ class WindowEgoExoEMSDataset(Dataset):
         
         subject_dict = {}
         for subject in annotations['subjects']:
-            trial_dict ={}
-            for trial in subject['trials']:
-                avail_streams = trial['streams']
-                
-                # Initialize paths to None by default
-                video_path = None
-                audio_path = None
-                flow_path = None
-                rgb_path = None
-                resnet_path = None
-                resnet_exo_path = None  # Added for resnet_exo modality
-                smartwatch_path = None
-                depth_sensor_path = None
+            for scenario in subject['scenarios']:
+                trial_dict ={}
+                for trial in scenario['trials']:
+                    avail_streams = trial['streams']
+                    
+                    # Initialize paths to None by default
+                    video_path = None
+                    audio_path = None
+                    flow_path = None
+                    rgb_path = None
+                    resnet_ego_path = None
+                    resnet_exo_path = None  # Added for resnet_exo modality
+                    smartwatch_path = None
+                    depth_sensor_path = None
+                    clip_ego_path = None
+                    clip_exo_path = None
 
-                # Check for each data type and retrieve the corresponding file path
-                if 'video' in self.data_types:
-                    video_path = avail_streams.get('egocam_rgb_audio', {}).get('file_path', None)
-                if 'audio' in self.data_types:
-                    audio_path = avail_streams.get('egocam_rgb_audio', {}).get('file_path', None)
-                if 'flow' in self.data_types:
-                    flow_path = avail_streams.get('i3d_flow', {}).get('file_path', None)
-                if 'rgb' in self.data_types:
-                    rgb_path = avail_streams.get('i3d_rgb', {}).get('file_path', None)
-                if 'resnet' in self.data_types:
-                    resnet_path = avail_streams.get('resnet50', {}).get('file_path', None)
-                if 'resnet_exo' in self.data_types:
-                    resnet_exo_path = avail_streams.get('resnet50-exo', {}).get('file_path', None)  # Adjust key as needed
-                if 'smartwatch' in self.data_types:
-                    smartwatch_stream = avail_streams.get('smartwatch_imu', {})
-                    if smartwatch_stream:  # Check if smartwatch_imu is not an empty list or dict
-                        smartwatch_path = smartwatch_stream.get('file_path', None)
-                    else:
-                        smartwatch_path = None  # Set to None or handle accordingly if smartwatch_imu is empty
-                if 'depth_sensor' in self.data_types:
-                    depth_sensor_path = avail_streams.get('vl6180_ToF_depth', {}).get('file_path', None)
+                    # Check for each data type and retrieve the corresponding file path
+                    if 'video' in self.data_types:
+                        video_path = avail_streams.get('egocam_rgb_audio', {}).get('file_path', None)
+                    if 'audio' in self.data_types:
+                        audio_path = avail_streams.get('audio', {}).get('file_path', None)
+                    if 'flow' in self.data_types:
+                        flow_path = avail_streams.get('i3d_flow', {}).get('file_path', None)
+                    if 'rgb' in self.data_types:
+                        rgb_path = avail_streams.get('i3d_rgb', {}).get('file_path', None)
+                    if 'resnet_ego' in self.data_types:
+                        resnet_ego_path = avail_streams.get('resnet_ego', {}).get('file_path', None)
+                    if 'resnet_exo' in self.data_types:
+                        resnet_exo_path = avail_streams.get('resnet_exo', {}).get('file_path', None)  # Adjust key as needed
+                    if 'clip_ego' in self.data_types:
+                        clip_ego_path = avail_streams.get('clip_ego', {}).get('file_path', None)
+                    if 'clip_exo' in self.data_types:
+                        clip_exo_path = avail_streams.get('clip_exo', {}).get('file_path', None)
+                    if 'smartwatch' in self.data_types:
+                        smartwatch_stream = avail_streams.get('smartwatch_imu', {})
+                        if smartwatch_stream:  # Check if smartwatch_imu is not an empty list or dict
+                            smartwatch_path = smartwatch_stream.get('file_path', None)
+                        else:
+                            smartwatch_path = None  # Set to None or handle accordingly if smartwatch_imu is empty
+                    if 'depth_sensor' in self.data_types:
+                        depth_sensor_path = avail_streams.get('vl6180_ToF_depth', {}).get('file_path', None)
 
-                # Skip the trial if any required data type is not available
-                if ('flow' in self.data_types and not flow_path) or \
-                ('audio' in self.data_types and not audio_path) or \
-                ('video' in self.data_types and not video_path) or \
-                ('rgb' in self.data_types and not rgb_path) or \
-                ('resnet' in self.data_types and not resnet_path) or \
-                ('resnet_exo' in self.data_types and not resnet_exo_path) or \
-                ('smartwatch' in self.data_types and not smartwatch_path) or \
-                ('depth_sensor' in self.data_types and not depth_sensor_path):
-                    print(f"[Warning] Skipping trial {trial['trial_id']} for subject {subject['subject_id']} due to missing data")
-                    continue
-                
-                if video_path or audio_path or flow_path or rgb_path or resnet_path or resnet_exo_path or smartwatch_path or depth_sensor_path:
-                    keysteps = trial['keysteps']
-                    keysteps_dict = []
-                    for step in keysteps:
-                        start_frame = math.floor(step['start_t'] * self.fps)
-                        end_frame = math.floor(step['end_t'] * self.fps)
-                        label = step['label']
-                        keystep_id = step['class_id']
-                        
-                        # When task is cpr_quality, only keep chest_compressions
-                        if self.task == "cpr_quality" and label.lower() != "chest_compressions":
-                            continue
+                    # Skip the trial if any required data type is not available
+                    if ('flow' in self.data_types and not flow_path) or \
+                    ('audio' in self.data_types and not audio_path) or \
+                    ('video' in self.data_types and not video_path) or \
+                    ('rgb' in self.data_types and not rgb_path) or \
+                    ('resnet_ego' in self.data_types and not resnet_ego_path) or \
+                    ('resnet_exo' in self.data_types and not resnet_exo_path) or \
+                    ('clip_ego' in self.data_types and not clip_ego_path) or \
+                    ('clip_exo' in self.data_types and not clip_exo_path) or \
+                    ('smartwatch' in self.data_types and not smartwatch_path) or \
+                    ('depth_sensor' in self.data_types and not depth_sensor_path):
+                        print(f"[Warning] Skipping trial {trial['trial_id']} for subject {subject['subject_id']} due to missing data")
+                        continue
+                    
+                    if video_path or audio_path or flow_path or rgb_path or resnet_ego_path or resnet_exo_path or clip_ego_path or clip_exo_path or  smartwatch_path or depth_sensor_path:
+                        keysteps = trial['keysteps']
+                        keysteps_dict = []
+                        for step in keysteps:
+                            start_frame = math.floor(step['start_t'] * self.fps)
+                            end_frame = math.floor(step['end_t'] * self.fps)
+                            label = step['label']
+                            keystep_id = step['class_id']
+                            
+                            # When task is cpr_quality, only keep chest_compressions
+                            if self.task == "cpr_quality" and label.lower() != "chest_compressions":
+                                continue
 
-                        data_dict = {}
-                        if 'video' in self.data_types:
-                            data_dict['video_path'] = os.path.join(self.data_base_path, video_path)
-                        if 'audio' in self.data_types:
-                            data_dict['audio_path'] = os.path.join(self.data_base_path, audio_path)
-                        if 'flow' in self.data_types:
-                            data_dict['flow_path'] = os.path.join(self.data_base_path, flow_path)
-                        if 'rgb' in self.data_types:
-                            data_dict['rgb_path'] = os.path.join(self.data_base_path, rgb_path)
-                        if 'resnet' in self.data_types:
-                            data_dict['resnet_path'] = os.path.join(self.data_base_path, resnet_path)
-                        if 'resnet_exo' in self.data_types:
-                            data_dict['resnet_exo_path'] = os.path.join(self.data_base_path, resnet_exo_path)
-                        if 'smartwatch' in self.data_types:
-                            data_dict['smartwatch_path'] = os.path.join(self.data_base_path, smartwatch_path)
-                        if 'depth_sensor' in self.data_types:
-                            data_dict['depth_sensor_path'] = os.path.join(self.data_base_path, depth_sensor_path)
-                        data_dict['start_frame'] = start_frame
-                        data_dict['end_frame'] = end_frame
-                        data_dict['start_t'] = step['start_t']
-                        data_dict['end_t'] = step['end_t']
-                        data_dict['keystep_label'] = label
-                        data_dict['keystep_id'] = keystep_id
-                        data_dict['subject'] = subject['subject_id']
-                        data_dict['trial'] = trial['trial_id']
+                            data_dict = {}
+                            if 'video' in self.data_types:
+                                data_dict['video_path'] = os.path.join(self.data_base_path, video_path)
+                            if 'audio' in self.data_types:
+                                data_dict['audio_path'] = os.path.join(self.data_base_path, audio_path)
+                            if 'flow' in self.data_types:
+                                data_dict['flow_path'] = os.path.join(self.data_base_path, flow_path)
+                            if 'rgb' in self.data_types:
+                                data_dict['rgb_path'] = os.path.join(self.data_base_path, rgb_path)
+                            if 'resnet_ego' in self.data_types:
+                                data_dict['resnet_ego_path'] = os.path.join(self.data_base_path, resnet_ego_path)
+                            if 'resnet_exo' in self.data_types:
+                                data_dict['resnet_exo_path'] = os.path.join(self.data_base_path, resnet_exo_path)
+                            if 'clip_ego' in self.data_types:
+                                data_dict['clip_ego_path'] = os.path.join(self.data_base_path, clip_ego_path)
+                            if 'clip_exo' in self.data_types:
+                                data_dict['clip_exo_path'] = os.path.join(self.data_base_path, clip_exo_path)
+                            if 'smartwatch' in self.data_types:
+                                data_dict['smartwatch_path'] = os.path.join(self.data_base_path, smartwatch_path)
+                            if 'depth_sensor' in self.data_types:
+                                data_dict['depth_sensor_path'] = os.path.join(self.data_base_path, depth_sensor_path)
 
-                        keysteps_dict.append(data_dict)
-                        self.data.append(data_dict)
+                            data_dict['start_frame'] = start_frame
+                            data_dict['end_frame'] = end_frame
+                            data_dict['start_t'] = step['start_t']
+                            data_dict['end_t'] = step['end_t']
+                            data_dict['keystep_label'] = label
+                            data_dict['keystep_id'] = keystep_id
+                            data_dict['subject'] = subject['subject_id']
+                            data_dict['trial'] = trial['trial_id']
 
-                        trial_dict[trial['trial_id']] = keysteps_dict
-                subject_dict[subject['subject_id']] = trial_dict
+                            keysteps_dict.append(data_dict)
+                            self.data.append(data_dict)
+
+                            trial_dict[trial['trial_id']] = keysteps_dict
+                    subject_dict[subject['subject_id']] = trial_dict
 
         self.data_dict = subject_dict
 
@@ -948,8 +949,10 @@ class WindowEgoExoEMSDataset(Dataset):
         batch_audio = []
         batch_flow = []
         batch_rgb = []
-        batch_resnet = []
+        batch_resnet_ego = []
         batch_resnet_exo = []
+        batch_clip_ego = []
+        batch_clip_exo = []
         batch_sw_acc = []
         batch_depth_sensor = []
 
@@ -1021,18 +1024,30 @@ class WindowEgoExoEMSDataset(Dataset):
             batch_rgb.append(rgb)
 
         # Load resnet if available
-        if 'resnet' in self.data_types:
-            resnet_path =  window[0]['resnet_path']
+        if 'resnet_ego' in self.data_types:
+            resnet_path =  window[0]['resnet_ego_path']
             resnet_npy = np.load(resnet_path)
             resnet_length = len(resnet_npy)
             resnet = torch.from_numpy(np.load(resnet_path))[first_frame_of_clip:last_frame_of_clip]
-            batch_resnet.append(resnet)
+            batch_resnet_ego.append(resnet)
 
         # Load resnet_exo if available
         if 'resnet_exo' in self.data_types:
             resnet_exo_path =  window[0]['resnet_exo_path']
             resnet_exo = torch.from_numpy(np.load(resnet_exo_path))[first_frame_of_clip:last_frame_of_clip]
             batch_resnet_exo.append(resnet_exo)
+
+        # Load clip_ego if available
+        if 'clip_ego' in self.data_types:
+            clip_ego_path =  window[0]['clip_ego_path']
+            clip_ego = torch.from_numpy(np.load(clip_ego_path))[first_frame_of_clip:last_frame_of_clip]
+            batch_clip_ego.append(clip_ego)
+
+        # Load clip_exo if available
+        if 'clip_exo' in self.data_types:
+            clip_exo_path =  window[0]['clip_exo_path']
+            clip_exo = torch.from_numpy(np.load(clip_exo_path))[first_frame_of_clip:last_frame_of_clip]
+            batch_clip_exo.append(clip_exo)
 
         # Load smartwatch data if available
         if 'smartwatch' in self.data_types:
@@ -1078,8 +1093,10 @@ class WindowEgoExoEMSDataset(Dataset):
             'audio': (batch_audio[0]) if batch_audio else torch.zeros(1,0),
             'flow': (batch_flow[0]) if batch_flow else torch.zeros(0),
             'rgb': (batch_rgb[0]) if batch_rgb else torch.zeros(0),
-            'resnet': (batch_resnet[0]) if batch_resnet else torch.zeros(0),
+            'resnet_ego': (batch_resnet_ego[0]) if batch_resnet_ego else torch.zeros(0),
             'resnet_exo': (batch_resnet_exo[0]) if batch_resnet_exo else torch.zeros(0),
+            'clip_ego': (batch_clip_ego[0]) if batch_clip_ego else torch.zeros(0),
+            'clip_exo': (batch_clip_exo[0]) if batch_clip_exo else torch.zeros(0),
             'smartwatch': (batch_sw_acc[0]) if batch_sw_acc else torch.zeros(0),
             'depth_sensor': (batch_depth_sensor[0]) if batch_depth_sensor else torch.zeros(0),
 
@@ -1097,6 +1114,15 @@ class WindowEgoExoEMSDataset(Dataset):
         }
 
         return output
+
+
+
+
+
+
+
+
+
 
 import torch
 import os
