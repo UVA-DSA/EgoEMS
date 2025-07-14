@@ -45,14 +45,14 @@ learning_params = {
     "weight_decay": 1e-5,
     "patience": 3,
     "lr_drop": 20,
-    "best_chkpoint": "/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Benchmarks/ActionRecognition/MTRSAP/checkpoints/job_755732_task_classification/val_best_model.pt"
+    "best_chkpoint": "/standard/UVA-DSA/NIST EMS Project Data/weights/job_957443_task_segmentation/val_best_model.pt"
 }
 
 dataloader_params = {
     
-    "task": "classification", # "segmentation" or "classification"
+    "task": "segmentation", # "segmentation" or "classification"
     "batch_size": 1,
-    "observation_window": None,  # 5 seconds at 30 fps segmentation :::: classification None
+    "observation_window": 150,  # 5 seconds at 30 fps segmentation :::: classification None
     "fold": 1,
     "fps": 29.97,
     # update task specific parameters (Experimenting segmentation with classification annotations)
@@ -64,7 +64,7 @@ dataloader_params = {
     # "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_segmentation.json',
     # Old dataset class
     'base_path': '/home/cjh9fw/Desktop/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
-    'modality': [ 'resnet_ego', 'audio'],
+    'modality': [ 'rgb','flow'],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
                     "check_responsiveness": "Check for responsiveness",

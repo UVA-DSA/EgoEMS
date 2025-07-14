@@ -567,6 +567,8 @@ def window_collate_fn(batch, frames_per_clip=30):
         if 'video' in b and isinstance(b['video'], torch.Tensor):
             video_clip = b['video']
             video_pad_size = frames_per_clip - video_clip.shape[0]
+
+
             if video_pad_size > 0:
                 video_pad = torch.zeros((video_pad_size, *video_clip.shape[1:]))
                 video_clip = torch.cat([video_clip, video_pad], dim=0)

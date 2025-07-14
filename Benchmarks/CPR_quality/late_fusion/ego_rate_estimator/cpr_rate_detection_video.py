@@ -808,9 +808,12 @@ def ego_rate_detect_cached(rgb_imgs, video_id, window_start, window_end, cache_d
     For a given video (as list/array of RGB frames) and its ID,
     either load cached keypoints or extract them, then compute CPR rate.
     """
+
     keypoint_json =  f"{video_id}_ego_resized_640x480_keypoints.json"
     print(f"Keypoint JSON: {keypoint_json}")
     cache_file = os.path.join(cache_dir, keypoint_json)
+
+
 
     rate_bpm = None
 
@@ -886,7 +889,7 @@ def ego_rate_detect_cached(rgb_imgs, video_id, window_start, window_end, cache_d
         filtered_wrist_y = wrist_y_window[final_filtered_indices]
 
         # filter the depth images for the window
-        rgb_imgs_window = rgb_imgs
+        rgb_imgs_window = rgb_imgs[:150]
         rgb_imgs_window = np.array(rgb_imgs_window)
 
 

@@ -34,78 +34,6 @@ from smartwatch_depth_estimator.cpr_depth_detection_smartwatch import initialize
 MIN_DEPTH=0.0
 MAX_DEPTH=120.0
 
-def train_new_smartwatch_model(model, train_loader, optimizer, criterion, device, modality):
-    task = "cpr_quality"
-    model.train()
-
-    MIN_ACC = torch.tensor([-49.3732, -77.9384, -49.8976]).unsqueeze(0).unsqueeze(0).to(device)
-    MAX_ACC = torch.tensor([69.7335, 59.6060, 77.9001]).unsqueeze(0).unsqueeze(0).to(device)
-
-    for batch in train_loader:
-        print("**" * 20)
-        print("--" * 20)
-
-        subj = batch['subject_id'][0]
-        trial = batch['trial_id'][0]
-        start_t = batch['start_t'][0]
-        end_t = batch['end_t'][0]
-        keystep_id = batch['keystep_id'][0]
-
-        print(f"Processing Subject: {subj}, Trial: {trial}, Keystep_ID: {keystep_id}, Start: {start_t}, End: {end_t}")
-
-        video_id = f"{subj}_t{trial}_ks{keystep_id}_{float(start_t):.3f}_{float(end_t):.3f}"
-        print(f"Video ID: {video_id}")
-
-        input, feature_size, gt_sensor_data = preprocess(batch, modality, None, device, task=task)
-
-        # Check preprocess output
-        smartwatch = input['smartwatch'][0] if isinstance(input, dict) else input[0]
-        gt_sensor_data = gt_sensor_data[0]
-
-        window_smartwatch = smartwatch
-        window_gt_sensor_data = gt_sensor_data    
-
-        if torch.isnan(window_smartwatch).any() or torch.isinf(window_smartwatch).any():
-            print("⚠️ NaN or Inf in raw smartwatch data! Skipping batch.")
-            continue
-
-        # if window_gt_sensor length is not equal to 150, skip the batch
-        if window_gt_sensor_data.shape[0] != 150:
-            print(f"⚠️ Skipping batch with length {window_gt_sensor_data.shape[0]} != 150")
-            continue
-
-        avg_depths_list, min_depths_list, gt_cpr_depth = get_gt_cpr_depth(window_gt_sensor_data.cpu().numpy())
-        comp_depth = avg_depths_list / MAX_DEPTH
-
-
-        depth_gt_norm = (gt_cpr_depth ) / MAX_DEPTH
-
-        window_smartwatch = window_smartwatch.to(device)
-        depth_gt_norm = torch.tensor(depth_gt_norm).to(device)
-        comp_depth = comp_depth.to(device)
-
-
-        imu = window_smartwatch              # [T=150, C=3]
-        imu_min, _ = imu.min(dim=0, keepdim=True)  # [1,3]
-        imu_max, _ = imu.max(dim=0, keepdim=True)  # [1,3]
-
-        data_norm = (imu - imu_min) / (imu_max - imu_min + 1e-6)
-        data_norm = data_norm.unsqueeze(0)
-
-        # data_norm = (window_smartwatch - MIN_ACC) / (MAX_ACC - MIN_ACC)
-
-        pred = model(data_norm)
-        loss = criterion(pred, depth_gt_norm)
-
-        print(f"Model prediction: {pred.item()}, Scaled Depth: {pred.item() * MAX_DEPTH}")
-        print(f"GT Depth norm mean: {depth_gt_norm.item()}, Scaled GT Depth: {depth_gt_norm.item() * MAX_DEPTH}")
-        print("Loss:", loss.item())
-
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-
-
 
 def train_smartwatch_depth_estimator(model, train_loader, optimizer, criterion, device, modality):
     task = "cpr_quality"
@@ -134,157 +62,88 @@ def train_smartwatch_depth_estimator(model, train_loader, optimizer, criterion, 
 
         input, feature_size, gt_sensor_data = preprocess(batch, modality, None, device, task=task)
 
-        # Check preprocess output
-        smartwatch = input['smartwatch'][0] if isinstance(input, dict) else input[0]
+
+        print("Input shape:", input.shape, "gt_sensor_data shape:", gt_sensor_data.shape)
+        total = input.shape[1]
+        input = input[0]
+
         gt_sensor_data = gt_sensor_data[0]
 
-        window_smartwatch = smartwatch
-        window_gt_sensor_data = gt_sensor_data
-        
-        if torch.isnan(window_smartwatch).any() or torch.isinf(window_smartwatch).any():
-            print("⚠️ NaN or Inf in raw smartwatch data! Skipping batch.")
-            continue
+        print("\n\n" + "=" * 50)
+        print(f"[TRAINING] Processing video {video_id} with {total} samples")
 
-        # if window_gt_sensor length is not equal to 150, skip the batch
-        if window_gt_sensor_data.shape[0] != 150:
-            print(f"⚠️ Skipping batch with length {window_gt_sensor_data.shape[0]} != 150")
-            continue
+        window_size = 150
 
-        avg_depths_list, min_depths_list, gt_cpr_depth = get_gt_cpr_depth(window_gt_sensor_data.cpu().numpy())
-        comp_depth = avg_depths_list / MAX_DEPTH
+        for start in range(0, total, window_size):
+            end = start + window_size
+            if end > total:
+                break
 
-        depth_gt_norm = (window_gt_sensor_data.cpu()) / MAX_DEPTH
-        
-        window_smartwatch = window_smartwatch.to(device)
-        depth_gt_norm = depth_gt_norm.to(device)
-        comp_depth = comp_depth.to(device)
+            print("-*" * 20)
+            print(f"[CPR DEPTH DETECTION]:Processing window {start}:{end} for video {video_id}...")
 
-        imu = window_smartwatch              # [T=150, C=3]
-        imu_min, _ = imu.min(dim=0, keepdim=True)  # [1,3]
-        imu_max, _ = imu.max(dim=0, keepdim=True)
-        data_norm = (imu - imu_min) / (imu_max - imu_min + 1e-6)
-        data_norm = data_norm.unsqueeze(0)
+            try:
+                win_smart = input[start:end]
+                win_gt = gt_sensor_data[start:end]
 
-        # data_norm = (window_smartwatch - MIN_ACC) / (MAX_ACC - MIN_ACC)
+                # Check preprocess output
 
-        rec, depth_pred = model(data_norm.permute(0, 2, 1))
-        print("Smartwatch depth pred mean:", depth_pred.mean().item())
-        print("GT depth norm mean:", depth_gt_norm.mean().item())
-
-        depth_gt_mask = window_gt_sensor_data > 0
+                window_smartwatch = win_smart
+                window_gt_sensor_data = win_gt
+                
+                if torch.isnan(window_smartwatch).any() or torch.isinf(window_smartwatch).any():
+                    print("⚠️ NaN or Inf in raw smartwatch data! Skipping batch.")
+                    continue
 
 
-        rec_loss = criterion(rec[depth_gt_mask.squeeze()], depth_gt_norm[depth_gt_mask])
+                avg_depths_list, min_depths_list, gt_cpr_depth = get_gt_cpr_depth(window_gt_sensor_data.cpu().numpy())
+                comp_depth = avg_depths_list / MAX_DEPTH
 
-        # Unsqueeze scalar to shape [1]
-        if depth_pred.dim() == 0:
-            depth_pred = depth_pred.unsqueeze(0)
+                        #normnalize depth
+                depth_gt_norm=(window_gt_sensor_data.cpu()-min_depths_list.unsqueeze(1))/MAX_DEPTH
 
-        if comp_depth.dim() == 0:
-            comp_depth = comp_depth.unsqueeze(0)
+                
+                window_smartwatch = window_smartwatch.to(device)
+                depth_gt_norm = depth_gt_norm.to(device)
+                comp_depth = comp_depth.to(device)
 
-        d_loss = criterion(depth_pred, comp_depth)
+                imu = window_smartwatch              # [T=150, C=3]
+                imu_min, _ = imu.min(dim=0, keepdim=True)  # [1,3]
+                imu_max, _ = imu.max(dim=0, keepdim=True)
+                data_norm = (imu - imu_min) / (imu_max - imu_min + 1e-6)
+                data_norm = data_norm.unsqueeze(0)
 
+                # data_norm = (window_smartwatch - MIN_ACC) / (MAX_ACC - MIN_ACC)
 
-        loss = rec_loss + d_loss
-        print("Total loss:", loss.item())
-
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-
-        depth_pred = depth_pred * MAX_DEPTH  # scale back
-
-        print(f"Final Depth Prediction: {depth_pred.mean().item()}")
-
-
-def test_new_smartwatch_depth_estimator(model, test_loader, criterion, device, modality, results_csv_path="./test_predictions.csv"):
-    model.eval()
-    task = "cpr_quality"
-
-    MIN_ACC = torch.tensor([-49.3732, -77.9384, -49.8976]).unsqueeze(0).unsqueeze(0).to(device)
-    MAX_ACC = torch.tensor([69.7335, 59.6060, 77.9001]).unsqueeze(0).unsqueeze(0).to(device)
-
-    results_rows = []
-
-    for batch in test_loader:
-        with torch.no_grad():
-            print("**" * 20)
-            print("--" * 20)
-            print("Testing batch...")
-
-            subj = batch['subject_id'][0]
-            trial = batch['trial_id'][0]
-            start_t = batch['start_t'][0]
-            end_t = batch['end_t'][0]
-            keystep_id = batch['keystep_id'][0]
-
-            print(f"Processing Subject: {subj}, Trial: {trial}, Keystep_ID: {keystep_id}, Start: {start_t}, End: {end_t}")
-
-            video_id = f"{subj}_t{trial}_ks{keystep_id}_{float(start_t):.3f}_{float(end_t):.3f}"
-            print(f"Video ID: {video_id}")
-
-            input, feature_size, gt_sensor_data = preprocess(batch, modality, None, device, task=task)
-
-            # Check preprocess output
-            smartwatch = input['smartwatch'][0] if isinstance(input, dict) else input[0]
+                rec, depth_pred = model(data_norm.permute(0, 2, 1))
+                print("Smartwatch depth pred mean:", depth_pred.mean().item())
+                print("GT depth norm mean:", depth_gt_norm.mean().item())
 
 
-            gt_sensor_data = gt_sensor_data[0]
+                # Unsqueeze scalar to shape [1]
+                if depth_pred.dim() == 0:
+                    depth_pred = depth_pred.unsqueeze(0)
 
-            window_smartwatch = smartwatch
-            window_gt_sensor_data = gt_sensor_data    
+                if comp_depth.dim() == 0:
+                    comp_depth = comp_depth.unsqueeze(0)
 
-            if torch.isnan(window_smartwatch).any() or torch.isinf(window_smartwatch).any():
-                print("⚠️ NaN or Inf in raw smartwatch data! Skipping batch.")
+                d_loss = criterion(depth_pred, comp_depth)
+
+
+                loss =  d_loss
+                print("Total loss:", loss.item())
+
+                optimizer.zero_grad()
+                loss.backward()
+                optimizer.step()
+
+                depth_pred = depth_pred * MAX_DEPTH  # scale back
+
+                print(f"Final Depth Prediction: {depth_pred.mean().item()}")
+            
+            except Exception as e:
+                print(f"Error processing window {start}:{end} for video {video_id}: {e}")
                 continue
-
-            # if window_gt_sensor length is not equal to 150, skip the batch
-            if window_gt_sensor_data.shape[0] != 150:
-                print(f"⚠️ Skipping batch with length {window_gt_sensor_data.shape[0]} != 150")
-                continue
-
-            avg_depths_list, min_depths_list, gt_cpr_depth = get_gt_cpr_depth(window_gt_sensor_data.cpu().numpy())
-            comp_depth = avg_depths_list / MAX_DEPTH
-
-
-            depth_gt_norm = (gt_cpr_depth ) / MAX_DEPTH
-
-            window_smartwatch = window_smartwatch.to(device)
-            depth_gt_norm = torch.tensor(depth_gt_norm).to(device)
-            comp_depth = comp_depth.to(device)
-
-            imu = window_smartwatch              # [T=150, C=3]
-            imu_min, _ = imu.min(dim=0, keepdim=True)  # [1,3]
-            imu_max, _ = imu.max(dim=0, keepdim=True)  # [1,3]
-
-            data_norm = (imu - imu_min) / (imu_max - imu_min + 1e-6)
-            data_norm = data_norm.unsqueeze(0)
-
-
-            pred = model(data_norm)
-            loss = criterion(pred, depth_gt_norm)
-
-            print(f"Model prediction: {pred.item()}, Scaled Depth: {pred.item() * MAX_DEPTH}")
-            print(f"GT Depth norm mean: {depth_gt_norm.item()}, Scaled GT Depth: {depth_gt_norm.item() * MAX_DEPTH}")
-            print("Loss:", loss.item())
-
-            results_rows.append({
-                "subject_id": subj,
-                "trial_id": trial,
-                "start_t": start_t.item(),
-                "end_t": end_t.item(),
-                "keystep_id": keystep_id.item(),
-                "video_id": video_id,
-                "gt_cpr_depth": gt_cpr_depth if isinstance(gt_cpr_depth, float) else gt_cpr_depth.item(),
-                "depth_pred": (pred * MAX_DEPTH).item()
-            })
-
-    # Save results to CSV
-    results_df = pd.DataFrame(results_rows)
-    results_df.to_csv(results_csv_path, index=False)
-    print(f"✅ Saved predictions CSV to {results_csv_path}")
-
 
 
 def test_smartwatch_depth_estimator(model, test_loader, criterion, device, modality, results_csv_path="./test_predictions.csv"):
@@ -299,10 +158,9 @@ def test_smartwatch_depth_estimator(model, test_loader, criterion, device, modal
 
     with torch.no_grad():
         for batch in test_loader:
+
             input, feature_size, gt_sensor_data = preprocess(batch, modality, None, device, task="cpr_quality")
 
-            smartwatch = input['smartwatch'][0] if isinstance(input, dict) else input[0]
-            gt_sensor_data = gt_sensor_data[0]
 
             subj = batch['subject_id'][0]
             trial = batch['trial_id'][0]
@@ -314,69 +172,96 @@ def test_smartwatch_depth_estimator(model, test_loader, criterion, device, modal
             print("--" * 20)
             print("[TEST] Processing Subject: {}, Trial: {}, Keystep_ID: {}, Start: {}, End: {}".format(
                 subj, trial, keystep_id, start_t.item(), end_t.item()))
-
-            if torch.isnan(smartwatch).any() or torch.isinf(smartwatch).any():
-                print("⚠️ NaN or Inf in raw smartwatch data! Skipping batch.")
-                continue
-
-                        # if window_gt_sensor length is not equal to 150, skip the batch
-            if gt_sensor_data.shape[0] != 150:
-                print(f"⚠️ Skipping batch with length {gt_sensor_data.shape[0]} != 150")
-                continue
-
-            avg_depths_list, min_depths_list, gt_cpr_depth = get_gt_cpr_depth(gt_sensor_data.cpu().numpy())
-            comp_depth = avg_depths_list / MAX_DEPTH
-
-
-
-            depth_gt_norm = (gt_sensor_data.cpu() - min_depths_list.unsqueeze(1)) / MAX_DEPTH
-
-            smartwatch = smartwatch.to(device)
-            depth_gt_norm = depth_gt_norm.to(device)
-            comp_depth = comp_depth.to(device)
-
-            imu = smartwatch              # [T=150, C=3]
-            imu_min, _ = imu.min(dim=0, keepdim=True)  # [1,3]
-            imu_max, _ = imu.max(dim=0, keepdim=True)
-            data_norm = (imu - imu_min) / (imu_max - imu_min + 1e-6)
-            data_norm = data_norm.unsqueeze(0)
-            # data_norm = (smartwatch - MIN_ACC) / (MAX_ACC - MIN_ACC + 1e-6)
-
-            rec, depth_pred = model(data_norm.permute(0, 2, 1))
-
-            depth_gt_mask = gt_sensor_data > 0
-
-            rec_loss = criterion(rec[depth_gt_mask.squeeze()], depth_gt_norm[depth_gt_mask])
-
-            if depth_pred.dim() == 0:
-                depth_pred = depth_pred.unsqueeze(0)
-
-            if comp_depth.dim() == 0:
-                comp_depth = comp_depth.unsqueeze(0)
-                
-            d_loss = criterion(depth_pred, comp_depth)
-
-            loss = rec_loss + d_loss
-            total_loss += loss.item() * len(smartwatch)
-            total_samples += len(smartwatch)
-
-            depth_pred_value = (depth_pred * MAX_DEPTH).cpu().item()
-            gt_cpr_depth_value = gt_cpr_depth if isinstance(gt_cpr_depth, float) else gt_cpr_depth.item()
             
-            # Record one row
-            results_rows.append({
-                "subject_id": subj,
-                "trial_id": trial,
-                "start_t": start_t.item(),
-                "end_t": end_t.item(),
-                "keystep_id": keystep_id.item(),
-                "video_id": video_id,
-                "gt_cpr_depth": gt_cpr_depth_value,
-                "depth_pred": depth_pred_value
-            })
+            print("Input shape:", input.shape)
+            total = input.shape[1]
 
-            print(f"Final Depth Prediction: {depth_pred_value}, GT Depth: {gt_cpr_depth_value}")
+            input = input[0]
 
+
+            gt_sensor_data = gt_sensor_data[0]
+
+            print("\n\n" + "=" * 50)
+            print(f"Processing video {video_id} with {total} samples.")
+
+            window_size = 150
+
+            for start in range(0, total, window_size):
+                end = start + window_size
+                if end > total:
+                    break
+
+                try:
+
+                    win_smart = input[start:end]
+                    win_gt = gt_sensor_data[start:end]
+
+                    # Check preprocess output
+
+                    window_smartwatch = win_smart
+                    window_gt_sensor_data = win_gt
+                    
+
+                    if torch.isnan(window_smartwatch).any() or torch.isinf(window_smartwatch).any():
+                        print("⚠️ NaN or Inf in raw smartwatch data! Skipping batch.")
+                        continue
+
+    
+                    avg_depths_list, min_depths_list, gt_cpr_depth = get_gt_cpr_depth(window_gt_sensor_data.cpu().numpy())
+                    comp_depth = avg_depths_list / MAX_DEPTH
+
+
+
+                    depth_gt_norm = (window_gt_sensor_data.cpu() - min_depths_list.unsqueeze(1)) / MAX_DEPTH
+
+                    window_smartwatch = window_smartwatch.to(device)
+                    depth_gt_norm = depth_gt_norm.to(device)
+                    comp_depth = comp_depth.to(device)
+
+                    imu = window_smartwatch              # [T=150, C=3]
+                    imu_min, _ = imu.min(dim=0, keepdim=True)  # [1,3]
+                    imu_max, _ = imu.max(dim=0, keepdim=True)
+                    data_norm = (imu - imu_min) / (imu_max - imu_min + 1e-6)
+                    data_norm = data_norm.unsqueeze(0)
+                    # data_norm = (smartwatch - MIN_ACC) / (MAX_ACC - MIN_ACC + 1e-6)
+
+                    rec, depth_pred = model(data_norm.permute(0, 2, 1))
+
+                    depth_gt_mask = gt_sensor_data > 0
+
+
+                    if depth_pred.dim() == 0:
+                        depth_pred = depth_pred.unsqueeze(0)
+
+                    if comp_depth.dim() == 0:
+                        comp_depth = comp_depth.unsqueeze(0)
+                        
+                    d_loss = criterion(depth_pred, comp_depth)
+
+                    loss =  d_loss
+                    total_loss += loss.item() * len(window_smartwatch)
+                    total_samples += len(window_smartwatch)
+
+                    depth_pred_value = (depth_pred * MAX_DEPTH).cpu().item()
+                    gt_cpr_depth_value = gt_cpr_depth if isinstance(gt_cpr_depth, float) else gt_cpr_depth.item()
+                    
+                    # Record one row
+                    results_rows.append({
+                        "subject_id": subj,
+                        "trial_id": trial,
+                        "start_t": start_t.item(),
+                        "end_t": end_t.item(),
+                        "keystep_id": keystep_id.item(),
+                        "video_id": video_id,
+                        "gt_cpr_depth": gt_cpr_depth_value,
+                        "depth_pred": depth_pred_value
+                    })
+
+                    print(f"Final Depth Prediction: {depth_pred_value}, GT Depth: {gt_cpr_depth_value}")
+
+                except Exception as e:
+                    print(f"Error processing window {start}:{end} for video {video_id}: {e}")
+                    continue
 
     # Save results to CSV
     results_df = pd.DataFrame(results_rows)
@@ -422,6 +307,7 @@ def main():
     task = args.dataloader_params['task']
     print("Task: ", task)
 
+
     train_loader, val_loader, test_loader, train_class_stats, val_class_stats = eee_get_dataloaders(args)
     args.dataloader_params['train_class_stats'] = train_class_stats
     args.dataloader_params['val_class_stats'] = val_class_stats
@@ -446,7 +332,6 @@ def main():
 
     # initialize smartwatch models
     smartwatch_model, smartwatch_optimizer, smartwatch_criterion, smartwatch_scheduler = initialize_smartwatch_model(device=device)
-    tcn_smartwatch_model, tcn_smartwatch_optimizer, tcn_smartwatch_criterion, tcn_smartwatch_scheduler = initialize_new_smartwatch_model(device=device)
 
 
     debug_csv = f"{results_dir}/debug_{job}_train_smartwatch_debug_per_batch.csv"
@@ -476,12 +361,11 @@ def main():
 
         # call train function
         train_smartwatch_depth_estimator(smartwatch_model, train_loader, smartwatch_optimizer, smartwatch_criterion, device, modality)
-        # train_new_smartwatch_model(tcn_smartwatch_model, train_loader, tcn_smartwatch_optimizer, tcn_smartwatch_criterion, device, modality)
-        # dummy check
+
+        # smoke test the model
 
         # test the model
         test_loss = test_smartwatch_depth_estimator(smartwatch_model, test_loader, smartwatch_criterion, device, modality, results_csv_path=f"{results_dir}/test_predictions_@_epoch_{epoch + 1}_{job}.csv")
-        # test_loss = test_new_smartwatch_depth_estimator(tcn_smartwatch_model, test_loader, tcn_smartwatch_criterion, device, modality, results_csv_path=f"{results_dir}/test_predictions_@_epoch_{epoch + 1}_{job}.csv")
         print(f"Test Loss after epoch {epoch + 1}: {test_loss:.4f}")
 
         if test_loss < best_test_loss:

@@ -163,19 +163,6 @@ def main():
 
     debug_path = f"./ego_rate_estimator/debug/{date_time_str}"
 
-    debug_img_path = f"./debug_imgs/"
-
-    # delete img folder if it exists
-    if os.path.exists(debug_img_path):
-        print(f"Removing existing debug image folder: {debug_img_path}")
-        if os.path.isfile(debug_img_path):
-            os.remove(debug_img_path)
-    
-    # create the debug image folder
-    if not os.path.exists(debug_img_path):
-        os.makedirs(debug_img_path)
-        print(f"Created debug image folder: {debug_img_path}")
-
 
     # create a CSV file path
     csv_path = f"{results_dir}/{job}_train_fusion_rates_results.csv"
@@ -230,14 +217,9 @@ def main():
             end_t = batch['end_t'][0]
             keystep_id = batch['keystep_id'][0]
 
-            window_start_frame = batch['window_start_frame'][0]
-            window_end_frame = batch['window_end_frame'][0]
-
-
             # convert tensor to string for video_id
             print(f"Processing Subject: {subj}, Trial: {trial}, Keystep_ID: {keystep_id}, Start: {start_t}, End: {end_t}")
-            print(f"Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}"
-                  )
+    
             start_t = float(start_t)
             end_t = float(end_t)
             start_t = f"{start_t:.3f}"
@@ -249,7 +231,7 @@ def main():
             input, feature_size, gt_sensor_data = preprocess(batch, modality, None, device, task=task)
 
 
-            frames = input['video'][0]    # [T,3,H,W]
+            frames = input['frames'][0]    # [T,3,H,W]
             smartwatch = input['smartwatch'][0]    # [T,3]
             gt_sensor_data = gt_sensor_data[0]     # [T,3]
 

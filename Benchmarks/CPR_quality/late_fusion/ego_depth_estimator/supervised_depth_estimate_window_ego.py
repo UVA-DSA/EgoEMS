@@ -292,8 +292,6 @@ def ego_depth_estimator_cached(rgb_imgs, video_id, window_start, window_end, cac
     print(f"Keypoint JSON: {keypoint_json}")
     cache_file = os.path.join(cache_dir, keypoint_json)
 
-    cpr_depth = 0
-
     print(f"Loading cached keypoints for {video_id} from {cache_file}")
     with open(cache_file, 'r') as f:
         json_data = json.load(f)
@@ -368,6 +366,7 @@ def ego_depth_estimator_cached(rgb_imgs, video_id, window_start, window_end, cac
 
     # Filter the images
     rgb_imgs_window = rgb_imgs
+    rgb_imgs_window = rgb_imgs_window[:150]
     rgb_imgs_window = np.array(rgb_imgs_window)
     filtered_rgb_imgs_window = rgb_imgs_window[final_filtered_indices]
 

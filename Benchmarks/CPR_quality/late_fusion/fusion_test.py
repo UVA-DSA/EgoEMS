@@ -155,28 +155,20 @@ def main():
     smartwatch_model.load_state_dict(torch.load(args.sw_model_checkpoint, map_location=device))
     smartwatch_model.eval()
 
-    print(f"Loaded smartwatch model weights from {args.sw_model_checkpoint}")
-    # print some stats about smartwatch model weights
-    print(f"Smartwatch model state dict keys: {list(smartwatch_model.state_dict().keys())}")
-
 
     # iterate batches
     for batch in test_loader:
         print("-" * 50)
 
-        subj = batch['subject_id'][0][0]
-        trial = batch['trial_id'][0][0]
-        start_t = batch['start_t'][0][0]
-        end_t = batch['end_t'][0][0]
-        keystep_id = batch['keystep_id'][0][0].item()
-
-        window_start_frame = batch['window_start_frame'][0]
-        window_end_frame = batch['window_end_frame'][0]
+        subj = batch['subject_id'][0]
+        trial = batch['trial_id'][0]
+        start_t = batch['start_t'][0]
+        end_t = batch['end_t'][0]
+        keystep_id = batch['keystep_id'][0]
 
         # convert tensor to string for video_id
         print(f"Processing Subject: {subj}, Trial: {trial}, Keystep_ID: {keystep_id}, Start: {start_t}, End: {end_t}")
-        print(f"Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
-        
+   
         start_t = float(start_t)
         end_t = float(end_t)
         start_t = f"{start_t:.3f}"
@@ -186,7 +178,7 @@ def main():
         print(f"Video ID: {video_id}")
 
         inp, _, gt_data = preprocess(batch, modality, None, device=torch.device("cpu"), task=task)
-        frames = inp['video'][0]
+        frames = inp['frames'][0]
         if torch.is_tensor(frames):
             frames = frames.permute(0,2,3,1).cpu().numpy().astype(np.uint8)
         sw = inp['smartwatch'][0]
@@ -194,7 +186,7 @@ def main():
         gt = gt_data[0]
         if torch.is_tensor(gt): gt = gt.cpu().numpy()
 
-        sw_rates, vid_rates, gt_rates = detect_rate(frames, sw, gt, window, window_start_frame, window_end_frame, video_id, CACHE_DIR)
+        sw_rates, vid_rates, gt_rates = detect_rate(frames, sw, gt, window, video_id, CACHE_DIR)
 
         print(f"Smartwatch rates: {sw_rates}")
         print(f"Video rates: {vid_rates}")
@@ -203,7 +195,7 @@ def main():
         smartwatch = inp['smartwatch'][0]    # [T,3]
         gt_sensor_data = gt_data[0]     # [T,3]
 
-        sw_depths, vid_depths, gt_depths = detect_depth(frames, smartwatch, gt_sensor_data, window, window_start_frame, window_end_frame, video_id, CACHE_DIR, midas_model, midas_transform, device, SCALE_FACTOR,  smartwatch_model, smartwatch_optimizer, smartwatch_criterion, MODE="test")
+        sw_depths, vid_depths, gt_depths = detect_depth(frames, smartwatch, gt_sensor_data, window, video_id, CACHE_DIR, midas_model, midas_transform, device, SCALE_FACTOR,  smartwatch_model, smartwatch_optimizer, smartwatch_criterion, MODE="test")
 
         print(f"Smartwatch depths: {sw_depths}")
         print(f"Ego-video depths: {vid_depths}")

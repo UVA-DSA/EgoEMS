@@ -20,7 +20,7 @@ from smartwatch_depth_estimator.cpr_depth_detection_smartwatch import smartwatch
 
 
 # detect function for train fusion cpr rate estimation
-def detect_depth(frames, smartwatch, gt, window_size,window_start_idx,window_end_idx, video_id, CACHE_DIR, midas_model, midas_transform, device, SCALE_FACTOR, smartwatch_model, smartwatch_optimizer, smartwatch_criterion, MODE="train"):
+def detect_depth(frames, smartwatch, gt, window_size, video_id, CACHE_DIR, midas_model, midas_transform, device, SCALE_FACTOR, smartwatch_model, smartwatch_optimizer, smartwatch_criterion, MODE="train"):
     """
     Slide a tumbling window and compute:
       - smartwatch_depth per window
@@ -34,61 +34,62 @@ def detect_depth(frames, smartwatch, gt, window_size,window_start_idx,window_end
     print("\n\n" + "=" * 50)
     print(f"Processing video {video_id} with {total} frames, smartwatch data length {len(smartwatch)}, and gt data length {len(gt)}")
     print(f"In mode: {MODE}")
+    for start in range(0, total, window_size):
+        end = start + window_size
+        if end > total:
+            break
 
-    print("-*" * 20)
-    print(f"[CPR DEPTH DETECTION]:Processing window {window_start_idx}-{window_end_idx} for video {video_id}...")
+        print("-*" * 20)
+        print(f"[CPR DEPTH DETECTION]:Processing window {start}:{end} for video {video_id}...")
 
-    try:
-            
-        win_frames = frames
-        win_smart = smartwatch
-        win_gt = gt
-
-        print(f"Window size: {len(win_frames)} frames, {len(win_smart)} smartwatch data points, {len(win_gt)} GT data points")
-# 
-        # v_rate = ego_rate_detect(win_frames, video_id)
-        v_depth, v_depth_3d, v_abs  = ego_depth_estimator_cached(win_frames, video_id, window_start_idx, window_end_idx, CACHE_DIR,  midas_model, midas_transform, device, SCALE_FACTOR)
-
-        if MODE == "train":
-            s_depth = smartwatch_depth_estimator(win_smart, win_gt, smartwatch_model, smartwatch_optimizer, smartwatch_criterion)
-        else:
-            s_depth = smartwatch_depth_estimator_inference(win_smart, win_gt, smartwatch_model, None, None)
-        
-        _,_,g_depth = get_gt_cpr_depth(win_gt)
-
-        print(f"depths for window  - Video: {v_depth}, SWDepth: {s_depth}, GT: {g_depth}")
-        # skip if any rate is None
-
-        # if v_depth is None, set to 0
-        if v_depth is None:
-            v_depth = 0.0
-        if s_depth is None:
-            s_depth = 0.0
-        if g_depth is None:
-            g_depth = 0.0
-
-        # ensure Python floats
         try:
-            v_depth = float(v_depth)
-            v_abs = float(v_abs)
-            s_depth = float(s_depth)
-            g_depth = float(g_depth)
-        except (TypeError, ValueError):
-            print("⚠️ Invalid depth values, skipping this window.")
+                
+            win_frames = frames[start:end]
+            win_smart = smartwatch[start:end]
+            win_gt = gt[start:end]
 
-        sw_depths.append(s_depth)
-        vid_depths.append(v_abs) # using v_abs as the ego depth
-        gt_depths.append(g_depth)
+            print(f"Window size: {len(win_frames)} frames, {len(win_smart)} smartwatch data points, {len(win_gt)} GT data points")
+# 
+            # v_rate = ego_rate_detect(win_frames, video_id)
+            v_depth, v_depth_3d, v_abs  = ego_depth_estimator_cached(win_frames, video_id, start, end, CACHE_DIR,  midas_model, midas_transform, device, SCALE_FACTOR)
 
-        print(f"window:,sw_depths:{s_depth:.2f},ego_rate:{v_depth:.2f},gt_rate:{g_depth:.2f}")
+            if MODE == "train":
+                s_depth = smartwatch_depth_estimator(win_smart, win_gt, smartwatch_model, smartwatch_optimizer, smartwatch_criterion)
+            else:
+                s_depth = smartwatch_depth_estimator_inference(win_smart, win_gt, smartwatch_model, None, None)
+            
+            _,_,g_depth = get_gt_cpr_depth(win_gt)
 
-    except Exception as e:
-        print(f"Error processing window  for video {video_id}: {e}")
-        # stack trace for debugging
-        import traceback
-        traceback.print_exc()
+            print(f"depths for window {start}:{end} - Video: {v_depth}, SWDepth: {s_depth}, GT: {g_depth}")
+            # skip if any rate is None
 
-    print("-*" * 20)
+            # ensure Python floats
+            try:
+                v_depth = float(v_depth)
+                v_abs = float(v_abs)
+                s_depth = float(s_depth)
+                g_depth = float(g_depth)
+            except (TypeError, ValueError):
+                continue
+
+            # skip NaNs
+            if np.isnan(v_abs) or np.isnan(s_depth) or np.isnan(g_depth):
+                continue 
+
+            sw_depths.append(s_depth)
+            vid_depths.append(v_abs) # using v_abs as the ego depth
+            gt_depths.append(g_depth)
+
+            print(f"window:{start}:{end},sw_depths:{s_depth:.2f},ego_rate:{v_depth:.2f},gt_rate:{g_depth:.2f}")
+
+        except Exception as e:
+            print(f"Error processing window {start}:{end} for video {video_id}: {e}")
+            # stack trace for debugging
+            import traceback
+            traceback.print_exc()
+            continue
+
+        print("-*" * 20)
     return np.array(sw_depths), np.array(vid_depths), np.array(gt_depths)
 
 
@@ -101,7 +102,7 @@ def detect_depth(frames, smartwatch, gt, window_size,window_start_idx,window_end
 
 
 # detect function for train fusion cpr rate estimation
-def detect_rate(frames, smartwatch, gt, window_size, window_start_idx, window_end_idx, video_id, CACHE_DIR):
+def detect_rate(frames, smartwatch, gt, window_size, video_id, CACHE_DIR):
     """
     Slide a tumbling window and compute:
       - smartwatch_rate per window
@@ -114,57 +115,56 @@ def detect_rate(frames, smartwatch, gt, window_size, window_start_idx, window_en
 
     print(f"Processing video {video_id} with {total} frames, smartwatch data length {len(smartwatch)}, and gt data length {len(gt)}")
 
+    for start in range(0, total, window_size):
+        end = start + window_size
+        if end > total:
+            break
 
-    print("-*" * 20)
-    print(f"[CPR RATE DETECTION]: Processing window for video {video_id}...")
+        print("-*" * 20)
+        print(f"[CPR RATE DETECTION]: Processing window {start}:{end} for video {video_id}...")
 
-    try:
-            
-        win_frames = frames
-        win_smart = smartwatch
-        win_gt = gt
-
-        print(f"Window size: {len(win_frames)} frames, {len(win_smart)} smartwatch data points, {len(win_gt)} GT data points")
-# 
-        # v_rate = ego_rate_detect(win_frames, video_id)
-        v_rate = ego_rate_detect_cached(win_frames, video_id,  window_start_idx, window_end_idx, CACHE_DIR)
-        s_rate = smartwatch_rate_detect(win_smart)
-        g_rate = get_gt_cpr_rate(win_gt)
-
-        print(f"Rates for window - Video: {v_rate}, Smartwatch: {s_rate}, GT: {g_rate}")
-        # skip if any rate is None
-
-
-        # if v_rate is None, set to 0
-        if v_rate is None:
-            v_rate = 0.0
-        if s_rate is None:
-            s_rate = 0.0
-        if g_rate is None:
-            g_rate = 0.0
-
-        # ensure Python floats
         try:
-            v_rate = float(v_rate)
-            s_rate = float(s_rate)
-            g_rate = float(g_rate)
-        except (TypeError, ValueError):
-            print("⚠️ Invalid rate values, skipping this window.")
+                
+            win_frames = frames[start:end]
+            win_smart = smartwatch[start:end]
+            win_gt = gt[start:end]
 
+            print(f"Window size: {len(win_frames)} frames, {len(win_smart)} smartwatch data points, {len(win_gt)} GT data points")
+# 
+            # v_rate = ego_rate_detect(win_frames, video_id)
+            v_rate = ego_rate_detect_cached(win_frames, video_id, start, end, CACHE_DIR)
+            s_rate = smartwatch_rate_detect(win_smart)
+            g_rate = get_gt_cpr_rate(win_gt)
 
-        sw_rates.append(s_rate)
-        vid_rates.append(v_rate)
-        gt_rates.append(g_rate)
+            print(f"Rates for window {start}:{end} - Video: {v_rate}, Smartwatch: {s_rate}, GT: {g_rate}")
+            # skip if any rate is None
 
-        print(f"window,sw_rate:{s_rate:.2f},ego_rate:{v_rate:.2f},gt_rate:{g_rate:.2f}")
+            # ensure Python floats
+            try:
+                v_rate = float(v_rate)
+                s_rate = float(s_rate)
+                g_rate = float(g_rate)
+            except (TypeError, ValueError):
+                continue
 
-    except Exception as e:
-        print(f"Error processing window for video {video_id}: {e}")
-        # stack trace for debugging
-        import traceback
-        traceback.print_exc()
+            # skip NaNs
+            if np.isnan(v_rate) or np.isnan(s_rate) or np.isnan(g_rate):
+                continue
 
-    print("-*" * 20)
+            sw_rates.append(s_rate)
+            vid_rates.append(v_rate)
+            gt_rates.append(g_rate)
+
+            print(f"window:{start}:{end},sw_rate:{s_rate:.2f},ego_rate:{v_rate:.2f},gt_rate:{g_rate:.2f}")
+
+        except Exception as e:
+            print(f"Error processing window {start}:{end} for video {video_id}: {e}")
+            # stack trace for debugging
+            import traceback
+            traceback.print_exc()
+            continue
+
+        print("-*" * 20)
     return np.array(sw_rates), np.array(vid_rates), np.array(gt_rates)
 
 
@@ -261,7 +261,7 @@ def preprocess(x, modality, backbone, device, task='classification'):
 
     if ('video' in modality and 'smartwatch' in modality and task == 'cpr_quality'):
         # extract resnet50 features
-        frames = x['video']
+        frames = x['frames']
         frames = frames.to(device)
 
         smartwatch = x['smartwatch'].float()
@@ -269,7 +269,7 @@ def preprocess(x, modality, backbone, device, task='classification'):
         smartwatch = (smartwatch - smartwatch.mean()) / smartwatch.std()
         # concatenate all features
         
-        feature = {'video': frames, 'smartwatch': smartwatch}
+        feature = {'frames': frames, 'smartwatch': smartwatch}
         label =  x['depth_sensor'].float()
         
         print("Special case for CPR quality task")
@@ -372,7 +372,8 @@ def preprocess(x, modality, backbone, device, task='classification'):
         smartwatch = x['smartwatch'].float()
         smartwatch = (smartwatch - smartwatch.mean()) / smartwatch.std()
         feature = smartwatch
-        label = x['depth_sensor'].float()  # Assuming depth sensor data is the label
+
+        label = x['depth_sensor'].float()
         
     feature_size = feature.shape[-1]
 
@@ -513,17 +514,17 @@ def eee_get_dataloaders(args):
         print("*" * 10, "=" * 10, "*" * 10)
         print("Loading dataloader for CPR quality task")
         
-        train_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
+        train_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=None, transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
-        val_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
+        val_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=None, transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
-        test_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
+        test_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
                                         data_base_path='',
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=None, transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
         train_class_stats = train_dataset._get_class_stats()
         print("Train class stats: ", train_class_stats)
@@ -538,7 +539,7 @@ def eee_get_dataloaders(args):
         
 
         # Create DataLoaders for training and validation subsets
-        train_loader = DataLoader(train_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False) # temporary set shuffle=False
+        train_loader = DataLoader(train_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=True) # temporary set shuffle=False
         test_loader = DataLoader(test_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False)
         val_loader = DataLoader(val_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False)
 
@@ -547,5 +548,4 @@ def eee_get_dataloaders(args):
         print("test dataset size: ", len(test_dataset))
         
     return train_loader, val_loader, test_loader, train_class_stats, val_class_stats
-
 

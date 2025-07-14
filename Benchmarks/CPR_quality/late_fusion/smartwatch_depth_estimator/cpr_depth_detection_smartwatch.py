@@ -139,10 +139,14 @@ def smartwatch_depth_estimator(smartwatch_data, depth_sensor_data, model, optimi
     MIN_ACC = MIN_ACC.to(device)
     MAX_ACC = MAX_ACC.to(device)
 
-    data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
+    # data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
     # print(data_norm[0])
 
-
+    imu = data              # [T=150, C=3]
+    imu_min, _ = imu.min(dim=0, keepdim=True)  # [1,3]
+    imu_max, _ = imu.max(dim=0, keepdim=True)
+    data_norm = (imu - imu_min) / (imu_max - imu_min + 1e-6)
+    data_norm = data_norm.unsqueeze(0)
 
     model=model.to(device)
     criterion=criterion.to(device)
@@ -153,11 +157,10 @@ def smartwatch_depth_estimator(smartwatch_data, depth_sensor_data, model, optimi
     print("Smartwatch based depth prediction:", depth_pred.mean().item())
     print("Ground truth depth:", depth_gt_norm.mean().item())
     
-    rec_loss=criterion(rec[depth_gt_mask.squeeze()],depth_gt_norm[depth_gt_mask])
     d_loss=criterion(depth_pred,comp_depth)
     # print("rec_loss: ", rec_loss)
     # print("d_loss: ", d_loss)
-    loss=d_loss + rec_loss
+    loss=d_loss
     print("Total loss:", loss.item())
     
     optimizer.zero_grad()
@@ -204,8 +207,11 @@ def smartwatch_depth_estimator_inference(smartwatch_data, depth_sensor_data, mod
     MIN_ACC = MIN_ACC.to(device)
     MAX_ACC = MAX_ACC.to(device)
 
-    data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
-    # print(data_norm[0])
+    imu = data              # [T=150, C=3]
+    imu_min, _ = imu.min(dim=0, keepdim=True)  # [1,3]
+    imu_max, _ = imu.max(dim=0, keepdim=True)
+    data_norm = (imu - imu_min) / (imu_max - imu_min + 1e-6)
+    data_norm = data_norm.unsqueeze(0)
 
     model=model.to(device)
     comp_depth = comp_depth.to(device)

@@ -25,7 +25,7 @@ python -u fusion_test.py \
   --batch_size 1 \
   --rate_weights_file ./weights/974053_fusion_weights.txt \
   --depth_weights_file ./weights/974053_fusion_depth_weights.txt \
-  --sw_model_checkpoint /home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Benchmarks/CPR_quality/smartwatch/checkpoints/debug_model.pth 
+  --sw_model_checkpoint ./weights/best_smartwatch_model_999381.pth
 
 echo "Done" &&
 exit

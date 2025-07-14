@@ -290,6 +290,8 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
         for i, batch in enumerate(test_loader):
             try:
                 input,feature_size, label = preprocess(batch, modality, model, device, task=task)
+                print("=" * 10, "-" * 10, "=" * 10)
+                print(f"[TEST] Batch: {i}")
 
                 # check if the time-dimension is zero, skip this batch
                 if input.size(1) == 0:
@@ -308,8 +310,11 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
                 window_start_frame = batch['window_start_frame'] if task == 'segmentation' else torch.tensor(-1)
                 window_end_frame = batch['window_end_frame'] if task == 'segmentation' else torch.tensor(-1)
 
+                print(f"Subject ID: {subject_id[0][0]}, Trial ID: {trial_id[0][0]}, Start Frame: {start_frame[0][0]}, End Frame: {end_frame[0][0]}, Start Time: {start_t[0][0]}, End Time: {end_t[0][0]}")
+                print(f"Keystep Label: {keystep_label[0][0]}, Keystep ID: {keystep_id[0][0]}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
                 output = model(input)
                 pred = torch.argmax(output, dim=1)
+                print(f"Model Pred: {pred.item()}")
 
                 gt.append(label.item())
                 preds.append(pred.item())
