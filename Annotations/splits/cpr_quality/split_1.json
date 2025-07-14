@@ -1,4 +1,4 @@
 {
-    "train": "P5,P20,ng7,P3,ng2,P7,ng8,P1,P4,P10,ms2,ng9,P12,ng5,P16,P2,ng6,P0,P11,ng3",
-    "validation": "ng1,ms1,P21,ng4,wa1,P15,P14,P22"
+    "train": "P5,P20,ng7,P3,ng2,P7,ng8,P1,P4,P10,ms2,ng9,P12,ng5,P16,P2,ng6,P0,P11,ng3,wa1,ng1,ms1,ng4",
+    "validation": "P21,P15,P14,P22"
 }

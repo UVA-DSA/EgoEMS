@@ -68,42 +68,46 @@ def validate(model,data_loader):
     ncpr_error_meter = utils.AverageMeter('cprError', ':.4e')
     model.eval()
     for i, batch in enumerate(data_loader):
-        data=batch['smartwatch'].float()
-        depth_gt=batch['depth_sensor'].squeeze()
-        depth_gt_mask=depth_gt>0
+        try:
+            data=batch['smartwatch'].float()
+            depth_gt=batch['depth_sensor'].squeeze()
+            depth_gt_mask=depth_gt>0
 
-        avg_depths_list,min_depths_list,n_cpr=get_avg_depth(depth_gt)
-        data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
+            avg_depths_list,min_depths_list,n_cpr=get_avg_depth(depth_gt)
+            data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
 
-        gt_cpr_rate = n_cpr
+            gt_cpr_rate = n_cpr
 
-        # run inference
-        rec,depth_pred=model(data_norm.permute(0,2,1))
+            # run inference
+            rec,depth_pred=model(data_norm.permute(0,2,1))
 
-        depth_pred=depth_pred*MAX_DEPTH
+            depth_pred=depth_pred*MAX_DEPTH
 
-        #average depth error
-        avg_depth_error=torch.mean((avg_depths_list-depth_pred)**2)**0.5
-        depth_loss_meter.update(avg_depth_error.item(),bs)
+            #average depth error
+            avg_depth_error=torch.mean((avg_depths_list-depth_pred)**2)**0.5
+            depth_loss_meter.update(avg_depth_error.item(),bs)
 
-        #cpr frequency error
-        _,_,n_cpr_pred=get_avg_depth(rec)
-        cpr_error=torch.mean((n_cpr-n_cpr_pred)**2)**0.5
-        ncpr_error_meter.update(cpr_error.item(),bs)
+            #cpr frequency error
+            _,_,n_cpr_pred=get_avg_depth(rec)
+            cpr_error=torch.mean((n_cpr-n_cpr_pred)**2)**0.5
+            ncpr_error_meter.update(cpr_error.item(),bs)
 
 
-        accel_magnitude = torch.sqrt(torch.sum(data ** 2, axis=2))
-        accel_magnitude_np = accel_magnitude.numpy().flatten()
-        timestamps = np.linspace(0, len(accel_magnitude_np) / DATA_FPS, len(accel_magnitude_np))
-        
-        avg_depths_list, min_depths_list, pred_cpr_rate = get_avg_depth(accel_magnitude)
-        
-        subject = batch['subject_id']
-        trial = batch['trial_id']
+            accel_magnitude = torch.sqrt(torch.sum(data ** 2, axis=2))
+            accel_magnitude_np = accel_magnitude.numpy().flatten()
+            timestamps = np.linspace(0, len(accel_magnitude_np) / DATA_FPS, len(accel_magnitude_np))
+            
+            avg_depths_list, min_depths_list, pred_cpr_rate = get_avg_depth(accel_magnitude)
+            
+            subject = batch['subject_id']
+            trial = batch['trial_id']
 
-        print(f"{subject},{trial},GT Rate:{gt_cpr_rate.tolist()},Lahiru Pred Rate:{n_cpr_pred.tolist()},Keshara Pred Rate:{pred_cpr_rate}")
-        # msg = f'{subject},{trial},GT_Depth:{avg_depths_list.tolist()},Pred_Depth:{depth_pred.tolist()},Depth_error:{avg_depth_error:.2f}mm,GT_CPR_rate:{n_cpr.tolist()},Pred_CPR_rate:{n_cpr_pred.tolist()},CPR_rate_error:{cpr_error/(DATA_FPS*CLIP_LENGTH)*60:.2f}cpr/min'
-        # write_log_line(log_path,msg)
+            print(f"{subject},{trial},GT_Depth:{avg_depths_list.tolist()},Pred_Depth:{depth_pred.tolist()},Depth_error:{avg_depth_error:.2f}mm,GT_CPR_rate:{n_cpr.tolist()},Pred_CPR_rate:{n_cpr_pred.tolist()},CPR_rate_error:{cpr_error/(DATA_FPS*CLIP_LENGTH)*60:.2f}cpr/min")
+            msg = f'{subject},{trial},GT_Depth:{avg_depths_list.tolist()},Pred_Depth:{depth_pred.tolist()},Depth_error:{avg_depth_error:.2f}mm,GT_CPR_rate:{n_cpr.tolist()},Pred_CPR_rate:{n_cpr_pred.tolist()},CPR_rate_error:{cpr_error/(DATA_FPS*CLIP_LENGTH)*60:.2f}cpr/min'
+            write_log_line(log_path,msg)
+        except Exception as e:
+            print(f"Error in validation batch {i}: {e}")
+            continue
 
     msg=f'Validation depth loss: {depth_loss_meter.avg:.2f} mm , CPR rate error: {ncpr_error_meter.avg/(CLIP_LENGTH)*60:.2f} cpr/min'
     print(msg)
@@ -113,38 +117,42 @@ def train(model, train_data_loader, valid_data_loader, criterion, optimizer, sch
     for epoch in range(EPOCHS):
         model.train()
         for i, batch in enumerate(train_data_loader):
-            print(f'Epoch {epoch} , {i}/{len(train_data_loader)} is done',end='\r')
-            data=batch['smartwatch'].float()
-            depth_gt=batch['depth_sensor'].squeeze()
-            depth_gt_mask=depth_gt>0
+            try:
+                print(f'Epoch {epoch} , {i}/{len(train_data_loader)} is done',end='\r')
+                data=batch['smartwatch'].float()
+                depth_gt=batch['depth_sensor'].squeeze()
+                depth_gt_mask=depth_gt>0
 
-            #get peaks and valleys from GT depth sensor data
-            avg_depths_list,min_depths_list,gt_cpr_rate=get_avg_depth(depth_gt)
+                #get peaks and valleys from GT depth sensor data
+                avg_depths_list,min_depths_list,gt_cpr_rate=get_avg_depth(depth_gt)
 
-            comp_depth=avg_depths_list/MAX_DEPTH
+                comp_depth=avg_depths_list/MAX_DEPTH
 
-            #normnalize depth
-            depth_gt_norm=(depth_gt-min_depths_list.unsqueeze(1))/MAX_DEPTH
+                #normnalize depth
+                depth_gt_norm=(depth_gt-min_depths_list.unsqueeze(1))/MAX_DEPTH
 
-            #normalize acceleration
-            data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
-            # print(data_norm[0])
+                #normalize acceleration
+                data_norm=(data-MIN_ACC)/(MAX_ACC-MIN_ACC)
+                # print(data_norm[0])
 
-            rec,depth_pred =model(data_norm.permute(0,2,1))
+                rec,depth_pred =model(data_norm.permute(0,2,1))
 
-            
-            rec_loss=criterion(rec[depth_gt_mask],depth_gt_norm[depth_gt_mask])
-            d_loss=criterion(depth_pred,comp_depth)
-            # print("rec_loss: ", rec_loss)
-            # print("d_loss: ", d_loss)
-            loss=rec_loss+d_loss
-            
-            optimizer.zero_grad()
-            loss.backward()
-            optimizer.step()
+                
+                rec_loss=criterion(rec[depth_gt_mask],depth_gt_norm[depth_gt_mask])
+                d_loss=criterion(depth_pred,comp_depth)
+                # print("rec_loss: ", rec_loss)
+                # print("d_loss: ", d_loss)
+                loss=rec_loss+d_loss
+                
+                optimizer.zero_grad()
+                loss.backward()
+                optimizer.step()
 
-            rec_loss_meter.update(rec_loss.item(),bs)
-            depth_loss_meter.update(d_loss.item(),bs)
+                rec_loss_meter.update(rec_loss.item(),bs)
+                depth_loss_meter.update(d_loss.item(),bs)
+            except Exception as e:
+                print(f"Error in training batch {i}: {e}")
+                continue
 
         msg=f'Training Epoch {epoch} , rec loss: {rec_loss_meter.avg} , depth loss: {depth_loss_meter.avg}, cpr rate loss: {cpr_rate_loss_meter.avg}'
         print(msg)
@@ -158,7 +166,7 @@ def train(model, train_data_loader, valid_data_loader, criterion, optimizer, sch
 if __name__ == "__main__":
     
         # initialize paths
-    split_path = split_paths[3]
+    split_path = split_paths[0]
     
     split = split_path.split('/')[-1].split('.')[0]
     
