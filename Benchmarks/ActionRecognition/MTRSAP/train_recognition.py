@@ -78,6 +78,8 @@ if __name__ == "__main__":
     results_dir = f'./results/job_{cmd_args.job_id}_task_{task}'
     chkpoint_dir = f'./checkpoints/job_{cmd_args.job_id}_task_{task}'
 
+    print(f"Model: {model}")
+
     # create results directory if not exists
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)

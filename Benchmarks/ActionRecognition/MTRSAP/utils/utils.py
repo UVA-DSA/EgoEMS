@@ -52,7 +52,7 @@ def init_model(args):
     print("Class counts: ", class_counts, len(class_counts))
            
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_params["lr"], weight_decay=args.learning_params["weight_decay"])
-    criterion = nn.CrossEntropyLoss()
+    # criterion = nn.CrossEntropyLoss()
     
     # Class balanced loss
     criterion = ClassBalancedLoss(beta=0.99, num_classes=num_classes, class_counts=class_counts)
@@ -88,10 +88,10 @@ def preprocess(x, modality, backbone, device, task='classification'):
         audio = x['audio']
         audio = audio.to(device)
         # print("Raw Audio shape: ", audio.shape)
-        audio_feature = backbone.extract_wav2vec_features(audio, multimodal=True) # for wav2vec features
+        # audio_feature = backbone.extract_wav2vec_features(audio, multimodal=True) # for wav2vec features
         # print("Wav2Vec feature shape: ", audio_feature.shape)
         # print("Resnet feature shape: ", resnet.shape)
-        # audio_feature = backbone.extract_mel_spectrogram(audio, multimodal=True) # for mel spectrogram features
+        audio_feature = backbone.extract_mel_spectrogram(audio, multimodal=True) # for mel spectrogram features
 
         feature = torch.cat((resnet, audio_feature), dim=1).float()
 
@@ -211,23 +211,44 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, m
 
         try:
             # print("Batch: ", i)
+            print("=" * 10, "-" * 10, "=" * 10)
             input,feature_size, label = preprocess(batch, modality, model, device, task=task)
+
+            # get more info about input
+            keystep_label = batch['keystep_label'] if task == 'segmentation' else batch['keystep_label'][0]
+            keystep_id = batch['keystep_id'] if task == 'segmentation' else batch['keystep_id'][0]
+            start_frame = batch['start_frame'] if task == 'segmentation' else batch['start_frame'][0]
+            end_frame = batch['end_frame'] if task == 'segmentation' else batch['end_frame'][0]
+            start_t = batch['start_t'] if task == 'segmentation' else batch['start_t'][0]
+            end_t = batch['end_t'] if task == 'segmentation' else batch['end_t'][0]
+            subject_id = batch['subject_id'] if task == 'segmentation' else batch['subject_id']
+            trial_id = batch['trial_id'] if task == 'segmentation' else batch['trial_id']
+            window_start_frame = batch['window_start_frame'] if task == 'segmentation' else torch.tensor(-1)
+            window_end_frame = batch['window_end_frame'] if task == 'segmentation' else torch.tensor(-1)
+
+            print(f"Subject ID: {subject_id[0][0]}, Trial ID: {trial_id[0][0]}, Start Frame: {start_frame[0][0]}, End Frame: {end_frame[0][0]}, Start Time: {start_t[0][0]}, End Time: {end_t[0][0]}")
+            print(f"Keystep Label: {keystep_label[0][0]}, Keystep ID: {keystep_id[0][0]}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
+            
                     # ←—— ADDED CHECK ———→
             # if the time-dimension is zero, skip this batch
             # (inputs.shape == [B, T, F] or [B, C, T] depending on your preprocess)
-            if input.size(1) == 0:
-                print(f"Skipping batch {i}: empty feature sequence : {input.shape}")
+            if input.size(1) == 0 or (task== 'segmentation' and input.size(1) != 150) :
+                print(f"Skipping batch {i}: feature sequence : {input.shape}")
+                continue
+
+            if torch.isnan(input).any():
+                print(f"⚠️ Skipping batch {i} because NaN")
                 continue
 
             optimizer.zero_grad()
+
             output = model(input)
-            # print("Output: ", output.shape)
-            # print("Label: ", label.shape)
+
             loss = criterion(output, label)
             loss.backward()
             optimizer.step()
             total_loss += loss.item()
-            if i % 100 == 0:
+            if i % 1 == 0:
                 print("\n")
                 print("*" * 10, "=" * 10, "*" * 10)
                 print(f"Pred: {torch.argmax(output, dim=1)} GT: {label}")
@@ -239,7 +260,10 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, m
         
         except Exception as e:
             print(f"Error in batch {i}: {e}")
-            print(f"Batch data: {batch}")
+            # print stack trace
+            import traceback
+            traceback.print_exc()
+            # print(f"Batch data: {batch}")
             continue
 
     return total_loss / len(train_loader)
@@ -257,6 +281,10 @@ def validate(model, val_loader, criterion, device, logger, modality, task='class
                 # check if the time-dimension is zero, skip this batch
                 if input.size(1) == 0:
                     print(f"Skipping batch {i}: empty feature sequence : {input.shape}")
+                    continue
+
+                if torch.isnan(input).any():
+                    print(f"⚠️ Skipping batch {i} because NaN")
                     continue
 
                 output = model(input)
@@ -312,6 +340,12 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
 
                 print(f"Subject ID: {subject_id[0][0]}, Trial ID: {trial_id[0][0]}, Start Frame: {start_frame[0][0]}, End Frame: {end_frame[0][0]}, Start Time: {start_t[0][0]}, End Time: {end_t[0][0]}")
                 print(f"Keystep Label: {keystep_label[0][0]}, Keystep ID: {keystep_id[0][0]}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
+                
+                
+                if torch.isnan(input).any():
+                    print(f"⚠️ Skipping batch {i} because NaN")
+                    continue
+                
                 output = model(input)
                 pred = torch.argmax(output, dim=1)
                 print(f"Model Pred: {pred.item()}")

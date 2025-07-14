@@ -45,7 +45,7 @@ learning_params = {
     "weight_decay": 1e-5,
     "patience": 3,
     "lr_drop": 20,
-    "best_chkpoint": "/standard/UVA-DSA/NIST EMS Project Data/weights/job_957443_task_segmentation/val_best_model.pt"
+    "best_chkpoint": "/standard/UVA-DSA/NIST EMS Project Data/weights/job_957411_task_segmentation/val_best_model.pt"
 }
 
 dataloader_params = {
@@ -56,15 +56,15 @@ dataloader_params = {
     "fold": 1,
     "fps": 29.97,
     # update task specific parameters (Experimenting segmentation with classification annotations)
-    "train_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_classification.json',
-    "val_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_classification.json',
-    "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_classification.json',
-    # "train_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_segmentation.json',
-    # "val_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_segmentation.json',
-    # "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_segmentation.json',
+    # "train_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_classification.json',
+    # "val_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_classification.json',
+    # "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_classification.json',
+    "train_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_segmentation.json',
+    "val_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_segmentation.json',
+    "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_segmentation.json',
     # Old dataset class
     'base_path': '/home/cjh9fw/Desktop/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
-    'modality': [ 'rgb','flow'],
+    'modality': [ 'resnet_ego','smartwatch'],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
                     "check_responsiveness": "Check for responsiveness",
