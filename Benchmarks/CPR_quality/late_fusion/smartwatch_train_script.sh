@@ -20,7 +20,7 @@ source /home/cjh9fw/.bashrc  &&
 echo "$HOSTNAME" &&
 conda activate wrist_keypoint &&
 
-python -u fusion_train.py \
+python -u smartwatch_train.py \
   --window_size 150 \
   --batch_size 1 \
   --job_id "$SLURM_JOB_ID" \

@@ -40,10 +40,13 @@ dataset_root = os.path.join(dataset_root, "exo_kinect_cpr_clips")
 print(f"[INFO] Checking split: {split}")
 if split == "train":
     dataset_root = os.path.join(dataset_root, "train_root")
+    new_dataset_root = os.path.join(new_dataset_root, "train_root")
 elif split == "val":
     dataset_root = os.path.join(dataset_root, "val_root")
+    new_dataset_root = os.path.join(new_dataset_root, "val_root")
 elif split == "test":
     dataset_root = os.path.join(dataset_root, "test_root")
+    new_dataset_root = os.path.join(new_dataset_root, "test_root")
 else:
     raise ValueError(f"Invalid split: {split}")
 print(f"{'*'*60}\n")
@@ -63,6 +66,7 @@ def create_clip_id(subject, trial, keystep, start_t, end_t, view):
 
 
 generated_count = 0
+copied_count = 0
 
 # Iterate over each subject and trial
 print(f"{'='*60}")
@@ -137,18 +141,17 @@ for subject_data in data['subjects']:
                     if os.path.exists(output_clip) and os.path.getsize(output_clip) > 0:
                         print(f"    [INFO] Clip already exists and is non-empty: {output_clip}")
 
-                        # copy this file to the new dataset root
-                        new_output_clip = os.path.join(new_dataset_root, f"{clip_id}.mkv")
-                        print(f"    [INFO] Copying existing clip to new dataset root: {new_output_clip}")
+                        # # copy this file to the new dataset root
+                        # new_output_clip = os.path.join(new_dataset_root, f"{clip_id}.mkv")
+                        # print(f"    [INFO] Copying existing clip to new dataset root: {new_output_clip}")
 
-                        # append the new_output_clip to a txt file
-                        with open(os.path.join(new_dataset_root, "existing_clips.txt"), "a") as f:
-                            f.write(f"{new_output_clip}\n")
+                        # # append the new_output_clip to a txt file
+                        # with open(os.path.join(new_dataset_root, "existing_clips.txt"), "a") as f:
+                        #     f.write(f"{new_output_clip}\n")
 
-                        shutil.copy2(output_clip, new_output_clip)
+                        # shutil.copy2(output_clip, new_output_clip)
                         
-                        generated_count += 1
-
+                        copied_count += 1
                         continue
 
                     # MKVmerge command to extract the clip
@@ -160,7 +163,8 @@ for subject_data in data['subjects']:
                         video_path
                     ]
                     print(f"    [CMD] {' '.join(mkvmerge_command)}")
-                    # subprocess.run(mkvmerge_command)
+                    generated_count += 1
+                    subprocess.run(mkvmerge_command)
 
                     print(f"    [INFO] Generated clip: {output_clip}")
                     # break
@@ -171,4 +175,5 @@ for subject_data in data['subjects']:
 
 print(f"{'='*60}")
 print(f"[INFO] {generated_count} clips have been generated.")
+print(f"[INFO] {copied_count} clips exist already.")
 print(f"{'='*60}\n")

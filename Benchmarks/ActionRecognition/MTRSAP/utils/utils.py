@@ -91,7 +91,7 @@ def preprocess(x, modality, backbone, device, task='classification'):
         audio_feature = backbone.extract_wav2vec_features(audio, multimodal=True) # for wav2vec features
         # print("Wav2Vec feature shape: ", audio_feature.shape)
         # print("Resnet feature shape: ", resnet.shape)
-        # audio = backbone.extract_mel_spectrogram(audio, multimodal=True) # for mel spectrogram features
+        # audio_feature = backbone.extract_mel_spectrogram(audio, multimodal=True) # for mel spectrogram features
 
         feature = torch.cat((resnet, audio_feature), dim=1).float()
 

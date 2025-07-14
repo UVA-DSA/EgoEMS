@@ -63,14 +63,13 @@ def write_log_line(log_path, msg):
 # old_log_path = rf"E:\EgoExoEMS\Benchmarks\CPR_quality\vision\unsupervised_ego_depth_window_test_split_log.txt"
 # debug_plots_path = rf"E:\EgoExoEMS\Benchmarks\CPR_quality\vision\unsupervised_ego_depth_window_debug_plots"
 
-
 # Linux environment
 BASE_DIR = "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025"  # Set an environment variable or update this
-BASE_REPO_DIR = "/scratch/cjh9fw/Rivanna/2024/repos/EgoExoEMS"
+BASE_REPO_DIR = "/home/cjh9fw/Desktop/2024/repos/EgoExoEMS"
 GT_path = os.path.join(BASE_DIR, "Dataset", "Final")
 data_path = os.path.join(BASE_DIR, "Dataset", "GoPro_CPR_Clips", "ego_gopro_cpr_clips", "test_root")
-log_path = os.path.join(BASE_REPO_DIR, "Benchmarks", "CPR_quality", "vision", "results", f"unsupervised_ego_depth_window_test_split_results.txt")
-debug_plots_path = os.path.join(BASE_REPO_DIR, "Benchmarks", "CPR_quality", "vision", "debug", f"unsupervised_ego_depth_window_debug_plots")
+log_path = os.path.join(BASE_REPO_DIR, "Benchmarks", "CPR_quality", "vision", "results", f"july13_unsupervised_ego_depth_window_test_split_results.txt")
+debug_plots_path = os.path.join(BASE_REPO_DIR, "Benchmarks", "CPR_quality", "vision", "debug", f"july13_unsupervised_ego_depth_window_debug_plots")
 
 
 # Setup directories
@@ -82,18 +81,19 @@ init_log(log_path)
 
 # Processing files
 data_dir = os.path.join(data_path, 'chest_compressions')
-json_files = [file for file in os.listdir(data_dir) if file.endswith('.json')]
+json_files = [file for file in os.listdir(data_dir) if file.endswith('_ego_resized_640x480_keypoints.json')]
 mp4_files = [file for file in os.listdir(data_dir) if file.endswith('.mp4')]
 
 for json_file in json_files:
     json_path = os.path.join(data_dir, json_file)
     json_data = json.load(open(json_path))
-    mp4_file = [f for f in mp4_files if json_file.replace('_keypoints.json', '') in f][0]
+    mp4_file = [f for f in mp4_files if json_file.replace('_ego_resized_640x480_keypoints.json', '') in f][0]
     
     print("*" * 20)
 
     print(f"Processing file: {json_file}")
     print(f"Processing video: {mp4_file}")
+
 
     rgb_imgs = read_video(os.path.join(data_dir, mp4_file))
     if not len(rgb_imgs) == len(json_data.keys()):

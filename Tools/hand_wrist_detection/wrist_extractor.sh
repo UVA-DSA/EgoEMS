@@ -24,7 +24,7 @@ conda activate wrist_keypoint &&
 # Define the root directory for the dataset
 # ROOT_DIR="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Kinect_CPR_Clips/Final/exo_kinect_cpr_clips/test_root/chest_compressions" && # for exo kinect
 ROOT_DIR="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/GoPro_CPR_Clips/ego_gopro_cpr_clips/train_root" && # for gopro ego
-VIDEOS_LIST_TXT="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/GoPro_CPR_Clips/ego_gopro_cpr_clips/train_root/part_01.txt" &&
+VIDEOS_LIST_TXT="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/GoPro_CPR_Clips/ego_gopro_cpr_clips/train_root/all_files.txt" &&
 
 # python -u detect.py --root_dir "$ROOT_DIR" --view "ego"  && # for auto discovery of videos
 python -u detect.py --root_dir "$ROOT_DIR" --view "ego" --video_list_txt "$VIDEOS_LIST_TXT"  &&

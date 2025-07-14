@@ -23,9 +23,9 @@ conda activate wrist_keypoint &&
 python -u fusion_test.py \
   --window_size 150 \
   --batch_size 1 \
-  --rate_weights_file ./weights/752743_fusion_weights.txt \
-  --depth_weights_file ./weights/752743_fusion_depth_weights.txt \
-  --sw_model_checkpoint ./weights/752743_smartwatch_model.pth 
+  --rate_weights_file ./weights/974053_fusion_weights.txt \
+  --depth_weights_file ./weights/974053_fusion_depth_weights.txt \
+  --sw_model_checkpoint /home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Benchmarks/CPR_quality/smartwatch/checkpoints/debug_model.pth 
 
 echo "Done" &&
 exit

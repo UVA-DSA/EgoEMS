@@ -318,4 +318,4 @@ def get_gt_cpr_depth(gt_window):
     print(f"GT CPR Depth (mm): {gt_cpr_depth:.2f}")
 
 
-    return gt_cpr_depth
+    return  avg_depths, _, gt_cpr_depth

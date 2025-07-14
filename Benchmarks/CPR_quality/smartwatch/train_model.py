@@ -193,8 +193,9 @@ def validate(model,data_loader):
             subject = batch['subject_id']
             trial = batch['trial_id']
 
-            print(f"{subject},{trial},GT Rate:{gt_cpr_rate.tolist()},Lahiru Pred Rate:{n_cpr_pred.tolist()},Keshara Pred Rate:{pred_cpr_rate}")
-            # msg = f'{subject},{trial},GT_Depth:{avg_depths_list.tolist()},Pred_Depth:{depth_pred.tolist()},Depth_error:{avg_depth_error:.2f}mm,GT_CPR_rate:{n_cpr.tolist()},Pred_CPR_rate:{n_cpr_pred.tolist()},CPR_rate_error:{cpr_error/(DATA_FPS*CLIP_LENGTH)*60:.2f}cpr/min'
+            # print(f"{subject},{trial},GT Rate:{gt_cpr_rate.tolist()},Lahiru Pred Rate:{n_cpr_pred.tolist()},Keshara Pred Rate:{pred_cpr_rate}")
+            msg = f'{subject},{trial},GT_Depth:{avg_depths_list.tolist()},Pred_Depth:{depth_pred.tolist()},Depth_error:{avg_depth_error:.2f}mm,GT_CPR_rate:{n_cpr.tolist()},Pred_CPR_rate:{n_cpr_pred.tolist()},CPR_rate_error:{cpr_error/(DATA_FPS*CLIP_LENGTH)*60:.2f}cpr/min'
+            write_log_line(results_log_path, msg)
             # write_log_line(log_path,msg)
 
         msg=f'Validation depth loss: {depth_loss_meter.avg:.2f} mm , CPR rate error: {ncpr_error_meter.avg/(CLIP_LENGTH)*60:.2f} cpr/min'
@@ -306,6 +307,7 @@ if __name__ == "__main__":
 
     args = DefaultArgsNamespace()
     
+    results_log_path = os.path.join(log_base_path, 'results_log.txt')
     log_path = os.path.join(log_base_path, f'debug_train_log.txt')
     model_save_path = os.path.join(model_save_base_path, f'debug_model.pth')
 
@@ -315,6 +317,7 @@ if __name__ == "__main__":
         
     
     init_log(log_path)
+    init_log(results_log_path)
     
     # prepare dataset & loader
 

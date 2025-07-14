@@ -59,6 +59,11 @@ if not os.path.exists(dataset_root):
 def create_clip_id(subject, trial, keystep, start_t, end_t, view):
     return f"{subject}_t{trial}_ks{keystep}_{start_t:.3f}_{end_t:.3f}_{view}"
 
+
+generated_count = 0
+already_exists_count = 0
+
+
 # Iterate over each subject and trial
 print(f"{'='*60}")
 print("[INFO] Starting video processing for each subject and trial.")
@@ -67,86 +72,123 @@ for subject_data in data['subjects']:
     subject_id = subject_data['subject_id']
     print(f"{'*'*60}")
     print(f"[INFO] Processing subject: {subject_id}")
-    
-    for trial_data in subject_data['trials']:
-        trial_id = trial_data['trial_id']
-        print(f"  [INFO] Processing trial: {trial_id}")
+
+    for scenario in subject_data['scenarios']:
+        scenario_id = scenario['scenario_id']
+        print(f"  [INFO] Processing scenario: {scenario_id}")
         
-        video_paths = []
+        for trial_data in scenario['trials']:
+            trial_id = trial_data['trial_id']
+            print(f"  [INFO] Processing trial: {trial_id}")
+            
+            video_paths = []
 
-        # Determine video paths based on view
-        video_path = trial_data['streams']['egocam_rgb_audio']['file_path']
-        video_paths.append((video_path, "ego"))
+            # Determine video paths based on view
+            video_path = trial_data['streams']['egocam_rgb_audio']['file_path']
+            video_paths.append((video_path, "ego"))
 
-        # Process each keystep
-        for keystep in trial_data['keysteps']:
-            label = keystep['label']
-            start_t = keystep['start_t']
-            end_t = keystep['end_t']
-            keystep_id = keystep['class_id']
+            # Process each keystep
+            for keystep in trial_data['keysteps']:
+                label = keystep['label']
+                start_t = keystep['start_t']
+                end_t = keystep['end_t']
+                keystep_id = keystep['class_id']
 
-            if(label != "chest_compressions"):
-                continue
+                if(label != "chest_compressions"):
+                    continue
 
-            for video_path, current_view in video_paths:
-                print(f"{'='*60}")
+                for video_path, current_view in video_paths:
+                    print(f"{'='*60}")
 
-                clip_id = create_clip_id(subject_id, trial_id, keystep_id, start_t, end_t, current_view)
-                
-                # Output directory based on label
-                output_dir = os.path.join(dataset_root, label)
-                if not os.path.exists(output_dir):
-                    print(f"    [INFO] Creating directory for label '{label}': {output_dir}")
-                    os.makedirs(output_dir)
+                    clip_id = create_clip_id(subject_id, trial_id, keystep_id, start_t, end_t, current_view)
+                    
+                    # Output directory based on label
+                    output_dir = os.path.join(dataset_root, label)
+                    if not os.path.exists(output_dir):
+                        print(f"    [INFO] Creating directory for label '{label}': {output_dir}")
+                        # os.makedirs(output_dir)
 
-                # Output file path for the clip
-                output_clip = os.path.join(output_dir, f"{clip_id}.mp4")
+                    # Output file path for the clip
+                    output_clip = os.path.join(output_dir, f"{clip_id}.mp4")
 
-                print(f"    [INFO] Generating clip for view: {current_view}, label: {label}, subject: {subject_id}, trial: {trial_id}, keystep: {keystep_id}")
-  
+                    print(f"    [INFO] Generating clip for view: {current_view}, label: {label}, subject: {subject_id}, trial: {trial_id}, keystep: {keystep_id}")
+    
 
-                # Kinect clip 
-                output_clip = os.path.join(output_dir, f"{clip_id}.mp4")
-                # Format times into hh:mm:ss
-                start_time_formatted = str(datetime.timedelta(seconds=start_t))
-                end_time_formatted = str(datetime.timedelta(seconds=end_t))
+                    # Kinect clip 
+                    output_clip = os.path.join(output_dir, f"{clip_id}.mp4")
 
-                # MKVmerge command to extract the clip
-                    # Execute the mkvmerge command
-                mkvmerge_command = [
-                    'mkvmerge',
-                    '-o', output_clip,
-                    '--split', f'parts:{start_time_formatted}-{end_time_formatted}',
-                    video_path
-                ]
-
-                # use ffmpeg instead of mkvmerge
-                ffmpeg_command = [
-                    'ffmpeg',
-                    '-i', video_path,
-                    '-ss', start_time_formatted,
-                    '-to', end_time_formatted,
-                    '-c:v', 'libx264',
-                    '-crf', '23',  # Adjust this value (lower = better quality, higher = smaller size)
-                    '-preset', 'fast',  # Can be 'faster' or 'veryfast' for quicker encoding with slightly larger files
-                    '-c:a', 'aac',  # Ensures audio is encoded efficiently
-                    '-b:a', '128k',  # Moderate audio bitrate
-                    output_clip
-                ]
-                print(f"    [CMD] {' '.join(ffmpeg_command)}")
-                subprocess.run(ffmpeg_command)
+                    # check if the output clip already exists and is non-empty
+                    if os.path.exists(output_clip) and os.path.getsize(output_clip) > 0:
+                        print(f"    [INFO] Clip already exists and is non-empty: {output_clip}")
+                        already_exists_count += 1
+                        continue
 
 
-                # print(f"    [CMD] {' '.join(mkvmerge_command)}")
-                # subprocess.run(mkvmerge_command)
+                    print(f" [INFO] Video path: {video_path}")
+                    # temporarily use original video path 
+                    if subject_id.startswith("P"):
+                        # find the video that ends with "_trimmed_720p.mp4"
+                        original_video_path = f"/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/{subject_id}/{scenario_id}/{trial_id}/gopro/"
+                        for file in os.listdir(original_video_path):
+                            if file.endswith("_trimmed_720p.mp4"):
+                                video_path = os.path.join(original_video_path, file)
+                                print(f"    [INFO] Found video file: {video_path}")
+                                break
+                    else:
+                        # find the video that ends with "_trimmed_720p.mp4"
+                        original_video_path = f"/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/{subject_id}/{scenario_id}/{trial_id}/GoPro/"
+                        for file in os.listdir(original_video_path):
+                            if file.endswith("_trimmed_720p.mp4"):
+                                video_path = os.path.join(original_video_path, file)
+                                print(f"    [INFO] Found video file: {video_path}")
+                                break
 
-                print(f"    [INFO] Generated clip: {output_clip}")
+                    print(f" [INFO] Updated Video path: {video_path}")
+
+                    # Format times into hh:mm:ss
+                    start_time_formatted = str(datetime.timedelta(seconds=start_t))
+                    end_time_formatted = str(datetime.timedelta(seconds=end_t))
+
+                    # MKVmerge command to extract the clip
+                        # Execute the mkvmerge command
+                    mkvmerge_command = [
+                        'mkvmerge',
+                        '-o', output_clip,
+                        '--split', f'parts:{start_time_formatted}-{end_time_formatted}',
+                        video_path
+                    ]
+
+                    # use ffmpeg instead of mkvmerge
+                    ffmpeg_command = [
+                        'ffmpeg',
+                        '-i', video_path,
+                        '-ss', start_time_formatted,
+                        '-to', end_time_formatted,
+                        '-c:v', 'libx264',
+                        '-crf', '23',  # Adjust this value (lower = better quality, higher = smaller size)
+                        '-preset', 'fast',  # Can be 'faster' or 'veryfast' for quicker encoding with slightly larger files
+                        '-c:a', 'aac',  # Ensures audio is encoded efficiently
+                        '-b:a', '128k',  # Moderate audio bitrate
+                        output_clip
+                    ]
+                    print(f"    [CMD] {' '.join(ffmpeg_command)}")
+                    subprocess.run(ffmpeg_command)
+
+                    generated_count += 1
+
+                    # print(f"    [CMD] {' '.join(mkvmerge_command)}")
+                    # subprocess.run(mkvmerge_command)
+
+                    print(f"    [INFO] Generated clip: {output_clip}")
+                    # break
                 # break
+            print(f"{'*'*60}\n")
             # break
-        print(f"{'*'*60}\n")
         # break
-    # break
 
 print(f"{'='*60}")
-print("[INFO] All clips have been generated.")
+
+print(f"[INFO] {generated_count} clips have been generated.")
+print(f"[INFO] {already_exists_count} clips already exist and were skipped.")
+
 print(f"{'='*60}\n")

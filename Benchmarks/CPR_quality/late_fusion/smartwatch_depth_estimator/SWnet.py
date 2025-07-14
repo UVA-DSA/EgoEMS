@@ -1,6 +1,62 @@
 import torch
 from torch import nn
 
+import torch.nn.functional as F
+
+class ResidualBlock(nn.Module):
+    def __init__(self, in_ch, out_ch, kernel_size, dilation, dropout=0.1):
+        super().__init__()
+        # padding chosen so output length == input length:
+        pad = (kernel_size - 1) // 2 * dilation
+
+        self.conv1 = nn.Conv1d(in_ch,  out_ch, kernel_size,
+                               padding=pad, dilation=dilation)
+        self.conv2 = nn.Conv1d(out_ch, out_ch, kernel_size,
+                               padding=pad, dilation=dilation)
+        self.relu = nn.ReLU()
+        self.dropout = nn.Dropout(dropout)
+
+        # if in_ch != out_ch, project x for the skip
+        self.downsample = nn.Conv1d(in_ch, out_ch, 1) \
+                          if in_ch != out_ch else None
+
+    def forward(self, x):
+        # x: [B, in_ch, T]
+        out = self.conv1(x)
+        out = self.relu(out)
+        out = self.dropout(out)
+        out = self.conv2(out)
+        res = x if self.downsample is None else self.downsample(x)
+        return self.relu(out + res)  # [B, out_ch, T] matched
+
+class TCNDepthNet(nn.Module):
+    def __init__(self, in_channels=3, channels=(64,128,256),
+                 kernel_size=3, dropout=0.1):
+        super().__init__()
+        layers = []
+        for i, ch in enumerate(channels):
+            prev = in_channels if i == 0 else channels[i-1]
+            layers.append(ResidualBlock(prev, ch,
+                                        kernel_size,
+                                        dilation=2**i,
+                                        dropout=dropout))
+        self.tcn  = nn.Sequential(*layers)
+        self.head = nn.Sequential(
+            nn.AdaptiveAvgPool1d(1),  # → [B, channels[-1], 1]
+            nn.Flatten(),             # → [B, channels[-1]]
+            nn.Dropout(0.2),
+            nn.Linear(channels[-1], 64),
+            nn.ReLU(),
+            nn.Linear(64, 1)          # → [B,1]
+        )
+
+    def forward(self, x):
+        # x: [B, T=150, C=3]
+        x = x.permute(0, 2, 1)       # → [B, 3, 150]
+        y = self.tcn(x)             # → [B, 256, 150]
+        out = self.head(y)          # → [B,1]
+        return out.squeeze(-1)      # → [B]
+
 class SWNET(nn.Module):
     def __init__(self,in_channels=3,out_len=300):
         super(SWNET, self).__init__()

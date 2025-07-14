@@ -11,9 +11,10 @@ import sys
 parent_directory = os.path.abspath('.')
 sys.path.append(parent_directory)
 
+
 from tools import tools as depth_tools
 
-from smartwatch_depth_estimator.SWnet import SWNET
+from smartwatch_depth_estimator.SWnet import SWNET, TCNDepthNet
 
 MIN_ACC=torch.tensor([-49.3732, -77.9384, -49.8976]).unsqueeze(0).unsqueeze(0)
 MAX_ACC=torch.tensor([69.7335, 59.6060, 77.9001]).unsqueeze(0).unsqueeze(0)
@@ -37,6 +38,15 @@ def initialize_smartwatch_model(device):
 
 
     return model, optimizer, criterion, scheduler
+
+
+def initialize_new_smartwatch_model(device):
+# Example training loop
+    model     = TCNDepthNet().to(device)
+    criterion = torch.nn.MSELoss()
+    optimizer = torch.optim.Adam(model.parameters(), lr=1e-3)
+
+    return model, optimizer, criterion, None
 
 
 def get_avg_depth(depth_gt):
@@ -211,3 +221,4 @@ def smartwatch_depth_estimator_inference(smartwatch_data, depth_sensor_data, mod
 
     return depth_pred
     
+

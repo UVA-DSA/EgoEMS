@@ -145,6 +145,9 @@ def estimate_depth_from_rgb(rgb_img, midas, midas_transform, device, output_path
     return depth_map
 
 
+import cv2
+import matplotlib.pyplot as plt
+
 def save_side_by_side_figure(rgb_img, depth_map, output_path, wrist_xy=None):
     """
     Save a single figure with:
@@ -152,37 +155,47 @@ def save_side_by_side_figure(rgb_img, depth_map, output_path, wrist_xy=None):
       - Right: Depth map (normalized & inverted) + colorbar.
     """
     rgb_display = rgb_img.copy()
-    if wrist_xy is not None:
-        wx, wy = wrist_xy
-        if 0 <= wx < rgb_display.shape[1] and 0 <= wy < rgb_display.shape[0]:
-            cv2.circle(rgb_display, (wx, wy), 8, (0, 255, 0), -1)
 
+    if wrist_xy is not None:
+        # unpack and cast to ints
+        raw_x, raw_y = wrist_xy
+        cx, cy = int(round(raw_x)), int(round(raw_y))
+
+        h, w = rgb_display.shape[:2]
+        if 0 <= cx < w and 0 <= cy < h:
+            # draw the circle at integer coordinates
+            cv2.circle(rgb_display, (cx, cy), 8, (0, 255, 0), -1)
+        else:
+            # optional: warn if it’s out of bounds
+            print(f"[save_side_by_side_figure] wrist_xy {(cx, cy)} out of image bounds {w}×{h}")
+
+    # normalize and invert the depth map
     min_val, max_val = depth_map.min(), depth_map.max()
     if max_val - min_val < 1e-6:
         max_val = min_val + 1e-6
     normalized = (depth_map - min_val) / (max_val - min_val)
     inverted = 1.0 - normalized
 
-    fig, axs = plt.subplots(1, 2, figsize=(12, 6))
+    # plot side by side
+    fig, (ax_rgb, ax_depth) = plt.subplots(1, 2, figsize=(12, 6))
 
-    axs[0].imshow(rgb_display)
-    axs[0].set_title("RGB Image")
-    axs[0].set_xlabel("Pixel X")
-    axs[0].set_ylabel("Pixel Y")
-    axs[0].axis("on")
+    ax_rgb.imshow(rgb_display)
+    ax_rgb.set_title("RGB Image")
+    ax_rgb.set_xlabel("Pixel X")
+    ax_rgb.set_ylabel("Pixel Y")
 
-    im = axs[1].imshow(inverted, cmap='inferno')
-    axs[1].set_title("Depth Map")
-    axs[1].axis("on")
-    axs[1].set_xlabel("Pixel X")
-    axs[1].set_ylabel("Pixel Y")
+    im = ax_depth.imshow(inverted, cmap='inferno')
+    ax_depth.set_title("Depth Map")
+    ax_depth.set_xlabel("Pixel X")
+    ax_depth.set_ylabel("Pixel Y")
 
-    cbar = fig.colorbar(im, ax=axs[1], fraction=0.046, pad=0.04)
+    cbar = fig.colorbar(im, ax=ax_depth, fraction=0.046, pad=0.04)
     cbar.set_label("Normalized Relative Depth")
 
     fig.tight_layout()
     plt.savefig(output_path, dpi=300, bbox_inches='tight')
-    plt.close()
+    plt.close(fig)
+
 
 
 def save_top_bottom_figure(rgb_img, depth_map, output_path, wrist_xy=None):
@@ -315,8 +328,8 @@ def ego_depth_estimator_cached(rgb_imgs, video_id, window_start, window_end, cac
     # wrist_x = (wrist_x * 224 // 640).astype(int) # it seems only train set is 640x480. test set is 1920x1080
     # wrist_y = (wrist_y * 224 // 480).astype(int)
 
-    wrist_x = (wrist_x *224 // 1920).astype(int)  # scale to 224x224
-    wrist_y = (wrist_y *224 // 1080).astype(int)  # scale to 224x224
+    wrist_x = (wrist_x *224 // 640).astype(int)  # scale to 224x224
+    wrist_y = (wrist_y *224 // 480).astype(int)  # scale to 224x224
 
     # get the data within the start and end window
     wrist_x = wrist_x[window_start:window_end]
@@ -398,12 +411,28 @@ def ego_depth_estimator_cached(rgb_imgs, video_id, window_start, window_end, cac
             depth_val = depth_img[int(wrist_y_p[i]), int(wrist_x_p[i])]
             # print(f"Peak depth value at ({wrist_x_p[i]}, {wrist_y_p[i]}): {depth_val}")
             xyz = get_XYZ(wrist_x_p[i], wrist_y_p[i], depth_val, intrinsics)
+
+            # visualize the wrist keypoint in depth map and save the figure
+            # if DEBUG:
+            #     output_path = f"./debug_imgs/debug_depth_peak_{video_id}_window_{start}_{end}_frame_{i}.png"
+            #     save_side_by_side_figure(filtered_rgb_imgs_window[i], depth_img, output_path, wrist_xy=(wrist_x_p[i], wrist_y_p[i]))
+            #     print(f"Saved debug figure for peak at frame {i} to {output_path}")
+
+
             peak_3d_points.append(xyz)
 
     for i, depth_img in enumerate(filtered_depth_imgs_v):
         if 0 <= wrist_x_v[i] < depth_img.shape[1] and 0 <= wrist_y_v[i] < depth_img.shape[0]:
             depth_val = depth_img[int(wrist_y_v[i]), int(wrist_x_v[i])]
             xyz = get_XYZ(wrist_x_v[i], wrist_y_v[i], depth_val, intrinsics)
+
+            # visualize the wrist keypoint in depth map and save the figure
+            # if DEBUG:
+            #     output_path = f"./debug_imgs/debug_depth_valley_{video_id}_window_{start}_{end}_frame_{i}.png"
+            #     save_side_by_side_figure(filtered_rgb_imgs_window[i], depth_img, output_path, wrist_xy=(wrist_x_v[i], wrist_y_v[i]))
+            #     print(f"Saved debug figure for valley at frame {i} to {output_path}")
+
+
             valley_3d_points.append(xyz)
 
     print(f"Number of 3D peaks: {len(peak_3d_points)}")

@@ -570,6 +570,7 @@ def window_collate_fn(batch, frames_per_clip=30):
             if video_pad_size > 0:
                 video_pad = torch.zeros((video_pad_size, *video_clip.shape[1:]))
                 video_clip = torch.cat([video_clip, video_pad], dim=0)
+
             padded_video_clips.append(video_clip)
         
         # Pad audio if available

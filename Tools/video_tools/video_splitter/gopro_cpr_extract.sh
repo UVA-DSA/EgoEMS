@@ -21,10 +21,13 @@ module load miniforge
 
 
 # Set the folder where mp4 files are locatedAnnotations/splits/trials/train_split_cpr_quality.json
-annotation_file="/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/train_split_cpr_quality.json"
+annotation_file="/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/cpr_quality/aaai26_train_annotation_cpr_quality.json" # new train split
+annotation_file="/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/cpr_quality/aaai26_test_annotation_cpr_quality.json" # new val split
+
 dataset_save_dir="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/GoPro_CPR_Clips/"
+
 view="ego" # exo only
-split="train" # train, val, test
+split="test" # train, test
 
 # Quote paths with spaces
 python gopro_cpr_extract.py --annotation_file_path "$annotation_file" --dataset_root "$dataset_save_dir" --split "$split" --view "$view" &&
