@@ -51,6 +51,17 @@ Please visit each subfolder for detailed instructions, annotations, and code for
 
 ---
 
+
+
+## 📷 Data Collection System
+
+![Benchmarks](./Assets/EgoExoEMS-NEW_DCS_Arch.png)
+
+This section provides an overview and instructions on using the data collection system for similar datasets.
+
+---
+
+
 ## 🖋 Citation
 
 If you use this dataset in your work, please consider citing our paper:
