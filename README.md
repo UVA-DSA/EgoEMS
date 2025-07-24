@@ -16,7 +16,7 @@
 
 ## 📦 Overview
 
-![Overall Structure](./Assets/EgoExoEMS-NEW%20AAAI%20Main%20Figure.png)
+![Overall Structure](./Assets/EgoExoEMS-NEW_AAAI_Main_Figure.jpg)
 
 EgoEMS provides >20 hours of synchronized multimodal data across 233 emergency scenarios, performed by over 45 trained EMS professionals and medical students. Each trial is annotated with keysteps, timestamped transcripts, and CPR metrics.
 
