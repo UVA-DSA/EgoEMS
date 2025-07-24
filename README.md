@@ -1,47 +1,72 @@
-# EgoExoEMS
-This repo will include all code, instructions related to the EMS multimodal dataset. 
+# 🩺 EgoEMS: A High-Fidelity Multimodal Egocentric Dataset for Cognitive Assistance in Emergency Medical Services
 
-README is a work in progress.
+[![arXiv Paper](https://img.shields.io/badge/arXiv-Paper-b31b1b?logo=arxiv&logoColor=white)]()
+[![Project Page](https://img.shields.io/badge/Project-Homepage-green)]()
+[![Video](https://img.shields.io/badge/YouTube-Video-c4302b?logo=youtube&logoColor=white)]()
 
+> **EgoEMS** is the first end-to-end, high-fidelity multimodal multiperson dataset capturing egocentric video, audio, IMU data of Emergency Medical Service (EMS) procedures. Developed in collaboration with EMS professionals, it supports research in activity recognition, multimodal fusion, and cognitive assistance for real-time decision support.
 
-# Keysteps
+---
 
-```json
-"keysteps" : {
-      "approach_patient": "Approach the patient",
-      "check_responsiveness": "Check for responsiveness",
-      "check_pulse": "Check patient's pulse",
-      "check_breathing": "Check if patient is breathing",
-      "chest_compressions": "Perform chest compressions",
-      "request_aed": "Request an AED",
-      "request_assistance": "Request additional assistance",
-      "turn_on_aed": "Turn on the AED",
-      "attach_defib_pads": "Attach defibrillator pads",
-      "clear_for_analysis": "Clear for analysis",
-      "clear_for_shock": "Clear for shock",
-      "administer_shock_aed": "Administer shock using AED",
-      "open_airway": "Open patient's airway",
-      "place_bvm": "Place bag valve mask (BVM)",
-      "ventilate_patient": "Ventilate patient",
-      "no_action": "No action",
-      "assess_patient": "Assess the patient",
-      "explain_procedure": "Explain the ECG procedure to the patient",
-      "shave_patient": "Shave/Cleanse the patient for ECG",
-      "place_left_arm_lead": "Place the lead on left arm for ECG",
-      "place_right_arm_lead": "Place the lead on right arm for ECG",
-      "place_left_leg_lead": "Place the lead on left leg for ECG",
-      "place_right_leg_lead": "Place the lead on right leg for ECG",
-      "place_v1_lead": "Place the V1 lead on the patient",
-      "place_v2_lead": "Place the V2 lead on the patient",
-      "place_v3_lead": "Place the V3 lead on the patient",
-      "place_v4_lead": "Place the V4 lead on the patient",
-      "place_v5_lead": "Place the V5 lead on the patient",
-      "place_v6_lead": "Place the V6 lead on the patient",
-      "ask_patient_age_sex": "Ask the age and or sex of the patient",
-      "request_patient_to_not_move": "Request the patient to not move",
-      "turn_on_ecg": "Turn on the ECG machine",
-      "connect_leads_to_ecg": "Verify all ECG leads are properly connected",
-      "obtain_ecg_recording": "Obtain the ECG recording",
-      "interpret_and_report": "Interpret the ECG and report findings"
-}
+## 🔥 News
+
+- **[2025/07]** Paper submitted to X.
+
+---
+
+## 📦 Overview
+
+![Overall Structure](./Assets/EgoExoEMS-NEW%20AAAI%20Main%20Figure.png)
+
+EgoEMS provides >20 hours of synchronized multimodal data across 233 emergency scenarios, performed by over 45 trained EMS professionals and medical students. Each trial is annotated with keysteps, timestamped transcripts, and CPR metrics.
+
+---
+
+## 🎯 Benchmarks
+
+![Benchmarks](./Assets/EgoExoEMS-Benchmark.png)
+
+We provide three primary benchmarks (with code and instructions in their respective folders):
+
+1. **Keystep Classification**  
+   → Classify procedural steps from multimodal input sequences.
+
+2. **Keystep Segmentation**  
+   → Detect transitions between procedural keysteps over time.
+
+3. **CPR Quality Estimation**  
+   → Estimate compression rate and depth using smartwatch IMU and egocentric video.
+
+Please visit each subfolder for detailed instructions, annotations, and code for each benchmark.
+
+---
+
+## 📂 Data Access
+
+### Option 1: Harvard Dataverse  
+[🔗 Full Dataset (TBD)]()
+
+### Option 2: Alternate Hosting  
+[🔗 Full Dataset (TBD)]()
+
+---
+
+## 🖋 Citation
+
+If you use this dataset in your work, please consider citing our paper:
+
+```bibtex
+
 ```
+
+---
+
+## ❤️ Acknowledgements
+
+REDACTED
+
+📬 Contact: [REDACTED]() — PhD Candidate, Computer Engineering
+
+---
+
+> 📌 *This README is a work in progress. Please check back soon for updated links, code, and documentation.*

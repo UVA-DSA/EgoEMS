@@ -17,6 +17,9 @@ def restructure(input_path, output_path):
             for trial in scenario.get("trials", []):
                 tid = trial.get("trial_id")
 
+                print("-*-" * 20)
+                print(f"Processing Subject {sid}, Scenario {scid}, Trial {tid}...")
+
                 ego_video_path = trial.get('streams')['egocam_rgb_audio'].get('file_path')
                 print(f"Processing {ego_video_path}...")
 
@@ -60,11 +63,8 @@ def restructure(input_path, output_path):
 
 
 if __name__ == "__main__":
-    p = argparse.ArgumentParser(
-        description="Restructure your trial JSON into per-video entries.")
-    p.add_argument("-i", "--input",  required=True,
-                   help="Path to your original JSON")
-    p.add_argument("-o", "--output", required=True,
-                   help="Where to write the restructured JSON")
-    args = p.parse_args()
-    restructure(args.input, args.output)
+
+
+    original_path = "/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_segmentation.json"
+    output_path = "./mmaction_spatio_Temporal_segmentation_annotation_test_split.json"
+    restructure(original_path, output_path)

@@ -1,5 +1,5 @@
 #import from models folder transtcn
-from models.transtcn import TransformerModel
+from models.transtcn import TransformerModel, MultimodalFusion
 import torch
 from datautils.ems import *
 import torch.nn as nn
@@ -9,6 +9,7 @@ from EgoExoEMS.EgoExoEMS import  WindowEgoExoEMSDataset, EgoExoEMSDataset, colla
 from functools import partial
 import torch.nn.functional as F
 
+fusion = MultimodalFusion()
 
 class ClassBalancedLoss(nn.Module):
     def __init__(self, beta, num_classes, class_counts):
@@ -61,6 +62,7 @@ def init_model(args):
 
 
 def preprocess(x, modality, backbone, device, task='classification'):
+    global fusion
     # print("-*" * 10, "Preprocessing", "*" * 10, "=" * 10)
     # check the shape of the input tensor
     feature = None
@@ -80,6 +82,33 @@ def preprocess(x, modality, backbone, device, task='classification'):
         x = backbone.extract_resnet(x)
         feature = x
 
+    elif ( 'audio' in modality and  'resnet_ego' in modality and 'smartwatch' in modality):
+        # resnet50 features are already extracted
+        resnet = x['resnet_ego'].float()
+        resnet = resnet.to(device)
+
+        smartwatch = x['smartwatch'].float()
+        smartwatch = smartwatch.to(device)
+        # normalize smartwatch data (batch, seq_len, 3) (3 = x,y,z)
+        smartwatch = (smartwatch - smartwatch.mean()) / smartwatch.std()
+
+        audio = x['audio']
+        audio = audio.to(device)
+        # print("Raw Audio shape: ", audio.shape)
+        audio_feature = backbone.extract_wav2vec_features(audio, multimodal=True) # for wav2vec features
+        # print("Resnet feature shape: ", resnet.shape)
+        # print("Audio feature shape: ", audio_feature.shape)
+        # print("Smartwatch feature shape: ", smartwatch.shape)
+        # print("Resnet feature shape: ", resnet.shape)
+
+        fusion = fusion.to(device)
+        fused = fusion(audio_feature, resnet, smartwatch)  # [B, T_common, D_total]
+
+
+        feature = fused.float()
+
+        # feature = torch.cat((resnet, audio_feature, smartwatch), dim=-1).float()
+
     elif ( 'audio' in modality and  'resnet_ego' in modality):
         # resnet50 features are already extracted
         resnet = x['resnet_ego'].float()
@@ -89,7 +118,6 @@ def preprocess(x, modality, backbone, device, task='classification'):
         audio = audio.to(device)
         # print("Raw Audio shape: ", audio.shape)
         # audio_feature = backbone.extract_wav2vec_features(audio, multimodal=True) # for wav2vec features
-        # print("Wav2Vec feature shape: ", audio_feature.shape)
         # print("Resnet feature shape: ", resnet.shape)
         audio_feature = backbone.extract_mel_spectrogram(audio, multimodal=True) # for mel spectrogram features
 
@@ -188,8 +216,8 @@ def preprocess(x, modality, backbone, device, task='classification'):
     elif ('audio' in modality): # uncomment this if you want to use wav2vec features
         audio_clips = x['audio']  # Assume shape [batch, samples, channels]
         audio_clips = audio_clips.to(device)
-        feature = backbone.extract_wav2vec_features(audio_clips)
-#       feature = backbone.extract_mel_spectrogram(audio_clips)
+        # feature = backbone.extract_wav2vec_features(audio_clips)
+        feature = backbone.extract_mel_spectrogram(audio_clips)
 
         # print("Wav2Vec feature shape: ", feature.shape)
 
@@ -226,13 +254,19 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, m
             window_start_frame = batch['window_start_frame'] if task == 'segmentation' else torch.tensor(-1)
             window_end_frame = batch['window_end_frame'] if task == 'segmentation' else torch.tensor(-1)
 
-            print(f"Subject ID: {subject_id[0][0]}, Trial ID: {trial_id[0][0]}, Start Frame: {start_frame[0][0]}, End Frame: {end_frame[0][0]}, Start Time: {start_t[0][0]}, End Time: {end_t[0][0]}")
-            print(f"Keystep Label: {keystep_label[0][0]}, Keystep ID: {keystep_id[0][0]}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
-            
+            if task == 'segmentation':
+                print(f"Subject ID: {subject_id[0][0]}, Trial ID: {trial_id[0][0]}, Start Frame: {start_frame[0][0]}, End Frame: {end_frame[0][0]}, Start Time: {start_t[0][0]}, End Time: {end_t[0][0]}")
+                print(f"Keystep Label: {keystep_label[0][0]}, Keystep ID: {keystep_id[0][0]}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
+
+            else:
+                print(f"Subject ID: {subject_id}, Trial ID: {trial_id}, Start Frame: {start_frame}, End Frame: {end_frame}, Start Time: {start_t}, End Time: {end_t}")
+                print(f"Keystep Label: {keystep_label}, Keystep ID: {keystep_id}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
+
+
                     # ←—— ADDED CHECK ———→
             # if the time-dimension is zero, skip this batch
             # (inputs.shape == [B, T, F] or [B, C, T] depending on your preprocess)
-            if input.size(1) == 0 or (task== 'segmentation' and input.size(1) != 150) :
+            if input.size(1) == 0 or (task== 'segmentation' and input.size(1) != 150 and "audio" not in modality): 
                 print(f"Skipping batch {i}: feature sequence : {input.shape}")
                 continue
 
@@ -338,9 +372,12 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
                 window_start_frame = batch['window_start_frame'] if task == 'segmentation' else torch.tensor(-1)
                 window_end_frame = batch['window_end_frame'] if task == 'segmentation' else torch.tensor(-1)
 
-                print(f"Subject ID: {subject_id[0][0]}, Trial ID: {trial_id[0][0]}, Start Frame: {start_frame[0][0]}, End Frame: {end_frame[0][0]}, Start Time: {start_t[0][0]}, End Time: {end_t[0][0]}")
-                print(f"Keystep Label: {keystep_label[0][0]}, Keystep ID: {keystep_id[0][0]}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
-                
+                if task == 'segmentation':
+                    print(f"Subject ID: {subject_id[0][0]}, Trial ID: {trial_id[0][0]}, Start Frame: {start_frame[0][0]}, End Frame: {end_frame[0][0]}, Start Time: {start_t[0][0]}, End Time: {end_t[0][0]}")
+                    print(f"Keystep Label: {keystep_label[0][0]}, Keystep ID: {keystep_id[0][0]}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
+                else:
+                    print(f"Subject ID: {subject_id}, Trial ID: {trial_id}, Start Frame: {start_frame}, End Frame: {end_frame}, Start Time: {start_t}, End Time: {end_t}")
+                    print(f"Keystep Label: {keystep_label}, Keystep ID: {keystep_id}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")  
                 
                 if torch.isnan(input).any():
                     print(f"⚠️ Skipping batch {i} because NaN")
@@ -643,6 +680,11 @@ def eee_get_dataloaders(args):
         print("val class stats: ", val_class_stats)
         # print number of keys in the dictionary
         print("Val Number of classes: ", len(val_class_stats.keys()))
+
+        test_class_stats = test_dataset._get_class_stats()
+        print("test class stats: ", test_class_stats)
+        # print number of keys in the dictionary
+        print("Test Number of classes: ", len(test_class_stats.keys()))
 
         
         # Use a partial function or lambda to pass the frames_per_clip argument

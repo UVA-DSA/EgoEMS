@@ -19,6 +19,7 @@ module load miniforge  &&
 source /home/cjh9fw/.bashrc  &&
 echo "$HOSTNAME" &&
 conda activate egoems &&
+# python -u test_recognition.py --job_id "$SLURM_JOB_ID" --modality "smartwatch" &&
 python -u test_recognition.py --job_id "$SLURM_JOB_ID" &&
 echo "Done" &&
 exit

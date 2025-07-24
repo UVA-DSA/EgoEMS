@@ -1,0 +1,9100 @@
+{
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s4/ego/P0_cardiacarrest_s4_ego_rgb_partial.mp4": {
+    "duration_second": 74.4,
+    "duration_frame": 2232,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          64.36666666666666
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2232,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s5/ego/P0_cardiacarrest_s5_ego_rgb_partial.mp4": {
+    "duration_second": 91.43333333333334,
+    "duration_frame": 2743,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          81.4
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2743,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s8/ego/P0_cardiacarrest_s8_ego_rgb_partial.mp4": {
+    "duration_second": 72.66666666666667,
+    "duration_frame": 2180,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          62.63333333333334
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2180,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P0/cardiac_arrest/s9/ego/P0_cardiacarrest_s9_ego_rgb_partial.mp4": {
+    "duration_second": 69.56666666666666,
+    "duration_frame": 2087,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          59.53333333333333
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2087,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P1/cardiac_arrest/s6/ego/P1_cardiacarrest_s6_ego_rgb_final.mp4": {
+    "duration_second": 75.6,
+    "duration_frame": 2268,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          65.56666666666666
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2268,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P1/cardiac_arrest/s3/ego/P1_cardiacarrest_s3_ego_rgb_final.mp4": {
+    "duration_second": 73.5,
+    "duration_frame": 2205,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          63.46666666666667
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2205,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P1/cardiac_arrest/s5/ego/P1_cardiacarrest_s5_ego_rgb_final.mp4": {
+    "duration_second": 69.6,
+    "duration_frame": 2088,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          59.56666666666666
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2088,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P10/cardiac_arrest/s7/ego/P10_cardiacarrest_s7_ego_rgb_final.mp4": {
+    "duration_second": 74.73333333333333,
+    "duration_frame": 2242,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          64.7
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2242,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s6/ego/P11_cardiacarrest_s6_ego_rgb_final.mp4": {
+    "duration_second": 66.33333333333333,
+    "duration_frame": 1990,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          56.33333333333333
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 1990,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s4/ego/P11_cardiacarrest_s4_ego_rgb_final.mp4": {
+    "duration_second": 67.1,
+    "duration_frame": 2013,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          57.06666666666666
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2013,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s3/ego/P11_cardiacarrest_s3_ego_rgb_final.mp4": {
+    "duration_second": 75.2,
+    "duration_frame": 2256,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          65.16666666666667
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2256,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P11/cardiac_arrest/s8/ego/P11_cardiacarrest_s8_ego_rgb_final.mp4": {
+    "duration_second": 65.9,
+    "duration_frame": 1977,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          55.86666666666666
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 1977,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P12/cardiac_arrest/s4/ego/P12_cardiacarrest_s4_ego_rgb_final.mp4": {
+    "duration_second": 80.33333333333333,
+    "duration_frame": 2410,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          70.3
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2410,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P12/cardiac_arrest/s2/ego/P12_cardiacarrest_s2_ego_rgb_final.mp4": {
+    "duration_second": 79.06666666666666,
+    "duration_frame": 2372,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          69.03333333333333
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2372,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P12/cardiac_arrest/s1/ego/P12_cardiacarrest_s1_ego_rgb_final.mp4": {
+    "duration_second": 82.3,
+    "duration_frame": 2469,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          72.3
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2469,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P14/cardiac_arrest/s4/ego/P14_cardiacarrest_s4_ego_rgb_final.mp4": {
+    "duration_second": 77.3,
+    "duration_frame": 2319,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          67.3
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2319,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P14/cardiac_arrest/s7/ego/P14_cardiacarrest_s7_ego_rgb_final.mp4": {
+    "duration_second": 78.6,
+    "duration_frame": 2358,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          68.6
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2358,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s4/ego/P15_cardiacarrest_s4_ego_rgb_final.mp4": {
+    "duration_second": 71.4,
+    "duration_frame": 2142,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          61.400000000000006
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2142,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s9/ego/P15_cardiacarrest_s9_ego_rgb_final.mp4": {
+    "duration_second": 64.36666666666666,
+    "duration_frame": 1931,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          54.33333333333333
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 1931,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s10/ego/P15_cardiacarrest_s10_ego_rgb_partial.mp4": {
+    "duration_second": 67.93333333333334,
+    "duration_frame": 2038,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          57.900000000000006
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2038,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P15/cardiac_arrest/s7/ego/P15_cardiacarrest_s7_ego_rgb_final.mp4": {
+    "duration_second": 65.8,
+    "duration_frame": 1974,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          55.766666666666666
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 1974,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P16/cardiac_arrest/s8/ego/P16_cardiacarrest_s8_ego_rgb_partial.mp4": {
+    "duration_second": 80.4,
+    "duration_frame": 2412,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          70.36666666666666
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2412,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s8/ego/P2_cardiacarrest_s8_ego_rgb_partial.mp4": {
+    "duration_second": 91.0,
+    "duration_frame": 2730,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          80.96666666666667
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2730,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P2/cardiac_arrest/s9/ego/P2_cardiacarrest_s9_ego_rgb_partial.mp4": {
+    "duration_second": 78.4,
+    "duration_frame": 2352,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          68.4
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2352,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P20/cardiac_arrest/s2/ego/P20_cardiacarrest_s2_ego_rgb_final.mp4": {
+    "duration_second": 77.6,
+    "duration_frame": 2328,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          67.56666666666666
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2328,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P20/cardiac_arrest/s4/ego/P20_cardiacarrest_s4_ego_rgb_final.mp4": {
+    "duration_second": 98.3,
+    "duration_frame": 2949,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          88.26666666666667
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2949,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P20/cardiac_arrest/s8/ego/P20_cardiacarrest_s8_ego_rgb_final.mp4": {
+    "duration_second": 135.93333333333334,
+    "duration_frame": 4078,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          125.9
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 4078,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s3/ego/P21_cardiacarrest_s3_ego_rgb_final.mp4": {
+    "duration_second": 34.233333333333334,
+    "duration_frame": 1027,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          24.166666666666664
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 1027,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s8/ego/P21_cardiacarrest_s8_ego_rgb_final.mp4": {
+    "duration_second": 73.9,
+    "duration_frame": 2217,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          63.86666666666666
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2217,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s2/ego/P21_cardiacarrest_s2_ego_rgb_final.mp4": {
+    "duration_second": 91.13333333333334,
+    "duration_frame": 2734,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          81.1
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2734,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P21/cardiac_arrest/s9/ego/P21_cardiacarrest_s9_ego_rgb_final.mp4": {
+    "duration_second": 75.36666666666666,
+    "duration_frame": 2261,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          65.33333333333333
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2261,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s1/ego/P22_cardiacarrest_s1_ego_rgb_partial.mp4": {
+    "duration_second": 115.2,
+    "duration_frame": 3456,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          105.16666666666667
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 3456,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s2/ego/P22_cardiacarrest_s2_ego_rgb_partial.mp4": {
+    "duration_second": 72.06666666666666,
+    "duration_frame": 2162,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          62.03333333333333
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2162,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P22/cardiac_arrest/s5/ego/P22_cardiacarrest_s5_ego_rgb_partial.mp4": {
+    "duration_second": 82.9,
+    "duration_frame": 2487,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          72.9
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2487,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P3/cardiac_arrest/s7/ego/P3_cardiacarrest_s7_ego_rgb_final.mp4": {
+    "duration_second": 69.93333333333334,
+    "duration_frame": 2098,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          59.93333333333334
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2098,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P3/cardiac_arrest/s4/ego/P3_cardiacarrest_s4_ego_rgb_final.mp4": {
+    "duration_second": 73.7,
+    "duration_frame": 2211,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          63.66666666666667
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2211,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P3/cardiac_arrest/s5/ego/P3_cardiacarrest_s5_ego_rgb_final.mp4": {
+    "duration_second": 70.1,
+    "duration_frame": 2103,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          60.099999999999994
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2103,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s8/ego/P4_cardiacarrest_s8_ego_rgb_partial.mp4": {
+    "duration_second": 68.66666666666667,
+    "duration_frame": 2060,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          58.63333333333334
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2060,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s5/ego/P4_cardiacarrest_s5_ego_rgb_partial.mp4": {
+    "duration_second": 67.16666666666667,
+    "duration_frame": 2015,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          57.13333333333334
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2015,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P4/cardiac_arrest/s7/ego/P4_cardiacarrest_s7_ego_rgb_partial.mp4": {
+    "duration_second": 69.9,
+    "duration_frame": 2097,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          59.86666666666666
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2097,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s2/ego/P5_cardiacarrest_s2_ego_rgb_partial.mp4": {
+    "duration_second": 68.8,
+    "duration_frame": 2064,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          58.8
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2064,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s7/ego/P5_cardiacarrest_s7_ego_rgb_partial.mp4": {
+    "duration_second": 65.6,
+    "duration_frame": 1968,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          55.599999999999994
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 1968,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s8/ego/P5_cardiacarrest_s8_ego_rgb_partial.mp4": {
+    "duration_second": 75.4,
+    "duration_frame": 2262,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          65.36666666666666
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2262,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P5/cardiac_arrest/s4/ego/P5_cardiacarrest_s4_ego_rgb_partial.mp4": {
+    "duration_second": 61.86666666666667,
+    "duration_frame": 1856,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          51.833333333333336
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 1856,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s9/ego/P7_cardiacarrest_s9_ego_rgb_partial.mp4": {
+    "duration_second": 63.86666666666667,
+    "duration_frame": 1916,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          53.833333333333336
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 1916,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s8/ego/P7_cardiacarrest_s8_ego_rgb_partial.mp4": {
+    "duration_second": 61.5,
+    "duration_frame": 1845,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          51.46666666666667
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 1845,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s3/ego/P7_cardiacarrest_s3_ego_rgb_partial.mp4": {
+    "duration_second": 65.96666666666667,
+    "duration_frame": 1979,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          55.93333333333334
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 1979,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s2/ego/P7_cardiacarrest_s2_ego_rgb_partial.mp4": {
+    "duration_second": 85.5,
+    "duration_frame": 2565,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          75.5
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2565,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/P7/cardiac_arrest/s1/ego/P7_cardiacarrest_s1_ego_rgb_partial.mp4": {
+    "duration_second": 72.36666666666666,
+    "duration_frame": 2171,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          62.33333333333333
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 2171,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/cars_1/stroke/0/ego/cars1_stroke_0_ego_rgb_final.mp4": {
+    "duration_second": 2160.1,
+    "duration_frame": 64803,
+    "annotations": [
+      {
+        "segment": [
+          246.805,
+          252.57184
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          300.59,
+          318.02614
+        ],
+        "label": "review_medications"
+      },
+      {
+        "segment": [
+          416.286,
+          417.86016
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          494.02309,
+          532.96752
+        ],
+        "label": "inquire_substance_use"
+      },
+      {
+        "segment": [
+          534.127,
+          558.2116
+        ],
+        "label": "review_medications"
+      },
+      {
+        "segment": [
+          635.826,
+          638.45489
+        ],
+        "label": "check_symptom_duration"
+      },
+      {
+        "segment": [
+          638.96059,
+          672.6163
+        ],
+        "label": "document_lkw_time"
+      },
+      {
+        "segment": [
+          717.21059,
+          724.293
+        ],
+        "label": "review_medications"
+      },
+      {
+        "segment": [
+          787.035,
+          868.3975
+        ],
+        "label": "load_patient_to_stretcher"
+      },
+      {
+        "segment": [
+          868.398,
+          889.68346
+        ],
+        "label": "secure_patient_on_stretcher"
+      },
+      {
+        "segment": [
+          928.31476,
+          931.04392
+        ],
+        "label": "notify_hospital_of_stroke_alert"
+      },
+      {
+        "segment": [
+          950.081,
+          1318.5016
+        ],
+        "label": "transport"
+      },
+      {
+        "segment": [
+          1318.502,
+          1320.64254
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          1321.508,
+          1388.61199
+        ],
+        "label": "transport"
+      },
+      {
+        "segment": [
+          1560.27309,
+          1581.22365
+        ],
+        "label": "check_vision_deficits"
+      },
+      {
+        "segment": [
+          1581.33559,
+          1584.324
+        ],
+        "label": "assess_neglect_signs"
+      },
+      {
+        "segment": [
+          1588.33559,
+          1598.40339
+        ],
+        "label": "check_vision_deficits"
+      },
+      {
+        "segment": [
+          1625.865,
+          1639.24169
+        ],
+        "label": "check_blood_pressure"
+      },
+      {
+        "segment": [
+          1798.365,
+          1809.3569
+        ],
+        "label": "inquire_medication_anticoagulants"
+      },
+      {
+        "segment": [
+          1854.798,
+          1988.35904
+        ],
+        "label": "handoff_patient_to_hospital"
+      }
+    ],
+    "feature_frame": 64803,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/cardiac_arrest/0/ego/ms1_cardiacarrest_0_ego_rgb_final.mp4": {
+    "duration_second": 88.13333333333334,
+    "duration_frame": 2644,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          6.60863
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          6.609,
+          11.41892
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          11.419,
+          13.395
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          13.395,
+          15.773
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          15.773,
+          19.50903
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          19.50903,
+          22.509
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          22.509,
+          25.11386
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          30.50903,
+          33.59237
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          33.884,
+          44.13068
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          66.6757,
+          72.67494
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          83.707,
+          88.1881
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 2644,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/cardiac_arrest/3/ego/ms1_cardiacarrest_3_ego_rgb_final.mp4": {
+    "duration_second": 132.0,
+    "duration_frame": 3960,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          3.356
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          3.356,
+          6.276
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          6.276,
+          6.276
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          6.276,
+          10.502
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          10.502,
+          12.768
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          12.768,
+          15.88177
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          18.06927,
+          20.00543
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          22.38177,
+          25.632
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          25.632,
+          33.38177
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          36.78,
+          44.50677
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          44.507,
+          50.63177
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          50.632,
+          55.226
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          55.226,
+          55.861
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          55.861,
+          57.822
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          57.822,
+          60.65946
+        ],
+        "label": "open_airway"
+      },
+      {
+        "segment": [
+          76.507,
+          81.90296
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          81.903,
+          100.86993
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          100.87,
+          105.906
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          105.906,
+          124.96191
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          124.962,
+          129.62626
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 3960,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/cardiac_arrest/1/ego/ms1_cardiacarrest_1_ego_rgb_final.mp4": {
+    "duration_second": 125.73333333333333,
+    "duration_frame": 3772,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          5.704
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          5.704,
+          7.981
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          7.981,
+          9.215
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          9.215,
+          11.898
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          11.898,
+          16.42118
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          16.42118,
+          18.355
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          18.355,
+          21.3535
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          37.238,
+          39.03705
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          40.296,
+          50.27991
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          54.213,
+          60.296
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          60.296,
+          67.82259
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          67.823,
+          74.82472
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          74.825,
+          77.808
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          77.808,
+          80.5271
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          80.5271,
+          83.027
+        ],
+        "label": "open_airway"
+      },
+      {
+        "segment": [
+          96.549,
+          100.74054
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          100.741,
+          119.93882
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          119.939,
+          123.96542
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 3772,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/cardiac_arrest/4/ego/ms1_cardiacarrest_4_ego_rgb_final.mp4": {
+    "duration_second": 92.0,
+    "duration_frame": 2760,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          2.41892
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          2.419,
+          5.273
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          5.273,
+          5.273
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          5.273,
+          12.523
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          12.523,
+          17.00903
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          17.00903,
+          19.509
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          19.509,
+          21.31812
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          31.00903,
+          33.09237
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          33.09237,
+          42.37848
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          87.629,
+          92.092
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 2760,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms1/chest_pain/8/ego/ms1_chestpain_8_ego_rgb_final.mp4": {
+    "duration_second": 208.03333333333333,
+    "duration_frame": 6241,
+    "annotations": [
+      {
+        "segment": [
+          0.733,
+          5.73499
+        ],
+        "label": "assess_patient"
+      },
+      {
+        "segment": [
+          5.735,
+          22.42882
+        ],
+        "label": "explain_procedure"
+      },
+      {
+        "segment": [
+          33.15358,
+          40.33527
+        ],
+        "label": "place_right_arm_lead"
+      },
+      {
+        "segment": [
+          44.237,
+          52.4094
+        ],
+        "label": "place_left_arm_lead"
+      },
+      {
+        "segment": [
+          53.341,
+          58.00761
+        ],
+        "label": "place_right_leg_lead"
+      },
+      {
+        "segment": [
+          58.008,
+          61.80019
+        ],
+        "label": "place_left_leg_lead"
+      },
+      {
+        "segment": [
+          91.091,
+          96.59462
+        ],
+        "label": "place_v2_lead"
+      },
+      {
+        "segment": [
+          98.57,
+          102.93729
+        ],
+        "label": "place_v1_lead"
+      },
+      {
+        "segment": [
+          111.741,
+          114.94518
+        ],
+        "label": "place_v4_lead"
+      },
+      {
+        "segment": [
+          119.265,
+          123.54948
+        ],
+        "label": "place_v3_lead"
+      },
+      {
+        "segment": [
+          126.279,
+          131.33952
+        ],
+        "label": "place_v6_lead"
+      },
+      {
+        "segment": [
+          132.07,
+          135.63787
+        ],
+        "label": "place_v5_lead"
+      },
+      {
+        "segment": [
+          135.638,
+          138.34646
+        ],
+        "label": "ask_patient_age_sex"
+      },
+      {
+        "segment": [
+          140.82,
+          149.602
+        ],
+        "label": "obtain_ecg_recording"
+      },
+      {
+        "segment": [
+          149.602,
+          153.88678
+        ],
+        "label": "request_patient_to_not_move"
+      }
+    ],
+    "feature_frame": 6241,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms2/cardiac_arrest/2/ego/ms2_cardiacarrest_2_ego_rgb_final.mp4": {
+    "duration_second": 140.6,
+    "duration_frame": 4218,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          2.25226
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          2.25226,
+          3.54392
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          3.544,
+          3.544
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          3.544,
+          9.247
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          9.247,
+          13.012
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          13.012,
+          14.012
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          14.12726,
+          15.012
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          27.326,
+          32.11415
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          36.502,
+          39.001
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          41.704,
+          49.59321
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          71.728,
+          79.921
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          79.921,
+          85.952
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          85.952,
+          89.98971
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          89.99,
+          92.9257
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          92.9257,
+          95.581
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          111.178,
+          115.01162
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          115.012,
+          134.535
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          134.535,
+          139.179
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 4218,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms2/cardiac_arrest/3/ego/ms2_cardiacarrest_3_ego_rgb_final.mp4": {
+    "duration_second": 139.33333333333334,
+    "duration_frame": 4180,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          2.81476
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          2.815,
+          5.773
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          5.773,
+          5.773
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          5.773,
+          11.79392
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          11.794,
+          15.464
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          15.464,
+          16.25677
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          16.257,
+          17.257
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          23.69427,
+          27.003
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          27.13177,
+          67.73565
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          69.632,
+          78.236
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          78.236,
+          85.18161
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          85.182,
+          88.44
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          88.44,
+          88.5271
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          88.5271,
+          92.0989
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          110.589,
+          113.97553
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          113.976,
+          134.04365
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          134.044,
+          138.34013
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 4180,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ms2/cardiac_arrest/4/ego/ms2_cardiacarrest_4_ego_rgb_final.mp4": {
+    "duration_second": 139.0,
+    "duration_frame": 4170,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          2.47
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          2.47,
+          6.002
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          6.002,
+          6.002
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          6.002,
+          11.29282
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          11.293,
+          12.34237
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          12.34237,
+          14.179
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          14.179,
+          15.179
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          26.176,
+          28.34743
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          28.415,
+          43.12254
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          44.874,
+          55.228
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          55.228,
+          60.13378
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          60.134,
+          62.842
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          62.842,
+          65.097
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          65.097,
+          83.948
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          83.948,
+          90.72359
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          90.724,
+          110.342
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          110.342,
+          114.654
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          114.654,
+          134.42899
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          134.429,
+          138.51812
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 4170,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng1/cardiac_arrest/0/ego/ng1_cardiacarrest_0_ego_rgb_final.mp4": {
+    "duration_second": 71.1,
+    "duration_frame": 2133,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          5.752
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          5.752,
+          10.332
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          10.332,
+          23.54392
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          23.544,
+          28.53568
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          28.536,
+          29.671
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          29.671,
+          32.171
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          32.171,
+          37.921
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          37.921,
+          47.21285
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          47.213,
+          53.98798
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          53.988,
+          60.444
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          60.444,
+          63.094
+        ],
+        "label": "check_pulse"
+      }
+    ],
+    "feature_frame": 2133,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng2/cardiac_arrest/0/ego/ng2_cardiacarrest_0_ego_rgb_final.mp4": {
+    "duration_second": 168.03333333333333,
+    "duration_frame": 5041,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          5.76254
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          5.763,
+          10.4
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          10.4,
+          12.509
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          12.509,
+          14.321
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          14.321,
+          16.25903
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          32.009,
+          37.1757
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          37.176,
+          54.734
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          54.734,
+          57.509
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          57.509,
+          59.63255
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          59.68,
+          66.889
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          66.889,
+          69.12782
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          69.128,
+          76.00668
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          79.35,
+          84.20071
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          91.764,
+          102.39
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          102.39,
+          108.26355
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          108.264,
+          113.01355
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          113.014,
+          119.88855
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          120.264,
+          121.424
+        ],
+        "label": "open_airway"
+      },
+      {
+        "segment": [
+          121.424,
+          121.859
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          121.859,
+          124.391
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          145.889,
+          149.569
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          149.569,
+          165.56
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          165.56,
+          166.89388
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 5041,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/10/ego/ng3_cardiacarrest_10_ego_rgb_final.mp4": {
+    "duration_second": 125.36666666666666,
+    "duration_frame": 3761,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          3.0789
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          3.079,
+          4.838
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          4.838,
+          7.487
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          7.487,
+          10.949
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          10.949,
+          11.582
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          11.582,
+          14.17265
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          14.173,
+          15.898
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          15.898,
+          22.71989
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          22.72,
+          29.1
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          29.1,
+          32.93
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          32.93,
+          33.691
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          33.691,
+          45.61452
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          45.615,
+          48.203
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          48.203,
+          51.83065
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          51.831,
+          55.272
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          55.272,
+          69.75456
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          69.755,
+          72.751
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          72.751,
+          77.07008
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          77.64,
+          79.59893
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          79.599,
+          80.131
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          80.131,
+          82.4257
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          82.4257,
+          94.889
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          94.889,
+          98.99573
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          98.996,
+          109.50903
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          109.50903,
+          113.984
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          113.984,
+          117.352
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          117.352,
+          125.49203
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 3761,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/0/ego/ng3_cardiacarrest_0_ego_rgb_final.mp4": {
+    "duration_second": 235.06666666666666,
+    "duration_frame": 7052,
+    "annotations": [
+      {
+        "segment": [
+          0.02,
+          83.455
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          83.455,
+          87.48384
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          87.484,
+          90.63855
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          90.639,
+          94.03855
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          94.039,
+          95.94588
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          95.946,
+          111.21192
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          111.212,
+          112.571
+        ],
+        "label": "open_airway"
+      },
+      {
+        "segment": [
+          112.571,
+          114.04788
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          114.048,
+          121.10421
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          122.07834,
+          123.078
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          123.078,
+          129.461
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          129.461,
+          137.76674
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          137.767,
+          151.962
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          151.962,
+          156.225
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          156.225,
+          161.461
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          161.461,
+          178.01355
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          178.014,
+          180.13789
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          180.138,
+          184.50481
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          184.505,
+          200.641
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          200.641,
+          203.146
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          203.146,
+          208.276
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          208.276,
+          211.149
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          211.149,
+          218
+        ],
+        "label": "chest_compressions"
+      }
+    ],
+    "feature_frame": 7052,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/12/ego/ng3_cardiacarrest_12_ego_rgb_final.mp4": {
+    "duration_second": 118.83333333333333,
+    "duration_frame": 3565,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          9.56283
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          9.563,
+          11.737
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          11.737,
+          14.2116
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          14.212,
+          18.12571
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          18.126,
+          18.93355
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          18.934,
+          20.6146
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          20.615,
+          23.616
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          23.616,
+          28.12364
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          28.124,
+          35.866
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          35.866,
+          38.87451
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          38.875,
+          39.64
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          39.64,
+          51.79874
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          51.988,
+          54.288
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          54.288,
+          56.96657
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          56.967,
+          67.627
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          67.627,
+          71.54459
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          71.545,
+          73.36568
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          73.366,
+          75.85
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          75.85,
+          76.955
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          76.955,
+          80.017
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          80.017,
+          92.618
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          92.618,
+          96.379
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          96.379,
+          103.97
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          103.97,
+          111.532
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          111.532,
+          114.94
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          114.94,
+          117.81574
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          117.816,
+          118.95217
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 3565,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/9/ego/ng3_cardiacarrest_9_ego_rgb_final.mp4": {
+    "duration_second": 113.36666666666666,
+    "duration_frame": 3401,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          4.075
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          4.075,
+          5.974
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          5.974,
+          9.158
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          9.158,
+          13.175
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          13.175,
+          13.815
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          13.815,
+          15.84472
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          15.845,
+          20.108
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          20.108,
+          22.155
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          22.155,
+          30.4257
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          30.426,
+          35.24166
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          35.242,
+          35.658
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          35.658,
+          44.363
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          44.363,
+          49.505
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          49.505,
+          49.505
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          49.505,
+          54.18005
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          63.405,
+          67.139
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          67.139,
+          70.955
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          70.955,
+          73.722
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          73.722,
+          74.555
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          74.555,
+          76.51209
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          78.717,
+          89.58275
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          89.583,
+          93.092
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          93.092,
+          102.259
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          102.259,
+          108.09574
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          108.096,
+          112.18496
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          112.185,
+          113.48003
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 3401,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/3/ego/ng3_cardiacarrest_3_ego_rgb_final.mp4": {
+    "duration_second": 217.6,
+    "duration_frame": 6528,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          3.5458
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          3.546,
+          6.15
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          6.15,
+          9.027
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          9.027,
+          12.787
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          12.787,
+          13.741
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          13.741,
+          14.461
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          14.461,
+          30.531
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          30.531,
+          31.81976
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          31.82,
+          36.36
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          36.36,
+          51.5136
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          51.514,
+          53.20164
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          53.202,
+          56.788
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          56.788,
+          60.291
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          60.291,
+          66.916
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          66.916,
+          126.006
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          126.006,
+          146.197
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          146.197,
+          160.691
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          160.691,
+          164.561
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          164.561,
+          170.396
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          170.396,
+          185.87662
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          185.877,
+          187.65169
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          187.652,
+          192.06856
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          192.069,
+          207.553
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          207.553,
+          209.464
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          209.464,
+          214.13855
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          214.139,
+          217.78423
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 6528,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/7/ego/ng3_cardiacarrest_7_ego_rgb_final.mp4": {
+    "duration_second": 138.2,
+    "duration_frame": 4146,
+    "annotations": [
+      {
+        "segment": [
+          2.50226,
+          3.12
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          3.12,
+          5.96059
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          6.341,
+          9.83559
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          10.08559,
+          13.33559
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          13.336,
+          13.35642
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          13.35642,
+          15.64809
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          15.64809,
+          31.54392
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          31.73142,
+          33.33559
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          33.352,
+          37.31476
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          38.35642,
+          54.27309
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          55.00226,
+          56.356
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          56.356,
+          60.73142
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          63.335,
+          70.62726
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          70.73142,
+          80.27309
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          82.87726,
+          88.50226
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          88.62726,
+          92.91892
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          93.48142,
+          110.23142
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          110.52309,
+          111.481
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          111.481,
+          114.91892
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          115.71059,
+          131.46059
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          131.81476,
+          132.83559
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          132.836,
+          138.12726
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 4146,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng3/cardiac_arrest/5/ego/ng3_cardiacarrest_5_ego_rgb_final.mp4": {
+    "duration_second": 153.2,
+    "duration_frame": 4596,
+    "annotations": [
+      {
+        "segment": [
+          3.06476,
+          5.39809
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          5.60642,
+          8.93976
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          9.27309,
+          11.10642
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          11.46059,
+          13.06476
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          13.12726,
+          30.02309
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          30.93976,
+          33.16892
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          33.43976,
+          37.23142
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          37.87726,
+          53.85642
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          54.35642,
+          56.04392
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          56.10642,
+          60.25226
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          62.75226,
+          64.48142
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          67.37726,
+          82.52309
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          85.43976,
+          93.35642
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          96.21059,
+          100.955
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          101.81476,
+          106.56476
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          106.75226,
+          123.77309
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          123.93976,
+          125.60642
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          125.68976,
+          128.93976
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          130.29392,
+          145.81476
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          146.12726,
+          148.06476
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          148.065,
+          152.18976
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 4596,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng4/cardiac_arrest/0/ego/ng4_cardiacarrest_0_ego_rgb_final.mp4": {
+    "duration_second": 161.8,
+    "duration_frame": 4854,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          2.66892
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          2.669,
+          4.877
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          4.877,
+          7.58559
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          7.677,
+          7.84237
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          7.84237,
+          9.6757
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          21.7771,
+          26.37852
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          36.0271,
+          40.87958
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          49.276,
+          54.90087
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          64.075,
+          69.2771
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          79.005,
+          79.76355
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          79.76355,
+          83.358
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          83.358,
+          86.54
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          86.54,
+          89.934
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          93.678,
+          94.759
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          94.759,
+          96.426
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          101.704,
+          104.5271
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          104.5271,
+          117.683
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          117.683,
+          121.277
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          121.277,
+          124.7771
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          126.493,
+          127.907
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          127.907,
+          129.045
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          129.045,
+          142.822
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          142.822,
+          147.21985
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          157.569,
+          161.02172
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 4854,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng4/cardiac_arrest/4/ego/ng4_cardiacarrest_4_ego_rgb_final.mp4": {
+    "duration_second": 128.23333333333332,
+    "duration_frame": 3847,
+    "annotations": [
+      {
+        "segment": [
+          2.816,
+          6.06476
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          6.29392,
+          8.87726
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          8.91892,
+          9.71059
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          9.711,
+          10.98142
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          11.10642,
+          27.35642
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          27.50226,
+          29.33476
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          29.39809,
+          32.75226
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          32.87726,
+          32.91892
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          32.91892,
+          34.66892
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          35.10642,
+          56.16892
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          56.169,
+          65.02309
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          66.004,
+          67.097
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          67.097,
+          71.93108
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          78.14108,
+          79.28108
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          79.28108,
+          80.07108
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          81.34108,
+          97.17108
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          97.77108,
+          98.871
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          98.871,
+          102.33108
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          103.49108,
+          119.421
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          119.421,
+          120.63108
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          121.34,
+          125.07108
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 3847,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng4/cardiac_arrest/3/ego/ng4_cardiacarrest_3_ego_rgb_final.mp4": {
+    "duration_second": 112.2,
+    "duration_frame": 3366,
+    "annotations": [
+      {
+        "segment": [
+          1.85642,
+          4.877
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          4.877,
+          7.21059
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          7.35642,
+          8.29392
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          8.31476,
+          9.29392
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          9.52309,
+          10.08559
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          10.25226,
+          10.89809
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          10.91892,
+          27.23142
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          27.54392,
+          27.58559
+        ],
+        "label": "open_airway"
+      },
+      {
+        "segment": [
+          27.58559,
+          28.54392
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          29.21059,
+          32.25226
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          32.43976,
+          32.50226
+        ],
+        "label": "request_aed"
+      },
+      {
+        "segment": [
+          32.50226,
+          33.58559
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          42.35642,
+          50.96059
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          51.81476,
+          53.96059
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          54.18976,
+          62.31476
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          66.64809,
+          67.98142
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          68.418,
+          84.52309
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          84.68976,
+          84.71059
+        ],
+        "label": "open_airway"
+      },
+      {
+        "segment": [
+          84.71059,
+          86.398
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          86.398,
+          89.77309
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          89.85642,
+          106.14809
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          106.33559,
+          106.37726
+        ],
+        "label": "open_airway"
+      },
+      {
+        "segment": [
+          106.37726,
+          107.68976
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          107.85642,
+          111.81476
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 3366,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/20/ego/ng5_cardiacarrest_20_ego_rgb_final.mp4": {
+    "duration_second": 117.63333333333334,
+    "duration_frame": 3529,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          7.0928
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          7.093,
+          9.356
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          9.356,
+          14.362
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          14.362,
+          15.078
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          15.078,
+          15.851
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          15.851,
+          17.514
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          17.514,
+          24.07553
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          24.076,
+          28.543
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          28.543,
+          30.59287
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          30.593,
+          35.676
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          35.676,
+          36.91394
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          36.91394,
+          50.138
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          50.138,
+          52.02
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          52.02,
+          53.37268
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          53.373,
+          57.32571
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          64.499,
+          68.05668
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          68.057,
+          71.01975
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          71.02,
+          72.944
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          72.944,
+          73.98989
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          74.303,
+          74.69427
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          74.69427,
+          77.20466
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          82.716,
+          90.08051
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          90.081,
+          94.506
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          94.506,
+          104.006
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          104.006,
+          109.11599
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          109.116,
+          114.421
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          114.421,
+          117.718
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 3529,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/6/ego/ng5_cardiacarrest_6_ego_rgb_final.mp4": {
+    "duration_second": 123.96666666666667,
+    "duration_frame": 3719,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          4.69
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          4.69,
+          7.07099
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          7.071,
+          9.327
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          9.327,
+          13.56469
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          13.565,
+          30.455
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          30.455,
+          33.05784
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          33.058,
+          39.306
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          39.306,
+          40.355
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          40.355,
+          47.793
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          47.793,
+          62.256
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          62.256,
+          66.396
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          66.396,
+          69.84972
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          69.85,
+          86.8735
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          86.874,
+          89.30179
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          89.302,
+          95.10667
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          95.107,
+          110.81172
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          110.812,
+          113.13776
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          113.138,
+          119.564
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          119.564,
+          124.09063
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 3719,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/17/ego/ng5_cardiacarrest_17_ego_rgb_final.mp4": {
+    "duration_second": 124.0,
+    "duration_frame": 3720,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          9.65872
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          9.659,
+          11.2156
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          11.216,
+          12.86678
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          12.867,
+          16.923
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          16.923,
+          20.92
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          20.92,
+          26.44372
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          26.444,
+          35.287
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          35.287,
+          38.796
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          38.796,
+          64.3457
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          64.346,
+          78.381
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          78.381,
+          83.376
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          83.376,
+          86.17364
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          86.174,
+          89.605
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          89.605,
+          89.941
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          89.941,
+          91.939
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          91.939,
+          120.524
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          120.524,
+          124.124
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 3720,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/13/ego/ng5_cardiacarrest_13_ego_rgb_final.mp4": {
+    "duration_second": 144.86666666666667,
+    "duration_frame": 4346,
+    "annotations": [
+      {
+        "segment": [
+          2.46059,
+          5.39809
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          5.531,
+          9.46059
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          9.50226,
+          9.52309
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          9.52309,
+          13.43976
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          13.60642,
+          28.16892
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          28.169,
+          29.96059
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          29.961,
+          34.48142
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          37.811,
+          74.04392
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          74.31476,
+          83.58559
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          85.83559,
+          91.68976
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          91.89928,
+          96.9071
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          96.96178,
+          112.80553
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          112.806,
+          114.4696
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          114.64928,
+          119.43835
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          119.50866,
+          136.196
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          136.196,
+          138.0946
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          138.095,
+          142.78991
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 4346,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/5/ego/ng5_cardiacarrest_5_ego_rgb_final.mp4": {
+    "duration_second": 128.7,
+    "duration_frame": 3861,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          6.004
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          6.004,
+          8.109
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          8.109,
+          9.366
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          9.366,
+          14.932
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          14.932,
+          31.512
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          31.512,
+          33.97452
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          33.975,
+          39.644
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          39.644,
+          41.96565
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          41.966,
+          50.99459
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          50.995,
+          56.5819
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          56.582,
+          70.00298
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          70.003,
+          73.95577
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          73.956,
+          77.882
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          77.882,
+          93.509
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          93.509,
+          96.43
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          96.43,
+          101.328
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          101.328,
+          119.092
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          119.092,
+          121.98157
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          121.982,
+          125.442
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          125.442,
+          128.79533
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 3861,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/16/ego/ng5_cardiacarrest_16_ego_rgb_final.mp4": {
+    "duration_second": 136.73333333333332,
+    "duration_frame": 4102,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          6.134
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          6.134,
+          7.922
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          7.922,
+          9.867
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          9.867,
+          14.19058
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          14.191,
+          29.15259
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          29.153,
+          32.05464
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          32.055,
+          36.89189
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          36.892,
+          43.70372
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          43.704,
+          64.16063
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          64.161,
+          78.676
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          78.676,
+          82.228
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          82.228,
+          86.558
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          86.558,
+          90.6707
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          90.671,
+          105.974
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          105.974,
+          107.9849
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          107.985,
+          113.2667
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          113.267,
+          127.8919
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          127.892,
+          129.928
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          129.928,
+          135.36174
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          135.362,
+          136.87007
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 4102,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/11/ego/ng5_cardiacarrest_11_ego_rgb_final.mp4": {
+    "duration_second": 139.6,
+    "duration_frame": 4188,
+    "annotations": [
+      {
+        "segment": [
+          14.10642,
+          15.87726
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          16.25,
+          19.68976
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          20.04392,
+          20.06476
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          20.06476,
+          22.89809
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          24.71059,
+          24.73142
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          24.73142,
+          26.487
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          26.75226,
+          43.39809
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          43.93976,
+          45.64809
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          45.75226,
+          48.96059
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          56.02309,
+          60.04392
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          60.25226,
+          61.23142
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          68.54392,
+          78.08559
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          80.81476,
+          86.54392
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          86.64809,
+          90.21059
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          90.43976,
+          106.25226
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          106.54392,
+          108.33559
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          108.336,
+          112.64809
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          114.383,
+          131.08559
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          132.00226,
+          134.231
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          134.231,
+          138.66892
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 4188,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/9/ego/ng5_cardiacarrest_9_ego_rgb_final.mp4": {
+    "duration_second": 128.53333333333333,
+    "duration_frame": 3856,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          9.68976
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          9.69,
+          12.83559
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          12.836,
+          14.16892
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          14.169,
+          19.69
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          19.69,
+          35.194
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          35.194,
+          38.323
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          38.323,
+          43.45
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          43.45,
+          45.376
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          45.376,
+          53.509
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          53.509,
+          68.18788
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          68.188,
+          72.17062
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          72.171,
+          75.37756
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          75.378,
+          91.516
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          91.516,
+          93.69996
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          93.7,
+          99.501
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          99.501,
+          115.7756
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          115.776,
+          118.216
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          118.216,
+          124.25751
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          124.258,
+          128.662
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 3856,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/14/ego/ng5_cardiacarrest_14_ego_rgb_final.mp4": {
+    "duration_second": 116.66666666666667,
+    "duration_frame": 3500,
+    "annotations": [
+      {
+        "segment": [
+          3.703,
+          5.83559
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          5.83559,
+          8.58559
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          8.79392,
+          8.85642
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          8.85642,
+          14.00226
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          14.02309,
+          29.46059
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          29.461,
+          31.856
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          31.856,
+          36.00226
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          37.73142,
+          45.75226
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          46.12726,
+          55.06476
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          57.10642,
+          63.27309
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          63.46059,
+          68.68976
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          68.69,
+          84.96059
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          85.04392,
+          86.898
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          86.898,
+          91.10642
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          91.58559,
+          107.56476
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          108.00226,
+          109.98142
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          110.069,
+          114.23142
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 3500,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/18/ego/ng5_cardiacarrest_18_ego_rgb_final.mp4": {
+    "duration_second": 115.16666666666667,
+    "duration_frame": 3455,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          7.231
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          7.231,
+          10.272
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          10.272,
+          11.668
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          11.668,
+          15.32682
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          15.327,
+          21.00677
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          21.00677,
+          23.00677
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          23.007,
+          29.48412
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          29.712,
+          34.522
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          34.522,
+          54.01958
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          54.02,
+          68.42677
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          68.427,
+          72.63684
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          72.637,
+          75.202
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          75.202,
+          78.37177
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          78.37177,
+          79.405
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          79.405,
+          80.09237
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          80.09237,
+          83.30254
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          83.303,
+          111.904
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          111.904,
+          115.282
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 3455,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/10/ego/ng5_cardiacarrest_10_ego_rgb_final.mp4": {
+    "duration_second": 127.9,
+    "duration_frame": 3837,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          6.85588
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          6.856,
+          10.62051
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          10.621,
+          12.322
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          12.322,
+          16.74893
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          16.749,
+          31.671
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          31.671,
+          34.278
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          34.278,
+          39.69393
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          39.694,
+          41.796
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          41.796,
+          49.26792
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          49.268,
+          63.91
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          63.91,
+          67.935
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          67.935,
+          71.202
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          71.202,
+          89.92
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          89.92,
+          92.851
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          92.851,
+          98.93268
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          98.933,
+          115.593
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          115.593,
+          118.33756
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          118.338,
+          123.81
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          123.81,
+          127.99453
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 3837,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng5/cardiac_arrest/3/ego/ng5_cardiacarrest_3_ego_rgb_final.mp4": {
+    "duration_second": 129.5,
+    "duration_frame": 3885,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          9.066
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          9.066,
+          12.66051
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          12.661,
+          14.238
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          14.238,
+          20.537
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          20.537,
+          35.24292
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          35.243,
+          38.426
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          38.426,
+          43.189
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          43.189,
+          44.78959
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          44.79,
+          53.636
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          53.636,
+          60.13
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          60.13,
+          73.302
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          73.302,
+          76.73683
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          76.737,
+          80.76794
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          80.768,
+          95.38177
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          95.382,
+          98.95273
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          98.953,
+          104.89997
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          104.9,
+          119.076
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          119.076,
+          122.55467
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          122.78404,
+          127.008
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          127.008,
+          129.59613
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 3885,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng6/cardiac_arrest/3/ego/ng6_cardiacarrest_3_ego_rgb_final.mp4": {
+    "duration_second": 126.26666666666667,
+    "duration_frame": 3788,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          3.382
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          3.382,
+          9.492
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          9.492,
+          13.02052
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          13.021,
+          15.914
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          15.914,
+          15.914
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          15.914,
+          49.819
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          49.819,
+          63.973
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          63.973,
+          68.416
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          68.416,
+          74.498
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          74.498,
+          92.4257
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          92.426,
+          96.11685
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          96.117,
+          101.43377
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          101.434,
+          117.143
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          117.143,
+          120.854
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          120.854,
+          126.393
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 3788,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng6/cardiac_arrest/1/ego/ng6_cardiacarrest_1_ego_rgb_final.mp4": {
+    "duration_second": 138.0,
+    "duration_frame": 4140,
+    "annotations": [
+      {
+        "segment": [
+          2.119,
+          4.502
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          4.502,
+          8.52309
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          9.25226,
+          12.85642
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          13.06476,
+          31.68976
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          33.18976,
+          34.52309
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          34.60642,
+          37.89809
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          46.21059,
+          60.23142
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          61.35642,
+          70.85642
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          72.85642,
+          78.12726
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          78.81476,
+          83.16892
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          84.12726,
+          103.54392
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          103.83559,
+          105.87726
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          106.02309,
+          109.79392
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          110.18976,
+          128.81476
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          129.998,
+          130.998
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          130.998,
+          135.16892
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 4140,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng6/cardiac_arrest/2/ego/ng6_cardiacarrest_2_ego_rgb_final.mp4": {
+    "duration_second": 110.0,
+    "duration_frame": 3300,
+    "annotations": [
+      {
+        "segment": [
+          2.266,
+          3.08559
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          3.086,
+          8.58559
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          9.06476,
+          13.18976
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          13.25226,
+          30.79392
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          30.91892,
+          32.606
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          32.606,
+          36.02309
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          39.23142,
+          52.60642
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          54.56476,
+          63.91892
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          66.35642,
+          71.85642
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          72.37726,
+          77.52309
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          77.75226,
+          97.58559
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          97.98142,
+          100.87726
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          100.98142,
+          105.21059
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 3300,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/6/ego/ng8_cardiacarrest_6_ego_rgb_final.mp4": {
+    "duration_second": 153.16666666666666,
+    "duration_frame": 4595,
+    "annotations": [
+      {
+        "segment": [
+          2.14809,
+          3.93976
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          4.39809,
+          5.96059
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          6.14809,
+          21.06476
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          21.37726,
+          24.87726
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          25.27309,
+          27.87726
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          32.87726,
+          37.21059
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          37.21059,
+          38.08559
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          45.179,
+          45.79392
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          46.98142,
+          51.60642
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          51.68976,
+          53.64809
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          55.23142,
+          70.04392
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          70.93976,
+          74.06476
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          74.065,
+          76.31476
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          77.85642,
+          93.58559
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          93.912,
+          98.18976
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          98.37726,
+          100.79392
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          101.91892,
+          111.41892
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          114.18976,
+          119.43976
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          120.10642,
+          124.75226
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          126.56476,
+          144.71059
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          145.14809,
+          148.41892
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          148.73142,
+          151.66892
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 4595,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/8/ego/ng8_cardiacarrest_8_ego_rgb_final.mp4": {
+    "duration_second": 132.5,
+    "duration_frame": 3975,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          1.735
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          1.735,
+          6.47472
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          6.475,
+          26.66483
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          26.665,
+          31.709
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          31.709,
+          37.094
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          37.094,
+          52.39456
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          52.395,
+          71.342
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          71.342,
+          80.836
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          80.836,
+          95.34463
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          95.345,
+          99.827
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          99.827,
+          105.92468
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          105.925,
+          123.759
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          123.759,
+          127.85285
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          127.853,
+          132.59913
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 3975,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/10/ego/ng8_cardiacarrest_10_ego_rgb_final.mp4": {
+    "duration_second": 120.8,
+    "duration_frame": 3624,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          3.261
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          3.261,
+          19.915
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          19.915,
+          24.94651
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          24.947,
+          29.46281
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          29.463,
+          48.393
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          48.393,
+          53.75055
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          53.751,
+          57.70781
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          57.708,
+          59.312
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          59.312,
+          61.576
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          61.576,
+          70.10153
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          70.102,
+          84.56
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          84.56,
+          88.156
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          88.156,
+          93.83775
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          93.838,
+          114.15375
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          114.154,
+          117.30077
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          117.301,
+          120.88743
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 3624,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/0/ego/ng8_cardiacarrest_0_ego_rgb_final.mp4": {
+    "duration_second": 152.8,
+    "duration_frame": 4584,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          5.091
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          5.091,
+          5.091
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          5.091,
+          7.55542
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          10.983,
+          10.983
+        ],
+        "label": "check_breathing"
+      },
+      {
+        "segment": [
+          10.983,
+          15.055
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          15.055,
+          34.94778
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          34.948,
+          49.16057
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          49.161,
+          59.23
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          59.23,
+          73.49156
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          73.492,
+          78.96496
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          78.965,
+          85.313
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          85.313,
+          104.454
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          104.454,
+          107.32984
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          107.33,
+          113.00486
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          113.005,
+          127.5076
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          127.508,
+          130.005
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          130.005,
+          135.52883
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          135.529,
+          150.92953
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          150.93,
+          152.94205
+        ],
+        "label": "place_bvm"
+      }
+    ],
+    "feature_frame": 4584,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/5/ego/ng8_cardiacarrest_5_ego_rgb_final.mp4": {
+    "duration_second": 122.76666666666667,
+    "duration_frame": 3683,
+    "annotations": [
+      {
+        "segment": [
+          1.10642,
+          3.35642
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          3.79392,
+          21.60642
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          22.35642,
+          23.85642
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          24.50226,
+          28.37726
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          37.02309,
+          48.54392
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          48.71059,
+          58.33559
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          60.64809,
+          65.27309
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          66.73142,
+          71.85642
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          72.60642,
+          91.83559
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          92.31476,
+          95.87726
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          96.12726,
+          99.43976
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          100.60642,
+          115.54392
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          116.04392,
+          118.33559
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          118.68976,
+          121.66892
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 3683,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng8/cardiac_arrest/7/ego/ng8_cardiacarrest_7_ego_rgb_final.mp4": {
+    "duration_second": 111.7,
+    "duration_frame": 3351,
+    "annotations": [
+      {
+        "segment": [
+          3.812,
+          6.43976
+        ],
+        "label": "turn_on_aed"
+      },
+      {
+        "segment": [
+          9.37726,
+          17.68976
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          20.56476,
+          37.18976
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          37.50226,
+          46.68976
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          49.46059,
+          55.06476
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          55.065,
+          60.00226
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          60.73142,
+          80.14809
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          80.62726,
+          83.37726
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          83.48142,
+          85.68976
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          88.12726,
+          103.91892
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          104.29392,
+          107.35642
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          107.50226,
+          110.48142
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 3351,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/ng9/cardiac_arrest/1/ego/ng9_cardiacarrest_1_ego_rgb_final.mp4": {
+    "duration_second": 83.36666666666666,
+    "duration_frame": 2501,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          3.182
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          3.182,
+          5.455
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          5.455,
+          9.561
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          9.561,
+          29.655
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          29.655,
+          30.681
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          30.90542,
+          32.609
+        ],
+        "label": "place_bvm"
+      },
+      {
+        "segment": [
+          36.542,
+          51.96711
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          56.40542,
+          58.607
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          71.30542,
+          72.993
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 2501,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_1/stroke/1/ego/opvrs1_stroke_1_ego_rgb_final.mp4": {
+    "duration_second": 493.43333333333334,
+    "duration_frame": 14803,
+    "annotations": [
+      {
+        "segment": [
+          40.275,
+          50.10677
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          50.273,
+          62.62733
+        ],
+        "label": "assess_patient"
+      },
+      {
+        "segment": [
+          64.211,
+          89.65848
+        ],
+        "label": "check_symptom_duration"
+      },
+      {
+        "segment": [
+          100.298,
+          102.12771
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          102.12771,
+          118.62771
+        ],
+        "label": "check_symptom_duration"
+      },
+      {
+        "segment": [
+          119.11,
+          136.13248
+        ],
+        "label": "check_a&o"
+      },
+      {
+        "segment": [
+          136.447,
+          153.8721
+        ],
+        "label": "document_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          296.253,
+          338.723
+        ],
+        "label": "load_patient_to_stretcher"
+      },
+      {
+        "segment": [
+          338.723,
+          351.22951
+        ],
+        "label": "secure_patient_on_stretcher"
+      }
+    ],
+    "feature_frame": 14803,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_11/stroke/0/ego/opvrs11_stroke_0_ego_rgb_final.mp4": {
+    "duration_second": 261.8,
+    "duration_frame": 7854,
+    "annotations": [
+      {
+        "segment": [
+          23.482,
+          31.02692
+        ],
+        "label": "approach_patient"
+      }
+    ],
+    "feature_frame": 7854,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_12/chest_pain_noncardiac/0/ego/opvrs12_chestpainnoncardiac_0_ego_rgb_final.mp4": {
+    "duration_second": 605.3333333333334,
+    "duration_frame": 18160,
+    "annotations": [
+      {
+        "segment": [
+          144.09,
+          185.93306
+        ],
+        "label": "check_blood_pressure"
+      },
+      {
+        "segment": [
+          384.697,
+          413.09707
+        ],
+        "label": "secure_patient_on_stretcher"
+      },
+      {
+        "segment": [
+          427.515,
+          434.31924
+        ],
+        "label": "transport"
+      }
+    ],
+    "feature_frame": 18160,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_13/stroke_hypoglycemic/0/ego/opvrs13_strokehypoglycemic_0_ego_rgb_final.mp4": {
+    "duration_second": 582.5333333333333,
+    "duration_frame": 17476,
+    "annotations": [
+      {
+        "segment": [
+          7.027,
+          15.60766
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          20.777,
+          22.093
+        ],
+        "label": "inquire_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          40.845,
+          43.14167
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          50.527,
+          55.027
+        ],
+        "label": "check_skin_condition"
+      },
+      {
+        "segment": [
+          90.527,
+          93.3589
+        ],
+        "label": "assess_balance_and_coordination"
+      },
+      {
+        "segment": [
+          100.854,
+          106.50178
+        ],
+        "label": "check_perrl"
+      },
+      {
+        "segment": [
+          119.996,
+          126.60059
+        ],
+        "label": "face_droop_check"
+      },
+      {
+        "segment": [
+          135.131,
+          145.32729
+        ],
+        "label": "arm_drift_check"
+      },
+      {
+        "segment": [
+          150.022,
+          158.17575
+        ],
+        "label": "speech_abnormality_check"
+      },
+      {
+        "segment": [
+          158.859,
+          165.6878
+        ],
+        "label": "inquire_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          220.027,
+          232.93217
+        ],
+        "label": "check_blood_pressure"
+      },
+      {
+        "segment": [
+          242.027,
+          244.32333
+        ],
+        "label": "inquire_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          265.606,
+          265.606
+        ],
+        "label": "check_oxygen_saturation"
+      },
+      {
+        "segment": [
+          265.606,
+          267.98583
+        ],
+        "label": "check_heart_rate"
+      },
+      {
+        "segment": [
+          362.277,
+          367.09664
+        ],
+        "label": "place_right_arm_lead"
+      },
+      {
+        "segment": [
+          381.425,
+          386.69772
+        ],
+        "label": "place_right_leg_lead"
+      },
+      {
+        "segment": [
+          390.613,
+          392.38889
+        ],
+        "label": "place_left_leg_lead"
+      },
+      {
+        "segment": [
+          395.777,
+          399.09354
+        ],
+        "label": "ask_patient_age_sex"
+      },
+      {
+        "segment": [
+          405.814,
+          409.59684
+        ],
+        "label": "place_left_arm_lead"
+      },
+      {
+        "segment": [
+          449.163,
+          450.50321
+        ],
+        "label": "place_v2_lead"
+      },
+      {
+        "segment": [
+          453.149,
+          455.26889
+        ],
+        "label": "place_v6_lead"
+      },
+      {
+        "segment": [
+          459.181,
+          459.99317
+        ],
+        "label": "place_v1_lead"
+      },
+      {
+        "segment": [
+          466.201,
+          467.04155
+        ],
+        "label": "place_v3_lead"
+      },
+      {
+        "segment": [
+          469.34648,
+          470.18095
+        ],
+        "label": "place_v4_lead"
+      },
+      {
+        "segment": [
+          470.602,
+          471.71514
+        ],
+        "label": "place_v5_lead"
+      },
+      {
+        "segment": [
+          482.0271,
+          485.08215
+        ],
+        "label": "request_patient_to_not_move"
+      },
+      {
+        "segment": [
+          498.224,
+          502.74483
+        ],
+        "label": "obtain_ecg_recording"
+      },
+      {
+        "segment": [
+          505.905,
+          510.13193
+        ],
+        "label": "interpret_and_report"
+      }
+    ],
+    "feature_frame": 17476,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_13/chest_pain/0/ego/opvrs13_chestpain_0_ego_rgb_final.mp4": {
+    "duration_second": 419.6333333333333,
+    "duration_frame": 12589,
+    "annotations": [
+      {
+        "segment": [
+          110.577,
+          186.31478
+        ],
+        "label": "check_blood_pressure"
+      },
+      {
+        "segment": [
+          187.831,
+          190.73853
+        ],
+        "label": "place_right_arm_lead"
+      },
+      {
+        "segment": [
+          198.445,
+          205.41164
+        ],
+        "label": "place_right_leg_lead"
+      },
+      {
+        "segment": [
+          211.802,
+          214.37972
+        ],
+        "label": "place_left_arm_lead"
+      },
+      {
+        "segment": [
+          222.453,
+          226.05913
+        ],
+        "label": "place_left_leg_lead"
+      },
+      {
+        "segment": [
+          234.277,
+          242.15753
+        ],
+        "label": "place_v4_lead"
+      },
+      {
+        "segment": [
+          247.0271,
+          251.2649
+        ],
+        "label": "place_v6_lead"
+      },
+      {
+        "segment": [
+          342.3,
+          347.07807
+        ],
+        "label": "load_patient_to_stretcher"
+      },
+      {
+        "segment": [
+          348.777,
+          375.33615
+        ],
+        "label": "secure_patient_on_stretcher"
+      },
+      {
+        "segment": [
+          411.963,
+          416.28419
+        ],
+        "label": "transport"
+      }
+    ],
+    "feature_frame": 12589,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_14/stroke/1/ego/opvrs14_stroke_1_ego_rgb_final.mp4": {
+    "duration_second": 493.46666666666664,
+    "duration_frame": 14804,
+    "annotations": [
+      {
+        "segment": [
+          57.244,
+          62.40416
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          223.54,
+          229.24761
+        ],
+        "label": "check_blood_pressure"
+      },
+      {
+        "segment": [
+          235.766,
+          241.30882
+        ],
+        "label": "check_oxygen_saturation"
+      },
+      {
+        "segment": [
+          321.376,
+          336.90318
+        ],
+        "label": "load_patient_to_stretcher"
+      },
+      {
+        "segment": [
+          342.72,
+          347.16759
+        ],
+        "label": "secure_patient_on_stretcher"
+      },
+      {
+        "segment": [
+          356.354,
+          376.1243
+        ],
+        "label": "transport"
+      }
+    ],
+    "feature_frame": 14804,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_2/chest_pain/0/ego/opvrs2_chestpain_0_ego_rgb_final.mp4": {
+    "duration_second": 545.2333333333333,
+    "duration_frame": 16357,
+    "annotations": [
+      {
+        "segment": [
+          70.96059,
+          78.80901
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          78.836,
+          102.77
+        ],
+        "label": "assess_patient"
+      },
+      {
+        "segment": [
+          102.77,
+          114.37726
+        ],
+        "label": "check_symptom_duration"
+      },
+      {
+        "segment": [
+          123.546,
+          127.09202
+        ],
+        "label": "explain_procedure"
+      },
+      {
+        "segment": [
+          131.348,
+          134.99586
+        ],
+        "label": "ask_patient_age_sex"
+      },
+      {
+        "segment": [
+          146.005,
+          159.794
+        ],
+        "label": "assess_patient"
+      },
+      {
+        "segment": [
+          159.794,
+          169.84826
+        ],
+        "label": "document_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          189.096,
+          195.90286
+        ],
+        "label": "document_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          289.251,
+          304.80285
+        ],
+        "label": "load_patient_to_stretcher"
+      },
+      {
+        "segment": [
+          304.803,
+          306.874
+        ],
+        "label": "secure_patient_on_stretcher"
+      },
+      {
+        "segment": [
+          306.874,
+          327.01812
+        ],
+        "label": "assess_patient"
+      },
+      {
+        "segment": [
+          327.309,
+          332.53715
+        ],
+        "label": "inquire_medication_anticoagulants"
+      },
+      {
+        "segment": [
+          359.564,
+          377.05088
+        ],
+        "label": "review_medications"
+      }
+    ],
+    "feature_frame": 16357,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_3/stroke/2/ego/opvrs3_stroke_2_ego_rgb_final.mp4": {
+    "duration_second": 461.93333333333334,
+    "duration_frame": 13858,
+    "annotations": [
+      {
+        "segment": [
+          32.35642,
+          36.04842
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          54.18976,
+          67.07793
+        ],
+        "label": "inquire_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          69.022,
+          73.31773
+        ],
+        "label": "document_lkw_time"
+      },
+      {
+        "segment": [
+          143.099,
+          144.96343
+        ],
+        "label": "explain_procedure"
+      },
+      {
+        "segment": [
+          148.524,
+          156.82843
+        ],
+        "label": "load_patient_to_stretcher"
+      },
+      {
+        "segment": [
+          158.117,
+          167.75206
+        ],
+        "label": "secure_patient_on_stretcher"
+      },
+      {
+        "segment": [
+          173.928,
+          174.02309
+        ],
+        "label": "transport"
+      },
+      {
+        "segment": [
+          174.02309,
+          176.481
+        ],
+        "label": "review_medications"
+      },
+      {
+        "segment": [
+          195.488,
+          196.8637
+        ],
+        "label": "prepare_glucometer_and_strip"
+      },
+      {
+        "segment": [
+          200.599,
+          206.60642
+        ],
+        "label": "prepare_glucometer_and_strip"
+      },
+      {
+        "segment": [
+          206.669,
+          213.69529
+        ],
+        "label": "read_and_record_glucose_level"
+      },
+      {
+        "segment": [
+          224.25226,
+          226.99
+        ],
+        "label": "check_heart_rate"
+      },
+      {
+        "segment": [
+          226.99,
+          230.00023
+        ],
+        "label": "check_oxygen_saturation"
+      },
+      {
+        "segment": [
+          315.994,
+          320.18955
+        ],
+        "label": "place_v6_lead"
+      },
+      {
+        "segment": [
+          323.206,
+          332.5514
+        ],
+        "label": "place_v5_lead"
+      },
+      {
+        "segment": [
+          336.468,
+          347.75141
+        ],
+        "label": "place_v4_lead"
+      },
+      {
+        "segment": [
+          355.986,
+          358.02309
+        ],
+        "label": "place_v3_lead"
+      },
+      {
+        "segment": [
+          359.21059,
+          362.22976
+        ],
+        "label": "ask_patient_age_sex"
+      },
+      {
+        "segment": [
+          369.19,
+          372.96161
+        ],
+        "label": "request_patient_to_not_move"
+      },
+      {
+        "segment": [
+          375.154,
+          400.98142
+        ],
+        "label": "obtain_ecg_recording"
+      },
+      {
+        "segment": [
+          400.98142,
+          411.09132
+        ],
+        "label": "interpret_and_report"
+      }
+    ],
+    "feature_frame": 13858,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_4/stroke/0/ego/opvrs4_stroke_0_ego_rgb_final.mp4": {
+    "duration_second": 823.8333333333334,
+    "duration_frame": 24715,
+    "annotations": [
+      {
+        "segment": [
+          95.462,
+          100.252
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          100.252,
+          101.25903
+        ],
+        "label": "inquire_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          233.842,
+          236.44022
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          246.4257,
+          250.75903
+        ],
+        "label": "inquire_substance_use"
+      },
+      {
+        "segment": [
+          258.592,
+          260.46474
+        ],
+        "label": "inquire_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          275.676,
+          275.676
+        ],
+        "label": "inquire_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          275.676,
+          277.095
+        ],
+        "label": "inquire_medication_anticoagulants"
+      },
+      {
+        "segment": [
+          341.749,
+          388.27082
+        ],
+        "label": "prepare_glucometer_and_strip"
+      },
+      {
+        "segment": [
+          388.771,
+          395.18041
+        ],
+        "label": "read_and_record_glucose_level"
+      },
+      {
+        "segment": [
+          456.234,
+          476.39741
+        ],
+        "label": "check_respiratory_rate"
+      },
+      {
+        "segment": [
+          583.657,
+          596.06657
+        ],
+        "label": "obtain_ecg_recording"
+      },
+      {
+        "segment": [
+          638.137,
+          648.7369
+        ],
+        "label": "load_patient_to_stretcher"
+      },
+      {
+        "segment": [
+          652.783,
+          653.783
+        ],
+        "label": "secure_patient_on_stretcher"
+      },
+      {
+        "segment": [
+          679.671,
+          698.6376
+        ],
+        "label": "transport"
+      },
+      {
+        "segment": [
+          779.14,
+          817.52354
+        ],
+        "label": "notify_hospital"
+      }
+    ],
+    "feature_frame": 24715,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_4/stroke/2/ego/opvrs4_stroke_2_ego_rgb_final.mp4": {
+    "duration_second": 609.2666666666667,
+    "duration_frame": 18278,
+    "annotations": [
+      {
+        "segment": [
+          95.0271,
+          97.119
+        ],
+        "label": "inquire_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          117.527,
+          120.78996
+        ],
+        "label": "inquire_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          128.277,
+          141.06079
+        ],
+        "label": "speech_abnormality_check"
+      },
+      {
+        "segment": [
+          168.527,
+          172.71011
+        ],
+        "label": "inquire_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          179.777,
+          183.525
+        ],
+        "label": "inquire_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          219.104,
+          317.457
+        ],
+        "label": "arm_drift_check"
+      },
+      {
+        "segment": [
+          317.457,
+          330.04438
+        ],
+        "label": "load_patient_to_stretcher"
+      },
+      {
+        "segment": [
+          338.839,
+          343.04846
+        ],
+        "label": "secure_patient_on_stretcher"
+      },
+      {
+        "segment": [
+          349.686,
+          354.26863
+        ],
+        "label": "transport"
+      },
+      {
+        "segment": [
+          357.261,
+          360.37814
+        ],
+        "label": "face_droop_check"
+      },
+      {
+        "segment": [
+          432.363,
+          477.5271
+        ],
+        "label": "notify_hospital"
+      }
+    ],
+    "feature_frame": 18278,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_4/stroke_unresponsive/0/ego/opvrs4_strokeunresponsive_0_ego_rgb_final.mp4": {
+    "duration_second": 468.4,
+    "duration_frame": 14052,
+    "annotations": [
+      {
+        "segment": [
+          65.027,
+          71.10091
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          95.147,
+          99.57256
+        ],
+        "label": "check_grip_strength"
+      },
+      {
+        "segment": [
+          138.502,
+          198.18126
+        ],
+        "label": "check_blood_pressure"
+      },
+      {
+        "segment": [
+          238.185,
+          248.51788
+        ],
+        "label": "load_patient_to_stretcher"
+      },
+      {
+        "segment": [
+          265.78,
+          274.46393
+        ],
+        "label": "secure_patient_on_stretcher"
+      },
+      {
+        "segment": [
+          291.611,
+          297.76658
+        ],
+        "label": "transport"
+      }
+    ],
+    "feature_frame": 14052,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_7/stroke/0/ego/opvrs7_stroke_0_ego_rgb_final.mp4": {
+    "duration_second": 607.2333333333333,
+    "duration_frame": 18217,
+    "annotations": [
+      {
+        "segment": [
+          90.662,
+          96.83768
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          109.6,
+          114.36501
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          142.633,
+          145.25888
+        ],
+        "label": "check_oxygen_saturation"
+      },
+      {
+        "segment": [
+          146.777,
+          192.95257
+        ],
+        "label": "check_blood_pressure"
+      },
+      {
+        "segment": [
+          203.841,
+          231.37726
+        ],
+        "label": "prepare_glucometer_and_strip"
+      },
+      {
+        "segment": [
+          231.62726,
+          247.85923
+        ],
+        "label": "read_and_record_glucose_level"
+      },
+      {
+        "segment": [
+          315.473,
+          328.68976
+        ],
+        "label": "load_patient_to_stretcher"
+      },
+      {
+        "segment": [
+          328.69,
+          342.06162
+        ],
+        "label": "secure_patient_on_stretcher"
+      },
+      {
+        "segment": [
+          349.454,
+          377.67371
+        ],
+        "label": "transport"
+      },
+      {
+        "segment": [
+          397.106,
+          401.02309
+        ],
+        "label": "check_oxygen_saturation"
+      }
+    ],
+    "feature_frame": 18217,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_8/stroke/0/ego/opvrs8_stroke_0_ego_rgb_final.mp4": {
+    "duration_second": 461.96666666666664,
+    "duration_frame": 13859,
+    "annotations": [
+      {
+        "segment": [
+          31.468,
+          34.94029
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          35.169,
+          49.44331
+        ],
+        "label": "assess_patient"
+      },
+      {
+        "segment": [
+          49.884,
+          56.42764
+        ],
+        "label": "inquire_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          76.58,
+          82.77284
+        ],
+        "label": "check_grip_strength"
+      },
+      {
+        "segment": [
+          83.609,
+          89.48981
+        ],
+        "label": "arm_drift_check"
+      },
+      {
+        "segment": [
+          90.29392,
+          95.91935
+        ],
+        "label": "face_droop_check"
+      },
+      {
+        "segment": [
+          95.961,
+          102.76813
+        ],
+        "label": "speech_abnormality_check"
+      },
+      {
+        "segment": [
+          104.37726,
+          113.84068
+        ],
+        "label": "check_perrl"
+      },
+      {
+        "segment": [
+          124.19,
+          128.48293
+        ],
+        "label": "check_oxygen_saturation"
+      },
+      {
+        "segment": [
+          140.33,
+          161.62556
+        ],
+        "label": "load_patient_to_stretcher"
+      },
+      {
+        "segment": [
+          162.775,
+          170.92733
+        ],
+        "label": "secure_patient_on_stretcher"
+      },
+      {
+        "segment": [
+          178.284,
+          181.50226
+        ],
+        "label": "transport"
+      },
+      {
+        "segment": [
+          181.50226,
+          188.04697
+        ],
+        "label": "review_medications"
+      },
+      {
+        "segment": [
+          196.711,
+          203.40374
+        ],
+        "label": "prepare_glucometer_and_strip"
+      },
+      {
+        "segment": [
+          209.237,
+          213.1929
+        ],
+        "label": "read_and_record_glucose_level"
+      },
+      {
+        "segment": [
+          244.16,
+          251.60854
+        ],
+        "label": "check_blood_pressure"
+      },
+      {
+        "segment": [
+          260.068,
+          263.27078
+        ],
+        "label": "explain_procedure"
+      },
+      {
+        "segment": [
+          299.211,
+          303.31476
+        ],
+        "label": "place_left_arm_lead"
+      },
+      {
+        "segment": [
+          303.544,
+          313.90931
+        ],
+        "label": "place_right_arm_lead"
+      },
+      {
+        "segment": [
+          315.181,
+          319.98789
+        ],
+        "label": "place_left_leg_lead"
+      },
+      {
+        "segment": [
+          323.132,
+          331.30802
+        ],
+        "label": "place_right_leg_lead"
+      },
+      {
+        "segment": [
+          341.815,
+          348.17923
+        ],
+        "label": "place_v1_lead"
+      },
+      {
+        "segment": [
+          349.669,
+          361.41178
+        ],
+        "label": "place_v2_lead"
+      },
+      {
+        "segment": [
+          362.928,
+          366.00057
+        ],
+        "label": "request_patient_to_not_move"
+      },
+      {
+        "segment": [
+          421.928,
+          460.19422
+        ],
+        "label": "notify_hospital_of_stroke_alert"
+      }
+    ],
+    "feature_frame": 13859,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_9/stroke/0/ego/opvrs9_stroke_0_ego_rgb_final.mp4": {
+    "duration_second": 735.6,
+    "duration_frame": 22068,
+    "annotations": [
+      {
+        "segment": [
+          53.338,
+          57.83562
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          88.85,
+          124.08329
+        ],
+        "label": "inquire_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          126.507,
+          130.93761
+        ],
+        "label": "review_medications"
+      },
+      {
+        "segment": [
+          131.62,
+          138.67944
+        ],
+        "label": "inquire_hpi_and_pmh"
+      },
+      {
+        "segment": [
+          154.039,
+          159.40722
+        ],
+        "label": "document_lkw_time"
+      },
+      {
+        "segment": [
+          209.19,
+          223.06761
+        ],
+        "label": "prepare_glucometer_and_strip"
+      },
+      {
+        "segment": [
+          227.664,
+          247.97425
+        ],
+        "label": "read_and_record_glucose_level"
+      },
+      {
+        "segment": [
+          261.56476,
+          269.715
+        ],
+        "label": "request_assistance"
+      },
+      {
+        "segment": [
+          377.989,
+          517.82532
+        ],
+        "label": "load_patient_to_stretcher"
+      },
+      {
+        "segment": [
+          519.561,
+          538.94399
+        ],
+        "label": "secure_patient_on_stretcher"
+      },
+      {
+        "segment": [
+          550.102,
+          605.87863
+        ],
+        "label": "transport"
+      },
+      {
+        "segment": [
+          618.998,
+          690.51815
+        ],
+        "label": "check_blood_pressure"
+      }
+    ],
+    "feature_frame": 22068,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/opvrs_9/stroke_hypoglycemic/0/ego/opvrs9_strokehypoglycemic_0_ego_rgb_final.mp4": {
+    "duration_second": 582.4666666666667,
+    "duration_frame": 17474,
+    "annotations": [
+      {
+        "segment": [
+          16.997,
+          21.94808
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          190.255,
+          213.73523
+        ],
+        "label": "prepare_glucometer_and_strip"
+      },
+      {
+        "segment": [
+          215.712,
+          225.20674
+        ],
+        "label": "read_and_record_glucose_level"
+      },
+      {
+        "segment": [
+          246.151,
+          253.63799
+        ],
+        "label": "review_medications"
+      },
+      {
+        "segment": [
+          345.50226,
+          366.47856
+        ],
+        "label": "assess_patient"
+      }
+    ],
+    "feature_frame": 17474,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/wa1/cardiac_arrest/4/ego/wa1_cardiacarrest_4_ego_rgb_final.mp4": {
+    "duration_second": 708.0666666666667,
+    "duration_frame": 21242,
+    "annotations": [
+      {
+        "segment": [
+          1.502,
+          2.856
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          2.856,
+          6.50978
+        ],
+        "label": "check_responsiveness"
+      },
+      {
+        "segment": [
+          6.51,
+          9.098
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          9.098,
+          27.43413
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          28.422,
+          30.48142
+        ],
+        "label": "attach_defib_pads"
+      },
+      {
+        "segment": [
+          30.48142,
+          31.377
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          31.377,
+          45.31678
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          46.241,
+          49.75784
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          49.758,
+          50.758
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          55.845,
+          57.13887
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          59.033,
+          77.38887
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          77.389,
+          78.68538
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          79.71059,
+          98.80586
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          100.392,
+          101.9222
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          102.33559,
+          120.32277
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          120.495,
+          124.05474
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          124.619,
+          172.93976
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          173.00542,
+          174.80542
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          174.80542,
+          174.828
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          174.828,
+          176.65542
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          177.655,
+          194.9102
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          198.47,
+          215.29178
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          215.292,
+          218.81215
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          219.955,
+          235.97993
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          236.083,
+          239.14729
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          239.551,
+          256.61555
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          257.396,
+          259.70013
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          260.807,
+          277.30778
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          277.308,
+          281.80368
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          282.148,
+          293.748
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          293.748,
+          296.60395
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          296.63177,
+          298.34
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          298.34,
+          314.95583
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          314.956,
+          318.64654
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          318.647,
+          336.1664
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          336.515,
+          340.28676
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          340.287,
+          356.846
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          356.846,
+          360.934
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          360.934,
+          377.028
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          377.028,
+          381.32486
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          381.325,
+          397.45677
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          397.927,
+          401.55886
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          401.559,
+          417.7469
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          417.834,
+          425.494
+        ],
+        "label": "check_pulse"
+      },
+      {
+        "segment": [
+          425.494,
+          439.24652
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          439.247,
+          441.24
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          441.24,
+          442.58
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          442.58,
+          459.237
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          459.237,
+          462.62835
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          463.492,
+          479.16479
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          479.165,
+          483.1925
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          483.193,
+          502.678
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          502.678,
+          508.2068
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          508.207,
+          525.23
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          525.23,
+          529.976
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          529.976,
+          549.10859
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          549.109,
+          553.357
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          553.357,
+          566.71796
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          566.718,
+          568.993
+        ],
+        "label": "clear_for_shock"
+      },
+      {
+        "segment": [
+          568.993,
+          572.137
+        ],
+        "label": "administer_shock_aed"
+      },
+      {
+        "segment": [
+          572.137,
+          590.653
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          590.653,
+          595.01759
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          595.018,
+          611.92565
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          611.926,
+          616.22482
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          616.225,
+          632.68893
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          632.689,
+          636.54892
+        ],
+        "label": "ventilate_patient"
+      },
+      {
+        "segment": [
+          636.549,
+          658.121
+        ],
+        "label": "chest_compressions"
+      },
+      {
+        "segment": [
+          658.121,
+          672.23669
+        ],
+        "label": "clear_for_analysis"
+      },
+      {
+        "segment": [
+          673.184,
+          687.52828
+        ],
+        "label": "ventilate_patient"
+      }
+    ],
+    "feature_frame": 21242,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/wa1/cardiac_scenario/0/ego/wa1_cardiacscenario_0_ego_rgb_final.mp4": {
+    "duration_second": 360.06666666666666,
+    "duration_frame": 10802,
+    "annotations": [
+      {
+        "segment": [
+          24.649,
+          29.30568
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          29.306,
+          38.46555
+        ],
+        "label": "assess_patient"
+      },
+      {
+        "segment": [
+          38.466,
+          50.58426
+        ],
+        "label": "explain_procedure"
+      },
+      {
+        "segment": [
+          89.309,
+          92.08125
+        ],
+        "label": "place_right_arm_lead"
+      },
+      {
+        "segment": [
+          96.627,
+          102.36309
+        ],
+        "label": "place_left_arm_lead"
+      },
+      {
+        "segment": [
+          114.771,
+          118.23498
+        ],
+        "label": "place_right_leg_lead"
+      },
+      {
+        "segment": [
+          123.298,
+          126.42131
+        ],
+        "label": "place_left_leg_lead"
+      },
+      {
+        "segment": [
+          159.917,
+          174.99099
+        ],
+        "label": "place_v1_lead"
+      },
+      {
+        "segment": [
+          201.675,
+          208.45406
+        ],
+        "label": "place_v2_lead"
+      },
+      {
+        "segment": [
+          214.694,
+          222.2191
+        ],
+        "label": "place_v4_lead"
+      },
+      {
+        "segment": [
+          231.319,
+          235.91503
+        ],
+        "label": "place_v3_lead"
+      },
+      {
+        "segment": [
+          240.673,
+          247.50518
+        ],
+        "label": "place_v6_lead"
+      },
+      {
+        "segment": [
+          249.059,
+          251.701
+        ],
+        "label": "place_v5_lead"
+      },
+      {
+        "segment": [
+          251.701,
+          254.95719
+        ],
+        "label": "ask_patient_age_sex"
+      },
+      {
+        "segment": [
+          255.04,
+          257.36768
+        ],
+        "label": "connect_leads_to_ecg"
+      },
+      {
+        "segment": [
+          259.504,
+          263.029
+        ],
+        "label": "request_patient_to_not_move"
+      },
+      {
+        "segment": [
+          263.029,
+          324.32682
+        ],
+        "label": "obtain_ecg_recording"
+      },
+      {
+        "segment": [
+          324.327,
+          348.79319
+        ],
+        "label": "interpret_and_report"
+      }
+    ],
+    "feature_frame": 10802,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/wa1/cardiac_scenario/2/ego/wa1_cardiacscenario_2_ego_rgb_final.mp4": {
+    "duration_second": 281.03333333333336,
+    "duration_frame": 8431,
+    "annotations": [
+      {
+        "segment": [
+          0,
+          3.099
+        ],
+        "label": "no_action"
+      },
+      {
+        "segment": [
+          3.099,
+          7.8727
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          7.873,
+          56.296
+        ],
+        "label": "assess_patient"
+      },
+      {
+        "segment": [
+          56.296,
+          68.589
+        ],
+        "label": "place_right_arm_lead"
+      },
+      {
+        "segment": [
+          68.589,
+          84.707
+        ],
+        "label": "place_left_arm_lead"
+      },
+      {
+        "segment": [
+          84.707,
+          98.01474
+        ],
+        "label": "place_left_leg_lead"
+      },
+      {
+        "segment": [
+          98.015,
+          103.93631
+        ],
+        "label": "place_right_leg_lead"
+      },
+      {
+        "segment": [
+          144.848,
+          144.848
+        ],
+        "label": "place_v1_lead"
+      },
+      {
+        "segment": [
+          144.848,
+          155.31265
+        ],
+        "label": "place_v6_lead"
+      },
+      {
+        "segment": [
+          155.313,
+          166.27113
+        ],
+        "label": "place_v5_lead"
+      },
+      {
+        "segment": [
+          172.207,
+          177.94187
+        ],
+        "label": "place_v2_lead"
+      },
+      {
+        "segment": [
+          177.942,
+          178.705
+        ],
+        "label": "place_v3_lead"
+      },
+      {
+        "segment": [
+          178.705,
+          183.84085
+        ],
+        "label": "place_v4_lead"
+      },
+      {
+        "segment": [
+          187.547,
+          191.01596
+        ],
+        "label": "ask_patient_age_sex"
+      },
+      {
+        "segment": [
+          193.998,
+          198.374
+        ],
+        "label": "request_patient_to_not_move"
+      },
+      {
+        "segment": [
+          198.374,
+          247.77892
+        ],
+        "label": "obtain_ecg_recording"
+      },
+      {
+        "segment": [
+          247.779,
+          269.14095
+        ],
+        "label": "interpret_and_report"
+      },
+      {
+        "segment": [
+          278.69,
+          281.2742
+        ],
+        "label": "no_action"
+      }
+    ],
+    "feature_frame": 8431,
+    "fps": 30.0,
+    "rfps": 30.0
+  },
+  "/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/wa4/chest_pain/1/ego/wa4_chestpain_1_ego_rgb_final.mp4": {
+    "duration_second": 327.2,
+    "duration_frame": 9816,
+    "annotations": [
+      {
+        "segment": [
+          2.199,
+          6.642
+        ],
+        "label": "approach_patient"
+      },
+      {
+        "segment": [
+          6.642,
+          17.93976
+        ],
+        "label": "assess_patient"
+      },
+      {
+        "segment": [
+          18.879,
+          22.648
+        ],
+        "label": "explain_procedure"
+      },
+      {
+        "segment": [
+          22.648,
+          100.65544
+        ],
+        "label": "assess_patient"
+      },
+      {
+        "segment": [
+          101.661,
+          110.60094
+        ],
+        "label": "place_left_leg_lead"
+      },
+      {
+        "segment": [
+          117.953,
+          130.71574
+        ],
+        "label": "place_left_arm_lead"
+      },
+      {
+        "segment": [
+          136.312,
+          144.06729
+        ],
+        "label": "place_right_arm_lead"
+      },
+      {
+        "segment": [
+          147.904,
+          154.2793
+        ],
+        "label": "place_right_leg_lead"
+      },
+      {
+        "segment": [
+          155.00226,
+          168.52662
+        ],
+        "label": "place_v1_lead"
+      },
+      {
+        "segment": [
+          169.72,
+          173.57237
+        ],
+        "label": "place_v2_lead"
+      },
+      {
+        "segment": [
+          173.66892,
+          183.32144
+        ],
+        "label": "place_v4_lead"
+      },
+      {
+        "segment": [
+          184.162,
+          190.34916
+        ],
+        "label": "place_v3_lead"
+      },
+      {
+        "segment": [
+          192.731,
+          199.08559
+        ],
+        "label": "place_v6_lead"
+      },
+      {
+        "segment": [
+          199.086,
+          200.448
+        ],
+        "label": "place_v5_lead"
+      },
+      {
+        "segment": [
+          200.448,
+          204.395
+        ],
+        "label": "request_patient_to_not_move"
+      },
+      {
+        "segment": [
+          204.395,
+          206.31476
+        ],
+        "label": "explain_procedure"
+      },
+      {
+        "segment": [
+          206.315,
+          210.23111
+        ],
+        "label": "ask_patient_age_sex"
+      },
+      {
+        "segment": [
+          211.463,
+          216.29119
+        ],
+        "label": "obtain_ecg_recording"
+      },
+      {
+        "segment": [
+          226.001,
+          255.96185
+        ],
+        "label": "connect_leads_to_ecg"
+      },
+      {
+        "segment": [
+          261.263,
+          264.705
+        ],
+        "label": "request_patient_to_not_move"
+      },
+      {
+        "segment": [
+          264.705,
+          314.50542
+        ],
+        "label": "obtain_ecg_recording"
+      },
+      {
+        "segment": [
+          314.618,
+          325.25459
+        ],
+        "label": "interpret_and_report"
+      }
+    ],
+    "feature_frame": 9816,
+    "fps": 30.0,
+    "rfps": 30.0
+  }
+}

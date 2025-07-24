@@ -11,6 +11,42 @@ import torchaudio.transforms as transforms
 # NEW: Add these two lines to import wav2vec
 from transformers import Wav2Vec2Processor, Wav2Vec2Model
 
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+class MultimodalFusion(nn.Module):
+    def __init__(self):
+        super().__init__()
+
+    def forward(self, audio_feats, resnet_feats, watch_feats):
+        # Get batch size and max sequence length
+        B = audio_feats.shape[0]
+        max_len = max(audio_feats.shape[1], resnet_feats.shape[1], watch_feats.shape[1])
+
+        def pad_to(x, max_len):
+            pad_len = max_len - x.shape[1]
+            if pad_len > 0:
+                # Pad along sequence dimension (dim=1) with zeros
+                pad_shape = (0, 0, 0, pad_len)  # pad (last dim, seq dim)
+                x = F.pad(x, pad=pad_shape, mode='constant', value=0)
+            return x
+
+        # Pad all to same length
+        audio_padded = pad_to(audio_feats, max_len)    # [B, max_len, 2048]
+        resnet_padded = pad_to(resnet_feats, max_len)  # [B, max_len, 2048]
+        watch_padded = pad_to(watch_feats, max_len)    # [B, max_len, 3]
+
+        # Concatenate features across the last dimension
+        fused = torch.cat([audio_padded, resnet_padded, watch_padded], dim=-1)  # [B, max_len, D_total]
+        return fused
+
+
+
 class PositionalEncoding(nn.Module):
 
     def __init__(self, d_model, dropout=0.1, max_len=5000):

@@ -21,10 +21,13 @@ if __name__ == "__main__":
     # get cmd line args
     parser = argparse.ArgumentParser(description="Training script for recognition")
     parser.add_argument('--job_id', type=str, help='SLURM job ID')
+    parser.add_argument('--modality', type=str, default=None, help='Override Modality to use for training')
     
+
     cmd_args = parser.parse_args()
     
     print(f"Job ID: {cmd_args.job_id}")
+    print(f"Modality: {cmd_args.modality}")
 
     args = DefaultArgsNamespace()
 
@@ -44,8 +47,16 @@ if __name__ == "__main__":
     out_classes = len(keysteps)
 
     modality = args.dataloader_params['modality']
+
+    if cmd_args.modality is not None:
+        modality = cmd_args.modality
+        modality = modality.split(",") if ',' in modality else [modality]
+        args.dataloader_params['modality'] = modality
+        print(f"Overriding modality to: {modality}")
+
     print("Modality: ", modality)
     print("Num of classes: ", out_classes)
+
 
     window = args.dataloader_params['observation_window']
     print("Window: ", window)

@@ -1,9 +1,14 @@
-model,modality,average_precision,average_recall,average_f1,accuracy,edit_score,edit_distance
-MTRSAP,Ego Video (Resnet),0.47,0.54,0.48,0.59,0.61,7
-MTRSAP,Ego Video (I3D Flow+RGB),0.50,0.56,0.52,0.62,0.63,6
-MTRSAP,IMU (Smartwatch),0.33,0.39,0.34,0.47,0.47,9
-MTRSAP, Ego + Exo Video (Resnet),0.43,0.51,0.45,0.58,0.60,7
-MTRSAP, Ego Video + Audio (Resnet+Mel-Spectrogram),0.14,0.19,0.15,0.29,0.30,13
-TimeSformer,Ego Video,0.300,0.377,0.315,0.443,0.469,10
-CLIP,Ego Video,0.01,0.057,0.016,0.049,0.053,18
-GPT-4o,Audio,0.424,0.479,0.428,0.458,0.464,10
+model,modality,average_precision,average_recall,average_f1,accuracy,top_5_accuracy
+MTRSAP,"Ego Video (Resnet50)",0.55,0.58,0.55,62.27,77.01
+MTRSAP,"Ego Video (I3D)",0.56,0.57,0.56,60.41,72.50
+MTRSAP,"Ego Video + IMU (Resnet50,Normalization)",0.55,0.58,0.56,62.18,76.14
+MTRSAP,"Smartwatch IMU",0.42,0.45,0.42,48.34,67.57
+MTRSAP,"Ego Video + Audio (Resnet50,Mel-Spectrogram)",0.19,0.23,0.2,25.67,44.38
+MTRSAP,"Ego Video + Audio (Resnet50,Wav2Vec2)",0.34,0.39,0.35,44.71,66.16
+MTRSAP,"Audio (Wav2Vec2)",0.26,0.27,0.26,33.25,52.14
+MTRSAP,"Exo Video (Resnet50)",0.70,0.69,0.68,75.58	 ,89.55
+TimeSformer,"Ego Video",0.26,0.25,0.24,50.74,76.53
+TSN,"Ego Video",0.32,0.3,0.29,57.53,73.58
+VideoLlama-3.3B,"Ego Video",0.16,0.17,0.16,18.51,
+Qwen-2.5,"Ego Video",0.33,0.35,0.34,38.3,
+GPT-4o,"Audio",0.17,0.19,0.18,23.89,
