@@ -6,6 +6,8 @@
 !Assets/*.png
 **/stats/*.csv
 
+*.psd
+
 
 Benchmarks/CPR_quality/smartwatch/swcode].zip
 

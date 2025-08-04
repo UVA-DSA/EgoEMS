@@ -165,9 +165,8 @@ def write_log_line(log_path, msg):
 
 GT_path = r'F:\EgoEMS Dataset\Dataset\Final'
 data_path = r'G:\Research\EgoEMS\Dataset\CPR\exo_kinect_cpr_clips'
-log_path = r'F:\repos\EgoExoEMS\Benchmarks\CPR_quality\vision\logs\july10_final_exocentric_kinect_cpr_rate_window_results.txt'
-debug_plots_path = r'F:\repos\EgoExoEMS\Benchmarks\CPR_quality\vision\debug_plots\july10_final_exocentric_kinect_cpr_rate_window_debug_plots'
-
+log_path = r'F:\repos\EgoExoEMS\Benchmarks\CPR_quality\vision\logs\july14_final_exocentric_kinect_cpr_rate_window_results.txt'
+debug_plots_path = r'F:\repos\EgoExoEMS\Benchmarks\CPR_quality\vision\debug_plots\july14_final_exocentric_kinect_cpr_rate_window_debug_plots'
 
 
 # delete the directory if it already exists
@@ -210,9 +209,14 @@ for n in ['test_root']:
         
         rgb_imgs, depth_imgs = extract_depth.read_video(os.path.join(data_dir, mkv_file))
 
-        # print("Number of RGB images: ", len(rgb_imgs))
-        # print("Number of depth images: ", len(depth_imgs))
-        # print("Number of keypoints: ", len(json_data.keys()))
+        print("Number of RGB images: ", len(rgb_imgs))
+        print("Number of depth images: ", len(depth_imgs))
+        print("Number of keypoints: ", len(json_data.keys()))
+
+        # check if depth imgs are empty
+        if len(depth_imgs) == 0:
+            print(f"No depth images found for {mkv_file}. Skipping...")
+            continue
 
         if not len(rgb_imgs) == len(json_data.keys()) and not len(depth_imgs) == len(json_data.keys()):
             print(f"Number of frames in RGB and depth videos do not match the number of keypoints in {json_file}")
@@ -220,6 +224,7 @@ for n in ['test_root']:
             # get only keypoints that have corresponding frames in the RGB and depth videos
             json_data = {k: v for k, v in json_data.items() if int(k) < len(rgb_imgs) and int(k) < len(depth_imgs)}
             print("Number of keypoints after filtering: ", len(json_data.keys()))
+
 
 
         keys = sorted([int(k) for k in json_data.keys()])
@@ -242,6 +247,10 @@ for n in ['test_root']:
         # Convert wrist coordinates to NumPy arrays for easier manipulation
         wrist_y = np.array(wrist_y, dtype=float)
         wrist_x = np.array(wrist_x, dtype=float)
+
+        # scale wrist coordinates to match the RGB and depth image dimensions
+        wrist_y = (wrist_y * depth_imgs[0].shape[0] / 480).astype(int)
+        wrist_x = (wrist_x * depth_imgs[0].shape[1] / 640).astype(int)
 
         # Use the matching_frame_indices to retrieve the corresponding RGB and depth frames
         matching_rgb_frames = [rgb_imgs[i] for i in matching_frame_indices]
@@ -317,7 +326,7 @@ for n in ['test_root']:
             wrist_y_window = low_pass_wrist_y[start:end].numpy()
             wrist_x_window = wrist_x[start:end]
 
-                      # Filter indices based on outlier detection for both X and Y
+            # Filter indices based on outlier detection for both X and Y
             x_filtered_indices = remove_outliers(wrist_x_window, threshold=1)
             y_filtered_indices = remove_outliers(wrist_y_window, threshold=1)
 
