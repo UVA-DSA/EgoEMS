@@ -37,7 +37,7 @@ from smartwatch_depth_estimator.cpr_depth_detection_smartwatch import initialize
 
 
 # cache dir for ego video hand keypoints
-CACHE_DIR = "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/GoPro_CPR_Clips/ego_gopro_cpr_clips/test_root/chest_compressions/"
+CACHE_DIR = "/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/GoPro_CPR_Clips/ego_gopro_cpr_clips/train_root/chest_compressions/"
 
 
 
@@ -166,6 +166,10 @@ def main():
         end_t = batch['end_t'][0]
         keystep_id = batch['keystep_id'][0]
 
+        # if subject is not ng2 and trial is not 0 skip
+        if not (subj == "ng2" and trial == "0"):
+            print(f"Skipping Subject: {subj}, Trial: {trial} (only ng2 trial 0 is processed)")
+            continue
         # convert tensor to string for video_id
         print(f"Processing Subject: {subj}, Trial: {trial}, Keystep_ID: {keystep_id}, Start: {start_t}, End: {end_t}")
    

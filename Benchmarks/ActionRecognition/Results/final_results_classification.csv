@@ -2,7 +2,7 @@ model,modality,average_precision,average_recall,average_f1,accuracy,top_5_accura
 MTRSAP,"Ego Video (Resnet50)",0.55,0.58,0.55,62.27,77.01
 MTRSAP,"Ego Video (I3D)",0.56,0.57,0.56,60.41,72.50
 MTRSAP,"Ego Video + IMU (Resnet50,Normalization)",0.55,0.58,0.56,62.18,76.14
-MTRSAP,"Smartwatch IMU",0.42,0.45,0.42,48.34,67.57
+MTRSAP,"Smartwatch IMU (Normalization)",0.42,0.45,0.42,48.34,67.57
 MTRSAP,"Ego Video + Audio (Resnet50,Mel-Spectrogram)",0.19,0.23,0.2,25.67,44.38
 MTRSAP,"Ego Video + Audio (Resnet50,Wav2Vec2)",0.34,0.39,0.35,44.71,66.16
 MTRSAP,"Audio (Wav2Vec2)",0.26,0.27,0.26,33.25,52.14

@@ -58,7 +58,7 @@ dataloader_params = {
     # update task specific parameters (Experimenting segmentation with classification annotations)
     "train_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/cpr_quality/aaai26_train_annotation_cpr_quality.json',
     "val_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/cpr_quality/aaai26_test_annotation_cpr_quality.json', # for cpr quality, we use the test set as validation set
-    "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/cpr_quality/aaai26_test_annotation_cpr_quality.json',
+    "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/cpr_quality/aaai26_train_annotation_cpr_quality.json',
     # Old dataset class
     'base_path': '/scratch/cjh9fw/Rivanna/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
     'modality': [ 'video','smartwatch', 'depth_sensor'],

@@ -25,7 +25,8 @@ python -u fusion_test.py \
   --batch_size 1 \
   --rate_weights_file ./weights/974053_fusion_weights.txt \
   --depth_weights_file ./weights/974053_fusion_depth_weights.txt \
-  --sw_model_checkpoint ./weights/best_smartwatch_model_999381.pth
+  --sw_model_checkpoint ./weights/best_smartwatch_model_999381.pth \
+  --job_id "${SLURM_JOB_ID}"
 
 echo "Done" &&
 exit
