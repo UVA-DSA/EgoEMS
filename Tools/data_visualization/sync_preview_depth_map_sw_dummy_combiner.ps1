@@ -28,16 +28,17 @@
 # Define path to ffmpeg (if not in system PATH)
 $ffmpegPath = "ffmpeg"
 
-# Define input video paths (replace with full paths if needed)
-$video1 = "F:\repos\EgoExoEMS\TestData\ng2_t0\videos_to_combine\ng2_t0_ego.mp4"
-$video4 = "F:\repos\EgoExoEMS\TestData\ng2_t0\videos_to_combine\ng2_t0_smartwatch_final.mp4"
-$video5 = "F:\repos\EgoExoEMS\TestData\ng2_t0\videos_to_combine\ng2_t0_depth_sensor.mp4"
+# Root path where videos are stored
+$rootPath = "F:\repos\EgoExoEMS\TestData\ng2_t0\videos_to_combine\"
 
-# Define output video path
-$outputVideo = "ng2_t0_modalities_final.mp4"
+# Define input video paths using Join-Path
+$video1 = Join-Path $rootPath "ng2_0_GX010341_encoded_trimmed_with_subtitles.mp4"
+$video4 = Join-Path $rootPath "ng2_t0_smartwatch.mp4"
+$video5 = Join-Path $rootPath "ng2_t0_depth_sensor.mp4"
 
 # Run ffmpeg command with filter complex for arranging videos horizontally
 & $ffmpegPath -i $video1 -i $video4 -i $video5 -filter_complex "[0:v]scale=640:360[v1];[1:v]scale=640:360[v4];[2:v]scale=640:360[v5];[v1][v4][v5]hstack=inputs=3[layout]" -map "[layout]" -c:v libx264 -pix_fmt yuv420p $outputVideo
 
-
+# Define output video path (saved in the same root folder)
+$outputVideo = Join-Path $rootPath "ng2_t0_modalities_final.mp4"
 Write-Output "Video combination complete! Output saved as $outputVideo"

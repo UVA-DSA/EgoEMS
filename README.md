@@ -10,7 +10,7 @@
 
 ## 🔥 News
 
-- **[2025/07]** Paper submitted to X.
+- **[2025/08]** Paper submitted to X.
 
 ---
 
@@ -41,7 +41,7 @@ Please visit each subfolder for detailed instructions, annotations, and code for
 
 ---
 
-## 📂 Data Access
+## 📂 Data Access (Will Be Updated Upon Publication)
 
 ### Option 1: Harvard Dataverse  
 [🔗 Full Dataset (TBD)]()
@@ -76,7 +76,7 @@ If you use this dataset in your work, please consider citing our paper:
 
 REDACTED
 
-📬 Contact: [REDACTED]() — PhD Candidate, Computer Engineering
+📬 Contact: [REDACTED]() — PhD Student, Computer Engineering
 
 ---
 
