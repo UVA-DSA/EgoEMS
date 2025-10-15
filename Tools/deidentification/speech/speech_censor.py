@@ -160,8 +160,8 @@ def main(root_dir):
         if os.path.basename(dirpath).lower() != "audio":
             continue
         jsons = [f for f in files if f.lower().endswith(".json")]
-        # wavs  = {f for f in files if f.lower().endswith(".wav")} # for cars and opvrs
-        wavs  = {f for f in files if f.lower().endswith(".mp3")}
+        wavs  = {f for f in files if f.lower().endswith(".wav")} # for cars and opvrs
+        # wavs  = {f for f in files if f.lower().endswith(".mp3")}
         print("-=" * 20)
         print("\n[*] Found audio folder:", dirpath)
         for jf in jsons:
@@ -170,8 +170,8 @@ def main(root_dir):
                 json_name = json_name[:-len("_gemini_timestamped")]
             else:
                 continue  # skip non-gemini files
-            # wav_name = json_name + ".wav" # for cars and opvrs
-            wav_name = json_name + ".mp3" 
+            wav_name = json_name + ".wav" # for cars and opvrs
+            # wav_name = json_name + ".mp3" 
             if wav_name in wavs:
                 process_pair(
                     os.path.join(dirpath, jf),
@@ -179,6 +179,8 @@ def main(root_dir):
                     nlp
                 )
                 print(f"Processing pair: {jf} and {wav_name}")
+            else:
+                print(f"[-] No matching audio for {jf}: looking for {wav_name}")
         # only process the first "audio" folder per directory
         # break
         print("-=" * 20)

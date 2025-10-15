@@ -15,3 +15,7 @@ stats/**/*.csv
 synchronization/multi-responder-sync/*.csv
 
 deidentification/speech/data
+
+*.mp3
+*.mp4
+.vscode
