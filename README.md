@@ -3,7 +3,8 @@
 <div align="center">
 
 [![arXiv Paper](https://img.shields.io/badge/arXiv-Paper-b31b1b?logo=arxiv&logoColor=white)]()
-[![Project Page](https://img.shields.io/badge/Project-Homepage-green)]()
+[![Project Page](https://img.shields.io/badge/Project-Homepage-green)](https://uva-dsa.github.io/EgoEMS/)
+[![Dataset](https://img.shields.io/badge/Dataset-Dataverse-1a73e8)]()
 [![Video](https://img.shields.io/badge/YouTube-Video-c4302b?logo=youtube&logoColor=white)]()
 
 </div>
