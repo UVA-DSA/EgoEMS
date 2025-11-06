@@ -1,1 +1,0 @@
-"I cannot process audio.  Please provide the audio file or a transcript of the audio recording.  I need that input to complete steps 1-3 and return the JSON output as requested.  If there is no audio, I will return `[\"None\"]` as instructed.\n"

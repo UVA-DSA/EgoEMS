@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description"
+    content="This is a project page for EgoEMS: A High-Fidelity Multimodal Egocentric Dataset for Cognitive Assistance in Emergency Medical Services">
+  <meta property="og:title" content="EgoEMS: A High-Fidelity Multimodal Egocentric Dataset for Cognitive Assistance in Emergency Medical Services">
+  <meta property="og:description"
+    content="This is a project page for EgoEMS: A High-Fidelity Multimodal Egocentric Dataset for Cognitive Assistance in Emergency Medical Services">
+  <meta property="og:url" content="https://masashi-hatano.github.io/MM-CDFSL/">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <!-- <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/> -->
+
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords"
+    content="keshara, weerasinghe, multimodal, egocentric, cognitive assistance, AR, VR, augmented reality, action recognition">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>EgoEMS: A High-Fidelity Multimodal Egocentric Dataset for Cognitive Assistance in Emergency Medical Services</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+
+<body>
+
+  <!-- Simple top navigation -->
+  <nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
+    <div class="container is-max-desktop">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <img src="static/images/EgoExoEMS_Logo.png" alt="EgoEMS" style="height:28px;">
+        </a>
+      </div>
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item" href="#overview">Overview</a>
+          <a class="navbar-item" href="#benchmarks">Benchmarks</a>
+          <a class="navbar-item" href="#data">Data</a>
+          <a class="navbar-item" href="#system">System</a>
+          <a class="navbar-item" href="#poster">Poster</a>
+          <a class="navbar-item" href="#BibTeX">BibTeX</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">EgoEMS: A High-Fidelity Multimodal Egocentric Dataset for Cognitive Assistance in Emergency Medical Services</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://keshara2032.github.io/" target="_blank">Keshara Weerasinghe</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://ryohachiuma.github.io/" target="_blank">Xueren Ge</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="" target="_blank">Tessa Heick</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://scholar.google.com/citations?user=zNrAzNAAAAAJ&hl=en" target="_blank">Lahiru Nuwan Wijayasingha</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="" target="_blank">Anthony Cortez</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="" target="_blank">Abhishek Satpathy</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://engineering.virginia.edu/faculty/john-stankovic" target="_blank">John Stankovic</a><sup>1</sup>
+              </span>
+              <span class="author-block">
+                <a href="https://homa-alem.github.io/" target="_blank">Homa Alemzadeh</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup> University of Virginia</span>
+              <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
+            </div>
+
+            <div class="is-size-4">
+              <span class="publication-venue">AAAI 2026</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Paper (arXiv) link -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2405.19917" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper (arXiv)</span>
+                  </a>
+                </span>
+
+                <!-- Github link -->
+                <span class="link-block">
+                  <a href="https://github.com/UVA-DSA/EgoEMS" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- YouTube Video Link -->
+                <span class="link-block">
+                  <a href="https://youtu.be/f4ZK66xI3LU" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span>
+
+                <!-- Data Link -->
+                <span class="link-block">
+                  <a href="#data"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="https://huggingface.co/favicon.ico" alt="Hugging Face Logo"
+                        style="width: 20px; height: 20px;" />
+                      <!-- <i class="fa fa-database"></i> -->
+                    </span>
+                    <span>Data</span>
+                  </a>
+                </span>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser video-->
+  <!-- <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video poster="" id="tree" autoplay controls muted loop height="100%"> -->
+  <!-- Your video here -->
+  <!-- <source src="static/videos/supplementary.mp4" type="video/mp4">
+        </video>
+        <h2 class="subtitle has-text-centered">
+        </h2>
+      </div>
+    </div>
+  </section> -->
+  <!-- End teaser video -->
+
+  <!-- Image Approach -->
+  <section id="overview" class="section hero is-small">
+    <div class="container is-max-desktop">
+      <img src="static/images/EgoExoEMS-NEW_AAAI_Main_Figure.jpg" alt="MY ALT TEXT" />
+      <figcaption><b>Overview</b>. High‑fidelity egocentric multimodal EMS dataset with rich annotations to advance cognitive assistance research.</figcaption>
+    </div>
+  </section>
+  <!-- End image Approach -->
+
+  <!-- Paper abstract -->
+  <section id="abstract" class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Emergency Medical Services (EMS) are critical to patient survival in emergencies, but first responders often face intense cognitive demands in high-stakes situations. AI cognitive assistants, acting as virtual partners, have the potential to ease this burden by supporting real-time data collection and decision making. In pursuit of this vision, we introduce EgoEMS, the first end-to-end, high-fidelity, multimodal, multiperson dataset capturing over 20 hours of realistic, procedural EMS activities from an egocentric view in 233 simulated emergency scenarios performed by 62 participants, including 46 EMS professionals. Developed in collaboration with EMS experts and aligned with national standards, EgoEMS is captured using an open-source, low-cost, and replicable data collection system and is annotated with keysteps, timestamped audio transcripts with speaker diarization, action quality metrics, and bounding boxes with segmentation masks. Emphasizing realism, the dataset includes responder-patient interactions reflecting real-world emergency dynamics. We also present a suite of benchmarks for real-time multimodal keystep recognition and action quality estimation, essential for developing AI support tools for EMS. We hope EgoEMS inspires the research community to push the boundaries of intelligent EMS systems and ultimately contribute to improved patient outcomes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End paper abstract -->
+
+
+  <!-- Benchmarks -->
+  <section id="benchmarks" class="section hero is-small">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Benchmarks</h2>
+      <img src="static/images/EgoExoEMS-Benchmark.png" alt="MY ALT TEXT" />
+      <figcaption><b>Tasks</b>. Keystep classification, keystep segmentation, and CPR quality estimation.</figcaption>
+
+      <div class="columns is-multiline" style="margin-top:1rem;">
+        <div class="column is-one-third">
+          <div class="box">
+            <p><b>Keystep Classification</b></p>
+            <p class="has-text-grey">Classify procedural steps from multimodal input.</p>
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="box">
+            <p><b>Keystep Segmentation</b></p>
+            <p class="has-text-grey">Detect transitions between steps over time.</p>
+          </div>
+        </div>
+        <div class="column is-one-third">
+          <div class="box">
+            <p><b>CPR Quality Estimation</b></p>
+            <p class="has-text-grey">Estimate rate and depth from IMU and video.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Benchmarks -->
+
+  <!-- Data Access -->
+  <section id="data" class="section hero is-light">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Data Access</h2>
+      <div class="content">
+        <p>
+          The full dataset will be hosted publicly. Links will appear here when released.
+        </p>
+        <ul>
+          <li>Harvard Dataverse — coming soon</li>
+          <li>Alternate hosting — TBD</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Data Collection System -->
+  <section id="system" class="section hero is-small">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Data Collection System</h2>
+      <img src="static/images/EgoExoEMS-NEW_DCS_Arch.png" alt="Data Collection System" />
+      <figcaption>Open-source, low-cost, and replicable system for synchronized egocentric capture.</figcaption>
+    </div>
+  </section>
+
+  <!-- Youtube video -->
+  <!-- <section class="section hero is-samll is-light">
+    <div calss="hero body">
+      <div class="container is-max-desktop"> -->
+        <!-- Paper video. -->
+        <!-- <center>
+          <h2 class="title is-3">Video Presentation</h2> -->
+          <!-- <div class="columns is-centered has-text-centered"> -->
+          <!-- <div class="column is-four-fifths"> -->
+
+            <!-- <div class="publication-video"> -->
+              <!-- Youtube embed code here -->
+              <!-- <iframe src="https://www.youtube.com/embed/f4ZK66xI3LU?rel=0&showinfo=0" frameborder="0" -->
+                <!-- allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+            <!-- </div> -->
+            <!-- </div> -->
+        <!-- </center> -->
+      <!-- </div>
+    </div>
+    </div>
+  </section> -->
+  <!-- End youtube video -->
+
+
+  <!-- Video carousel -->
+  <!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Another Carousel</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%"> -->
+  <!-- Your video file here -->
+  <!-- <source src="static/videos/carousel1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%"> -->
+  <!-- Your video file here -->
+  <!-- <source src="static/videos/carousel2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video3" autoplay controls muted loop height="100%">\ -->
+  <!-- Your video file here -->
+  <!-- <source src="static/videos/carousel3.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+  <!-- End video carousel -->
+
+  <!-- Paper poster -->
+  <section id="poster" class="section is-small">
+    <div class="container is-max-desktop">
+
+      <h2 class="title">Poster</h2>
+
+      <div style="position: relative; width: 100%; height: calc(100vw * 0.48); max-height: 550px; overflow: hidden;">
+        <iframe src="static/pdfs/sample.pdf"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allowfullscreen>
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+  <!--End paper poster -->
+
+  <!-- Acknowledement -->
+  <!-- <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Acknowledement</h2>
+          <div class="content has-text-justified">
+            <p>
+              This work was supported by JST BOOST, Japan Grant Number JPMJBS2409, and Amano Institute of Technology.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  <!-- End acknowledgement -->
+
+  <!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()">
+          <span class="fas fa-copy"></span>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre><code id="bibtex-code">
+
+      </code></pre>
+    </div>
+  </section>
+
+  <!-- Scroll to top button -->
+  <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+  <!--End BibTex citation -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                target="_blank">Academic Project Page Template</a> which was adopted from the <a
+                href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+              You are free to borrow the of this website, we just ask that you link back to this page in the footer.
+              <br> This website is licensed under a <a rel="license"
+                href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+                Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Statcounter tracking code -->
+
+  <!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+  <!-- End of Statcounter Code -->
+
+</body>
+
+</html>
