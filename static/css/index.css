@@ -46,6 +46,12 @@ figcaption {
   margin-top: 0.5rem;
 }
 
+/* Navbar logo override (Bulma caps images at ~28px) */
+#site-logo {
+  max-height: 44px !important; /* adjust size here */
+  height: auto;
+}
+
 
 /* Modern Button Styles */
 .button {
