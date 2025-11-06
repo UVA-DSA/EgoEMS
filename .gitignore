@@ -2,7 +2,6 @@
 *.mkv
 *.wav
 *.gif
-*.png
 !Assets/*.png
 **/stats/*.csv
 
