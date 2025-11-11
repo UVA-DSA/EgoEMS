@@ -5,9 +5,10 @@ import os
 from datetime import datetime
 
 base_path = '/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/03-23/kushal_dondeli'  # Update with your actual path
+base_path = '/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Raw_Data/North_Garden/Sep_2024/Raw/20-09-2024'  # Update with your actual path
 # base_path = '/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Lahiru'  # Update with your actual path
 # Load the CSV file
-csv_file_path = f'/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/file_paths_for_sync.csv'
+csv_file_path = f'/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Raw_Data/North_Garden/Sep_2024/Raw/file_paths_for_sync.csv'
 csv_data = pd.read_csv(csv_file_path)
 
 # Index to track the current video

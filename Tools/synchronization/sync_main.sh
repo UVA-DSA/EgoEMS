@@ -22,14 +22,12 @@ conda activate egoexoems &&
 module load ffmpeg &&
 
 # Set root directories and synchronization offset path
-root_dir="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS"
-repo_dir="/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Tools/"
+root_dir="/standard/UVA-DSA/NIST EMS Project Data/CognitiveEMS_Raw_Data/North_Garden/Sep_2024/Raw/"
+repo_dir="/standard/UVA-DSA/Keshara/EgoExoEMS/Tools/"
 
 # Set the day for which synchronization is being performed
-day="2025-04-30_11-44-11"
-
-
-# # Step 1: Adjust GoPro timestamp offset
+day="20-09-2024"
+# # # Step 1: Adjust GoPro timestamp offset
 # echo "[INFO] Adjusting GoPro timestamp offset..."
 # python "$repo_dir/synchronization/gopro_timestamp_adjuster.py" "$root_dir" "$day"
 # if [ $? -ne 0 ]; then
@@ -42,7 +40,7 @@ day="2025-04-30_11-44-11"
 # Ask the user to continue with the next steps
 read -p "Press Enter to Generate Synchronization Metadata ..."
 
-Step 2: Generate synchronization metadata
+# Step 2: Generate synchronization metadata
 echo "[INFO] Generating synchronization metadata..."
 python "$repo_dir/synchronization/synchronization-v2.py" "$root_dir" "$day"
 if [ $? -ne 0 ]; then

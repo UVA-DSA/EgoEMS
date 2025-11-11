@@ -21,3 +21,5 @@ deidentification/speech/data
 .vscode
 
 deidentification/abhi_list.txt
+
+file_handling/
