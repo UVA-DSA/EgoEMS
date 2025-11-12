@@ -4,7 +4,7 @@
   --primary-hover: #1d4ed8;
   --secondary-color: #64748b;
   --accent-color: #0ea5e9;
-  --text-primary: #1e293b;
+  --text-primary: #323c4d;
   --text-secondary: #64748b;
   --text-light: #94a3b8;
   --background-primary: #ffffff;
@@ -36,6 +36,14 @@ body {
   background-color: var(--background-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Main title: modern, clean, minimalist */
+.publication-title {
+  font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.0;
 }
 
 /* Figure captions */
@@ -123,21 +131,21 @@ figcaption {
 }
 
 .teaser {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Helvetica', sans-serif;
 }
 
 
 /* Publication Content Styling */
 .publication-title {
-    font-family: 'Inter', sans-serif !important;
-    font-weight: 800 !important;
+    font-family: 'Helvetica', sans-serif !important;
+    font-weight: 700 !important;
     color: var(--text-primary) !important;
     margin-bottom: 2rem !important;
     line-height: 1.1 !important;
 }
 
 .publication-banner {
-  max-height: 70vh;
+  max-height: 60vh;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-xl);

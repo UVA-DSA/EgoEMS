@@ -11,16 +11,15 @@
   <meta property="og:description"
     content="This is a project page for EgoEMS: A High-Fidelity Multimodal Egocentric Dataset for Cognitive Assistance in Emergency Medical Services">
   <meta property="og:url" content="https://github.com/UVA-DSA/EgoEMS">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <!-- <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image" content="static/images/EgoExoEMS-NEW_AAAI_Main_Figure.jpg" />
   <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/> -->
+  <meta property="og:image:height" content="630"/>
 
 
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <meta name="twitter:title" content="EgoEMS: Multimodal Egocentric EMS Dataset">
+  <meta name="twitter:description" content="High‑fidelity egocentric multimodal dataset and benchmarks for cognitive assistance in EMS.">
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:image" content="static/images/EgoExoEMS-NEW_AAAI_Main_Figure.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
   <meta name="keywords"
@@ -31,6 +30,7 @@
   <title>EgoEMS: A High-Fidelity Multimodal Egocentric Dataset for Cognitive Assistance in Emergency Medical Services</title>
   <link rel="icon" type="image/x-icon" href="static/images/favicon.svg">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
@@ -62,7 +62,7 @@
           <a class="navbar-item" href="#overview">Overview</a>
           <a class="navbar-item" href="#benchmarks">Benchmarks</a>
           <a class="navbar-item" href="#data">Data</a>
-          <a class="navbar-item" href="#poster">Poster</a>
+          <a class="navbar-item" href="#poster">Preprint</a>
           <a class="navbar-item" href="#BibTeX">BibTeX</a>
         </div>
       </div>
@@ -123,12 +123,12 @@
 
                 <!-- Paper (arXiv) link -->
                 <span class="link-block">
-                  <a href="" target="_blank"
+                  <a href="EgoEMS_AAAI_2026_Arxiv_Preprint.pdf" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
-                    <span>Extended Paper (arXiv)</span>
+                    <span>Preprint (arXiv)</span>
                   </a>
                 </span>
 
@@ -193,11 +193,45 @@
   <!-- Image Approach -->
   <section id="overview" class="section hero is-small">
     <div class="container is-max-desktop">
-      <img src="static/images/EgoExoEMS-NEW_AAAI_Main_Figure.jpg" alt="MY ALT TEXT" />
+      <img src="static/images/EgoExoEMS-NEW_AAAI_Main_Figure.jpg" alt="EgoEMS overview figure" />
       <figcaption><b>Overview</b>. High‑fidelity egocentric multimodal EMS dataset with rich annotations to advance cognitive assistance research.</figcaption>
     </div>
   </section>
   <!-- End image Approach -->
+
+  <!-- Highlights -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3">Highlights</h2>
+      <div class="columns is-multiline" style="margin-top:0.5rem;">
+        <div class="column is-one-quarter">
+          <div class="box has-text-centered">
+            <p class="is-size-3" style="margin-bottom:0.25rem;">20+ hrs</p>
+            <p class="has-text-grey">Synchronized multimodal recordings</p>
+          </div>
+        </div>
+        <div class="column is-one-quarter">
+          <div class="box has-text-centered">
+            <p class="is-size-3" style="margin-bottom:0.25rem;">233</p>
+            <p class="has-text-grey">Simulated emergency scenarios</p>
+          </div>
+        </div>
+        <div class="column is-one-quarter">
+          <div class="box has-text-centered">
+            <p class="is-size-3" style="margin-bottom:0.25rem;">62</p>
+            <p class="has-text-grey">Participants (46 EMS professionals)</p>
+          </div>
+        </div>
+        <div class="column is-one-quarter">
+          <div class="box has-text-centered">
+            <p class="is-size-5" style="margin-bottom:0.25rem;">Modalities & Annotations</p>
+            <p class="has-text-grey">Egocentric video, audio, IMU • Keysteps, diarized transcripts, CPR metrics, boxes & masks</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Highlights -->
 
   <!-- Paper abstract -->
   <section id="abstract" class="section hero is-light">
@@ -221,8 +255,9 @@
   <section id="benchmarks" class="section hero is-small">
     <div class="container is-max-desktop">
       <h2 class="title is-3">Benchmarks</h2>
-      <img src="static/images/EgoExoEMS-Benchmark.png" alt="MY ALT TEXT" />
+      <img src="static/images/EgoExoEMS-Benchmark.png" alt="EgoEMS benchmarks figure" />
       <figcaption><b>Tasks</b>. Keystep classification, keystep segmentation, and CPR quality estimation.</figcaption>
+      <p style="margin-top:0.5rem"><a href="https://github.com/UVA-DSA/EgoEMS/tree/main/Benchmarks" target="_blank">Learn more in Benchmarks</a></p>
 
       <div class="columns is-multiline" style="margin-top:1rem;">
         <div class="column is-one-third">
@@ -270,6 +305,12 @@
       <h2 class="title is-3">Data Collection System</h2>
       <img src="static/images/EgoExoEMS-NEW_DCS_Arch.png" alt="Data Collection System" width="350px"/>
       <figcaption>Open-source, low-cost, and replicable system for synchronized egocentric multimodal data capture.</figcaption>
+      <div class="content" style="margin-top:0.75rem; text-align:left;">
+        <ul>
+          <li>Open-source, low-cost, replicable capture system</li>
+          <li>Synchronized egocentric video, audio, smartwatch IMU</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -334,7 +375,7 @@
   <section id="poster" class="section is-small">
     <div class="container is-max-desktop">
 
-      <h2 class="title">Poster</h2>
+      <h2 class="title">Preprint</h2>
 
       <div style="position: relative; width: 100%; height: calc(100vw * 0.48); max-height: 550px; overflow: hidden;">
         <iframe src="static/pdfs/sample.pdf"
