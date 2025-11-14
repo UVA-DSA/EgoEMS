@@ -19,3 +19,7 @@ deidentification/speech/data
 *.mp3
 *.mp4
 .vscode
+
+deidentification/abhi_list.txt
+
+file_handling/

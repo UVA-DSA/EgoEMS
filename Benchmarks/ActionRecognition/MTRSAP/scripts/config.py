@@ -56,15 +56,15 @@ dataloader_params = {
     "fold": 1,
     "fps": 29.97,
     # update task specific parameters (Experimenting segmentation with classification annotations)
-    "train_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_classification.json',
-    "val_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_classification.json',
-    "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_classification.json',
-    # "train_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_segmentation.json',
-    # "val_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_segmentation.json',
-    # "test_annotation_path": '/home/cjh9fw/Desktop/2024/repos/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_segmentation.json',
+    "train_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_classification.json',
+    "val_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_classification.json',
+    "test_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_classification.json',
+    # "train_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_segmentation.json',
+    # "val_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_segmentation.json',
+    # "test_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_segmentation.json',
     # Old dataset class
     'base_path': '/home/cjh9fw/Desktop/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
-    'modality': [  'resnet_ego','smartwatch','audio'],
+    'modality': [  'resnet_ego'],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
                     "check_responsiveness": "Check for responsiveness",

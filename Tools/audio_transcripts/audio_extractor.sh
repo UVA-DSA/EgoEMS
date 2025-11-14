@@ -17,13 +17,13 @@ conda activate egoexoems
 module load ffmpeg
 
 # ─── CONFIG ─────────────────────────────────────────────────────────────────────
-input_dir="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized"
+input_dir="/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/cars_1/chest_pain/0/ego/"
 
 # ─── BUILD THE ARRAY ────────────────────────────────────────────────────────────
 # Use `find … -print0` + mapfile to get a proper NUL‑delimited list,
 # all in the main shell so $count survives.
 mapfile -d '' files < <(
-  find "$input_dir" -type f -name "*synced_720p.mp4" -print0
+  find "$input_dir" -type f -name "*ego_rgb_final.mp4" -print0
 )
 
 # ─── PROCESS ────────────────────────────────────────────────────────────────────

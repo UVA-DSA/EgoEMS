@@ -24,7 +24,7 @@ module load ffmpeg &&
 # set root directory for the dataset
 # root_dir="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized/"
 # root_dir="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/"
-root_dir="/standard/UVA-DSA/NIST EMS Project Data/DataCollection_Spring_2025/CARS/organized/cars_1/stroke/0/"
+root_dir="/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026/cars_1/chest_pain/0/"
 
 echo "[INFO] PII deidentificatio for speech and transcript"
 python -u speech_censor_twostage.py "$root_dir" 
