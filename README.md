@@ -2,9 +2,9 @@
 
 <div align="center">
 
-[![arXiv Paper](https://img.shields.io/badge/arXiv-Paper-b31b1b?logo=arxiv&logoColor=white)]()
+[![arXiv Paper](https://img.shields.io/badge/arXiv-Paper-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2511.09894)
 [![Project Page](https://img.shields.io/badge/Project-Homepage-green)](https://uva-dsa.github.io/EgoEMS/)
-[![Dataset](https://img.shields.io/badge/Dataset-Dataverse-1a73e8)]()
+[![Dataset](https://img.shields.io/badge/Dataset-Dataverse-1a73e8)](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XT51K7)
 [![Video](https://img.shields.io/badge/YouTube-Video-c4302b?logo=youtube&logoColor=white)]()
 
 </div>
@@ -54,7 +54,7 @@ Please visit each subfolder for detailed instructions, annotations, and code for
 ## 📂 Data Access 
 
 ### Option 1: Harvard Dataverse  
-[🔗 Full Dataset]()
+[🔗 Full Dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XT51K7)
 
 ### Option 2: Alternate Hosting  
 [🔗 Full Dataset (TBD)]()
@@ -79,7 +79,15 @@ See the [DCS folder](DCS/README.md) for instructions on setting up the data coll
 If you use this dataset in your work, please consider citing our paper:
 
 ```bibtex
-
+@misc{weerasinghe2025egoemshighfidelitymultimodalegocentric,
+      title={EgoEMS: A High-Fidelity Multimodal Egocentric Dataset for Cognitive Assistance in Emergency Medical Services}, 
+      author={Keshara Weerasinghe and Xueren Ge and Tessa Heick and Lahiru Nuwan Wijayasingha and Anthony Cortez and Abhishek Satpathy and John Stankovic and Homa Alemzadeh},
+      year={2025},
+      eprint={2511.09894},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2511.09894}, 
+}
 ```
 
 ---
