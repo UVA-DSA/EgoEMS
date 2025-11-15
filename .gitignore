@@ -1,4 +1,3 @@
-*.mp4
 *.mkv
 *.wav
 *.gif
@@ -208,4 +207,3 @@ cython_debug/
 
 
 
-*.mp4

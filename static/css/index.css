@@ -38,6 +38,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+li a {
+  color: #0066cc !important;
+  text-decoration: underline;
+}
+
+
 /* Main title: modern, clean, minimalist */
 .publication-title {
   font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
