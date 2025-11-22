@@ -56,6 +56,17 @@ Please visit each subfolder for detailed instructions, annotations, and code for
 ### Option 1: Harvard Dataverse  
 [🔗 Full Dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XT51K7)
 
+Instructions
+
+EgoEMS dataverse repo is public and the data is organized in bellow way. For users with high-bandwith, we have uploaded full dataset in two parts (part1.zip and part2.zip). You may download these 2 and uncompress them to a single folder. If you prefer to download each subjects data separately, we have also uploaded zipped folders for each subject (62 in total).
+
+Once you uncompress the data, make sure all the subjects are in a single directory.
+
+Dataset annotation files are in the git repos `Annotations` folder. 
+We have 3 annotation file versions for different benchmark tasks (classification, segmentation and cpr quality estimation).
+
+
+
 ### Option 2: Alternate Hosting  
 [🔗 Full Dataset (TBD)]()
 
