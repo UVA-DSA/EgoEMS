@@ -163,7 +163,7 @@ def collate_fn(batch):
     return output
 
 
-class EgoExoEMSDataset(Dataset):
+class EgoEMSDataset(Dataset):
     def __init__(self, annotation_file, data_base_path, fps, 
                  frames_per_clip=None, transform=None,
                  data_types=['smartwatch'],
@@ -199,28 +199,39 @@ class EgoExoEMSDataset(Dataset):
                     smartwatch_path = depth_sensor_path = None
 
                     if 'video' in self.data_types:
-                        video_path = avail.get('egocam_rgb_audio', {}).get('file_path')
+                        video_path = avail.get('ego', {}).get('file_path')
+                        video_path = os.path.join(self.data_base_path, video_path) if video_path else None
                     if 'video_exo' in self.data_types:
                         video_path = avail.get('exo', {}).get('file_path')
+                        video_path = os.path.join(self.data_base_path, video_path) if video_path else None
                     if 'audio' in self.data_types:
                         audio_path = avail.get('audio', {}).get('file_path')
+                        audio_path = os.path.join(self.data_base_path, audio_path) if audio_path else None
                     if 'flow' in self.data_types:
                         flow_path = avail.get('i3d_flow', {}).get('file_path')
+                        flow_path = os.path.join(self.data_base_path, flow_path) if flow_path else None
                     if 'rgb' in self.data_types:
                         rgb_path = avail.get('i3d_rgb', {}).get('file_path')
+                        rgb_path = os.path.join(self.data_base_path, rgb_path) if rgb_path else None
                     if 'resnet_ego' in self.data_types:
                         resnet_path = avail.get('resnet_ego', {}).get('file_path')
+                        resnet_path = os.path.join(self.data_base_path, resnet_path) if resnet_path else None
                     if 'resnet_exo' in self.data_types:
                         resnet_exo_path = avail.get('resnet_exo', {}).get('file_path')
+                        resnet_exo_path = os.path.join(self.data_base_path, resnet_exo_path) if resnet_exo_path else None
                     if 'clip_ego' in self.data_types:
                         clip_ego_path = avail.get('clip_ego', {}).get('file_path')
+                        clip_ego_path = os.path.join(self.data_base_path, clip_ego_path) if clip_ego_path else None
                     if 'clip_exo' in self.data_types:
                         clip_exo_path = avail.get('clip_exo', {}).get('file_path')
+                        clip_exo_path = os.path.join(self.data_base_path, clip_exo_path) if clip_exo_path else None
                     if 'smartwatch' in self.data_types:
-                        sw = avail.get('smartwatch_imu', {})
+                        sw = avail.get('smartwatch_data', {})
                         smartwatch_path = sw.get('file_path') if sw else None
+                        smartwatch_path = os.path.join(self.data_base_path, smartwatch_path) if smartwatch_path else None
                     if 'depth_sensor' in self.data_types:
-                        depth_sensor_path = avail.get('vl6180_ToF_depth', {}).get('file_path')
+                        depth_sensor_path = avail.get('distance_sensor_data', {}).get('file_path')
+                        depth_sensor_path = os.path.join(self.data_base_path, depth_sensor_path) if depth_sensor_path else None
 
                     # skip if requested but missing
                     if (('video' in self.data_types and not video_path) or
@@ -718,7 +729,7 @@ def window_collate_fn(batch, frames_per_clip=30):
     return output
 
 
-class WindowEgoExoEMSDataset(Dataset):
+class WindowEgoEMSDataset(Dataset):
     def __init__(self, annotation_file, data_base_path, fps, 
                 frames_per_clip=30, transform=None,
                 data_types=['resnet_ego'], audio_sample_rate=16000, task="cpr_quality"):
@@ -770,29 +781,39 @@ class WindowEgoExoEMSDataset(Dataset):
 
                     # Check for each data type and retrieve the corresponding file path
                     if 'video' in self.data_types:
-                        video_path = avail_streams.get('egocam_rgb_audio', {}).get('file_path', None)
+                        video_path = avail_streams.get('ego', {}).get('file_path', None)
+                        video_path = os.path.join(self.data_base_path, video_path) if video_path else None
                     if 'audio' in self.data_types:
                         audio_path = avail_streams.get('audio', {}).get('file_path', None)
+                        audio_path = os.path.join(self.data_base_path, audio_path) if audio_path else None
                     if 'flow' in self.data_types:
                         flow_path = avail_streams.get('i3d_flow', {}).get('file_path', None)
+                        flow_path = os.path.join(self.data_base_path, flow_path) if flow_path else None
                     if 'rgb' in self.data_types:
                         rgb_path = avail_streams.get('i3d_rgb', {}).get('file_path', None)
+                        rgb_path = os.path.join(self.data_base_path, rgb_path) if rgb_path else None
                     if 'resnet_ego' in self.data_types:
                         resnet_ego_path = avail_streams.get('resnet_ego', {}).get('file_path', None)
+                        resnet_ego_path = os.path.join(self.data_base_path, resnet_ego_path) if resnet_ego_path else None
                     if 'resnet_exo' in self.data_types:
                         resnet_exo_path = avail_streams.get('resnet_exo', {}).get('file_path', None)  # Adjust key as needed
+                        resnet_exo_path = os.path.join(self.data_base_path, resnet_exo_path) if resnet_exo_path else None
                     if 'clip_ego' in self.data_types:
                         clip_ego_path = avail_streams.get('clip_ego', {}).get('file_path', None)
+                        clip_ego_path = os.path.join(self.data_base_path, clip_ego_path) if clip_ego_path else None
                     if 'clip_exo' in self.data_types:
                         clip_exo_path = avail_streams.get('clip_exo', {}).get('file_path', None)
+                        clip_exo_path = os.path.join(self.data_base_path, clip_exo_path) if clip_exo_path else None
                     if 'smartwatch' in self.data_types:
-                        smartwatch_stream = avail_streams.get('smartwatch_imu', {})
-                        if smartwatch_stream:  # Check if smartwatch_imu is not an empty list or dict
+                        smartwatch_stream = avail_streams.get('smartwatch_data', {})
+                        if smartwatch_stream:  # Check if smartwatch_data is not an empty list or dict
                             smartwatch_path = smartwatch_stream.get('file_path', None)
+                            smartwatch_path = os.path.join(self.data_base_path, smartwatch_path) if smartwatch_path else None
                         else:
-                            smartwatch_path = None  # Set to None or handle accordingly if smartwatch_imu is empty
+                            smartwatch_path = None  # Set to None or handle accordingly if smartwatch_data is empty
                     if 'depth_sensor' in self.data_types:
-                        depth_sensor_path = avail_streams.get('vl6180_ToF_depth', {}).get('file_path', None)
+                        depth_sensor_path = avail_streams.get('distance_sensor_data', {}).get('file_path', None)
+                        depth_sensor_path = os.path.join(self.data_base_path, depth_sensor_path) if depth_sensor_path else None
 
                     # Skip the trial if any required data type is not available
                     if ('flow' in self.data_types and not flow_path) or \

@@ -233,7 +233,7 @@ def main(root_dir):
         if os.path.basename(dirpath).lower() != "audio":
             continue
         jsons = [f for f in files if f.lower().endswith(".json")]
-        wavs  = {f for f in files if f.lower().endswith(".wav")}
+        wavs  = {f for f in files if f.lower().endswith(".mp3")}
         print("-=" * 20)
         print("\n[*] Found audio folder:", dirpath)
         for jf in jsons:
@@ -242,7 +242,7 @@ def main(root_dir):
                 stem = name[: -len("_gemini_timestamped")]
             else:
                 continue
-            wav_name = stem + ".wav"
+            wav_name = stem + ".mp3"
             if wav_name in wavs:
                 process_pair(
                     os.path.join(dirpath, jf),

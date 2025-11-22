@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='EgoExoEMS',
-    version='0.2',
+    name='EgoEMS',
+    version='0.3',
     packages=find_packages(),
     install_requires=[
         'numpy'
     ],
-    description='Custom PyTorch dataset class for EgoExoEMS dataset',
+    description='Custom PyTorch dataset class for EgoEMS dataset',
     author='Keshara Weerasinghe',
 )

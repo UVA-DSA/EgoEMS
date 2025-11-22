@@ -5,7 +5,7 @@ from datautils.ems import *
 import torch.nn as nn
 from sklearn.metrics import precision_score, recall_score, f1_score
 import csv
-from EgoExoEMS.EgoExoEMS import  WindowEgoExoEMSDataset, EgoExoEMSDataset, collate_fn, transform, window_collate_fn
+from EgoEMS.EgoEMS import  WindowEgoEMSDataset, EgoEMSDataset, collate_fn, transform, window_collate_fn
 from functools import partial
 import torch.nn.functional as F
 
@@ -616,23 +616,23 @@ def eee_test_model(model, test_loader, criterion, device, logger, epoch, results
 
 
 
-# return train,val,test dataloaders using the EgoExoEMSDataset class
+# return train,val,test dataloaders using the EgoEMSDataset class
 def eee_get_dataloaders(args):
     
     if(args.dataloader_params["task"] == 'classification'):
         print("*" * 10, "=" * 10, "*" * 10)
         print("Loading dataloader for Classification task")
 
-        train_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
-                                        data_base_path='',
+        train_dataset = EgoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
+                                        data_base_path=args.dataloader_params["data_base_path"],
                                         fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
-        val_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
-                                        data_base_path='',
+        val_dataset = EgoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
+                                        data_base_path=args.dataloader_params["data_base_path"],
                                         fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
-        test_dataset = EgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
-                                        data_base_path='',
+        test_dataset = EgoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
+                                        data_base_path=args.dataloader_params["data_base_path"],
                                         fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
 
@@ -659,16 +659,16 @@ def eee_get_dataloaders(args):
         print("*" * 10, "=" * 10, "*" * 10)
         print("Loading dataloader for Segmentation task")
         
-        train_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
-                                        data_base_path='',
+        train_dataset = WindowEgoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
+                                        data_base_path=args.dataloader_params["data_base_path"],
                                         fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
-        val_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
-                                        data_base_path='',
+        val_dataset = WindowEgoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
+                                        data_base_path=args.dataloader_params["data_base_path"],
                                         fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
-        test_dataset = WindowEgoExoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
-                                        data_base_path='',
+        test_dataset = WindowEgoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
+                                        data_base_path=args.dataloader_params["data_base_path"],
                                         fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
 
         train_class_stats = train_dataset._get_class_stats()

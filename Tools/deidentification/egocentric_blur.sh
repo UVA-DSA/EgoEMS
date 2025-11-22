@@ -7,14 +7,14 @@
 #SBATCH --partition="gpu"
 #SBATCH --gres=gpu:1
 #SBATCH --time=0-04:00:00
-#SBATCH --mem=64G  
+#SBATCH --mem=32G  
 #SBATCH --cpus-per-task=12
 #SBATCH --ntasks=1
 #SBATCH --account="uva-dsa"
 
 # Define dataset directory and other paths
 # DATASET_DIR="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final"
-DATASET_DIR="/standard/UVA-DSA/NIST EMS Project Data/EgoExoEMS_CVPR2025/Dataset/Final/ms1/chest_pain/6"
+DATASET_DIR="/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026_Supplementary/project_page_video"
 script_path='./egoblur/EgoBlur/script/demo_ego_blur.py'
 model_path='./egoblur/EgoBlur/weights/ego_blur_face.jit'
 
@@ -31,6 +31,7 @@ module load miniforge
 pretty_print "[$(date)] Status" "Creating conda environment from environment.yaml file..."
 pretty_print "[$(date)] Status" "Activating ego_blur environment..."
 
+conda deactivate
 conda activate ego_blur
 
 pretty_print "[$(date)] Status" "Starting video deidentification process..."
@@ -50,7 +51,8 @@ do
   # for file in "$gopro_folder"*encoded_trimmed.mp4
   # for file in "$gopro_folder"*synced_720p.mp4
   # for file in "$gopro_folder"*kinect_rgb_stream.mp4
-  for file in "$gopro_folder"*trimmed_720p.mp4
+  # for file in "$gopro_folder"*trimmed_720p.mp4
+  for file in "$gopro_folder"*ECG.mp4
   do
     if [ -f "$file" ]; then
       pretty_print "[$(date)] Processing Video" "$file"

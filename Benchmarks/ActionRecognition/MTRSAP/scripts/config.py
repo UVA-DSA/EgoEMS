@@ -63,7 +63,7 @@ dataloader_params = {
     # "val_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_segmentation.json',
     # "test_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_segmentation.json',
     # Old dataset class
-    'base_path': '/home/cjh9fw/Desktop/2024/datasets/EMS_Datasets/Organized/EMS_Interventions/annotations/',
+    'data_base_path': '/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026',
     'modality': [  'resnet_ego'],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
