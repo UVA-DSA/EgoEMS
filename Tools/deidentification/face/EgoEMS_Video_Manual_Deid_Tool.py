@@ -71,6 +71,8 @@ class FaceBlurApp(QMainWindow):
 
         # Dropdown for tracking duration
         self.duration_combo = QComboBox()
+        self.duration_combo.addItem("0.5 seconds", 0.5)
+        self.duration_combo.addItem("1 second", 1)
         self.duration_combo.addItem("2 seconds", 2)
         self.duration_combo.addItem("5 seconds", 5)
         self.duration_combo.addItem("10 seconds", 10)
