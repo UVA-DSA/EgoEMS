@@ -56,14 +56,129 @@ Please visit each subfolder for detailed instructions, annotations, and code for
 ### Option 1: Harvard Dataverse  
 [🔗 Full Dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XT51K7)
 
-Instructions
+The EgoEMS Dataverse repository is public. For users with high bandwidth, the full dataset is provided in two archive files (`part1.zip` and `part2.zip`). Download both parts and extract them into a single root directory. Alternatively, you can download per-subject archives (62 in total) and extract them into the same root.  
+After extraction, ensure that all subject folders sit under one common dataset root (e.g., `/path/to/EgoEMS/`).
 
-EgoEMS dataverse repo is public and the data is organized in bellow way. For users with high-bandwith, we have uploaded full dataset in two parts (part1.zip and part2.zip). You may download these 2 and uncompress them to a single folder. If you prefer to download each subjects data separately, we have also uploaded zipped folders for each subject (62 in total).
+#### Annotation files (`Annotations/`)
 
-Once you uncompress the data, make sure all the subjects are in a single directory.
+All annotation files live in the repository under the `Annotations/` folder:
 
-Dataset annotation files are in the git repos `Annotations` folder. 
-We have 3 annotation file versions for different benchmark tasks (classification, segmentation and cpr quality estimation).
+- `Annotations/aaai26_main_annotation_classification.json`
+- `Annotations/aaai26_main_annotation_segmentation.json`
+- `Annotations/aaai26_main_annotation_cpr_quality.json`
+- `Annotations/structure.json` – schematic example of the dataset layout and metadata
+- `Annotations/splits/` – predefined train/val/test splits for all three tasks
+
+The three main JSONs share the same hierarchical structure and differ only in which keysteps/trials are included for each benchmark task (classification, segmentation, CPR quality estimation).
+
+At a high level, each annotation file has the following structure:
+
+```json
+{
+  "subjects": [
+    {
+      "subject_id": "P0",
+      "expertise_level": "Not certified",
+      "scenarios": [
+        {
+          "scenario_id": "cardiac_arrest",
+          "trials": [
+            {
+              "trial_id": "s2",
+              "streams": {
+                "smartwatch_data": {
+                  "file_id": "...",
+                  "file_path": "P0/cardiac_arrest/s2/smartwatch_data/...csv"
+                },
+                "i3d_flow": {
+                  "file_id": "...",
+                  "file_path": "P0/cardiac_arrest/s2/i3d_flow/...npy"
+                },
+                "i3d_rgb": { "file_id": "...", "file_path": "..." },
+                "resnet_ego": { "file_id": "...", "file_path": "..." },
+                "clip_ego": { "file_id": "...", "file_path": "..." },
+                "distance_sensor_data": { "file_id": "...", "file_path": "..." },
+                "ego": { "file_id": "...", "file_path": "P0/cardiac_arrest/s2/ego/...mp4" }
+              },
+              "keysteps": [
+                {
+                  "keystep_id": "1_metadata",
+                  "start_t": 0.0,
+                  "end_t": 106.97,
+                  "label": "chest_compressions",
+                  "class_id": 4
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+- `subjects` – list of participants with `subject_id` and `expertise_level`.
+- `scenarios` – different emergency scenarios (e.g., `cardiac_arrest`).
+- `trials` – individual runs for a given subject and scenario.
+- `streams` – available modalities for that trial (ego video, feature numpy arrays, smartwatch CSV, distance sensor CSV, etc.), each with:
+  - `file_id` – an internal identifier.
+  - `file_path` – path relative to your dataset root (the root you extracted Dataverse archives into).
+- `keysteps` – annotated procedural steps for that trial, with:
+  - `keystep_id` – unique ID string.
+  - `start_t`, `end_t` – temporal boundaries in seconds.
+  - `label` – human-readable keystep label.
+  - `class_id` – integer category used by benchmark code.
+
+`Annotations/structure.json` provides a compact, illustrative schema of this hierarchy and can be used as a reference when writing custom tooling.
+
+### Python access via the EgoEMS dataset class
+
+We provide a small Python package wrapping the annotations and file paths into PyTorch `Dataset` objects under `Dataset/pytorch_implementation/EgoEMS/`.
+
+#### Installation
+
+From the root of this repository:
+
+```bash
+cd Dataset/pytorch_implementation/EgoEMS
+pip install -e .
+```
+
+This installs a package named `EgoEMS` that exposes dataset classes and utilities.
+
+#### Basic usage
+
+```python
+from EgoEMS.EgoEMS import EgoEMSDataset, collate_fn, transform
+from torch.utils.data import DataLoader
+
+annotation_file = "Annotations/aaai26_main_annotation_classification.json"
+data_root = "/path/to/unzipped/EgoEMS"  # root folder containing subject directories
+
+dataset = EgoEMSDataset(
+    annotation_file=annotation_file,
+    data_base_path=data_root,
+    fps=29.97,
+    frames_per_clip=150,            # observation window in frames (optional)
+    transform=transform,            # default resize to 224x224 for video frames
+    data_types=["video", "audio"],  # any subset of: "video", "video_exo",
+                                    # "flow", "rgb", "resnet_ego", "resnet_exo",
+                                    # "clip_ego", "clip_exo", "smartwatch", "depth_sensor"
+    task="classification",          # or "segmentation" or "cpr_quality"
+)
+
+loader = DataLoader(dataset, batch_size=8, shuffle=True, collate_fn=collate_fn)
+
+for batch in loader:
+    frames = batch["frames"]          # [B, T, C, H, W] if video requested
+    audio = batch["audio"]            # [B, T, ...] if audio requested
+    labels = batch["keystep_label"]   # list of string labels
+    class_ids = batch["keystep_id"]   # tensor of class indices
+    # your training / evaluation code here
+```
+
+Internally, the dataset class reads the annotation JSONs in `Annotations/`, resolves the relative `file_path` entries using `data_base_path`, loads the requested modalities, and yields keystep-level clips suitable for the benchmark tasks.
 
 
 
