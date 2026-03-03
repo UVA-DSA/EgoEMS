@@ -50,9 +50,9 @@ learning_params = {
 
 dataloader_params = {
     
-    "task": "classification", # "segmentation" or "classification"
+    "task": "segmentation", # "segmentation" or "classification"
     "batch_size": 1,
-    "observation_window": None,  # 5 seconds at 30 fps segmentation :::: classification None
+    "observation_window": 30,  # 5 seconds at 30 fps segmentation :::: classification None
     "fold": 1,
     "fps": 29.97,
     # update task specific parameters (Experimenting segmentation with classification annotations)
@@ -64,7 +64,8 @@ dataloader_params = {
     # "test_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_segmentation.json',
     # Old dataset class
     'data_base_path': '/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026',
-    'modality': [  'resnet_ego'],
+    'modality': ['rgb','flow'],
+    'classes': ["approach_patient", "check_responsiveness", "check_pulse", "check_breathing", "chest_compressions",  "turn_on_aed", "attach_defib_pads", "clear_for_analysis", "clear_for_shock", "administer_shock_aed", "open_airway", "place_bvm", "ventilate_patient", "no_action"],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
                     "check_responsiveness": "Check for responsiveness",

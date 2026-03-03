@@ -167,7 +167,7 @@ class EgoEMSDataset(Dataset):
     def __init__(self, annotation_file, data_base_path, fps, 
                  frames_per_clip=None, transform=None,
                  data_types=['smartwatch'],
-                 audio_sample_rate=16000, task="cpr_quality"):
+                 audio_sample_rate=16000, task="cpr_quality", classes=None):
         
         self.annotation_file = annotation_file
         self.data_base_path = data_base_path
@@ -180,6 +180,16 @@ class EgoEMSDataset(Dataset):
         self.data_types = data_types
         self.class_stats = {}
         self.task = task
+        self.classes = classes
+        self._class_filter = None
+        self._class_id_map = None
+        if self.classes is not None:
+            self._class_filter = {str(c).strip().lower() for c in self.classes}
+            self._class_id_map = {}
+            for idx, cls_name in enumerate(self.classes):
+                cls_key = str(cls_name).strip().lower()
+                if cls_key not in self._class_id_map:
+                    self._class_id_map[cls_key] = idx
 
         self._load_annotations()
         self._generate_clip_indices()
@@ -256,6 +266,15 @@ class EgoEMSDataset(Dataset):
                             end_f = math.floor(step['end_t'] * self.fps)
                             lbl = step['label']
                             cid = step['class_id']
+                            if self._class_filter is not None:
+                                lbl_key = str(lbl).strip().lower()
+                                cid_key = str(cid).strip().lower()
+                                if lbl_key not in self._class_filter and cid_key not in self._class_filter:
+                                    continue
+                                mapped_cid = self._class_id_map.get(lbl_key, self._class_id_map.get(cid_key))
+                                if mapped_cid is None:
+                                    continue
+                                cid = mapped_cid
                             if self.task == "cpr_quality" and lbl.lower() != "chest_compressions":
                                 continue
 
@@ -732,7 +751,7 @@ def window_collate_fn(batch, frames_per_clip=30):
 class WindowEgoEMSDataset(Dataset):
     def __init__(self, annotation_file, data_base_path, fps, 
                 frames_per_clip=30, transform=None,
-                data_types=['resnet_ego'], audio_sample_rate=16000, task="cpr_quality"):
+                data_types=['resnet_ego'], audio_sample_rate=16000, task="cpr_quality", classes=None):
         
         self.annotation_file = annotation_file
         self.data_base_path = data_base_path
@@ -746,6 +765,16 @@ class WindowEgoEMSDataset(Dataset):
         self.class_stats = {}
         
         self.task = task
+        self.classes = classes
+        self._class_filter = None
+        self._class_id_map = None
+        if self.classes is not None:
+            self._class_filter = {str(c).strip().lower() for c in self.classes}
+            self._class_id_map = {}
+            for idx, cls_name in enumerate(self.classes):
+                cls_key = str(cls_name).strip().lower()
+                if cls_key not in self._class_id_map:
+                    self._class_id_map[cls_key] = idx
         
         self.data_dict = None
         self._load_annotations()
@@ -837,6 +866,15 @@ class WindowEgoEMSDataset(Dataset):
                             end_frame = math.floor(step['end_t'] * self.fps)
                             label = step['label']
                             keystep_id = step['class_id']
+                            if self._class_filter is not None:
+                                label_key = str(label).strip().lower()
+                                keystep_id_key = str(keystep_id).strip().lower()
+                                if label_key not in self._class_filter and keystep_id_key not in self._class_filter:
+                                    continue
+                                mapped_keystep_id = self._class_id_map.get(label_key, self._class_id_map.get(keystep_id_key))
+                                if mapped_keystep_id is None:
+                                    continue
+                                keystep_id = mapped_keystep_id
                             
                             # When task is cpr_quality, only keep chest_compressions
                             if self.task == "cpr_quality" and label.lower() != "chest_compressions":
@@ -1397,4 +1435,3 @@ class CLIP_EgoExo_Keystep_LIMITED_Dataset(Dataset):
                 "negative_exo": (neg_exo_sample["subject_id"], neg_exo_sample["trial_id"], neg_exo_sample["keystep_id"]),
             }
         }
-

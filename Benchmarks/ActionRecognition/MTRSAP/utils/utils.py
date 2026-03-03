@@ -32,7 +32,7 @@ def init_model(args):
     model.to(device)
 
 
-    num_classes = len(args.dataloader_params["keysteps"])
+    num_classes = len(args.dataloader_params["classes"])
     class_counts = args.dataloader_params["train_class_stats"]
     val_class_counts = args.dataloader_params["val_class_stats"]
 
@@ -266,7 +266,7 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, m
                     # ←—— ADDED CHECK ———→
             # if the time-dimension is zero, skip this batch
             # (inputs.shape == [B, T, F] or [B, C, T] depending on your preprocess)
-            if input.size(1) == 0 or (task== 'segmentation' and input.size(1) != 150 and "audio" not in modality): 
+            if input.size(1) == 0: 
                 print(f"Skipping batch {i}: feature sequence : {input.shape}")
                 continue
 
@@ -625,15 +625,18 @@ def eee_get_dataloaders(args):
 
         train_dataset = EgoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
                                         data_base_path=args.dataloader_params["data_base_path"],
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"],
+                                        classes=args.dataloader_params["classes"])
 
         val_dataset = EgoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
                                         data_base_path=args.dataloader_params["data_base_path"],
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"],
+                                        classes=args.dataloader_params["classes"])
 
         test_dataset = EgoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
                                         data_base_path=args.dataloader_params["data_base_path"],
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"],
+                                        classes=args.dataloader_params["classes"])
 
 
         train_class_stats = train_dataset._get_class_stats()
@@ -661,15 +664,18 @@ def eee_get_dataloaders(args):
         
         train_dataset = WindowEgoEMSDataset(annotation_file=args.dataloader_params["train_annotation_path"],
                                         data_base_path=args.dataloader_params["data_base_path"],
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"],
+                                        classes=args.dataloader_params["classes"])
 
         val_dataset = WindowEgoEMSDataset(annotation_file=args.dataloader_params["val_annotation_path"],
                                         data_base_path=args.dataloader_params["data_base_path"],
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"],
+                                        classes=args.dataloader_params["classes"])
 
         test_dataset = WindowEgoEMSDataset(annotation_file=args.dataloader_params["test_annotation_path"],
                                         data_base_path=args.dataloader_params["data_base_path"],
-                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"])
+                                        fps=args.dataloader_params["fps"], frames_per_clip=args.dataloader_params["observation_window"], transform=transform, data_types=args.dataloader_params["modality"], task=args.dataloader_params["task"],
+                                        classes=args.dataloader_params["classes"])
 
         train_class_stats = train_dataset._get_class_stats()
         print("Train class stats: ", train_class_stats)

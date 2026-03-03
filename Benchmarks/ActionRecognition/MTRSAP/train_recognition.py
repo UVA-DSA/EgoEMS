@@ -8,6 +8,7 @@ from torch.utils.data import DataLoader
 from torch.optim.lr_scheduler import StepLR
 import wandb
 from datetime import datetime
+import json
 
 import argparse
 import warnings
@@ -44,6 +45,12 @@ if __name__ == "__main__":
     )
 
     keysteps = args.dataloader_params['keysteps']
+    classes = args.dataloader_params['classes']
+
+    # Filter keysteps using the exact classes order so label remap and class-weights stay aligned.
+    keysteps = {k: keysteps[k] for k in classes if k in keysteps}
+    args.dataloader_params['keysteps'] = keysteps
+    
     out_classes = len(keysteps)
 
     modality = args.dataloader_params['modality']
@@ -71,7 +78,6 @@ if __name__ == "__main__":
     args.dataloader_params['val_class_stats'] = val_class_stats
     model, optimizer, criterion, device = init_model(args)# verbose_mode = args.verbose
     model = model.to(device)
-
     # Find feature dimension
     feature,feature_size,label = preprocess(next(iter(train_loader)), args.dataloader_params['modality'], model, device)
     print("Feature size: ", feature_size)
@@ -98,6 +104,22 @@ if __name__ == "__main__":
     # create checkpoint directory if not exists
     if not os.path.exists(chkpoint_dir):
         os.makedirs(chkpoint_dir)
+
+    # Save class-to-new-id mapping for reproducibility/debugging.
+    class_mapping = {cls_name: idx for idx, cls_name in enumerate(keysteps.keys())}
+    class_mapping_payload = {
+        "job_id": cmd_args.job_id,
+        "task": task,
+        "num_classes": out_classes,
+        "class_to_new_id": class_mapping,
+        "new_id_to_class": {str(v): k for k, v in class_mapping.items()},
+    }
+    class_mapping_filename = f"job_{cmd_args.job_id}_task_{task}_class_mapping.json"
+    for out_dir in [results_dir, chkpoint_dir]:
+        class_mapping_path = os.path.join(out_dir, class_mapping_filename)
+        with open(class_mapping_path, "w") as f:
+            json.dump(class_mapping_payload, f, indent=2)
+        print(f"Saved class mapping to: {class_mapping_path}")
     
     min_val_loss = float('inf')
 
