@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
 PYTHON_BIN="${PYTHON_BIN:-python3}"
 
@@ -30,7 +31,7 @@ if [[ "${FP16}" == "1" ]]; then
   extra_args+=(--fp16)
 fi
 
-exec "${PYTHON_BIN}" -u "./model_to_tensorRT.py" \
+exec "${PYTHON_BIN}" -u "${SCRIPT_DIR}/model_to_tensorRT.py" \
   --checkpoint "${CHECKPOINT_PATH}" \
   --output "${OUTPUT_PATH}" \
   --batch-size "${BATCH_SIZE}" \

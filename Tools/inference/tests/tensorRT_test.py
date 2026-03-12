@@ -203,7 +203,7 @@ def print_report(
 
 def main() -> None:
     script_path = Path(__file__).resolve()
-    egoems_root = script_path.parents[2]
+    egoems_root = script_path.parents[3]
     default_engine = egoems_root / "Benchmarks" / "ActionRecognition" / "MTRSAP" / "checkpoints" / "val_best_model_trt.ts"
 
     args = build_parser(default_engine).parse_args()

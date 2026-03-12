@@ -26,7 +26,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from model_to_tensorRT import TransformerInferenceModel, _load_state_dict, infer_model_config
+from conversion.model_to_tensorRT import _load_state_dict, infer_model_config
+from models.mtrsap_model import TransformerInferenceModel
 
 
 IMAGENET_MEAN = torch.tensor([0.485, 0.456, 0.406], dtype=torch.float32).view(1, 3, 1, 1)
