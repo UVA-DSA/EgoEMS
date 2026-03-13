@@ -5,11 +5,9 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 
 PYTHON_BIN="${PYTHON_BIN:-python3}"
 
-# Update these as needed.
-CHECKPOINT_PATH="/workspace/Benchmarks/ActionRecognition/MTRSAP/checkpoints/resnet_segmentation/resnet_30s_segmentation_mtrsap.pt"
-OUTPUT_PATH="/workspace/Benchmarks/ActionRecognition/MTRSAP/checkpoints/resnet_segmentation/resnet_30s_segmentation_mtrsap_trt.ts"
+CHECKPOINT_PATH="${CHECKPOINT_PATH:-/workspace/EgoEMS/Tools/inference/checkpoints/mtrsap_30frames_window_resnet.pt}"
+OUTPUT_PATH="${OUTPUT_PATH:-/workspace/EgoEMS/Tools/inference/checkpoints/mtrsap_30frames_window_resnet_trt.ts}"
 
-# Optional conversion settings.
 BATCH_SIZE="${BATCH_SIZE:-1}"
 SEQ_LEN="${SEQ_LEN:-30}"
 NHEAD="${NHEAD:-4}"
@@ -31,7 +29,7 @@ if [[ "${FP16}" == "1" ]]; then
   extra_args+=(--fp16)
 fi
 
-exec "${PYTHON_BIN}" -u "${SCRIPT_DIR}/model_to_tensorRT.py" \
+exec "${PYTHON_BIN}" -u "${SCRIPT_DIR}/MTRSAP_model_to_tensorRT.py" \
   --checkpoint "${CHECKPOINT_PATH}" \
   --output "${OUTPUT_PATH}" \
   --batch-size "${BATCH_SIZE}" \

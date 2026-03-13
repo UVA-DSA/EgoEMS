@@ -1,4 +1,5 @@
 import argparse
+import pickle
 import re
 import sys
 from pathlib import Path
@@ -13,8 +14,18 @@ if str(INFERENCE_ROOT) not in sys.path:
 from models.mtrsap_model import TransformerInferenceModel
 
 
-def _load_state_dict(checkpoint_path: Path) -> Dict[str, torch.Tensor]:
-    ckpt = torch.load(checkpoint_path, map_location="cpu")
+def load_checkpoint_compat(path: Path) -> Dict:
+    try:
+        return torch.load(path, map_location="cpu")
+    except (pickle.UnpicklingError, RuntimeError) as exc:
+        msg = str(exc)
+        if "Weights only load failed" in msg or "Unsupported global" in msg:
+            return torch.load(path, map_location="cpu", weights_only=False)
+        raise
+
+
+def load_state_dict(checkpoint_path: Path) -> Dict[str, torch.Tensor]:
+    ckpt = load_checkpoint_compat(checkpoint_path)
 
     if isinstance(ckpt, dict):
         if "state_dict" in ckpt and isinstance(ckpt["state_dict"], dict):
@@ -32,7 +43,7 @@ def _load_state_dict(checkpoint_path: Path) -> Dict[str, torch.Tensor]:
     return state
 
 
-def _extract_num_layers(keys: Iterable[str]) -> int:
+def extract_num_layers(keys: Iterable[str]) -> int:
     layer_indices = []
     pattern = re.compile(r"^transformer\.layers\.(\d+)\.")
     for key in keys:
@@ -45,12 +56,14 @@ def _extract_num_layers(keys: Iterable[str]) -> int:
 
 
 def infer_model_config(state: Dict[str, torch.Tensor]) -> Dict[str, int]:
-    if "encoder.encoder.0.weight" not in state:
-        raise KeyError("Missing key encoder.encoder.0.weight in checkpoint.")
-    if "encoder.encoder.6.weight" not in state:
-        raise KeyError("Missing key encoder.encoder.6.weight in checkpoint.")
-    if "out.weight" not in state:
-        raise KeyError("Missing key out.weight in checkpoint.")
+    required_keys = [
+        "encoder.encoder.0.weight",
+        "encoder.encoder.6.weight",
+        "out.weight",
+    ]
+    for key in required_keys:
+        if key not in state:
+            raise KeyError(f"Missing key {key} in checkpoint.")
 
     conv0_shape = tuple(state["encoder.encoder.0.weight"].shape)
     conv2_shape = tuple(state["encoder.encoder.6.weight"].shape)
@@ -60,7 +73,7 @@ def infer_model_config(state: Dict[str, torch.Tensor]) -> Dict[str, int]:
     kernel_size = conv0_shape[2]
     d_model = conv2_shape[0]
     output_dim = out_shape[0]
-    num_layers = _extract_num_layers(state.keys())
+    num_layers = extract_num_layers(state.keys())
     max_len = int(state["pe.pe"].shape[0]) if "pe.pe" in state else 5000
 
     if out_shape[1] != d_model:
@@ -78,19 +91,28 @@ def infer_model_config(state: Dict[str, torch.Tensor]) -> Dict[str, int]:
     }
 
 
-def build_arg_parser(default_checkpoint: Path, default_output: Path) -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description="Convert EgoEMS MTRSAP transformer checkpoint to TensorRT")
-    parser.add_argument("--checkpoint", type=Path, default=default_checkpoint, help="Path to model checkpoint (.pt)")
-    parser.add_argument("--output", type=Path, default=default_output, help="Path to save TensorRT TorchScript engine")
+def run_once(module, x: torch.Tensor):
+    if callable(module):
+        return module(x)
+    if hasattr(module, "module"):
+        inner = module.module()
+        return inner(x)
+    raise RuntimeError(f"Unsupported compiled module type: {type(module)}")
 
-    parser.add_argument("--batch-size", type=int, default=1, help="Batch size for tracing/validation")
-    parser.add_argument("--seq-len", type=int, default=30, help="Static sequence length for tracing/validation")
+
+def build_arg_parser(default_checkpoint: Path, default_output: Path) -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Convert EgoEMS MTRSAP checkpoint to TensorRT TorchScript engine")
+    parser.add_argument("--checkpoint", type=Path, default=default_checkpoint, help="Path to MTRSAP checkpoint (.pt)")
+    parser.add_argument("--output", type=Path, default=default_output, help="Path to save TensorRT TorchScript engine (.ts)")
+
+    parser.add_argument("--batch-size", type=int, default=1, help="Batch size for tracing and validation")
+    parser.add_argument("--seq-len", type=int, default=30, help="Static sequence length for tracing and validation")
     parser.add_argument("--min-seq-len", type=int, default=None, help="Min seq len for dynamic TensorRT shape")
     parser.add_argument("--opt-seq-len", type=int, default=None, help="Opt seq len for dynamic TensorRT shape")
     parser.add_argument("--max-seq-len", type=int, default=None, help="Max seq len for dynamic TensorRT shape")
 
     parser.add_argument("--nhead", type=int, default=4, help="Transformer attention heads (must divide d_model)")
-    parser.add_argument("--dropout", type=float, default=0.1, help="Dropout used in positional encoding/transformer")
+    parser.add_argument("--dropout", type=float, default=0.1, help="Dropout used in positional encoding and transformer")
     parser.add_argument("--batch-first", action="store_true", default=True, help="Use batch-first transformer layout")
     parser.add_argument("--disable-batch-first", action="store_false", dest="batch_first", help="Disable batch-first layout")
 
@@ -100,7 +122,7 @@ def build_arg_parser(default_checkpoint: Path, default_output: Path) -> argparse
     return parser
 
 
-def _validate_dynamic_shape_args(args: argparse.Namespace) -> bool:
+def validate_dynamic_shape_args(args: argparse.Namespace) -> bool:
     values = [args.min_seq_len, args.opt_seq_len, args.max_seq_len]
     provided = [value is not None for value in values]
     if any(provided) and not all(provided):
@@ -113,24 +135,23 @@ def _validate_dynamic_shape_args(args: argparse.Namespace) -> bool:
 
 
 def main() -> None:
-    script_path = Path(__file__).resolve()
-    egoems_root = script_path.parents[3]
-    mtrsap_root = egoems_root / "Benchmarks" / "ActionRecognition" / "MTRSAP"
-
-    default_checkpoint = mtrsap_root / "checkpoints" / "val_best_model.pt"
-    default_output = mtrsap_root / "checkpoints" / "resnet_val_best_model_trt.ts"
-
+    default_checkpoint = INFERENCE_ROOT / "checkpoints" / "mtrsap_30frames_window_resnet.pt"
+    default_output = INFERENCE_ROOT / "checkpoints" / "mtrsap_30frames_window_resnet_trt.ts"
     args = build_arg_parser(default_checkpoint=default_checkpoint, default_output=default_output).parse_args()
 
     if not args.checkpoint.exists():
         raise FileNotFoundError(f"Checkpoint not found: {args.checkpoint}")
     if not torch.cuda.is_available():
         raise RuntimeError("TensorRT conversion requires a CUDA-enabled PyTorch environment.")
+    if args.batch_size <= 0:
+        raise ValueError("--batch-size must be > 0")
+    if args.seq_len <= 0:
+        raise ValueError("--seq-len must be > 0")
 
-    dynamic_shapes = _validate_dynamic_shape_args(args)
+    dynamic_shapes = validate_dynamic_shape_args(args)
 
     print(f"[1/5] Loading checkpoint: {args.checkpoint}")
-    state = _load_state_dict(args.checkpoint)
+    state = load_state_dict(args.checkpoint)
     inferred = infer_model_config(state)
 
     print("[2/5] Inferred checkpoint config:")
@@ -158,7 +179,8 @@ def main() -> None:
     load_result = model.load_state_dict(state, strict=False)
     if load_result.missing_keys:
         print(f"[warn] Missing keys while loading: {load_result.missing_keys}")
-    print(f"[info] Ignored unexpected checkpoint keys: {len(load_result.unexpected_keys)}")
+    if load_result.unexpected_keys:
+        print(f"[warn] Unexpected keys while loading: {load_result.unexpected_keys}")
 
     seq_len = args.opt_seq_len if dynamic_shapes else args.seq_len
     example_input = torch.randn(args.batch_size, seq_len, inferred["input_dim"], device="cuda", dtype=torch.float32)
@@ -209,7 +231,7 @@ def main() -> None:
 
     print("[5/5] Running TensorRT sanity inference")
     with torch.inference_mode():
-        trt_output = trt_module(example_input)
+        trt_output = run_once(trt_module, example_input)
     if isinstance(trt_output, (tuple, list)):
         trt_output = trt_output[0]
 
@@ -221,6 +243,7 @@ def main() -> None:
     print(f"  - max_abs_diff: {max_abs_diff:.6f}")
     print(f"  - mean_abs_diff: {mean_abs_diff:.6f}")
     print(f"  - allclose(atol={args.atol}, rtol={args.rtol}): {is_close}")
+    print("  - expected input shape: [B, 30, 2048] for the default 30-frame activity window")
 
     if not is_close:
         print("[warn] PT and TRT outputs are outside tolerance. Validate with real inputs before deployment.")
