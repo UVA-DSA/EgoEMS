@@ -1,8 +1,8 @@
 # Container Inference Server
 
-This document explains the current containerized inference server under [Tools/inference/servers](/mnt/f/repos/EgoEMS/Tools/inference/servers).
+This README explains how to run and operate the containerized inference server under [Tools/inference/servers](/mnt/f/repos/EgoEMS/Tools/inference/servers).
 
-The server now supports two separate HTTP inference paths:
+The server supports two separate HTTP inference paths:
 
 - object detection with DETR TensorRT
 - activity recognition with MTRSAP TensorRT plus per-frame ResNet feature extraction
@@ -13,6 +13,47 @@ These paths are intentionally separate:
 - MTRSAP is slower and window-based
 - the client sends requests to different endpoints
 - DETR responses are not delayed by activity buffering or activity inference
+
+Use this document when you need to:
+
+- set up inference on a new machine using a prebuilt image
+- run DETR-only or DETR-plus-activity modes
+- call inference endpoints and interpret response states
+- troubleshoot common runtime issues
+
+Start here:
+
+1. New machine, no image build: [New PC Setup (Use Prebuilt Inference Container)](#new-pc-setup-use-prebuilt-inference-container)
+2. Build image locally: [Build From Source (Optional)](#build-from-source-optional)
+3. API usage details: [Object Detection](#object-detection) and [Activity Recognition](#activity-recognition)
+
+## Table Of Contents
+
+- [Overview](#overview)
+- [Repository Files](#repository-files)
+- [Architecture](#architecture)
+- [New PC Setup (Use Prebuilt Inference Container)](#new-pc-setup-use-prebuilt-inference-container)
+- [New PC Setup: Host Requirements](#host-requirements)
+- [New PC Setup: Verify Docker And GPU Runtime](#verify-docker-and-gpu-runtime)
+- [New PC Setup: Pull The Prebuilt Image](#pull-the-prebuilt-image)
+- [New PC Setup: Start The Inference Server](#start-the-inference-server)
+- [New PC Setup: Validate The Server](#validate-the-server)
+- [New PC Setup: Basic Operations](#basic-operations)
+- [Build From Source (Optional)](#build-from-source-optional)
+- [Run Modes](#run-modes)
+- [Health Check](#health-check)
+- [Object Detection](#object-detection)
+- [Activity Recognition](#activity-recognition)
+- [Client Pattern](#client-pattern)
+- [Configuration](#configuration)
+- [Build, Push, Pull](#build-push-pull)
+- [Logs And Debugging](#logs-and-debugging)
+- [Quick Validation With curl](#quick-validation-with-curl)
+- [Quick Validation: Test DETR](#test-detr)
+- [Quick Validation: Test Activity For One Stream](#test-activity-for-one-stream)
+- [Test Suggestions](#test-suggestions)
+- [Troubleshooting](#troubleshooting)
+- [Troubleshooting: The container exits immediately](#the-container-exits-immediately)
 
 ## Overview
 
@@ -72,7 +113,108 @@ The current image is best understood as:
 - DETR-first by default
 - activity-capable when you provide an activity engine path
 
-## Setup
+## New PC Setup (Use Prebuilt Inference Container)
+
+Use this path when you want to run inference on a new machine without rebuilding images.
+
+This section covers:
+
+- host requirements
+- Docker and GPU runtime checks
+- pulling the prebuilt image
+- running and validating the inference server
+
+This section does not cover model conversion or local image builds.
+
+### Host Requirements
+
+1. NVIDIA GPU driver is installed and `nvidia-smi` works on the host.
+2. Docker Engine or Docker Desktop is installed and running.
+3. NVIDIA Container Toolkit is installed and configured for Docker GPU access.
+4. The machine can pull `keshara2032/egoems-inference-server:latest` from Docker Hub.
+
+### Verify Docker And GPU Runtime
+
+Run:
+
+```bash
+docker --version
+docker run --rm hello-world
+docker run --rm --gpus all nvidia/cuda:12.4.1-runtime-ubuntu22.04 nvidia-smi
+```
+
+If the third command fails, fix Docker + NVIDIA runtime integration before continuing.
+
+### Pull The Prebuilt Image
+
+```bash
+docker login
+docker pull keshara2032/egoems-inference-server:latest
+```
+
+If your Docker Hub access is public, `docker login` can be skipped.
+
+### Start The Inference Server
+
+DETR only:
+
+```bash
+docker run --gpus all --rm -d \
+  --name egoems-inference-server \
+  -p 8000:8000 \
+  -e ACTIVITY_ENGINE_PATH= \
+  -e ACTIVITY_FEATURE_ENGINE_PATH= \
+  keshara2032/egoems-inference-server:latest
+```
+
+DETR plus activity (uses baked default engines in the image):
+
+```bash
+docker run --gpus all --rm -d \
+  --name egoems-inference-server \
+  -p 8000:8000 \
+  keshara2032/egoems-inference-server:latest
+```
+
+### Validate The Server
+
+Health check:
+
+```bash
+curl http://localhost:8000/health
+```
+
+DETR test:
+
+```bash
+curl -X POST http://localhost:8000/infer/detr \
+  -H "Content-Type: application/octet-stream" \
+  --data-binary @/path/to/test_frame.jpg
+```
+
+Activity test:
+
+```bash
+curl -X POST http://localhost:8000/infer/activity/cam_01 \
+  -H "Content-Type: application/octet-stream" \
+  --data-binary @/path/to/test_frame.jpg
+```
+
+### Basic Operations
+
+Follow logs:
+
+```bash
+docker logs -f egoems-inference-server
+```
+
+Stop container:
+
+```bash
+docker stop egoems-inference-server
+```
+
+## Build From Source (Optional)
 
 ### Prerequisites
 
