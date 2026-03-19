@@ -33,13 +33,16 @@ Start here:
 - [Repository Files](#repository-files)
 - [Architecture](#architecture)
 - [New PC Setup (Use Prebuilt Inference Container)](#new-pc-setup-use-prebuilt-inference-container)
-- [New PC Setup: Host Requirements](#host-requirements)
-- [New PC Setup: Verify Docker And GPU Runtime](#verify-docker-and-gpu-runtime)
-- [New PC Setup: Pull The Prebuilt Image](#pull-the-prebuilt-image)
-- [New PC Setup: Start The Inference Server](#start-the-inference-server)
-- [New PC Setup: Validate The Server](#validate-the-server)
-- [New PC Setup: Basic Operations](#basic-operations)
+  - [New PC Setup: Host Requirements](#host-requirements)
+  - [New PC Setup: Verify Docker And GPU Runtime](#verify-docker-and-gpu-runtime)
+  - [New PC Setup: Pull The Prebuilt Image](#pull-the-prebuilt-image)
+  - [New PC Setup: Start The Inference Server](#start-the-inference-server)
+  - [New PC Setup: Validate The Server](#validate-the-server)
+  - [New PC Setup: Basic Operations](#basic-operations)
 - [Build From Source (Optional)](#build-from-source-optional)
+  - [Build From Source: Convert Checkpoints To TensorRT Engines](#convert-checkpoints-to-tensorrt-engines)
+  - [Build From Source: Build Context](#build-context)
+  - [Build From Source: Run The Rebuilt Image](#run-the-rebuilt-image)
 - [Run Modes](#run-modes)
 - [Health Check](#health-check)
 - [Object Detection](#object-detection)
@@ -216,24 +219,87 @@ docker stop egoems-inference-server
 
 ## Build From Source (Optional)
 
+Use this path when you want a complete source-based workflow:
+
+- convert checkpoints to TensorRT engines on the target GPU class
+- bake those engines into the Docker image
+- run inference from the rebuilt image
+
 ### Prerequisites
 
-Before building or running:
+Before conversion or image build:
 
 1. Docker is installed.
 2. NVIDIA Container Toolkit is working.
 3. `docker run --gpus all ...` works on the machine.
-4. You have the DETR TensorRT engine file at:
-   - `/mnt/f/repos/EgoEMS/Tools/inference/checkpoints/ems_finetuned_detr_trt.ts`
+4. You have the source checkpoints:
+   - `/path/to/EgoEMS/Tools/inference/checkpoints/ems_finetuned_detr_checkpoint.pth`
+   - `/path/to/EgoEMS/Tools/inference/checkpoints/mtrsap_30frames_window_resnet.pt` (if activity is needed)
 
 If you want activity recognition enabled, you also need:
 
-1. an MTRSAP TensorRT engine file
+1. an MTRSAP checkpoint (`.pt`) to convert
 2. the correct model sequence length if the engine expects a fixed `T`
 3. enough GPU memory for:
    - DETR TensorRT
    - MTRSAP TensorRT
    - ResNet50 feature extractor
+
+Important:
+
+- TensorRT engines are GPU-compatibility sensitive.
+- Build/convert on the same GPU family you will deploy on.
+- Example: engines compiled on RTX 3060 (Ampere) may fail on RTX 4080 (Ada).
+
+### Convert Checkpoints To TensorRT Engines
+
+Run conversion on a CUDA/TensorRT-capable runtime on the target machine.
+
+From repo root:
+
+```bash
+cd /path/to/EgoEMS
+docker run --rm --gpus all -it \
+  -v "$PWD":/workspace/EgoEMS \
+  -w /workspace/EgoEMS/Tools/inference \
+  nvcr.io/nvidia/pytorch:26.02-py3 \
+  bash
+```
+
+Inside that container:
+
+```bash
+python conversion/DETR_model_to_tensorRT.py \
+  --checkpoint checkpoints/ems_finetuned_detr_checkpoint.pth \
+  --output checkpoints/ems_finetuned_detr_trt.ts \
+  --detr-version ems \
+  --height 480 --width 640 \
+  --ir auto \
+  --fp16
+```
+
+If activity is enabled:
+
+```bash
+python conversion/MTRSAP_model_to_tensorRT.py \
+  --checkpoint checkpoints/mtrsap_30frames_window_resnet.pt \
+  --output checkpoints/mtrsap_30frames_window_resnet_trt.ts \
+  --seq-len 30 \
+  --nhead 4 \
+  --fp16
+
+python conversion/ResNet50_to_tensorRT.py \
+  --output checkpoints/resnet50_feature_extractor_trt.ts \
+  --weights imagenet1k_v1 \
+  --height 224 --width 224 \
+  --fp16
+```
+
+Verify generated artifacts:
+
+```bash
+ls -lh checkpoints/*trt.ts
+```
 
 ### Build Context
 
@@ -243,12 +309,19 @@ Use:
 
 ```bash
 docker build \
-  -f /mnt/f/repos/EgoEMS/Tools/inference/servers/Dockerfile \
+  -f /path/to/EgoEMS/Tools/inference/servers/Dockerfile \
   -t keshara2032/egoems-inference-server:latest \
-  /mnt/f/repos/EgoEMS/Tools/inference
+  /path/to/EgoEMS/Tools/inference
 ```
 
 Do not use `Tools/inference/servers` as the build context. It is too small.
+
+### Run The Rebuilt Image
+
+After build, run either:
+
+- [Mode 1: DETR Only](#mode-1-detr-only)
+- [Mode 2: DETR Plus Activity](#mode-2-detr-plus-activity)
 
 ### What The Current Image Bakes In
 
