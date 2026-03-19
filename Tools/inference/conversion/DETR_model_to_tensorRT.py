@@ -294,17 +294,38 @@ def main() -> None:
                     truncate_long_and_double=not args.disable_truncate_long_double,
                 )
             else:
-                trt_module = torch_tensorrt.compile(
-                    wrapped,
-                    ir="dynamo",
-                    inputs=[trt_input],
-                    enabled_precisions=enabled_precisions,
-                    truncate_double=True,
-                )
+                dynamo_kwargs = {
+                    "ir": "dynamo",
+                    "inputs": [trt_input],
+                    "enabled_precisions": enabled_precisions,
+                    "truncate_double": True,
+                }
+                try:
+                    trt_module = torch_tensorrt.compile(
+                        wrapped,
+                        **dynamo_kwargs,
+                    )
+                except AssertionError as exc:
+                    # Newer Torch-TensorRT builds may reject enabled_precisions when explicit typing is on.
+                    if "enabled_precisions should not be used when use_explicit_typing=True" not in str(exc):
+                        raise
+                    print(
+                        "[warn] TensorRT dynamo compile rejected enabled_precisions with explicit typing; "
+                        "retrying without enabled_precisions."
+                    )
+                    dynamo_kwargs.pop("enabled_precisions", None)
+                    trt_module = torch_tensorrt.compile(
+                        wrapped,
+                        **dynamo_kwargs,
+                    )
             used_ir = candidate_ir
             break
         except RuntimeError as exc:
             print(f"[warn] TensorRT compile failed with ir={candidate_ir}: {exc}")
+            if args.ir != "auto":
+                raise
+        except AssertionError as exc:
+            print(f"[warn] TensorRT compile assertion failed with ir={candidate_ir}: {exc}")
             if args.ir != "auto":
                 raise
         except TypeError as exc:
