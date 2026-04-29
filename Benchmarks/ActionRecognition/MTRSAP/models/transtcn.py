@@ -52,20 +52,32 @@ class PositionalEncoding(nn.Module):
     def __init__(self, d_model, dropout=0.1, max_len=5000):
         super(PositionalEncoding, self).__init__()
         self.dropout = nn.Dropout(p=dropout)
+        self.d_model = d_model
+        self.register_buffer('pe', self._build_pe(max_len))
 
-        pe = torch.zeros(max_len, d_model)
-        position = torch.arange(0, max_len, dtype=torch.float).unsqueeze(1)
-        div_term = torch.exp(torch.arange(0, d_model, 2).float() * (-math.log(10000.0) / d_model))
+    def _build_pe(self, max_len, device=None, dtype=torch.float32):
+        pe = torch.zeros(max_len, self.d_model)
+        if device is not None:
+            pe = pe.to(device=device, dtype=dtype)
+        position = torch.arange(0, max_len, device=pe.device, dtype=pe.dtype).unsqueeze(1)
+        div_term = torch.exp(
+            torch.arange(0, self.d_model, 2, device=pe.device, dtype=pe.dtype)
+            * (-math.log(10000.0) / self.d_model)
+        )
         pe[:, 0::2] = torch.sin(position * div_term)
-        if d_model%2 != 0:
+        if self.d_model % 2 != 0:
             pe[:, 1::2] = torch.cos(position * div_term)[:,0:-1]
         else:
             pe[:, 1::2] = torch.cos(position * div_term)
-        pe = pe.unsqueeze(0).transpose(0, 1)
-        self.register_buffer('pe', pe)
+        return pe.unsqueeze(0)
 
     def forward(self, x):
-        x = x + self.pe[:x.size(0), :]
+        if x.size(1) > self.pe.size(1):
+            self.pe = self._build_pe(x.size(1), device=x.device, dtype=x.dtype)
+        pe = self.pe
+        if pe.device != x.device or pe.dtype != x.dtype:
+            pe = pe.to(device=x.device, dtype=x.dtype)
+        x = x + pe[:, :x.size(1), :]
         return self.dropout(x)
     
 class GlobalMaxPooling1D(nn.Module):
@@ -207,7 +219,11 @@ class TransformerModel(nn.Module):
         self.out = nn.Linear(self.d_model, self.output_dim)
         
         features_dim = 2048  # Output dimension of ResNet-50 backbone
-        self.pe = PositionalEncoding(d_model=self.d_model, max_len=32, dropout=self.dropout)
+        self.pe = PositionalEncoding(
+            d_model=self.d_model,
+            max_len=args.transformer_params.get("max_sequence_length", 5000),
+            dropout=self.dropout,
+        )
         self.fc = nn.Linear(features_dim, self.d_model)
 
 

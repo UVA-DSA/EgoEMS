@@ -8,55 +8,115 @@ import csv
 from EgoEMS.EgoEMS import  WindowEgoEMSDataset, EgoEMSDataset, collate_fn, transform, window_collate_fn
 from functools import partial
 import torch.nn.functional as F
+from torch.utils.data import DataLoader, WeightedRandomSampler
 
 fusion = MultimodalFusion()
 
 class ClassBalancedLoss(nn.Module):
-    def __init__(self, beta, num_classes, class_counts):
+    def __init__(self, beta=None, num_classes=None, class_counts=None, weights=None):
         super(ClassBalancedLoss, self).__init__()
         self.beta = beta
         self.num_classes = num_classes
-        self.class_counts = torch.Tensor(class_counts)
-        self.weights = (1 - beta) / (1 - beta ** self.class_counts)
-        self.weights = self.weights / self.weights.sum()  # Normalize weights
+
+        if weights is not None:
+            weight_tensor = torch.as_tensor(weights, dtype=torch.float32)
+        elif class_counts is not None:
+            class_count_tensor = torch.as_tensor(class_counts, dtype=torch.float32)
+            positive_mask = class_count_tensor > 0
+            weight_tensor = torch.zeros_like(class_count_tensor)
+            if positive_mask.any():
+                positive_counts = class_count_tensor[positive_mask]
+                positive_weights = (1 - beta) / (1 - beta ** positive_counts)
+                positive_weights = positive_weights / positive_weights.mean()
+                weight_tensor[positive_mask] = positive_weights
+        else:
+            raise ValueError("Either class_counts or weights must be provided.")
+
+        self.register_buffer("weights", weight_tensor)
 
     def forward(self, logits, labels):
-        weights = self.weights.to(logits.device)
         log_probs = F.log_softmax(logits, dim=1)
-        loss = F.nll_loss(log_probs, labels, weight=weights)
+        loss = F.nll_loss(log_probs, labels, weight=self.weights.to(logits.device))
         return loss
+
+
+def _aligned_class_counts(class_names, class_stats):
+    class_stats = dict(class_stats) if class_stats is not None else {}
+    return torch.tensor([float(class_stats.get(class_name, 0)) for class_name in class_names], dtype=torch.float32)
+
+
+def _build_loss_weights(class_counts, beta=0.99, weight_power=0.5, max_loss_weight=None):
+    class_counts = torch.as_tensor(class_counts, dtype=torch.float32)
+    weights = torch.zeros_like(class_counts)
+    positive_mask = class_counts > 0
+
+    if positive_mask.any():
+        positive_counts = class_counts[positive_mask]
+        positive_weights = (1 - beta) / (1 - beta ** positive_counts)
+        if weight_power != 1.0:
+            positive_weights = positive_weights.pow(weight_power)
+        positive_weights = positive_weights / positive_weights.mean()
+        if max_loss_weight is not None:
+            positive_weights = torch.clamp(positive_weights, max=max_loss_weight)
+        weights[positive_mask] = positive_weights
+
+    return weights
+
+
+def _build_train_sampler(dataset, args):
+    imbalance_params = getattr(args, "imbalance_params", {})
+    if not imbalance_params.get("use_weighted_sampler", False):
+        return None
+
+    sample_label_ids = []
+    if hasattr(dataset, "get_sample_label_ids"):
+        sample_label_ids = dataset.get_sample_label_ids()
+
+    if len(sample_label_ids) == 0:
+        return None
+
+    label_tensor = torch.tensor(sample_label_ids, dtype=torch.long)
+    num_classes = len(args.dataloader_params["keysteps"])
+    class_counts = torch.bincount(label_tensor, minlength=num_classes).float()
+
+    sampler_power = imbalance_params.get("sampler_power", 1.0)
+    per_sample_counts = class_counts[label_tensor]
+    sample_weights = torch.pow(per_sample_counts, -sampler_power).double()
+
+    return WeightedRandomSampler(
+        weights=sample_weights,
+        num_samples=len(sample_label_ids),
+        replacement=imbalance_params.get("sampler_replacement", True),
+    )
 
 def init_model(args):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = TransformerModel(args)
     model.to(device)
 
+    class_names = list(args.dataloader_params["keysteps"].keys())
+    num_classes = len(class_names)
+    train_class_counts = _aligned_class_counts(class_names, args.dataloader_params["train_class_stats"])
+    val_class_counts = _aligned_class_counts(class_names, args.dataloader_params["val_class_stats"])
+    imbalance_params = getattr(args, "imbalance_params", {})
 
-    num_classes = len(args.dataloader_params["classes"])
-    class_counts = args.dataloader_params["train_class_stats"]
-    val_class_counts = args.dataloader_params["val_class_stats"]
-
-    print("Training class counts: ", class_counts)
+    print("Training class counts: ", args.dataloader_params["train_class_stats"])
     print("Validation class counts: ", val_class_counts)
-    # update class_counts with missing classes from keysteps with 0 count
-    for key in args.dataloader_params["keysteps"].keys():
-        if key not in class_counts.keys():
-            class_counts[key] = 0
-
-    # reorganize class_counts to match the order of the keysteps
-    class_counts = {key: class_counts[key] for key in args.dataloader_params["keysteps"].keys()}
-
-    # convert dictionary values to list
-    class_counts = [class_counts[key] for key in class_counts.keys()]
-    class_counts = torch.Tensor([max(1, count) for count in class_counts])
-
-    print("Class counts: ", class_counts, len(class_counts))
+    print("Aligned class counts: ", train_class_counts, len(train_class_counts))
            
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_params["lr"], weight_decay=args.learning_params["weight_decay"])
-    # criterion = nn.CrossEntropyLoss()
-    
-    # Class balanced loss
-    criterion = ClassBalancedLoss(beta=0.99, num_classes=num_classes, class_counts=class_counts)
+
+    if imbalance_params.get("use_class_balanced_loss", True):
+        loss_weights = _build_loss_weights(
+            train_class_counts,
+            beta=imbalance_params.get("loss_beta", 0.99),
+            weight_power=imbalance_params.get("loss_weight_power", 0.5),
+            max_loss_weight=imbalance_params.get("max_loss_weight", 5.0),
+        )
+        print("Loss weights: ", loss_weights)
+        criterion = ClassBalancedLoss(num_classes=num_classes, weights=loss_weights)
+    else:
+        criterion = nn.CrossEntropyLoss()
         
     return model, optimizer, criterion, device
 
@@ -232,14 +292,25 @@ def preprocess(x, modality, backbone, device, task='classification'):
 
 
 # add wandb logging
-def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, modality, task='classification'):
+def train_one_epoch(
+    model,
+    train_loader,
+    criterion,
+    optimizer,
+    device,
+    logger,
+    modality,
+    task='classification',
+    epoch=None,
+    log_batch_metrics=False,
+    detailed_stdout=False,
+):
     model.train()
     total_loss = 0
+    valid_batches = 0
     for i, batch in enumerate(train_loader):
 
         try:
-            # print("Batch: ", i)
-            print("=" * 10, "-" * 10, "=" * 10)
             input,feature_size, label = preprocess(batch, modality, model, device, task=task)
 
             # get more info about input
@@ -254,13 +325,14 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, m
             window_start_frame = batch['window_start_frame'] if task == 'segmentation' else torch.tensor(-1)
             window_end_frame = batch['window_end_frame'] if task == 'segmentation' else torch.tensor(-1)
 
-            if task == 'segmentation':
-                print(f"Subject ID: {subject_id[0][0]}, Trial ID: {trial_id[0][0]}, Start Frame: {start_frame[0][0]}, End Frame: {end_frame[0][0]}, Start Time: {start_t[0][0]}, End Time: {end_t[0][0]}")
-                print(f"Keystep Label: {keystep_label[0][0]}, Keystep ID: {keystep_id[0][0]}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
-
-            else:
-                print(f"Subject ID: {subject_id}, Trial ID: {trial_id}, Start Frame: {start_frame}, End Frame: {end_frame}, Start Time: {start_t}, End Time: {end_t}")
-                print(f"Keystep Label: {keystep_label}, Keystep ID: {keystep_id}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
+            if detailed_stdout:
+                print("=" * 10, "-" * 10, "=" * 10)
+                if task == 'segmentation':
+                    print(f"Subject ID: {subject_id[0][0]}, Trial ID: {trial_id[0][0]}, Start Frame: {start_frame[0][0]}, End Frame: {end_frame[0][0]}, Start Time: {start_t[0][0]}, End Time: {end_t[0][0]}")
+                    print(f"Keystep Label: {keystep_label[0][0]}, Keystep ID: {keystep_id[0][0]}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
+                else:
+                    print(f"Subject ID: {subject_id}, Trial ID: {trial_id}, Start Frame: {start_frame}, End Frame: {end_frame}, Start Time: {start_t}, End Time: {end_t}")
+                    print(f"Keystep Label: {keystep_label}, Keystep ID: {keystep_id}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
 
 
                     # ←—— ADDED CHECK ———→
@@ -282,14 +354,26 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, m
             loss.backward()
             optimizer.step()
             total_loss += loss.item()
-            if i % 1 == 0:
+            valid_batches += 1
+            if detailed_stdout and i % 1 == 0:
                 print("\n")
                 print("*" * 10, "=" * 10, "*" * 10)
                 print(f"Pred: {torch.argmax(output, dim=1)} GT: {label}")
-                logger.log({"train_loss": loss.item()})
+                if log_batch_metrics and epoch is not None:
+                    logger.log({
+                        "epoch": epoch,
+                        "train_step": epoch * len(train_loader) + i,
+                        "train/batch_loss": float(loss.item()),
+                    })
                 print(f"Batch: {i}, Loss: {loss.item()}")
                 print("*" * 10, "=" * 10, "*" * 10)
                 print("\n")
+            elif log_batch_metrics and epoch is not None:
+                logger.log({
+                    "epoch": epoch,
+                    "train_step": epoch * len(train_loader) + i,
+                    "train/batch_loss": float(loss.item()),
+                })
             # break
         
         except Exception as e:
@@ -300,13 +384,17 @@ def train_one_epoch(model, train_loader, criterion, optimizer, device, logger, m
             # print(f"Batch data: {batch}")
             continue
 
-    return total_loss / len(train_loader)
+    if valid_batches == 0:
+        raise RuntimeError("No valid training batches were processed.")
+
+    return total_loss / valid_batches
 
 
 # validate the model 
-def validate(model, val_loader, criterion, device, logger, modality, task='classification'):
+def validate(model, val_loader, criterion, device, logger, modality, task='classification', epoch=None, log_batch_metrics=False, detailed_stdout=False):
     model.eval()
     total_loss = 0
+    valid_batches = 0
     with torch.no_grad():
         for i, batch in enumerate(val_loader):
             try:
@@ -324,20 +412,29 @@ def validate(model, val_loader, criterion, device, logger, modality, task='class
                 output = model(input)
                 loss = criterion(output, label)
                 total_loss += loss.item()
-                if i % 100 == 0:
-                    logger.log({"val_loss": loss.item()})
+                valid_batches += 1
+                if log_batch_metrics and epoch is not None and i % 100 == 0:
+                    logger.log({
+                        "epoch": epoch,
+                        "val_step": epoch * len(val_loader) + i,
+                        "val/batch_loss": float(loss.item()),
+                    })
             # break
             
             except Exception as e:
                 print(f"Error in batch {i}: {e}")
-                print(f"Batch data: {batch}")
+                if detailed_stdout:
+                    print(f"Batch data: {batch}")
                 continue
-            
-    return total_loss / len(val_loader)
+
+    if valid_batches == 0:
+        raise RuntimeError("No valid validation batches were processed.")
+
+    return total_loss / valid_batches
 
 
 # test the model
-def test_model(model, test_loader, criterion, device, logger, epoch, results_dir, modality, task='classification'):
+def test_model(model, test_loader, criterion, device, logger, epoch, results_dir, modality, task='classification', detailed_stdout=False):
     model.eval()
     total_loss = 0
 
@@ -352,8 +449,9 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
         for i, batch in enumerate(test_loader):
             try:
                 input,feature_size, label = preprocess(batch, modality, model, device, task=task)
-                print("=" * 10, "-" * 10, "=" * 10)
-                print(f"[TEST] Batch: {i}")
+                if detailed_stdout:
+                    print("=" * 10, "-" * 10, "=" * 10)
+                    print(f"[TEST] Batch: {i}")
 
                 # check if the time-dimension is zero, skip this batch
                 if input.size(1) == 0:
@@ -372,12 +470,13 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
                 window_start_frame = batch['window_start_frame'] if task == 'segmentation' else torch.tensor(-1)
                 window_end_frame = batch['window_end_frame'] if task == 'segmentation' else torch.tensor(-1)
 
-                if task == 'segmentation':
-                    print(f"Subject ID: {subject_id[0][0]}, Trial ID: {trial_id[0][0]}, Start Frame: {start_frame[0][0]}, End Frame: {end_frame[0][0]}, Start Time: {start_t[0][0]}, End Time: {end_t[0][0]}")
-                    print(f"Keystep Label: {keystep_label[0][0]}, Keystep ID: {keystep_id[0][0]}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
-                else:
-                    print(f"Subject ID: {subject_id}, Trial ID: {trial_id}, Start Frame: {start_frame}, End Frame: {end_frame}, Start Time: {start_t}, End Time: {end_t}")
-                    print(f"Keystep Label: {keystep_label}, Keystep ID: {keystep_id}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")  
+                if detailed_stdout:
+                    if task == 'segmentation':
+                        print(f"Subject ID: {subject_id[0][0]}, Trial ID: {trial_id[0][0]}, Start Frame: {start_frame[0][0]}, End Frame: {end_frame[0][0]}, Start Time: {start_t[0][0]}, End Time: {end_t[0][0]}")
+                        print(f"Keystep Label: {keystep_label[0][0]}, Keystep ID: {keystep_id[0][0]}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")
+                    else:
+                        print(f"Subject ID: {subject_id}, Trial ID: {trial_id}, Start Frame: {start_frame}, End Frame: {end_frame}, Start Time: {start_t}, End Time: {end_t}")
+                        print(f"Keystep Label: {keystep_label}, Keystep ID: {keystep_id}, Window Start Frame: {window_start_frame}, Window End Frame: {window_end_frame}")  
                 
                 if torch.isnan(input).any():
                     print(f"⚠️ Skipping batch {i} because NaN")
@@ -385,7 +484,8 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
                 
                 output = model(input)
                 pred = torch.argmax(output, dim=1)
-                print(f"Model Pred: {pred.item()}")
+                if detailed_stdout:
+                    print(f"Model Pred: {pred.item()}")
 
                 gt.append(label.item())
                 preds.append(pred.item())
@@ -407,26 +507,36 @@ def test_model(model, test_loader, criterion, device, logger, epoch, results_dir
 
             except Exception as e:
                 print(f"Error in batch {i}: {e}")
-                print(f"Batch data: {batch}")
+                if detailed_stdout:
+                    print(f"Batch data: {batch}")
                 continue
 
             # break
             
     # Calculate metrics
+    if len(gt) == 0:
+        raise RuntimeError("No valid test batches were processed.")
+
     accuracy = sum(1 for x, y in zip(preds, gt) if x == y) / len(gt)
-    precision = precision_score(gt, preds, average='macro')
-    recall = recall_score(gt, preds, average='macro')
-    f1 = f1_score(gt, preds, average='macro')
+    precision = precision_score(gt, preds, average='macro', zero_division=0)
+    recall = recall_score(gt, preds, average='macro', zero_division=0)
+    f1 = f1_score(gt, preds, average='macro', zero_division=0)
 
     results = {
-        "accuracy": accuracy,
-        "precision": precision,
-        "recall": recall,
-        "f1": f1,
-        "epoch": epoch
+        "accuracy": float(accuracy),
+        "precision": float(precision),
+        "recall": float(recall),
+        "f1": float(f1),
+        "epoch": int(epoch)
     }
     # Log metrics to wandb
-    logger.log(results)
+    logger.log({
+        "epoch": int(epoch),
+        "test/accuracy": float(results["accuracy"]),
+        "test/precision": float(results["precision"]),
+        "test/recall": float(results["recall"]),
+        "test/f1": float(results["f1"]),
+    })
     
     # Save metrics to CSV
     metrics_path = f'{results_dir}/metrics.csv'
@@ -618,6 +728,7 @@ def eee_test_model(model, test_loader, criterion, device, logger, epoch, results
 
 # return train,val,test dataloaders using the EgoEMSDataset class
 def eee_get_dataloaders(args):
+    train_sampler = None
     
     if(args.dataloader_params["task"] == 'classification'):
         print("*" * 10, "=" * 10, "*" * 10)
@@ -649,8 +760,15 @@ def eee_get_dataloaders(args):
         # print number of keys in the dictionary
         print("Val Number of classes: ", len(val_class_stats.keys()))
 
+        train_sampler = _build_train_sampler(train_dataset, args)
+
         # Create DataLoaders for training and validation subsets
-        train_loader = DataLoader(train_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=True)
+        train_loader = DataLoader(
+            train_dataset,
+            batch_size=args.dataloader_params["batch_size"],
+            shuffle=train_sampler is None,
+            sampler=train_sampler,
+        )
         test_loader = DataLoader(test_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False)
         val_loader = DataLoader(val_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False)
 
@@ -692,12 +810,19 @@ def eee_get_dataloaders(args):
         # print number of keys in the dictionary
         print("Test Number of classes: ", len(test_class_stats.keys()))
 
+        train_sampler = _build_train_sampler(train_dataset, args)
         
         # Use a partial function or lambda to pass the frames_per_clip argument
         collate_fn_with_args = partial(window_collate_fn, frames_per_clip=args.dataloader_params["observation_window"])
 
         # Create DataLoaders for training and validation subsets
-        train_loader = DataLoader(train_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=True, collate_fn=collate_fn_with_args)
+        train_loader = DataLoader(
+            train_dataset,
+            batch_size=args.dataloader_params["batch_size"],
+            shuffle=train_sampler is None,
+            sampler=train_sampler,
+            collate_fn=collate_fn_with_args,
+        )
         test_loader = DataLoader(test_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False, collate_fn=collate_fn_with_args)
         val_loader = DataLoader(val_dataset, batch_size=args.dataloader_params["batch_size"], shuffle=False, collate_fn=collate_fn_with_args)
 
@@ -705,6 +830,7 @@ def eee_get_dataloaders(args):
         print("val dataset size: ", len(val_dataset))
         print("test dataset size: ", len(test_dataset))
 
+    if train_sampler is not None:
+        print("Using weighted sampler for training")
+
     return train_loader, val_loader, test_loader, train_class_stats, val_class_stats
-
-

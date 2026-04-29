@@ -6,6 +6,7 @@
 !Assets/*.png
 **/stats/*.csv
 
+.codex
 *.psd
 
 *.vscode

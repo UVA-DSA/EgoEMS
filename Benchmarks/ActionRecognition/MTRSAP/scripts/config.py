@@ -1,4 +1,5 @@
 import torch
+from copy import deepcopy
 
 
 RECORD_RESULTS = True
@@ -33,7 +34,8 @@ transformer_params = {
     'hop_length' : 512,
     'n_fft' : 1024,
     # resnet feature dim
-    'resnet_dim' : 2048
+    'resnet_dim' : 2048,
+    "max_sequence_length": 5000,
 
 
 }
@@ -43,9 +45,44 @@ learning_params = {
     "lr": 1e-05,
     "epochs": 30,
     "weight_decay": 1e-5,
-    "patience": 3,
+    "patience": 5,
     "lr_drop": 20,
     "best_chkpoint": "./checkpoints/job_1256669_task_classification/val_best_model.pt",
+}
+
+training_control_params = {
+    "early_stopping_enabled": True,
+    "early_stopping_min_delta": 0.0,
+    "save_latest_checkpoint": True,
+    "evaluate_test_during_training": False,
+    "run_final_test": True,
+}
+
+logging_params = {
+    "detailed_stdout": False,
+}
+
+wandb_params = {
+    "enabled": True,
+    "mode": "online",
+    "project": "EgoEMS",
+    "group": "Keystep Recognition",
+    "name": None,
+    "notes": "",
+    "tags": ["mtrsap", "action-recognition"],
+    "log_batch_metrics": False,
+    "watch_model": False,
+    "watch_log_freq": 100,
+}
+
+imbalance_params = {
+    "use_weighted_sampler": False,
+    "sampler_power": 0.5,
+    "sampler_replacement": True,
+    "use_class_balanced_loss": True,
+    "loss_beta": 0.99,
+    "loss_weight_power": 0.25,
+    "max_loss_weight": 2.0,
 }
 
 dataloader_params = {
@@ -55,17 +92,88 @@ dataloader_params = {
     "observation_window": 30,  # 5 seconds at 30 fps segmentation :::: classification None
     "fold": 1,
     "fps": 29.97,
+    "filter_to_train_classes": True,
+    "min_train_samples_per_class": 1,
     # update task specific parameters (Experimenting segmentation with classification annotations)
-    "train_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_classification.json',
-    "val_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_classification.json',
-    "test_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_classification.json',
-    # "train_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_segmentation.json',
-    # "val_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_segmentation.json',
-    # "test_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_segmentation.json',
+    # "train_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_classification.json',
+    # "val_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_classification.json',
+    # "test_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_classification.json',
+    "train_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_train_split_segmentation.json',
+    "val_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_val_split_segmentation.json',
+    "test_annotation_path": '/standard/UVA-DSA/Keshara/EgoExoEMS/Annotations/splits/trials/aaai26_test_split_segmentation.json',
     # Old dataset class
     'data_base_path': '/standard/UVA-DSA/NIST EMS Project Data/EgoEMS_AAAI2026',
-    'modality': ['rgb','flow'],
-    'classes': ["approach_patient", "check_responsiveness", "check_pulse", "check_breathing", "chest_compressions",  "turn_on_aed", "attach_defib_pads", "clear_for_analysis", "clear_for_shock", "administer_shock_aed", "open_airway", "place_bvm", "ventilate_patient", "no_action"],
+    'modality': ['resnet_ego'],
+    # 'classes': ["approach_patient", "check_responsiveness", "check_pulse", "check_breathing", "chest_compressions",  "turn_on_aed", "attach_defib_pads", "clear_for_analysis", "clear_for_shock", "administer_shock_aed", "open_airway", "place_bvm", "ventilate_patient", "no_action"],
+    'classes': [
+                    "approach_patient",
+                    "check_responsiveness",
+                    "check_pulse",
+                    "check_breathing",
+                    "chest_compressions",
+                    "request_aed",
+                    "request_assistance",
+                    "turn_on_aed",
+                    "attach_defib_pads",
+                    "clear_for_analysis",
+                    "clear_for_shock",
+                    "administer_shock_aed",
+                    "open_airway",
+                    "place_bvm",
+                    "ventilate_patient",
+                    "no_action",
+                    "assess_patient",
+                    "explain_procedure",
+                    "shave_patient",
+                    "place_left_arm_lead",
+                    "place_right_arm_lead",
+                    "place_left_leg_lead",
+                    "place_right_leg_lead",
+                    "place_v1_lead",
+                    "place_v2_lead",
+                    "place_v3_lead",
+                    "place_v4_lead",
+                    "place_v5_lead",
+                    "place_v6_lead",
+                    "ask_patient_age_sex",
+                    "request_patient_to_not_move",
+                    "turn_on_ecg",
+                    "connect_leads_to_ecg",
+                    "obtain_ecg_recording",
+                    "interpret_and_report",
+                    "transport",
+                    "check_grip_strength",
+                    "check_symptom_duration",
+                    "review_medications",
+                    "inquire_medication_anticoagulants",
+                    "inquire_hpi_and_pmh",
+                    "inquire_substance_use",
+                    "notify_hospital_of_stroke_alert",
+                    "check_blood_pressure",
+                    "check_heart_rate",
+                    "check_oxygen_saturation",
+                    "check_respiratory_rate",
+                    "face_droop_check",
+                    "arm_drift_check",
+                    "speech_abnormality_check",
+                    "assess_balance_and_coordination",
+                    "document_lkw_time",
+                    "check_vision_deficits",
+                    "evaluate_aphasia",
+                    "assess_neglect_signs",
+                    "prepare_glucometer_and_strip",
+                    "read_and_record_glucose_level",
+                    "suction_airway",
+                    "inset_NPA",
+                    "load_patient_to_stretcher",
+                    "secure_patient_on_stretcher",
+                    "handoff_patient_to_hospital",
+                    "check_perrl",
+                    "check_skin_condition",
+                    "check_a&o",
+                    "notify_hospital",
+                    "document_hpi_and_pmh"
+                ],
     'keysteps' : {
                     "approach_patient": "Approach the patient",
                     "check_responsiveness": "Check for responsiveness",
@@ -149,11 +257,15 @@ class DefaultArgsNamespace:
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         
         # Model parameters
-        self.tcn_model_params = tcn_model_params
-        self.transformer_params = transformer_params
+        self.tcn_model_params = deepcopy(tcn_model_params)
+        self.transformer_params = deepcopy(transformer_params)
 
         # Learning parameters
-        self.learning_params = learning_params
+        self.learning_params = deepcopy(learning_params)
+        self.training_control_params = deepcopy(training_control_params)
+        self.logging_params = deepcopy(logging_params)
+        self.wandb_params = deepcopy(wandb_params)
+        self.imbalance_params = deepcopy(imbalance_params)
 
         # DataLoader parameters
-        self.dataloader_params = dataloader_params
+        self.dataloader_params = deepcopy(dataloader_params)

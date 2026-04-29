@@ -179,6 +179,8 @@ class EgoEMSDataset(Dataset):
         self.clip_indices = []
         self.data_types = data_types
         self.class_stats = {}
+        self.sample_label_ids = []
+        self.sample_label_names = []
         self.task = task
         self.classes = classes
         self._class_filter = None
@@ -193,6 +195,28 @@ class EgoEMSDataset(Dataset):
 
         self._load_annotations()
         self._generate_clip_indices()
+        self._refresh_sample_label_stats()
+
+    def _label_name_from_id(self, label_id, fallback_label=None):
+        if self.classes is not None and 0 <= int(label_id) < len(self.classes):
+            return self.classes[int(label_id)]
+        return fallback_label if fallback_label is not None else str(label_id)
+
+    def _refresh_sample_label_stats(self):
+        self.sample_label_ids = []
+        self.sample_label_names = []
+        self.class_stats = {}
+
+        for item_idx, _ in self.clip_indices:
+            item = self.data[item_idx]
+            label_id = int(item['keystep_id'])
+            label_name = self._label_name_from_id(label_id, item.get('keystep_label'))
+            self.sample_label_ids.append(label_id)
+            self.sample_label_names.append(label_name)
+            self.class_stats[label_name] = self.class_stats.get(label_name, 0) + 1
+
+    def get_sample_label_ids(self):
+        return list(self.sample_label_ids)
 
     def _load_annotations(self):
         with open(self.annotation_file, 'r') as f:
@@ -309,7 +333,6 @@ class EgoEMSDataset(Dataset):
                             d['subject'] = subject['subject_id']
                             d['trial'] = trial['trial_id']
 
-                            self.class_stats[lbl] = self.class_stats.get(lbl, 0) + 1
                             self.data.append(d)
 
     def _get_class_stats(self):
@@ -763,6 +786,8 @@ class WindowEgoEMSDataset(Dataset):
         self.data_types = data_types
         self.audio_sample_rate = audio_sample_rate
         self.class_stats = {}
+        self.sample_label_ids = []
+        self.sample_label_names = []
         
         self.task = task
         self.classes = classes
@@ -779,6 +804,40 @@ class WindowEgoEMSDataset(Dataset):
         self.data_dict = None
         self._load_annotations()
         self._split_windows()
+
+    def _label_name_from_id(self, label_id, fallback_label=None):
+        if self.classes is not None and 0 <= int(label_id) < len(self.classes):
+            return self.classes[int(label_id)]
+        return fallback_label if fallback_label is not None else str(label_id)
+
+    def _compute_window_training_label(self, window):
+        if len(window) == 0:
+            return None, None
+
+        label_ids = [int(frame['keystep_id']) for frame in window]
+        if len(label_ids) < self.frames_per_clip:
+            label_ids = label_ids + [label_ids[-1]] * (self.frames_per_clip - len(label_ids))
+
+        label_tensor = torch.tensor(label_ids, dtype=torch.long)
+        label_id = int(torch.mode(label_tensor).values.item())
+        label_name = self._label_name_from_id(label_id, window[0].get('keystep_label'))
+        return label_id, label_name
+
+    def _refresh_window_label_stats(self):
+        self.sample_label_ids = []
+        self.sample_label_names = []
+        self.class_stats = {}
+
+        for window in self.data:
+            label_id, label_name = self._compute_window_training_label(window)
+            if label_id is None:
+                continue
+            self.sample_label_ids.append(label_id)
+            self.sample_label_names.append(label_name)
+            self.class_stats[label_name] = self.class_stats.get(label_name, 0) + 1
+
+    def get_sample_label_ids(self):
+        return list(self.sample_label_ids)
 
     def _get_class_stats(self):
         return self.class_stats
@@ -971,18 +1030,18 @@ class WindowEgoEMSDataset(Dataset):
                 # Once we reach the window size, store the window and reset
                 if accumulated_frames == self.frames_per_clip:
                     windowed_clips.append(current_window)
-                    
-                    # update class count
-                    self.class_stats[keystep_label] = self.class_stats.get(keystep_label, 0) + 1
-                    
                     current_window = []  # Reset the current window
                     accumulated_frames = 0  # Reset the frame counter
+
+        if len(current_window) > 0:
+            windowed_clips.append(current_window)
 
         # # dump the data to a file
         # with open('data.json', 'w') as f:
         #     json.dump(windowed_clips, f)
             
         self.data = windowed_clips
+        self._refresh_window_label_stats()
         print("Class stats:", self.class_stats)
         print(f"Total windowed clips: {len(windowed_clips)}")
 
@@ -1003,6 +1062,7 @@ class WindowEgoEMSDataset(Dataset):
 
         first_frame_of_clip = window[0]['frame']
         last_frame_of_clip = window[-1]['frame']+1
+        frame_indices = np.array([frame['frame'] for frame in window], dtype=np.int64)
         
         # print(f"getting clip {idx} with frame {first_frame_of_clip} to {last_frame_of_clip} of length ({last_frame_of_clip - first_frame_of_clip})")
 
@@ -1038,6 +1098,16 @@ class WindowEgoEMSDataset(Dataset):
         sw_acc = torch.zeros(0)
         depth_sensor_readings = torch.zeros(0)
 
+        def load_feature_window(feature_path):
+            features = np.load(feature_path)
+            if len(features) == 0:
+                return torch.zeros(0)
+            max_frame_index = int(frame_indices.max()) if frame_indices.size else -1
+            if max_frame_index >= len(features):
+                clipped_indices = np.clip(frame_indices, 0, len(features) - 1)
+                return torch.from_numpy(features[clipped_indices])
+            return torch.from_numpy(features[frame_indices])
+
         if 'video' in self.data_types:
             video_path = window[0]['video_path']
             clip_start_t = first_frame_of_clip / self.fps
@@ -1070,45 +1140,39 @@ class WindowEgoEMSDataset(Dataset):
 
         if 'flow' in self.data_types:
             flow_path = window[0]['flow_path']
-            flow_npy = np.load(flow_path)
-            flow_length = len(flow_npy)
-            flow = torch.from_numpy(np.load(flow_path))[first_frame_of_clip:last_frame_of_clip]
+            flow = load_feature_window(flow_path)
                 # pad the flow tensor to the i
             batch_flow.append(flow)
 
         # Load rgb if available
         if 'rgb' in self.data_types:
             rgb_path =  window[0]['rgb_path']
-            rgb_npy = np.load(rgb_path)
-            rgb_length = len(rgb_npy)
-            rgb = torch.from_numpy(np.load(rgb_path))[first_frame_of_clip:last_frame_of_clip]
+            rgb = load_feature_window(rgb_path)
                 # pad the rgb tensor to the i
             batch_rgb.append(rgb)
 
         # Load resnet if available
         if 'resnet_ego' in self.data_types:
             resnet_path =  window[0]['resnet_ego_path']
-            resnet_npy = np.load(resnet_path)
-            resnet_length = len(resnet_npy)
-            resnet = torch.from_numpy(np.load(resnet_path))[first_frame_of_clip:last_frame_of_clip]
+            resnet = load_feature_window(resnet_path)
             batch_resnet_ego.append(resnet)
 
         # Load resnet_exo if available
         if 'resnet_exo' in self.data_types:
             resnet_exo_path =  window[0]['resnet_exo_path']
-            resnet_exo = torch.from_numpy(np.load(resnet_exo_path))[first_frame_of_clip:last_frame_of_clip]
+            resnet_exo = load_feature_window(resnet_exo_path)
             batch_resnet_exo.append(resnet_exo)
 
         # Load clip_ego if available
         if 'clip_ego' in self.data_types:
             clip_ego_path =  window[0]['clip_ego_path']
-            clip_ego = torch.from_numpy(np.load(clip_ego_path))[first_frame_of_clip:last_frame_of_clip]
+            clip_ego = load_feature_window(clip_ego_path)
             batch_clip_ego.append(clip_ego)
 
         # Load clip_exo if available
         if 'clip_exo' in self.data_types:
             clip_exo_path =  window[0]['clip_exo_path']
-            clip_exo = torch.from_numpy(np.load(clip_exo_path))[first_frame_of_clip:last_frame_of_clip]
+            clip_exo = load_feature_window(clip_exo_path)
             batch_clip_exo.append(clip_exo)
 
         # Load smartwatch data if available
