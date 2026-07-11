@@ -8,7 +8,7 @@
 #SBATCH --output="./logs/job-%j-mtrsap_train_script.output"
 #SBATCH --partition="gpu"
 #SBATCH --gres=gpu:a40:1
-#SBATCH --time=3-00:00:00
+#SBATCH --time=1-00:00:00
 #SBATCH --cpus-per-task=12
 #SBATCH --mem=32G
 #SBATCH --ntasks=1

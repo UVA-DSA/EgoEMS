@@ -160,9 +160,17 @@ if __name__ == "__main__":
 
     args = DefaultArgsNamespace()
 
-    default_run_name = f"MTRSAP-{cmd_args.job_id or 'local'}"
-    wandb_logger, wandb_mode = _init_wandb_logger(args, cmd_args, default_run_name)
-    print(f"W&B mode: {wandb_mode}")
+    wandb_logger = wandb.init(
+        # set the wandb project where this run will be logged
+        project="EgoExoEMS",
+        group="Keystep Recognition",
+        mode="online",
+        name="Rebuttal - ego,exo,imu",
+        notes="",
+        config={
+        "args": args,
+        }
+    )
 
     all_keysteps = dict(args.dataloader_params['keysteps'])
     classes = list(args.dataloader_params['classes'])

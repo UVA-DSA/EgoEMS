@@ -143,10 +143,14 @@ if __name__ == "__main__":
     wandb_logger, wandb_mode = _init_wandb_logger(args, cmd_args, default_run_name)
     print(f"W&B mode: {wandb_mode}")
 
-    all_keysteps = dict(args.dataloader_params['keysteps'])
-    checkpoint_classes = _load_checkpoint_classes(args.learning_params["best_chkpoint"])
-    classes = checkpoint_classes or list(args.dataloader_params['classes'])
-    keysteps = _set_active_classes(args, classes, all_keysteps)
+    keysteps = args.dataloader_params['keysteps']
+    classes = args.dataloader_params['classes']
+
+        # Filter keysteps using the exact classes order so label remap and class-weights stay aligned.
+    keysteps = {k: keysteps[k] for k in classes if k in keysteps}
+    args.dataloader_params['keysteps'] = keysteps
+    
+    out_classes = len(keysteps)
     out_classes = len(keysteps)
 
     modality = args.dataloader_params['modality']
