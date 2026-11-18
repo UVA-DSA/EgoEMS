@@ -7,6 +7,8 @@
 [![Dataset](https://img.shields.io/badge/Dataset-Dataverse-1a73e8)](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XT51K7)
 [![Video](https://img.shields.io/badge/YouTube-Video-c4302b?logo=youtube&logoColor=white)]()
 
+[**Download EgoEMS from the command line**](#command-line-downloader)
+
 </div>
 
 
@@ -56,8 +58,23 @@ Please visit each subfolder for detailed instructions, annotations, and code for
 ### Option 1: Harvard Dataverse  
 [🔗 Full Dataset](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/XT51K7)
 
-The EgoEMS Dataverse repository is public. For users with high bandwidth, the full dataset is provided in two archive files (`part1.zip` and `part2.zip`). Download both parts and extract them into a single root directory. Alternatively, you can download per-subject archives (62 in total) and extract them into the same root.  
+The EgoEMS dataset listing is public. File downloads require a Harvard Dataverse account with download access. For users with high bandwidth, the full dataset is provided in two archive files (`part_1.zip` and `part_2.zip`). Download both parts and extract them into a single root directory. Alternatively, you can download per-subject archives (62 in total) and extract them into the same root.
+
 After extraction, ensure that all subject folders sit under one common dataset root (e.g., `/path/to/EgoEMS/`).
+
+#### Command-line downloader
+
+Run the [Bash downloader](Tools/harvard_dataset_downloader/download_egoems.sh) from the repository root. It requires Bash 4+, `curl`, and `jq`.
+
+```bash
+bash Tools/harvard_dataset_downloader/download_egoems.sh
+```
+
+1. Choose the output directory (default `./EgoEMS`) and enter an API token from a Harvard Dataverse account with download access. [Create an API token](https://guides.dataverse.org/en/6.12.1/user/account.html#how-to-create-your-api-token).
+2. Enter `cars_10` for a one-file test, `cars_10,cars_4` for two ZIPs, or `part_1,part_2` for the full dataset. Press Enter for every archive. The `--files` flag accepts the same comma-separated list.
+3. Fill in the guestbook and confirm the download.
+
+The script reuses your token and guestbook details from a private local cache. To reset them, delete the cache file shown by the script (default `~/.cache/egoems/download_egoems.json`) and rerun.
 
 #### Annotation files (`Annotations/`)
 
